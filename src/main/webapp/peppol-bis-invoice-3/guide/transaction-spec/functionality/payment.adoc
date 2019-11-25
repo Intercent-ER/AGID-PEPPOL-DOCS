@@ -1,0 +1,10 @@
+
+= Pagamento
+
+Una fattura rappresenta una richiesta di pagamento. L'emissione di una fattura può avvenire prima o dopo il pagamento. Quando una fattura viene emessa prima del pagamento rappresenta una richiesta di pagamento all'acquirente, nel cui caso la fattura contiene comunemente informazioni che consentono all'acquirente, nel ruolo di debitore, di avviare correttamente la fase di pagamento, a meno che tale informazione non sia già concordata in contratti precedenti o mediante istruzioni di pagamento presentate separatamente all'acquirente.
+
+Se una fattura viene emessa dopo il pagamento, ad esempio quando la procedura d'ordine include istruzioni di pagamento o in caso di pagamento con carta di credito, acquisti online o telefonici, la fattura può contenere informazioni sul pagamento effettuato al fine di facilitare la riconciliazione col pagamento da parte dell'acquirente. Una fattura può essere parzialmente pagata prima dell'emissione, ad esempio quando viene effettuato un pagamento anticipato per confermare un ordine.
+
+Le fatture, conformi a queste specifiche, devono identificare i mezzi di pagamento per il regolamento della fattura e indicare chiaramente quale importo di pagamento è richiesto. Queste, dovrebbero fornire i dettagli necessari per supportare i bonifici bancari in conformità con SEPA (Single Euro Payment Area) per i pagamenti in Euro e le pratiche di pagamento nazionali pertinenti per le altre valute. I pagamenti tramite bonifico, addebito diretto e carta di pagamento rientrano nell'ambito.
+
+Per i requisiti dettagliati a supporto del pagamento, si consiglia di consultare i <<paymentreq>>

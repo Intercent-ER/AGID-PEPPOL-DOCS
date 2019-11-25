@@ -1,0 +1,33 @@
+
+= Binary objects
+
+Gli oggetti binari posso essere utilizzati per descrivere file che vengono trasmessi insieme alla fattura. La funzionalità dell'allegato non è inteso per includere una copia della fattura in un formato immagine (come un PDF). Allegare una copia della fattura non è compatibile con questa specifica.
+
+Gli allegati devono essere trasmessi insieme alla fattura. L'oggetto binaro ha due componenti supplementari: un Mime Code, che specifica il tipo Mime dell'allegato e un Filename che viene fornito dal (o per conto di) mittente della fattura o nota di credito.
+
+
+[cols="1s,1,1,1", options="header"]
+|===
+|Componente
+|Uso
+|Tipo primitivo
+|Esempio
+
+|Contenuto
+|Obbligatorio
+|Binary
+|QmFzZTY0IGNvbnRlbnQgZXhhbXBsZQ==
+
+|Mime Code
+|Obbligatorio
+|String
+|image/jpeg
+
+|Filename
+|Obbligatorio
+|String
+|drawing5.jpg
+|===
+
+
+Il destinatario di una fattura o nota di credito, deve accettare e processare allegati che sono allineati alle codifiche <<media-type>>

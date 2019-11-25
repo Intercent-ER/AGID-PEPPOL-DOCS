@@ -1,0 +1,34 @@
+
+= Processo generale di fatturazione
+
+Il processo di fatturazione include l'emissione e l'invio della fattura e della nota di credito dal fornitore al cliente e la ricezione e gestione dello stesso da parte del cliente.
+
+Il processo di fatturazione è mostrato nel seguente flusso di lavoro:
+
+* Un fornitore emette e invia una fattura ad un cliente. La fattura fa riferimento ad un ordine con specifici beni e servizi consegnati. 
+Una fattura può anche fare riferimento ad un contratto o un accordo quadro. La fattura può specificare articoli (beni e servizi) con il numero e la descrizione dell'articolo.
+
+* Il cliente riceve la fattura e la elabora nel sistema di controllo delle fatture arrivando ad uno dei seguenti risultati:
+
+  .. Il cliente approva completamente la fattura, la registra nel sistema contabile e la trasmette per essere pagata.
+
+  .. Il cliente rifiuta completamente la fattura, contatta il fornitore e richiede una nota di credito.
+
+  .. Il cliente contesta parti della fattura, contatta il fornitore e richiede una nota di credito e una nuova fattura.
+
+Il diagramma seguente mostra il processo di base della fatturazione con l'utilizzo del profilo BIS PEPPOL. Questo processo presuppone che sia la fattura che la nota di credito vengano scambiate elettronicamente.
+
+image::../shared/images/process.png[The invoicing process, align="center"]
+
+Questo profilo copre i seguenti processi di fatturazione:
+
+[horizontal]
+P1:: Fatturazione della consegna di beni e servizi a fronte di ordini di acquisto, in base ad un contratto
+P2:: Fatturazione della consegna di beni e servizi in base ad un contratto
+P3:: Fatturazione della consegna di un ordine di acquisto accessorio
+P4:: Pre pagamento
+P5:: Pagamento immediato
+P6:: Pagamento anticipato
+P7:: Fatture con riferimento ad un documento di trasporto
+P8:: Fatture con riferimenti ad un documento di trasporto e ad un avviso di ricezione
+P9:: Note di credito o fatture con importi negativi, emesse per eventuali casistiche, tra cui la restituzione di imballaggi vuoti

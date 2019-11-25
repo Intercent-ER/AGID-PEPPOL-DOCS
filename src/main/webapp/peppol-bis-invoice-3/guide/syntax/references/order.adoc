@@ -1,0 +1,9 @@
+
+
+.Esempio UBL o di riferimento all'ordine oppure di riferimento all'ordine di vendita
+[source, xml, indent=0]
+----
+include::../{snippet-dir}/Snippet-refs.xml[tags=order-ref]
+----
+<1> Purchase order reference
+<2> Sales order reference

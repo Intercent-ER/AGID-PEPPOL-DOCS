@@ -1,0 +1,21 @@
+.fixed-value {
+    background-color: LightGreen !important;
+}
+.cardinality {
+    background-color: LightYellow !important;
+}
+.extension {
+    background-color: LightCyan !important;
+}
+.restriction {
+    background-color: LightRed !important;
+}
+.table {
+	word-wrap: anywhere;
+}
+.references {
+	display: none;
+}
+.show-references .references {
+	display: block;
+}

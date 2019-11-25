@@ -1,0 +1,8 @@
+
+= Identificativo dell'oggetto fatturato
+
+L'identificatore dell'oggetto fatturato è un identificatore per un oggetto principale sul quale la fattura si basa, fornito dal venditore. Esempi possono essere un numero di iscrizione, un numero di telefono, un contatore, un veicolo, una persona ecc., a seconda dei casi.
+
+Se al destinatario non è chiaro su quale schema si basa l'identificatore deve essere utilizzato l'identificatore di schema fra quelli disponibili in <<inv-object-code>>.
+
+include::../../../syntax/references/invoiced-object.adoc[]

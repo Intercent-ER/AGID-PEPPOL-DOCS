@@ -1,0 +1,15 @@
+
+[[orderref]]
+= Ordine d'acquisto e riferimento all'ordine di vendita
+
+L'ordine di acquisto è **facoltativo**. Se esiste un riferimento all'ordine bisogna utilizzarlo, altrimenti utilizzare il riferimento dell'acquirente (vedi <<buyerref>>).
+
+Il cliente emetterà un ordine con un identificativo di ordine univoco. Questo identificativo di ordine di acquisto univoco deve essere fornito come ordine di riferimento nella fattura.
+
+Se il riferimento dell'ordine è indicato a livello di testata, è possibile utilizzare l'elemento di riferimento all'ordine a livello di riga per specificare i numeri di riga dell'ordine.
+
+Un ordine di vendita è emesso dal venditore, confermando la vendita di prodotti specificati.
+
+IMPORTANT: Nella fattura è possibile fornire sia un ordine di acquisto che un riferimento all'ordine di vendita, ma tenendo presente che un'istanza della fattura non può avere un riferimento dell'ordine di vendita, senza il corrispondente riferimento dell'ordine di acquisto.
+
+include::../../../syntax/references/order.adoc[]

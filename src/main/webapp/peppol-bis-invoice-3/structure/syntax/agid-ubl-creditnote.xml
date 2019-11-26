@@ -5,13 +5,13 @@
     <Term>ubl-creditnote</Term>
     <Name>PEPPOL Credit Note 3.0</Name>
     <Description>Please note that all element names are inhereted from EN16931 and naming use the term invoice, but this covers both invoice and credit notes. 
-		The tag names are correct according to the UBL Credit note schema
+        The tag names are correct according to the UBL Credit note schema
     </Description>
-	<agid:Restriction>
-		<agid:ID>urn:fatturapa.gov.it:CIUS-IT:1.0.0.20170801</agid:ID>
-		<agid:Name>AGID EN16931 Credit Note transaction 3.0 (Italian CIUS)</agid:Name>
-		<agid:Version>1.0.0.20170801</agid:Version>
-	</agid:Restriction>
+    <agid:Restriction>
+        <agid:ID>urn:fatturapa.gov.it:CIUS-IT:1.0.0.20170801</agid:ID>
+        <agid:Name>Linee guida per lo schema XML - Nota di Credito 3.0 (EN16931 Italian CIUS)</agid:Name>
+        <agid:Version>1.0.0.20170801</agid:Version>
+    </agid:Restriction>
 
     <Namespace prefix="ubl">urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</Namespace>
     <Namespace prefix="cac">urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"</Namespace>
@@ -56,7 +56,7 @@
             <DataType>Identifier</DataType>
             <Reference type="BUSINESS_TERM">BT-1</Reference>
             <Reference type="RULE">BR-02</Reference>
-			<Reference type="RULE">BR-IT-010</Reference>
+            <Reference type="RULE">BR-IT-010</Reference>
             <Value type="EXAMPLE">33445566</Value>
         </Element>
 
@@ -148,7 +148,7 @@
             <DataType>Text</DataType>
             <Reference type="BUSINESS_TERM">BT-19</Reference>
             <Reference type="RULE">DK-R-001</Reference>
-			<Reference type="RULE">BR-IT-080</Reference>
+            <Reference type="RULE">BR-IT-080</Reference>
             <Value type="EXAMPLE">4217:2323:2323</Value>
         </Element>
 
@@ -217,7 +217,7 @@
                 <DataType>Document Reference</DataType>
                 <Reference type="BUSINESS_TERM">BT-13</Reference>
                 <Reference type="RULE">PEPPOL-EN16931-R003</Reference>
-				<Reference type="RULE">BR-IT-040</Reference>
+                <Reference type="RULE">BR-IT-040</Reference>
                 <Value type="EXAMPLE">98776</Value>
             </Element>
 
@@ -248,7 +248,7 @@
                     <DataType>Document Reference</DataType>
                     <Reference type="BUSINESS_TERM">BT-25</Reference>
                     <Reference type="RULE">BR-55</Reference>
-					<Reference type="RULE">BR-IT-090</Reference>
+                    <Reference type="RULE">BR-IT-090</Reference>
                     <Value type="EXAMPLE">inv123</Value>
                 </Element>
                 <Element cardinality="0..1">
@@ -274,7 +274,7 @@
                 <Description>An identifier of a referenced despatch advice.</Description>
                 <DataType>Document Reference</DataType>
                 <Reference type="BUSINESS_TERM">BT-16</Reference>
-				<Reference type="RULE">BR-IT-060</Reference>
+                <Reference type="RULE">BR-IT-060</Reference>
                 <Value type="EXAMPLE">desp98</Value>
             </Element>
         </Element>
@@ -289,7 +289,7 @@
                 <Description>An identifier of a referenced receiving advice.</Description>
                 <DataType>Document Reference</DataType>
                 <Reference type="BUSINESS_TERM">BT-15</Reference>
-				<Reference type="RULE">BR-IT-050</Reference>
+                <Reference type="RULE">BR-IT-050</Reference>
                 <Value type="EXAMPLE">rec98</Value>
             </Element>
         </Element>
@@ -304,7 +304,7 @@
                 <Description>The identification of a contract.</Description>
                 <DataType>Document Reference</DataType>
                 <Reference type="BUSINESS_TERM">BT-12</Reference>
-				<Reference type="RULE">BR-IT-030</Reference>
+                <Reference type="RULE">BR-IT-030</Reference>
                 <Value type="EXAMPLE">123Contractref</Value>
             </Element>
         </Element>
@@ -367,7 +367,7 @@
                     <Description>An attached document embedded as binary object (Base64) or sent together with the invoice.</Description>
                     <DataType>Binary object</DataType>
                     <Reference type="BUSINESS_TERM">BT-125</Reference>
-					<Reference type="RULE">BR-IT-360</Reference>
+                    <Reference type="RULE">BR-IT-360</Reference>
                     
                     <Attribute>
                         <Term>mimeCode</Term>
@@ -403,7 +403,7 @@
                         </Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">BT-124</Reference>
-						<Reference type="RULE">BR-IT-360</Reference>
+                        <Reference type="RULE">BR-IT-360</Reference>
                         <Value type="EXAMPLE">http://www.example.com/index.html</Value>
                     </Element>
                 </Element>
@@ -422,7 +422,7 @@
                 <Description>The identification of the call for tender or lot the invoice relates to.</Description>
                 <DataType>Document Reference</DataType>
                 <Reference type="BUSINESS_TERM">BT-17</Reference>
-				<Reference type="RULE">BR-IT-070</Reference>
+                <Reference type="RULE">BR-IT-070</Reference>
                 <Value type="EXAMPLE">PPID-123</Value>
             </Element>
         </Element>
@@ -566,14 +566,14 @@
                 <DataType>Quantity</DataType>
                 <Reference type="BUSINESS_TERM">BT-129</Reference>
                 <Reference type="RULE">BR-22</Reference>
-				<Reference type="RULE">BR-IT-380</Reference>
+                <Reference type="RULE">BR-IT-380</Reference>
 
                 <Attribute>
                     <Term>unitCode</Term>
                     <Name>Invoiced quantity unit of measure</Name>
                     <Description>The unit of measure that applies to the invoiced quantity.
-					Codes for unit of packaging from UNECE Recommendation No. 21 can be used in accordance with the descriptions in the "Intro" section of UN/ECE Recommendation 20, Revision 11 (2015):
-					The 2 character alphanumeric code values in UNECE Recommendation 21 shall be used. To avoid duplication with existing code values in UNECE Recommendation No. 20, each code value from UNECE Recommendation 21 shall be prefixed with an “X”, resulting in a 3 alphanumeric code when used as a unit of measure.</Description>
+                        Codes for unit of packaging from UNECE Recommendation No. 21 can be used in accordance with the descriptions in the "Intro" section of UN/ECE Recommendation 20, Revision 11 (2015):
+                        The 2 character alphanumeric code values in UNECE Recommendation 21 shall be used. To avoid duplication with existing code values in UNECE Recommendation No. 20, each code value from UNECE Recommendation 21 shall be prefixed with an “X”, resulting in a 3 alphanumeric code when used as a unit of measure.</Description>
                     <DataType>Code</DataType>
                     <Reference type="BUSINESS_TERM">BT-130</Reference>
                     <Reference type="RULE">BR-23</Reference>
@@ -617,7 +617,7 @@
                 </Description>
                 <DataType>Identifier</DataType>
                 <Reference type="BUSINESS_TERM">BT-133</Reference>
-				<Reference type="RULE">BR-IT-410</Reference>
+                <Reference type="RULE">BR-IT-410</Reference>
                 <Value type="EXAMPLE">1287:65464</Value>
             </Element>
             
@@ -635,7 +635,7 @@
                     <Description>An identifier for a referenced line within a purchase order, issued by the Buyer.</Description>
                     <DataType>Identifier</DataType>
                     <Reference type="BUSINESS_TERM">BT-132</Reference>
-					<Reference type="RULE">BR-IT-400</Reference>
+                    <Reference type="RULE">BR-IT-400</Reference>
                     <Value type="EXAMPLE">3</Value>
                 </Element>
             </Element>
@@ -650,7 +650,7 @@
                     <Description>An identifier for an object on which the invoice line is based, given by the Seller.</Description>
                     <DataType>Identifier</DataType>
                     <Reference type="BUSINESS_TERM">BT-128</Reference>
-					<Reference type="RULE">BR-IT-370</Reference>
+                    <Reference type="RULE">BR-IT-370</Reference>
                     <Attribute usage="Optional">
                         <Term>schemeID</Term>
                         <Name>Invoice line object identifier identification scheme identifier</Name>

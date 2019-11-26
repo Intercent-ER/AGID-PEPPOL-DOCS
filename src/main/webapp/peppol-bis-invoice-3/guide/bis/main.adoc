@@ -17,11 +17,13 @@ v{version}
 :CIUS: Core Invoice Usage Specification (CIUS)
 :title-logo-image: ../images/peppol.jpg
 
+image::/images/PEPPOL_Authority.jpg[]
 
+<<<
 
-= Collegamento all'indice principale della documentazione
+//= Collegamento all'indice principale della documentazione
 
-link:/poacc/billing/3.0/[Main documentation site]
+//link:/poacc/billing/3.0/[Main documentation site]
 
 :leveloffset: +1
 

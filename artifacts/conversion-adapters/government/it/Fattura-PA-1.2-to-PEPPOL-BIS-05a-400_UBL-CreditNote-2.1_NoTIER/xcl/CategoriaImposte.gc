@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/">
+	<Identification>
+		<ShortName>CategoriaImposta</ShortName>
+		<LongName xml:lang="it">Categoria Imposta</LongName>
+		<LongName Identifier="listID">CategoriaImposta</LongName>
+		<Version>1.2</Version>
+		<CanonicalUri>urn:www.ubl-italia.org:spec:fatturapa:codelist:gc:CategoriaImposta</CanonicalUri>
+		<Agency>
+			<LongName xml:lang="it">UBL Italia</LongName>
+			<Identifier>UBL-ITALIA</Identifier>
+		</Agency>
+	</Identification>
+	<ColumnSet>
+		<Column Id="code" Use="required">
+			<ShortName>Code</ShortName>
+			<Data Type="normalizedString"/>
+		</Column>
+		<Column Id="name" Use="optional">
+			<ShortName>Name</ShortName>
+			<Data Type="string"/>
+		</Column>
+    <Column Id="xcode" Use="required">
+      <ShortName>Cross Reference Code</ShortName>
+      <Data Type="normalizedString"/>
+    </Column>
+		<Key Id="codeKey">
+			<ShortName>CodeKey</ShortName>
+			<ColumnRef Ref="code"/>
+		</Key>
+	</ColumnSet>
+	<SimpleCodeList>
+		<Row>
+			<Value ColumnRef="code">
+				<SimpleValue>N1</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>N1 = Escluse ex. art. 15</SimpleValue>
+			</Value>
+			<Value ColumnRef="xcode">
+				<SimpleValue>O</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="code">
+				<SimpleValue>N2</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>N2 = Non Soggette</SimpleValue>
+			</Value>
+			<Value ColumnRef="xcode">
+				<SimpleValue>O</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="code">
+				<SimpleValue>N3</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>N3 = Non Imponibili</SimpleValue>
+			</Value>
+			<Value ColumnRef="xcode">
+				<SimpleValue>Z</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="code">
+				<SimpleValue>N4</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>N4 = Esenti</SimpleValue>
+			</Value>
+			<Value ColumnRef="xcode">
+				<SimpleValue>E</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="code">
+				<SimpleValue>N5</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>N5 = Regime del Margine</SimpleValue>
+			</Value>
+			<Value ColumnRef="xcode">
+				<SimpleValue></SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="code">
+				<SimpleValue>N6</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>N6 = Inversione Contabile</SimpleValue>
+			</Value>
+			<Value ColumnRef="xcode">
+				<SimpleValue>AE</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="code">
+				<SimpleValue>N7</SimpleValue>
+			</Value>
+			<Value ColumnRef="name">
+				<SimpleValue>N7 = IVA assolta in altro stato UE (vendite a distanza ex art. 40 commi 3 e 4 e art. 41 comma 1 lett. b, DL 331/93; prestazione di servizi di telecomunicazioni, tele-radiodiffusione ed elettronici ex art. 7-sexies lett. f, g, DPR 633/72 e art. 74-sexies, DPR 633/72)</SimpleValue>
+			</Value>
+			<Value ColumnRef="xcode">
+				<SimpleValue>Z</SimpleValue>
+			</Value>
+		</Row>
+	</SimpleCodeList>
+</gc:CodeList>

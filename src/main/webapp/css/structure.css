@@ -10,7 +10,12 @@ body {
     margin-bottom: 15pt;
 }
 
-
+.navbar .container {
+    background-image: url("/images/credits.png");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: auto 50px;
+}
 
 /* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
 /*pre.CodeRay {background-color:#f7f7f8;}*/

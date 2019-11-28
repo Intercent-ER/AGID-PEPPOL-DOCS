@@ -2,9 +2,9 @@
 .Document and VAT currency codes
 [cols="1,4"]
 |===
-h| Document location
+h| Percorso nel documento
 | `cbc:DocumentCurrencyCode` +
 `cbc:TaxCurrencyCode`
-h| Source codelist
+h| Sorgente della codifica
 | {ISO4217}
 |===

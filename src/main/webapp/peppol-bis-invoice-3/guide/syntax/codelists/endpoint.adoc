@@ -1,11 +1,11 @@
 
 [cols="2,3,3", options="header"]
 |===
-|Business Term
-|Applicable XPath
-|Code list (link or subset values)
+|Termine di Business
+|XPath applicabile
+|Codifica (link or estratto)
 
-| Electronic address identifiers (Endpoint)
+| Electronic address identifier (Endpoint)
 | cbc:EndpointID/@schemeID
 a| {eas}
 |===

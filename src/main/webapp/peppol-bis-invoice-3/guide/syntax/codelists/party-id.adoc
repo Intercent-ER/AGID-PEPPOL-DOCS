@@ -1,18 +1,18 @@
 
 [cols="2,3,3", options="header"]
 |===
-|Business Term
-|Applicable XPath
-|Code list (link or subset values)
+|Termine di Business
+|XPath applicabile
+|Codifica (link or estratto)
 
-| Party identifiers (Buyer, Seller, Payee)
+| Identificatori delle Parti di business (Acquirente, Venditore, Pagatore)
 | cac:PartyIdentification/cbc:ID/@schemeID
 .3+^.^| ICD list from {ISO6523}
 
-| Legal registration identifiers (Buyer, Seller, Payee)
+| Identificatori per la registrazione legale (Acquirente, Venditore, Pagatore)
 | cac:PartyLegalEntity/cbc:CompanyID/@schemeID
 
-| Deliver to location identifier
+| Identificatore per il luogo di consegna
 | cac:Delivery/cac:DeliveryLocation/cbc:ID/@schemeID
 
 

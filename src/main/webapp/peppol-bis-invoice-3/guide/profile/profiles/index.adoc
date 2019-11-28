@@ -1,10 +1,8 @@
 
-= Peppol Identifiers
+= Identificatori PEPPOL
 
-PEPPOL has defined a {policy8} that specifies how to use identifiers in both
-its transport infrastructure and within the documents exchanged across that infrastructure. It also introduces
-principles for any identifiers used in the PEPPOL environment. The policies that apply to this BIS are the
-following:
+PEPPOL ha definito una {policy8} che specifica come utilizzare gli identificatori sia nella sua infrastruttura di trasporto che all’interno dei documenti scambiati su questa.  Essa introduce anche i principi per ogni identificatore utilizzato nell’ambiente PEPPOL.
+Le regole che si applicano a questo BIS sono le seguenti:
 
 
 :leveloffset: +1

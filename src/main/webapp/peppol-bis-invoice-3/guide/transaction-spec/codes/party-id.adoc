@@ -1,8 +1,8 @@
 
 
-= Party identifiers and party legal registration identifier scheme
+= Schemi per gli identificatori delle parti di business e per la loro registrazione legale
 
-All party identifiers and party legal registration identifier has an optional scheme attribute. If used, the value shall be chosen from the ICD list from {ISO6523}
+Tutti gli identificatori delle parti di business e quelli per la loro registrazione legale hanno un attributo opzionale per fornire lo schema su cui si basano. Se utilizzato, il valore deve essere scelto fra quelli della codifica ICD secondo {ISO6523}
 
 
 include::../../syntax/codelists/party-id.adoc[]

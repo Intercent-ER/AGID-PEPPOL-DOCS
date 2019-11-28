@@ -1,7 +1,7 @@
 
 [[inv-object-code]]
-= Invoiced object identifier scheme
+= Schema per gli identificatori di un oggetto fatturato
 
-The invoiced object identifier scheme shall be from {UNCL1153}
+Lo schema degli identificatori per un oggetto fatturato deve basarsi su {UNCL1153}
 
 include::../../syntax/codelists/inv-object.adoc[]

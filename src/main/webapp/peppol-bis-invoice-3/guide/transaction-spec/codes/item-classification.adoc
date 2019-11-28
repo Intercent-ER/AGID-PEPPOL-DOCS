@@ -1,8 +1,8 @@
 
 
-= Item classification identifier
+= Identificatore per la classificazione degli articoli
 
-An item classification identifier has a *mandatory* scheme attribute. The value shall be chosen from {UNCL7143}.
+Un identificatore per la classificazione degli articoli ha l'attributo dello schema *obbligatorio*. Il valore deve essere scelto da {UNCL7143}.
 
 
 include::../../syntax/codelists/item-classification.adoc[]

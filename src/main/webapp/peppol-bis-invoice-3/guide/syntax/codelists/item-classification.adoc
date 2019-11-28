@@ -1,11 +1,11 @@
 
 [cols="2,3,3", options="header"]
 |===
-|Business Term
-|Applicable XPath
-|Code list (link or subset values)
+|Termine di Business
+|XPath applicabile
+|Codifica (link or estratto)
 
-| Item Classification identifier
+| Identificatore per la classificazione dell'articolo
 | cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode/@listID
 | {UNCL7143}
 

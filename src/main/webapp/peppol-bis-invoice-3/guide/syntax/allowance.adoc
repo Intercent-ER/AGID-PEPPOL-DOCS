@@ -1,13 +1,12 @@
 
 
-
-.UBL example of Allowances and Charges on the document level
+.Esempio UBL di sconti e maggiorazioni a livello di testata
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/Snippet-refs.xml[tags=allowance]
 ----
-<1> ChargeIndicator = true to indicate a charge
-<2> ChargeIndicator = false to indicate an allowance
-<3> Base amount, to be used with the percentage to calculate the amount
-<4> Charge percentage
+<1> ChargeIndicator = true per indicare una maggiorazione
+<2> ChargeIndicator = false per indicare uno sconto
+<3> Base amount, da utilizzare con la percentuale per calcolare l'importo
+<4> Percentuale di maggiorazione
 <5> stem:["Amount" = "Base amount" times ("Percentage" div 100)]

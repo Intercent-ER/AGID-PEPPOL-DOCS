@@ -1,12 +1,12 @@
 
 
 
-.UBL example of payment means info when payment is done by credit transfer
+.Esempio UBL di modalità pagamento quando il pagamento è effettuato con bonifico
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/payment-credit.xml[tags=credit]
 ----
-<1> Mandatory, payment means code for credit transfer
-<2> Remittance information
-<3> Mandatory, IBAN (in case of a SEPA payment) or a national account number (BBAN)
-<4> BIC or a national clearing code
+<1> Obbligatorio, codice modalità di pagamento per il bonifico
+<2> Informazioni di rimessa pagamento
+<3> Obbligatorio, IBAN (in caso di pagamento SEPA) o un numero di conto nazionale (BBAN)
+<4> BIC o codice identificativo bancario nazionale (National Clearing Code o NCC, ABI)

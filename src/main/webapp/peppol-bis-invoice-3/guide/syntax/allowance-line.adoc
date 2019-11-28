@@ -1,6 +1,6 @@
 
 
-.UBL example of Allowances and Charges on invoice line
+.Esempio UBL di sconti e maggiorazioni sulla riga fattura
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/Snippet-refs.xml[tags=charge-line]

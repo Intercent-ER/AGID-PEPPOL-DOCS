@@ -1,10 +1,10 @@
 
-.UBL example of VAT currency
+.Esempio UBL della valuta IVA
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/Snippet-full.xml[tags=vat-curr1;vat-curr2]
 ----
-<1> Invoice currency
-<2> National currency
-<3> VAT amount in invoice currency
-<4> VAT amount in national currency
+<1> Valuta della fattura
+<2> Valuta nazionale
+<3> Importo IVA/VAT nella valuta della fattura
+<4> Importo IVA/VAT nella valuta nazionale

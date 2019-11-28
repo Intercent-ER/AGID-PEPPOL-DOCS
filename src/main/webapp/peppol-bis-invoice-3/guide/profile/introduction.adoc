@@ -7,19 +7,6 @@ Questa specifica è una Core Invoice Usage Specification (CIUS) della {EN16931},
 
 L’obiettivo di questo documento è facilitare un’efficiente implementazione e diffusione delle collaborazioni elettroniche per il processo di fatturazione.
 
-
-.Statement of copyright
-****
-This PEPPOL Business Interoperability Specification (PEPPOL BIS) document is a Core Invoice Usage Specification (CIUS) based on CEN/EN 16931:2017. The restrictions on CEN/EN 16931:2017 implemented in this PEPPOL BIS appear from the conformance statement provided in appendix A.
-
-The copyright of CEN/EN 16931:2107 is owned by CEN and its members - the European National Standards Bodies. A copy of CEN/EN 16931-1:2017 may be obtained free of charge from any CEN member.
-
-OpenPEPPOL AISBL holds the copyright of this PEPPOL BIS, developed and published subject to the conditions of the agreement between the European Commission and CEN allowing derivate works to be developed and distributed with no additional licensing requirements. CEN and the National  Standards Bodies bears no liability from the content and implementation of this PEPPOL BIS.
-
-This PEPPOL BIS document may not be modified, re-distribute, sold or repackaged in any other way without the prior consent of OpenPEPPOL AISBL.
-****
-
-
 == Struttura del documento
 
 Questo documento è strutturato come segue:

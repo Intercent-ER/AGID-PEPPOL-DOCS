@@ -1,29 +1,27 @@
 
 = Sconti e maggiorazioni
 
+L'elemento `cac:AllowanceCharge` con il sotto elemento `cbc:ChargeIndicator` indica se siamo in presenza di una maggiorazione (true) o di uno sconto (false).
 
 Gli elementi informativi relativi agli sconti e maggiorazioni si trovano in tre livelli:
 
-The element `cac:AllowanceCharge` with sub element `cbc:ChargeIndicator` indicates whether the instance is a charge (true) or an allowance (false).
+Il livello di testata:: _Il livello di testata si applica a tutta la fattura ed è incluso quindi nel calcolo del suo totale._
+* Possono essere indicati diversi sconti e maggiorazioni
+* L’IVA/VAT relativa a sconti e maggiorazioni deve essere specificata attraverso l'elemento `cac:TaxCategory` e i suoi sotto elementi.
+* La somma di tutti gli sconti e maggiorazioni a livello di testata deve essere specificata rispettivamente in `cbc:AllowanceTotalAmount` e `cbc:ChargeTotalAmount`. Vedi <<totals>>
 
-The header level:: _Applies to the whole invoice and is included in the calculation of the invoice total amount._
-* Several allowances and charges may be supplied
-* Specification of VAT for allowances and charges, `cac:TaxCategory` with sub elements, shall be supplied
-* The sum of all allowances and charges on the header level shall be specified in `cbc:AllowanceTotalAmount` and `cbc:ChargeTotalAmount` respectively. See <<totals>>
+Il livello di riga:: _Il livello di riga si applica alle sole righe ed è incluso nel calcolo dell’importo di riga._
+* Possono essere indicati diversi sconti e maggiorazioni
+* L’IVA/VAT relativa a sconti e maggiorazioni non deve essere specificata, in quanto la categoria VAT/IVA fornita sulla stessa riga fattura si applica anche agli sconti/maggiorazioni della riga.
+* Quando si calcola il totale della riga fattura bisogna tenere conto della somma di tutti gli sconti e maggiorazioni sulla stessa riga e sottraendola o sommandola opportunamente. Questi sconti e maggiorazioni a livello di riga non devono essere calcolati a livello di testata.
 
-The line level:: _Applies to the line level and is included in the calculation of the line amount._
-* Several allowances and charges may be supplied
-* Specification of VAT for allowances and charges shall not be specified, as the VAT category stated for the invoice line itself, applies also to the allowances or charges of that line.
-* The sum of all allowances and charges on the line level shall be taken into account, subtracted or added, when calculating the line extension amount . These line level allowances and charges shall not be calculated into the header level elements.
+L'elemento Price all’interno del prezzo (elemento Price):: _Le informazioni sugli sconti e maggiorazioni a questo livello potrebbero essere fornite per informare l’acquirente su come è composto il prezzo. E’ inoltre importante nel caso in cui il fornitore o l’acquirente desiderano importare le informazioni sugli sconti e maggiorazioni nel loro sistema contabile.  Il prezzo deve essere sempre netto, es. l’importo base ridotto/incrementato dal quello dello sconto/maggiorazione._
+* Solo un'occorrenza dello sconto è permessa.
+* L’IVA/VAT relativa a sconti non deve essere specificata.
+* Gli sconti relativi al prezzo (elemento Price) non dovranno essere parte di qualsiasi altro calcolo.
+* Gli sconti e maggiorazioni relativi al prezzo possono specificare l’importo (AllowanceCharge/Amount) e l’importo base.
 
-
-The line level Price element:: _A way to inform the buyer how the price is set. Is also relevant if the seller or buyer want to post the allowance in their accounting systems. The price itself shall always be the net price, i.e. the base amount reduced with a discount (allowance)._
-* Only one occurence of allowance (discount) is allowed.
-* Specification of VAT for allowance shall not be specified
-* Allowance related to Price shall not be part of any other calculations.
-* Allowance related to Price may specify amount and the base amount.
-
-Further details of the calculation of allowance/charge amount, can be found in <<allowance-calc>>
+Dettagli ulteriori sul calcolo degli sconti/maggiorazioni sono disponibili presso <<allowance-calc>>
 
 include::../../syntax/allowance.adoc[]
 include::../../syntax/allowance-line.adoc[]

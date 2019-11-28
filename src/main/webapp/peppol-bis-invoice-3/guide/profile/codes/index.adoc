@@ -1,11 +1,11 @@
 
-= Code list for invoice type code (BT-3)
+= Codifica per il tipo di fattura (invoice type code) (BT-3)
 
-The following sub-chapters give an overview of the restricted set of invoice type codes (BT-3) that is used in this PEPPOL BIS Billing.
+I sotto paragrafi seguenti forniscono una panoramica sui codici tipo fattura permessi (BT-3) secondo questa specifica PEPPOL BIS Billing.
 
-The table indicates the name and description of each code, as well as a column "Synonym with" to indicate how this invoice type can be processed if the recipient does not have a separate process/work flow for this code, and as you will see, all invoice types valid in this profile can be processed as a commercial invoice (380) and all credit note types as Commercial credit note (381). Some recipients might have separate processes or work flows for some of these types, and can then use these processes.
+La tabella indica il nome e la descrizione di ogni codice, come pure una colonna "Sinonimo di" per indicare come può essere processato questo tipo di fattura se il destinatario non ha un flusso di elaborazione separato per questo tipo e come potrete osservare, tutte le tipologie di fattura valide in questo profilo possono essere processate come una fattura commerciale (380) e tutte le tipologie di note di credito come nota di credito commerciale (381). Alcuni destinatari potrebbero avere processi separati o flussi di elaborazione per alcuni di questi tipi e possono quindi utilizzare questi processi.
 
-The table also gives information on what message type is to be used in the UBL syntax  for the different codes.
+La tabella fornisce anche le informazioni su quale tipo di messaggio deve essere usato nella sintassi UBL per i diversi codici.
 
 :leveloffset: +1
 

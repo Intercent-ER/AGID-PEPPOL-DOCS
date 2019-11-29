@@ -1,18 +1,18 @@
 [appendix]
 [[national_rules]]
-= National rules
+= Regole Nationali
 
-The following rules have been defined by PEPPOL Authorities in addition to the rules for {peppol} BIS in general.
-These rules are affected based on the country of the seller, and will not affect invoices issued in other countries. They apply in *all* profiles that use this transaction specification.
+Le seguenti regole sono state definite dalle Autorità PEPPOL in aggiunta alle regole {peppol} BIS in generale.
+Queste regole sono applicate in base al paese di origine del venditore, e non saranno influenzate le fattyre emesse in altri paesi. Queste si applicano a *tutti* i profili che utilizzano la specifica di questa transazione.
 
-National rules are provided by each country's PEPPOL Authority, and if you need any changes or additions to these rules, please contact your PEPPOL Authority.
+Le regole nazionali sono fornite dalle Autorità PEPPOL di ogni paese, e se sono necessarie modifiche o aggiunte a queste regole, pregasi contattare la vostra Autorità PEPPOL.
 
 
-.National transaction business rules
+.Regole di business nazionali per le transazioni
 [cols="1,4", options="header"]
 |====
-|Rule
-|Message/Context/Test
+|Regola
+|Messaggio/Contesto/Testo
 
 include::{rules-dir}/PEPPOL-EN16931-UBL-NATIONAL.sch.adoc[]
 |====

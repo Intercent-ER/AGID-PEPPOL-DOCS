@@ -1,5 +1,5 @@
 [[peppol_rules]]
-= PEPPOL transaction business rules
+= Regole di business PEPPOL per la validazione delle transazioni
 
 The following rules have been defined by {openpeppol} in addition to the rules adopted from {EN16931}.
 These rules apply in *all* profiles that use this transaction specification.

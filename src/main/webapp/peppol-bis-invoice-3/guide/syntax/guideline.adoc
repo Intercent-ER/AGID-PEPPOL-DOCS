@@ -1,7 +1,7 @@
 
-= UBL schemas and namespaces
+= Schemi UBL e spazi dei nomi
 
-The XML schemas used are
+Gli schemi XML utilizzati sono
 
-* {UBLInv} with the target namespace `urn:oasis:names:specification:ubl:schema:xsd:Invoice-2`
-* {UBLCreditNote} with the target namespace `urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2`
+* {UBLInv} con lo spazio di nomi di destinazione `urn:oasis:names:specification:ubl:schema:xsd:Invoice-2`
+* {UBLCreditNote} con lo spazio di nomi di destinazione `urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2`

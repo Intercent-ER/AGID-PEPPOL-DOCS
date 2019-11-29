@@ -6,35 +6,35 @@
 	</rule>
 
 	<rule context="/*/cac:ProjectReference/cbc:ID" flag="fatal">
-		<assert test="matches(.,'^[a-zA-Z0-9]{0,15}$')" flag="fatal" id="BR-IT-020">[BR-IT-020] - BT-11 (Project reference) maximum lenght shall be 15 chars - La lunghezza dell'elemento non può superare i 15 caratteri.</assert>
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,15}$')" flag="fatal" id="BR-IT-020">[BR-IT-020] - BT-11 (Project reference) maximum lenght shall be 15 chars - La lunghezza dell'elemento non può superare i 15 caratteri.</assert>
 	</rule>
 	
 	<rule context="/*/cac:ContractDocumentReference/cbc:ID" flag="fatal">
-		<assert test="matches(.,'^[a-zA-Z0-9]{0,20}$')" flag="fatal" id="BR-IT-030">[BR-IT-030] - BT-12 (Contract reference) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-030">[BR-IT-030] - BT-12 (Contract reference) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
 	</rule>
 
 	<rule context="/*/cac:OrderReference/cbc:ID" flag="fatal">
-		<assert test="matches(.,'^[a-zA-Z0-9]{0,20}$')" flag="fatal" id="BR-IT-040">[BR-IT-040] - BT-13 (Purchase order reference) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-040">[BR-IT-040] - BT-13 (Purchase order reference) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
 	</rule>
 	
 	<rule context="/*/cac:ReceiptDocumentReference/cbc:ID" flag="fatal">
-		<assert test="matches(.,'^[a-zA-Z0-9]{0,20}$')" flag="fatal" id="BR-IT-050">[BR-IT-050] - BT-15 (Receiving advice reference) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-050">[BR-IT-050] - BT-15 (Receiving advice reference) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
 	</rule>
 	
 	<rule context="/*/cac:DespatchDocumentReference/cbc:ID" flag="fatal">
-		<assert test="matches(.,'^[a-zA-Z0-9]{0,20}$')" flag="fatal" id="BR-IT-060">[BR-IT-060] - BT-16 (Despatch advice reference) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-060">[BR-IT-060] - BT-16 (Despatch advice reference) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
 	</rule>
 	
 	<rule context="/*/cac:OriginatorDocumentReference/cbc:ID" flag="fatal">
-		<assert test="matches(.,'^[a-zA-Z0-9]{0,15}$')" flag="fatal" id="BR-IT-070">[BR-IT-070] - BT-17 (Tender or lot reference) maximum lenght shall be 15 chars - La lunghezza dell'elemento non può superare i 15 caratteri.</assert>
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,15}$')" flag="fatal" id="BR-IT-070">[BR-IT-070] - BT-17 (Tender or lot reference) maximum lenght shall be 15 chars - La lunghezza dell'elemento non può superare i 15 caratteri.</assert>
 	</rule>
 	
 	<rule context="/*/cbc:AccountingCost" flag="fatal">
-		<assert test="matches(.,'^[a-zA-Z0-9]{0,20}$')" flag="fatal" id="BR-IT-080">[BR-IT-080] - BT-19 (Buyer accounting reference) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-080">[BR-IT-080] - BT-19 (Buyer accounting reference) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
 	</rule>
 
 	<rule context="/*/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID" flag="fatal">
-		<assert test="matches(.,'^[a-zA-Z0-9]{0,20}$')" flag="fatal" id="BR-IT-090">[BR-IT-090] - BT-25 (Preceding Invoice number) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-090">[BR-IT-090] - BT-25 (Preceding Invoice number) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
 	</rule>
 
 	<rule context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'IT:EORI:')) then 1 else 0) &gt; 0]" flag="fatal">
@@ -132,7 +132,7 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 	</rule>
 
 	<rule context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID" flag="fatal">
-		<assert test="matches(.,'^[a-zA-Z0-9]{0,35}$')" flag="fatal" id="BR-IT-370">[BR-IT-370] - BT-128 (Invoice line object identifier) maximum lenght shall be 35 chars - La lunghezza dell'elemento non può superare i 35 caratteri.</assert>
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,35}$')" flag="fatal" id="BR-IT-370">[BR-IT-370] - BT-128 (Invoice line object identifier) maximum lenght shall be 35 chars - La lunghezza dell'elemento non può superare i 35 caratteri.</assert>
 	</rule>
 	
 	<rule context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID" flag="fatal">
@@ -144,11 +144,11 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 	</rule>
 	
 	<rule context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID" flag="fatal">
-		<assert test="matches(.,'^[a-zA-Z0-9]{0,20}$')" flag="fatal" id="BR-IT-400">[BR-IT-400] - BT-132 (Referenced purchase order line reference) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-400">[BR-IT-400] - BT-132 (Referenced purchase order line reference) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
 	</rule>
 	
 	<rule context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID" flag="fatal">
-		<assert test="matches(.,'^[a-zA-Z0-9]{0,20}$')" flag="fatal" id="BR-IT-410">[BR-IT-410] - BT-133 (Invoice line Buyer accounting reference) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-410">[BR-IT-410] - BT-133 (Invoice line Buyer accounting reference) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
 	</rule>
 	
 	<rule context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID" flag="fatal">
@@ -156,23 +156,23 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 	</rule>
 	
 	<rule context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID" flag="fatal">
-		<assert test="matches(.,'^\d*\.\d{8}$') and string-length(.) &gt;= 9 and string-length(.) &lt;= 21" flag="fatal" id="BR-IT-430">[BR-IT-430] - BT-146 (Item net price) maximum lenght shall be 21 chars and BT allowed fraction digits shall be 8 - La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento dovrà avere 8 cifre decimali.</assert>
+		<assert test="matches(.,'^\d*\.\d{8}$') and string-length(.) &gt;= 9 and string-length(.) &lt;= 21" flag="fatal" id="BR-IT-430">[BR-IT-430] - BT-146 (Item net price) maximum length shall be 21 chars and BT allowed fraction digits shall be 8 - La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento dovrà avere 8 cifre decimali.</assert>
 	</rule>
 	
 	<rule context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID" flag="fatal">
-		<assert test="matches(.,'^[a-zA-Z0-9]{0,35}$')" flag="fatal" id="BR-IT-440">[BR-IT-440] - BT-155 (Item Seller's identifier) maximum lenght shall be 35 chars - La lunghezza dell'elemento non può superare i 35 caratteri.</assert>
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,35}$')" flag="fatal" id="BR-IT-440">[BR-IT-440] - BT-155 (Item Seller's identifier) maximum lenght shall be 35 chars - La lunghezza dell'elemento non può superare i 35 caratteri.</assert>
 	</rule>
 	
 	<rule context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID" flag="fatal">
-		<assert test="matches(.,'^[a-zA-Z0-9]{0,35}$')" flag="fatal" id="BR-IT-450">[BR-IT-450] - BT-156 (Item Buyer's identifier) maximum lenght shall be 35 chars - La lunghezza dell'elemento non può superare i 35 caratteri.</assert>
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,35}$')" flag="fatal" id="BR-IT-450">[BR-IT-450] - BT-156 (Item Buyer's identifier) maximum lenght shall be 35 chars - La lunghezza dell'elemento non può superare i 35 caratteri.</assert>
 	</rule>
 	
 	<rule context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID" flag="fatal">
-		<assert test="matches(.,'^[a-zA-Z0-9]{0,35}$')" flag="fatal" id="BR-IT-460">[BR-IT-460] - BT-157 (Item standard identifier) maximum lenght shall be 35 chars - La lunghezza dell'elemento non può superare i 35 caratteri.</assert>
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,35}$')" flag="fatal" id="BR-IT-460">[BR-IT-460] - BT-157 (Item standard identifier) maximum lenght shall be 35 chars - La lunghezza dell'elemento non può superare i 35 caratteri.</assert>
 	</rule>
 	
 	<rule context="/*/cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode" flag="fatal">
-		<assert test="matches(.,'^[a-zA-Z0-9]{0,35}$')" flag="fatal" id="BR-IT-470">[BR-IT-470] - BT-158 (Item classification identifier) maximum lenght shall be 35 chars - La lunghezza dell'elemento non può superare i 35 caratteri.</assert>
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,35}$')" flag="fatal" id="BR-IT-470">[BR-IT-470] - BT-158 (Item classification identifier) maximum lenght shall be 35 chars - La lunghezza dell'elemento non può superare i 35 caratteri.</assert>
 	</rule>
 	
 	<!-- BOLLO -->

@@ -18018,9 +18018,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="matches(.,'^[a-zA-Z0-9]{0,15}$')"/>
+         <axsl:when test="matches(.,'^(\p{IsBasicLatin}){0,15}$')"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^[a-zA-Z0-9]{0,15}$')">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^(\p{IsBasicLatin}){0,15}$')">
                <axsl:attribute name="id">BR-IT-020</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -18041,9 +18041,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="matches(.,'^[a-zA-Z0-9]{0,20}$')"/>
+         <axsl:when test="matches(.,'^(\p{IsBasicLatin}){0,20}$')"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^[a-zA-Z0-9]{0,20}$')">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^(\p{IsBasicLatin}){0,20}$')">
                <axsl:attribute name="id">BR-IT-030</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -18064,9 +18064,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="matches(.,'^[a-zA-Z0-9]{0,20}$')"/>
+         <axsl:when test="matches(.,'^(\p{IsBasicLatin}){0,20}$')"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^[a-zA-Z0-9]{0,20}$')">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^(\p{IsBasicLatin}){0,20}$')">
                <axsl:attribute name="id">BR-IT-040</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -18087,9 +18087,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="matches(.,'^[a-zA-Z0-9]{0,20}$')"/>
+         <axsl:when test="matches(.,'^(\p{IsBasicLatin}){0,20}$')"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^[a-zA-Z0-9]{0,20}$')">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^(\p{IsBasicLatin}){0,20}$')">
                <axsl:attribute name="id">BR-IT-050</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -18110,9 +18110,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="matches(.,'^[a-zA-Z0-9]{0,20}$')"/>
+         <axsl:when test="matches(.,'^(\p{IsBasicLatin}){0,20}$')"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^[a-zA-Z0-9]{0,20}$')">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^(\p{IsBasicLatin}){0,20}$')">
                <axsl:attribute name="id">BR-IT-060</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -18133,9 +18133,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="matches(.,'^[a-zA-Z0-9]{0,15}$')"/>
+         <axsl:when test="matches(.,'^(\p{IsBasicLatin}){0,15}$')"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^[a-zA-Z0-9]{0,15}$')">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^(\p{IsBasicLatin}){0,15}$')">
                <axsl:attribute name="id">BR-IT-070</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -18156,9 +18156,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="matches(.,'^[a-zA-Z0-9]{0,20}$')"/>
+         <axsl:when test="matches(.,'^(\p{IsBasicLatin}){0,20}$')"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^[a-zA-Z0-9]{0,20}$')">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^(\p{IsBasicLatin}){0,20}$')">
                <axsl:attribute name="id">BR-IT-080</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -18179,9 +18179,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="matches(.,'^[a-zA-Z0-9]{0,20}$')"/>
+         <axsl:when test="matches(.,'^(\p{IsBasicLatin}){0,20}$')"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^[a-zA-Z0-9]{0,20}$')">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^(\p{IsBasicLatin}){0,20}$')">
                <axsl:attribute name="id">BR-IT-090</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -18770,9 +18770,9 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="matches(.,'^[a-zA-Z0-9]{0,35}$')"/>
+         <axsl:when test="matches(.,'^(\p{IsBasicLatin}){0,35}$')"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^[a-zA-Z0-9]{0,35}$')">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^(\p{IsBasicLatin}){0,35}$')">
                <axsl:attribute name="id">BR-IT-370</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -18839,9 +18839,9 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="matches(.,'^[a-zA-Z0-9]{0,20}$')"/>
+         <axsl:when test="matches(.,'^(\p{IsBasicLatin}){0,20}$')"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^[a-zA-Z0-9]{0,20}$')">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^(\p{IsBasicLatin}){0,20}$')">
                <axsl:attribute name="id">BR-IT-400</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -18862,9 +18862,9 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="matches(.,'^[a-zA-Z0-9]{0,20}$')"/>
+         <axsl:when test="matches(.,'^(\p{IsBasicLatin}){0,20}$')"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^[a-zA-Z0-9]{0,20}$')">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^(\p{IsBasicLatin}){0,20}$')">
                <axsl:attribute name="id">BR-IT-410</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -18916,7 +18916,7 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-430] - BT-146 (Item net price) maximum lenght shall be 21 chars and BT allowed fraction digits shall be 8 - La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento dovrà avere 8 cifre decimali.</svrl:text>
+               <svrl:text>[BR-IT-430] - BT-146 (Item net price) maximum length shall be 21 chars and BT allowed fraction digits shall be 8 - La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento dovrà avere 8 cifre decimali.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -18931,9 +18931,9 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="matches(.,'^[a-zA-Z0-9]{0,35}$')"/>
+         <axsl:when test="matches(.,'^(\p{IsBasicLatin}){0,35}$')"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^[a-zA-Z0-9]{0,35}$')">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^(\p{IsBasicLatin}){0,35}$')">
                <axsl:attribute name="id">BR-IT-440</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -18954,9 +18954,9 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="matches(.,'^[a-zA-Z0-9]{0,35}$')"/>
+         <axsl:when test="matches(.,'^(\p{IsBasicLatin}){0,35}$')"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^[a-zA-Z0-9]{0,35}$')">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^(\p{IsBasicLatin}){0,35}$')">
                <axsl:attribute name="id">BR-IT-450</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -18977,9 +18977,9 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="matches(.,'^[a-zA-Z0-9]{0,35}$')"/>
+         <axsl:when test="matches(.,'^(\p{IsBasicLatin}){0,35}$')"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^[a-zA-Z0-9]{0,35}$')">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^(\p{IsBasicLatin}){0,35}$')">
                <axsl:attribute name="id">BR-IT-460</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -19000,9 +19000,9 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="matches(.,'^[a-zA-Z0-9]{0,35}$')"/>
+         <axsl:when test="matches(.,'^(\p{IsBasicLatin}){0,35}$')"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^[a-zA-Z0-9]{0,35}$')">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^(\p{IsBasicLatin}){0,35}$')">
                <axsl:attribute name="id">BR-IT-470</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">

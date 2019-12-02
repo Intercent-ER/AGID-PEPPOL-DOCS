@@ -30,4 +30,4 @@ Si applica solo alle fatture emesse in un paese specifico. La regola è innescat
 _Quando il Venditore è Svedese, il Legal Registration Number deve essere numerico con 10 cifre._
 
 * *I criteri verificati dalla regola* +
-_Esistenza di Seller/Address/CountryCode=‘SE’ *AND* esistenza di Seller/LegalRegistrationNumber_
+_Esistenza di Seller/Address/CountryCode=‘SE’ *AND* esistenza di Seller/LegalRegistrationNumber_

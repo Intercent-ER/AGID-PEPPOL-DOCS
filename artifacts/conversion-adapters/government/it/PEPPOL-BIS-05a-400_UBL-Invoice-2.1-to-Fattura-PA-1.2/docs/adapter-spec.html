@@ -81,7 +81,7 @@
          <div class="labelFont">TARGET</div>
          <div><strong>Fattura-PA-1.2</strong></div>
          <div class="labelFont">VERSION</div>
-         <div><strong>1.8.3</strong></div>
+         <div><strong>1.8.6</strong></div>
       </div>
       <table id="treegrid"></table>
       <div id="ptreegrid"></div>
@@ -3234,7 +3234,7 @@
                </td>
                <td>cbc:Quantity&nbsp;</td>
                <td>
-                  <div class="wrapCol200">&nbsp;</div>
+                  <div class="wrapCol200">cbc:Quantity&nbsp;</div>
                </td>
                <td>
                   <div class="wrapCol200">&nbsp;</div>
@@ -3599,6 +3599,46 @@
                   <div class="wrapCol200">&nbsp;</div>
                </td>
                <td>.&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="5">
+               <td class="branchFont" style="border-left: 32px solid gray"><pre> /CodiceArticolo</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:Item/cac:SellersItemIdentification/cbc:ID[starts-with(.,'AICFARMACO:')]&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">AIC Farmaco&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="6">
+               <td class="leafFont" style="border-left: 32px solid gray"><pre>  - CodiceTipo</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">AICFARMACO&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="6">
+               <td class="leafFont" style="border-left: 32px solid gray"><pre>  - CodiceValore</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>substring(.,12)&nbsp;</td>
                <td>
                   <div class="wrapCol200">&nbsp;</div>
                </td>
@@ -4593,7 +4633,9 @@
                <td>
                   <div class="wrapCol200">&nbsp;</div>
                </td>
-               <td>if (cbc:DocumentType) then cbc:DocumentType else 'non specificato'&nbsp;</td>
+               <td>if ((cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@filename|cbc:DocumentType)[1]) then (cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@filename|cbc:DocumentType)[1]
+                  else 'non specificato'&nbsp;
+               </td>
                <td>
                   <div class="wrapCol200">&nbsp;</div>
                </td>
@@ -4620,6 +4662,20 @@
                <td style="min-width: 120px;">2.5.3&nbsp;</td>
             </tr>
             <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - DescrizioneAttachment</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:DocumentDescription&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:DocumentDescription&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
                <td class="leafFont" style="border-left: 16px solid gray"><pre>  - Attachment</pre></td>
                <td>
                   <div class="wrapCol200">&nbsp;</div>
@@ -4632,6 +4688,74 @@
                   <div class="wrapCol200">&nbsp;</div>
                </td>
                <td style="min-width: 120px;">2.5.5&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="3">
+               <td class="branchFont" style="border-left: 16px solid gray"><pre> /Allegati</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:AdditionalDocumentReference&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cac:Attachment/cac:ExternalReference/cbc:URI&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - NomeAttachment</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cac:Attachment/cac:ExternalReference/cbc:URI&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">2.5.1&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - FormatoAttachment</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">binary&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">2.5.3&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - DescrizioneAttachment</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:DocumentDescription&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:DocumentDescription&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - Attachment</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cac:Attachment/cac:ExternalReference/cbc:URI&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
             </tr>
             <tr class="branch" data-level="3">
                <td class="branchFont" style="border-left: 16px solid gray"><pre> /Allegati</pre></td>

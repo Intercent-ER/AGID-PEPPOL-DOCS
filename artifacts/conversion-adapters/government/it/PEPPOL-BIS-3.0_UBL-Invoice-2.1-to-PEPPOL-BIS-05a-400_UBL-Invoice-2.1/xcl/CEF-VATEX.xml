@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<java:properties xmlns:java="http://www.javest.com/xsd/java/properties"
+            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<comment>CEF VAT exemption reason code (VATEX)</comment>
+	<entry key="vatex-eu-132-1a">Exempt based on article 132, section 1 (a) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-132-1b">Exempt based on article 132, section 1 (b) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-132-1c">Exempt based on article 132, section 1 (c) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-132-1d">Exempt based on article 132, section 1 (d) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-132-1e">Exempt based on article 132, section 1 (e) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-132-1f">Exempt based on article 132, section 1 (f) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-132-1g">Exempt based on article 132, section 1 (g) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-132-1h">Exempt based on article 132, section 1 (h) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-132-1i">Exempt based on article 132, section 1 (i) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-132-1j">Exempt based on article 132, section 1 (j) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-132-1k">Exempt based on article 132, section 1 (k) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-132-1l">Exempt based on article 132, section 1 (l) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-132-1m">Exempt based on article 132, section 1 (m) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-132-1n">Exempt based on article 132, section 1 (n) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-132-1o">Exempt based on article 132, section 1 (o) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-132-1p">Exempt based on article 132, section 1 (p) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-132-1q">Exempt based on article 132, section 1 (q) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-143-1a">Exempt based on article 143, section 1 (a) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-143-1b">Exempt based on article 143, section 1 (b) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-143-1c">Exempt based on article 143, section 1 (c) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-143-1d">Exempt based on article 143, section 1 (d) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-143-1e">Exempt based on article 143, section 1 (e) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-143-1f">Exempt based on article 143, section 1 (f) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-143-1fa">Exempt based on article 143, section 1 (fa) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-143-1g">Exempt based on article 143, section 1 (g) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-143-1h">Exempt based on article 143, section 1 (h) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-143-1i">Exempt based on article 143, section 1 (i) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-143-1j">Exempt based on article 143, section 1 (j) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-143-1k">Exempt based on article 143, section 1 (k) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-143-1l">Exempt based on article 143, section 1 (l) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-309">Exempt based on article 309 of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-148-a">Exempt based on article 148, section (a) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-148-b">Exempt based on article 148, section (b) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-148-c">Exempt based on article 148, section (c) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-148-d">Exempt based on article 148, section (d) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-148-e">Exempt based on article 148, section (e) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-148-f">Exempt based on article 148, section (f) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-148-g">Exempt based on article 148, section (g) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-151-1a">Exempt based on article 151, section 1 (a) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-151-1aa">Exempt based on article 151, section 1 (aa) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-151-1b">Exempt based on article 151, section 1 (b) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-151-1c">Exempt based on article 151, section 1 (c) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-151-1d">Exempt based on article 151, section 1 (d) of Council Directive 2006/112/EC</entry>
+	<entry key="vatex-eu-151-1e">Exempt based on article 151, section 1 (e) of Council Directive 2006/112/EC</entry>
+	<!-- Only use with VAT category code G -->
+	<entry key="vatex-eu-g">Export outside the EU</entry>
+	<!-- Only use with VAT category code O -->
+	<entry key="vatex-eu-o">Not subject to VAT</entry>
+	<!-- Only use with VAT category code K -->
+	<entry key="vatex-eu-ic">Intra-community supply</entry>
+	<!-- Only use with VAT category code AE -->
+	<entry key="vatex-eu-ae">Reverse charge	Only use with VAT category code AE.</entry>
+	<!-- Only use with VAT category code E -->
+	<entry key="vatex-eu-d">Travel agents VAT scheme</entry>
+	<!-- Only use with VAT category code E -->
+	<entry key="vatex-eu-f">Second hand goods VAT scheme</entry>
+	<!-- Only use with VAT category code E -->
+	<entry key="vatex-eu-i">Works of art VAT scheme</entry>
+	<!-- Only use with VAT category code E -->
+	<entry key="vatex-eu-j">Collectors items and antiques VAT scheme</entry>
+</java:properties>

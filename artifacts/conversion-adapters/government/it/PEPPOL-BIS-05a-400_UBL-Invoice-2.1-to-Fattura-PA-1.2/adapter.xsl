@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--Stylesheet synthesized using Javest A2A Mapper environment.-->
 
-<xsl:stylesheet xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+<xsl:stylesheet xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+                xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+                xmlns:nx="http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2"
+                xmlns:in="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
+                xmlns:saxon="http://saxon.sf.net/"
+                xmlns:xsmap="http://www.javest.com/ns/mapper/snippet"
+                xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2"
+                xmlns:asmap="http://www.javest.com/ns/mapper/snippet/attribute"
+                xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2"
+                xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
                 xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
                 xmlns:ccts="urn:un:unece:uncefact:documentation:2"
-                xmlns:saxon="http://saxon.sf.net/"
                 xmlns:cr="http://www.ubl-italia.org/ns/CrossReference"
-                xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
-                xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
-                xmlns:in="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
-                xmlns:nx="http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2"
-                xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2"
-                xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2"
-                xmlns:asmap="http://www.javest.com/ns/mapper/snippet/attribute"
-                xmlns:xsmap="http://www.javest.com/ns/mapper/snippet"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 exclude-result-prefixes="xsmap asmap in cac cbc ccts ext saxon qdt udt ds cr"
                 version="2.0">
@@ -546,22 +546,49 @@ the root node.
          </DatiSAL>
       </xsl:if>
    </xsl:template>
-   <xsl:template match="cac:AdditionalDocumentReference" mode="Allegati">
+   <xsl:template match="cac:AdditionalDocumentReference" mode="AllegatiBinari">
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
       <xsl:if test="cac:Attachment/cbc:EmbeddedDocumentBinaryObject">
          <Allegati>
             <NomeAttachment>
-               <xsl:value-of select="if (cbc:DocumentType) then cbc:DocumentType else 'non specificato'"/>
+               <xsl:value-of select="if ((cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@filename|cbc:DocumentType)[1]) then (cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@filename|cbc:DocumentType)[1] else 'non specificato'"/>
             </NomeAttachment>
             <FormatoAttachment>
                <xsl:value-of select="if (document($xclFormatoAttachment)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xcode']/SimpleValue=current()/cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@mimeCode][1]) then document($xclFormatoAttachment)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xcode']/SimpleValue=current()/cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@mimeCode][1] else if (matches(cbc:DocumentType,'\.[a-zA-Z]{3,4}$')) then tokenize(cbc:DocumentType, '\.')[last()] else 'binary'"/>
             </FormatoAttachment>
+            <xsl:if test="cbc:DocumentDescription">
+               <DescrizioneAttachment>
+                  <xsl:value-of select="cbc:DocumentDescription"/>
+               </DescrizioneAttachment>
+            </xsl:if>
             <xsl:if test="cac:Attachment/cbc:EmbeddedDocumentBinaryObject">
                <Attachment>
                   <xsl:value-of select="cac:Attachment/cbc:EmbeddedDocumentBinaryObject"/>
                </Attachment>
             </xsl:if>
+         </Allegati>
+      </xsl:if>
+   </xsl:template>
+   <xsl:template match="cac:AdditionalDocumentReference" mode="URIReference">
+      <xsl:param name="CN" select="."/>
+      <xsl:param name="CNP" select="1"/>
+      <xsl:if test="cac:Attachment/cac:ExternalReference/cbc:URI">
+         <Allegati>
+            <NomeAttachment>
+               <xsl:value-of select="cac:Attachment/cac:ExternalReference/cbc:URI"/>
+            </NomeAttachment>
+            <FormatoAttachment>
+               <xsl:text>binary</xsl:text>
+            </FormatoAttachment>
+            <xsl:if test="cbc:DocumentDescription">
+               <DescrizioneAttachment>
+                  <xsl:value-of select="cbc:DocumentDescription"/>
+               </DescrizioneAttachment>
+            </xsl:if>
+            <Attachment>
+               <xsl:value-of select="cac:Attachment/cac:ExternalReference/cbc:URI"/>
+            </Attachment>
          </Allegati>
       </xsl:if>
    </xsl:template>
@@ -708,9 +735,11 @@ the root node.
                <xsl:with-param name="CN" select="current()"/>
                <xsl:with-param name="CNP" select="position()"/>
             </xsl:apply-templates>
-            <NumeroColli>
-               <xsl:value-of select="cbc:Quantity"/>
-            </NumeroColli>
+            <xsl:if test="cbc:Quantity">
+               <NumeroColli>
+                  <xsl:value-of select="cbc:Quantity"/>
+               </NumeroColli>
+            </xsl:if>
             <xsl:if test="cac:Shipment/cbc:GrossWeightMeasure/@unitCode">
                <UnitaMisuraPeso>
                   <xsl:value-of select="document($xclUnitOfMeasureCode)//Value[@ColumnRef='xname']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/cac:Shipment/cbc:GrossWeightMeasure/@unitCode][1]"/>
@@ -843,7 +872,13 @@ the root node.
             <xsl:with-param name="CN" select="current()"/>
             <xsl:with-param name="CNP" select="position()"/>
          </xsl:apply-templates>
-         <xsl:apply-templates select="cac:Item/cac:SellersItemIdentification/cbc:ID">
+         <xsl:apply-templates select="cac:Item/cac:SellersItemIdentification/cbc:ID"
+                              mode="SellersItemIdentification">
+            <xsl:with-param name="CN" select="current()"/>
+            <xsl:with-param name="CNP" select="position()"/>
+         </xsl:apply-templates>
+         <xsl:apply-templates select="cac:Item/cac:SellersItemIdentification/cbc:ID[starts-with(.,'AICFARMACO:')]"
+                              mode="SellersItemIdentification_AIC">
             <xsl:with-param name="CN" select="current()"/>
             <xsl:with-param name="CNP" select="position()"/>
          </xsl:apply-templates>
@@ -1156,7 +1191,8 @@ the root node.
          </CodiceArticolo>
       </xsl:if>
    </xsl:template>
-   <xsl:template match="cac:Item/cac:SellersItemIdentification/cbc:ID">
+   <xsl:template match="cac:Item/cac:SellersItemIdentification/cbc:ID"
+                 mode="SellersItemIdentification">
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
       <xsl:if test=".">
@@ -1169,6 +1205,19 @@ the root node.
             </CodiceValore>
          </CodiceArticolo>
       </xsl:if>
+   </xsl:template>
+   <xsl:template match="cac:Item/cac:SellersItemIdentification/cbc:ID[starts-with(.,'AICFARMACO:')]"
+                 mode="SellersItemIdentification_AIC">
+      <xsl:param name="CN" select="."/>
+      <xsl:param name="CNP" select="1"/>
+      <CodiceArticolo>
+         <CodiceTipo>
+            <xsl:text>AICFARMACO</xsl:text>
+         </CodiceTipo>
+         <CodiceValore>
+            <xsl:value-of select="substring(.,12)"/>
+         </CodiceValore>
+      </CodiceArticolo>
    </xsl:template>
    <xsl:template match="cac:Item/cac:StandardItemIdentification/cbc:ID">
       <xsl:param name="CN" select="."/>
@@ -1871,12 +1920,12 @@ the root node.
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
       <nx:FatturaElettronica>
-         <xsl:variable name="variable_d4e1a1050311">
+         <xsl:variable name="variable_d10e1a1050311">
             <xsl:value-of select="if (starts-with(upper-case(cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID[1][@schemeID='IT:IPA']), 'CODDEST:')) then 'FPR12' else 'FPA12'"/>
          </xsl:variable>
-         <xsl:if test="string($variable_d4e1a1050311)">
+         <xsl:if test="string($variable_d10e1a1050311)">
             <xsl:attribute name="versione">
-               <xsl:value-of select="string($variable_d4e1a1050311)"/>
+               <xsl:value-of select="string($variable_d10e1a1050311)"/>
             </xsl:attribute>
          </xsl:if>
          <FatturaElettronicaHeader>
@@ -2159,7 +2208,11 @@ the root node.
                   </xsl:if>
                </DatiPagamento>
             </xsl:if>
-            <xsl:apply-templates select="cac:AdditionalDocumentReference" mode="Allegati">
+            <xsl:apply-templates select="cac:AdditionalDocumentReference" mode="AllegatiBinari">
+               <xsl:with-param name="CN" select="current()"/>
+               <xsl:with-param name="CNP" select="position()"/>
+            </xsl:apply-templates>
+            <xsl:apply-templates select="cac:AdditionalDocumentReference" mode="URIReference">
                <xsl:with-param name="CN" select="current()"/>
                <xsl:with-param name="CNP" select="position()"/>
             </xsl:apply-templates>

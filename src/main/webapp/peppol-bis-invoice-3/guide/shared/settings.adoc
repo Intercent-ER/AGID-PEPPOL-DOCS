@@ -1,4 +1,4 @@
-:rules-dir: ../../../target/generated
+:rules-dir: ../../../rules/generated
 
 //links used in the BIS document
 :link-examples: https://github.com/OpenPEPPOL/peppol-bis-invoice-3/tree/master/rules/examples[Example files]

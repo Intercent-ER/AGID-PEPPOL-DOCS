@@ -1,16 +1,16 @@
 [[peppol_rules]]
-= Regole di business PEPPOL per la validazione delle transazioni
+= Regole di business PEPPOL per le transazioni
 
-The following rules have been defined by {openpeppol} in addition to the rules adopted from {EN16931}.
-These rules apply in *all* profiles that use this transaction specification.
+Le seguenti regole sono state definite da {openpeppol} in aggiunta a quelle adottate dalla {EN16931}.
+Queste regole si applicano a *tutti* i profili che usano la specifica di questa transazione.
 
-Please also see <<Restrictions on EN16931>> for further details on the restrictions imposed by these rules.
+Vedasi anche <<Restrictions on EN16931>> per ulteriori dettagli alle restrizioni imposte da queste regole.
 
-.PEPPOL transaction business rules
+.Regole di business PEPPOL per le transazioni
 [cols="1,4", options="header"]
 |====
-|Rule
-|Message/Context/Test
+|Regola
+|Messaggio/Contesto/Test
 
 include::{rules-dir}/PEPPOL-EN16931-UBL-GENERAL.sch.adoc[]
 |====

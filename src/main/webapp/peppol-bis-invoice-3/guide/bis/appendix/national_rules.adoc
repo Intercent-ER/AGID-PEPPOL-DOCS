@@ -12,7 +12,7 @@ Le regole nazionali sono fornite dalle Autorità PEPPOL di ogni paese, e se sono
 [cols="1,4", options="header"]
 |====
 |Regola
-|Messaggio/Contesto/Testo
+|Messaggio/Contesto/Test
 
 include::{rules-dir}/PEPPOL-EN16931-UBL-NATIONAL.sch.adoc[]
 |====

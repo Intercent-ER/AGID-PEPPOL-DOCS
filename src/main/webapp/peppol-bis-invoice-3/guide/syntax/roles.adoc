@@ -1,64 +1,122 @@
 
 
-= Seller (AccountingSupplierParty)
+= Il Fornitore (AccountingSupplierParty)
 
-Seller is mandatory information and provided in element `cac:AccountingSupplierParty`
+Il Fornitore, detto anche Cedente o Prestatore, è la persona o organizzazione che emette la fattura. Nella maggioranza dei casi, il fornitore è anche la parte di business che riceverà il pagamento (beneficiario). 
 
-.UBL example of seller information
+Le informazioni inerenti al fornitore sono obbligatorie e fornite nell'elemento `cac:AccountingSupplierParty`
+
+.Esempio UBL di informazioni sul fornitore
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/Snippet-full.xml[tags=seller]
 ----
-<1> schemeID attribute is mandatory for electronic addresses, ie. EndpointID
-<2> schemeID attribute is recommended for all party identifiers
-<3> VAT identifiers shall be prefixed with the country code
+<1> L'attributo schemeID è obbligatorio per indirizzi elettronici, es. EndpointID
+<2> L'attributo schemeID è raccomandato per tutti gli identificatori delle parti
+<3> Gli identificatori per il VAT/IVA devono incudere il prefisso del codice paese
 
 
 
-= Buyer (AccountingCustomerParty)
+= Il Cliente (AccountingCustomerParty)
 
-Buyer is mandatory information and provided in element `cac:AccountingCustomerParty`
+Il Cliente, detto anche Cessionario o Committente, è la persona o organizzazione che acquisisce la proprietà di un prodotto o di un servizio in base ad un prezzo concordato e a dei termini di pagamento.
+Il cliente può coincidere con l’autorità appaltante o ente pubblico, con un operatore economico accreditato presso la PA, o con un soggetto non residente, non stabilito o identificato in Italia.
 
-.UBL example ofbuyer information
+Le informazioni inerenti al cliente sono obbligatorie e vengono fornite nell'elemento `cac:AccountingCustomerParty`
+
+.Esempio UBL di informazioni sul Cliente
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/Snippet-full.xml[tags=buyer]
 ----
-<1> schemeID attribute is mandatory for electronic addresses, ie. EndpointID
-<2> schemeID attribute is recommended for all party identifiers
-<3> VAT identifiers shall be prefixed with the country code
-<4> schemeID attribute is recommended for party legal entity identifiers
+<1> L'attributo schemeID è obbligatorio per indirizzi elettronici, es. EndpointID
+<2> L'attributo schemeID è raccomandato per tutti gli identificatori delle parti
+<3> Gli identificatori per il VAT/IVA devono incudere il prefisso del codice paese
+<4> L'attributo schemeID è raccomandato per gli identificatori di registrazione legale delle imprese
+
+Nel caso B2C il Cliente può essere un cittadino (persona fisica) non accreditato presso la PA. Nell’esempio seguente viene descritto un soggetto residente in possesso della PEC:
+
+[source, xml]
+
+<cac:AccountingCustomerParty>
+	<cac:Party>
+		<cbc:EndpointID schemeID="9921">CODDEST:0000000</cbc:EndpointID>
+		<cac:PartyName>
+			<cbc:Name>Mario Rossi</cbc:Name>
+		</cac:PartyName>
+                <cac:PostalAddress>
+                        <cbc:StreetName>Via Riviera di Chiaia, 99A</cbc:StreetName>
+                        <cbc:CityName>Napoli</cbc:CityName>
+                        <cbc:PostalZone>80121</cbc:PostalZone>
+                        <cac:AddressLine>
+                        <cbc:Line> Informazioni Aggiuntive /cbc:Line>
+                    </cac:AddressLine>
+                        <cac:Country>
+                            <cbc:IdentificationCode>IT</cbc:IdentificationCode>
+                        </cac:Country>
+                </cac:PostalAddress>
+                <cac:PartyTaxScheme>
+                    <cbc:CompanyID>RSSMRA68M06F839G</cbc:CompanyID>
+                    <cac:TaxScheme>
+                        <cbc:ID>VAT</cbc:ID>
+                    </cac:TaxScheme>
+                </cac:PartyTaxScheme>
+                <cac:Contact><!— PEC opzionale -->
+                        <cbc:Telephone>06123456</cbc:Telephone>
+                        <cbc:ElectronicMail>pec:nome.cognome@pec-domain.it</cbc:ElectronicMail>
+                </cac:Contact>
+                <cac:Person><!— C.F. Persona Fisica -->
+                        <cbc:ID schemeID="9907">RSSMRA68M06F839G</cbc:ID>
+                        <cbc:FirstName>Mario</cbc:FirstName>
+                        <cbc:FamilyName>Rossi</cbc:FamilyName>
+                </cac:Person>
+	</cac:Party>
+</cac:AccountingCustomerParty>
+
+:leveloffset: +1
+
+include::agid-codice-destinatario.adoc[]
+include::agid-pec-destinatario.adoc[]
+
+:leveloffset: -1
 
 
-= Payment receiver (PayeeParty)
+= Il Beneficiario (PayeeParty)
 
-Payment receiver is optional information. If this information is not supplied, the seller is the payment receiver. When payee information is sent this is indicating that a factoring situation is being documented.
+Il beneficiario è una persona, istituto bancario o entità di business alla quale si effettua un certo tipo di pagamento, ad esempio chi riceve il pagamento.
 
-To reflect the assignment of an Invoice to a factor there is a need to:
+Il beneficiario è una informazione facoltativa. Se questa informazione non è fornita, il fornitore/venditore è anche il beneficiario del pagamento.
 
-. have a disclaimer (notification notice) on the Invoice that the Invoice has been assigned to a factor. The disclaimer should be given using the Invoice note (BT-22) on document level.
+Quando vengono fornite le informazioni del beneficiario significa che si evidenzia un caso di factoring.
 
-. identify the Factor as the Payee
+Per riflettere l'assegnamento di una Fattura ad un factor è necessario:
 
-. to have the bank account changed to favour of a Factor.
+. avere una dichiarazione di esclusione di responsabilità (avviso) sulla fattura che questa è stata assegnata ad un factor. La dichiarazione di esclusione di responsabilità dovrebbe essere fornita nella Invoice note (BT-22) a livello di testata.
+
+. identificare il Factor con il Beneficiario
+
+. modificare le coordinate bancarie a favore del Factor.
 
 
-.UBL example of payee information
+.Esempio UBL per le informazioni del beneficiario
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/Snippet-full.xml[tags=payee]
 ----
-<1> schemeID attribute is recommended for all party identifiers
-<2> schemeID attribute is recommended for party legal entity identifiers
+<1> L'attributo schemeID è raccomandato per tutti gli identificatori delle parti
+<2> L'attributo schemeID è raccomandato per gli identificatori di registrazione legale delle imprese
 
 
-= Sellers Tax Representative (TaxRepresentativePary)
+= Rappresentante fiscale del fornitore (TaxRepresentativePary)
 
-Tax representative party for the seller is relevant for sellers delivering goods and services in a country without having a permanent establishment in that country. In such cases information on the tax representative shall be included in the invoice.
+In un certo numero di scenari di business, le aziende che commerciano oltre confine sono tenute secondo le autorità fiscali locali a nominare un rappresentante fiscale. 
+Sono comprese le aziende extra-EU che operano in Europa, gli importatori in EU e i commercianti.  
 
-.UBL example of tax representative information
+I rappresentanti fiscali sono responsabili per la gestione corretta e la regolarizzazione del VAT per conto delle aziende, in linea con le normative locali. Un rappresentante fiscale è considerato come l'agente locale del commerciante.  In molti casi, il rappresentante fiscale è ancora tenuto responsabile in solido per le tasse del commerciante.
+
+.Esempio UBL per le informazioni del rappresentante fiscale
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/Snippet-full.xml[tags=taxrep]
 ----
-<1> VAT identifiers shall be prefixed with the country code
+<1> Gli identificatori per il VAT/IVA devono incudere il prefisso del codice paese

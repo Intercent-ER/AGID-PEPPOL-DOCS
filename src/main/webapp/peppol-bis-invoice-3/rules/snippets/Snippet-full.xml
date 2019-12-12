@@ -68,50 +68,49 @@
     <!-- tag::seller[] -->
     <cac:AccountingSupplierParty>
         <cac:Party>
-            <cbc:EndpointID schemeID="0088">7300010000001</cbc:EndpointID>
+            <cbc:EndpointID schemeID="9906">IT07643520567</cbc:EndpointID>
             <!--1-->
             <cac:PartyIdentification>
-                <cbc:ID schemeID="0088">7300010000001</cbc:ID>
+                <cbc:ID schemeID="9906">IT07643520567</cbc:ID>
                 <!--2-->
             </cac:PartyIdentification>
             <cac:PartyName>
-                <cbc:Name>SupplierTradingName Ltd.</cbc:Name>
+                <cbc:Name>Fornitore S.r.l</cbc:Name>
             </cac:PartyName>
             <cac:PostalAddress>
-                <cbc:StreetName>Main street 1</cbc:StreetName>
-                <cbc:AdditionalStreetName>Postbox 123</cbc:AdditionalStreetName>
-                <cbc:CityName>London</cbc:CityName>
-                <cbc:PostalZone>GB 123 EW</cbc:PostalZone>
-                <cbc:CountrySubentity>West London district</cbc:CountrySubentity>
+                <cbc:StreetName>Via principale, 1</cbc:StreetName>
+                <cbc:AdditionalStreetName>PO Box 123</cbc:AdditionalStreetName>
+                <cbc:CityName>La Spezia</cbc:CityName>
+                <cbc:PostalZone>19100</cbc:PostalZone>
                 <cac:AddressLine>
-                    <cbc:Line>Third address line</cbc:Line>
+                    <cbc:Line>Informazioni Aggiuntive</cbc:Line>
                 </cac:AddressLine>
                 <cac:Country>
-                    <cbc:IdentificationCode>GB</cbc:IdentificationCode>
+                    <cbc:IdentificationCode>IT</cbc:IdentificationCode>
                 </cac:Country>
             </cac:PostalAddress>
             <cac:PartyTaxScheme>
-                <cbc:CompanyID>GB76576657</cbc:CompanyID>
+                <cbc:CompanyID>IT07643520567</cbc:CompanyID>
                 <!--3-->
                 <cac:TaxScheme>
                     <cbc:ID>VAT</cbc:ID>
                 </cac:TaxScheme>
             </cac:PartyTaxScheme>
             <cac:PartyTaxScheme>
-                <cbc:CompanyID>TaxRegistrationID</cbc:CompanyID>
+                <cbc:CompanyID>IT07643520987</cbc:CompanyID>
                 <cac:TaxScheme>
                     <cbc:ID>TAX</cbc:ID>
                 </cac:TaxScheme>
             </cac:PartyTaxScheme>
             <cac:PartyLegalEntity>
-                <cbc:RegistrationName>SupplierOfficialName Ltd</cbc:RegistrationName>
-                <cbc:CompanyID>GB983294</cbc:CompanyID>
-                <cbc:CompanyLegalForm>Private Limited Company</cbc:CompanyLegalForm>
+                <cbc:RegistrationName>Fornitore S.r.l</cbc:RegistrationName>
+                <!--cbc:CompanyID>IT07643520567</cbc:CompanyID-->
+                <cbc:CompanyLegalForm>SRL</cbc:CompanyLegalForm>
             </cac:PartyLegalEntity>
             <cac:Contact>
-                <cbc:Name>John Doe</cbc:Name>
-                <cbc:Telephone>9384203984</cbc:Telephone>
-                <cbc:ElectronicMail>john.doe@foo.bar</cbc:ElectronicMail>
+                <cbc:Name>Mario Rossi</cbc:Name>
+                <cbc:Telephone>0187559999</cbc:Telephone>
+                <cbc:ElectronicMail>nome.cognome@fornitore.it</cbc:ElectronicMail>
             </cac:Contact>
         </cac:Party>
     </cac:AccountingSupplierParty>
@@ -119,43 +118,42 @@
     <!-- tag::buyer[] -->
     <cac:AccountingCustomerParty>
         <cac:Party>
-            <cbc:EndpointID schemeID="0002">FR23342</cbc:EndpointID>
+            <cbc:EndpointID schemeID="0201">ABCDEF</cbc:EndpointID>
             <!--1-->
             <cac:PartyIdentification>
-                <cbc:ID schemeID="0002">FR23342</cbc:ID>
+                <cbc:ID schemeID="0201">ABCDEF</cbc:ID>
                 <!--2-->
             </cac:PartyIdentification>
             <cac:PartyName>
-                <cbc:Name>BuyerTradingName AS</cbc:Name>
+                <cbc:Name>Cliente S.p.A.</cbc:Name>
             </cac:PartyName>
             <cac:PostalAddress>
-                <cbc:StreetName>Hovedgatan 32</cbc:StreetName>
-                <cbc:AdditionalStreetName>Po box 878</cbc:AdditionalStreetName>
-                <cbc:CityName>Stockholm</cbc:CityName>
-                <cbc:PostalZone>45634</cbc:PostalZone>
+                <cbc:StreetName>Via Pubblica, 712</cbc:StreetName>
+                <cbc:CityName>Roma</cbc:CityName>
+                <cbc:PostalZone>00199</cbc:PostalZone>
                 <cac:AddressLine>
-                    <cbc:Line>Third line</cbc:Line>
+                    <cbc:Line>Informazioni Aggiuntive</cbc:Line>
                 </cac:AddressLine>
                 <cac:Country>
-                    <cbc:IdentificationCode>SE</cbc:IdentificationCode>
+                    <cbc:IdentificationCode>IT</cbc:IdentificationCode>
                 </cac:Country>
             </cac:PostalAddress>
             <cac:PartyTaxScheme>
-                <cbc:CompanyID>SE459837593701</cbc:CompanyID>
+                <cbc:CompanyID>IT07663520567</cbc:CompanyID>
                 <!--3-->
                 <cac:TaxScheme>
                     <cbc:ID>VAT</cbc:ID>
                 </cac:TaxScheme>
             </cac:PartyTaxScheme>
             <cac:PartyLegalEntity>
-                <cbc:RegistrationName>Buyer Official Name</cbc:RegistrationName>
-                <cbc:CompanyID schemeID="0183">39937423947</cbc:CompanyID>
+                <cbc:RegistrationName>Cliente S.p.A.</cbc:RegistrationName>
+                <!--cbc:CompanyID schemeID="0183">39937423947</cbc:CompanyID-->
                 <!--4-->
             </cac:PartyLegalEntity>
             <cac:Contact>
-                <cbc:Name>Lisa Johnson</cbc:Name>
-                <cbc:Telephone>23434234</cbc:Telephone>
-                <cbc:ElectronicMail>lj@buyer.se</cbc:ElectronicMail>
+                <cbc:Name>Giuseppe Verdi</cbc:Name>
+                <cbc:Telephone>06123456</cbc:Telephone>
+                <cbc:ElectronicMail>giuseppe.verdi@cliente.it</cbc:ElectronicMail>
             </cac:Contact>
         </cac:Party>
     </cac:AccountingCustomerParty>
@@ -168,10 +166,10 @@
             <!--1-->
         </cac:PartyIdentification>
         <cac:PartyName>
-            <cbc:Name>Payee party</cbc:Name>
+            <cbc:Name>Beneficiario e F.lli S.a.s</cbc:Name>
         </cac:PartyName>
         <cac:PartyLegalEntity>
-            <cbc:CompanyID schemeID="0192">987654325</cbc:CompanyID>
+            <!--cbc:CompanyID schemeID="0192">IT07663520567</cbc:CompanyID-->
             <!--2-->
         </cac:PartyLegalEntity>
     </cac:PayeeParty>
@@ -179,23 +177,23 @@
     <!-- tag::taxrep[] -->
     <cac:TaxRepresentativeParty>
         <cac:PartyName>
-            <cbc:Name>TaxRepresentative Name</cbc:Name>
+            <cbc:Name>Commercialista Snc</cbc:Name>
         </cac:PartyName>
         <cac:PostalAddress>
-            <cbc:StreetName>Regent street 32</cbc:StreetName>
-            <cbc:AdditionalStreetName>Building 23</cbc:AdditionalStreetName>
-            <cbc:CityName>London</cbc:CityName>
-            <cbc:PostalZone>23W 45H</cbc:PostalZone>
-            <cbc:CountrySubentity>Subentity</cbc:CountrySubentity>
+            <cbc:StreetName>Corso di Francia</cbc:StreetName>
+            <cbc:AdditionalStreetName>Blocco 1</cbc:AdditionalStreetName>
+            <cbc:CityName>Roma</cbc:CityName>
+            <cbc:PostalZone>00197</cbc:PostalZone>
+            <cbc:CountrySubentity>RM</cbc:CountrySubentity>
             <cac:AddressLine>
-                <cbc:Line>Back door</cbc:Line>
+                <cbc:Line>Informazioni Aggiuntive</cbc:Line>
             </cac:AddressLine>
             <cac:Country>
-                <cbc:IdentificationCode>GB</cbc:IdentificationCode>
+                <cbc:IdentificationCode>IT</cbc:IdentificationCode>
             </cac:Country>
         </cac:PostalAddress>
         <cac:PartyTaxScheme>
-            <cbc:CompanyID>GB122324324535</cbc:CompanyID>
+            <cbc:CompanyID>IT07643520567</cbc:CompanyID>
             <!--1-->
             <cac:TaxScheme>
                 <cbc:ID>VAT</cbc:ID>
@@ -207,23 +205,23 @@
     <cac:Delivery>
         <cbc:ActualDeliveryDate>2017-11-01</cbc:ActualDeliveryDate>
         <cac:DeliveryLocation>
-            <cbc:ID schemeID="0088">7300010000001</cbc:ID>
+            <cbc:ID schemeID="0201">ABCDEF</cbc:ID>
             <cac:Address>
-                <cbc:StreetName>Delivery street 2</cbc:StreetName>
-                <cbc:AdditionalStreetName>Building 56</cbc:AdditionalStreetName>
-                <cbc:CityName>Stockholm</cbc:CityName>
-                <cbc:PostalZone>21234</cbc:PostalZone>
+                <cbc:StreetName>Viale Viali,2 - PAD.01</cbc:StreetName>
+                <cbc:AdditionalStreetName>CENTRO LOG</cbc:AdditionalStreetName>
+                <cbc:CityName>Bologna</cbc:CityName>
+                <cbc:PostalZone>40100</cbc:PostalZone>
                 <cac:AddressLine>
-                    <cbc:Line>Gate 15</cbc:Line>
+                    <cbc:Line>C38</cbc:Line>
                 </cac:AddressLine>
                 <cac:Country>
-                    <cbc:IdentificationCode>SE</cbc:IdentificationCode>
+                    <cbc:IdentificationCode>IT</cbc:IdentificationCode>
                 </cac:Country>
             </cac:Address>
         </cac:DeliveryLocation>
         <cac:DeliveryParty>
             <cac:PartyName>
-                <cbc:Name>Delivery party Name</cbc:Name>
+                <cbc:Name>Nome Acquirente</cbc:Name>
             </cac:PartyName>
         </cac:DeliveryParty>
     </cac:Delivery>

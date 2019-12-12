@@ -1,0 +1,29 @@
+
+= Identificativo Cliente (CodiceDestinatario)
+In base alla specifica della FatturaPA italiana, il Cliente deve essere identificato mediante il CodiceDestinatario (vedi FatturaPA 1.x – Sistema di Interscambio). L’EndPointID deve essere valorizzato obbligatoriamente facendo riferimento allo schema di identificatori IPA (Indice PA).
+
+Di seguito si fornisce un esempio generico per fornire un codice destinatario con schema IPA.
+
+
+[source, xml]
+
+<cac:EndPointID>
+    <cbc:ID schemeID="9921">CODDEST:ABCDEFG</cbc:ID>
+</cac:EndPointID>
+
+In dettaglio, la sintassi da utilizzare per i diversi  destinatari della fattura viene fornita nella seguente tabella:
+
+[width="100%", cols="3,1"]
+|===
+|*Destinatario* | *Sintassi Identificativo*
+|Pubblica Amministrazione (codice ufficio fatturazione elettronica IPA)	| ABCDEF
+|Operatore economico accreditato presso SDI (codice destinatario)	| CODDEST:ABCDEFG
+|Operatore economico non accreditato presso SDI con PEC (la PEC deve essere fornita nelle info di contatto)	| CODDEST:0000000
+|Operatore economico non accreditato presso SDI e privo di canale telematico o PEC	| CODDEST:0000000
+|Cittadino (persona fisica) senza P.IVA, con o senza PEC	| CODDEST:0000000
+|Soggetto non residente, non stabilito o identificato in Italia	| CODDEST:XXXXXXX
+|===
+
+
+[NOTE]
+Ove richiesto il prefisso CODDEST: non è case-sensitive.

@@ -4,7 +4,7 @@
 
 Il riferimento al progetto è opzionale e viene inviato nella fattura nell'elemento `cac:ProjectReference/cbc:ID`. In una nota di credito, questo elemento non esiste, il riferimento al progetto viene quindi inviato utilizzando l'elemento `cac:AdditionalDocumentReference[cbc:DocumentTypeCode='50']/cbc:ID`.
 
-NOTE:: Quando si invia il riferimento al progetto, solo il `cbc:ID` e il `cbc:DocumentTypeCode` sono permessi all'interno dell'elemento `cac:AdditionalDocumentReference`.
+NOTE: Quando si invia il riferimento al progetto, solo il `cbc:ID` e il `cbc:DocumentTypeCode` sono permessi all'interno dell'elemento `cac:AdditionalDocumentReference`.
 
 
 .Esempio UBL example per il riferimento al progetto in una fattura

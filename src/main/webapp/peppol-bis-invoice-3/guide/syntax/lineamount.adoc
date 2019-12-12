@@ -1,24 +1,24 @@
 
 
-.UBL example of invoice line net amount where no line allowance/charge exist
+.Esempio UBL di importo netto di riga fattura senza sconti e/o maggiorazioni
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/Calc.xml[tags=lineamount]
 ----
-<1> Item net price
-<2> Item price base quantity
-<3> Invoiced quantity
+<1> Prezzo netto dell'articolo
+<2> Quantità base del prezzo dell'articolo
+<3> Quantità fatturata
 <4> stem:["Invoice line net amount" = (("Item net price" div "Item price base quantity") times ("Invoiced Quantity")]
 
 
 
-.UBL example of invoice line net amount where line allowance and charge exist
+.Esempio UBL di importo netto di riga fattura con sconti e maggiorazioni
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/Calc.xml[tags=lineamount2]
 ----
-<1> Item net price
-<2> Line charge amounts
-<3> Line allowance amount
-<4> Invoiced quantity
+<1> Prezzo netto dell'articolo
+<2> Maggiorazioni sulla riga
+<3> Sconti sulla riga
+<4> Quantità fatturata
 <5> stem:["Invoice line net amount" = ("Item net price" times "Invoiced Quantity") + "line charge amount" - "line allowance amount"]

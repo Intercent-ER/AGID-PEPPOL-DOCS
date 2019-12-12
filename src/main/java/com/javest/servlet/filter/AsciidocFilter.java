@@ -54,12 +54,27 @@ public class AsciidocFilter implements Filter {
 
             AttributesBuilder attributes = AttributesBuilder.attributes();
             attributes.setAnchors(true);
+            attributes.linkCss(true);
+            attributes.stylesDir("/css");
+            attributes.styleSheetName("asciidoctor-default.css");
+            //attributes.attribute("pdf-stylesdir", "/ABSOLUTE-PATH or RELATIVE-PATH")
+            //attributes.attribute("pdf-style", "base")
 
             OptionsBuilder options = OptionsBuilder.options().toFile(false).headerFooter(true).safe(SafeMode.UNSAFE);
             options.attributes(attributes.get());
 
             String html = asciidoctor.convertFile(
                     new File(webAppPath, req.getRequestURI()), options);
+            
+            /*
+        val options = options()
+                .backend("pdf")
+                .toStream(baos)
+                .safe(SafeMode.UNSAFE)
+                .attributes(attributes).get()
+
+        asciidoctor.convert(inStr, options)
+              */  
             response.setContentType("text/html;charset=UTF-8");
             response.getWriter().write(html);
             response.setContentLength(html.length());

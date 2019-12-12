@@ -1,0 +1,30 @@
+= Ordine di Fornitura Elettronico 3.0
+PEPPOL
+:doctype: book
+:encoding: utf-8
+:lang: it
+:toc: left
+:toclevels: 2
+:numbered:
+
+
+
+include::1_Introduzione.adoc[]
+
+include::2_Principi_Prerequisiti.adoc[]
+
+include::3_Requisiti_PA.adoc[]
+
+include::4_Codifiche_nazionali.adoc[]
+
+include::5_RB_INTERCENTER.adoc[]
+
+include::6_Processi_Casi_D'uso_tipici.adoc[]
+
+include::7_Semantica.adoc[]
+
+include::8_Code_List.adoc[]
+
+include::9_Descrizione_parti_selezionate_messaggio_ordine.adoc[]
+
+include::10_Identificatori_PEPPOL.adoc[]

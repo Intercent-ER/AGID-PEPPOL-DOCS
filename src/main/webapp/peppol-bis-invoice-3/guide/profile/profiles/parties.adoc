@@ -1,0 +1,62 @@
+= Identificatori delle parti di business
+
+L’attributo “schemeID” deve essere popolato in tutte le istanze dell’elemento “ID” quando è utilizzato all’interno di “PartyIdentification” e in tutte le istanze dell’elemento “EndpointID” quando è utilizzato all’interno dell’elemento composito “Party”. 
+
+.Esempi di utilizzo del numero GLN di GS1 in PartyIdentification:
+
+[source, xml]
+
+<cac:PartyIdentification>
+	<cbc:ID schemeID="0088">5790000435968</cbc:ID>
+</cac:PartyIdentification>
+
+.Esempio di utilizzo del codice IPA in PartyIdentification e Endpoint ID:
+
+[source, xml]
+
+<cbc:EndpointID schemeID="9921">ABCDEF</cbc:EndpointID>
+
+<cac:PartyIdentification>
+	<cbc:ID schemeID=" 9921">ABCDEF</cbc:ID>
+</cac:PartyIdentification>
+
+.Esempio di utilizzo nel PartyIdentification del codice destinatario accreditato su SDI:
+
+[source, xml]
+
+<cac:PartyIdentification>
+	<cbc:ID schemeID=" 9921">CODDEST:ABCDEFG</cbc:ID>
+</cac:PartyIdentification>
+
+.Esempio di utilizzo nel PartyIdentification del codice destinatario non accreditato per il quale si conosce la PEC o non si conosce alcun canale telematico di recapito:
+
+[source, xml]
+<cac:PartyIdentification>
+	<cbc:ID schemeID=" 9921">CODDEST:0000000</cbc:ID>
+</cac:PartyIdentification>
+
+.Esempio di utilizzo nel PartyIdentification del codice destinatario per soggetto non residente, non stabilito o identificato in Italia:
+
+[source, xml]
+
+<cac:PartyIdentification>
+	<cbc:ID schemeID=" 9921">CODDEST:XXXXXXX</cbc:ID>
+</cac:PartyIdentification>
+
+.Esempio di utilizzo della P.IVA in PartyIdentification:
+
+[source, xml]
+
+<cac:PartyIdentification>
+	<cbc:ID schemeID=" 9906">IT07643520567</cbc:ID>
+</cac:PartyIdentification>
+
+.Esempio di utilizzo del CF in PartyIdentification:
+
+[source, xml]
+
+<cac:PartyIdentification>
+	<cbc:ID schemeID=" 9907">07643520567</cbc:ID>
+</cac:PartyIdentification>
+
+

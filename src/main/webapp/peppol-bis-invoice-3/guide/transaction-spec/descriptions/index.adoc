@@ -1,5 +1,5 @@
 [[descriptions]]
-=Esempi di parti selezionate della transazione
+= Esempi di parti selezionate della transazione
 
 Nei paragrafi seguenti vengono riportarti esempi di parti selezionate della transazione. Si consiglia di esaminare anche la <<Detailed UBL message guideline>> per i dettagli su tutti gli elementi e gli attributi, le loro regole e l'utilizzo delle codifiche di riferimento.
 

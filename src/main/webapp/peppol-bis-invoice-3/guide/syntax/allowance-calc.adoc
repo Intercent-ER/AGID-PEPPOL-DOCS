@@ -1,18 +1,18 @@
 
 
-.UBL example of calculations of allowances and charges where base amount and percentage exist
+.Esempio UBL di calcolo per sconti e maggiorazioni dove l'importo base e la percentuale esistono
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/Calc.xml[tags=allowance1]
 ----
-<1> Base amount, to be used with the percentage to calculate the amount
-<2> Charge percentage
+<1> L'importo base da utilizzare con la percentuale per calcolare l'importo
+<2> Percentuale della maggiorazione
 <3> stem:["Base amount" times ("Percentage" div 100) = "Amount"]
 
 
-.UBL example of calculations of allowances and charges where base amount and percentage does not exist
+.Esempio UBL di calcolo per sconti e maggiorazioni dove l'importo base e la percentuale non esistono
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/Calc.xml[tags=allowance2]
 ----
-<1> Amount of allowance without calculations based on base amount and percentage
+<1> L'importo dello sconto senza calcoli basati sull'importo base e la percentuale

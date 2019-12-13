@@ -15,7 +15,7 @@ include::../{snippet-dir}/Snippet-refs.xml[tags=project]
 
 
 
-.Esempio UBL per il riferimento al progeto in una nota di credito
+.Esempio UBL per il riferimento al progetto in una nota di credito
 [source, xml, indent=0]
 ----
 include::../{snippet-dir}/CreditNote-snippets.xml[tags=project ]

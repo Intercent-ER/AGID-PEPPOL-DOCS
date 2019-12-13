@@ -31,7 +31,7 @@
         <cbc:ID>ppid-123</cbc:ID>
     </cac:OriginatorDocumentReference>
     <cac:ContractDocumentReference>
-        <cbc:ID>framework no 1</cbc:ID>
+        <cbc:ID>Contratto321</cbc:ID>
     </cac:ContractDocumentReference>
     <cac:AdditionalDocumentReference>
         <cbc:ID schemeID="ABT">DR35141</cbc:ID>
@@ -206,7 +206,7 @@
     <cac:AllowanceCharge>
         <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
         <cbc:AllowanceChargeReasonCode>FC</cbc:AllowanceChargeReasonCode>
-        <cbc:AllowanceChargeReason>Freight service</cbc:AllowanceChargeReason>
+        <cbc:AllowanceChargeReason>Servizio di Trasporto</cbc:AllowanceChargeReason>
         <cbc:MultiplierFactorNumeric>2</cbc:MultiplierFactorNumeric>
         <cbc:Amount currencyID="EUR">20</cbc:Amount>
         <cbc:BaseAmount currencyID="EUR">1000</cbc:BaseAmount>
@@ -221,7 +221,7 @@
     <cac:AllowanceCharge>
         <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
         <cbc:AllowanceChargeReasonCode>65</cbc:AllowanceChargeReasonCode>
-        <cbc:AllowanceChargeReason>Production error discount</cbc:AllowanceChargeReason>
+        <cbc:AllowanceChargeReason>Sconto Errore Produzione</cbc:AllowanceChargeReason>
         <cbc:Amount currencyID="EUR">10</cbc:Amount>
         <cac:TaxCategory>
             <cbc:ID>S</cbc:ID>

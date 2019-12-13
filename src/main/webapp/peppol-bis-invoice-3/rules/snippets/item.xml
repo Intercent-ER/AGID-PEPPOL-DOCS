@@ -19,7 +19,7 @@
         <cbc:EndDate>2017-12-31</cbc:EndDate>
     </cac:InvoicePeriod>
     <cac:ContractDocumentReference>
-        <cbc:ID>framework no 1</cbc:ID>
+        <cbc:ID>Contratto321</cbc:ID>
     </cac:ContractDocumentReference>
     <cac:AdditionalDocumentReference>
         <cbc:ID schemeID="ABT">DR35141</cbc:ID>

@@ -41,7 +41,7 @@
     <!-- end::tender[] -->
     <!-- tag::contract[] -->
     <cac:ContractDocumentReference>
-        <cbc:ID>framework no 1</cbc:ID>
+        <cbc:ID>Contratto321</cbc:ID>
     </cac:ContractDocumentReference>
     <!-- end::contract[] -->
     <!-- tag::object[] -->
@@ -226,7 +226,7 @@
     <cac:AllowanceCharge>
         <cbc:ChargeIndicator>true</cbc:ChargeIndicator><!--1-->
         <cbc:AllowanceChargeReasonCode>FC</cbc:AllowanceChargeReasonCode>
-        <cbc:AllowanceChargeReason>Freight service</cbc:AllowanceChargeReason>
+        <cbc:AllowanceChargeReason>Servizio di Trasporto</cbc:AllowanceChargeReason>
         <cbc:MultiplierFactorNumeric>2</cbc:MultiplierFactorNumeric><!--4-->
         <cbc:Amount currencyID="EUR">20</cbc:Amount> <!--5-->
         <cbc:BaseAmount currencyID="EUR">1000</cbc:BaseAmount><!--3-->
@@ -241,7 +241,7 @@
     <cac:AllowanceCharge>
         <cbc:ChargeIndicator>false</cbc:ChargeIndicator><!--2-->
         <cbc:AllowanceChargeReasonCode>65</cbc:AllowanceChargeReasonCode>
-        <cbc:AllowanceChargeReason>Production error discount</cbc:AllowanceChargeReason>
+        <cbc:AllowanceChargeReason>Sconto Errore Produzione</cbc:AllowanceChargeReason>
         <cbc:Amount currencyID="EUR">10</cbc:Amount>
         <cac:TaxCategory>
             <cbc:ID>S</cbc:ID>

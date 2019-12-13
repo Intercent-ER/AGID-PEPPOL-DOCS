@@ -64,9 +64,10 @@
         <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
     <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
+        <session-timeout>1</session-timeout>
+        <cookie-config>
+            <max-age>0</max-age>
+        </cookie-config>
     </session-config>
     <welcome-file-list>
         <welcome-file>index.htm</welcome-file>

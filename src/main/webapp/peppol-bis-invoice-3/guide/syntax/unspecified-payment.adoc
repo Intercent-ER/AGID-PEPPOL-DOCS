@@ -1,0 +1,9 @@
+
+.Esempio UBL di modalità pagamento non specificata
+[source, xml, indent=0]
+----
+<cac:PaymentMeans>
+	<cbc:PaymentMeansCode>1</cbc:PaymentMeansCode>
+</cac:PaymentMeans>
+----
+<1> Codice modalità pagamento non specificata

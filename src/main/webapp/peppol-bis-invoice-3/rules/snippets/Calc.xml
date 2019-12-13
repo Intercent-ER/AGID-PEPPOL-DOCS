@@ -32,7 +32,7 @@
         <cbc:ID>ppid-123</cbc:ID>
     </cac:OriginatorDocumentReference>
     <cac:ContractDocumentReference>
-        <cbc:ID>framework no 1</cbc:ID>
+        <cbc:ID>Contratto321</cbc:ID>
     </cac:ContractDocumentReference>
     <cac:AdditionalDocumentReference>
         <cbc:ID schemeID="ABT">DR35141</cbc:ID>

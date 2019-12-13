@@ -11,7 +11,7 @@ image::../shared/images/functionality-and-roles.png[Functionality and roles, ali
 == Parti
 
 Cliente::
-The customer is the legal person or organisation who is in demand of a product or service. 
+Il cliente è la persona giuridica o organizzazione che richiede prodotti e/o servizi.
 Esempi di ruoli per il cliente: acquirente (buyer), consegnatario (consignee), debitore (debtor), autorità appaltante (contracting authority)
 
 Fornitore::

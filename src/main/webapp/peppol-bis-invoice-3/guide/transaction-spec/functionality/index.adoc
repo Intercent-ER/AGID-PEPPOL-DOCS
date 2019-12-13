@@ -17,5 +17,12 @@ include::payment.adoc[]
 
 include::negative-invoices.adoc[]
 
+include::withholding-tax.adoc[]
+
+include::social-securities.adoc[]
+
+include::stamp-duty.adoc[]
+
+include::split-payment.adoc[]
 
 :leveloffset: -1

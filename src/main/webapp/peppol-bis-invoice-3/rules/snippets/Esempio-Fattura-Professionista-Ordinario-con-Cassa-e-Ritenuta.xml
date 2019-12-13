@@ -1,0 +1,299 @@
+<Invoice  xsi:schemaLocation="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 UBL-Invoice-2.1.xsd" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ccts="urn:un:unece:uncefact:documentation:2" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2" xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cr="http://www.ubl-italia.org/ns/CrossReference">
+	<cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID>
+	<cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
+	<cbc:ID>14785</cbc:ID>
+	<cbc:IssueDate>2019-03-20</cbc:IssueDate>
+	<cbc:DueDate>2019-12-31</cbc:DueDate>
+	<cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
+	<cbc:Note>Fattura 3.0 in Peppol 3 - Professionista Regime Ordinario Cassa, Ritenuta e Bollo</cbc:Note>
+	<cbc:DocumentCurrencyCode>EUR</cbc:DocumentCurrencyCode>
+	<cbc:AccountingCost>123456</cbc:AccountingCost>
+	<cbc:BuyerReference>1234</cbc:BuyerReference>
+	<cac:InvoicePeriod>
+		<cbc:StartDate>2019-01-01</cbc:StartDate>
+		<cbc:EndDate>2019-12-31</cbc:EndDate>
+	</cac:InvoicePeriod>
+	<cac:OrderReference>
+		<cbc:ID>ORD01</cbc:ID>
+		<cbc:SalesOrderID>222</cbc:SalesOrderID>
+	</cac:OrderReference>
+	<cac:BillingReference>
+		<cac:InvoiceDocumentReference>
+			<cbc:ID>FAT01</cbc:ID>
+			<cbc:IssueDate>2019-03-01</cbc:IssueDate>
+		</cac:InvoiceDocumentReference>
+	</cac:BillingReference>
+	<cac:OriginatorDocumentReference>
+		<cbc:ID>DEL01</cbc:ID>
+	</cac:OriginatorDocumentReference>
+	<cac:ContractDocumentReference>
+		<cbc:ID>CONTR01</cbc:ID>
+	</cac:ContractDocumentReference>
+	<!--<cac:AdditionalDocumentReference><cbc:ID>IMP01</cbc:ID><cbc:DocumentTypeCode>130</cbc:DocumentTypeCode><cbc:DocumentDescription>IMPEGNO</cbc:DocumentDescription></cac:AdditionalDocumentReference>-->
+	<cac:ProjectReference>
+		<cbc:ID>CUP01</cbc:ID>
+	</cac:ProjectReference>
+	<cac:AccountingSupplierParty>
+		<cac:Party>
+			<cbc:EndpointID schemeID="0201">IT:PEC:freelance@pec.it</cbc:EndpointID>
+			<cac:PartyIdentification>
+				<cbc:ID>IT:RF:RF01</cbc:ID>
+			</cac:PartyIdentification>
+			<cac:PartyIdentification>
+				<cbc:ID>IT:ALBO:COMMERCIALISTI:12345</cbc:ID>
+			</cac:PartyIdentification>
+			<cac:PartyName>
+				<cbc:Name>Professionista</cbc:Name>
+			</cac:PartyName>
+			<cac:PostalAddress>
+				<cbc:StreetName>Via Fisco, 100</cbc:StreetName>
+				<cbc:CityName>La Spezia</cbc:CityName>
+				<cbc:PostalZone>19125</cbc:PostalZone>
+				<cbc:CountrySubentity>SP</cbc:CountrySubentity>
+				<cac:Country>
+					<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+				</cac:Country>
+			</cac:PostalAddress>
+			<cac:PartyTaxScheme>
+				<!--La lunghezza del VAT deve essere tra 17 e 22 abbiamo 'IT'-->
+				<cbc:CompanyID>IT01598570354</cbc:CompanyID>
+				<cac:TaxScheme>
+					<cbc:ID>VAT</cbc:ID>
+				</cac:TaxScheme>
+			</cac:PartyTaxScheme>
+			<cac:PartyLegalEntity>
+				<cbc:RegistrationName>Professionista</cbc:RegistrationName>
+			</cac:PartyLegalEntity>
+			<cac:Contact>
+				<cbc:Name>Professionista</cbc:Name>
+				<cbc:Telephone>0187456789</cbc:Telephone>
+				<cbc:ElectronicMail>professionista@freelance.it</cbc:ElectronicMail>
+			</cac:Contact>
+		</cac:Party>
+	</cac:AccountingSupplierParty>
+	<cac:AccountingCustomerParty>
+		<cac:Party>
+			<cbc:EndpointID schemeID="0201">UFY9MH</cbc:EndpointID>
+			<cac:PartyName>
+				<cbc:Name>AZ. USL DI REGGIO E. DISTR. DI REGG</cbc:Name>
+			</cac:PartyName>
+			<cac:PostalAddress>
+				<cbc:StreetName>VIA AMENDOLA 2</cbc:StreetName>
+				<cbc:AdditionalStreetName>Info aggiuntive su indirizzo</cbc:AdditionalStreetName>
+				<cbc:CityName>Reggio Emilia</cbc:CityName>
+				<cbc:PostalZone>42100</cbc:PostalZone>
+				<cbc:CountrySubentity>RE</cbc:CountrySubentity>
+				<cac:AddressLine>
+					<cbc:Line>Info aggiuntive</cbc:Line>
+				</cac:AddressLine>
+				<cac:Country>
+					<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+				</cac:Country>
+			</cac:PostalAddress>
+			<cac:PartyTaxScheme>
+				<cbc:CompanyID>IT01598570354</cbc:CompanyID>
+				<cac:TaxScheme>
+					<cbc:ID>VAT</cbc:ID>
+				</cac:TaxScheme>
+			</cac:PartyTaxScheme>
+			<cac:PartyLegalEntity>
+				<cbc:RegistrationName>Azienda Unita Sanitaria Locale di Reggio Emilia</cbc:RegistrationName>
+			</cac:PartyLegalEntity>
+			<cac:Contact>
+				<cbc:Name>Pinco Pallino</cbc:Name>
+				<cbc:Telephone>05223456789</cbc:Telephone>
+				<cbc:ElectronicMail>Supplier@azienda.it</cbc:ElectronicMail>
+			</cac:Contact>
+		</cac:Party>
+	</cac:AccountingCustomerParty>
+	<!--cac:Delivery><cbc:ActualDeliveryDate>2019-03-30</cbc:ActualDeliveryDate><cac:DeliveryLocation><cbc:ID schemeID="9906">IT01598570354</cbc:ID><cac:Address><cbc:StreetName>V.ALBERTONI, 15</cbc:StreetName><cbc:AdditionalStreetName>Info aggiuntive su indirizzo</cbc:AdditionalStreetName><cbc:CityName>BOLOGNA</cbc:CityName><cbc:PostalZone>40138</cbc:PostalZone><cbc:CountrySubentity>BO</cbc:CountrySubentity><cac:AddressLine><cbc:Line>Info aggiuntive</cbc:Line></cac:AddressLine><cac:Country><cbc:IdentificationCode listID="ISO3166-1:Alpha2">IT</cbc:IdentificationCode></cac:Country></cac:Address></cac:DeliveryLocation><cac:DeliveryParty><cac:PartyName><cbc:Name>Azienda Unita Sanitaria Locale di Reggio Emilia</cbc:Name></cac:PartyName></cac:DeliveryParty></cac:Delivery-->
+	<cac:PaymentMeans>
+		<cbc:PaymentMeansCode>30</cbc:PaymentMeansCode>
+		<!--<cbc:PaymentChannelCode>IBAN</cbc:PaymentChannelCode>-->
+		<cac:PayeeFinancialAccount>
+			<cbc:ID>IT70X0638502437100000046454</cbc:ID>
+		</cac:PayeeFinancialAccount>
+	</cac:PaymentMeans>
+	<cac:TaxTotal>
+		<cbc:TaxAmount currencyID="EUR">675.40</cbc:TaxAmount>
+		<cac:TaxSubtotal>
+			<cbc:TaxableAmount currencyID="EUR">3070.00</cbc:TaxableAmount>
+			<cbc:TaxAmount currencyID="EUR">675.40</cbc:TaxAmount>
+			<cac:TaxCategory>
+				<cbc:ID>S</cbc:ID>
+				<cbc:Percent>22</cbc:Percent>
+				<cac:TaxScheme>
+					<cbc:ID>VAT</cbc:ID>
+				</cac:TaxScheme>
+			</cac:TaxCategory>
+		</cac:TaxSubtotal>
+	</cac:TaxTotal>
+	<cac:LegalMonetaryTotal>
+		<cbc:LineExtensionAmount currencyID="EUR">3070.00</cbc:LineExtensionAmount>
+		<cbc:TaxExclusiveAmount currencyID="EUR">3070.00</cbc:TaxExclusiveAmount>
+		<cbc:TaxInclusiveAmount currencyID="EUR">3745.40</cbc:TaxInclusiveAmount>
+		<cbc:PayableAmount currencyID="EUR">3745.40</cbc:PayableAmount>
+	</cac:LegalMonetaryTotal>
+	<cac:InvoiceLine>
+		<cbc:ID>1</cbc:ID>
+		<cbc:InvoicedQuantity unitCode="C62">1</cbc:InvoicedQuantity>
+		<cbc:LineExtensionAmount currencyID="EUR">2500.00</cbc:LineExtensionAmount>
+		<cac:Item>
+			<cbc:Name>Revisione Contabile</cbc:Name>
+			<cac:SellersItemIdentification>
+				<cbc:ID>138490</cbc:ID>
+			</cac:SellersItemIdentification>
+			<cac:ClassifiedTaxCategory>
+				<cbc:ID>S</cbc:ID>
+				<cbc:Percent>22</cbc:Percent>
+				<cac:TaxScheme>
+					<cbc:ID>VAT</cbc:ID>
+				</cac:TaxScheme>
+			</cac:ClassifiedTaxCategory>
+			<cac:AdditionalItemProperty>
+				<cbc:Name>IT:RITENUTA:ALIQUOTA</cbc:Name>
+				<cbc:Value>20</cbc:Value>
+			</cac:AdditionalItemProperty>
+			<cac:AdditionalItemProperty>
+				<cbc:Name>IT:RITENUTA:TIPO</cbc:Name>
+				<cbc:Value>RT02</cbc:Value>
+			</cac:AdditionalItemProperty>
+			<cac:AdditionalItemProperty>
+				<cbc:Name>IT:RITENUTA:CAUSALE</cbc:Name>
+				<cbc:Value>A</cbc:Value>
+			</cac:AdditionalItemProperty>
+		</cac:Item>
+		<cac:Price>
+			<cbc:PriceAmount currencyID="EUR">2500.00</cbc:PriceAmount>
+		</cac:Price>
+	</cac:InvoiceLine>
+	<cac:InvoiceLine>
+		<cbc:ID>2</cbc:ID>
+		<cbc:InvoicedQuantity unitCode="C62">1</cbc:InvoicedQuantity>
+		<cbc:LineExtensionAmount currencyID="EUR">500.00</cbc:LineExtensionAmount>
+		<cac:Item>
+			<cbc:Name>Consulenza Informatica</cbc:Name>
+			<cac:SellersItemIdentification>
+				<cbc:ID>138500</cbc:ID>
+			</cac:SellersItemIdentification>
+			<cac:ClassifiedTaxCategory>
+				<cbc:ID>S</cbc:ID>
+				<cbc:Percent>22</cbc:Percent>
+				<cac:TaxScheme>
+					<cbc:ID>VAT</cbc:ID>
+				</cac:TaxScheme>
+			</cac:ClassifiedTaxCategory>
+			<cac:AdditionalItemProperty>
+				<cbc:Name>IT:RITENUTA:ALIQUOTA</cbc:Name>
+				<cbc:Value>20</cbc:Value>
+			</cac:AdditionalItemProperty>
+			<cac:AdditionalItemProperty>
+				<cbc:Name>IT:RITENUTA:TIPO</cbc:Name>
+				<cbc:Value>RT02</cbc:Value>
+			</cac:AdditionalItemProperty>
+			<cac:AdditionalItemProperty>
+				<cbc:Name>IT:RITENUTA:CAUSALE</cbc:Name>
+				<cbc:Value>A</cbc:Value>
+			</cac:AdditionalItemProperty>
+		</cac:Item>
+		<cac:Price>
+			<cbc:PriceAmount currencyID="EUR">500.00</cbc:PriceAmount>
+		</cac:Price>
+	</cac:InvoiceLine>
+        <!-- tag::cassa[] -->
+	<!--Cassa #1 Commercialisti-->
+	<cac:InvoiceLine>
+		<cbc:ID>99998</cbc:ID>
+		<cbc:InvoicedQuantity unitCode="C62">1</cbc:InvoicedQuantity>
+		<cbc:LineExtensionAmount currencyID="EUR">50.00</cbc:LineExtensionAmount><!--1-->
+		<cac:Item>
+			<cbc:Name>IT:CASSA</cbc:Name><!--2-->
+			<cac:ClassifiedTaxCategory>
+				<cbc:ID>S</cbc:ID>
+				<cbc:Percent>22</cbc:Percent>
+				<cac:TaxScheme>
+					<cbc:ID>VAT</cbc:ID>
+				</cac:TaxScheme>
+			</cac:ClassifiedTaxCategory>
+			<cac:AdditionalItemProperty>
+				<cbc:Name>IT:CASSA:TIPO</cbc:Name><!--3-->
+				<cbc:Value>TC02</cbc:Value>
+			</cac:AdditionalItemProperty>
+			<cac:AdditionalItemProperty>
+				<cbc:Name>IT:CASSA:ALIQUOTA</cbc:Name><!--4-->
+				<cbc:Value>2.00</cbc:Value>
+			</cac:AdditionalItemProperty>
+			<cac:AdditionalItemProperty>
+				<cbc:Name>IT:CASSA:IMPONIBILE</cbc:Name><!--5-->
+				<cbc:Value>2500.00</cbc:Value>
+			</cac:AdditionalItemProperty>
+			<cac:AdditionalItemProperty>
+				<cbc:Name>IT:CASSA:RIFAMM</cbc:Name><!--6-->
+				<cbc:Value>ABCD</cbc:Value>
+			</cac:AdditionalItemProperty>
+			<cac:AdditionalItemProperty>
+				<cbc:Name>IT:RITENUTA:ALIQUOTA</cbc:Name><!--7-->
+				<cbc:Value>20</cbc:Value>
+			</cac:AdditionalItemProperty>
+			<cac:AdditionalItemProperty>
+				<cbc:Name>IT:RITENUTA:TIPO</cbc:Name><!--8-->
+				<cbc:Value>RT01</cbc:Value>
+			</cac:AdditionalItemProperty>
+			<cac:AdditionalItemProperty>
+				<cbc:Name>IT:RITENUTA:CAUSALE</cbc:Name><!--9-->
+				<cbc:Value>A</cbc:Value>
+			</cac:AdditionalItemProperty>
+		</cac:Item>
+		<cac:Price>
+			<cbc:PriceAmount currencyID="EUR">50.00</cbc:PriceAmount>
+		</cac:Price>
+	</cac:InvoiceLine>
+	<!--Cassa #2 INPS-->
+	<cac:InvoiceLine>
+		<cbc:ID>99999</cbc:ID>
+		<cbc:InvoicedQuantity unitCode="C62">1</cbc:InvoicedQuantity>
+		<cbc:LineExtensionAmount currencyID="EUR">20.00</cbc:LineExtensionAmount><!--1-->
+		<cac:Item>
+			<cbc:Name>IT:CASSA</cbc:Name><!--2-->
+			<cac:ClassifiedTaxCategory>
+				<cbc:ID>S</cbc:ID>
+				<cbc:Percent>22</cbc:Percent>
+				<cac:TaxScheme>
+					<cbc:ID>VAT</cbc:ID>
+				</cac:TaxScheme>
+			</cac:ClassifiedTaxCategory>
+			<cac:AdditionalItemProperty>
+				<cbc:Name>IT:CASSA:TIPO</cbc:Name><!--3-->
+				<cbc:Value>TC22</cbc:Value>
+			</cac:AdditionalItemProperty>
+			<cac:AdditionalItemProperty>
+				<cbc:Name>IT:CASSA:ALIQUOTA</cbc:Name><!--4-->
+				<cbc:Value>4.00</cbc:Value>
+			</cac:AdditionalItemProperty>
+			<cac:AdditionalItemProperty>
+				<cbc:Name>IT:CASSA:IMPONIBILE</cbc:Name><!--5-->
+				<cbc:Value>500.00</cbc:Value>
+			</cac:AdditionalItemProperty>
+			<cac:AdditionalItemProperty>
+				<cbc:Name>IT:CASSA:RIFAMM</cbc:Name><!--6-->
+				<cbc:Value>ABCD</cbc:Value>
+			</cac:AdditionalItemProperty>
+			<cac:AdditionalItemProperty>
+				<cbc:Name>IT:RITENUTA:ALIQUOTA</cbc:Name><!--7-->
+				<cbc:Value>20</cbc:Value>
+			</cac:AdditionalItemProperty>
+			<cac:AdditionalItemProperty>
+				<cbc:Name>IT:RITENUTA:TIPO</cbc:Name><!--8-->
+				<cbc:Value>RT01</cbc:Value>
+			</cac:AdditionalItemProperty>
+			<cac:AdditionalItemProperty>
+				<cbc:Name>IT:RITENUTA:CAUSALE</cbc:Name><!--9-->
+				<cbc:Value>A</cbc:Value>
+			</cac:AdditionalItemProperty>
+		</cac:Item>
+		<cac:Price>
+			<cbc:PriceAmount currencyID="EUR">20.00</cbc:PriceAmount>
+		</cac:Price>
+	</cac:InvoiceLine>
+        <!-- end::cassa[] -->
+</Invoice>

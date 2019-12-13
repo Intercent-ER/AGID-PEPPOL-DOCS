@@ -1,7 +1,15 @@
 
-.Esempio UBL di identificatori per l'attributo
+.Esempio UBL di identificatori per l'articolo
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/item.xml[tags=item]
 ----
 <1> 0160 è il valore ICD per l'identificatore GTIN
+
+
+.Esempio UBL di identificatore AIC per i farmaci
+[source, xml, indent=0]
+----
+include::{snippet-dir}/item.xml[tags=aic]
+----
+<1> IT:AICFARMACO: è il prefisso utilizzato per qualificare l'identificatore AIC per il farmaco

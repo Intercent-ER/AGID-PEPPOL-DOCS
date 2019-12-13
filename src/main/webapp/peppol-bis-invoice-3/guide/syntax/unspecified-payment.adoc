@@ -3,7 +3,7 @@
 [source, xml, indent=0]
 ----
 <cac:PaymentMeans>
-	<cbc:PaymentMeansCode>1</cbc:PaymentMeansCode>
+	<cbc:PaymentMeansCode>1</cbc:PaymentMeansCode><!--1-->
 </cac:PaymentMeans>
 ----
 <1> Codice modalità pagamento non specificata

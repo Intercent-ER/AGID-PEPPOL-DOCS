@@ -40,7 +40,7 @@ Nel caso B2C il Cliente può essere un cittadino (persona fisica) non accreditat
 
 <cac:AccountingCustomerParty>
 	<cac:Party>
-		<cbc:EndpointID schemeID="9921">CODDEST:0000000</cbc:EndpointID>
+		<cbc:EndpointID schemeID="0201">CODDEST:0000000</cbc:EndpointID>
 		<cac:PartyName>
 			<cbc:Name>Mario Rossi</cbc:Name>
 		</cac:PartyName>

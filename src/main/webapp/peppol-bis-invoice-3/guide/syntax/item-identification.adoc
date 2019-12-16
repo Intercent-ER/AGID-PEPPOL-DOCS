@@ -12,4 +12,4 @@ include::{snippet-dir}/item.xml[tags=item]
 ----
 include::{snippet-dir}/item.xml[tags=aic]
 ----
-<1> IT:AICFARMACO: è il prefisso utilizzato per qualificare l'identificatore AIC per il farmaco
+<1> AICFARMACO: è il prefisso utilizzato per qualificare l'identificatore AIC per i farmaci

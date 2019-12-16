@@ -14,10 +14,10 @@ L’attributo “schemeID” deve essere popolato in tutte le istanze dell’ele
 
 [source, xml]
 
-<cbc:EndpointID schemeID="9921">ABCDEF</cbc:EndpointID>
+<cbc:EndpointID schemeID="0201">ABCDEF</cbc:EndpointID>
 
 <cac:PartyIdentification>
-	<cbc:ID schemeID=" 9921">ABCDEF</cbc:ID>
+	<cbc:ID schemeID="0201">ABCDEF</cbc:ID>
 </cac:PartyIdentification>
 
 .Esempio di utilizzo nel PartyIdentification del codice destinatario accreditato su SDI:
@@ -25,14 +25,14 @@ L’attributo “schemeID” deve essere popolato in tutte le istanze dell’ele
 [source, xml]
 
 <cac:PartyIdentification>
-	<cbc:ID schemeID=" 9921">CODDEST:ABCDEFG</cbc:ID>
+	<cbc:ID schemeID="0201">CODDEST:ABCDEFG</cbc:ID>
 </cac:PartyIdentification>
 
 .Esempio di utilizzo nel PartyIdentification del codice destinatario non accreditato per il quale si conosce la PEC o non si conosce alcun canale telematico di recapito:
 
 [source, xml]
 <cac:PartyIdentification>
-	<cbc:ID schemeID=" 9921">CODDEST:0000000</cbc:ID>
+	<cbc:ID schemeID="0201">CODDEST:0000000</cbc:ID>
 </cac:PartyIdentification>
 
 .Esempio di utilizzo nel PartyIdentification del codice destinatario per soggetto non residente, non stabilito o identificato in Italia:
@@ -40,7 +40,7 @@ L’attributo “schemeID” deve essere popolato in tutte le istanze dell’ele
 [source, xml]
 
 <cac:PartyIdentification>
-	<cbc:ID schemeID=" 9921">CODDEST:XXXXXXX</cbc:ID>
+	<cbc:ID schemeID="0201">CODDEST:XXXXXXX</cbc:ID>
 </cac:PartyIdentification>
 
 .Esempio di utilizzo della P.IVA in PartyIdentification:
@@ -48,7 +48,7 @@ L’attributo “schemeID” deve essere popolato in tutte le istanze dell’ele
 [source, xml]
 
 <cac:PartyIdentification>
-	<cbc:ID schemeID=" 9906">IT07643520567</cbc:ID>
+	<cbc:ID schemeID="9906">IT07643520567</cbc:ID>
 </cac:PartyIdentification>
 
 .Esempio di utilizzo del CF in PartyIdentification:
@@ -56,7 +56,7 @@ L’attributo “schemeID” deve essere popolato in tutte le istanze dell’ele
 [source, xml]
 
 <cac:PartyIdentification>
-	<cbc:ID schemeID=" 9907">07643520567</cbc:ID>
+	<cbc:ID schemeID="9907">07643520567</cbc:ID>
 </cac:PartyIdentification>
 
 

@@ -1,6 +1,6 @@
 [appendix]
 [[national_rules]]
-= Regole Nationali
+= Regole Nazionali
 
 Le seguenti regole sono state definite dalle Autorità PEPPOL in aggiunta alle regole {peppol} BIS in generale.
 Queste regole sono applicate in base al paese di origine del venditore, e non saranno influenzate le fattyre emesse in altri paesi. Queste si applicano a *tutti* i profili che utilizzano la specifica di questa transazione.

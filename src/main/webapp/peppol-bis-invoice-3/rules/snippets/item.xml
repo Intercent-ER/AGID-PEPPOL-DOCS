@@ -410,7 +410,7 @@
             </cac:SellersItemIdentification>
             <!-- tag::dm1[] -->
             <cac:CommodityClassification>
-                <cbc:ItemClassificationCode listID="ZZZ" listVersionID="DM1">130209/R</cbc:ItemClassificationCode><!--1-->
+                <cbc:ItemClassificationCode listID="ZZZ">DM1:130209/R</cbc:ItemClassificationCode><!--1-->
             </cac:CommodityClassification>
             <!-- end::dm1[] -->
             <cac:ClassifiedTaxCategory>
@@ -459,7 +459,7 @@
             </cac:BuyersItemIdentification>
             <!-- tag::aic[] -->
             <cac:SellersItemIdentification>
-                <cbc:ID>IT:AICFARMACO:141900</cbc:ID> <!--1-->
+                <cbc:ID>AICFARMACO:141900</cbc:ID> <!--1-->
             </cac:SellersItemIdentification>
             <!-- end::aic[] -->
             <cac:StandardItemIdentification>

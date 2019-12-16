@@ -25,5 +25,5 @@ L’attributo schemeID dovrà essere valorizzato con:
 ----
 include::{snippet-dir}/item.xml[tags=dm1]
 ----
-<1> Il listID deve essere fra quelli della codifica UNCL7143 e il codice ZZZ indica che questo è una classificazione in base ad accordi bilateali, mentre il listVersionID è opzionale, ma in questo caso deve essere usato per specificare la versione del dispositivo medico (DM1, DM2).
+<1> Il listID deve essere fra quelli della codifica UNCL7143 e il codice ZZZ indica che questo è una classificazione in base ad accordi bilateali, mentre il listVersionID è opzionale.
 

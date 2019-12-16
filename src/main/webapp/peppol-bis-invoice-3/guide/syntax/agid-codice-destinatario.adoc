@@ -8,7 +8,7 @@ Di seguito si fornisce un esempio generico per fornire un codice destinatario co
 [source, xml]
 
 <cac:EndPointID>
-    <cbc:ID schemeID="9921">CODDEST:ABCDEFG</cbc:ID>
+    <cbc:ID schemeID="0201">CODDEST:ABCDEFG</cbc:ID>
 </cac:EndPointID>
 
 In dettaglio, la sintassi da utilizzare per i diversi  destinatari della fattura viene fornita nella seguente tabella:

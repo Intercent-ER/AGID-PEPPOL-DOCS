@@ -1,12 +1,12 @@
 
 = Revisione
 
-Le società revisionano se stesse come mezzo di controllo interno o possono essere revisionate da parti esterne come parte di un obbligo legale. La contabilità è un processo regolare e continuo mentre una revisione è un processo di controllo distinto per garantire che la contabilità sia stata eseguita correttamente. Il processo di revisione richiede determinati requisiti informativi su una fattura. Questi requisiti sono principalmente correlati alla verifica dell'autenticità e dell'integrità della transazione contabile.
+Le società revisionano se stesse come mezzo di controllo interno o possono essere revisionate da parti esterne come parte di un obbligo legale. La contabilità è un processo regolare e continuo mentre una revisione è un processo di controllo distinto per garantire che la contabilità sia stata tenuta correttamente. Il processo di revisione richiede determinati requisiti informativi di una fattura. Questi requisiti sono principalmente correlati alla verifica dell'autenticità e dell'integrità della transazione contabile.
 
-Le fatture conformi a questa PEPPOL BIS supportano il processo di revisione contabile fornendo informazioni sufficienti per
+Le fatture conformi a questa specifica PEPPOL BIS supportano il processo di revisione contabile fornendo informazioni sufficienti per
 
 *	Identificazione delle parti interessate, relativo acquirente e venditore.
-*	Identificazione dei prodotti e/o servizi commercializzati, inclusa la loro descrizione, valore e quantità.
+*	Identificazione dei beni e/o servizi commercializzati, inclusa la loro descrizione, valore e quantità.
 *	Informazioni per correlare la fattura ai suoi pagamenti.
 *	Informazioni per correlare la fattura ai documenti rilevanti come i contratti e gli ordini.
 

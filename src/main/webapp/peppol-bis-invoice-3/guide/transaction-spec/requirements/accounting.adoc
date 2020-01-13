@@ -4,15 +4,15 @@
 [cols="1,10", options="header"]
 |===
 |Id
-|Requirement (depending, as applicable, on the respective business case)
+|Requisiti (se applicabili)
 
 |R1
-|information at document level that enables the identification of the Payee, if different from the Seller
+|informazioni a livello di documento che consentono l'identificazione del beneficiario (Payee) se differente dal fornitore (Seller)
 |R2
-|information at document level that enables booking on both the debit and the credit side
+|informazioni a livello di documento che consentono la contabilizzazione sia al creditore che al debitore
 |R3
-|information at invoice line level that enables booking on the debit side
+|informazioni a livello di linea che consentono la contabilizzazione al debitore
 |R4
-|Buyer-specific booking information (account numbers)
+|informazioni specifiche rilevanti per la contabilizzazione per l'acquirente (Buyer)
 
 |===

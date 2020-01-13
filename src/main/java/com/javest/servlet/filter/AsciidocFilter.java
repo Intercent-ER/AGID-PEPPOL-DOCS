@@ -135,7 +135,7 @@ public class AsciidocFilter implements Filter {
                 //result = new StreamResult(os instanceof BufferedOutputStream ? os : new BufferedOutputStream(os));
             
                 // XSL-FO to PDF
-                FopFactory fopFactory = FopFactory.newInstance(new File(".").toURI());
+                FopFactory fopFactory = FopFactory.newInstance(new File(webAppPath, req.getRequestURI()).getParentFile().toURI());
                 
                 //Setup a buffer to obtain the content length
                 ByteArrayOutputStream out = new ByteArrayOutputStream();

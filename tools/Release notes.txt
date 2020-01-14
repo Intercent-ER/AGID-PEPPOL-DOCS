@@ -11,8 +11,9 @@ Validazione profili Ordine, Fattura, NC e DDT 2.1
 FATTURA 3.0 --> Javest-PEPPOL-BIS-3.0-NotiER-Test-V1.1.2.zip
 Validazione profili Fattura e NC 3.0
 
-ORDINE 3.0 --> Javest-PEPPOL-BIS-Test-V2.2.3.zip
-Validazione profilo Ordine e Ordine con Risposta 3.0 
+ORDINE 3.0 --> Javest-PEPPOL-BIS-3.0-NSO-Test-V1.3.2.zip
+Validazione profilo Ordine e Ordine con Risposta 3.0
+Aggiornamenti: inibizione regola italiana "INT-T01-R004" perchè refuso dell'Ordine 2.1
 
 
 

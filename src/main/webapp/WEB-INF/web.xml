@@ -6,6 +6,10 @@
         <description>AsciiDoc to HTML5 Filter</description>
         <filter-name>AsciiDoc Filter</filter-name>
         <filter-class>com.javest.servlet.filter.AsciidocFilter</filter-class>
+        <init-param>
+            <param-name>docbook-xsl-fo-adapter</param-name>
+            <param-value>WEB-INF/xsl/docbook/fo/docbook.xsl</param-value>
+        </init-param>
     </filter>
     <filter>
         <description>DIFI XML Document Syntax to HTML5 Filter</description>
@@ -70,6 +74,6 @@
         </cookie-config>
     </session-config>
     <welcome-file-list>
-        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

@@ -1,0 +1,33 @@
+TOOLS DI CONVERSIONE E VALIDAZIONE
+
+RELEASE NOTES
+
+
+*********** VALIDATORI ************
+
+ORDINE E FATTURA 2.1 --> Javest-PEPPOL-BIS-Test-V2.2.3.zip
+Validazione profili Ordine, Fattura, NC e DDT 2.1
+
+FATTURA 3.0 --> Javest-PEPPOL-BIS-3.0-NotiER-Test-V1.1.2.zip
+Validazione profili Fattura e NC 3.0
+
+ORDINE 3.0 --> Javest-PEPPOL-BIS-3.0-NSO-Test-V1.3.2.zip
+Validazione profilo Ordine e Ordine con Risposta 3.0
+Aggiornamenti: inibizione regola italiana "INT-T01-R004" perchè refuso dell'Ordine 2.1
+
+
+
+*********** CONVERTITORI *************
+
+FATTURA 2.1 E FATTURA 3.0 --> Javest-PEPPOL-Billing-Converters-V2.3.9.zip
+Conversione Fattura 2.1 in SDI e viceversa
+Conversione NC 2.1 in SDI e viceversa
+Validazione della Fattura SDI e della NC SDI in output alla conversione  
+Conversione Fattura 3.0 in Fattura 2.1
+
+ORDINE 2.1
+Non esiste un convertitore
+
+ORDINE 3.0
+Non esiste un convertitore perchè l'Ordine 3.0 è già compliant con NSO
+

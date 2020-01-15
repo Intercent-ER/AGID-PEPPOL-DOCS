@@ -28,6 +28,13 @@ body.adoc-mode #adoc-viewer {
     left: 50%;
     position: absolute;
 }
+.asciidoc-pdf {
+    margin-right: 0px;
+    margin-top: -35px;
+    float: right;
+    position: relative;
+}
+
 /*
 .navbar .container {
     background-image: url("/images/credits.png");

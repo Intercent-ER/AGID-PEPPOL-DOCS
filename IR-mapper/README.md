@@ -1,8 +1,8 @@
 # Invoice Response Mapper
 
-The file adapter.xslt is an XSLT transformation written according to the XSLT specifications on version 2.0
+The Invoice Response Mapper is an output of the E-eISI project (INEA Action n. 2017-IT-IA-0150); it contains all the templates needed for the translation of all SDI notifications that are supposed to be delivered over the Peppol Network, from the FatturaPA XML standard to the Peppol 3.0 Invoice Response Business Interoperability Specifications
 
-The file contains all the templates needed for the translation of all SDI notifications that are supposed to be delivered over the Peppol Network, as an output of the E-eISI project (INEA Grant #), from the FatturaPA XML standard to the Peppol 3.0 Invoice Response Business Interoperability Specifications
+The file adapter.xslt is an XSLT transformation written according to the XSLT specifications on version 2.0 
 
 The mapper can be used as standalone using an xslt transformation engine as the ones available as opensource software, or from any application able to manipulate xml and xslt files (as an example, from a JAVA application using the Saxon library).
 

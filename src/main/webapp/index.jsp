@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<%@page 
+    contentType="text/html" 
+    pageEncoding="UTF-8"
+%><!DOCTYPE html>
 <html lang="en">
     <head>
         <title>Specifiche PEPPOL 3.0</title>
@@ -6,24 +9,21 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-        <link rel="stylesheet" href="/css/bootstrap.css"/>
-        <link rel="stylesheet" href="/css/structure.css?v=1.1"/>
-        <link rel="stylesheet" href="/css/font-awesome.min.css?v=4.7.0"/>
-        <!--link rel="stylesheet" href="/pdfjs/web/viewer.css"/>
-        <!--link rel="resource" type="application/l10n" href="/pdfjs/web/locale/it/viewer.properties"/-->
+        <link rel="stylesheet" href="css/bootstrap.css"/>
+        <link rel="stylesheet" href="css/structure.css?v=1.1"/>
+        <link rel="stylesheet" href="css/font-awesome.min.css?v=4.7.0"/>
 
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-        <script src="/js/jquery-1.12.4.min.js"></script>
-        <script src="/js/bootstrap.js"></script>
-        <!--script src="/pdfjs/build/pdf.js" defer></script>
-        <script src="/pdfjs/web/embedded-pdf-viewer.js" defer></script-->
+        <script src="js/jquery-1.12.4.min.js"></script>
+        <script src="js/bootstrap.js"></script>
         <script>
             //<![CDATA[
             $(function () {
-                var $html = $("html"), $body = $("body"), $main = $("#main"), $guide = $("#guide").hide(), $adoc = $("#adoc-viewer"), $loader = $("#loader");
+                const VER = "1.2";    // Math.random()*1000000
+                var $body = $("body"), $main = $("#main"), $guide = $("#guide").hide(), $adoc = $("#adoc-viewer"), $loader = $("#loader");
                 var defBis = "peppol-bis-invoice-3";
 
                 $.bis = $.bis || {};
@@ -31,15 +31,15 @@
                     var bisRef = $bis.attr("href");
                     $("#home-title").text($bis.text());
                     // Home Menu
-                    $("#syntax-menu").load(bisRef + '/menu/syntax-menu.html .dropdown-menu > li');
-                    $("#rule-menu").load(bisRef + '/menu/rule-menu.html .dropdown-menu > li');
-                    $("#codelist-menu").load(bisRef + '/menu/codelist-menu.html .dropdown-menu > li');
+                    $("#syntax-menu").load(bisRef + '/menu/syntax-menu.html?v='+VER+' .dropdown-menu > li');
+                    $("#rule-menu").load(bisRef + '/menu/rule-menu.html?v='+VER+' .dropdown-menu > li');
+                    $("#codelist-menu").load(bisRef + '/menu/codelist-menu.html?v='+VER+' .dropdown-menu > li');
                     // Home List
-                    $("#intro-list").load(bisRef + '/menu/intro-list.html .list-group > a');
-                    $("#bis-list").load(bisRef + '/menu/bis-list.html .list-group > a');
-                    $("#syntax-list").load(bisRef + '/menu/syntax-list.html .list-group > a');
-                    $("#rule-list").load(bisRef + '/menu/rule-list.html .list-group > a');
-                    $("#codelist-list").load(bisRef + '/menu/codelist-list.html .list-group > a');
+                    $("#intro-list").load(bisRef + '/menu/intro-list.html?v='+VER+' .list-group > a');
+                    $("#bis-list").load(bisRef + '/menu/bis-list.html?v='+VER+' .list-group > a');
+                    $("#syntax-list").load(bisRef + '/menu/syntax-list.html?v='+VER+' .list-group > a');
+                    $("#rule-list").load(bisRef + '/menu/rule-list.html?v='+VER+' .list-group > a');
+                    $("#codelist-list").load(bisRef + '/menu/codelist-list.html?v='+VER+' .list-group > a');
                 };
 
                 $.bis.current = $("#peppol-bis a[href='" + defBis + "']");
@@ -61,56 +61,55 @@
                     e.preventDefault();
 
                     var $a = $(this);
-                    var doc = $a.attr("href");
+                    var doc = '<%=request.getContextPath()%>/' + $a.attr("href");
                     $main.hide();
-                    if (doc.indexOf("format=pdf") !== -1) {
+                    if (doc !== $adoc.attr("src")) {
                         $guide.html($loader).show();
-                        $adoc.empty().attr("src", "/pdfjs/web/viewer.html?file=" + encodeURIComponent(doc));
-                    } else if (doc !== $adoc.attr("src")) {
-                        $guide.html($loader).show();
-                        $adoc.empty().attr("src", doc);
+                        $adoc.contents().empty().scrollTop(0);
+                        $adoc.attr("src", doc);
                     } else {
                         $guide.hide();
-                        $adoc.show();
+                        $adoc.scrollTop(0).show();
                     }
                 }).on("click", "#intro-list a .asciidoc-pdf, #bis-list a .asciidoc-pdf", function (e) {
                     e.stopImmediatePropagation();
                     e.preventDefault();
 
                     var $a = $(this).parent("a");
-                    var doc = $a.attr("href") + "?format=pdf";
+                    var doc = '<%=request.getContextPath()%>/' + $a.attr("href") + "?format=pdf";
                     $main.hide();
                     $guide.html($loader).show();
-                    $adoc.empty().attr("src", "/pdfjs/web/viewer.html?file=" + encodeURIComponent(doc));
+                    $adoc.contents().empty().scrollTop(0);
+                    $adoc.attr("src", "pdfjs/web/viewer.html?file=" + encodeURIComponent(doc));
                 }).on("click", "#syntax-menu a, #syntax-list a, #rule-menu a, #rule-list a, #codelist-menu a, #codelist-list a, #section-menu a", function (e) {
                     e.preventDefault();
-                    var $item = $(this), href = $item.attr("href");
+                    var $item = $(this), href = $item.attr("href") + "?v="+VER;
                     $body.removeClass("adoc-mode");
                     $main.hide();
                     $guide.html($loader).show();
                     $.bis.currentMenu = $item.closest(".dropdown-menu, .list-group").attr("id");
                     $.bis.currentTitle = $item.text();
                     $.bis.currentUrl = href;
-                    $guide.load(href + " #main > *", function (e) {
+                    $guide.load("<%=request.getContextPath()%>/" + href + " #main > *", function (e) {
                         $loader.appendTo("#parking");
                         $("#context").text($.bis.currentTitle);
                         $("#path .active").text($.bis.currentTitle);
                     });
                 }).on("click", "#bis-section", function (e) {
                     e.preventDefault();
-                    var $section = $(this);
+                    var href = $(this).attr("href") + ".html?v="+VER;
                     $body.removeClass("adoc-mode");
                     $main.hide();
                     $guide.html($loader).show();
-                    $guide.load($.bis.current.attr("href") + '/menu/' + $section.attr("href") + ".html #main > *", function (e) {
+                    $guide.load($.bis.current.attr("href") + '/menu/' + href + " #main > *", function (e) {
                         $loader.appendTo("#parking");
                     });
                 }).on("click", "#bis-item", function (e) {
                     e.preventDefault();
-                    var $item = $(this), href = $item.attr("href");
+                    var href = $(this).attr("href") + "?v="+VER;
                     $main.hide();
                     $guide.html($loader).show();
-                    $guide.load(href + " #main > *", function (e) {
+                    $guide.load("<%=request.getContextPath()%>/" + href + " #main > *", function (e) {
                         $loader.appendTo("#parking");
                         $("#context").text($.bis.currentTitle);
                         $("#path .active").text($.bis.currentTitle);
@@ -121,14 +120,7 @@
                     $guide.hide();
                     $main.show();
                     $.bis.initBIS($.bis.current);
-                });
-
-                $adoc.load(function () {
-                    $loader.appendTo("#parking");
-                    $body.addClass("adoc-mode");
-                });
-
-                $(document).on("click", "#path li.subcontext a", function (e) {
+                }).on("click", "#path li.subcontext a", function (e) {
                     e.preventDefault();
                     var ctx = $("#" + $(this).attr("href"));
                     changeSyntaxContext(ctx);
@@ -140,6 +132,11 @@
                     e.preventDefault();
                     var ctx = $(this);
                     changeRulesContext(ctx);
+                });
+                
+                $adoc.load(function () {
+                    $loader.appendTo("#parking");
+                    $body.addClass("adoc-mode");
                 });
 
                 function changeSyntaxContext(ctx, showRef) {
@@ -202,7 +199,7 @@
                     </button>
                     <!--a class="navbar-brand" href="#">Specifiche PEPPOL 3.0</a-->
                     <!--a class="navbar-brand" href="#">AGID</a-->
-                    <a class="navbar-brand" href="#" style="margin-top: -15px;"><img src="/images/credits.png" height="50" alt="AGID"></a>
+                    <a class="navbar-brand" href="#" style="margin-top: -15px;"><img src="images/credits.png" height="50" alt="AGID"></a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -310,7 +307,6 @@
 
         </div>
         <iframe id="adoc-viewer" name="adocViewer" src="" style="display: none; width: 100%; height: 100%; border: none" allowfullscreen webkitallowfullscreen></iframe>
-        <%--jsp:include page="/pdfjs/web/embedded-pdf-viewer.jsp" flush="true"></jsp:include--%>
         <div id="parking" style="display: none;">
             <div id="loader"><i class="spinner fa fa-spinner fa-pulse fa-3x"></i></div>
         </div>

@@ -103,9 +103,9 @@ public class XmlFilter implements Filter {
         OutputStream os;
         Source source = null;
         Result result = null;
-        String requestUri = req.getRequestURI();
+        final String servletPath = req.getServletPath();
         
-        if (!requestUri.endsWith("." + suffix)) {
+        if (!servletPath.endsWith("." + suffix)) {
             // pass the request along the filter chain
             chain.doFilter(request, response);
             return;
@@ -115,7 +115,7 @@ public class XmlFilter implements Filter {
             response.setContentType("text/html;charset=UTF-8");
             os = response.getOutputStream(); //.getWriter().write(html);
 
-            source = new StreamSource(new File(webAppPath, requestUri));
+            source = new StreamSource(new File(webAppPath, servletPath));
             result = new StreamResult(os instanceof BufferedOutputStream ? os : new BufferedOutputStream(os));
             transformer.setOutputProperty(OutputKeys.INDENT, "no");
             transformer.transform(source, result);

@@ -107,8 +107,8 @@
                     </div>
 
                     <div class="page-header" style="margin-top:0;padding-top:10px">
-                        <img style="width: 255px; height: 68px;margin-left:5%;" alt="AGID" src="/images/logo_AgID.jpg"/>
-                        <img style="width: 225px; height: 103px;margin-left:40%;" alt="Intercent-ER" src="/images/logo_INTERCENT-ER.jpg"/>
+                        <img style="width: 255px; height: 68px;margin-left:5%;" alt="AGID" src="images/logo_AgID.jpg"/>
+                        <img style="width: 225px; height: 103px;margin-left:40%;" alt="Intercent-ER" src="images/logo_INTERCENT-ER.jpg"/>
                     </div>																	
 
                     <div class="table-responsive">

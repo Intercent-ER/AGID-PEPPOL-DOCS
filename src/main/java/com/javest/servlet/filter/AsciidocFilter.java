@@ -110,7 +110,8 @@ public class AsciidocFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         final HttpServletRequest req = (HttpServletRequest) request;
         final Asciidoctor asciidoctor = adocPool.borrowObject();
-        final File asciidocFile = new File(webAppPath, req.getRequestURI());
+        final String servletPath = req.getServletPath();
+        final File asciidocFile = new File(webAppPath, servletPath);
         Transformer transformer = null;
         StreamSource source = null;
         Result result = null;
@@ -131,11 +132,11 @@ public class AsciidocFilter implements Filter {
                 // DocBook to XSL-FO
                 //os = response.getOutputStream(); //.getWriter().write(html);
 
-                source = new StreamSource(new File(webAppPath, req.getRequestURI().substring(0, req.getRequestURI().lastIndexOf(".")) + ".xml"));
+                source = new StreamSource(new File(webAppPath, servletPath.substring(0, servletPath.lastIndexOf(".")) + ".xml"));
                 //result = new StreamResult(os instanceof BufferedOutputStream ? os : new BufferedOutputStream(os));
             
                 // XSL-FO to PDF
-                FopFactory fopFactory = FopFactory.newInstance(new File(webAppPath, req.getRequestURI()).getParentFile().toURI());
+                FopFactory fopFactory = FopFactory.newInstance(asciidocFile.getParentFile().toURI());
                 
                 //Setup a buffer to obtain the content length
                 ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -159,15 +160,15 @@ public class AsciidocFilter implements Filter {
                 response.getOutputStream().write(out.toByteArray());
                 response.getOutputStream().flush();
                 /*
-                try (OutputStream outputStream = new FileOutputStream(new File(webAppPath, req.getRequestURI().substring(0, req.getRequestURI().lastIndexOf(".")) + ".pdf"))) {
+                try (OutputStream outputStream = new FileOutputStream(new File(webAppPath, servletPath.substring(0, servletPath.lastIndexOf(".")) + ".pdf"))) {
                     out.writeTo(outputStream);
                     out.flush();
-                    request.getRequestDispatcher("/pdfjs/web/viewer.html?file="+ req.getRequestURI().substring(0, req.getRequestURI().lastIndexOf(".")) + ".pdf").forward(request, response);
+                    request.getRequestDispatcher("/pdfjs/web/viewer.html?file="+ servletPath.substring(0, servletPath.lastIndexOf(".")) + ".pdf").forward(request, response);
                 }*/
             } else {    // HTML5
                 attributes.setAnchors(true);
                 attributes.linkCss(true);
-                attributes.stylesDir("/css");
+                attributes.stylesDir(req.getContextPath() + "/css");
                 attributes.styleSheetName("asciidoctor-default.css");
                 
                 options.toFile(false).headerFooter(true).safe(SafeMode.UNSAFE).attributes(attributes.get());

@@ -1,5 +1,5 @@
 
-//image::../../frontend/images/IMG_PEPPOL/PEPPOL_Authority.jpg[]
+//image::../../images/PEPPOL_Authority.jpg[]
 
 <<<
 

@@ -52,4 +52,4 @@ s|Description
 
 The following diagram links the business processes to the roles performed by the Business Partners.
 
-image::images/ordering-roles.png[Roles in ordering]
+image::images/ordering-roles.png[Roles in ordering,width=100%, pdfwidth=100%, scaledwidth=100%]

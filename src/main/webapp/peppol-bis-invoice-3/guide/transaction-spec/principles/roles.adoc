@@ -5,7 +5,7 @@
 
 Il diagramma riportato di seguito mostra i ruoli coinvolti nelle transazioni di fatture e note di credito. Il cliente e il destinatario della fattura sono la stessa entità, come pure il fornitore e il mittente della fattura.
 
-image::../shared/images/functionality-and-roles.png[Functionality and roles, align="center"]
+image::../shared/images/functionality-and-roles.png[Functionality and roles, align="center", width=100%, pdfwidth=100%, scaledwidth=100%]
 
 
 == Parti

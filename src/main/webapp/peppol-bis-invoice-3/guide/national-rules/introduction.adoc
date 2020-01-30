@@ -20,4 +20,4 @@ The same specification and validation rules can be used by all PEPPOL users and 
 
 The below diagram shows a simplified view of the validation steps. An invoice issued by a Swedish supplier goes through all validation steps but only invokes the country specific rule sets which is intended for Swedish suppliers.
 
-image::../shared/images/validation-new.png[Validation stages, align="left"]
+image::../shared/images/validation-new.png[Validation stages, align="left",width=100%, pdfwidth=100%, scaledwidth=100%]

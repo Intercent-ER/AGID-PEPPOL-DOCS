@@ -14,6 +14,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.StringReader;
+import java.net.URI;
 import java.util.logging.Logger;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -35,6 +36,7 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
+import org.apache.fop.apps.FopFactoryBuilder;
 import org.apache.xmlgraphics.util.MimeConstants;
 import org.asciidoctor.Asciidoctor;
 import org.asciidoctor.AttributesBuilder;
@@ -57,6 +59,7 @@ public class AsciidocFilter implements Filter {
     private String webAppPath;
     // DocBook XSL-FO adapter
     private Templates adapter;
+//    FopFactoryBuilder builder;
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -104,6 +107,9 @@ public class AsciidocFilter implements Filter {
             }
         };
 
+//        builder = new FopFactoryBuilder(new File(webAppPath).toURI());
+//        builder.setSourceResolution(120);   // 120 dpi
+//        builder.setTargetResolution(120);
     }
 
     @Override
@@ -112,6 +118,7 @@ public class AsciidocFilter implements Filter {
         final Asciidoctor asciidoctor = adocPool.borrowObject();
         final String servletPath = req.getServletPath();
         final File asciidocFile = new File(webAppPath, servletPath);
+        final URI baseUri = asciidocFile.getParentFile().toURI();
         Transformer transformer = null;
         StreamSource source = null;
         Result result = null;
@@ -136,7 +143,9 @@ public class AsciidocFilter implements Filter {
                 //result = new StreamResult(os instanceof BufferedOutputStream ? os : new BufferedOutputStream(os));
             
                 // XSL-FO to PDF
-                FopFactory fopFactory = FopFactory.newInstance(asciidocFile.getParentFile().toURI());
+                FopFactory fopFactory = FopFactory.newInstance(baseUri);
+                // builder.setBaseURI(baseUri);
+                // FopFactory fopFactory = builder.build();
                 
                 //Setup a buffer to obtain the content length
                 ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -148,6 +157,29 @@ public class AsciidocFilter implements Filter {
                 result = new SAXResult(fop.getDefaultHandler());
 
                 //Start the transformation and rendering process
+                //transformer.setParameter("generate.index", "1");  // Do not generate an index
+                //transformer.setParameter("generate.toc", "0");  // Do not generate an index
+                //transformer.setParameter("process.source.toc", 1);
+                //transformer.setParameter("process.empty.source.toc", 1);
+/*                transformer.setParameter("generate.toc", "'appendix  toc,title\n" +
+"article/appendix  nop\n" +
+"article   toc,title\n" +
+"book      toc,title,figure,table,example,equation\n" +
+"chapter   toc,title\n" +
+"part      toc,title\n" +
+"preface   toc,title\n" +
+"qandadiv  toc\n" +
+"qandaset  toc\n" +
+"reference toc,title\n" +
+"sect1     toc\n" +
+"sect2     toc\n" +
+"sect3     toc\n" +
+"sect4     toc\n" +
+"sect5     toc\n" +
+"section   toc\n" +
+"set       toc,title'");  // TOC
+*/
+                transformer.setParameter("ulink.show", 0);  // Do not display URLs after ulinks
                 transformer.setOutputProperty(OutputKeys.INDENT, "no");
                 transformer.transform(source, result);
                 //response.setContentLength(html.length());

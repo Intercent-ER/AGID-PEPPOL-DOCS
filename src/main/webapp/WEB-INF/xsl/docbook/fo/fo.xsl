@@ -118,5 +118,9 @@ xmlns:fo="http://www.w3.org/1999/XSL/Format"
   </xsl:call-template>
 </xsl:template>
 
+<xsl:attribute-set name="xref.properties">
+ <xsl:attribute name="color">#0000FF</xsl:attribute>
+</xsl:attribute-set>
+
 </xsl:stylesheet>
 

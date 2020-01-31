@@ -22,7 +22,7 @@
         <script>
             //<![CDATA[
             $(function () {
-                const VER = "1.4";    // Math.random()*1000000
+                const VER = "6";    // Math.random()*1000000
                 var $body = $("body"), $main = $("#main"), $guide = $("#guide").hide(), $adoc = $("#adoc-viewer"), $loader = $("#loader");
                 var defBis = "peppol-bis-invoice-3";
 
@@ -40,6 +40,7 @@
                     $("#syntax-list").load(bisRef + '/menu/syntax-list.html?v='+VER+' .list-group > a');
                     $("#rule-list").load(bisRef + '/menu/rule-list.html?v='+VER+' .list-group > a');
                     $("#codelist-list").load(bisRef + '/menu/codelist-list.html?v='+VER+' .list-group > a');
+                    $("#download-list").load(bisRef + '/menu/download-list.html?v='+VER+' .list-group > a');
                 };
 
                 $.bis.current = $("#peppol-bis a[href='" + defBis + "']");
@@ -285,17 +286,6 @@
                 <dt>Downloads</dt>
                 <dd>
                     <div class="list-group" id="download-list">
-
-                        <a href="./attachments/Intercent-ER-Esempi-Xml-Peppol-3.zip" class="list-group-item">
-                            <h4 class="list-group-item-heading">File di esempio</h4>
-                        </a>
-                        <a href="./attachments/Schematron.zip" class="list-group-item">
-                            <h4 class="list-group-item-heading">File schematron</h4>
-                        </a>
-                        <a href="./attachments/Tool_Validazione_PEPPOL_BIS_3.0_NSO-Test_v1.3.1.zip" class="list-group-item">
-                            <h4 class="list-group-item-heading">Tool di validazione</h4>
-                        </a>
-
                     </div>
                 </dd>
 

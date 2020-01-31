@@ -27,7 +27,7 @@ I tools per la validazione dei documenti PEPPOL BIS 3.0 compatibili con NSO non 
 Intercent-ER supporterà il passaggio dalle attuali specifiche PEPPOL BIS in versione 2.1 alle nuove regole di utilizzo PEPPOL BIS 3.0 compatibili con NSO.
 
 
-image::/images/NSO_gantt.JPG[]
+//image::images/NSO_gantt.JPG[]
 
 
 L’utilizzo della specifica *PEPPOL BIS Ordine semplice 3.0* compatibile con NSO sarà obbligatoria dal 1 Ottobre 2019. A partire da tale data l’utilizzo della specifica PEPPOL BIS Ordine 3A (versione 2.1) non sarà più disponibile. 

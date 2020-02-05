@@ -22,7 +22,7 @@
         <script>
             //<![CDATA[
             $(function () {
-                const VER = "6";    // Math.random()*1000000
+                const VER = "7";    // Math.random()*1000000
                 var $body = $("body"), $main = $("#main"), $guide = $("#guide").hide(), $adoc = $("#adoc-viewer"), $loader = $("#loader");
                 var defBis = "peppol-bis-invoice-3";
 
@@ -91,7 +91,11 @@
                     $.bis.currentMenu = $item.closest(".dropdown-menu, .list-group").attr("id");
                     $.bis.currentTitle = $item.text();
                     $.bis.currentUrl = href;
-                    $guide.load("<%=request.getContextPath()%>/" + href + " #main > *", function (e) {
+                    var absUrl = href;
+                    if (!href.startsWith("http")) {
+                        absUrl = "<%=request.getContextPath()%>/" + href + " #main > *";
+                    }
+                    $guide.load(absUrl, function (e) {
                         $loader.appendTo("#parking");
                         $("#context").text($.bis.currentTitle);
                         $("#path .active").text($.bis.currentTitle);

@@ -22,7 +22,7 @@
         <script>
             //<![CDATA[
             $(function () {
-                const VER = "7";    // Math.random()*1000000
+                const VER = "8";    // Math.random()*1000000
                 var $body = $("body"), $main = $("#main"), $guide = $("#guide").hide(), $adoc = $("#adoc-viewer"), $loader = $("#loader");
                 var defBis = "peppol-bis-invoice-3";
 
@@ -185,6 +185,9 @@
                             .find(".test").text(branch.data("test")).end().show();
                 }
             });
+            String.prototype.startsWith = function (t) {
+                return t === this.substring(0, t.length);
+            };
             //]]>
         </script>
     </head>

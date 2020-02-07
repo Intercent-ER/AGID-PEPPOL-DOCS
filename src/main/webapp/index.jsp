@@ -22,7 +22,7 @@
         <script>
             //<![CDATA[
             $(function () {
-                const VER = "8";    // Math.random()*1000000
+                const VER = "9";    // Math.random()*1000000
                 var $body = $("body"), $main = $("#main"), $guide = $("#guide").hide(), $adoc = $("#adoc-viewer"), $loader = $("#loader");
                 var defBis = "peppol-bis-invoice-3";
 
@@ -83,23 +83,21 @@
                     $adoc.contents().empty().scrollTop(0);
                     $adoc.attr("src", "pdfjs/web/viewer.html?file=" + encodeURIComponent(doc));
                 }).on("click", "#syntax-menu a, #syntax-list a, #rule-menu a, #rule-list a, #codelist-menu a, #codelist-list a, #section-menu a", function (e) {
-                    e.preventDefault();
                     var $item = $(this), href = $item.attr("href") + "?v="+VER;
-                    $body.removeClass("adoc-mode");
-                    $main.hide();
-                    $guide.html($loader).show();
                     $.bis.currentMenu = $item.closest(".dropdown-menu, .list-group").attr("id");
                     $.bis.currentTitle = $item.text();
                     $.bis.currentUrl = href;
-                    var absUrl = href;
                     if (!href.startsWith("http")) {
-                        absUrl = "<%=request.getContextPath()%>/" + href + " #main > *";
+                        e.preventDefault();
+                        $body.removeClass("adoc-mode");
+                        $main.hide();
+                        $guide.html($loader).show();
+                        $guide.load("<%=request.getContextPath()%>/" + href + " #main > *", function (e) {
+                            $loader.appendTo("#parking");
+                            $("#context").text($.bis.currentTitle);
+                            $("#path .active").text($.bis.currentTitle);
+                        });
                     }
-                    $guide.load(absUrl, function (e) {
-                        $loader.appendTo("#parking");
-                        $("#context").text($.bis.currentTitle);
-                        $("#path .active").text($.bis.currentTitle);
-                    });
                 }).on("click", "#bis-section", function (e) {
                     e.preventDefault();
                     var href = $(this).attr("href") + ".html?v="+VER;

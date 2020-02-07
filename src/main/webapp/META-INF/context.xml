@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/docs">
     <Resources>
-        <PostResources className="org.apache.catalina.webresources.DirResourceSet" base="c:/public/AGID-PEPPOL-DOCS/downloads" webAppMount="/downloads" />
+        <PostResources className="org.apache.catalina.webresources.DirResourceSet" base="/mnt/webapps/tomcat-icent/downloads" webAppMount="/downloads" />
     </Resources>
 </Context>

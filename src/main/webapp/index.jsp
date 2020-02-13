@@ -22,7 +22,7 @@
         <script>
             //<![CDATA[
             $(function () {
-                const VER = "10";    // Math.random()*1000000
+                const VER = "11";    // Math.random()*1000000
                 var $body = $("body"), $main = $("#main"), $guide = $("#guide").hide(), $adoc = $("#adoc-viewer"), $loader = $("#loader");
                 var defBis = "peppol-bis-invoice-3";
 

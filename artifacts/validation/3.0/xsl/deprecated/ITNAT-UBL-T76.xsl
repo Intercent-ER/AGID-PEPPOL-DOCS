@@ -49,130 +49,6 @@
       <value-of select="number($val) &gt; 0 and (11 - ($weightedSum mod 11)) mod 11 = number(substring($val, $length + 1, 1))"/>
    
    </function>
-   <function xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:xi="http://www.w3.org/2001/XInclude" name="u:getPartTokenizeID" as="xs:string">		 
-		
-      <param name="reference" as="xs:string"/>
-		
-      <param name="arg" as="xs:integer"/>
-	  
-		
-      <variable name="listToken" select="tokenize($reference, '#')"/> 
-
-		
-      <sequence select="$listToken[$arg]"/>
-	 		
-	
-   </function>
-   <function xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:xi="http://www.w3.org/2001/XInclude" name="u:countDelitited" as="xs:integer">		 
-      
-      <param name="reference" as="xs:string"/>
-	  
-      <variable name="stringList" select="tokenize($reference, '#')"/>
-	  
-	  
-      <sequence select="count($stringList) - 1"/>
-		
-	
-   </function>
-   <function xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:xi="http://www.w3.org/2001/XInclude" name="u:validationDate" as="xs:boolean">
-		
-		
-      <param name="arg" as="xs:string?"/>
-
-		
-      <sequence select="string(normalize-space($arg)) castable as xs:date"/>
-
-	
-   </function>
-   <function xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:xi="http://www.w3.org/2001/XInclude" name="u:checkPIVA" as="xs:integer">
-
-        
-      <param name="arg" as="xs:string?"/>
-		
-		
-      <sequence select="     if (not($arg castable as xsd:integer))       then 1      else ( u:addPIVA($arg,xs:integer(0)) mod 10 )"/>
-		
-    
-   </function>
-   <function xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:xi="http://www.w3.org/2001/XInclude" name="u:addPIVA" as="xs:integer">
-		
-		
-      <param name="arg" as="xs:string"/>
-		
-      <param name="pari" as="xs:integer"/>
-
-		
-      <variable name="tappo" select="if (not($arg castable as xsd:integer)) then 0 else 1"/>
-		
-		
-      <variable name="mapper" select="if ($tappo = 0) then 0 else                    ( if ($pari = 1)                     then ( xs:integer(substring('0246813579', ( xs:integer(substring($arg,1,1)) +1 ) ,1)) )                     else ( xs:integer(substring($arg,1,1) ) )                   )"/>
-			
-		
-      <sequence select="if ($tappo = 0) then $mapper else ( xs:integer($mapper) + u:addPIVA(substring(xs:string($arg),2), (if($pari=0) then 1 else 0) ) )"/>
-		
-	
-   </function>
-   <function xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:xi="http://www.w3.org/2001/XInclude" name="u:checkPIVAseIT" as="xs:boolean">
-		
-		
-      <param name="arg" as="xs:string"/>
-
-		
-      <variable name="paese" select="substring($arg,1,2)"/>
-		
-      <variable name="codice" select="substring($arg,3)"/>
-
-        
-      <sequence select="     if ( $paese = 'IT' or $paese = 'it' )    then    (     if ( ( string-length($codice) = 11 ) and ( if (u:checkPIVA($codice)!=0) then false() else true() ))     then      (      true()     )     else     (      false()     )    )    else    (     true()    )    "/>
-			
-	
-   </function>
-   <function xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:xi="http://www.w3.org/2001/XInclude" name="u:checkCF" as="xs:boolean">
-
-        
-      <param name="arg" as="xs:string?"/>
-		
-		
-      <sequence select="    if ( (string-length($arg) = 16) or (string-length($arg) = 11) )       then     (     if ((string-length($arg) = 16))      then     (      if (u:checkCF16($arg))       then      (       true()      )      else      (       false()      )     )     else     (      if(($arg castable as xsd:integer)) then true() else false()       )    )    else    (     false()    )    "/>
-		
-    
-   </function>
-   <function xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:xi="http://www.w3.org/2001/XInclude" name="u:checkCF16" as="xs:boolean">
-
-        
-      <param name="arg" as="xs:string?"/>
-		
-		
-      <variable name="allowed-characters">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz</variable>
-		
-		
-      <sequence select="      if (  (string-length(translate(substring($arg,1,6), $allowed-characters, '')) = 0) and                (substring($arg,7,2) castable as xsd:integer) and         (string-length(translate(substring($arg,9,1), $allowed-characters, '')) = 0) and         (substring($arg,10,2) castable as xsd:integer) and          (substring($arg,12,3) castable as xsd:string) and         (substring($arg,15,1) castable as xsd:integer) and          (string-length(translate(substring($arg,16,1), $allowed-characters, '')) = 0)       )       then true()      else false()      "/>
-					
-    
-   </function>
-   <function xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:xi="http://www.w3.org/2001/XInclude" name="u:checkCF11" as="xs:boolean">
-
-        
-      <param name="arg" as="xs:string?"/>
-		
-		
-      <sequence select="      if ( ($arg castable as xsd:integer) and (string-length($arg) = 11) )       then true()      else false()      "/>
-					
-    
-   </function>
-   <function xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:xi="http://www.w3.org/2001/XInclude" name="u:checkCodiceIPA" as="xs:boolean">
-
-        
-      <param name="arg" as="xs:string?"/>
-		
-		
-      <variable name="allowed-characters">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</variable>
-
-		
-      <sequence select="if ( (string-length(translate($arg, $allowed-characters, '')) = 0) and (string-length($arg) = 6) ) then true() else false()"/>
-		
-    
-   </function>
 
 <!--DEFAULT RULES-->
 
@@ -353,65 +229,11 @@
             <axsl:attribute name="document">
                <axsl:value-of select="document-uri(/)"/>
             </axsl:attribute>
-            <axsl:attribute name="id">Abstract</axsl:attribute>
-            <axsl:attribute name="name">Abstract</axsl:attribute>
+            <axsl:attribute name="id">INT-UBL-T76</axsl:attribute>
+            <axsl:attribute name="name">INT-UBL-T76</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M24"/>
-         <svrl:active-pattern>
-            <axsl:attribute name="document">
-               <axsl:value-of select="document-uri(/)"/>
-            </axsl:attribute>
-            <axsl:attribute name="id">verificaOrderReferenceID</axsl:attribute>
-            <axsl:attribute name="name">verificaOrderReferenceID</axsl:attribute>
-            <axsl:apply-templates/>
-         </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M25"/>
-         <svrl:active-pattern>
-            <axsl:attribute name="document">
-               <axsl:value-of select="document-uri(/)"/>
-            </axsl:attribute>
-            <axsl:attribute name="id">verificaPIVA</axsl:attribute>
-            <axsl:attribute name="name">verificaPIVA</axsl:attribute>
-            <axsl:apply-templates/>
-         </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M26"/>
-         <svrl:active-pattern>
-            <axsl:attribute name="document">
-               <axsl:value-of select="document-uri(/)"/>
-            </axsl:attribute>
-            <axsl:attribute name="id">verificaLinee</axsl:attribute>
-            <axsl:attribute name="name">verificaLinee</axsl:attribute>
-            <axsl:apply-templates/>
-         </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M27"/>
-         <svrl:active-pattern>
-            <axsl:attribute name="document">
-               <axsl:value-of select="document-uri(/)"/>
-            </axsl:attribute>
-            <axsl:attribute name="id">verificaCodiceIPA</axsl:attribute>
-            <axsl:attribute name="name">verificaCodiceIPA</axsl:attribute>
-            <axsl:apply-templates/>
-         </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M28"/>
-         <svrl:active-pattern>
-            <axsl:attribute name="document">
-               <axsl:value-of select="document-uri(/)"/>
-            </axsl:attribute>
-            <axsl:attribute name="id">verificaBuyer</axsl:attribute>
-            <axsl:attribute name="name">verificaBuyer</axsl:attribute>
-            <axsl:apply-templates/>
-         </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M29"/>
-         <svrl:active-pattern>
-            <axsl:attribute name="document">
-               <axsl:value-of select="document-uri(/)"/>
-            </axsl:attribute>
-            <axsl:attribute name="id">verificaCF</axsl:attribute>
-            <axsl:attribute name="name">verificaCF</axsl:attribute>
-            <axsl:apply-templates/>
-         </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M30"/>
+         <axsl:apply-templates select="/" mode="M13"/>
       </svrl:schematron-output>
    </axsl:template>
 
@@ -2957,470 +2779,150 @@
       <axsl:apply-templates select="@*|*" mode="M12"/>
    </axsl:template>
 
-<!--PATTERN Abstract-->
-
-   <axsl:template match="text()" priority="-1" mode="M24"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M24">
-      <axsl:apply-templates select="@*|*" mode="M24"/>
-   </axsl:template>
-
-<!--PATTERN verificaOrderReferenceID-->
+<!--PATTERN INT-UBL-T76-->
 
 
 	<!--RULE -->
 
-   <axsl:template match="ubl:OrderResponse" priority="1001" mode="M25">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="ubl:OrderResponse"/>
+   <axsl:template match="//cbc:OrderResponseCode[@listID='UNCL1225']" priority="1003" mode="M13">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cbc:OrderResponseCode[@listID='UNCL1225']"/>
 
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="count(/ubl:OrderResponse/cac:OrderReference) = 1"/>
+         <axsl:when test="not(contains( ' 1 2 3 4 5 17 20 21 27 28 29 30 33 34 36 40 ',concat(' ',normalize-space(.),' ') )) or /*/cbc:Note"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="count(/ubl:OrderResponse/cac:OrderReference) = 1">
-               <axsl:attribute name="id">NSO_145</axsl:attribute>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(contains( ' 1 2 3 4 5 17 20 21 27 28 29 30 33 34 36 40 ',concat(' ',normalize-space(.),' ') )) or /*/cbc:Note">
+               <axsl:attribute name="id">INT-T76-R010</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>
-				NSO_145 - Il Documento contiene più di un elemento "cac:OrderReference". - The Document contains more than one "cac:OrderReference" element. 
-			</svrl:text>
+               <svrl:text>INT-T76-R010 - La risposta d’ordine in caso di rigetto o modifica DEVE specificarne il motivo.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M25"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="normalize-space(.)!='27' or count(/*/cac:OrderLine) = 0"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="normalize-space(.)!='27' or count(/*/cac:OrderLine) = 0">
+               <axsl:attribute name="id">INT-T76-R004</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>INT-T76-R004 - Se il codice di risposta in testata è 27 (rifiutato) non deve essere fornita alcuna riga di dettaglio.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="normalize-space(.)!='29' or count(/*/cac:OrderLine) = 0"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="normalize-space(.)!='29' or count(/*/cac:OrderLine) = 0">
+               <axsl:attribute name="id">INT-T76-R005</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>INT-T76-R005 - Se il codice di risposta in testata è 29 (accettato) non deve essere fornita alcuna riga di dettaglio.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="normalize-space(.)!='30' or count(/*/cac:OrderLine) &gt; 0"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="normalize-space(.)!='30' or count(/*/cac:OrderLine) &gt; 0">
+               <axsl:attribute name="id">INT-T76-R006</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>INT-T76-R006 - Se il codice di risposta in testata è 30 (accettato con modifiche) e necessario fornire tutte le righe dell'ordine con il loro stato.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M13"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="ubl:OrderResponse/cac:OrderReference/cbc:ID" priority="1000" mode="M25">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="ubl:OrderResponse/cac:OrderReference/cbc:ID"/>
+   <axsl:template match="//cac:BuyerCustomerParty/cac:Party" priority="1002" mode="M13">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:BuyerCustomerParty/cac:Party"/>
 
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="(u:countDelitited(.) = 2)"/>
+         <axsl:when test="cac:PartyIdentification/cbc:ID[@schemeID='9921'][string-length(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789','')) = 0 and string-length() = 6] or cbc:EndpointID[@schemeID='9921']"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(u:countDelitited(.) = 2)">
-               <axsl:attribute name="id">NSO_140</axsl:attribute>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cac:PartyIdentification/cbc:ID[@schemeID='9921'][string-length(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789','')) = 0 and string-length() = 6] or cbc:EndpointID[@schemeID='9921']">
+               <axsl:attribute name="id">INT-T76-R007</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>
-				NSO_140 - Il formato dell’elemento "cac:OrderReference/cbc:ID" non è valido (esempio di formato corretto: "110#2018-01-30#QLHCFC "). - The format of the element "cac:OrderReference/cbc:ID" is invalid (correct format example:"110#2018-01-30#QLHCFC"). 
-			</svrl:text>
+               <svrl:text>INT-T76-R007 - Una risposta d'ordine DEVE contenere Il codice UFE IPA dell'ufficio della PA che ha emesso l'ordine, composto da 6 caratteri ASCII alfanumerici maiuscoli.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
-         <axsl:when test="(if (u:countDelitited(.) != 2) then false() else u:getPartTokenizeID(.,1)!='')"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(if (u:countDelitited(.) != 2) then false() else u:getPartTokenizeID(.,1)!='')">
-               <axsl:attribute name="id">NSO_141</axsl:attribute>
-               <axsl:attribute name="flag">fatal</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </axsl:attribute>
-               <svrl:text>
-				NSO_141 - L'ID presente nell’elemento non è valorizzato. - The ID in the element is not set.
-			</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
-         <axsl:when test="(if (u:countDelitited(.) != 2) then false() else u:validationDate(u:getPartTokenizeID(.,2)))"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(if (u:countDelitited(.) != 2) then false() else u:validationDate(u:getPartTokenizeID(.,2)))">
-               <axsl:attribute name="id">NSO_142</axsl:attribute>
-               <axsl:attribute name="flag">fatal</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </axsl:attribute>
-               <svrl:text>
-				NSO_142 - Il formato della data presente nell’elemento non è corretto (esempio corretto: "2020-01-31"). - The format of the date in the element is incorrect (correct format example: "2020-01-31").
-			</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
-         <axsl:when test="((( if (u:countDelitited(.) != 2) then false() else string-length(u:getPartTokenizeID(.,3))=6 )))"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="((( if (u:countDelitited(.) != 2) then false() else string-length(u:getPartTokenizeID(.,3))=6 )))">
-               <axsl:attribute name="id">NSO_143</axsl:attribute>
-               <axsl:attribute name="flag">fatal</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </axsl:attribute>
-               <svrl:text>
-				NSO_143 - L'EndpointID indicato nell’elemento non è un valore valido (esempio di valore corretto: "QLHCFC"). - The EndpointID specified in the element  is not a valid value (correct value example: "QLHCFC").
-			</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M25"/>
-   </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M25"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M25">
-      <axsl:apply-templates select="@*|*" mode="M25"/>
-   </axsl:template>
-
-<!--PATTERN verificaPIVA-->
-
-
-	<!--RULE -->
-
-   <axsl:template match="ubl:OrderResponse/cac:SellerSupplierParty/cac:Party/cbc:EndpointID" priority="1000" mode="M26">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="ubl:OrderResponse/cac:SellerSupplierParty/cac:Party/cbc:EndpointID"/>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
-         <axsl:when test="if(@schemeID=9906) then ( if(u:checkPIVA(substring(.,3,13))!=0) then false() else true() ) else true()"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="if(@schemeID=9906) then ( if(u:checkPIVA(substring(.,3,13))!=0) then false() else true() ) else true()">
-               <axsl:attribute name="id">NSO_130</axsl:attribute>
-               <axsl:attribute name="flag">fatal</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </axsl:attribute>
-               <svrl:text>
-					NSO_130 - La partita IVA indicata nell’elemento non è valida. - The VAT number specified in the element is invalid.
-			</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M26"/>
-   </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M26"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M26">
-      <axsl:apply-templates select="@*|*" mode="M26"/>
-   </axsl:template>
-
-<!--PATTERN verificaLinee-->
-
-
-	<!--RULE -->
-
-   <axsl:template match="ubl:OrderResponse" priority="1000" mode="M27">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="ubl:OrderResponse"/>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
-         <axsl:when test="( if (/ubl:OrderResponse/cbc:OrderResponseCode = 'CA') then ( if (count(/ubl:OrderResponse/cac:OrderLine)=0) then false() else true() ) else ( if (count(/ubl:OrderResponse/cac:OrderLine)=0) then true() else false() ) )"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="( if (/ubl:OrderResponse/cbc:OrderResponseCode = 'CA') then ( if (count(/ubl:OrderResponse/cac:OrderLine)=0) then false() else true() ) else ( if (count(/ubl:OrderResponse/cac:OrderLine)=0) then true() else false() ) )">
-               <axsl:attribute name="id">NSO_150</axsl:attribute>
-               <axsl:attribute name="flag">fatal</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </axsl:attribute>
-               <svrl:text>
-				NSO_150 - Il Documento contiene uno o più elementi "cac:OrderLine". - The Document contains one or more "cac:OrderLine" elements.
-			</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M27"/>
-   </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M27"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M27">
-      <axsl:apply-templates select="@*|*" mode="M27"/>
-   </axsl:template>
-
-<!--PATTERN verificaCodiceIPA-->
-
-
-	<!--RULE -->
-
-   <axsl:template match="/ubl:OrderResponse/cac:SellerSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID" priority="1008" mode="M28">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:OrderResponse/cac:SellerSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
-         <axsl:when test="if(@schemeID=0201) then u:checkCodiceIPA(.) else true()"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="if(@schemeID=0201) then u:checkCodiceIPA(.) else true()">
-               <axsl:attribute name="id">NSO_110</axsl:attribute>
-               <axsl:attribute name="flag">fatal</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </axsl:attribute>
-               <svrl:text>NSO_110 - Il Codice IPA indicato nell’elemento non è valido. - The IPA Code specified in the element is invalid.
-			</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M28"/>
+      <axsl:apply-templates select="@*|*" mode="M13"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:OrderResponse/cac:BuyerCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID" priority="1007" mode="M28">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:OrderResponse/cac:BuyerCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
+   <axsl:template match="//cac:Delivery" priority="1001" mode="M13">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:Delivery"/>
 
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="if(@schemeID=0201) then u:checkCodiceIPA(.) else true()"/>
+         <axsl:when test="cac:PromisedDeliveryPeriod and xs:date(cac:PromisedDeliveryPeriod/cbc:StartDate) &lt;= xs:date(cac:PromisedDeliveryPeriod/cbc:EndDate)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="if(@schemeID=0201) then u:checkCodiceIPA(.) else true()">
-               <axsl:attribute name="id">NSO_110</axsl:attribute>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cac:PromisedDeliveryPeriod and xs:date(cac:PromisedDeliveryPeriod/cbc:StartDate) &lt;= xs:date(cac:PromisedDeliveryPeriod/cbc:EndDate)">
+               <axsl:attribute name="id">INT-T76-R012</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>NSO_110 - Il Codice IPA indicato nell’elemento non è valido. - The IPA Code specified in the element is invalid.
-			</svrl:text>
+               <svrl:text>INT-T76-R012 - Nelle informazioni di Delivery in testata o dettaglio il PromisedDeliveryPeriod DEVE essere valorizzato e la data di inizio deve essere inferiore o uguale quella di fine periodo.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M28"/>
+      <axsl:apply-templates select="@*|*" mode="M13"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:OrderResponse/cac:OrderLine/cac:LineItem/cac:Item/cac:StandardItemIdentification/cbc:ID" priority="1006" mode="M28">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:OrderResponse/cac:OrderLine/cac:LineItem/cac:Item/cac:StandardItemIdentification/cbc:ID"/>
+   <axsl:template match="//cbc:*" priority="1000" mode="M13">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cbc:*"/>
 
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="if(@schemeID=0201) then u:checkCodiceIPA(.) else true()"/>
+         <axsl:when test="normalize-space()"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="if(@schemeID=0201) then u:checkCodiceIPA(.) else true()">
-               <axsl:attribute name="id">NSO_110</axsl:attribute>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="normalize-space()">
+               <axsl:attribute name="id">INT-T76-R001</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>NSO_110 - Il Codice IPA indicato nell’elemento non è valido. - The IPA Code specified in the element is invalid.
-			</svrl:text>
+               <svrl:text>[INT-T76-R001] - Un elemento informativo base, se istanziato, non può essere vuoto.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M28"/>
+      <axsl:apply-templates select="@*|*" mode="M13"/>
    </axsl:template>
-
-	<!--RULE -->
-
-   <axsl:template match="/ubl:OrderResponse/cac:OrderLine/cac:SellerSubstitutedLineItem/cac:Item/cac:StandardItemIdentification/cbc:ID" priority="1005" mode="M28">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:OrderResponse/cac:OrderLine/cac:SellerSubstitutedLineItem/cac:Item/cac:StandardItemIdentification/cbc:ID"/>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
-         <axsl:when test="if(@schemeID=0201) then u:checkCodiceIPA(.) else true()"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="if(@schemeID=0201) then u:checkCodiceIPA(.) else true()">
-               <axsl:attribute name="id">NSO_110</axsl:attribute>
-               <axsl:attribute name="flag">fatal</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </axsl:attribute>
-               <svrl:text>NSO_110 - Il Codice IPA indicato nell’elemento non è valido. - The IPA Code specified in the element is invalid.
-			</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M28"/>
-   </axsl:template>
-
-	<!--RULE -->
-
-   <axsl:template match="/ubl:OrderResponse/cac:SellerSupplierParty/cac:Party/cbc:EndpointID" priority="1004" mode="M28">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:OrderResponse/cac:SellerSupplierParty/cac:Party/cbc:EndpointID"/>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
-         <axsl:when test="if(@schemeID=0201) then u:checkCodiceIPA(.) else true()"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="if(@schemeID=0201) then u:checkCodiceIPA(.) else true()">
-               <axsl:attribute name="id">NSO_110</axsl:attribute>
-               <axsl:attribute name="flag">fatal</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </axsl:attribute>
-               <svrl:text>NSO_110 - Il Codice IPA indicato nell’elemento non è valido. - The IPA Code specified in the element is invalid.
-			</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M28"/>
-   </axsl:template>
-
-	<!--RULE -->
-
-   <axsl:template match="/ubl:OrderResponse/cac:BuyerCustomerParty/cac:Party/cbc:EndpointID" priority="1003" mode="M28">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:OrderResponse/cac:BuyerCustomerParty/cac:Party/cbc:EndpointID"/>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
-         <axsl:when test="if(@schemeID=0201) then u:checkCodiceIPA(.) else true()"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="if(@schemeID=0201) then u:checkCodiceIPA(.) else true()">
-               <axsl:attribute name="id">NSO_110</axsl:attribute>
-               <axsl:attribute name="flag">fatal</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </axsl:attribute>
-               <svrl:text>NSO_110 - Il Codice IPA indicato nell’elemento non è valido. - The IPA Code specified in the element is invalid.
-			</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M28"/>
-   </axsl:template>
-
-	<!--RULE -->
-
-   <axsl:template match="/ubl:OrderResponse/cac:OriginatorCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID" priority="1002" mode="M28">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:OrderResponse/cac:OriginatorCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
-         <axsl:when test="if(@schemeID=0201) then u:checkCodiceIPA(.) else true()"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="if(@schemeID=0201) then u:checkCodiceIPA(.) else true()">
-               <axsl:attribute name="id">NSO_110</axsl:attribute>
-               <axsl:attribute name="flag">fatal</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </axsl:attribute>
-               <svrl:text>NSO_110 - Il Codice IPA indicato nell’elemento non è valido. - The IPA Code specified in the element is invalid.
-			</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M28"/>
-   </axsl:template>
-
-	<!--RULE -->
-
-   <axsl:template match="/ubl:OrderResponse/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID" priority="1001" mode="M28">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:OrderResponse/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
-         <axsl:when test="if(@schemeID=0201) then u:checkCodiceIPA(.) else true()"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="if(@schemeID=0201) then u:checkCodiceIPA(.) else true()">
-               <axsl:attribute name="id">NSO_110</axsl:attribute>
-               <axsl:attribute name="flag">fatal</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </axsl:attribute>
-               <svrl:text>NSO_110 - Il Codice IPA indicato nell’elemento non è valido. - The IPA Code specified in the element is invalid.
-			</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M28"/>
-   </axsl:template>
-
-	<!--RULE -->
-
-   <axsl:template match="/ubl:OrderResponse/cac:Delivery/cac:DeliveryParty/cac:PartyIdentification/cbc:ID" priority="1000" mode="M28">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:OrderResponse/cac:Delivery/cac:DeliveryParty/cac:PartyIdentification/cbc:ID"/>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
-         <axsl:when test="if(@schemeID=0201) then u:checkCodiceIPA(.) else true()"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="if(@schemeID=0201) then u:checkCodiceIPA(.) else true()">
-               <axsl:attribute name="id">NSO_110</axsl:attribute>
-               <axsl:attribute name="flag">fatal</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </axsl:attribute>
-               <svrl:text>NSO_110 - Il Codice IPA indicato nell’elemento non è valido. - The IPA Code specified in the element is invalid.
-			</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M28"/>
-   </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M28"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M28">
-      <axsl:apply-templates select="@*|*" mode="M28"/>
-   </axsl:template>
-
-<!--PATTERN verificaBuyer-->
-
-
-	<!--RULE -->
-
-   <axsl:template match="/ubl:OrderResponse/cac:BuyerCustomerParty/cac:Party/cbc:EndpointID" priority="1000" mode="M29">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:OrderResponse/cac:BuyerCustomerParty/cac:Party/cbc:EndpointID"/>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
-         <axsl:when test="if(@schemeID=0201) then true() else false()"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="if(@schemeID=0201) then true() else false()">
-               <axsl:attribute name="id">NSO_111</axsl:attribute>
-               <axsl:attribute name="flag">fatal</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </axsl:attribute>
-               <svrl:text>NSO_111 - Il valore dell’attributo schemeID dell’elemento è errato (il valore corretto è "0201"). - The value of schemeID attribute of the element is incorrect (the correct value is "0201").
-			</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M29"/>
-   </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M29"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M29">
-      <axsl:apply-templates select="@*|*" mode="M29"/>
-   </axsl:template>
-
-<!--PATTERN verificaCF-->
-
-
-	<!--RULE -->
-
-   <axsl:template match="/ubl:OrderResponse/cac:SellerSupplierParty/cac:Party/cbc:EndpointID" priority="1000" mode="M30">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:OrderResponse/cac:SellerSupplierParty/cac:Party/cbc:EndpointID"/>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
-         <axsl:when test="if(@schemeID=9907) then u:checkCF(.) else true()"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="if(@schemeID=9907) then u:checkCF(.) else true()">
-               <axsl:attribute name="id">NSO_120</axsl:attribute>
-               <axsl:attribute name="flag">fatal</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </axsl:attribute>
-               <svrl:text>NSO_120 - Il Codice Fiscale indicato nell’elemento non è valido. - The Tax Code specified in the element is invalid.
-			</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M30"/>
-   </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M30"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M30">
-      <axsl:apply-templates select="@*|*" mode="M30"/>
+   <axsl:template match="text()" priority="-1" mode="M13"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M13">
+      <axsl:apply-templates select="@*|*" mode="M13"/>
    </axsl:template>
 </axsl:stylesheet>

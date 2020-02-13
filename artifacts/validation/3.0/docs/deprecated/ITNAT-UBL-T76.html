@@ -66,67 +66,35 @@
                   </tr>
                </thead>
                <tbody id="rules">
-                  <tr id="NSO_110" data-context="" data-test="if(@schemeID=0201) then u:checkCodiceIPA(.) else true()">
-                     <td><a href="#">NSO_110</a><br><span class="message">NSO_110 - Il Codice IPA indicato nell&#8217;elemento non &egrave; valido. - The IPA Code specified in the element is invalid.
-                           			</span></td>
+                  <tr id="INT-T76-R001" data-context="//cbc:*" data-test="normalize-space()">
+                     <td><a href="#">INT-T76-R001</a><br><span class="message">[INT-T76-R001] - Un elemento informativo base, se istanziato, non pu&ograve; essere vuoto.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="NSO_111" data-context="/ubl:OrderResponse/cac:BuyerCustomerParty/cac:Party/cbc:EndpointID" data-test="if(@schemeID=0201) then true() else false()">
-                     <td><a href="#">NSO_111</a><br><span class="message">NSO_111 - Il valore dell&#8217;attributo schemeID dell&#8217;elemento &egrave; errato (il valore corretto &egrave; "0201"). - The value of schemeID
-                           attribute of the element is incorrect (the correct value is "0201").
-                           			</span></td>
+                  <tr id="INT-T76-R004" data-context="//cbc:OrderResponseCode[@listID='UNCL1225']" data-test="normalize-space(.)!='27' or count(/*/cac:OrderLine) = 0">
+                     <td><a href="#">INT-T76-R004</a><br><span class="message">INT-T76-R004 - Se il codice di risposta in testata &egrave; 27 (rifiutato) non deve essere fornita alcuna riga di dettaglio.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="NSO_120" data-context="/ubl:OrderResponse/cac:SellerSupplierParty/cac:Party/cbc:EndpointID" data-test="if(@schemeID=9907) then u:checkCF(.) else true()">
-                     <td><a href="#">NSO_120</a><br><span class="message">NSO_120 - Il Codice Fiscale indicato nell&#8217;elemento non &egrave; valido. - The Tax Code specified in the element is invalid.
-                           			</span></td>
+                  <tr id="INT-T76-R005" data-context="//cbc:OrderResponseCode[@listID='UNCL1225']" data-test="normalize-space(.)!='29' or count(/*/cac:OrderLine) = 0">
+                     <td><a href="#">INT-T76-R005</a><br><span class="message">INT-T76-R005 - Se il codice di risposta in testata &egrave; 29 (accettato) non deve essere fornita alcuna riga di dettaglio.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="NSO_130" data-context="ubl:OrderResponse/cac:SellerSupplierParty/cac:Party/cbc:EndpointID" data-test="if(@schemeID=9906) then ( if(u:checkPIVA(substring(.,3,13))!=0) then false() else true() ) else true()">
-                     <td><a href="#">NSO_130</a><br><span class="message">
-                           					NSO_130 - La partita IVA indicata nell&#8217;elemento non &egrave; valida. - The VAT number specified in the element is invalid.
-                           			</span></td>
+                  <tr id="INT-T76-R006" data-context="//cbc:OrderResponseCode[@listID='UNCL1225']" data-test="normalize-space(.)!='30' or count(/*/cac:OrderLine) &gt; 0">
+                     <td><a href="#">INT-T76-R006</a><br><span class="message">INT-T76-R006 - Se il codice di risposta in testata &egrave; 30 (accettato con modifiche) e necessario fornire tutte le righe dell'ordine
+                           con il loro stato.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="NSO_140" data-context="ubl:OrderResponse/cac:OrderReference/cbc:ID" data-test="(u:countDelitited(.) = 2)">
-                     <td><a href="#">NSO_140</a><br><span class="message">
-                           				NSO_140 - Il formato dell&#8217;elemento "cac:OrderReference/cbc:ID" non &egrave; valido (esempio di formato corretto: "110#2018-01-30#QLHCFC
-                           "). - The format of the element "cac:OrderReference/cbc:ID" is invalid (correct format example:"110#2018-01-30#QLHCFC"). 
-                           			</span></td>
+                  <tr id="INT-T76-R007" data-context="//cac:BuyerCustomerParty/cac:Party" data-test="cac:PartyIdentification/cbc:ID[@schemeID='9921'][string-length(translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789','')) = 0 and string-length() = 6] or cbc:EndpointID[@schemeID='9921']">
+                     <td><a href="#">INT-T76-R007</a><br><span class="message">INT-T76-R007 - Una risposta d'ordine DEVE contenere Il codice UFE IPA dell'ufficio della PA che ha emesso l'ordine, composto
+                           da 6 caratteri ASCII alfanumerici maiuscoli.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="NSO_141" data-context="ubl:OrderResponse/cac:OrderReference/cbc:ID" data-test="(if (u:countDelitited(.) != 2) then false() else u:getPartTokenizeID(.,1)!='')">
-                     <td><a href="#">NSO_141</a><br><span class="message">
-                           				NSO_141 - L'ID presente nell&#8217;elemento non &egrave; valorizzato. - The ID in the element is not set.
-                           			</span></td>
+                  <tr id="INT-T76-R010" data-context="//cbc:OrderResponseCode[@listID='UNCL1225']" data-test="not(contains( ' 1 2 3 4 5 17 20 21 27 28 29 30 33 34 36 40 ',concat(' ',normalize-space(.),' ') )) or /*/cbc:Note">
+                     <td><a href="#">INT-T76-R010</a><br><span class="message">INT-T76-R010 - La risposta d&#8217;ordine in caso di rigetto o modifica DEVE specificarne il motivo.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="NSO_142" data-context="ubl:OrderResponse/cac:OrderReference/cbc:ID" data-test="(if (u:countDelitited(.) != 2) then false() else u:validationDate(u:getPartTokenizeID(.,2)))">
-                     <td><a href="#">NSO_142</a><br><span class="message">
-                           				NSO_142 - Il formato della data presente nell&#8217;elemento non &egrave; corretto (esempio corretto: "2020-01-31"). - The format of
-                           the date in the element is incorrect (correct format example: "2020-01-31").
-                           			</span></td>
-                     <td style="width: 5%;">fatal</td>
-                  </tr>
-                  <tr id="NSO_143" data-context="ubl:OrderResponse/cac:OrderReference/cbc:ID" data-test="((( if (u:countDelitited(.) != 2) then false() else string-length(u:getPartTokenizeID(.,3))=6 )))">
-                     <td><a href="#">NSO_143</a><br><span class="message">
-                           				NSO_143 - L'EndpointID indicato nell&#8217;elemento non &egrave; un valore valido (esempio di valore corretto: "QLHCFC"). - The EndpointID
-                           specified in the element  is not a valid value (correct value example: "QLHCFC").
-                           			</span></td>
-                     <td style="width: 5%;">fatal</td>
-                  </tr>
-                  <tr id="NSO_145" data-context="ubl:OrderResponse" data-test="count(/ubl:OrderResponse/cac:OrderReference) = 1">
-                     <td><a href="#">NSO_145</a><br><span class="message">
-                           				NSO_145 - Il Documento contiene pi&ugrave; di un elemento "cac:OrderReference". - The Document contains more than one "cac:OrderReference"
-                           element. 
-                           			</span></td>
-                     <td style="width: 5%;">fatal</td>
-                  </tr>
-                  <tr id="NSO_150" data-context="ubl:OrderResponse" data-test="( if (/ubl:OrderResponse/cbc:OrderResponseCode = 'CA') then ( if (count(/ubl:OrderResponse/cac:OrderLine)=0) then false() else true() ) else ( if (count(/ubl:OrderResponse/cac:OrderLine)=0) then true() else false() ) )">
-                     <td><a href="#">NSO_150</a><br><span class="message">
-                           				NSO_150 - Il Documento contiene uno o pi&ugrave; elementi "cac:OrderLine". - The Document contains one or more "cac:OrderLine"
-                           elements.
-                           			</span></td>
+                  <tr id="INT-T76-R012" data-context="//cac:Delivery" data-test="cac:PromisedDeliveryPeriod and xs:date(cac:PromisedDeliveryPeriod/cbc:StartDate) <= xs:date(cac:PromisedDeliveryPeriod/cbc:EndDate)">
+                     <td><a href="#">INT-T76-R012</a><br><span class="message">INT-T76-R012 - Nelle informazioni di Delivery in testata o dettaglio il PromisedDeliveryPeriod DEVE essere valorizzato e la
+                           data di inizio deve essere inferiore o uguale quella di fine periodo.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="PEPPOL-COMMON-R001" data-context="cbc:*" data-test=". != ''">

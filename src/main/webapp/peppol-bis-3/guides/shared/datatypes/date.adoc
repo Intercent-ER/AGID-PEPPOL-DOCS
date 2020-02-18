@@ -1,23 +1,23 @@
 
 = Date
 
-Dates shall be in accordance to the “Calendar date complete representation” as specified by {ISO8601}, format *YYYY-MM-DD*.
+La data deve essere conforme alla "rappresentazione completa del calendario" come specificato nello standard {ISO8601}, formato *YYYY-MM-DD*.
 
 ====
-IMPORTANT: Dates shall *not* include timezone information.
+IMPORTANT: Le date non devono includere informazioni sul fuso orario.
 ====
 
 
 .EN 16931_ Date. Type
 [cols="1s,1,1,1", options="header"]
 |===
-|Component
-|Use
-|Primitive Type
-|Example
+|Componente
+|Uso
+|Tipo primitivo
+|Esempio
 
-|Content
-|Mandatory
+|Contenuto
+|Obbligatorio
 |Date
 |2017-12-01
 |===

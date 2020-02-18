@@ -1,10 +1,9 @@
 [[item-properties]]
-= Item properties
+= Proprietà dell'articolo
 
-If additional item information such as properties and identifier are needed they can be added by using "Name" to identify the
-type of information and "Value" for the information.
+Se sono necessarie informazioni ulteriori sull'articolo, come proprietà e identificatori, queste possono essere aggiunte utilizzando "Name" per identificare il tipo di informazione e "Value" per l'informazione.
 
-.UBL example of item properties
+.Esempio UBL per le proprietà dell'articolo
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/snippet-30-1.xml[tags=itemproperty]

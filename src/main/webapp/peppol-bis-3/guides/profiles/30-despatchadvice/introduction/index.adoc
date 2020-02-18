@@ -1,23 +1,26 @@
 [[introduction-to-openpeppol-and-bis]]
-= Introduction to openPEPPOL and BIS
+= Introduzione a openPEPPOL e alla BIS
 
-This BIS is a result of work within PEPPOL project and is published as part of PEPPOL specifications.
+Questa BIS è il risultato del lavoro svolto in openPEPPOL e pubblicato come parte delle specifiche PEPPOL.
 
-This PEPPOL BIS provides a set of specifications for implementing a PEPPOL business process.
-The document is concerned with clarifying requirements for ensuring interoperability of pan-European Public eProcurement and provides guidelines for supporting these requirements and how to implement them.
-This PEPPOL BIS is based on the CEN WS/BII2 Profile “Profile BII30 Dispatch Only”. A conformance statement is included in this BIS, see annex B.
+Questo PEPPOL BIS fornisce un set di specifiche per implementare un processo di business PEPPOL.
+Il documento è inteso per chiarire i requisiti necessari per assicurare l’interoperabilità nell’eProcurement Pubblico pan-europeo e fornisce le linee guida per il supporto e l’implementazione di questi requisiti.
+Questo PEPPOL BIS si basa sul Profilo “BII30 Dispatch Only” del CEN WS/BII2 e lo estende in base ai requisiti di e-Procurement della Regione Emilia Romagna.
+Fare riferimento alla sezione **Customization ID** per ulteriori informazioni.
 
-.Relationship between BII profiles and PEPPOL BIS
+Una dichiarazione di conformità è inclusa in questo BIS, vedi allegato B.
+
+.Relazioni fra i profili BII e il PEPPOL BIS
 image::../../shared/images/BII_relationship.png[align="center", width=600]
 
 [[background-and-objective]]
-== Background and objective
+== Contesto e obiettivi
 
-The PEPPOL BIS (Business Interoperability Specification) provides a set of specifications for implementing PEPPOL business documents.
-The specifications enable any company to issue electronic documents that fulfill legal and business processing requirement within the European Union and the EEA.
-It supports a subset of information that is used by most industries and enables users to issue documents (invoices, orders, despatch advices, etc…) that are valid for cross border trade within the European Union and the EEA.
+Il PEPPOL BIS (Business Interoperability Specification) fornisce le specifiche per implementare i documenti di business PEPPOL.
+Le specifiche abilitano qualsiasi azienda a emettere documenti elettronici che soddisfano i requisiti di processo legali e di business nell’Unione Europea e la EEA.
+Supporta un sottoinsieme delle informazioni utilizzate dalla maggior parte dei settori industriali e abilita gli utenti a emettere documenti (fatture, ordini, avvisi di spedizione, ecc.) che sono validi per il commercio transfrontaliero all’interno dell’Unione Europea e la EEA.
 
-*The purpose* of this document is to describe a common format for the despatch advice message in the European market, and to facilitate an efficient implementation and increased use of electronic collaboration regarding the fulfillment process based on this format.
+Lo *scopo* di questo documento è di descrivere un formato comune per il messaggio del Documento di Trasporto nel mercato europo, e di facilitare l’implementazione efficiente e l’uso crescente della collaborazione elettronica relativa al processo di evasione dell’ordine basato su questo formato.
 
 :leveloffset: +1
 

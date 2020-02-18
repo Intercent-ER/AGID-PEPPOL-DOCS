@@ -1,63 +1,58 @@
 [[parties-and-roles]]
-= Parties and roles
+= Parti e ruoli
 
-The table below gives the definitions of the parties and roles of the fulfillment process.
+La tabella sottostante fornisce le definizioni delle parti e dei ruoli nel processo di evasione dell’ordine (fulfillment).
 
 [cols="2,4",options="header",]
 |====
-|Parties |Definition
-|*Customer* a|
-The customer is the legal person or organization who is in demand of a product or service.
+|Parti |Definizione
+|*Cliente (Cessionario)* a|
+Il cliente è la persona giuridica che richiede un prodotto o servizio.
 
-Examples of customer roles: buyer, consignee, debtor, contracting authority.
+Esempi di ruoli ricoperti dal cliente sono: acquirente, consegnatario, debitore, autorità appaltante.
 
-|*Supplier* a|
-The supplier is the legal person or organization who provides a product or service.
+|*Fornitore (Cedente)* a|
+Il fornitore è la persona giuridica che fornisce un prodotto o servizio.
 
-Examples of supplier roles: seller, despatch party, creditor, economic operator.
+Esempi di ruoli ricoperti dal fornitore sono: venditore, vettore, creditore, operatore economico.
 
-|*Carrier* |The carrier handles the physical delivery/transportation of the despatched shipment.
-Used if a third party is handling the physical transport.
+|*Trasportatore (Vettore)* |Il trasportatore gestisce la consegna/trasporto fisico della spedizione inviata. Utilizzata se una terza parte effettua il trasporto fisico.
 |====
 [cols="2,4",options="header",]
 |====
 |Roles |Definition
 a|
-*Consignee*
+*Consegnatario*
 
 *(UBL:DeliveryCustomerParty)*
 
- |The consignee is the person or organization to which the products will be shipped and who is taking possession.
-The role is carried out by the customer or on behalf of the customer.
+ |Il consegnatario è la persona o organizzazione alla quale i prodotti saranno spediti e che ne prenderà il possesso. Questo ruolo viene ricoperto dal cliente o per suo conto. (Il Consegnatario è anche detto Destinatario)
 a|
-*Despatch Party*
+*Speditore*
 
 *(UBL:DespatchSupplierParty)*
 
- |The Despatch Party is the person or organization who provides (despatch) the goods or services.
-The role is carried out by the supplier or on behalf of the supplier. (Despatch Party is sometimes known as the Consignor)
+ |Lo Speditore è la persona o organizzazione che spedisce la merce o eroga i servizi. Questo ruolo viene ricoperto dal fornitore o per suo conto. (Lo Speditore è anche detto Mittente)
 a|
-*Buyer*
+*Acquirente*
 
 *(UBL:BuyerCustomerParty)*
 
- |The buyer is the legal person or organization who buys or purchases the goods or services.
-The role is carried out by the customer or on behalf of the customer.
+ |L’acquirente è la persona giuridica che acquista la merce o i servizi. Questo ruolo viene ricoperto dal Cliente o per suo conto.
 a|
-*Seller*
+*Venditore*
 
 *(UBL:SellerSupplierParty)*
 
- |The seller is the legal person or organization who sells goods or services to the customer.
-The role is carried out by the supplier or on behalf of the supplier.
+ |Il Venditore è la persona giuridica che vende la merce o i servizi al cliente. Questo ruolo viene ricoperto dal Fornitore o per suo conto.
 a|
-*Originating party*
+*Committente*
 
 *(UBL:OriginatorCustomerParty)*
 
- |The party who will eventually receive and consume the goods and on whose behalf the buyer makes the purchase.
+ |La parte che eventualmente riceve o consuma la merce e per la quale la parte acquirente fa l’acquisto.
 |====
 
-The diagram below shows the roles in the fulfillment process.
+Il diagramma seguente mostra i ruoli nel processo di evasione dell’ordine.
 
 image::images/roles.png[image,width=649,height=260]

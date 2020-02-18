@@ -19,7 +19,7 @@ v{version}
 include::../../shared/copyright.adoc[]
 
 
-= Link to main site of documentation
+= Collegamento al sito principale della documentazione
 
 {main-site}
 

@@ -1,15 +1,14 @@
 
 [[prof-63]]
-= Customization and Profile identifiers
+= Identificatori per la customizzazione e profilo
 
-In the table below you will find the values to be used as the specification identifier and the business process type for this profile
-
+Nella tabella seguente troverai i valori da utilizzare come identificatore della specifica e il tipo di processo di business per questo profilo
 
 [cols="2s,5a,5a", options="header"]
 |===
-| Type
-| Element `cbc:CustomizationID`
-| Element `cbc:ProfileID`
+| Tipo
+| Elemento `cbc:CustomizationID`
+| Elemento `cbc:ProfileID`
 
 
 | Catalogue without response

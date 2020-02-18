@@ -1,45 +1,45 @@
 [[interoperability]]
-= Interoperability
+= Interoperabilità
 
-This PEPPOL BIS structure is based on the European Interoperability Framework 2.0 {EIF}. This PEPPOL BIS applies the Framework as follows:
+La struttura di questo PEPPOL BIS si basa sull'European Interoperability Framework 2.0 {EIF}. Questo PEPPOL BIS applica il Framework come segue:
 
-Legal Interoperability::
+Interoperabilità Legale::
 
-* Legal:
+* Legale:
 ** In implementations supporting public sector buyers, the use of this BIS has to be monitored in order to secure that the parties act in line with EU procurement directives.
 
 
-Organizational interoperability::
+Interoperabilità Organizzativa::
 
-* Organization (Organization/Business):
-** This PEPPOL BIS supports B2B and B2G.
-** This PEPPOL BIS supports cross border, regional and domestic ordering in EU and EEA.
-** This PEPPOL BIS can function as a component in an EDI agreement within a trading community.
-** This PEPPOL BIS supports linking of business processes within the sending and receiving organization.
-The process of order transmission in electronic form can be linked into internal processes of both sender and receiver, which may differ for various reasons.
+* Organizzazione (Organizzazione/Business):
+** Questo PEPPOL BIS supporta B2B e B2G.
+** Questo PEPPOL BIS supporta scambi transfrontalieri, regionali e domestici in EU e EEA.
+** Questo PEPPOL BIS può fungere da componente all’interno di un accordo EDI all’interno di una comunità commerciale.
+** Questo PEPPOL BIS supporta il collegamento dei processi di business nelle organizzazioni emittenti o riceventi. Il processo di invio dell’ordine in formato elettronico può essere collegato ai processi interni della parte emittente e ricevente, che possono differire per vari motivi.
 
-* Organization (Process):
-** This PEPPOL BIS supports a set of “common business processes” that is assumed to be supported by most enterprises whether public or private. These are processes that are used widely or understood as being relevant for most companies.
-
-
-Semantic interoperability::
-* Semantic:
-The set of information elements is assumed to be sufficient to support organizational business and processing requirements stated above.
+* Organizzazione (Processo):
+** Questo PEPPOL BIS supporta un set di processi di business “comuni” che si assume siano supportati dalla maggior parte delle aziende sia pubbliche che private.  Questi sono processi largamente utilizzati o compresi in quanto rilevanti per la maggior parte delle aziende.
 
 
-** A CORE business message:
-*** Data model, a set of elements that the receiver MUST be able to process.
-*** Business rules, a set of business rules that ensure a common way of processing the information elements.
-The rules are stated in a way that allows for automated validation of document instances.
-Issuers and receivers can verify that the exchanged document conforms to the rules of this BIS. +
-PEPPOL adds business rules on top of the data model to clarify certain design choices left open by the {bii}.
-These choices are intended to lower the implementation threshold by limiting options for implementers and thereby increase interoperability of PEPPOL transactions.
-
-Technical interoperability::
-* Technical Interaction (Process and semantic implementation):
-** Binding to OASIS UBL 2.1, see {ubl}
-** ISO/IEC 19757-3 Schematron, for automation of document validation, see {schematron}
+Interoperabilità Semantica::
+* Semantica:
+Il set di elementi informative si assume sia sufficiente a supportare i requisiti organizzativi di business e processo sopracitati.
 
 
-* Technical Interaction (eSignature Validation):
-** Not mandatory in this PEPPOL BIS. Not supported.
+** A messaggio di business CORE:
+*** Modello di Dati, un set di elementi che la parte ricevente DEVE essere in grado di processare.
+*** Regole di Business, un set di regole di business che assicurano una modalità comune di processare gli elementi informativi. 
+Le rules sono espresso in modo da permettere la validazione automatica delle istanze dei documenti di business.
+Le parti emittenti e riceventi possono verificare che i documenti scambiati sono conformi alle regole di questo BIS. +
+PEPPOL aggiunge le regole di business al modello dei dati per chiarire alcune scelte di progettazione lasciate aperte dal {bii}.
+Queste scelte sono intese per abbassare la soglia di implementazione limitando le opzioni agli implementatori e quindi incrementare l'interoperabilità delle transazioni PEPPOL.
+
+
+Interoperabilità Tecnica::
+* Interazione tecnica (Implementazione semantica e di processo):
+** Implementata sulla sintassi OASIS UBL 2.1, vedi {ubl}
+** ISO/IEC 19757-3 Schematron, per l’automazione della validazione semantica dei documenti, vedi {schematron}
+
+
+* Interazione tecnica (Validazione eSignature):
+** Non obbligatoria in questo PEPPOL BIS. Non supportata.

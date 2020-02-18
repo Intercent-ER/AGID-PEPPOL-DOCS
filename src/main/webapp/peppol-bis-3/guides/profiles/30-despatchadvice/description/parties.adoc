@@ -1,43 +1,42 @@
 [[parties]]
-= Parties
+= Parti di Business
 
-The following parties/roles may be specified in the message.
-The same actor may play more than one role depending on the handling routine.
+Le seguenti parti/ruoli possono essere specificate nel messaggio.  Lo stesso attore gioca più di un ruolo a seconda dei casi.
 
 [[despatch-party-despatchsupplierparty]]
-== Despatch party (DespatchSupplierParty)
+== Speditore - Mittente (DespatchSupplierParty)
 
-The Despatch Party is the person or organization who provides (despatch) the goods or services.
-The role is carried out by the supplier or on behalf of the supplier. (Despatch Party is sometimes known as the Consignor). The Despatch Party is mandatory information in the Despatch Advice message.
+Lo Speditore è la persona o organizzazione che fornisce (spedisce) merce o servizi.
+Questo ruolo è ricoperto dal Fornitore o per suo conto (Lo Speditore è anche conosciuto come Mittente).
+Lo Speditore è un’informazione obbligatoria.  In particolare sono obbligatori il nome e l’identificativo come da Art. 21, comma 4 del DPR n. 633/1972.
+Le stesse informazioni sono richieste e verificate dall’Access Point di destinazione ai fini della riconciliazione con l’Ordine.
 
-Example:
+Esempio:
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/snippet-30-1.xml[tags=despatchsupplier]
 ----
 
 [[consignee-deliverycustomerparty]]
-== Consignee (DeliveryCustomerParty)
+== Consegnatario - Destinatario (DeliveryCustomerParty)
 
-The Consignee is the person or organization to which the products will be shipped and who is taking possession.
-The role is carried out by the customer or on behalf of the customer.
-The Consignee is mandatory information in the Despatch Advice message.
+Il Consegnatario è la persona o organizzazione alla quale saranno spediti i prodotti e che ne prenderà il possesso.
+Questo ruolo è ricoperto dal Cliente o per suo conto.
+Il Consegnatario è un’informazione obbligatoria nel messaggio di Avviso Spedizione e lo è anche per legge come da Art. 21, comma 4 del DPR n. 633/1972.
 
-Example:
+Esempio:
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/snippet-30-1.xml[tags=deliverycustomer]
 ----
 
 [[buyer-buyercustomerparty]]
-== Buyer (BuyerCustomerParty)
+== Acquirente (BuyerCustomerParty)
 
-The buyer is the legal person or organization who buys or purchases the goods or services.
-The role is carried out by the customer or on behalf of the customer.
+L’Acquirente è la persona giuridica che acquista la merce o i servizi. Il ruolo è ricoperto dal Cliente o per suo conto.
+L’Acquirente è un’informazione opzionale nel Documento di Trasporto.
 
-The Buyer is optional information in the Despatch Advice message.
-
-Example:
+Esempio:
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/snippet-30-1.xml[tags=buyer]
@@ -45,13 +44,12 @@ include::{snippet-dir}/snippet-30-1.xml[tags=buyer]
 
 
 [[seller-sellersupplierparty]]
-== Seller (SellerSupplierParty)
+== Venditore (SellerSupplierParty)
 
-The seller is the legal person or organization who sells goods or services to the customer.
-The role is carried out by the supplier or on behalf of the supplier.
-The Seller is optional information in the Despatch Advice message.
+Il Venditore è la persona giuridica che vende la merce o i servizi al Cliente. Il ruolo è ricoperto dal Fornitore o per suo conto.
+L’informazione del Venditore è opzionale nel Documento di Trasporto.
 
-Example:
+Esempio:
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/snippet-30-1.xml[tags=seller]
@@ -59,12 +57,12 @@ include::{snippet-dir}/snippet-30-1.xml[tags=seller]
 
 
 [[originating-party-originatorcustomerparty]]
-== Originating party (OriginatorCustomerParty)
+== Committente (OriginatorCustomerParty)
 
-The party who will eventually receive and consume the goods and on whose behalf the buyer makes the purchase.
-The Originator Party is optional information in the Despatch Advice message.
+La parte che eventualmente riceve e consuma la merce per cui conto l’Acquirente fa l’acquisto.
+Il Committente è un’informazione opzionale nel Documento di Trasporto. 
 
-Example:
+Esempio:
 
 [source, xml, indent=0]
 ----

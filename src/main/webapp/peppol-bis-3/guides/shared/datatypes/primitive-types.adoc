@@ -1,22 +1,23 @@
 
-= Primitive types
+= Tipi primitivi
 
-Semantic data type content may be of the following primitive types. These primitive types were taken from {ISO15000}, Annex A.
+Il contenuto dei tipi di dato semantici può essere espresso con i seguenti tipi primitivi. Questi tipi primitivi sono stati definiti nello standard {ISO15000}, Annex A.
+
 
 [cols="1s,7", options="header"]
 |===
-|Primitive type
-|Definition
+|Tipo primitivo
+|Definizione
 
 |Binary
-|A set of finite-length sequences of binary digits.
+|Un insieme di sequenze a lunghezza finita di cifre binarie.
 
 |Date
-|Time point representing a calendar day on a time scale consisting of an origin and a succession of calendar {ISO8601}.
+|Un punto nel tempo che rappresenta un giorno di calendario su una scala temporale formata da una data iniziale ed una successione di calendario {ISO8601}.
 
 |Decimal
-|A subset of the real numbers, which can be represented by decimal numerals.
+|Un sottoinsieme di numeri reali che può essere rappresentato da numeri decimali.
 
 |String
-|A finite sequence of characters.
+|Una sequenza finita di caratteri.
 |===

@@ -1,98 +1,84 @@
 [[use-case-3---despatch-with-logistic-units-using-gs1-keys]]
-== Use case 3 - Despatch with Logistic units using GS1 Keys
+== Caso d’uso 3 – Spedizione con unità logistica utilizzando le chiavi GS1
 
-This use case is a refined use of the Despatch Advice where several GS1 keys are applied within the Despatch Advice to identify various entities in the despatch advice, namely; Parties, Endpoints, Shipment id, consignment ids, logistic unit ids and product identification.
+Questo caso d’uso rappresenta l’uso più specifico del Documento di Trasporto (DDT) dove vengono applicate al suo interno diverse chiavi GS1 per identificare diverse entità nel documento, come; Parti di business, Endpoint, Shipment id, consignment id, logistic unit id ed identificatori dei prodotti.
 
 [cols="1,5",options="header",]
 |====
-|*Use Case number* |3
-|*Use Case Name* |Despatch Advice with Logistic units using GS1 Keys
-|*Use Case Description* a|
-Describes a complete process whereby a Despatch party generates a Despatch Advice based on information about the order and the product.
+|*Nr. Caso d’uso* |3
+|*Nome Caso d’uso* |Documento di Trasporto con unità logistica e uso di chiavi GS1
+|*Descrizione Caso d’uso* a|
+Descrive un processo completo per cui uno Speditore genera un Documento di Trasporto basato su informazioni relative all’ordine e ai prodotti.
+Il Documento di Trasporto (DDT) abilita il Fornitore / Trasportatore a fornire informazioni dettagliati sul contenuto di una spedizione e permette all’Acquirente di riconciliare, o confermare, la spedizione fisica a fronte dell’ordine; esso fornisce una copia del dettaglio di imballaggio della spedizione e la composizione della consegna.
+Il Documento di Trasporto è inviato dallo Speditore al Consegnatario quando la merce viene inviata. 
 
-The Despatch Advice enables the supplier (carrier) to provide detailed information about the content of a shipment and enables a Buyer to reconcile, or confirm, the physical shipment against the order; it provides a mirror of the shipment’s packaging details and structure of the delivery.
-
-The Despatch Advice is sent by the Despatch party to the Consignee party when the goods are sent.
-
-|*Parties involved* a|
-Despatch party In UBL: DespatchSupplierParty) (Different legal entity than the Seller in this use case)
-
+|*Parti coinvolte* a|
+Lo Speditore (In UBL: DespatchSupplierParty) (In questo caso è soggetto giuridico diverso dal Venditore)
 Seller (In UBL: SellerSupplierParty)
+Consignee party (In UBL: DeliveryCustomerParty) (In questo caso è soggetto giuridico diverso dall’Acquirente)
+Acquirente (In UBL: BuyerCustomerParty) 
 
-Consignee party (In UBL: DeliveryCustomerParty) (Different legal entity than the Buyer in this use)
-
-Buyer (In UBL: BuyerCustomerParty)
-
-|*Pre conditions* |Master data alignment of locations (GLNs) and products (GTINs).
-|*Post conditions* |Despatch advice is received by the receiver of the goods.
-|*Assumptions* a|
+|*Pre conditions* |Allineamento delle anagrafiche centrali con ubicazioni (GLNs) e prodotti (GTINs).
+|*Post conditions* |Il Documento di Trasporto è ricevuto dal destinatario della merce.
+|*Assunzioni* a|
 [loweralpha]
-..  The Despatch Advice has one shipment id (GSIN) assigned by the seller
-..  The Despatch Advice has one consignment id which has been assigned by the carrier (GINC)
-..  One delivery point (no cross docking) which is identified by a GLN.
-..  The four despatch lines are each an orderable unit – a GTIN.
-..  Two ordered units (GTINS) are packed on each pallet.
-..  There are two pallets in the shipment.
-..  Each standard pallet is assigned one logistics’ unit id (SSCC).
-..  A logistics’ label has been applied to each of the pallets where the SSCC is used rendered as clear text numbers, address details and GS1 128 barcode
+..  L’Avviso di Spedizione ha un ID di spedizione (GSIN) assegnato dal venditore
+..  L’Avviso di Spedizione ha un ID di consegna che è stato assegnato dal trasportatore (GINC)
+..  Un luogo di consegna (no cross-docking) che è identificato da un GLN.
+..  Le quattro righe di spedizione sono ciascuna una unità ordinabile – un GTIN.
+..  Due unità ordinate (GTIN) sono imballate in ogni pallet.
+..  Ci sono due pallet nella spedizione.
+..  Ad ogni pallet standard è assegnata un’etichetta logistica (SSCC) identificativa.
+..  Un’etichetta logistica è stata applicate ad ognuno dei pallet dove l’SSCC è usato e rappresentato con numeri in chiaro, dettagli sull’indirizzo e codice a barre GS1 128.
 +
-_Relationship between the GTIN and the SSCC keys_
+_Relazione tra il GTIN e le chiavi  SSCC_
 +
 image:images/gtin-scss.png[image,width=271,height=93]
 
-|*The flow* a|
-The Seller has accepted the order without changes.
+|*Il flusso* a|
+Il Venditore ha accettato l’ordine senza modifiche.
 
-.  The Seller collects the ordered goods
-.  The ordered goods consist of one pallet per ordered 2 line items.
-.  The Despatch party loads the goods onto the transport.
-.  The Despatch party sends the Despatch advice to the Consignee
-.  The Consignee party receives the Despatch advice message
+.  Il Venditore preleva la merce ordinata 
+.  La merce ordinata consiste di un pallet ogni 2 righe di articoli ordinati.
+.  Lo Speditore carica la merce per il trasporto. 
+.  Lo Speditore invia l’Avviso di Spedizione (DDT) al Consegnatario
+.  Il Consegnatario receve il messaggio di Avviso di Spedizione
+.  Il Consegnatario usa il contenuto del messaggio di Avviso di Spedizione per registrare l’accettazione.
 
-1.  The Consignee party uses the content in the Despatch advice message for registration receipt.
+|*Risultato* a|
+.  Il messaggio di Avviso di Spedizione ha aiutato il Consegnatario a preparare l’accettazione della merce:
+..  In tempo
+..  Nel luogo corretto (indirizzo)
+.  L’Avviso di Spedizione ha aiutato il Consegnatario nella registrazione dell’accettazione per identificare:
+..  L’ordine
+..  Le righe d’ordine
+..  Le unità logistiche 
+..  La descrizione della merce
+..  La quantità evasa
+..  Le Parti coinvolte nel processo
 
-|*Result* a|
-.  The Despatch advice message helped the Consignee party to prepare for receipt of goods:
-..  At the right time
-..  At the right location (address)
-.  The Despatch advice helped the Consignee party in the process of receipt registration to identify the:
-..  Order
-..  The order lines
-..  The logistics’ handling units
-..  The goods description
-..  The delivered quantity
-..  The parties involved in the process
-
-|*XML example file* |See Annex A for a sample file illustrating Use Case 3.
+|*Esempio XML* |Vedi Allegato A per un esempio di file che illustra il Caso d’uso 3.
 |====
 
-The following provides additional details and clarifications about the various keys and identifiers used in this Use Case, as well as the benefits implementers can obtain when using them.
-Ultimately there are two pictures clarifying the relationship between the GSIN and the GINC identifiers.
+Di seguito si forniscono ulteriori dettagli e chiarimenti sulle varie chiavi e identificatori utilizzati in questo Caso d’uso, come pure i benfici che gli implementatori possono ottenere quando li usano. Infine vi sono due immagini che chiariscono la relazione che intercorre tra gli identificatori GSIN e GINC.
 
 [cols="2,4",options="header",]
 |====
-2+|Beneath are an overview and an explanation of the keys used in the Use Case.
+2+|Sotto, una panoramica e una spiegazione delle chiavi usate nel caso d'uso.
 a|
 
 *GLN:*
 
 Global location number |
 
-Despatch party - Organizational identification.
-
-Despatch party - Endpoint identification
-
-Consignee - Organizational identification.
-
-Consignee - Endpoint identification
-
-Buyer - Organizational identification.
-
-Buyer - Endpoint identification.
-
-Seller - Organizational identification
-
-Seller - Endpoint identification.
+Speditore - Identificazione organizzativa.
+Speditore - Identificazione Endpoint 
+Consegnatario - Identificazione organizzativa.
+Consegnatario - Identificazione Endpoint
+Acquirente - Identificazione organizzativa.
+Acquirente - Identificazione Endpoint.
+Venditore - Identificazione organizzativa
+Venditore - Identificazione Endpoint.
 
 a|
 **SSCC**:
@@ -100,10 +86,8 @@ a|
 Serial Shipping Container Code
 
  a|
-Each transport handling unit is assigned an SSCC.
-
-The SSCC is the GS1 Identification Key for an item of any composition established for transport and/or storage which needs to be managed through the supply chain.
-The SSCC is assigned for the life time of the transport item and is a mandatory element on the GS1 Logistic Label
+Ad ogni unità logistica viene assegnata una SSCC.
+L’SSCC è una chiave identificativa GS1 per un articolo di qualsiasi composizione utilizzato per il trasporto e/o deposito che necessita di essere gestito attraverso la catena di fornitura. L’SSCC è assegnato per la durata del trasporto dell’articolo merce ed è un elemento obbligatorio nell’Etichetta Logistica di GS1
 
 a|
 *GSIN:*
@@ -111,15 +95,11 @@ a|
 Global Shipment Identification Number
 
  a|
-Shipment identification. One shipment number for the despatch advice.
-
-A document level id that specifies the number of the Shipment along the entire shipment, which, may consist of several consignments.
-
-* Number assigned by the seller to identify a logical grouping of logistic or transport units that are typically assembled by the seller for a transport shipment.
-
-* It meets the World Customs Organisation (WCO) requirement for a Unique Consignment Reference (URC).
-
-It is endorsed by ISO/IEC 15459 (ISO License Plate)
+Identificativo della Spedizione. Un numero di spedizione per il Documento di Trasporto.
+A livello documento questo specifica il numero assegnato all’intera Spedizione, che può essere formata da diverse consegne.
+*  Numero assegnato dal venditore per identificare un raggruppamento logico di unità logistiche o di trasporto che sono tipicamente assemblate dal venditore per il trasporto di una spedizione.
+*  È allineato al requisito del Unique Consignment Reference (UCR) del World Customs Organisation (WCO).
+È approvato da ISO/IEC 15459 (ISO License Plate)
 
 a|
 *GINC:*
@@ -127,12 +107,9 @@ a|
 Global Identification Number of Consignment
 
  a|
-One consignment number for the Despatch Advice
-
-* Used to identify a logical grouping of logistic or transport units that are assembled to be transported under one transport document.
-
-* It is used to identify a logical grouping of logistic units during a specific journey of which there may be multiple consignment stages.
-
+Un numero di consegna per il Documento di Trasporto
+*  Utilizzato per identificare il raggruppamento logico di unità logistiche o di trasporto che sono assemblate per il trasporto associato ad un documento di trasporto.
+*  È utilizzato per identificare il raggruppamento logico di unità logistiche durante uno specifico viaggio nel quale ci potrebbbero essere molteplici fasi di consegna.
 
 a|
 *GTIN:*
@@ -140,22 +117,21 @@ a|
 Global trade Item Number
 
  a|
-Each ordered item as a GTIN.
-
-Product identification.
+Ogni articolo ordinato come un GTIN.
+Identificazione del Prodotto.
 
 |====
 
 [cols="2,4",options="header",]
 |====
-2+|Beneath are an overview of the benefits implementers can get when using the keys and identifiers.
+2+|Sotto, una panoramica dei benefici che gli implementatori possono ottenere dall’uso di chiavi e identificatori.
 |
 *GTIN:*
 
 Global trade Item Number
 
 a|
-* Correct goods and associated data have been sourced through upfront data alignment
+* La merce corretta e i dati associati sono stati ottenuti grazie ad un allineamento dei dati a monte.
 
 |
 *GLN*
@@ -163,7 +139,7 @@ a|
 Global Location Number
 
 a|
-* Precise and trustworthy location data has been achieved through GS1 master data alignment location registers.
+* Dati di ubicazione precisi e fidati sono stati ottenuti attraverso l’allineamento con i registri anagrafici principali di GS1.
 
 |
 *SSCC:*
@@ -171,19 +147,20 @@ a|
 Serial Shipping Container Code
 
 a|
-* Logistic units are individually identified with the SSCC (Serial Shipping Container Code)
-* The item (goods) details accessed by scanning (bar code) or reading (EPC/RFID) the SSCC on the logistic unit and accessing the relevant information.
-* The usage of the SSCC on a logistic unit is subject to rules, namely that multiple visible SSCCs on one logistics unit can only be used for transit purposes.
-** If two or more SSCCs are applied on a logistics unit then the units associated to a given SSCC have to be individually wrapped or bound together to form individual logistics units.
-** Multiple SSCCs can be applied to individual units on one logistic unit for subsequent cross docking but they HAVE to be wrapped so that they are not visible.
-* Additionally, a master logistics label needs to be applied to the whole logistics unit for the consignment to the distribution center.
+* Le unità logistiche vengono identificate individualmente mediante l’SSCC (Serial Shipping Container Code)
+* I dettagli sul’articolo merce vengono acceduti attraverso la lettura di codici a barre o leggendo (EPC/RFID) l’SSCC posto sull’unità logistica. 
+* L’uso dell’SSCC su di una unità logistica è soggetto a regole, cioè che multiple SSCC visibili su di una unità logistica possono essere solo utilizzate a scopo di transito.
+** Se due o più SSCC vengono applicate su di una unità logistica, le unità associate ad una data SSCC devono essere avvolte o legate insieme a formare un’unità logistica individuale.
+** Multipli SSCC possono essere applicate su unità individuali di una unità logistica per il successivo cross-docking ma queste DEVONO essere avvolte in modo da non essere visibili.
+* Inoltre, un’etichetta logistica principale deve essere applicata all’unità logistica complessiva per la consegna al centro di distribuzione.
+
 a|
 **GSIN**:
 
 Global Shipment Identification Number
 
 a|
-* A globally recognised shipping number used to uniquely identify the shipment as a whole as specified by the seller
+* Un numero di spedizione riconosciuto a livello globale utilizzato per identificare univocamente la spedizione nel suo complesso come specificato dal venditore.
 
 |
 *GINC:*
@@ -191,12 +168,12 @@ a|
 Global Identification Number of Consignment
 
 a|
-* A globally recognised consignment number used to uniquely identify the consignment as specified by the shipper.
+* Un numero di consegna riconosciuto a livello globale utilizzato per identificare univocamente la consegna come specificato dallo spedizioniere.
 
 |====
 
-*Supplementary clarification on the usage of the GSIN and the GINC.*
+*Chiarimenti supplementary sull’uso del GSIN e del GINC.*
 
-_Assembling of the keys:_
+_Assemblaggio delle chiavi:_
 
 image:images/image8.png[image,width=436,height=169]

@@ -1,8 +1,9 @@
 
-= Semantic datatypes
+= Tipi di dato semantici
 
-Semantic data types are used to bridge the gap between the semantic concepts expressed by the information elements and the technical implementation.
-The semantic data types define the allowed value domain for the content, and any additional information components (attributes) needed in order to ensure its precise interpretation.
+I tipi di dato semantici vengono utilizzati per colmare il divario tra i concetti semantici espressi dagli elementi informativi e l'implementazione tecnica.
+I tipi di dato semantici definiscono i domini dei valori consentiti nel contenuto e qualsiasi altro componente informativo (attributi), necessari a garantire la sua corretta interpretazione.
+
 
 :leveloffset: +1
 

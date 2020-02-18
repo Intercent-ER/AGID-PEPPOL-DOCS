@@ -1,21 +1,21 @@
 [[principles-and-prerequisites]]
-= Principles and prerequisites
+= Principi e prerequisiti
 
-This chapter describes the principles and assumptions that underlie the use of the PEPPOL Despatch Advice.
-It is based on the CEN BII 30 Dispatch only profile.
+Questo capitolo descrive i principi e le assunzioni che stanno alla base dell’uso del Documento di Trasporto PEPPOL.
+Esso si basa sul profilo CEN BII 30 “Despatch only”.
 
 [[despatch-advice-message-in-general]]
-== Despatch Advice message in general
+== Il messaggio del Documento di Trasporto in generale
 
-The electronic transaction described in this implementation guide is the Despatch Advice message.
-The Despatch Advice message is used in the fulfillment process by the supplier to notify the receiver about, the despatch and delivery period for the goods being sent, as well as details about the goods for cross checking with the order and ultimately the Electronic Despatch Advice is used for declaring how the despatched goods are packed.
+La transazione elettronica descritta in questa guida implementativa è il messaggio dell’Avviso Spedizione (Despatch Advice) utilizzato in Italia anche come Documento di Trasporto (DDT) introdotto dal DPR 472/96.
+Il messaggio del Documento di Trasporto è utilizzato dal fornitore (cedente) nel processo dell’evasione dell’ordine per notificare il ricevitore (cessionario) circa, la spedizione e il periodo di consegna per i beni inviati, come pure i dettagli relativi per effettuare controlli incrociati con l’ordine, nonchè dichiarare la tipologia di imballaggio.
 
-The main activities supported by this message are:
+Le attività principali supportate da questo messaggio sono:
 
-* *Transport* Full description of how the goods are packed and delivered.
-A delivery is taken to be a number of items that are despatched as a single consignment to a single delivery address.
-* *Ordering* States what is shipped; the quantity of goods shipped and what is outstanding.
-* *Receiving goods* Full support of the process of receiving goods into a warehouse, inventory, in stores or simply at a reception counter.
+* *Trasporto* Descrizione completa di come la merce è imballata e consegnata.
+Una consegna è intesa come un numero di unità (articoli) che vengono spediti come singola spedizione ad un singolo indirizzo di consegna.
+* *Ordinativo* Indica cosa viene spedito; la quantità della merca spedita e cosa rimane inevaso.
+* *Accettazione della merce* Supporto completo al processo di accettazione della merce in un magazzino, all’inventario, nei negozi o semplicemente al banco di accettazione.
 
 :leveloffset: +1
 

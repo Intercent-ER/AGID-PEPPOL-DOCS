@@ -1,9 +1,9 @@
 
-= Value added tax (VAT)
+= Imposta sul valore aggiunto (IVA)
 
-The chapters below describe the different VAT informations that can be provided in this BIS.
+I capitoli seguenti descrivono le diverse informazioni in materia dell'IVA che possono essere fornite in questo BIS.
 
-Please also see {vat-codes} for details on the VAT category code list, and <<vat-calc>> for detailed explanation and example on how to perform the calculations for VAT Breakdown.
+Si consiglia di consultare anche i {vat-codes} per dettagli sulla codifica delle categorie IVA e il <<vat-calc>> per una rappresentazione più dettagliata ed esempi su come eseguire i calcoli nel riepilogo IVA.
 
 :leveloffset: +1
 
@@ -12,17 +12,17 @@ include::../../shared/files/vat-cat-line.adoc[]
 :leveloffset: -1
 
 [[vat-allowance]]
-== VAT info for allowance or charge
+== Informazioni VAT negli Sconti e maggiorazioni
 
-Document level allowance/charge is stated using the UBL element `cac:AllowanceCharge`. Further details on allowance and charge can be found in <<allowance>>.
+Ogni sconto o maggiorazione a livello di testata viene espresso mediante l'elemento UBL `cac:AllowanceCharge`. Ulteriori dettagli sugli sconti e maggiorazioni si trovano in <<allowance>>.
 
-Each document level charge or allowance must have the Document level allowance or charge VAT category code, and for all VAT categories except "Not subject to VAT" (O), the VAT rate shall be provided.
+Ogni sconto o maggiorazione a livello di testata deve avere il codice di categoria IVA. Per tutte le categorie IVA, eccetto "Non soggetto ad IVA" (O), deve essere fornita l'aliquota IVA.
 
-.UBL Example of a charge with tax category information
+.Esempio UBL di maggiorazione con informazioni sulla categoria IVA
 [source, xml, indent=0]
 ----
 include::../snippets/snippet-oa-vat.xml[tags=vat-allowance]
 ----
-<1> The class `cac:TaxCategory` is used for tax category information
-<2> VAT category according to codelist {vat-codes}
-<3> VAT rate
+<1> La classe `cac:TaxCategory` è utilizzata per informazioni dulla categoria IVA
+<2> Categoria IVA secondo la codifica {vat-codes}
+<3> Aliquota IVA

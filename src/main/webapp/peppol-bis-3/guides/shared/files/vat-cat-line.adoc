@@ -1,15 +1,15 @@
 
-= Line VAT Category
+= Categoria IVA su riga
 
-VAT information on line level is provided in the class `cac:ClassifiedTaxCategory`.
+Le informazioni VAT a livello di riga sono fornite nella classe `cac:ClassifiedTaxCategory`.
 
-Each line shall have the item VAT information including category code and percentage rate except when the invoice is "Not subject to VAT" (VAT category code on document level =O) then percentage shall not be given on line level.
+Ogni riga deve avere le informazioni IVA dell'articolo incluso il codice categoria e la percentuale dell'aliquota ad eccezione del caso in cui il documento non sia soggetto ad IVA (codice categoria IVA = O a livello documento), in tal caso la percentuale dell'aliquota non dovrà essere fornita a livello di riga.
 
-.UBL example of line VAT category
+.Esempio UBL di categoria IVA sulla riga
 [source, xml, indent=0]
 ----
 include::../snippets/snippet-common.xml[tags=vat-line]
 ----
-<1> VAT category according to codelist {vat-codes}
-<2> VAT percentage, must be present unless VAT category code is O.(the value "O" means "Out of scope for VAT")
-<3> Value must be VAT
+<1> Categoria IVA secondo la codifica {vat-codes}
+<2> Percentuale IVA, deve essere presente a meno che la categoria IVA sia uguale a O.(Il valore "O" significa "Fuori campo IVA")
+<3> Il valore deve essere VAT

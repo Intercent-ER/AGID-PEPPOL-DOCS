@@ -1,21 +1,21 @@
 
 = Percentage
 
-Percentages are given as fractions of a hundred (per cent) e.g. the value 34,78 % in percentage terms is given as 34,78.
+Le percentuali sono espresse come frazioni centesimali (%) cioè il valore di 34,78 % in termini percentuali è dato come 34,78.
 
 ====
-IMPORTANT:  No restriction on number of decimals for percentages.
+IMPORTANT:  Nelle percentuali non vi è alcuna restrizione sul numero di cifre decimali utilizzabili.
 ====
 
 [cols="1s,1,1,1", options="header"]
 |===
-|Component
-|Use
-|Primitive Type
-|Example
+|Componente
+|Uso
+|Tipo primitivo
+|Esempio
 
-|Content
-|Mandatory
+|Contenuto
+|Obbligatorio
 |Decimal
 |34.7812
 |===

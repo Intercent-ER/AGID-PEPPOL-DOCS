@@ -1,14 +1,15 @@
 [[transport-handling-unit]]
-= Transport handling unit
+= Unità logistica di trasporto
 
-The items on a Despatch line may be packed in several transport handling units which are the physical handling units such as box, container, pallet, etc.
-containing the consignment.
+Gli articoli merce indicati in una riga di spedizione possono essere imballati in diverse unità logistiche che sono le unità logistiche fisiche come casse, container, pallet, etc., che contengono la consegna.
 
-Serial shipping container code (SSCC) issued by GS1 may be used to identify the transport handling unit.
-Note that the same physical handling unit may contain items from different despatch lines.
-Implemented by referencing the same SSCC code in the ID element of the TransportHandlingUnit on several despatch lines.
+Il Serial Shipping Container Code (SSCC) emesso da GS1 può essere usato per identificare l’unità logistica.
+È importante notare che la stessa unità logistica può contenere articoli merce indicati in righe diverse nel Documento di Trasporto.
+Questo si implementa mediante il riferimento allo stesso codice SSCC nell’elemento ID del TransportHandlingUnit su diverse righe di spedizione.
 
-Example:
+In Italia l’etichetta logistica posta sull’unità logistica, come ad esempio un collo singolo o un pallet con il relativo identificativo SSCC, viene denominata comunemente “segnacollo”.
+
+Esempio:
 
 [source, xml, indent=0]
 ----

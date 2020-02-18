@@ -1,45 +1,44 @@
 [[use-case-1---simple-despatch]]
-== Use case 1 - Simple Despatch
+== Caso d’uso 1 – Spedizione semplice
 
-This use case is a simple despatch where no handling units are used in the Despatch Advice.
-There are only two parties (legal entities) in this use case.
+Questo caso d’uso è una spedizione semplice dove non viene usata alcuna unità logistica nel Documento di Trasporto.
+Vi sono solo due parti (soggetti giuridici) in questo caso.
 
 [cols="1,5",options="header",]
 |====
-|*Use Case number* |1
-|*Use Case Name* |Simple Despatch
-|*Use Case Description* |This use case is a simple despatch where no handling units are used in the Despatch Advice.
-There are only two parties (legal entities) in this use case.
-|*Parties involved* a|
-Despatch party (In UBL: DespatchSupplierParty) (same legal entity as the Supplier/Seller in this use case)
+|*Nr. Caso d’uso* |1
+|*Nome Caso d’uso* |Spedizione Semplice
+|*Descrizione Caso d’uso* |Questo caso d’uso è una spedizione semplice dove non viene usata alcuna unità logistica nel Documento di Trasporto. Vi sono solo due parti (soggetti giuridici) in questo caso.
+|*Parti coinvolte* a|
+Speditore (In UBL: DespatchSupplierParty) (stesso soggetto giuridico del Fornitore/Venditore in questo caso)
+Consegnatario (In UBL: DeliveryCustomerParty) (stesso soggetto giuridico del Cliente/Acquirente in questo caso)
 
-Consignee party (In UBL: DeliveryCustomerParty) (same legal entity as the Customer/Buyer in this use case)
 
-|*Assumptions* a|
-1.  The Seller has received one order from the Buyer with
-a.  2 lines (2 articles)
-b.   to be delivered at one delivery address
-c.  at the same time.
-2.  The Seller has accepted the order without changes.
-3.  The Despatch party delivers the complete order as accepted
+|*Assunzioni* a|
+1.  Il Venditore ha ricevuto un ordine dall’Acquirente con 
+a.  2 righe (2 articoli)
+b.  Da consegnare ad un singolo indirizzo di consegna 
+c.  Allo stesso tempo.
+2.  Il Venditore ha accettato l’ordine senza modifiche.
+3.  Lo Speditore evade l’ordine completo come accettato.
 
-|*The flow* a|
-1.  The Seller collects the ordered articles
-2.  The Seller loads the articles in boxes
-3.  The Despatch party creates a Despatch advice message
-4.  The Despatch party sends Despatch advice message to the Consignee
-5.  The Consignee party receives the Despatch advice message
-6.  The Consignee party uses the content in the Despatch advice message for registration receipt.
-a.  Two despatch lines, two items (No handling units in the message)
+|*Il flusso* a|
+1.  Il Venditore preleva gli articoli ordinati
+2.  Il Venditore dispone gli articoli in casse
+3.  Lo Speditore crea un Messaggio di Avviso di Spedizione 
+4.  Lo Speditore invia il Messaggio di Avviso di Spedizione al Consegnatario
+5.  Il Consegnatario riceve il messaggio di Avviso di Spedizione
+6.  Il Consegnatario utilizza il contenuto dell’Avviso di Spedizione per registrare l’accettazione.
+a.  Due righe di spedizione, due articoli (Nessuna unità logistica nel messaggio)
 
-|*Result* a|
-1.  The Despatch advice message helped the Consignee party to prepare receipt
-a.  At the right time
-b.  At the right place (address)
-2.  The Despatch advice message helped the Consignee party in the process of register receipt to identify the
-a.  Order
-b.  The order lines
-c.  The articles
-d.  The delivered quantity
+|*Risultato* a|
+1.  Il messaggio dell’Avviso di Spedizione ha aiutato il Consegnatario a preparare l’accettazione 
+a.  Allo stesso tempo
+b.  Nel luogo corretto (indirizzo)
+2.  Il messaggio dell’Avviso di Spedizione ha aiutato il Consegnatario nella registrazione dell’accettazione per identificare:
+a.  L’ordine
+b.  Le righe d’ordine
+c.  Gli articoli
+d.  La quantità evasa
 
 |====

@@ -1,18 +1,18 @@
 
 = Text
 
-Text is the actual wording of anything written or printed. Line breaks in the text may be present, and any line breaks should be preserved and respected by the receiver’s system
+Il testo è la formulazione di qualsiasi contenuto redatto o stampato. Potrebbero essere presenti dei troncamenti nel testo, qualsiasi troncamento dovrebbe essere preservato e rispettato dal sistema ricevente.
 
 
 [cols="1s,1,1,1", options="header"]
 |===
-|Component
-|Use
-|Primitive Type
-|Example
+|Componente
+|Uso
+|Tipo primitivo
+|Esempio
 
-|Content
-|Mandatory
+|Contenuto
+|Obbligatorio
 |String
-|5% allowance when paid within 30 days
+|5% di sconto se pagato entro 30 giorni
 |===

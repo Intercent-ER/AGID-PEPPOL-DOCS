@@ -1,30 +1,30 @@
 [[order-reference]]
-= Order reference
+= Riferimento all’Ordine
 
-Used to provide a reference to the purchase order on which the Despatch Advice is based.
-There may be multiple Despatch Advices to cover one purchase order.
-Each Despatch Advice relates to one purchase order.
-The reference to Order Line-ID is required in the UBL syntax.
-To cater for scenarios where no order line reference exist a dummy value must be applied.
-The dummy value must consist of the characters **NA**.
+Usato per fornire riferimento all’ordine d’acquisto sul quale il Documento di Trasporto si basa e per favorirne la riconciliazione automatica.
+Ci possono essere molteplici documenti di trasporto a fronte di un ordine d’acquisto.
+Ogni Documento di Trasporto si può riferire ad un solo ordine.
 
-.Example header level
+La sintassi UBL richiede di indicare obbligatoriamente nell’elemento <cbc:LineID> il numero della riga d’ordine cui si riferisce la riga del DDT.
+Per supportare scenari dove è sufficiente riferirsi all’ordine in generale si deve usare il valore **NA**.
+
+.Esempio a livello di testata
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/snippet-30-2.xml[tags=ref-order]
 ----
 
-.Example 1 of Line level
+.Esempio 1 a livello di riga
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/snippet-30-2.xml[tags=ref-orderline]
 ----
 
-.Example 2 of Line level
+.Esempio 2 a livello di riga
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/snippet-30-2.xml[tags=ref-orderlinena]
 ----
 
-It is also possible to refer to more than one order in one single despatch advice.
-In this case there must not be an order reference on header level.
+E' inoltre possibile riferirsi a più di un ordine in un singolo documento di trasporto.
+In questo caso non ci deve essere un riferimento all'ordine a livello di testata.

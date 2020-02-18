@@ -1,18 +1,31 @@
 
 
-= Electronic address identifier scheme identifier
+= Identificativo dello schema per gli identificatori degli indirizzi elettronici
 
-All electronic address identifiers (`cbc:EndpointID/@schemeID`) use the Electronic Address Scheme code list (EAS),
-maintained by CEF ({cef-codelists}).
+Tutti gli identificatori degli indirizzi elettronici (`cbc:EndpointID/@schemeID`) utilizzano la lista EAS (Electronic Address Scheme) mantenuta dal CEF ({cef-codelists}).
 
-Valid values are found here: {codelist-EAS}.
+I valori permessi si trovano presso: {codelist-EAS}.
+
+#In tutti i tipi di Documento devono essere indicati gli identificativi (Endpoint) del Cliente e del Fornitore. Nell’Ordine deve essere indicato anche l’identificativo dell’intestatario della fattura.#
+
+#Se riferito a un’amministrazione pubblica (Cliente, Fornitore o intestatario della fattura), l’Endpoint è costituito dal Codice IPA, ossia il codice unico ufficio composto dai 6 caratteri che identifica ciascuna unità organizzativa censita sull’ Indice delle Pubbliche Amministrazioni (IPA), qualificato dallo schemeID “0201”.#
+
+#Si noti che lo schemeID “0201” ha sostituito il “9921”, che aveva carattere provvisorio, nell’ https://docs.peppol.eu/poacc/upgrade-3/codelist/eas/[Electronic Address Scheme pubblicata da PEPPOL].#
+
+#Se è riferito a un soggetto privato (Fornitore o intestatario della fattura), l’Endpoint è costituito come segue:#
+
+#− in caso di soggetto italiano provvisto di partita IVA, dall’identificativo fiscale (“IT” + partita IVA), qualificato dallo schemeID “9906”;#
+
+#− in caso di soggetto italiano non provvisto di partita IVA, dal codice fiscale, qualificato dallo schemeID “9907” (se il soggetto non è una persona fisica, utilizzare il codice fiscale del legale rappresentante);#
+
+#− in caso di soggetto estero, dal relativo identificativo qualificato dallo schemeID corrispondente tratto dall’ https://docs.peppol.eu/poacc/upgrade-3/codelist/eas/[Electronic Address Scheme pubblicata da PEPPOL].#
 
 
-.Examples of usage in `cbc:EndpointID`
+.Esempio di utilizzo in `cbc:EndpointID`
 [source,xml, indent="0"]
 ----
 
-	<cbc:EndpointID schemeID="0184">DK87654321</cbc:EndpointID> <1>
+	<cbc:EndpointID schemeID="9906">IT01234567890</cbc:EndpointID> <1>
 
 ----
-<1> schemeID attribute is mandatory
+<1> L’attributo schemeID è obbligatorio

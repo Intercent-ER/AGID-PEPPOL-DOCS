@@ -1,18 +1,20 @@
 [[shipment]]
-= Shipment
+= Spedizione
 
-Description of the actual shipment that contains the goods that are being despatched.
+Descrizione della spedizione effettiva che contiene la merce che è stata spedita.
 
 [[shipment-id]]
-== Shipment ID
+== ID Spedizione, Vettore, informazioni di trasporto, consegna ed evasione 
 
-In some uses of the Despath Advice, there is no unique identifier assigned to the shipment.
-However, the UBL syntax requires the Shipment ID.
-Consequently, to be able to use elements such as GrossWeightMeasure or CarrierParty, the Shipment/ID must be filled in.
-To cater for scenarios where no ID exist a dummy value must be applied.
-The dummy value must consist of the characters **NA**.
+In alcuni usi del Documento di Trasporto, non c’è un unico identificatore assegnato alla spedizione.
+Comunque, la sintassi UBL richiede che lo Shipment ID sia specificato.
+Conseguentemente, per poter utilizzare elementi come GrossWeightMeasure o CarrierParty, lo Shipment/ID deve essere valorizzato.
+Per supportare scenari dove non è disponibile o non è utilizzato l’ID della spedizione si deve usare il valore **NA**.
+Come parte delle informazioni di spedizione (Shipment) vengono forniti: peso, volume, colli, vettore, tempi di consegna stimati e di effettiva evasione.
 
-Example:
+NOTA: Le misure (***Measure) come peso e volume sono obbligatoriamente espresse secondo la codifica UN/ECE Rec20 e non è richiesto qualificarle con ulteriori attributi.
+
+Esempio:
 
 [source, xml, indent=0]
 ----

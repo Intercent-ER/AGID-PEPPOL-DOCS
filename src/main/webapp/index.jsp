@@ -22,7 +22,7 @@
         <script>
             //<![CDATA[
             $(function () {
-                const VER = "13";    // Math.random()*1000000
+                const VER = "17";    // Math.random()*1000000
                 var $body = $("body"), $main = $("#main"), $guide = $("#guide").hide(), $adoc = $("#adoc-viewer"), $loader = $("#loader");
                 var defBis = "peppol-bis-invoice-3";
 
@@ -253,12 +253,12 @@
         <div id="main" class="container">
 
             <div class="page-header">
-                <h1>Indice :: <span id="home-title"></span></h1>
+                <h1>Indice : <span id="home-title"></span></h1>
             </div>
 
             <dl class="dl-horizontal">
 
-                <dt>Introduzione</dt>
+                <dt>Note di Rilascio</dt>
                 <dd>
                     <div class="list-group" id="intro-list">
                     </div>

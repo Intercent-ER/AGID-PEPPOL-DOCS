@@ -9,4 +9,4 @@ Note di Rilascio
 
 
 
-include::introduction.adoc[]
+include::list.adoc[]

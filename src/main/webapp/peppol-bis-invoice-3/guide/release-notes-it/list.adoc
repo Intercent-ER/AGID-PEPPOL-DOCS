@@ -6,8 +6,7 @@
 | Cosa è cambiato
 
 
-|
-| 
-
+| 21/02/2020
+| Regole di Business aggiornate con ultima EN 3.0.5 hotfix.
 
 |===

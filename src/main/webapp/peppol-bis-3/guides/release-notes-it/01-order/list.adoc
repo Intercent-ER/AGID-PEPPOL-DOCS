@@ -6,8 +6,8 @@
 | Cosa è cambiato
 
 
-|
-| 
+| 21/02/2020
+| Regole di Business aggiornate con versione PEPPOL 3.1
 
 
 |===

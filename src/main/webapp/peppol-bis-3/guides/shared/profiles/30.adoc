@@ -12,6 +12,6 @@ Nella tabella seguente troverai i valori da utilizzare come identificatore della
 
 
 | Despatch Advice (Trdm16)
-| urn:fdc:peppol.eu:poacc:trns:despatch_advice:3
+| urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.0
 | urn:fdc:peppol.eu:poacc:bis:despatch_advice:3
 |===

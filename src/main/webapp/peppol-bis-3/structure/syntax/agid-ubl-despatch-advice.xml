@@ -13,7 +13,7 @@
 	<Namespace prefix="cbc">urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2</Namespace>
 	<Document>
 		<Term>ubl:DespatchAdvice</Term>
-		<Element>
+		<Element agid:custom="fixed-value">
 			<Term>cbc:CustomizationID</Term>
 			<Name>Specification identification</Name>
 			<Description>Identifies the specification of content and rules that apply to the

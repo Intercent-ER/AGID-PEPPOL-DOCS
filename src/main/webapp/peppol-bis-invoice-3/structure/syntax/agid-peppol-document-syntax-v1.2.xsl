@@ -262,7 +262,7 @@
             </td>
             <td style="width: 5%;">
                 <xsl:if test="$mandatory">
-                    <i class="fas fa-exclamation fa-fw" title="Elemento diventato obbligatorio"/>
+                    <i class="fa fa-exclamation fa-fw" title="Elemento diventato obbligatorio"/>
                 </xsl:if>
                 <xsl:if test="$extension">
                     <span>Estensione</span>
@@ -271,10 +271,10 @@
                     <span>Restrizione</span>
                 </xsl:if>
                 <xsl:if test="$rule">
-                    <i class="fas fa-check fa-fw" title="Regola/e italiane"/>
+                    <i class="fa fa-check fa-fw" title="Regola/e italiane"/>
                 </xsl:if>
                 <xsl:if test="@cus:note='new'">
-                    <i class="fas fa-map-pin fa-fw" title="Nuovo elemento"/>
+                    <i class="fa fa-map-pin fa-fw" title="Nuovo elemento"/>
                 </xsl:if>
             </td>
         </tr>
@@ -362,7 +362,7 @@
             </td>
             <td style="width: 5%;">
                 <xsl:if test="$mandatory">
-                    <i class="fas fa-exclamation fa-fw" title="Attributo diventato obbligatorio"/>
+                    <i class="fa fa-exclamation fa-fw" title="Attributo diventato obbligatorio"/>
                 </xsl:if>
                 <xsl:if test="$extension">
                     <span>Estensione</span>
@@ -371,10 +371,10 @@
                     <span>Restrizione</span>
                 </xsl:if>
                 <xsl:if test="$rule">
-                    <i class="fas fa-check fa-fw" title="Regola/e italiane"/>
+                    <i class="fa fa-check fa-fw" title="Regola/e italiane"/>
                 </xsl:if>
                 <xsl:if test="@cus:note='new'">
-                    <i class="fas fa-map-pin fa-fw" title="Nuovo attributo"/>
+                    <i class="fa fa-map-pin fa-fw" title="Nuovo attributo"/>
                 </xsl:if>
             </td>
         </tr>

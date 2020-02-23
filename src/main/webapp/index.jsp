@@ -104,6 +104,7 @@
                     var href = $(this).attr("href") + ".html?v="+VER;
                     $body.removeClass("adoc-mode");
                     $main.hide();
+                    $adoc.hide();
                     $guide.html($loader).show();
                     $guide.load($.bis.current.attr("href") + '/menu/' + href + " #main > *", function (e) {
                         $loader.appendTo("#parking");
@@ -122,6 +123,8 @@
                     e.preventDefault();
 
                     $guide.hide();
+                    $body.removeClass("adoc-mode");
+                    $adoc.hide();
                     $main.show();
                     $.bis.initBIS($.bis.current);
                 }).on("click", "#path li.subcontext a", function (e) {

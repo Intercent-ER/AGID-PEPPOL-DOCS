@@ -329,6 +329,9 @@
         <Id>4N</Id>
         <Name>megabecquerel</Name>
         <Description/>
+        <LocalId>mbq</LocalId>
+        <LocalName>megabecquerel</LocalName>
+        <LocalDescription>Unità di misura che definisce la milionesima parte del becquerel</LocalDescription>
     </Code>
     <Code>
         <Id>4O</Id>
@@ -841,6 +844,9 @@
         <Id>ANN</Id>
         <Name>year</Name>
         <Description>Unit of time equal to 365,25 days. Synonym: Julian year</Description>
+        <LocalId>anno</LocalId>
+        <LocalName>anno</LocalName>
+        <LocalDescription>Unità di misura del tempo pari a 365,25 giorni. Sinonimo: anno giuliano</LocalDescription>
     </Code>
     <Code>
         <Id>APZ</Id>
@@ -1388,6 +1394,9 @@
         <Id>BQL</Id>
         <Name>becquerel</Name>
         <Description/>
+        <LocalId>bq</LocalId>
+        <LocalName>becquerel</LocalName>
+        <LocalDescription>Unità di misura che definisce l'attività di un radionuclide che ha un decadimento al secondo. Nel sistema internazionale ha sostituito il curie.</LocalDescription>
     </Code>
     <Code>
         <Id>BTU</Id>
@@ -1680,6 +1689,9 @@
         <Id>C62</Id>
         <Name>one</Name>
         <Description>Synonym: unit</Description>
+        <LocalId>unità</LocalId>
+        <LocalName>unità (UI)</LocalName>
+        <LocalDescription>Definisce l'unità singola.</LocalDescription>
     </Code>
     <Code>
         <Id>C63</Id>
@@ -1929,16 +1941,25 @@
         <Id>CMK</Id>
         <Name>square centimetre</Name>
         <Description/>
+        <LocalId>cm2</LocalId>
+        <LocalName>centimetro quadrato</LocalName>
+        <LocalDescription>Unità di misura della superficie, pari all'area racchiusa da un quadrato avente lati lunghi un centimetro.</LocalDescription>
     </Code>
     <Code>
         <Id>CMQ</Id>
         <Name>cubic centimetre</Name>
         <Description/>
+        <LocalId>cm3</LocalId>
+        <LocalName>centimetro cubo</LocalName>
+        <LocalDescription>Unità volumetrica, equivalente al volume di un cubo con lato di 1 centimetro.</LocalDescription>
     </Code>
     <Code>
         <Id>CMT</Id>
         <Name>centimetre</Name>
         <Description/>
+        <LocalId>cm</LocalId>
+        <LocalName>centimetro</LocalName>
+        <LocalDescription>Unità di misura di lunghezza, pari alla centesima parte del metro.</LocalDescription>
     </Code>
     <Code>
         <Id>CNP</Id>
@@ -1977,6 +1998,9 @@
         <Id>CUR</Id>
         <Name>curie</Name>
         <Description/>
+        <LocalId>ci</LocalId>
+        <LocalName>curie</LocalName>
+        <LocalDescription>Unità di misura che definisce l'attività di un radionuclide di un grammo dell'isotopo radio-226.</LocalDescription>
     </Code>
     <Code>
         <Id>CWA</Id>
@@ -2376,6 +2400,9 @@
         <Id>DAY</Id>
         <Name>day</Name>
         <Description/>
+        <LocalId>giorno</LocalId>
+        <LocalName>giorno</LocalName>
+        <LocalDescription>Unità di misura del tempo pari a 24 ore.</LocalDescription>
     </Code>
     <Code>
         <Id>DB</Id>
@@ -2501,6 +2528,9 @@
         <Name>dozen pack</Name>
         <Description>A unit of count defining the number of packs in multiples of 12 (pack: standard
             packaging unit).</Description>
+        <LocalId>dozzina</LocalId>
+        <LocalName>dozzina</LocalName>
+        <LocalDescription>Confezionamento standard con 12 pezzi.</LocalDescription>
     </Code>
     <Code>
         <Id>E01</Id>
@@ -2729,6 +2759,9 @@
         <Name>working day</Name>
         <Description>A unit of count defining the number of working days (working day: a day on
             which work is ordinarily performed).</Description>
+        <LocalId>Giorno di Lavoro</LocalId>
+        <LocalName>Giornata Lavorativa</LocalName>
+        <LocalDescription>Unità di misura del conteggio che definisce il numero di giorni lavorativi (giorno lavorativo: un giorno in cui il lavoro viene normalmente eseguito).</LocalDescription>
     </Code>
     <Code>
         <Id>E50</Id>
@@ -4081,6 +4114,9 @@
         <Id>GBQ</Id>
         <Name>gigabecquerel</Name>
         <Description/>
+        <LocalId>gbq</LocalId>
+        <LocalName>gigabecquerel</LocalName>
+        <LocalDescription>Unità di misura che definisce la miliardesima parte del becquerel.</LocalDescription>
     </Code>
     <Code>
         <Id>GDW</Id>
@@ -4182,6 +4218,9 @@
         <Id>GRM</Id>
         <Name>gram</Name>
         <Description/>
+        <LocalId>g</LocalId>
+        <LocalName>grammo</LocalName>
+        <LocalDescription>Unità di misura della massa, pari a un millesimo di un chilogrammo.</LocalDescription>
     </Code>
     <Code>
         <Id>GRN</Id>
@@ -4726,6 +4765,9 @@
         <Id>HGM</Id>
         <Name>hectogram</Name>
         <Description/>
+        <LocalId>hg</LocalId>
+        <LocalName>hettogrammo</LocalName>
+        <LocalDescription>Unità di misura della massa pari a 100 g.</LocalDescription>
     </Code>
     <Code>
         <Id>HH</Id>
@@ -4778,6 +4820,9 @@
         <Id>HUR</Id>
         <Name>hour</Name>
         <Description/>
+        <LocalId>ora</LocalId>
+        <LocalName>ora</LocalName>
+        <LocalDescription>Unità di misura del tempo pari a 3 600 secondi o 60 minuti.</LocalDescription>
     </Code>
     <Code>
         <Id>IA</Id>
@@ -5768,6 +5813,9 @@
         <Id>KGM</Id>
         <Name>kilogram</Name>
         <Description>A unit of mass equal to one thousand grams.</Description>
+        <LocalId>kg</LocalId>
+        <LocalName>chilogrammo</LocalName>
+        <LocalDescription>Unità di misura della massa pari a mille grammi.</LocalDescription>
     </Code>
     <Code>
         <Id>KGS</Id>
@@ -5924,6 +5972,9 @@
         <Name>kit</Name>
         <Description>A unit of count defining the number of kits (kit: tub, barrel or
             pail).</Description>
+        <LocalId>kit</LocalId>
+        <LocalName>kit</LocalName>
+        <LocalDescription>Definisce il numero di kit di più articoli diversi tra di loro ma utilizzabili solo se insieme(ad esempio kit: viti e placche).</LocalDescription>
     </Code>
     <Code>
         <Id>KTN</Id>
@@ -5959,6 +6010,9 @@
         <Id>KWH</Id>
         <Name>kilowatt hour</Name>
         <Description/>
+        <LocalId>kwh</LocalId>
+        <LocalName>chilowatt per ora</LocalName>
+        <LocalDescription>Unità di misura della potenza, pari a 1000 watt per ora.</LocalDescription>
     </Code>
     <Code>
         <Id>KWO</Id>
@@ -6506,6 +6560,9 @@
         <Id>LTR</Id>
         <Name>litre</Name>
         <Description/>
+        <LocalId>l</LocalId>
+        <LocalName>litro</LocalName>
+        <LocalDescription>Unità di misura della capacità nel sistema metrico decimale, pari al volume di 1 kg di acqua distillata alla temperatura di 4 °C, equivalente a 1,000028 dm³.</LocalDescription>
     </Code>
     <Code>
         <Id>LUB</Id>
@@ -7098,11 +7155,17 @@
         <Id>MC</Id>
         <Name>microgram</Name>
         <Description/>
+        <LocalId>mcg</LocalId>
+        <LocalName>microgrammo</LocalName>
+        <LocalDescription>Unità di misura che definisce la milionesima parte del grammo.</LocalDescription>
     </Code>
     <Code>
         <Id>MCU</Id>
         <Name>millicurie</Name>
         <Description/>
+        <LocalId>mci</LocalId>
+        <LocalName>millicurie</LocalName>
+        <LocalDescription>Unità di misura che definisce 1/1000 l'attività di un radionuclide di un grammo dell'isotopo radio-226.</LocalDescription>
     </Code>
     <Code>
         <Id>MD</Id>
@@ -7114,6 +7177,9 @@
         <Id>MGM</Id>
         <Name>milligram</Name>
         <Description/>
+        <LocalId>mg</LocalId>
+        <LocalName>milligrammo</LocalName>
+        <LocalDescription>Unità di misura di massa equivalente alla millesima parte del grammo.</LocalDescription>
     </Code>
     <Code>
         <Id>MHZ</Id>
@@ -7134,6 +7200,9 @@
         <Id>MIN</Id>
         <Name>minute [unit of time]</Name>
         <Description/>
+        <LocalId>minuti</LocalId>
+        <LocalName>Minuti</LocalName>
+        <LocalDescription>Unità di misura del tempo pari a 1/60 di un'ora.</LocalDescription>
     </Code>
     <Code>
         <Id>MIO</Id>
@@ -7155,6 +7224,9 @@
         <Id>MLT</Id>
         <Name>millilitre</Name>
         <Description/>
+        <LocalId>ml</LocalId>
+        <LocalName>millilitro</LocalName>
+        <LocalDescription>Unità di misura che definisce la millesima parte del litro.</LocalDescription>
     </Code>
     <Code>
         <Id>MMK</Id>
@@ -7165,11 +7237,17 @@
         <Id>MMQ</Id>
         <Name>cubic millimetre</Name>
         <Description/>
+        <LocalId>mm3</LocalId>
+        <LocalName>millimetro cubo</LocalName>
+        <LocalDescription>Unità volumetrica, equivalente al volume di un cubo con lato di 1 millimetro.</LocalDescription>
     </Code>
     <Code>
         <Id>MMT</Id>
         <Name>millimetre</Name>
         <Description/>
+        <LocalId>mm</LocalId>
+        <LocalName>millimetro</LocalName>
+        <LocalDescription>Unità di misura di lunghezza equivalente alla millesima parte del metro.</LocalDescription>
     </Code>
     <Code>
         <Id>MND</Id>
@@ -7181,6 +7259,9 @@
         <Id>MON</Id>
         <Name>month</Name>
         <Description>Unit of time equal to 1/12 of a year of 365,25 days.</Description>
+        <LocalId>mese</LocalId>
+        <LocalName>mese</LocalName>
+        <LocalDescription>Unità di misura del tempo pari a 1/12 di un anno di 365,25 giorni.</LocalDescription>
     </Code>
     <Code>
         <Id>MPA</Id>
@@ -7206,16 +7287,25 @@
         <Id>MTK</Id>
         <Name>square metre</Name>
         <Description/>
+        <LocalId>mq</LocalId>
+        <LocalName>metro quadrato</LocalName>
+        <LocalDescription>Unità di misura per misurare le estensioni di un superficie.E' l''area racchiusa da un quadrato avente il lato lungo 1 metro.</LocalDescription>
     </Code>
     <Code>
         <Id>MTQ</Id>
         <Name>cubic metre</Name>
         <Description>Synonym: metre cubed</Description>
+        <LocalId>m3</LocalId>
+        <LocalName>metro cubo</LocalName>
+        <LocalDescription>Unità di misura utilizzata per il gas in condizioni normali.</LocalDescription>
     </Code>
     <Code>
         <Id>MTR</Id>
         <Name>metre</Name>
         <Description/>
+        <LocalId>m</LocalId>
+        <LocalName>metro</LocalName>
+        <LocalDescription>Unità base della lunghezza.</LocalDescription>
     </Code>
     <Code>
         <Id>MTS</Id>
@@ -8533,6 +8623,9 @@
         <Name>pair</Name>
         <Description>A unit of count defining the number of pairs (pair: item described by
             two's).</Description>
+        <LocalId>paio</LocalId>
+        <LocalName>paio</LocalName>
+        <LocalDescription>Unità di misura del conteggio che definisce il numero di coppie (ad esempio coppia: oggetto descritto da due).</LocalDescription>
     </Code>
     <Code>
         <Id>PS</Id>
@@ -8819,6 +8912,9 @@
         <Name>ream</Name>
         <Description>A unit of count for paper, expressed as the number of reams (ream: a large
             quantity of paper sheets, typically 500).</Description>
+        <LocalId>risma</LocalId>
+        <LocalName>Risma</LocalName>
+        <LocalDescription>Unità di conteggio per la carta, espressa come numero di risme.</LocalDescription>
     </Code>
     <Code>
         <Id>ROM</Id>
@@ -9520,6 +9616,9 @@
     <Code>
         <Id>XBX</Id>
         <Name>Box</Name>
+        <LocalId>scatola</LocalId>
+        <LocalName>scatola</LocalName>
+        <LocalDescription>Definisce il confezionamento secondario che contiene più confezioni.</LocalDescription>
     </Code>
     <Code>
         <Id>XBY</Id>
@@ -10072,6 +10171,9 @@
         <Name>Pallet, CHEP 80 cm x 120 cm</Name>
         <Description>Commonwealth Handling Equipment Pool (CHEP) standard pallet of dimensions 80
             centimeters x 120 centimeters.</Description>
+        <LocalId>bancale</LocalId>
+        <LocalName>pallet</LocalName>
+        <LocalDescription>Piattaforma o scatola aperta, solitamente in legno, su cui vengono trattenute le merci per facilità di movimentazione meccanica durante il trasporto e lo stoccaggio.</LocalDescription>
     </Code>
     <Code>
         <Id>XOC</Id>
@@ -10170,6 +10272,9 @@
         <Id>XPK</Id>
         <Name>Package</Name>
         <Description>Standard packaging unit.</Description>
+        <LocalId>confezione</LocalId>
+        <LocalName>confezione</LocalName>
+        <LocalDescription>Definisce il pacchetto che contiene più unità singole e' il confezionamento minimo vendibile (Es. confezione di compresse).</LocalDescription>
     </Code>
     <Code>
         <Id>XPL</Id>

@@ -11,6 +11,8 @@
     <Code>
         <Id>SEPA</Id>
         <Name>SEPA unique bank assigned creditor identifier</Name>
+        <LocalName>Area Unica dei Pagamenti in Euro</LocalName>
+        <LocalDescription> Area in cui i cittadini, le imprese, le PA e gli altri operatori economici possono effettuare e ricevere pagamenti in euro, sia all'interno dei confini nazionali che fra i paesi che ne fanno parte, secondo condizioni di base, diritti ed obblighi uniformi, indipendentemente dalla loro ubicazione all'interno della SEPA.</LocalDescription>
     </Code>
 
 </CodeList>

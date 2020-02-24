@@ -13,6 +13,10 @@
                             <xs:element type="xs:string" name="Id"/>
                             <xs:element type="xs:string" name="Name"/>
                             <xs:element type="xs:string" name="Description"/>
+                            <xs:element type="xs:string" name="LocalId"/>
+                            <xs:element type="xs:string" name="LocalName"/>
+                            <xs:element type="xs:string" name="LocalDescription"/>
+                            <xs:element type="xs:string" name="LocalUsageNotes"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>

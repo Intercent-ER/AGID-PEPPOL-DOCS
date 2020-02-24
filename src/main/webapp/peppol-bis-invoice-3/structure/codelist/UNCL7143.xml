@@ -294,6 +294,7 @@
         <Id>CV</Id>
         <Name>Customs article number</Name>
         <Description>Code defined by Customs authorities to an article or a</Description>
+        <LocalDescription>Codice definito dalle autorità doganali su un articolo.</LocalDescription>
     </Code>
     <Code>
         <Id>DR</Id>
@@ -334,6 +335,7 @@
         <Id>GN</Id>
         <Name>National product group code</Name>
         <Description>National product group code. Administered by a national</Description>
+        <LocalDescription>Codice del gruppo di prodotti nazionale. Amministrato a livello nazionale.</LocalDescription>
     </Code>
     <Code>
         <Id>GS</Id>
@@ -346,11 +348,13 @@
         <Description>The item number is part of, or is generated in theCoding System (Harmonised
             System), as developed andmaintained by the World Customs Organization
             (WCO).</Description>
+            <LocalDescription>Il numero dell'articolo fa parte o è generato nel Sistema di codifica (Sistema armonizzato), come sviluppato e mantenuto dalla World Customs Organization (WCO).</LocalDescription>
     </Code>
     <Code>
         <Id>IB</Id>
         <Name>ISBN (International Standard Book Number)</Name>
         <Description>A unique number identifying a book.</Description>
+        <LocalDescription>Sistema di identificazione internazionale dei libri (ISBN - International Standard Book Number). Ambito di utilizzo: Libri (anche in formato elettronico e altri prodotti creati per essere utilizzati come libro.</LocalDescription>
     </Code>
     <Code>
         <Id>IN</Id>
@@ -695,11 +699,13 @@
         <Id>STH</Id>
         <Name>GS1 Italy classification system</Name>
         <Description>Product classification system used in the Italian</Description>
+        <LocalDescription>Classificazione commerciale dei prodotti (GPC – Global Product Classification). Ambito di utilizzo: Beni di largo consumo.</LocalDescription>
     </Code>
     <Code>
         <Id>STI</Id>
         <Name>CPV (Common Procurement Vocabulary)</Name>
         <Description>Official classification system for public procurement in</Description>
+        <LocalDescription>Sistema ufficiale di classificazione per gli appalti pubblici.</LocalDescription>
     </Code>
     <Code>
         <Id>STJ</Id>
@@ -716,6 +722,7 @@
         <Id>STL</Id>
         <Name>ATC (Anatomical Therapeutic Chemical) classification system</Name>
         <Description>Anatomical Therapeutic Chemical classification system</Description>
+        <LocalDescription>Sistema di classificazione anatomico, terapeutico e chimico (ATC - Anatomical Therapeutic Chemical classification system). Ambito di utilizzo: Farmaci.</LocalDescription>
     </Code>
     <Code>
         <Id>STM</Id>
@@ -732,6 +739,7 @@
         <Id>STO</Id>
         <Name>CNDM (Classificazione Nazionale dei Dispositivi Medici)</Name>
         <Description>A classification system for medical devices used in the</Description>
+        <LocalDescription>Classificazione Nazionale italiana dei Dispositivi medici (CND). Ambito di utilizzo: Dispositivi medici</LocalDescription>
     </Code>
     <Code>
         <Id>STP</Id>
@@ -953,6 +961,11 @@
         <Id>ZZZ</Id>
         <Name>Mutually defined</Name>
         <Description>Item type identification mutually agreed between</Description>
+        <LocalDescription>Identificazione del tipo di oggetto concordata tra le parti. Può essere usato per i dispositivi medici:
+            
+* DM0 - Nel caso in cui non sia in grado di identificare il numero di repertorio. Dispositivo medico da applicare secondo le disposizioni previste Art.9-ter comma 8 DL 19 giugno 2015 nr.78. integrazione nota del 19 febbraio 2016;
+* DM1 - Numero di repertorio per il tetto di spesa a livello nazionale e regionale per l'acquisto di dispositivi medici. Dispositivo medico da applicare secondo le disposizioni previste Art.9-ter comma 8 DL 19 giugno 2015 nr.78;
+* DM2 - Numero di repertorio per il tetto di spesa a livello nazionale e regionale per l'acquisto di dispositivi medici. Dispositivo medico da applicare secondo le disposizioni previste Art.9-ter comma 8 DL 19 giugno 2015 nr.78.</LocalDescription>
     </Code>
 
 </CodeList>

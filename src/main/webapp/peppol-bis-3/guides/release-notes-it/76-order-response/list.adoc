@@ -6,8 +6,6 @@
 | Cosa è cambiato
 
 
-|
-| 
-
-
+| 24/02/2020
+| Codifiche ufficiali mappate su requisiti e significati italiani.
 |===

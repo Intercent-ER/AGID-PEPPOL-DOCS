@@ -12,14 +12,17 @@
     <Code>
         <Id>3</Id>
         <Name>Invoice document issue date time</Name>
+        <LocalName>Data e ora della fattura</LocalName>
     </Code>
 
     <Code>
         <Id>35</Id>
         <Name>Delivery date/time, actual</Name>
+        <LocalName>Data / ora di consegna effettiva</LocalName>
     </Code>
     <Code>
         <Id>432</Id>
         <Name>Paid to date</Name>
+        <LocalName>Pagato fino ad oggi</LocalName>
     </Code>
    </CodeList>

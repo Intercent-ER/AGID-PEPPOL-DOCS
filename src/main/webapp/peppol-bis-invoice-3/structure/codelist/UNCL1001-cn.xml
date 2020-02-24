@@ -17,6 +17,7 @@
             related to a transaction for goods or services to the
             relevant party.
         </Description>
+        <LocalDescription>Codifica utilizzata per fornire informazioni relative a una transazione per beni o servizi alla parte interessata.</LocalDescription>
     </Code>
    
     <Code>
@@ -26,6 +27,7 @@
             related to financial adjustments to the relevant party,
             e.g., bonuses.
         </Description>
+        <LocalDescription>Codifica per fornire informazioni di relative agli aggiustamenti finanziari alla parte interessata, ad es. Bonus.</LocalDescription>
     </Code>
   
     <Code>
@@ -34,12 +36,14 @@
         <Description>(1113) Document/message for providing credit information
             to the relevant party.
         </Description>
+        <LocalDescription>Codifica per fornire informazioni di credito alla parte interessata.</LocalDescription>
     </Code>
   
     <Code>
         <Id>396</Id>
         <Name>Factored credit note</Name>
         <Description>Credit note related to assigned invoice(s).</Description>
+        <LocalDescription>Nota di credito relativa alle fatture assegnate.</LocalDescription>
     </Code>
    
     <Code>
@@ -48,6 +52,7 @@
         <Description>Document/message for providing credit information to the
             relevant party.
         </Description>
+        <LocalDescription>Nota di credito dello spedizioniere - Codifica per fornire informazioni di credito alla parte interessata.</LocalDescription>
     </Code>
   
   

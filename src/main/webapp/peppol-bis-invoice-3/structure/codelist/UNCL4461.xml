@@ -13,6 +13,8 @@
         <Name>Instrument not defined</Name>
         <Description>Not defined legally enforceable agreement between two or more parties
             (expressing a contractual right or a right to the payment of money).</Description>
+            <LocalId>MP22</LocalId>
+        <LocalDescription>Non definito. Trattenuta su somme già riscosse.</LocalDescription>
     </Code>
 
     <Code>
@@ -49,19 +51,25 @@
         <Id>8</Id>
         <Name>Hold</Name>
         <Description>Indicates that the bank should hold the payment for collection by the
-            beneficiary or other instructions.</Description>
+            beneficiary or other instructions.</Description>       
     </Code>
     <Code>
         <Id>9</Id>
         <Name>National or regional clearing</Name>
         <Description>Indicates that the payment should be made using the national or regional
             clearing.</Description>
+            <LocalId>MP??</LocalId>
+        <LocalDescription>Modalità di pagamento nazionale.</LocalDescription>
+        <LocalUsageNotes>Usare per pagamenti SDI non supportati a livello Europeo (Vedi estensioni nella specifica della Fattura e/o N.C.).</LocalUsageNotes>
     </Code>
     <Code>
         <Id>10</Id>
         <Name>In cash</Name>
         <Description>Payment by currency (including bills and coins) in circulation, including
             checking account deposits.</Description>
+            <LocalId>MP01</LocalId>
+        <LocalDescription>Contanti.</LocalDescription>
+        <LocalUsageNotes>Per specificare il pagamento Contanti presso Tesoreria (MP04) usare il codice 9 e la relativa estensione.</LocalUsageNotes>
     </Code>
     <Code>
         <Id>11</Id>
@@ -88,6 +96,9 @@
         <Name>Bookentry credit</Name>
         <Description>A credit entry between two accounts at the same bank branch. Synonym: house
             credit.</Description>
+            <LocalId>MP15</LocalId>
+        <LocalName>Girofondo Tesoreria.</LocalName>
+        <LocalDescription>Giroconto su conti di contabilità speciale.</LocalDescription>
     </Code>
     <Code>
         <Id>16</Id>
@@ -118,11 +129,17 @@
         <Name>Cheque</Name>
         <Description>Payment by a pre-printed form on which instructions are given to an account
             holder (a bank or building society) to pay a stated sum to a named recipient.</Description>
+            <LocalId>MP02</LocalId>
+        <LocalDescription>Assegno.</LocalDescription>
+        <LocalUsageNotes>Per specificare il pagamento Contanti presso Tesoreria (MP04) usare il codice 9 e la relativa estensione.</LocalUsageNotes>
     </Code>
     <Code>
         <Id>21</Id>
         <Name>Banker's draft</Name>
         <Description>Issue of a banker's draft in payment of the funds.</Description>
+            <LocalId>MP03</LocalId>
+        <LocalDescription>Assegno Circolare.</LocalDescription>
+        <LocalUsageNotes>Usare preferibilmente il codice 22.</LocalUsageNotes>
     </Code>
     <Code>
         <Id>22</Id>
@@ -130,6 +147,8 @@
         <Description>Cheque drawn by a bank on itself or its agent. A person who owes money to
             another buys the draft from a bank for cash and hands it to the creditor who need have
             no fear that it might be dishonoured.</Description>
+            <LocalId>MP03</LocalId>
+        <LocalDescription>Assegno Circolare.</LocalDescription>
     </Code>
     <Code>
         <Id>23</Id>
@@ -137,6 +156,9 @@
         <Description>Payment by a pre-printed form, which has been completed by a financial
             institution, on which instructions are given to an account holder (a bank or building
             society) to pay a stated sum to a named recipient.</Description>
+            <LocalId>MP03</LocalId>
+        <LocalDescription>Assegno Circolare.</LocalDescription>
+        <LocalUsageNotes>Usare preferibilmente il codice 22.</LocalUsageNotes>
     </Code>
     <Code>
         <Id>24</Id>
@@ -148,7 +170,10 @@
         <Name>Certified cheque</Name>
         <Description>Payment by a pre-printed form stamped with the paying bank's certification on
             which instructions are given to an account holder (a bank or building society) to pay a
-            stated sum to a named recipient .</Description>
+            stated sum to a named recipient.</Description>
+            <LocalId>MP02</LocalId>
+        <LocalDescription>Assegno.</LocalDescription>
+        <LocalUsageNotes>Usare preferibilmente il codice 20.</LocalUsageNotes>
     </Code>
     <Code>
         <Id>26</Id>
@@ -177,6 +202,9 @@
         <Id>30</Id>
         <Name>Credit transfer</Name>
         <Description>Payment by credit movement of funds from one account to another.</Description>
+            <LocalId>MP05</LocalId>
+        <LocalDescription>Bonifico.</LocalDescription>
+        <LocalUsageNotes>Usare anche per Credit Transfer SEPA.</LocalUsageNotes>
     </Code>
     <Code>
         <Id>31</Id>
@@ -269,6 +297,9 @@
         <Id>46</Id>
         <Name>Interbank debit transfer</Name>
         <Description>A debit transfer via interbank means.</Description>
+            <LocalId>MP09</LocalId>
+        <LocalDescription>RID.</LocalDescription>
+        <LocalUsageNotes>Per indicare RID più specifici usare in aggiunta l'estensione relativa (l'uso della RID dovrebbe essere sostituito dal SEPA Direct Debit - vedi codice 49).</LocalUsageNotes>
     </Code>
     <Code>
         <Id>47</Id>
@@ -279,18 +310,27 @@
         <Id>48</Id>
         <Name>Bank card</Name>
         <Description>Payment by means of a card issued by a bank or other financial institution.</Description>
+            <LocalId>MP08</LocalId>
+        <LocalDescription>Carte di pagamento.</LocalDescription>
+        <LocalUsageNotes>Carta di credito, carta di debito, ...</LocalUsageNotes>
     </Code>
     <Code>
         <Id>49</Id>
         <Name>Direct debit</Name>
         <Description>The amount is to be, or has been, directly debited to the customer's bank
             account.</Description>
+            <LocalId>MP19</LocalId>
+        <LocalDescription>Direct Debit SEPA.</LocalDescription>
+        <LocalUsageNotes>Usare preferibilmente al posto del 46 sia per domiciliazioni basate su RID che SEPA SDD Core o B2B.  Se è necessario specificare che si tratta di domiciliazione postale (MP17) usare il codice 9 e la relativa estensione.</LocalUsageNotes>
     </Code>
     <Code>
         <Id>50</Id>
         <Name>Payment by postgiro</Name>
         <Description>A method for the transmission of funds through the postal system rather than
             through the banking system.</Description>
+            <LocalId>MP18</LocalId>
+        <LocalDescription>Bollettino di c/c postale.</LocalDescription>
+        <LocalUsageNotes>Utilizzare solo con SDI 1.1.</LocalUsageNotes>
     </Code>
     <Code>
         <Id>51</Id>
@@ -349,6 +389,8 @@
         <Description>Payment by an unconditional promise in writing made by one person to another,
             signed by the maker, engaging to pay on demand or at a fixed or determinable future time
             a sum certain in money, to order or to bearer.</Description>
+            <LocalId>MP06</LocalId>
+        <LocalDescription>Vaglia Cambiario.</LocalDescription>
     </Code>
     <Code>
         <Id>61</Id>
@@ -408,6 +450,9 @@
         <Id>70</Id>
         <Name>Bill drawn by the creditor on the debtor</Name>
         <Description>Bill drawn by the creditor on the debtor.</Description>
+            <LocalId>MP12</LocalId>
+        <LocalDescription>RI.BA.</LocalDescription>
+        <LocalUsageNotes>Ricevuta Bancaria (Mandato per incasso).</LocalUsageNotes>
     </Code>
     <Code>
         <Id>74</Id>
@@ -438,11 +483,17 @@
         <Id>91</Id>
         <Name>Not transferable banker's draft</Name>
         <Description>Issue a bankers draft not endorsable.</Description>
+            <LocalId>MP03</LocalId>
+        <LocalDescription>Assegno Circolare.</LocalDescription>
+        <LocalUsageNotes>Usare preferibilmente il codice 22.</LocalUsageNotes>
     </Code>
     <Code>
         <Id>92</Id>
         <Name>Not transferable local cheque</Name>
         <Description>Issue a cheque not endorsable in payment of the funds.</Description>
+            <LocalId>MP02</LocalId>
+        <LocalDescription>Assegno.</LocalDescription>
+        <LocalUsageNotes>Usare preferibilmente il codice 22.</LocalUsageNotes>
     </Code>
     <Code>
         <Id>93</Id>
@@ -479,6 +530,7 @@
         <Name>Mutually defined</Name>
         <Description>A code assigned within a code list to be used on an interim basis and as
             defined among trading partners until a precise code can be assigned to the code list.</Description>
+        <LocalUsageNotes>Codice assegnato all'interno di un elenco di codici da utilizzare a titolo provvisorio e come definito tra i partner commerciali fino a quando una codifica non viene assegnato all'elenco di codici.</LocalUsageNotes>
     </Code>
 
 

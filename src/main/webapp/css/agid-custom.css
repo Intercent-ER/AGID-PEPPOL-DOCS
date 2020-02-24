@@ -4,7 +4,7 @@
 .cardinality {
     background-color: LightYellow !important;
 }
-.extension {
+.extension, .locale {
     background-color: LightCyan !important;
 }
 .restriction {
@@ -18,4 +18,7 @@
 }
 .show-references .references {
 	display: block;
+}
+.indent {
+	margin-left: 20px;
 }

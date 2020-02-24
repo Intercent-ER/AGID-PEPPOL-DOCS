@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="css/bootstrap.css"/>
         <link rel="stylesheet" href="css/structure.css?v=1.1"/>
         <link rel="stylesheet" href="css/font-awesome.min.css?v=4.7.0"/>
-        <link rel="stylesheet" href="css/agid-custom.css"/>
+        <link rel="stylesheet" href="css/agid-custom.css?v=1.2"/>
 
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -23,7 +23,7 @@
         <script>
             //<![CDATA[
             $(function () {
-                const VER = "23";    // Math.random()*1000000
+                const VER = "25";    // Math.random()*1000000
                 var $body = $("body"), $main = $("#main"), $guide = $("#guide").hide(), $adoc = $("#adoc-viewer"), $loader = $("#loader");
                 var defBis = "peppol-bis-invoice-3";
 

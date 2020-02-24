@@ -15,6 +15,8 @@
         <Description>Debit information related to a transaction for goods or
             services to the relevant party.
         </Description>
+        <Nome>Nota di addebito relativa a beni o servizi</Nome>
+        <LocalDescription>Informazioni di addebito relative a una transazione per beni o servizi alla parte interessata.</LocalDescription>
     </Code>
    
     <Code>
@@ -25,6 +27,8 @@
             to a fixed meter whose consumption is measured over a
             period of time.
         </Description>
+        <Nome>Fattura dei servizi con contatore</Nome>
+        <LocalDescription>Documento / messaggio che richiede il pagamento per la fornitura di servizi misurati (ad es. Gas, elettricità, ecc.) Forniti a un contatore fisso il cui consumo è misurato su un periodo di tempo.</LocalDescription>
     </Code>
    
     <Code>
@@ -33,6 +37,8 @@
         <Description>Document/message for providing debit information related
             to financial adjustments to the relevant party.
         </Description>
+        <Nome>Nota di addebito relativa agli adeguamenti finanziari</Nome>
+        <LocalDescription>Documento / messaggio per fornire informazioni di addebito relative agli adeguamenti finanziari alla parte interessata.</LocalDescription>
     </Code>
  
    
@@ -43,6 +49,8 @@
             services supplied under conditions agreed between seller
             and buyer.
         </Description>
+        <Nome>Fattura commerciale</Nome>
+        <LocalDescription>Documento / messaggio che richiede il pagamento di beni o servizi forniti a condizioni concordate tra venditore e acquirente. Utilizzato anche in caso di parcella</LocalDescription>
     </Code>
   
     <Code>
@@ -51,6 +59,8 @@
         <Description>Document/message for providing debit information to the
             relevant party.
         </Description>
+        <Nome>Nota di debito</Nome>
+        <LocalDescription>Documento / messaggio per fornire informazioni di addebito alla parte interessata. Supportata dallo SDI.</LocalDescription>
     </Code>
    
     <Code>
@@ -60,12 +70,16 @@
             advance; these amounts will be subtracted from the final
             invoice.
         </Description>
+        <Nome>Fattura di pagamento anticipato</Nome>
+        <LocalDescription>Fattura per pagare anticipatamente i beni e i servizi; questi importi saranno sottratti dalla fattura finale. Codifica utile per supportare acconto/anticipo su fattura (e parcella)</LocalDescription>
     </Code>
    
     <Code>
         <Id>393</Id>
         <Name>Factored invoice</Name>
         <Description>Invoice assigned to a third party for collection.</Description>
+        <Nome>Fattura fattorizzata</Nome>
+        <LocalDescription>Fattura assegnata a terzi per la raccolta. Non supportata dallo SDI.</LocalDescription>
     </Code>
   
     <Code>
@@ -74,6 +88,8 @@
         <Description>Commercial invoice that covers a transaction other than
             one involving a sale.
         </Description>
+        <Nome>Fattura di consegna</Nome>
+        <LocalDescription>Fattura commerciale che copre una transazione diversa da quella che comporta una vendita.</LocalDescription>
     </Code>
   
     <Code>
@@ -83,6 +99,8 @@
             cost of an insurance which has been effected and
             claiming payment therefore.
         </Description>
+        <Nome>Fattura dell'assicuratore</Nome>
+        <LocalDescription>Documento / messaggio rilasciato da un assicuratore che specifica il costo di un'assicurazione che è stata effettuata e che richiede quindi il pagamento.</LocalDescription>
     </Code>
   
     <Code>
@@ -92,6 +110,8 @@
             services rendered and costs incurred and claiming
             payment therefore.
         </Description>
+        <Nome>Fattura dello spedizioniere</Nome>
+        <LocalDescription>Fattura emessa da uno spedizioniere che specifica i servizi resi e i costi sostenuti e la richiesta di pagamento.</LocalDescription>
     </Code>
     
     <Code>
@@ -101,6 +121,8 @@
             specifying freight costs and charges incurred for a
             transport operation and stating conditions of payment.
         </Description>
+        <Nome>Fattura per il trasporto</Nome>
+        <LocalDescription>Documento / messaggio emessa da un'operazione di trasporto che specifica i costi e gli oneri di trasporto sostenuti per un'operazione di trasporto e indica le condizioni di pagamento.</LocalDescription>
     </Code>
    
 </CodeList>

@@ -2,7 +2,7 @@
 [[audience]]
 = A chi si rivolge
 
-Questo documento si rivolge alle organizzazioni che intendono essere abilitate a {peppol} per scambiare ordini elettronici, e/o ai loro fornitori ICT.
+Questo documento si rivolge alle organizzazioni che intendono essere abilitate a {peppol} per scambiare documenti di business elettronici, e/o ai loro fornitori ICT.
 
 Queste organizzazioni possono essere:
 

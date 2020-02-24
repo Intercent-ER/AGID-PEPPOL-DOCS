@@ -11,23 +11,23 @@
 	<cbc:Note>Free text note relating to the Despatch Advice</cbc:Note>
 	<!-- tag::ref-order[] -->
 	<cac:OrderReference>
-		<cbc:ID>4321</cbc:ID>
+		<cbc:ID>4321#2013-01-30#ABCDEF</cbc:ID>
 	</cac:OrderReference>
 	<!-- end::ref-order[] -->
 	<!-- tag::despatchsupplier[] -->
 	<cac:DespatchSupplierParty>
 		<cac:Party>
-			<cbc:EndpointID schemeID="0184">DK87654321</cbc:EndpointID>
+			<cbc:EndpointID schemeID="9906">IT01234567890</cbc:EndpointID>
 			<cac:PartyIdentification>
-				<cbc:ID schemeID="0088">7300010000001</cbc:ID>
+				<cbc:ID schemeID="9906">IT01234567890</cbc:ID>
 			</cac:PartyIdentification>
 			<cac:PartyLegalEntity>
-				<cbc:RegistrationName>Sender Company</cbc:RegistrationName>
+				<cbc:RegistrationName>Speditore/Fornitore</cbc:RegistrationName>
 			</cac:PartyLegalEntity>
 			<cac:Contact>
-				<cbc:Name>John</cbc:Name>
+				<cbc:Name>Giovanni</cbc:Name>
 				<cbc:Telephone>123456789</cbc:Telephone>
-				<cbc:ElectronicMail>John@SenderCompany.dk</cbc:ElectronicMail>
+				<cbc:ElectronicMail>giovanni@speditore.it</cbc:ElectronicMail>
 			</cac:Contact>
 		</cac:Party>
 	</cac:DespatchSupplierParty>
@@ -35,32 +35,29 @@
 	<!-- tag::deliverycustomer[] -->
 	<cac:DeliveryCustomerParty>
 		<cac:Party>
-			<cbc:EndpointID schemeID="0184">DK12345678</cbc:EndpointID>
+			<cbc:EndpointID schemeID="0201">ABCDEF</cbc:EndpointID>
 			<cac:PartyIdentification>
-				<cbc:ID schemeID="0088">7300010000001</cbc:ID>
+				<cbc:ID schemeID="0201">ABCDEF</cbc:ID>
 			</cac:PartyIdentification>
 			<cac:PostalAddress>
-				<cbc:StreetName>Reciever Street 1</cbc:StreetName>
-				<cbc:AdditionalStreetName>Reciever Building</cbc:AdditionalStreetName>
-				<cbc:CityName>Reciever City</cbc:CityName>
-				<cbc:PostalZone>9000</cbc:PostalZone>
-				<cbc:CountrySubentity>Region A</cbc:CountrySubentity>
-				<cac:AddressLine>
-					<cbc:Line>Gate 34</cbc:Line>
-				</cac:AddressLine>
+				<cbc:StreetName>Via Europa 100</cbc:StreetName>
+				<cbc:AdditionalStreetName>Palazzo A, Interno 409</cbc:AdditionalStreetName>
+				<cbc:CityName>Bologna</cbc:CityName>
+				<cbc:PostalZone>40121</cbc:PostalZone>
+				<cbc:CountrySubentity>Bologna</cbc:CountrySubentity>
 				<cac:Country>
-					<cbc:IdentificationCode>DK</cbc:IdentificationCode>
+					<cbc:IdentificationCode>IT</cbc:IdentificationCode>
 				</cac:Country>
 			</cac:PostalAddress>
 			<cac:PartyLegalEntity>
-				<cbc:RegistrationName>Consignee Company</cbc:RegistrationName>
+				<cbc:RegistrationName>Consegnatario/Cliente</cbc:RegistrationName>
 			</cac:PartyLegalEntity>
 		</cac:Party>
 		<cac:DeliveryContact>
-			<cbc:Name>Tim</cbc:Name>
+			<cbc:Name>Gianfranco Verdi</cbc:Name>
 			<cbc:Telephone>987654321</cbc:Telephone>
-			<cbc:ElectronicMail>Tim@RecieverCompany.dk</cbc:ElectronicMail>
-		</cac:DeliveryContact>
+			<cbc:ElectronicMail>g.verdi@consegnatario.it</cbc:ElectronicMail>
+		</cac:DeliveryContact>>
 	</cac:DeliveryCustomerParty>
 	<!-- end::deliverycustomer[] -->
 	<!-- tag::buyer[] -->
@@ -70,8 +67,17 @@
 				<cbc:ID schemeID="0088">1251513513245</cbc:ID>
 			</cac:PartyIdentification>
 			<cac:PartyName>
-				<cbc:Name>Buyer Company</cbc:Name>
+				<cbc:Name>Acquirente S.p.A.</cbc:Name>
 			</cac:PartyName>
+			<cac:PostalAddress>
+				<cbc:StreetName>Via Napoli 1</cbc:StreetName>
+				<cbc:CityName>Milano</cbc:CityName>
+				<cbc:PostalZone>20100</cbc:PostalZone>
+				<cbc:CountrySubentity>MI</cbc:CountrySubentity>
+				<cac:Country>
+					<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+				</cac:Country>
+			</cac:PostalAddress>
 		</cac:Party>
 	</cac:BuyerCustomerParty>
 	<!-- end::buyer[] -->
@@ -82,8 +88,17 @@
 				<cbc:ID schemeID="0088">1231612366324</cbc:ID>
 			</cac:PartyIdentification>
 			<cac:PartyName>
-				<cbc:Name>Seller Company</cbc:Name>
+				<cbc:Name>Venditore p/c Fornitore</cbc:Name>
 			</cac:PartyName>
+                	<cac:PostalAddress>
+				<cbc:StreetName>Via Ferrara 300</cbc:StreetName>
+				<cbc:CityName>Milano</cbc:CityName>
+				<cbc:PostalZone>20100</cbc:PostalZone>
+				<cbc:CountrySubentity>MI</cbc:CountrySubentity>
+				<cac:Country>
+					<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+				</cac:Country>
+			</cac:PostalAddress>
 		</cac:Party>
 	</cac:SellerSupplierParty>
 	<!-- end::seller[] -->
@@ -94,8 +109,17 @@
 				<cbc:ID schemeID="0088">1234415341925</cbc:ID>
 			</cac:PartyIdentification>
 			<cac:PartyName>
-				<cbc:Name>Originator</cbc:Name>
+				<cbc:Name>Committente</cbc:Name>
 			</cac:PartyName>
+			<cac:PostalAddress>
+				<cbc:StreetName>Via Monte Napoleone 1</cbc:StreetName>
+				<cbc:CityName>Milano</cbc:CityName>
+				<cbc:PostalZone>20100</cbc:PostalZone>
+				<cbc:CountrySubentity>MI</cbc:CountrySubentity>
+				<cac:Country>
+					<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+				</cac:Country>
+			</cac:PostalAddress>
 		</cac:Party>
 	</cac:OriginatorCustomerParty>
 	<!-- end::originator[] -->
@@ -103,16 +127,40 @@
 	<cac:Shipment>
 		<cbc:ID>NA</cbc:ID>
 		<cbc:Information>Free text information relating to the Shipment</cbc:Information>
+                <!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
 		<cbc:GrossWeightMeasure unitCode="KGM">23</cbc:GrossWeightMeasure>
 		<cbc:GrossVolumeMeasure unitCode="MTQ">27</cbc:GrossVolumeMeasure>
+                <!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
+		<cbc:TotalTransportHandlingUnitQuantity>3</cbc:TotalTransportHandlingUnitQuantity>
+                <!--TRASPORTO, VETTORE-->
 		<cac:Consignment>
 			<cbc:ID>12345</cbc:ID>
 			<cac:CarrierParty>
+				<cac:PartyIdentification>
+					<!-- Identificativo Fiscale Vettore -->
+					<cbc:ID schemeID="9906">01245267890</cbc:ID>
+				</cac:PartyIdentification>
+                                <!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
 				<cac:PartyName>
-					<cbc:Name>CarrierPart</cbc:Name>
+					<cbc:Name>Trasportatore S.r.l.</cbc:Name>
 				</cac:PartyName>
+				<cac:PostalAddress>
+					<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
+					<cbc:StreetName>Via Europa 100</cbc:StreetName>
+					<cbc:AdditionalStreetName>Palazzo A</cbc:AdditionalStreetName>
+					<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
+					<cbc:CityName>Bologna</cbc:CityName>
+					<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
+					<cbc:PostalZone>40121</cbc:PostalZone>
+					<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
+					<cbc:CountrySubentity>Bologna</cbc:CountrySubentity>
+					<cac:Country>
+						<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+					</cac:Country>
+				</cac:PostalAddress>
 			</cac:CarrierParty>
 		</cac:Consignment>
+                <!-- TEMPI DI CONSEGNA PROMESSI/STIMATI -->
 		<cac:Delivery>
 			<cac:EstimatedDeliveryPeriod>
 				<cbc:StartDate>2013-03-15</cbc:StartDate>
@@ -120,6 +168,7 @@
 				<cbc:EndDate>2013-03-16</cbc:EndDate>
 				<cbc:EndTime>12:00:00</cbc:EndTime>
 			</cac:EstimatedDeliveryPeriod>
+                        <!-- DATA/ORA EVASIONE EFFETTIVA -->
 			<cac:Despatch>
 				<cbc:ActualDespatchDate>2013-03-13</cbc:ActualDespatchDate>
 				<cbc:ActualDespatchTime>08:00:00</cbc:ActualDespatchTime>
@@ -130,6 +179,7 @@
 	<cac:DespatchLine>
 		<cbc:ID>1</cbc:ID>
 		<!-- tag::quantity1[] -->
+		<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
 		<cbc:DeliveredQuantity unitCode="EA">6</cbc:DeliveredQuantity>
 		<cbc:OutstandingQuantity unitCode="EA">4</cbc:OutstandingQuantity>
 		<cbc:OutstandingReason>Backorder</cbc:OutstandingReason>
@@ -137,17 +187,20 @@
 		<cac:OrderLineReference>
 			<cbc:LineID>5</cbc:LineID>
 			<cac:OrderReference>
-				<cbc:ID>934234-12</cbc:ID>
+				<cbc:ID>934234-12#2013-01-30#ABCDEF</cbc:ID>
 			</cac:OrderReference>
 		</cac:OrderLineReference>
 		<!-- end::ref-orderline1[] -->
 		<!-- tag::item[] -->
 		<cac:Item>
+			<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
 			<cbc:Name>Item123</cbc:Name>
+			<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
 			<cac:SellersItemIdentification>
 				<cbc:ID>010120401</cbc:ID>
 			</cac:SellersItemIdentification>
 			<cac:StandardItemIdentification>
+				<!-- GS1 GTIN -->
 				<cbc:ID schemeID="0160">7611104117056</cbc:ID>
 			</cac:StandardItemIdentification>
 		</cac:Item>
@@ -156,6 +209,7 @@
 	<cac:DespatchLine>
 		<cbc:ID>2</cbc:ID>
 		<!-- tag::quantity2[] -->
+		<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
 		<cbc:DeliveredQuantity unitCode="EA">6</cbc:DeliveredQuantity>
 		<cbc:OutstandingQuantity unitCode="EA">0</cbc:OutstandingQuantity>
 		<cbc:OutstandingReason>Out of stock</cbc:OutstandingReason>
@@ -164,7 +218,7 @@
 		<cac:OrderLineReference>
 			<cbc:LineID>NA</cbc:LineID>
 			<cac:OrderReference>
-				<cbc:ID>3424</cbc:ID>
+				<cbc:ID>3424#2013-01-30#ABCDEF</cbc:ID>
 			</cac:OrderReference>
 		</cac:OrderLineReference>
 		<!-- end::ref-orderline2[] -->
@@ -178,7 +232,9 @@
 			</cac:StandardItemIdentification>
 			<!-- tag::hazardous[] -->
 			<cac:HazardousItem>
+				<!-- UNCL8273 -->
 				<cbc:UNDGCode>ADR</cbc:UNDGCode>
+                                <!-- Classe di pericolosità -->
 				<cbc:HazardClassID>2.3</cbc:HazardClassID>
 			</cac:HazardousItem>
 			<!-- end::hazardous[] -->
@@ -198,6 +254,7 @@
 	<cac:DespatchLine>
 		<cbc:ID>3</cbc:ID>
 		<!-- tag::quantity3[] -->
+		<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
 		<cbc:DeliveredQuantity unitCode="EA">6</cbc:DeliveredQuantity>
 		<cbc:OutstandingQuantity unitCode="EA">3</cbc:OutstandingQuantity>
 		<cbc:OutstandingReason>Production error</cbc:OutstandingReason>
@@ -205,7 +262,7 @@
 		<cac:OrderLineReference>
 			<cbc:LineID>NA</cbc:LineID>
 			<cac:OrderReference>
-				<cbc:ID>3oe32er</cbc:ID>
+				<cbc:ID>3oe32er#2013-01-30#ABCDEF</cbc:ID>
 			</cac:OrderReference>
 		</cac:OrderLineReference>
 		<cac:Item>

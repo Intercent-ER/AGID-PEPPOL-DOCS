@@ -2,9 +2,13 @@
 = Merce Pericolosa
 
 Il Documento di Trasporto PEPPOL contiene anche la possibilità di informare il Consegnatario riguardo agli articoli pericolosi (indicati anche come HAZMAT, Hazard Material o Dangerous Goods).
+
 Questo viene fatto fornendo il codice di pericolosità in base al regolamento adottato, per esempio ADR (trasporto su gomma), IMDG (trasporto via mare) or RID (trasporto ferroviario).
+
 Quando si dichiarano delle merci pericolose si raccomanda l’uso del codice UNDG per informare in base a quale convenzione l’articolo viene dichiarato pericoloso (es. ADR).
+
 Quando il codice UNDG viene dichiarato viene fornita anche la classe di pericolosità.
+
 La classe di pericolosità è relativa a quella dell’articolo, per esempio la classe 2.3 che indica il Gas Poison.
 
 .Esempio UBL per dichiarare articoli pericolosi.

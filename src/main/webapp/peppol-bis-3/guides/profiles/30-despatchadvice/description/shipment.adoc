@@ -7,12 +7,16 @@ Descrizione della spedizione effettiva che contiene la merce che è stata spedit
 == ID Spedizione, Vettore, informazioni di trasporto, consegna ed evasione 
 
 In alcuni usi del Documento di Trasporto, non c’è un unico identificatore assegnato alla spedizione.
+
 Comunque, la sintassi UBL richiede che lo Shipment ID sia specificato.
+
 Conseguentemente, per poter utilizzare elementi come GrossWeightMeasure o CarrierParty, lo Shipment/ID deve essere valorizzato.
+
 Per supportare scenari dove non è disponibile o non è utilizzato l’ID della spedizione si deve usare il valore **NA**.
+
 Come parte delle informazioni di spedizione (Shipment) vengono forniti: peso, volume, colli, vettore, tempi di consegna stimati e di effettiva evasione.
 
-NOTA: Le misure (***Measure) come peso e volume sono obbligatoriamente espresse secondo la codifica UN/ECE Rec20 e non è richiesto qualificarle con ulteriori attributi.
+NOTA: #Le misure (***Measure) come peso e volume sono obbligatoriamente espresse secondo la codifica UN/ECE Rec20 e non è richiesto qualificarle con ulteriori attributi.#
 
 Esempio:
 

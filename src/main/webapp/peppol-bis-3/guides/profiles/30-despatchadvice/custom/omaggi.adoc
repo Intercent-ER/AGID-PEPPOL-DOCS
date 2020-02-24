@@ -1,0 +1,23 @@
+
+[[temperatura]]
+= Omaggi
+
+Per evidenziare nelle righe dell’avviso spedizione gli item che sono in omaggio è possibile indicare che si tratta di “OMAGGIO” nell’elemento AdditionalInformation all’interno dell’Item.
+
+Esempio di omaggio in una riga dell’avviso spedizione:  
+
+.Esempio:
+[source, xml, indent=0]
+----
+<cbc:DespatchLine>
+	<cbc:ID>3</cbc:ID>
+	<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
+	<cbc:DeliveredQuantity unitCode="SR">20</cbc:DeliveredQuantity>
+	…
+	<cac:Item>
+		<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
+		<cbc:Name>Striscie per glucosio</cbc:Name>
+		<cbc:AdditionalInformation>OMAGGIO</cbc: AdditionalInformation>
+	</cac:Item>
+</cbc:DespatchLine>
+----

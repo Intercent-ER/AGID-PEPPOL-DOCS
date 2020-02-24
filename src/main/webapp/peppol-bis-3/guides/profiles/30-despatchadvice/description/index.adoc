@@ -7,6 +7,8 @@ include::parties.adoc[]
 
 include::orderreference.adoc[]
 
+include::../custom/altririferimenti.adoc[]
+
 include::shipment.adoc[]
 
 :leveloffset: -1
@@ -20,9 +22,19 @@ Descrizione degli articoli che vengono consegnati.
 
 include::itemdescription.adoc[]
 
+include::../custom/particolaretrattamento.adoc[]
+
+include::../custom/temperatura.adoc[]
+
 include::outstandingquantity.adoc[]
 
+include::../custom/omaggi.adoc[]
+
+include::../custom/scontomerce.adoc[]
+
 include::hazardous.adoc[]
+
+include::../custom/antiblastici.adoc[]
 
 include::itemproperties.adoc[]
 
@@ -30,6 +42,10 @@ include::serialnumber.adoc[]
 
 include::batchnumber.adoc[]
 
+include::../custom/scadenzafarmaci.adoc[]
+
 include::transporthandlingunit.adoc[]
 
 :leveloffset: -1
+
+include::../custom/confezionamento.adoc[]

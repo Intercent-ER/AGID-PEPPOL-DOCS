@@ -794,7 +794,7 @@
 				</Element>
 			</Element>
 		</Element>
-		<Element cardinality="0..1">
+		<Element agid:custom="cardinality">
 			<Term>cac:Shipment</Term>
 			<Name>Shipment information</Name>
 			<Element>
@@ -811,7 +811,7 @@
 					structure.</Description>
 				<Reference type="BUSINESS_TERM">tir16-039</Reference>
 			</Element>
-			<Element cardinality="0..1">
+			<Element agid:custom="cardinality">
 				<Term>cbc:GrossWeightMeasure</Term>
 				<Name>Shipment gross weight</Name>
 				<Description>The total weight of the shipment including packaging, as dispatched
@@ -843,7 +843,7 @@
 					<Value type="EXAMPLE">M3</Value>
 				</Attribute>
 			</Element>
-			<Element cardinality="0..1">
+			<Element agid:custom="cardinality">
 				<Term>cbc:TotalTransportHandlingUnitQuantity</Term>
 				<Name>Total number of transport handling units</Name>
 				<Reference type="BUSINESS_TERM">tir16-p002</Reference>
@@ -864,7 +864,7 @@
 					<Description>Description and/or identification of the vehicle that tranpsorts the despatched shipment.</Description>
 					<Reference type="BUSINESS_TERM">tir16-077</Reference>
 				</Element>
-				<Element cardinality="0..1">
+				<Element agid:custom="cardinality">
 					<Term>cac:CarrierParty</Term>
 					<Name>Carrier party</Name>
                                         <Element cardinality="0..1" agid:custom="extension">
@@ -1188,7 +1188,7 @@
 				<Reference type="BUSINESS_TERM">tir16-050</Reference>
 				<Reference type="RULE">PEPPOL-T16-R007</Reference>
 			</Element>
-			<Element>
+			<Element cardinality="1..n" agid:custom="cardinality">
 				<Term>cac:OrderLineReference</Term>
 				<Name>Order line reference</Name>
 				<Element>

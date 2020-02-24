@@ -37,7 +37,7 @@
 :EIF: http://ec.europa.eu/idabc/en/document/2319/5644.html[EIF]
 :schematron: http://schematron.com[Schematron]
 :dir-2009-101: http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2009:258:0011:0019:EN:PDF[Directive 2009/101/EC]
-
+:link-nota-aifa: http://www.ema.europa.eu/ema/index.jsp?curl=pages/regulation/document_listing/document_listing_000134.jsp&mid=WC0b01ac0580022c59
 
 //codelists
 :ISO4217: https://www.iso.org/iso-4217-currency-codes.html[ISO 4217:2015]
@@ -55,7 +55,7 @@
 :UNCL1001: https://www.unece.org/fileadmin/DAM/trade/untdid/d17a/tred/tred1001.htm[UN/CEFACT code list 1001, D.17A]
 :UNCL4343: https://www.unece.org/fileadmin/DAM/trade/untdid/d17a/tred/tred4343.htm[UN/CEFACT code list 4343, D.17A]
 :cef-codelists: https://ec.europa.eu/cefdigital/wiki/display/CEFDIGITAL/Code+lists#Codelists-1[CEF Code lists]
-
+:link-hazmattool: http://www.hazmattool.com/info.php
 
 //examples
 :order-UC: https://github.com/OpenPEPPOL/poacc-upgrade-3/tree/master/rules/use-case-examples/order[Use case example files]

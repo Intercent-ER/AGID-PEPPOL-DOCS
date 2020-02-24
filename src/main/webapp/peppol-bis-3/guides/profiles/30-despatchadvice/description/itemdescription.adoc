@@ -1,7 +1,9 @@
 [[item-description-and-identification]]
 = Descrizione dell’Articolo e sua identificazione
 
-Ogni riga della spedizione contiene elementi informativi per descrivere ed identificare l’articolo. Normalmente è necessario specificare solo uno tra gli identificatori disponibili
+Ogni riga della spedizione contiene elementi informativi per descrivere ed identificare l’articolo.
+
+Normalmente è necessario specificare solo uno tra gli identificatori disponibili.
 
 .Esempio:
 [source, xml, indent=0]

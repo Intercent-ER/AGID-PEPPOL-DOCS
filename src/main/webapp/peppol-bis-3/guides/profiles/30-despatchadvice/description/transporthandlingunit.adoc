@@ -3,6 +3,27 @@
 
 Gli articoli merce indicati in una riga di spedizione possono essere imballati in diverse unità logistiche che sono le unità logistiche fisiche come casse, container, pallet, etc., che contengono la consegna.
 
+Il codice TransportHandlingUnitTypeCode permette di specificare precisamente il tipo di unità logistica utilizzando la codifica UN/ECE Rec 21 del quale si riportano alcuni esempi più semplici:
+
+.Tipo di unità logistica
+[width="50%", cols="2h,3"]
+|===
+| *Codice*
+| *Unità Logistica*
+
+| CT
+| Cartone
+
+| CS
+| Cassa
+
+| BX
+| Box
+
+| PX
+| Pallet
+|===
+
 Il Serial Shipping Container Code (SSCC) emesso da GS1 può essere usato per identificare l’unità logistica.
 È importante notare che la stessa unità logistica può contenere articoli merce indicati in righe diverse nel Documento di Trasporto.
 Questo si implementa mediante il riferimento allo stesso codice SSCC nell’elemento ID del TransportHandlingUnit su diverse righe di spedizione.

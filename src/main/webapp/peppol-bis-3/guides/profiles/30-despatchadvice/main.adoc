@@ -38,6 +38,10 @@ include::../../shared/datatypes/index.adoc[]
 
 include::../../shared/codes/index.adoc[]
 
+include::custom/campistrutturati.adoc[]
+
+//include::custom/tipologiaordine.adoc[]
+
 include::description/index.adoc[]
 
 include::profile/index.adoc[]

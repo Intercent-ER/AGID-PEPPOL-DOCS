@@ -234,7 +234,7 @@
 			<cac:HazardousItem>
 				<!-- UNCL8273 -->
 				<cbc:UNDGCode>ADR</cbc:UNDGCode>
-                                <!-- Classe di pericolosità -->
+				<!-- Classe di pericolosità -->
 				<cbc:HazardClassID>2.3</cbc:HazardClassID>
 			</cac:HazardousItem>
 			<!-- end::hazardous[] -->

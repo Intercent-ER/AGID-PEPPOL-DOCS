@@ -1,5 +1,5 @@
 [[batchlot-numbers-expiry-date-and-best-before-date]]
-= 8.5.9	Numeri di lotto merce, Data di Scadenza e Da consumarsi preferibilmente entro il (BestBeforeDate)
+= Numeri di lotto merce, Data di Scadenza e Da consumarsi preferibilmente entro il (BestBeforeDate)
 
 Il numero di Lotto si applica a tutti gli articoli nella riga di spedizione.
 

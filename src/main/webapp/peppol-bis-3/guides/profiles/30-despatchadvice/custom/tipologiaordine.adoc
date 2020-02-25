@@ -3,7 +3,7 @@
 La tipologia dell’Ordine può essere espressa utilizzando le seguenti codifiche ufficiali disponibili nel package UBL.
 
 
-Per identificare il tipo di ordine si usa un «subset» della codifica ufficiale UNCL 1001. Si riporta di seguito il subset denominato «OrderTypeCode IT» definito da PEPPOL ed esteso al modello italiano di procurement (vedi, link:../../attachments/Intercent-ER-Code-Lists_Peppol-3.xls[Codifiche e Identificatori] compatibili con NSO).
+Per identificare il tipo di ordine si usa un «subset» della codifica ufficiale UNCL 1001. Si riporta di seguito il subset denominato «OrderTypeCode IT» definito da PEPPOL ed esteso al modello italiano di procurement (vedi, {link-codelist} evidenziati compatibili con NSO).
 
 
 [width="100%", cols="1,2,1,2"]
@@ -92,6 +92,6 @@ trasferimento di proprietà (v. precedente lettera c), per cui un ordine di cons
 essere collegato a uno o più ordini di acquisto.
 
 
-Vedi link:../../attachments/Intercent-ER-Code-Lists_Peppol-3.xls[Codifiche e Identificatori] compatibili con NSO.
+Vedi {link-codelist} evidenziati compatibili con NSO.
 
 

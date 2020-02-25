@@ -55,6 +55,7 @@
 :UNCL1001: https://www.unece.org/fileadmin/DAM/trade/untdid/d17a/tred/tred1001.htm[UN/CEFACT code list 1001, D.17A]
 :UNCL4343: https://www.unece.org/fileadmin/DAM/trade/untdid/d17a/tred/tred4343.htm[UN/CEFACT code list 4343, D.17A]
 :cef-codelists: https://ec.europa.eu/cefdigital/wiki/display/CEFDIGITAL/Code+lists#Codelists-1[CEF Code lists]
+:UNCL4079: https://www.unece.org/fileadmin/DAM/trade/untdid/d17a/tred/tred4079.htm[UN/CEFACT code list 4079, D.17A]
 :link-hazmattool: http://www.hazmattool.com/info.php
 
 //examples
@@ -64,8 +65,8 @@
 :examples-zip: http://test-docs.peppol.eu/poacc/upgrade-3/files/PEPPOLBIS-Examples.zip[Example files (ZIP)]
 
 //internal
-:link-codelist: link:/poacc/upgrade-3/codelist/[Code list section]
-:codelist-ICD: link:/poacc/upgrade-3/codelist/ICD/[ICD codes]
-:codelist-EAS: link:/poacc/upgrade-3/codelist/eas/[EAS codes]
-:vat-codes: link:/poacc/upgrade-3/codelist/UNCL5305/[Code list UNCL5305]
-:mime-codes: link:/poacc/upgrade-3/codelist/MimeCode/[Mime codes]
+:link-codelist: link:peppol-bis-3/menu/codelist-home.html[Codifiche e Identificatori]
+:codelist-ICD: link:peppol-bis-3/structure/codelist/ICD.xml[Codifica ICD]
+:codelist-EAS: link:peppol-bis-3/structure/codelist/eas.xml[Codifica EAS]
+:vat-codes: link:peppol-bis-3/structure/codelist/UNCL5305.xml[Codifica UNCL5305]
+:mime-codes: link:peppol-bis-3/structure/codelist/MimeCode.xml[Codifica Mime]

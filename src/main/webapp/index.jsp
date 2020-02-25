@@ -1,7 +1,7 @@
 <%@page 
     contentType="text/html" 
     pageEncoding="UTF-8"
-%><!DOCTYPE html>
+    %><!DOCTYPE html>
 <html lang="en">
     <head>
         <title>Specifiche PEPPOL 3.0</title>
@@ -23,7 +23,7 @@
         <script>
             //<![CDATA[
             $(function () {
-                const VER = "25";    // Math.random()*1000000
+                const VER = "29";    // Math.random()*1000000
                 var $body = $("body"), $main = $("#main"), $guide = $("#guide").hide(), $adoc = $("#adoc-viewer"), $loader = $("#loader");
                 var defBis = "peppol-bis-invoice-3";
 
@@ -32,16 +32,16 @@
                     var bisRef = $bis.attr("href");
                     $("#home-title").text($bis.text());
                     // Home Menu
-                    $("#syntax-menu").load(bisRef + '/menu/syntax-menu.html?v='+VER+' .dropdown-menu > li');
-                    $("#rule-menu").load(bisRef + '/menu/rule-menu.html?v='+VER+' .dropdown-menu > li');
-                    $("#codelist-menu").load(bisRef + '/menu/codelist-menu.html?v='+VER+' .dropdown-menu > li');
+                    $("#syntax-menu").load(bisRef + '/menu/syntax-menu.html?v=' + VER + ' .dropdown-menu > li');
+                    $("#rule-menu").load(bisRef + '/menu/rule-menu.html?v=' + VER + ' .dropdown-menu > li');
+                    $("#codelist-menu").load(bisRef + '/menu/codelist-menu.html?v=' + VER + ' .dropdown-menu > li');
                     // Home List
-                    $("#intro-list").load(bisRef + '/menu/intro-list.html?v='+VER+' .list-group > a');
-                    $("#bis-list").load(bisRef + '/menu/bis-list.html?v='+VER+' .list-group > a');
-                    $("#syntax-list").load(bisRef + '/menu/syntax-list.html?v='+VER+' .list-group > a');
-                    $("#rule-list").load(bisRef + '/menu/rule-list.html?v='+VER+' .list-group > a');
-                    $("#codelist-list").load(bisRef + '/menu/codelist-list.html?v='+VER+' .list-group > a');
-                    $("#download-list").load(bisRef + '/menu/download-list.html?v='+VER+' .list-group > a');
+                    $("#intro-list").load(bisRef + '/menu/intro-list.html?v=' + VER + ' .list-group > a');
+                    $("#bis-list").load(bisRef + '/menu/bis-list.html?v=' + VER + ' .list-group > a');
+                    $("#syntax-list").load(bisRef + '/menu/syntax-list.html?v=' + VER + ' .list-group > a');
+                    $("#rule-list").load(bisRef + '/menu/rule-list.html?v=' + VER + ' .list-group > a');
+                    $("#codelist-list").load(bisRef + '/menu/codelist-list.html?v=' + VER + ' .list-group > a');
+                    $("#download-list").load(bisRef + '/menu/download-list.html?v=' + VER + ' .list-group > a');
                 };
 
                 $.bis.current = $("#peppol-bis a[href='" + defBis + "']");
@@ -84,11 +84,11 @@
                     $adoc.contents().empty().scrollTop(0);
                     $adoc.attr("src", "pdfjs/web/viewer.html?file=" + encodeURIComponent(doc));
                 }).on("click", "#syntax-menu a, #syntax-list a, #rule-menu a, #rule-list a, #codelist-menu a, #codelist-list a, #section-menu a", function (e) {
-                    var $item = $(this), href = $item.attr("href") + "?v="+VER;
+                    var $item = $(this), href = $item.attr("href") + "?v=" + VER;
                     $.bis.currentMenu = $item.closest(".dropdown-menu, .list-group").attr("id");
                     $.bis.currentTitle = $item.text();
                     $.bis.currentUrl = href;
-                    if (!href.startsWith("http")) {
+                    if (!href.startsWith("#") && !href.startsWith("http") && !href.endsWith(".pdf") && !href.endsWith(".zip")) {
                         e.preventDefault();
                         $body.removeClass("adoc-mode");
                         $main.hide();
@@ -101,7 +101,7 @@
                     }
                 }).on("click", "#bis-section", function (e) {
                     e.preventDefault();
-                    var href = $(this).attr("href") + ".html?v="+VER;
+                    var href = $(this).attr("href") + ".html?v=" + VER;
                     $body.removeClass("adoc-mode");
                     $main.hide();
                     $adoc.hide();
@@ -111,7 +111,7 @@
                     });
                 }).on("click", "#bis-item", function (e) {
                     e.preventDefault();
-                    var href = $(this).attr("href") + "?v="+VER;
+                    var href = $(this).attr("href") + "?v=" + VER;
                     $main.hide();
                     $guide.html($loader).show();
                     $guide.load("<%=request.getContextPath()%>/" + href + " #main > *", function (e) {
@@ -140,10 +140,26 @@
                     var ctx = $(this);
                     changeRulesContext(ctx);
                 });
-                
+
                 $adoc.load(function () {
                     $loader.appendTo("#parking");
                     $body.addClass("adoc-mode");
+                    $adoc.contents().on("click", "a", function (e) {
+                        var $item = $(this), href = $item.attr("href") + "?v=" + VER;
+                        $.bis.currentTitle = $item.text();
+                        $.bis.currentUrl = href;
+                        if (!href.startsWith("#") && !href.startsWith("http") && !href.endsWith(".pdf") && !href.endsWith(".zip")) {
+                            e.preventDefault();
+                            $body.removeClass("adoc-mode");
+                            $main.hide();
+                            $guide.html($loader).show();
+                            $guide.load("<%=request.getContextPath()%>/" + href + " #main > *", function (e) {
+                                $loader.appendTo("#parking");
+                                $("#context").text($.bis.currentTitle);
+                                $("#path .active").text($.bis.currentTitle);
+                            });
+                        }
+                    });
                 });
 
                 function changeSyntaxContext(ctx, showRef) {
@@ -189,6 +205,9 @@
             });
             String.prototype.startsWith = function (t) {
                 return t === this.substring(0, t.length);
+            };
+            String.prototype.endsWith = function (t) {
+                return t === this.substring(this.length - t.length);
             };
             //]]>
         </script>

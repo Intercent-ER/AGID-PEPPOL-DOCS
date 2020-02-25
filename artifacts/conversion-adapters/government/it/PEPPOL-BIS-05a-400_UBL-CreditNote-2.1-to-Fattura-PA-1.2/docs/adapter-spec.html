@@ -81,7 +81,7 @@
          <div class="labelFont">TARGET</div>
          <div><strong>Fattura-PA-1.2</strong></div>
          <div class="labelFont">VERSION</div>
-         <div><strong>1.8.4</strong></div>
+         <div><strong>1.8.5</strong></div>
       </div>
       <table id="treegrid"></table>
       <div id="ptreegrid"></div>
@@ -3687,14 +3687,17 @@
                <td>
                   <div class="wrapCol200">&nbsp;</div>
                </td>
-               <td>format-number(cbc:CreditedQuantity,'###########0.00000000')&nbsp;</td>
+               <td>format-number(abs(cbc:CreditedQuantity),'###########0.00000000')&nbsp;</td>
                <td>
                   <div class="wrapCol200">cbc:CreditedQuantity&nbsp;</div>
                </td>
                <td>
                   <div class="wrapCol200">&nbsp;</div>
                </td>
-               <td style="min-width: 120px;">2.2.1.5&nbsp;</td>
+               <td style="min-width: 120px;">2.2.1.5
+                  abs forza una quantità positive in FatturaPA.
+                  (per avere una riga negativa è possibile solo usare un prezzo negativo)&nbsp;
+               </td>
             </tr>
             <tr class="leaf" data-level="5">
                <td class="leafFont" style="border-left: 24px solid gray"><pre>  - Quantita</pre></td>
@@ -3757,14 +3760,17 @@
                <td>
                   <div class="wrapCol200">&nbsp;</div>
                </td>
-               <td>format-number(cac:Price/cbc:PriceAmount,'###########0.00000000')&nbsp;</td>
+               <td>format-number(if (cbc:CreditedQuantity &lt; 0) then -(cac:Price/cbc:PriceAmount) else cac:Price/cbc:PriceAmount,'###########0.00000000')&nbsp;</td>
                <td>
                   <div class="wrapCol200">&nbsp;</div>
                </td>
                <td>
                   <div class="wrapCol200">&nbsp;</div>
                </td>
-               <td style="min-width: 120px;">2.2.1.9&nbsp;</td>
+               <td style="min-width: 120px;">2.2.1.9
+                  Se la quantità è negativa cambio il segno del prezzo per mantenere il totale negativo dato che la quantità in FatturaPA non
+                  può essre negativa.&nbsp;
+               </td>
             </tr>
             <tr class="branch" data-level="5">
                <td class="branchFont" style="border-left: 32px solid gray"><pre> /ScontoMaggiorazione</pre></td>

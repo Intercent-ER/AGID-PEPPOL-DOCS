@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--Stylesheet synthesized using Javest A2A Mapper environment.-->
 
-<xsl:stylesheet xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
-                xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
-                xmlns:nx="http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2"
-                xmlns:saxon="http://saxon.sf.net/"
-                xmlns:xsmap="http://www.javest.com/ns/mapper/snippet"
-                xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                xmlns:in="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2"
-                xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2"
-                xmlns:asmap="http://www.javest.com/ns/mapper/snippet/attribute"
-                xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2"
-                xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+<xsl:stylesheet xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
                 xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
                 xmlns:ccts="urn:un:unece:uncefact:documentation:2"
+                xmlns:saxon="http://saxon.sf.net/"
                 xmlns:cr="http://www.ubl-italia.org/ns/CrossReference"
+                xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+                xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+                xmlns:in="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2"
+                xmlns:nx="http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2"
+                xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2"
+                xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2"
+                xmlns:asmap="http://www.javest.com/ns/mapper/snippet/attribute"
+                xmlns:xsmap="http://www.javest.com/ns/mapper/snippet"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 exclude-result-prefixes="xsmap asmap in cac cbc ccts ext saxon qdt udt ds cr"
                 version="2.0">
@@ -674,7 +674,7 @@ the root node.
          </Descrizione>
          <xsl:if test="cbc:CreditedQuantity">
             <Quantita>
-               <xsl:value-of select="format-number(cbc:CreditedQuantity,'###########0.00000000')"/>
+               <xsl:value-of select="format-number(abs(cbc:CreditedQuantity),'###########0.00000000')"/>
             </Quantita>
          </xsl:if>
          <xsl:if test="not(cbc:CreditedQuantity)">
@@ -698,7 +698,7 @@ the root node.
             </DataFinePeriodo>
          </xsl:if>
          <PrezzoUnitario>
-            <xsl:value-of select="format-number(cac:Price/cbc:PriceAmount,'###########0.00000000')"/>
+            <xsl:value-of select="format-number(if (cbc:CreditedQuantity &lt; 0) then -(cac:Price/cbc:PriceAmount) else cac:Price/cbc:PriceAmount,'###########0.00000000')"/>
          </PrezzoUnitario>
          <xsl:apply-templates select="cac:AllowanceCharge" mode="ScontoMaggiorazione_Riga">
             <xsl:with-param name="CN" select="current()"/>
@@ -1904,12 +1904,12 @@ the root node.
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
       <nx:FatturaElettronica versione="FPR12">
-         <xsl:variable name="variable_d7e1a2759">
+         <xsl:variable name="variable_d10e1a2759">
             <xsl:value-of select="if (starts-with(upper-case(cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID[1][@schemeID='IT:IPA']), 'CODDEST:')) then 'FPR12' else 'FPA12'"/>
          </xsl:variable>
-         <xsl:if test="string($variable_d7e1a2759)">
+         <xsl:if test="string($variable_d10e1a2759)">
             <xsl:attribute name="versione">
-               <xsl:value-of select="string($variable_d7e1a2759)"/>
+               <xsl:value-of select="string($variable_d10e1a2759)"/>
             </xsl:attribute>
          </xsl:if>
          <FatturaElettronicaHeader>

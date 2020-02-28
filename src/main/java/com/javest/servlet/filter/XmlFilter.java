@@ -33,13 +33,14 @@ import javax.xml.transform.stream.StreamSource;
 /**
  *
  * @author JST-HQ
- * @version 1.0
+ * @version 1.1
  */
 public class XmlFilter implements Filter {
     private static final Logger LOGGER = Logger.getLogger(XmlFilter.class.getName());
     private static final String SAXON_TRANSFORMER = "net.sf.saxon.TransformerFactoryImpl";
     private static final TransformerFactory XSLT_FACTORY = getTransformerFactory(SAXON_TRANSFORMER);    // XSLT 2.0
-    
+    private static final String FORCE_DOWNLOAD_CONTENT_TYPE = "application/x-force-download";
+        
     private static TransformerFactory getTransformerFactory(String factoryImpl) {
         try {
             return (TransformerFactory) Class.forName(factoryImpl).newInstance();
@@ -98,11 +99,14 @@ public class XmlFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         final HttpServletRequest req = (HttpServletRequest) request;
-        final Transformer transformer = transPool.borrowObject();
-
-        OutputStream os;
-        Source source = null;
-        Result result = null;
+        
+        if ("1".equals(req.getParameter("download"))) {
+            response.setContentType(FORCE_DOWNLOAD_CONTENT_TYPE);
+            // pass the request along the filter chain
+            chain.doFilter(request, response);
+            return;
+        }
+        
         final String servletPath = req.getServletPath();
         
         if (!servletPath.endsWith("." + suffix)) {
@@ -110,6 +114,12 @@ public class XmlFilter implements Filter {
             chain.doFilter(request, response);
             return;
         }
+
+        final Transformer transformer = transPool.borrowObject();
+
+        OutputStream os;
+        Source source = null;
+        Result result = null;
         
         try {
             response.setContentType("text/html;charset=UTF-8");

@@ -61,8 +61,8 @@
             <table class="table table-striped">
                <thead>
                   <tr>
-                     <th>Identifier/Error message</th>
-                     <th style="width: 5%">Flag</th>
+                     <th>Identificatore / Messaggio</th>
+                     <th style="width: 5%">Severit&agrave;</th>
                   </tr>
                </thead>
                <tbody id="rules">
@@ -129,12 +129,8 @@
                            			</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="PEPPOL-COMMON-R001" data-context="cbc:*" data-test=". != ''">
+                  <tr id="PEPPOL-COMMON-R001" data-context="//*[not(*) and not(normalize-space())]" data-test="false()">
                      <td><a href="#">PEPPOL-COMMON-R001</a><br><span class="message">Document MUST not contain empty elements.</span></td>
-                     <td style="width: 5%;">fatal</td>
-                  </tr>
-                  <tr id="PEPPOL-COMMON-R002" data-context="cac:*" data-test="count(*) != 0">
-                     <td><a href="#">PEPPOL-COMMON-R002</a><br><span class="message">Document MUST not contain empty elements.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="PEPPOL-COMMON-R003" data-context="/*" data-test="not(@*:schemaLocation)">
@@ -146,11 +142,11 @@
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="PEPPOL-COMMON-R040" data-context="cbc:EndpointID[@schemeID = '0088'] | cac:PartyIdentification/cbc:ID[@schemeID = '0088'] | cbc:CompanyID[@schemeID = '0088']" data-test="matches(normalize-space(), '^[0-9]+$') and u:gln(normalize-space())">
-                     <td><a href="#">PEPPOL-COMMON-R040</a><br><span class="message">Invalid GLN number provided.</span></td>
+                     <td><a href="#">PEPPOL-COMMON-R040</a><br><span class="message">GLN must have a valid format according to GS1 rules.</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
                   <tr id="PEPPOL-COMMON-R041" data-context="cbc:EndpointID[@schemeID = '0192'] | cac:PartyIdentification/cbc:ID[@schemeID = '0192'] | cbc:CompanyID[@schemeID = '0192']" data-test="matches(normalize-space(), '^[0-9]{9}$') and u:mod11(normalize-space())">
-                     <td><a href="#">PEPPOL-COMMON-R041</a><br><span class="message">Invalid Norwegian organization number provided.</span></td>
+                     <td><a href="#">PEPPOL-COMMON-R041</a><br><span class="message">Norwegian organization number MUST be stated in the correct format.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="PEPPOL-T76-B00101" data-context="/ubl:OrderResponse" data-test="cbc:CustomizationID">
@@ -558,11 +554,11 @@
             </table>
          </div>
          <dl id="rule" class="dl-horizontal">
-            <dt>Message</dt>
+            <dt>Messaggio</dt>
             <dd>
                <p class="message lead"></p>
             </dd>
-            <dt>Context</dt>
+            <dt>Contesto</dt>
             <dd><code class="context"></code></dd>
             <dt>Test</dt>
             <dd><code class="test"></code></dd>

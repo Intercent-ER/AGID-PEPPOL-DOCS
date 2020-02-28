@@ -20,6 +20,7 @@
 				transaction.</Description>
 			<DataType>Identifier</DataType>
 			<Reference type="BUSINESS_TERM">tir16-002</Reference>
+			<Reference type="RULE">IT-T16-R004</Reference>
 			<Value type="FIXED">urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.0</Value>
 		</Element>
 		<Element>
@@ -29,6 +30,7 @@
 				transaction appears.</Description>
 			<DataType>Identifier</DataType>
 			<Reference type="BUSINESS_TERM">tir16-001</Reference>
+			<Reference type="RULE">IT-T16-R004</Reference>
 			<Value type="FIXED">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Value>
 		</Element>
 		<Element>
@@ -78,26 +80,11 @@
 				<Reference type="BUSINESS_TERM">tir16-006</Reference>
 			</Element>
 			<Element cardinality="0..1" agid:custom="extension">
-				<Term>cbc:IssueDate</Term>
-				<Name>Data emissione Ordine</Name>
-				<Description>Used to provide a reference to the order on which the despatch is
-					based.</Description>
-				<DataType>Date</DataType>
-			</Element>
-			<Element cardinality="0..1" agid:custom="extension">
 				<Term>cbc:CustomerReference</Term>
 				<Name>Additional Order Reference</Name>
 				<Description>Riferimento supplementare all’Ordine (es. ID Paziente).</Description>
 				<DataType>Text</DataType>
 			</Element>
-                        <Element cardinality="0..1" agid:custom="extension">
-                                <Term>cbc:OrderTypeCode</Term>
-                                <Name>Consignment order indication</Name>
-                                <Description>Indicates wether the order is a purchase order or consignement order.
-                                        Default is purchase order.</Description>
-                                <Reference type="CODE_LIST">UNCL1001_T01</Reference>
-                                <Value type="EXAMPLE">220</Value>
-                        </Element>
 		</Element>
 		<Element cardinality="0..n" agid:custom="extension">
 			<Term>cac:AdditionalDocumentReference</Term>
@@ -136,6 +123,9 @@
 					<Description>Identifies the despatch party's electronic address</Description>
 					<DataType>Identifier</DataType>
 					<Reference type="BUSINESS_TERM">tir16-071</Reference>
+                                        <Reference type="RULE">IT-T16-R026</Reference>
+                                        <Reference type="RULE">IT-T16-R027</Reference>
+                                        <Reference type="RULE">IT-T16-R028</Reference>
 					<Attribute>
 						<Term>schemeID</Term>
 						<Name>Scheme identifier</Name>
@@ -159,22 +149,24 @@
 							<Name>Scheme identifier</Name>
 							<Description>Scheme identifier for party identification</Description>
 							<Reference type="CODE_LIST">ICD</Reference>
+							<Reference type="RULE">IT-T16-R002</Reference>
 							<Value type="EXAMPLE">0184</Value>
 						</Attribute>
 						<Value type="EXAMPLE">DK88777654</Value>
 					</Element>
 				</Element>
-				<Element cardinality="0..1">
+				<Element agid:custom="cardinality">
 					<Term>cac:PostalAddress</Term>
 					<Name>Postal address</Name>
 					<Description>Postal address of the depatching party</Description>
-					<Element cardinality="0..1">
+					<Element agid:custom="cardinality">
 						<Term>cbc:StreetName</Term>
 						<Name>Address line 1</Name>
 						<Description>The main address line in a postal address usually the street
 							name and number.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir16-p012</Reference>
+						<Reference type="RULE">IT-T16-R002</Reference>
 					</Element>
 					<Element cardinality="0..1">
 						<Term>cbc:AdditionalStreetName</Term>
@@ -185,15 +177,16 @@
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir16-p013</Reference>
 					</Element>
-					<Element cardinality="0..1">
+					<Element agid:custom="cardinality">
 						<Term>cbc:CityName</Term>
 						<Name>City</Name>
 						<Description>The common name of the city where the postal address is. The
 							name is written in full rather than as a code.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir16-p014</Reference>
+						<Reference type="RULE">IT-T16-R002</Reference>
 					</Element>
-					<Element cardinality="0..1">
+					<Element agid:custom="cardinality">
 						<Term>cbc:PostalZone</Term>
 						<Name>Post code</Name>
 						<Description>The identifier for an addressable group of properties according
@@ -201,14 +194,16 @@
 							Code.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir16-p015</Reference>
+						<Reference type="RULE">IT-T16-R002</Reference>
 					</Element>
-					<Element cardinality="0..1">
+					<Element agid:custom="cardinality">
 						<Term>cbc:CountrySubentity</Term>
 						<Name>Country subdivision</Name>
 						<Description>For specifying a region, county, state, province etc. within a
 							country by using text.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir16-p016</Reference>
+						<Reference type="RULE">IT-T16-R002</Reference>
 					</Element>
 					<Element cardinality="0..1">
 						<Term>cac:AddressLine</Term>
@@ -250,6 +245,7 @@
 						<Description>The name of the dispatching party</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir16-007</Reference>
+						<Reference type="RULE">IT-T16-R002</Reference>
 					</Element>
 				</Element>
 				<Element cardinality="0..1">
@@ -296,6 +292,9 @@
 					<Description>Identifies the consignee party's electronic address</Description>
 					<DataType>Identifier</DataType>
 					<Reference type="BUSINESS_TERM">tir16-016</Reference>
+                                        <Reference type="RULE">IT-T16-R026</Reference>
+                                        <Reference type="RULE">IT-T16-R027</Reference>
+                                        <Reference type="RULE">IT-T16-R028</Reference>
 					<Attribute>
 						<Term>schemeID</Term>
 						<Name>Scheme identifier</Name>
@@ -324,17 +323,18 @@
 						<Value type="EXAMPLE">DK88777654</Value>
 					</Element>
 				</Element>
-				<Element cardinality="0..1">
+				<Element agid:custom="cardinality">
 					<Term>cac:PostalAddress</Term>
 					<Name>Postal address</Name>
 					<Description>Postal address of the consignee</Description>
-					<Element cardinality="0..1">
+					<Element agid:custom="cardinality">
 						<Term>cbc:StreetName</Term>
 						<Name>Address line 1</Name>
 						<Description>The main address line in a postal address usually the street
 							name and number.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir16-018</Reference>
+						<Reference type="RULE">IT-T16-R002</Reference>
 					</Element>
 					<Element cardinality="0..1">
 						<Term>cbc:AdditionalStreetName</Term>
@@ -345,15 +345,16 @@
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir16-019</Reference>
 					</Element>
-					<Element cardinality="0..1">
+					<Element agid:custom="cardinality">
 						<Term>cbc:CityName</Term>
 						<Name>City</Name>
 						<Description>The common name of the city where the postal address is. The
 							name is written in full rather than as a code.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir16-020</Reference>
+						<Reference type="RULE">IT-T16-R002</Reference>
 					</Element>
-					<Element cardinality="0..1">
+					<Element agid:custom="cardinality">
 						<Term>cbc:PostalZone</Term>
 						<Name>Post code</Name>
 						<Description>The identifier for an addressable group of properties according
@@ -361,14 +362,16 @@
 							Code.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir16-021</Reference>
+						<Reference type="RULE">IT-T16-R002</Reference>
 					</Element>
-					<Element cardinality="0..1">
+					<Element agid:custom="cardinality">
 						<Term>cbc:CountrySubentity</Term>
 						<Name>Country subdivision</Name>
 						<Description>For specifying a region, county, state, province etc. within a
 							country by using text.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir16-022</Reference>
+						<Reference type="RULE">IT-T16-R002</Reference>
 					</Element>
 					<Element cardinality="0..1">
 						<Term>cac:AddressLine</Term>
@@ -410,6 +413,7 @@
 						<Description>The name of the receiving party.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir16-014</Reference>
+						<Reference type="RULE">IT-T16-R002</Reference>
 						<Value type="EXAMPLE">Customer AS</Value>
 					</Element>
 				</Element>
@@ -473,7 +477,7 @@
 						<Value type="EXAMPLE">DK88777654</Value>
 					</Element>
 				</Element>
-				<Element cardinality="0..1">
+				<Element agid:custom="cardinality">
 					<Term>cac:PartyName</Term>
 					<Name>Party name</Name>
 					<Element>
@@ -482,19 +486,21 @@
 						<Description>The name of the buying party</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir16-029</Reference>
+						<Reference type="RULE">IT-T16-R002</Reference>
 					</Element>
 				</Element>
-				<Element cardinality="0..1">
+				<Element agid:custom="cardinality">
 					<Term>cac:PostalAddress</Term>
 					<Name>Postal address</Name>
 					<Description>Postal address of the customer</Description>
-					<Element cardinality="0..1">
+					<Element agid:custom="cardinality">
 						<Term>cbc:StreetName</Term>
 						<Name>Address line 1</Name>
 						<Description>The main address line in a postal address usually the street
 							name and number.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir16-p025</Reference>
+						<Reference type="RULE">IT-T16-R002</Reference>
 					</Element>
 					<Element cardinality="0..1">
 						<Term>cbc:AdditionalStreetName</Term>
@@ -505,15 +511,16 @@
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir16-p026</Reference>
 					</Element>
-					<Element cardinality="0..1">
+					<Element agid:custom="cardinality">
 						<Term>cbc:CityName</Term>
 						<Name>City</Name>
 						<Description>The common name of the city where the postal address is. The
 							name is written in full rather than as a code.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir16-p027</Reference>
+						<Reference type="RULE">IT-T16-R002</Reference>
 					</Element>
-					<Element cardinality="0..1">
+					<Element agid:custom="cardinality">
 						<Term>cbc:PostalZone</Term>
 						<Name>Post code</Name>
 						<Description>The identifier for an addressable group of properties according
@@ -521,14 +528,16 @@
 							Code.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir16-p028</Reference>
+						<Reference type="RULE">IT-T16-R002</Reference>
 					</Element>
-					<Element cardinality="0..1">
+					<Element agid:custom="cardinality">
 						<Term>cbc:CountrySubentity</Term>
 						<Name>Country subdivision</Name>
 						<Description>For specifying a region, county, state, province etc. within a
 							country by using text.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir16-p029</Reference>
+						<Reference type="RULE">IT-T16-R002</Reference>
 					</Element>
 					<Element cardinality="0..1">
 						<Term>cac:AddressLine</Term>
@@ -591,7 +600,7 @@
 						<Value type="EXAMPLE">DK88777654</Value>
 					</Element>
 				</Element>
-				<Element cardinality="0..1">
+				<Element agid:custom="cardinality">
 					<Term>cac:PartyName</Term>
 					<Name>Party name</Name>
 					<Element>
@@ -600,19 +609,21 @@
 						<Description>The seller party name.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir16-065</Reference>
+						<Reference type="RULE">IT-T16-R002</Reference>
 					</Element>
 				</Element>
-				<Element cardinality="0..1">
+				<Element agid:custom="cardinality">
 					<Term>cac:PostalAddress</Term>
 					<Name>Postal address</Name>
 					<Description>Postal address of the supplier</Description>
-					<Element cardinality="0..1">
+					<Element agid:custom="cardinality">
 						<Term>cbc:StreetName</Term>
 						<Name>Address line 1</Name>
 						<Description>The main address line in a postal address usually the street
 							name and number.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir16-p018</Reference>
+						<Reference type="RULE">IT-T16-R002</Reference>
 					</Element>
 					<Element cardinality="0..1">
 						<Term>cbc:AdditionalStreetName</Term>
@@ -623,15 +634,16 @@
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir16-p019</Reference>
 					</Element>
-					<Element cardinality="0..1">
+					<Element agid:custom="cardinality">
 						<Term>cbc:CityName</Term>
 						<Name>City</Name>
 						<Description>The common name of the city where the postal address is. The
 							name is written in full rather than as a code.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir16-p020</Reference>
+						<Reference type="RULE">IT-T16-R002</Reference>
 					</Element>
-					<Element cardinality="0..1">
+					<Element agid:custom="cardinality">
 						<Term>cbc:PostalZone</Term>
 						<Name>Post code</Name>
 						<Description>The identifier for an addressable group of properties according
@@ -639,14 +651,16 @@
 							Code.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir16-p021</Reference>
+						<Reference type="RULE">IT-T16-R002</Reference>
 					</Element>
-					<Element cardinality="0..1">
+					<Element agid:custom="cardinality">
 						<Term>cbc:CountrySubentity</Term>
 						<Name>Country subdivision</Name>
 						<Description>For specifying a region, county, state, province etc. within a
 							country by using text.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir16-p022</Reference>
+						<Reference type="RULE">IT-T16-R002</Reference>
 					</Element>
 					<Element cardinality="0..1">
 						<Term>cac:AddressLine</Term>
@@ -824,6 +838,7 @@
 						quantity.</Description>
 					<DataType>Code</DataType>
 					<Reference type="CODE_LIST">UNECERec20</Reference>
+					<Reference type="RULE">IT-T16-R002</Reference>
 					<Value type="EXAMPLE">CTN</Value>
 				</Attribute>
 			</Element>
@@ -847,6 +862,8 @@
 				<Term>cbc:TotalTransportHandlingUnitQuantity</Term>
 				<Name>Total number of transport handling units</Name>
 				<Reference type="BUSINESS_TERM">tir16-p002</Reference>
+				<Reference type="RULE">IT-T16-R002</Reference>
+				<Reference type="RULE">IT-T16-R005</Reference>
 			</Element>
 			<Element cardinality="0..1">
 				<Term>cac:Consignment</Term>
@@ -894,19 +911,21 @@
 							<Description>The name of the carrier that handles the delivery of the
 								dispatched shipment.</Description>
 							<Reference type="BUSINESS_TERM">tir16-076</Reference>
+							<Reference type="RULE">IT-T16-R002</Reference>
 						</Element>
 					</Element>
-                                        <Element cardinality="0..1" agid:custom="extension">
+                                        <Element agid:custom="extension,cardinality">
                                                 <Term>cac:PostalAddress</Term>
                                                 <Name>Postal address</Name>
                                                 <Description>Postal address of the depatching party</Description>
-                                                <Element cardinality="0..1">
+                                                <Element agid:custom="cardinality">
                                                         <Term>cbc:StreetName</Term>
                                                         <Name>Address line 1</Name>
                                                         <Description>The main address line in a postal address usually the street
                                                                 name and number.</Description>
                                                         <DataType>Text</DataType>
                                                         <Reference type="BUSINESS_TERM">tir16-p012</Reference>
+							<Reference type="RULE">IT-T16-R002</Reference>
                                                 </Element>
                                                 <Element cardinality="0..1">
                                                         <Term>cbc:AdditionalStreetName</Term>
@@ -917,15 +936,16 @@
                                                         <DataType>Text</DataType>
                                                         <Reference type="BUSINESS_TERM">tir16-p013</Reference>
                                                 </Element>
-                                                <Element cardinality="0..1">
+                                                <Element agid:custom="cardinality">
                                                         <Term>cbc:CityName</Term>
                                                         <Name>City</Name>
                                                         <Description>The common name of the city where the postal address is. The
                                                                 name is written in full rather than as a code.</Description>
                                                         <DataType>Text</DataType>
                                                         <Reference type="BUSINESS_TERM">tir16-p014</Reference>
+							<Reference type="RULE">IT-T16-R002</Reference>
                                                 </Element>
-                                                <Element cardinality="0..1">
+                                                <Element agid:custom="cardinality">
                                                         <Term>cbc:PostalZone</Term>
                                                         <Name>Post code</Name>
                                                         <Description>The identifier for an addressable group of properties according
@@ -933,14 +953,16 @@
                                                                 Code.</Description>
                                                         <DataType>Text</DataType>
                                                         <Reference type="BUSINESS_TERM">tir16-p015</Reference>
+							<Reference type="RULE">IT-T16-R002</Reference>
                                                 </Element>
-                                                <Element cardinality="0..1">
+                                                <Element agid:custom="cardinality">
                                                         <Term>cbc:CountrySubentity</Term>
                                                         <Name>Country subdivision</Name>
                                                         <Description>For specifying a region, county, state, province etc. within a
                                                                 country by using text.</Description>
                                                         <DataType>Text</DataType>
                                                         <Reference type="BUSINESS_TERM">tir16-p016</Reference>
+							<Reference type="RULE">IT-T16-R002</Reference>
                                                 </Element>
                                                 <Element cardinality="0..1">
                                                         <Term>cac:AddressLine</Term>
@@ -1154,6 +1176,7 @@
 				<Reference type="BUSINESS_TERM">tir16-048</Reference>
 				<Reference type="RULE">PEPPOL-T16-R005</Reference>
 				<Reference type="RULE">PEPPOL-T16-R006</Reference>
+				<Reference type="RULE">IT-T16-R003</Reference>
 				<Attribute>
 					<Term>unitCode</Term>
 					<Name>Ordered quantity unit of measure</Name>
@@ -1254,6 +1277,7 @@
 					<Description>A short name for an item.</Description>
 					<Reference type="BUSINESS_TERM">tir16-052</Reference>
 					<Reference type="RULE">PEPPOL-T16-R004</Reference>
+					<Reference type="RULE">IT-T16-R003</Reference>
 				</Element>
 				<Element cardinality="0..n" agid:custom="extension">
 					<Term>cbc:AdditionalInformation</Term>
@@ -1285,6 +1309,7 @@
 							the item with its identification according to the seller's system. </Description>
 						<DataType>Identifier</DataType>
 						<Reference type="BUSINESS_TERM">tir16-053</Reference>
+						<Reference type="RULE">IT-T16-R003</Reference>
 						<Value type="EXAMPLE">3249834</Value>
 					</Element>
 					<Element cardinality="0..1">
@@ -1308,6 +1333,7 @@
 							system.</Description>
 						<DataType>Identifier</DataType>
 						<Reference type="BUSINESS_TERM">tir16-055</Reference>
+						<Reference type="RULE">IT-T16-R003</Reference>
 						<Attribute>
 							<Term>schemeID</Term>
 							<Name>Item standard identifier identification scheme identifier</Name>
@@ -1336,7 +1362,7 @@
 						<DataType>Identifier</DataType>
 						<Value type="EXAMPLE">3249</Value>
 					</Element>
-					<Element cardinality="0..1">
+					<Element agid:custom="cardinality">
 						<Term>cbc:UNDGCode</Term>
 						<Name>Hazardous item UNDG code</Name>
 						<Description>The identifier assigned to transportable hazardous goods by the
@@ -1357,7 +1383,7 @@
                                                 <Description>Categoria sostanza pericolosa (es. Antiblastici).</Description>
                                                 <Value type="EXAMPLE">ANTIBLASTICI</Value>
                                         </Element>
-					<Element cardinality="0..1">
+					<Element agid:custom="cardinality">
 						<Term>cbc:HazardClassID</Term>
 						<Name>Haszardous hazard class Identifier</Name>
 						<Description>Identifies a hazard class applicable to dangerous goods as

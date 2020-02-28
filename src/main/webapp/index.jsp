@@ -4,7 +4,7 @@
     %><!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Specifiche PEPPOL 3.0</title>
+        <title>Specifiche PEPPOL 3</title>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -23,7 +23,7 @@
         <script>
             //<![CDATA[
             $(function () {
-                const VER = "29";    // Math.random()*1000000
+                const VER = "30";    // Math.random()*1000000
                 var $body = $("body"), $main = $("#main"), $guide = $("#guide").hide(), $adoc = $("#adoc-viewer"), $loader = $("#loader");
                 var defBis = "peppol-bis-invoice-3";
 
@@ -83,6 +83,20 @@
                     $guide.html($loader).show();
                     $adoc.contents().empty().scrollTop(0);
                     $adoc.attr("src", "pdfjs/web/viewer.html?file=" + encodeURIComponent(doc));
+                }).on("click", "#codelist-list a .download-xml", function (e) {
+                    e.stopImmediatePropagation();
+                    e.preventDefault();
+                    var $a = $(this).parent("a");
+                    var url = '<%=request.getContextPath()%>/' + $a.attr("href") + "?download=1";
+                    
+                    var link = document.createElement('a');
+                    document.body.appendChild(link);
+                    link.href = url;
+                    link.target = '_blank';
+                    link.click(function () {
+                        e.stopImmediatePropagation();
+                        link.remove();
+                    });
                 }).on("click", "#syntax-menu a, #syntax-list a, #rule-menu a, #rule-list a, #codelist-menu a, #codelist-list a, #section-menu a", function (e) {
                     var $item = $(this), href = $item.attr("href") + "?v=" + VER;
                     $.bis.currentMenu = $item.closest(".dropdown-menu, .list-group").attr("id");
@@ -234,14 +248,14 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="btn-group" id="peppol-bis">
-                            <button type="button" class="btn btn-primary" style="margin-top: 8px;">PEPPOL BIS Fatturazione 3.0</button>
+                            <button type="button" class="btn btn-primary" style="margin-top: 8px;">PEPPOL BIS Fatturazione 3</button>
                             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 8px;">
                                 <span class="caret"></span>
                                 <span class="sr-only">Toggle Dropdown</span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="peppol-bis-invoice-3">PEPPOL BIS Fatturazione 3.0</a></li>
-                                <li><a href="peppol-bis-3">PEPPOL BIS 3.0 (altri processi)</a></li>
+                                <li><a href="peppol-bis-invoice-3">PEPPOL BIS Fatturazione 3</a></li>
+                                <li><a href="peppol-bis-3">PEPPOL BIS 3 (altri processi)</a></li>
                             </ul>
                         </li>
 
@@ -254,12 +268,6 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Regole <span class="caret"></span></a>
                             <ul class="dropdown-menu" id="rule-menu">
-
-                                <!--li><a href="./rules/T01/PEPPOL Order transaction 3.0_Rules.htm">Regole di business per Ordine Semplice PEPPOL 3.0 </a></li>
-                                <li><a href="./rules/T76/Order Response transaction 3.0_Rules.htm">Regole di business per Risposta all'Ordine PEPPOL 3.0</a></li>
-                                <li><a href="#" style="color:#c60000;">Regole di business per Ordine Pre-Concordato PEPPOL 3.0</a></li>
-                                <li><a href="#" style="color:#c60000;">Regole base per Ordine Pre-Concordato PEPPOL 3.0</a></li-->
-
                             </ul>
                         </li>
 

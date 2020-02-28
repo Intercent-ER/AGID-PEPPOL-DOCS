@@ -112,12 +112,13 @@
                     </div>																	
 
                     <div class="table-responsive">
-                        <table class="table table-striped">
+                        <table class="table table-striped" style="table-layout: fixed">
                             <thead>
                                 <tr>
-                                    <th style="width: 5%">Cardinalità</th>
-                                    <th style="width: 35%">Nome</th>
-                                    <th style="width: 55%">Descrizione</th>
+                                    <th style="width: 7%">Cardinalità</th>
+                                    <th style="width: 9%">ID</th>
+                                    <th style="width: 28%">Nome</th>
+                                    <th style="width: 51%">Descrizione</th>
                                     <th style="width: 5%">Stato</th>
                                 </tr>
                             </thead>
@@ -179,13 +180,16 @@
 	
     <xsl:template match="stx:Include" priority="1">
         <xsl:param name="level" select="0"/>
+        <xsl:param name="parentId" select="''"/>
         <xsl:apply-templates select="document(.)/stx:Element">
             <xsl:with-param name="level" select="$level"/>
+            <xsl:with-param name="parentId" select="$parentId"/>
         </xsl:apply-templates>
     </xsl:template>
 	
     <xsl:template match="stx:Document | stx:Element" priority="1">
         <xsl:param name="level" select="0"/>
+        <xsl:param name="parentId" select="''"/>
         <xsl:variable name="card">
             <xsl:choose>
                 <xsl:when test="@cardinality">
@@ -208,6 +212,7 @@
         <xsl:variable name="references" select="stx:Reference[@type='BUSINESS_TERM']"/>
         <xsl:variable name="rules" select="stx:Reference[@type='RULE']"/>
         <xsl:variable name="codelists" select="stx:Reference[@type='CODE_LIST']"/>
+        <xsl:variable name="rowId" select="if (string-length($parentId) &gt; 0) then concat($parentId, '.', position()) else if ($level = 0) then '' else string(position())"/>
         <tr id="{translate(translate(substring-after($location,'/'),':','-'),'/','_')}" data-level="{$level}">
             <xsl:if test="$extension or $restriction or $fixedValue">
                 <xsl:attribute name="class">
@@ -215,7 +220,7 @@
                 </xsl:attribute>
             </xsl:if>
 
-            <td style="width: 5%;">
+            <td>
                 <xsl:if test="$customCardinality">
                     <xsl:attribute name="class">cardinality</xsl:attribute>
                 </xsl:if>
@@ -223,7 +228,12 @@
                     <xsl:value-of select="$card"/>
                 </span>
             </td>
-            <td style="width: 35%;">
+            <td>
+                <code>
+                    <xsl:value-of select="$rowId"/>
+                </code>
+            </td>
+            <td>
                 <xsl:call-template name="dots">
                     <xsl:with-param name="count" select="$level"/>
                 </xsl:call-template>
@@ -231,7 +241,7 @@
                     <xsl:value-of select="stx:Term"/>
                 </a>
             </td>
-            <td style="width: 55%;">
+            <td>
                 <p>
                     <strong>
                         <xsl:value-of select="stx:Name"/>
@@ -261,7 +271,7 @@
                     </p>
                 </xsl:if>
             </td>
-            <td style="width: 5%;">
+            <td>
                 <xsl:if test="$mandatory">
                     <i class="fa fa-exclamation fa-fw" title="Elemento diventato obbligatorio"/>
                 </xsl:if>
@@ -281,11 +291,13 @@
         </tr>
         <xsl:apply-templates select="stx:Element | stx:Attribute | stx:Include">
             <xsl:with-param name="level" select="$level + 1"/>
+            <xsl:with-param name="parentId" select="$rowId"/>
         </xsl:apply-templates>
     </xsl:template>
 
     <xsl:template match="stx:Attribute" priority="0">
         <xsl:param name="level" select="0"/>
+        <xsl:param name="parentId" select="''"/>
         <xsl:variable name="card">
             <xsl:choose>
                 <xsl:when test="@cardinality">
@@ -315,7 +327,7 @@
                 </xsl:attribute>
             </xsl:if>
 
-            <td style="width: 5%;">
+            <td>
                 <xsl:if test="$customCardinality">
                     <xsl:attribute name="class">cardinality</xsl:attribute>
                 </xsl:if>
@@ -323,7 +335,12 @@
                     <xsl:value-of select="$card"/>
                 </span>
             </td>
-            <td style="width: 35%;">
+            <td>
+                <code>
+                    <xsl:value-of select="concat($parentId, '.', position())"/>
+                </code>
+            </td>
+            <td>
                 <xsl:call-template name="dots">
                     <xsl:with-param name="count" select="$level"/>
                 </xsl:call-template>
@@ -331,7 +348,7 @@
                     <xsl:value-of select="concat('@',stx:Term)"/>
                 </a>
             </td>
-            <td style="width: 55%;">
+            <td>
                 <p>
                     <strong>
                         <xsl:value-of select="stx:Name"/>
@@ -361,7 +378,7 @@
                     </p>
                 </xsl:if>
             </td>
-            <td style="width: 5%;">
+            <td>
                 <xsl:if test="$mandatory">
                     <i class="fa fa-exclamation fa-fw" title="Attributo diventato obbligatorio"/>
                 </xsl:if>

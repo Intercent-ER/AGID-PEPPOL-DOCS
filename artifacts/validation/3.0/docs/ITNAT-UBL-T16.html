@@ -61,57 +61,52 @@
             <table class="table table-striped">
                <thead>
                   <tr>
-                     <th>Identifier/Error message</th>
-                     <th style="width: 5%">Flag</th>
+                     <th>Identificatore / Messaggio</th>
+                     <th style="width: 5%">Severit&agrave;</th>
                   </tr>
                </thead>
                <tbody id="rules">
-                  <tr id="INT-T16-R001" data-context="//cbc:*" data-test="normalize-space()">
-                     <td><a href="#">INT-T16-R001</a><br><span class="message">[INT-T16-R001] - Un elemento informativo base, se istanziato, non pu&ograve; essere vuoto.</span></td>
-                     <td style="width: 5%;">fatal</td>
-                  </tr>
-                  <tr id="INT-T16-R002" data-context="/ubl:DespatchAdvice" data-test="cac:DespatchSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID and cac:DespatchSupplierParty/cac:Party/cac:PartyName/cbc:Name and cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:StreetName and cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:CityName and cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone and cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity and cac:DeliveryCustomerParty/cac:Party/cac:PartyName/cbc:Name and cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName and cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName and cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone and cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity and (not(cac:BuyerCustomerParty) or (cac:BuyerCustomerParty/cac:Party/cac:PartyName/cbc:Name and cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName and cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName and cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone and cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity)) and (not(cac:SellerSupplierParty) or (cac:SellerSupplierParty/cac:Party/cac:PartyName/cbc:Name and cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:StreetName and cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:CityName and cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone and cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity)) and cac:Shipment/cbc:GrossWeightMeasure and cac:Shipment/cbc:TotalTransportHandlingUnitQuantity and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyName/cbc:Name and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:StreetName and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:CityName and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:PostalZone and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:CountrySubentity">
-                     <td><a href="#">INT-T16-R002</a><br><span class="message">[INT-T16-R002] - La testata del DDT DEVE contenere le informazioni minime previste dall&#8217;Art. 21, comma 4 del DPR n. 633/1972
+                  <tr id="IT-T16-R002" data-context="/ubl:DespatchAdvice" data-test="cac:DespatchSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID and cac:DespatchSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName and cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:StreetName and cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:CityName and cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone and cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity and cac:DeliveryCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName and cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName and cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName and cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone and cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity and (not(cac:BuyerCustomerParty) or (cac:BuyerCustomerParty/cac:Party/cac:PartyName/cbc:Name and cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName and cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName and cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone and cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity)) and (not(cac:SellerSupplierParty) or (cac:SellerSupplierParty/cac:Party/cac:PartyName/cbc:Name and cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:StreetName and cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:CityName and cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone and cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity)) and cac:Shipment/cbc:GrossWeightMeasure and cac:Shipment/cbc:TotalTransportHandlingUnitQuantity and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyName/cbc:Name and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:StreetName and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:CityName and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:PostalZone and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:CountrySubentity">
+                     <td><a href="#">IT-T16-R002</a><br><span class="message">[IT-T16-R002] - La testata del DDT DEVE contenere le informazioni minime previste dall&#8217;Art. 21, comma 4 del DPR n. 633/1972
                            (Identificativo, nome e indirizzo dello Speditore / Cedente, nome e indirizzo del Consegnatario / Cessionario, peso lordo
                            e numero colli della spedizione, generalit&agrave; del Trasportatore e indirizzo).</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="INT-T16-R003" data-context="//cac:DespatchLine" data-test="cac:Item/cbc:Name and (cac:Item/cac:SellersItemIdentification/cbc:ID or cac:Item/cac:StandardItemIdentification/cbc:ID) and cbc:DeliveredQuantity">
-                     <td><a href="#">INT-T16-R003</a><br><span class="message">[INT-T16-R003] - Le righe del DDT DEVONO contenere le informazioni minime previste dall&#8217;Art. 21, comma 4 del DPR n. 633/1972
+                  <tr id="IT-T16-R003" data-context="//cac:DespatchLine" data-test="cac:Item/cbc:Name and (cac:Item/cac:SellersItemIdentification/cbc:ID or cac:Item/cac:StandardItemIdentification/cbc:ID) and cbc:DeliveredQuantity">
+                     <td><a href="#">IT-T16-R003</a><br><span class="message">[IT-T16-R003] - Le righe del DDT DEVONO contenere le informazioni minime previste dall&#8217;Art. 21, comma 4 del DPR n. 633/1972
                            (Nome articolo merce, identificativo articolo e quantit&agrave; consegnata).</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="INT-T16-R005" data-context="/ubl:DespatchAdvice" data-test="cac:Shipment/cbc:TotalTransportHandlingUnitQuantity and (string(cac:Shipment/cbc:TotalTransportHandlingUnitQuantity) castable as xs:integer or cac:Shipment/cbc:TotalTransportHandlingUnitQuantity - floor(cac:Shipment/cbc:TotalTransportHandlingUnitQuantity) = 0)">
-                     <td><a href="#">INT-T16-R005</a><br><span class="message">[INT-T16-R005] - Il numero dei colli deve essere un intero.</span></td>
+                  <tr id="IT-T16-R004" data-context="/ubl:DespatchAdvice" data-test="cbc:CustomizationID = 'urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.0' and cbc:ProfileID = 'urn:fdc:peppol.eu:poacc:bis:despatch_advice:3'">
+                     <td><a href="#">IT-T16-R004</a><br><span class="message">[IT-T16-R004] - La versione del DespatchAdvice (DDT) DEVE essere identificata dai seguenti identificativi: 
+                           
+                           CustomizationID = 'urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.0', 
+                           
+                           ProfileID = 'urn:fdc:peppol.eu:poacc:bis:despatch_advice:3'.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="INT-T16-R006" data-context="//cac:Person" data-test="(cbc:FirstName and cbc:FamilyName) or cac:IdentityDocumentReference">
-                     <td><a href="#">INT-T16-R006</a><br><span class="message">[INT-T16-R006] - Se viene usato l'elemento informativo cac:Person per indicare una persona fisica (es. se non &egrave; gi&agrave; fornito
-                           nella denominazione della ditta) &egrave; necessario specificarne sia il nome che il cognome.</span></td>
-                     <td style="width: 5%;"></td>
-                  </tr>
-                  <tr id="INT-T16-R026" data-context="//cbc:EndpointID" data-test="((@schemeID='9921' or @schemeID='0201') and matches(.,'^[a-zA-Z0-9]{6,7}$')) or (@schemeID!='9921' and @schemeID!='0201')">
-                     <td><a href="#">INT-T16-R026</a><br><span class="message">[INT-T16-R026] - Se l'identificatore di endpoint si basa sullo schema di identificatori IT:IPA (ICD: 0201 ex 9921), questo
-                           dovr&agrave; seguire la sintassi [A-Z0-9]{6,7}.</span></td>
+                  <tr id="IT-T16-R005" data-context="/ubl:DespatchAdvice" data-test="cac:Shipment/cbc:TotalTransportHandlingUnitQuantity and (string(cac:Shipment/cbc:TotalTransportHandlingUnitQuantity) castable as xs:integer or cac:Shipment/cbc:TotalTransportHandlingUnitQuantity - floor(cac:Shipment/cbc:TotalTransportHandlingUnitQuantity) = 0)">
+                     <td><a href="#">IT-T16-R005</a><br><span class="message">[IT-T16-R005] - Il numero dei colli deve essere un intero.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="INT-T16-R027" data-context="//cbc:EndpointID" data-test="(@schemeID='9906' and matches(.,'^(IT)?[0-9]{11}$')) or @schemeID!='9906'">
-                     <td><a href="#">INT-T16-R027</a><br><span class="message">[INT-T16-R027] - Se l'identificatore di endpoint si basa sullo schema di identificatori IT:VAT (ICD: 9906), questo dovr&agrave; seguire
+                  <tr id="IT-T16-R026" data-context="//cbc:EndpointID" data-test="(@schemeID='0201' and matches(.,'^[a-zA-Z0-9]{6,7}$')) or @schemeID!='0201'">
+                     <td><a href="#">IT-T16-R026</a><br><span class="message">[IT-T16-R026] - Se l'identificatore di endpoint si basa sullo schema di identificatori IT:IPA (ICD: 0201), questo dovr&agrave; seguire
+                           la sintassi [A-Z0-9]{6,7}.</span></td>
+                     <td style="width: 5%;">fatal</td>
+                  </tr>
+                  <tr id="IT-T16-R027" data-context="//cbc:EndpointID" data-test="(@schemeID='9906' and matches(.,'^(IT)?[0-9]{11}$')) or @schemeID!='9906'">
+                     <td><a href="#">IT-T16-R027</a><br><span class="message">[IT-T16-R027] - Se l'identificatore di endpoint si basa sullo schema di identificatori IT:VAT (ICD: 9906), questo dovr&agrave; seguire
                            la sintassi (IT)?[0-9]{11}.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="INT-T16-R028" data-context="//cbc:EndpointID" data-test="(@schemeID='9907' and matches(.,'^[0-9]{11}$|^[A-Z]{6}\d{2}[ABCDEHLMPRST]{1}\d{2}[A-Z]{1}\d{3}[A-Z]{1}$')) or @schemeID!='9907'">
-                     <td><a href="#">INT-T16-R028</a><br><span class="message">[INT-T16-R028] - Se l'identificatore di endpoint si basa sullo schema di identificatori IT:CF (ICD: 9907), questo dovr&agrave; seguire
+                  <tr id="IT-T16-R028" data-context="//cbc:EndpointID" data-test="(@schemeID='9907' and matches(.,'^[0-9]{11}$|^[A-Z]{6}\d{2}[ABCDEHLMPRST]{1}\d{2}[A-Z]{1}\d{3}[A-Z]{1}$')) or @schemeID!='9907'">
+                     <td><a href="#">IT-T16-R028</a><br><span class="message">[IT-T16-R028] - Se l'identificatore di endpoint si basa sullo schema di identificatori IT:CF (ICD: 9907), questo dovr&agrave; seguire
                            la sintassi [0-9]{11} per le persone giuridiche e la sintassi [A-Z]{6}\d{2}[ABCDEHLMPRST]{1}\d{2}[A-Z]{1}\d{3}[A-Z]{1} per
                            quelle fisiche.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="PEPPOL-COMMON-R001" data-context="cbc:*" data-test=". != ''">
+                  <tr id="PEPPOL-COMMON-R001" data-context="//*[not(*) and not(normalize-space())]" data-test="false()">
                      <td><a href="#">PEPPOL-COMMON-R001</a><br><span class="message">Document MUST not contain empty elements.</span></td>
-                     <td style="width: 5%;">fatal</td>
-                  </tr>
-                  <tr id="PEPPOL-COMMON-R002" data-context="cac:*" data-test="count(*) != 0">
-                     <td><a href="#">PEPPOL-COMMON-R002</a><br><span class="message">Document MUST not contain empty elements.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="PEPPOL-COMMON-R003" data-context="/*" data-test="not(@*:schemaLocation)">
@@ -123,11 +118,11 @@
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="PEPPOL-COMMON-R040" data-context="cbc:EndpointID[@schemeID = '0088'] | cac:PartyIdentification/cbc:ID[@schemeID = '0088'] | cbc:CompanyID[@schemeID = '0088']" data-test="matches(normalize-space(), '^[0-9]+$') and u:gln(normalize-space())">
-                     <td><a href="#">PEPPOL-COMMON-R040</a><br><span class="message">Invalid GLN number provided.</span></td>
+                     <td><a href="#">PEPPOL-COMMON-R040</a><br><span class="message">GLN must have a valid format according to GS1 rules.</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
                   <tr id="PEPPOL-COMMON-R041" data-context="cbc:EndpointID[@schemeID = '0192'] | cac:PartyIdentification/cbc:ID[@schemeID = '0192'] | cbc:CompanyID[@schemeID = '0192']" data-test="matches(normalize-space(), '^[0-9]{9}$') and u:mod11(normalize-space())">
-                     <td><a href="#">PEPPOL-COMMON-R041</a><br><span class="message">Invalid Norwegian organization number provided.</span></td>
+                     <td><a href="#">PEPPOL-COMMON-R041</a><br><span class="message">Norwegian organization number MUST be stated in the correct format.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="PEPPOL-T16-B00101" data-context="/ubl:DespatchAdvice" data-test="cbc:CustomizationID">
@@ -746,11 +741,11 @@
             </table>
          </div>
          <dl id="rule" class="dl-horizontal">
-            <dt>Message</dt>
+            <dt>Messaggio</dt>
             <dd>
                <p class="message lead"></p>
             </dd>
-            <dt>Context</dt>
+            <dt>Contesto</dt>
             <dd><code class="context"></code></dd>
             <dt>Test</dt>
             <dd><code class="test"></code></dd>

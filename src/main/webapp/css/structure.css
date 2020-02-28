@@ -28,7 +28,7 @@ body.adoc-mode #adoc-viewer {
     left: 50%;
     position: absolute;
 }
-.asciidoc-pdf {
+.asciidoc-pdf, .download-xml {
     margin-right: 0px;
     margin-top: -35px;
     float: right;

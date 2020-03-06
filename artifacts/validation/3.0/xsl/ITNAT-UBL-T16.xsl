@@ -381,7 +381,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice" priority="1231" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice" priority="1269" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice"/>
 
 		<!--ASSERT -->
@@ -516,21 +516,21 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cbc:CustomizationID" priority="1230" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cbc:CustomizationID" priority="1268" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cbc:CustomizationID"/>
 
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="normalize-space(text()) = 'urn:fdc:peppol.eu:poacc:trns:despatch_advice:3'"/>
+         <axsl:when test="starts-with(normalize-space(text()), 'urn:fdc:peppol.eu:poacc:trns:despatch_advice:3')"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="normalize-space(text()) = 'urn:fdc:peppol.eu:poacc:trns:despatch_advice:3'">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="starts-with(normalize-space(text()), 'urn:fdc:peppol.eu:poacc:trns:despatch_advice:3')">
                <axsl:attribute name="id">PEPPOL-T16-B00201</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>Element 'cbc:CustomizationID' MUST contain value 'urn:fdc:peppol.eu:poacc:trns:despatch_advice:3'.</svrl:text>
+               <svrl:text>Element 'cbc:CustomizationID' MUST start with value 'urn:fdc:peppol.eu:poacc:trns:despatch_advice:3'.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -539,7 +539,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cbc:ProfileID" priority="1229" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cbc:ProfileID" priority="1267" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cbc:ProfileID"/>
 
 		<!--ASSERT -->
@@ -562,35 +562,35 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cbc:ID" priority="1228" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cbc:ID" priority="1266" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cbc:ID"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cbc:IssueDate" priority="1227" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cbc:IssueDate" priority="1265" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cbc:IssueDate"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cbc:IssueTime" priority="1226" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cbc:IssueTime" priority="1264" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cbc:IssueTime"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cbc:Note" priority="1225" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cbc:Note" priority="1263" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cbc:Note"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:OrderReference" priority="1224" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:OrderReference" priority="1262" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:OrderReference"/>
 
 		<!--ASSERT -->
@@ -613,14 +613,21 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:OrderReference/cbc:ID" priority="1223" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:OrderReference/cbc:ID" priority="1261" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:OrderReference/cbc:ID"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:OrderReference/*" priority="1222" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:OrderReference/cbc:CustomerReference" priority="1260" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:OrderReference/cbc:CustomerReference"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:OrderReference/*" priority="1259" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:OrderReference/*"/>
 
 		<!--ASSERT -->
@@ -643,7 +650,35 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty" priority="1221" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:AdditionalDocumentReference" priority="1258" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:AdditionalDocumentReference"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:AdditionalDocumentReference/cbc:ID" priority="1257" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:AdditionalDocumentReference/cbc:ID"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:AdditionalDocumentReference/cbc:IssueDate" priority="1256" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:AdditionalDocumentReference/cbc:IssueDate"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:AdditionalDocumentReference/cbc:DocumentType" priority="1255" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:AdditionalDocumentReference/cbc:DocumentType"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty" priority="1254" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty"/>
 
 		<!--ASSERT -->
@@ -666,7 +701,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party" priority="1220" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party" priority="1253" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party"/>
 
 		<!--ASSERT -->
@@ -705,7 +740,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cbc:EndpointID" priority="1219" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cbc:EndpointID" priority="1252" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cbc:EndpointID"/>
 
 		<!--ASSERT -->
@@ -744,7 +779,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PartyIdentification" priority="1218" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PartyIdentification" priority="1251" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PartyIdentification"/>
 
 		<!--ASSERT -->
@@ -767,7 +802,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID" priority="1217" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID" priority="1250" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -790,7 +825,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress" priority="1216" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress" priority="1249" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress"/>
 
 		<!--ASSERT -->
@@ -813,56 +848,56 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:StreetName" priority="1215" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:StreetName" priority="1248" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:StreetName"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:AdditionalStreetName" priority="1214" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:AdditionalStreetName" priority="1247" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:AdditionalStreetName"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:CityName" priority="1213" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:CityName" priority="1246" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:CityName"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone" priority="1212" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone" priority="1245" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity" priority="1211" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity" priority="1244" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cac:AddressLine" priority="1210" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cac:AddressLine" priority="1243" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cac:AddressLine"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cac:AddressLine/cbc:Line" priority="1209" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cac:AddressLine/cbc:Line" priority="1242" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cac:AddressLine/cbc:Line"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cac:Country" priority="1208" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cac:Country" priority="1241" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cac:Country"/>
 
 		<!--ASSERT -->
@@ -885,7 +920,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode" priority="1207" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode" priority="1240" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode"/>
 
 		<!--ASSERT -->
@@ -908,7 +943,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cac:Country/*" priority="1206" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cac:Country/*" priority="1239" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cac:Country/*"/>
 
 		<!--ASSERT -->
@@ -931,7 +966,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/*" priority="1205" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/*" priority="1238" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/*"/>
 
 		<!--ASSERT -->
@@ -954,7 +989,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PartyLegalEntity" priority="1204" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PartyLegalEntity" priority="1237" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PartyLegalEntity"/>
 
 		<!--ASSERT -->
@@ -977,14 +1012,14 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName" priority="1203" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName" priority="1236" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PartyLegalEntity/*" priority="1202" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PartyLegalEntity/*" priority="1235" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:PartyLegalEntity/*"/>
 
 		<!--ASSERT -->
@@ -1007,35 +1042,35 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:Contact" priority="1201" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:Contact" priority="1234" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:Contact"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:Contact/cbc:Name" priority="1200" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:Contact/cbc:Name" priority="1233" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:Contact/cbc:Name"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:Contact/cbc:Telephone" priority="1199" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:Contact/cbc:Telephone" priority="1232" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:Contact/cbc:Telephone"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:Contact/cbc:ElectronicMail" priority="1198" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:Contact/cbc:ElectronicMail" priority="1231" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:Contact/cbc:ElectronicMail"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:Contact/*" priority="1197" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:Contact/*" priority="1230" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/cac:Contact/*"/>
 
 		<!--ASSERT -->
@@ -1058,7 +1093,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/*" priority="1196" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/*" priority="1229" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty/cac:Party/*"/>
 
 		<!--ASSERT -->
@@ -1081,7 +1116,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/*" priority="1195" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchSupplierParty/*" priority="1228" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchSupplierParty/*"/>
 
 		<!--ASSERT -->
@@ -1104,7 +1139,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty" priority="1194" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty" priority="1227" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty"/>
 
 		<!--ASSERT -->
@@ -1127,7 +1162,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party" priority="1193" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party" priority="1226" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party"/>
 
 		<!--ASSERT -->
@@ -1166,7 +1201,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cbc:EndpointID" priority="1192" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cbc:EndpointID" priority="1225" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cbc:EndpointID"/>
 
 		<!--ASSERT -->
@@ -1205,7 +1240,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PartyIdentification" priority="1191" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PartyIdentification" priority="1224" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PartyIdentification"/>
 
 		<!--ASSERT -->
@@ -1228,7 +1263,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID" priority="1190" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID" priority="1223" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -1251,7 +1286,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress" priority="1189" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress" priority="1222" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress"/>
 
 		<!--ASSERT -->
@@ -1274,56 +1309,56 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName" priority="1188" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName" priority="1221" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:AdditionalStreetName" priority="1187" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:AdditionalStreetName" priority="1220" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:AdditionalStreetName"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName" priority="1186" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName" priority="1219" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone" priority="1185" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone" priority="1218" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity" priority="1184" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity" priority="1217" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cac:AddressLine" priority="1183" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cac:AddressLine" priority="1216" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cac:AddressLine"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cac:AddressLine/cbc:Line" priority="1182" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cac:AddressLine/cbc:Line" priority="1215" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cac:AddressLine/cbc:Line"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cac:Country" priority="1181" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cac:Country" priority="1214" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cac:Country"/>
 
 		<!--ASSERT -->
@@ -1346,7 +1381,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode" priority="1180" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode" priority="1213" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode"/>
 
 		<!--ASSERT -->
@@ -1369,7 +1404,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cac:Country/*" priority="1179" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cac:Country/*" priority="1212" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cac:Country/*"/>
 
 		<!--ASSERT -->
@@ -1392,7 +1427,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/*" priority="1178" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/*" priority="1211" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/*"/>
 
 		<!--ASSERT -->
@@ -1415,7 +1450,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PartyLegalEntity" priority="1177" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PartyLegalEntity" priority="1210" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PartyLegalEntity"/>
 
 		<!--ASSERT -->
@@ -1438,14 +1473,14 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName" priority="1176" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName" priority="1209" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PartyLegalEntity/*" priority="1175" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PartyLegalEntity/*" priority="1208" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/cac:PartyLegalEntity/*"/>
 
 		<!--ASSERT -->
@@ -1468,7 +1503,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/*" priority="1174" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/*" priority="1207" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:Party/*"/>
 
 		<!--ASSERT -->
@@ -1491,35 +1526,35 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:DeliveryContact" priority="1173" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:DeliveryContact" priority="1206" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:DeliveryContact"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:DeliveryContact/cbc:Name" priority="1172" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:DeliveryContact/cbc:Name" priority="1205" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:DeliveryContact/cbc:Name"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:DeliveryContact/cbc:Telephone" priority="1171" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:DeliveryContact/cbc:Telephone" priority="1204" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:DeliveryContact/cbc:Telephone"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:DeliveryContact/cbc:ElectronicMail" priority="1170" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:DeliveryContact/cbc:ElectronicMail" priority="1203" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:DeliveryContact/cbc:ElectronicMail"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:DeliveryContact/*" priority="1169" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:DeliveryContact/*" priority="1202" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/cac:DeliveryContact/*"/>
 
 		<!--ASSERT -->
@@ -1542,7 +1577,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/*" priority="1168" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/*" priority="1201" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DeliveryCustomerParty/*"/>
 
 		<!--ASSERT -->
@@ -1565,7 +1600,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty" priority="1167" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty" priority="1200" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:BuyerCustomerParty"/>
 
 		<!--ASSERT -->
@@ -1588,14 +1623,14 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party" priority="1166" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party" priority="1199" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PartyIdentification" priority="1165" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PartyIdentification" priority="1198" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PartyIdentification"/>
 
 		<!--ASSERT -->
@@ -1618,7 +1653,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID" priority="1164" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID" priority="1197" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -1641,7 +1676,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PartyName" priority="1163" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PartyName" priority="1196" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PartyName"/>
 
 		<!--ASSERT -->
@@ -1664,14 +1699,14 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PartyName/cbc:Name" priority="1162" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PartyName/cbc:Name" priority="1195" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PartyName/cbc:Name"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress" priority="1161" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress" priority="1194" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress"/>
 
 		<!--ASSERT -->
@@ -1694,56 +1729,56 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName" priority="1160" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName" priority="1193" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:AdditionalStreetName" priority="1159" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:AdditionalStreetName" priority="1192" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:AdditionalStreetName"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName" priority="1158" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName" priority="1191" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone" priority="1157" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone" priority="1190" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity" priority="1156" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity" priority="1189" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cac:AddressLine" priority="1155" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cac:AddressLine" priority="1188" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cac:AddressLine"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cac:AddressLine/cbc:Line" priority="1154" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cac:AddressLine/cbc:Line" priority="1187" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cac:AddressLine/cbc:Line"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cac:Country" priority="1153" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cac:Country" priority="1186" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cac:Country"/>
 
 		<!--ASSERT -->
@@ -1766,7 +1801,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode" priority="1152" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode" priority="1185" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode"/>
 
 		<!--ASSERT -->
@@ -1789,7 +1824,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cac:Country/*" priority="1151" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cac:Country/*" priority="1184" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cac:Country/*"/>
 
 		<!--ASSERT -->
@@ -1812,7 +1847,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/*" priority="1150" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/*" priority="1183" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/*"/>
 
 		<!--ASSERT -->
@@ -1835,7 +1870,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/*" priority="1149" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/*" priority="1182" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:BuyerCustomerParty/cac:Party/*"/>
 
 		<!--ASSERT -->
@@ -1858,7 +1893,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/*" priority="1148" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:BuyerCustomerParty/*" priority="1181" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:BuyerCustomerParty/*"/>
 
 		<!--ASSERT -->
@@ -1881,7 +1916,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty" priority="1147" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty" priority="1180" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:SellerSupplierParty"/>
 
 		<!--ASSERT -->
@@ -1904,14 +1939,14 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party" priority="1146" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party" priority="1179" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PartyIdentification" priority="1145" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PartyIdentification" priority="1178" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PartyIdentification"/>
 
 		<!--ASSERT -->
@@ -1934,7 +1969,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID" priority="1144" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID" priority="1177" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -1957,7 +1992,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PartyName" priority="1143" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PartyName" priority="1176" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PartyName"/>
 
 		<!--ASSERT -->
@@ -1980,14 +2015,14 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PartyName/cbc:Name" priority="1142" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PartyName/cbc:Name" priority="1175" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PartyName/cbc:Name"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress" priority="1141" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress" priority="1174" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress"/>
 
 		<!--ASSERT -->
@@ -2010,56 +2045,56 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:StreetName" priority="1140" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:StreetName" priority="1173" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:StreetName"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:AdditionalStreetName" priority="1139" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:AdditionalStreetName" priority="1172" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:AdditionalStreetName"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:CityName" priority="1138" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:CityName" priority="1171" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:CityName"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone" priority="1137" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone" priority="1170" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity" priority="1136" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity" priority="1169" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cac:AddressLine" priority="1135" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cac:AddressLine" priority="1168" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cac:AddressLine"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cac:AddressLine/cbc:Line" priority="1134" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cac:AddressLine/cbc:Line" priority="1167" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cac:AddressLine/cbc:Line"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cac:Country" priority="1133" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cac:Country" priority="1166" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cac:Country"/>
 
 		<!--ASSERT -->
@@ -2082,7 +2117,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode" priority="1132" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode" priority="1165" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode"/>
 
 		<!--ASSERT -->
@@ -2105,7 +2140,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cac:Country/*" priority="1131" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cac:Country/*" priority="1164" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cac:Country/*"/>
 
 		<!--ASSERT -->
@@ -2128,7 +2163,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/*" priority="1130" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/*" priority="1163" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/cac:PostalAddress/*"/>
 
 		<!--ASSERT -->
@@ -2151,7 +2186,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/*" priority="1129" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/*" priority="1162" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:SellerSupplierParty/cac:Party/*"/>
 
 		<!--ASSERT -->
@@ -2174,7 +2209,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/*" priority="1128" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:SellerSupplierParty/*" priority="1161" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:SellerSupplierParty/*"/>
 
 		<!--ASSERT -->
@@ -2197,7 +2232,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty" priority="1127" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty" priority="1160" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:OriginatorCustomerParty"/>
 
 		<!--ASSERT -->
@@ -2220,14 +2255,14 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party" priority="1126" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party" priority="1159" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PartyIdentification" priority="1125" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PartyIdentification" priority="1158" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PartyIdentification"/>
 
 		<!--ASSERT -->
@@ -2250,7 +2285,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID" priority="1124" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID" priority="1157" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -2273,7 +2308,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PartyName" priority="1123" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PartyName" priority="1156" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PartyName"/>
 
 		<!--ASSERT -->
@@ -2296,14 +2331,14 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PartyName/cbc:Name" priority="1122" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PartyName/cbc:Name" priority="1155" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PartyName/cbc:Name"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress" priority="1121" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress" priority="1154" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress"/>
 
 		<!--ASSERT -->
@@ -2326,56 +2361,56 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName" priority="1120" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName" priority="1153" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cbc:AdditionalStreetName" priority="1119" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cbc:AdditionalStreetName" priority="1152" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cbc:AdditionalStreetName"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName" priority="1118" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName" priority="1151" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone" priority="1117" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone" priority="1150" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity" priority="1116" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity" priority="1149" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cac:AddressLine" priority="1115" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cac:AddressLine" priority="1148" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cac:AddressLine"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cac:AddressLine/cbc:Line" priority="1114" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cac:AddressLine/cbc:Line" priority="1147" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cac:AddressLine/cbc:Line"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cac:Country" priority="1113" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cac:Country" priority="1146" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cac:Country"/>
 
 		<!--ASSERT -->
@@ -2398,7 +2433,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode" priority="1112" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode" priority="1145" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode"/>
 
 		<!--ASSERT -->
@@ -2421,7 +2456,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cac:Country/*" priority="1111" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cac:Country/*" priority="1144" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/cac:Country/*"/>
 
 		<!--ASSERT -->
@@ -2444,7 +2479,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/*" priority="1110" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/*" priority="1143" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/cac:PostalAddress/*"/>
 
 		<!--ASSERT -->
@@ -2467,7 +2502,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/*" priority="1109" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/*" priority="1142" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party/*"/>
 
 		<!--ASSERT -->
@@ -2490,7 +2525,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/*" priority="1108" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/*" priority="1141" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:OriginatorCustomerParty/*"/>
 
 		<!--ASSERT -->
@@ -2513,7 +2548,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment" priority="1107" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment" priority="1140" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment"/>
 
 		<!--ASSERT -->
@@ -2536,21 +2571,21 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cbc:ID" priority="1106" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cbc:ID" priority="1139" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cbc:ID"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cbc:Information" priority="1105" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cbc:Information" priority="1138" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cbc:Information"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cbc:GrossWeightMeasure" priority="1104" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cbc:GrossWeightMeasure" priority="1137" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cbc:GrossWeightMeasure"/>
 
 		<!--ASSERT -->
@@ -2589,7 +2624,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cbc:GrossVolumeMeasure" priority="1103" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cbc:GrossVolumeMeasure" priority="1136" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cbc:GrossVolumeMeasure"/>
 
 		<!--ASSERT -->
@@ -2628,14 +2663,14 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cbc:TotalTransportHandlingUnitQuantity" priority="1102" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cbc:TotalTransportHandlingUnitQuantity" priority="1135" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cbc:TotalTransportHandlingUnitQuantity"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment" priority="1101" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment" priority="1134" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment"/>
 
 		<!--ASSERT -->
@@ -2658,28 +2693,42 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cbc:ID" priority="1100" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cbc:ID" priority="1133" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cbc:ID"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cbc:Information" priority="1099" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cbc:Information" priority="1132" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cbc:Information"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty" priority="1098" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty" priority="1131" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyName" priority="1097" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyIdentification" priority="1130" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyIdentification"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyIdentification/cbc:ID" priority="1129" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyIdentification/cbc:ID"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyName" priority="1128" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyName"/>
 
 		<!--ASSERT -->
@@ -2702,14 +2751,84 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyName/cbc:Name" priority="1096" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyName/cbc:Name" priority="1127" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyName/cbc:Name"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:Person" priority="1095" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress" priority="1126" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:StreetName" priority="1125" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:StreetName"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:AdditionalStreetName" priority="1124" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:AdditionalStreetName"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:CityName" priority="1123" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:CityName"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:PostalZone" priority="1122" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:PostalZone"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:CountrySubentity" priority="1121" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:CountrySubentity"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cac:AddressLine" priority="1120" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cac:AddressLine"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cac:AddressLine/cbc:Line" priority="1119" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cac:AddressLine/cbc:Line"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cac:Country" priority="1118" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cac:Country"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cac:Country/cbc:IdentificationCode" priority="1117" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cac:Country/cbc:IdentificationCode"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:Person" priority="1116" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:Person"/>
 
 		<!--ASSERT -->
@@ -2732,7 +2851,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:Person/cac:IdentityDocumentReference" priority="1094" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:Person/cac:IdentityDocumentReference" priority="1115" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:Person/cac:IdentityDocumentReference"/>
 
 		<!--ASSERT -->
@@ -2755,21 +2874,21 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:Person/cac:IdentityDocumentReference/cbc:ID" priority="1093" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:Person/cac:IdentityDocumentReference/cbc:ID" priority="1114" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:Person/cac:IdentityDocumentReference/cbc:ID"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:Person/cac:IdentityDocumentReference/cbc:DocumentType" priority="1092" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:Person/cac:IdentityDocumentReference/cbc:DocumentType" priority="1113" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:Person/cac:IdentityDocumentReference/cbc:DocumentType"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:Person/cac:IdentityDocumentReference/*" priority="1091" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:Person/cac:IdentityDocumentReference/*" priority="1112" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:Person/cac:IdentityDocumentReference/*"/>
 
 		<!--ASSERT -->
@@ -2792,7 +2911,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:Person/*" priority="1090" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:Person/*" priority="1111" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:Person/*"/>
 
 		<!--ASSERT -->
@@ -2815,7 +2934,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/*" priority="1089" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/*" priority="1110" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/*"/>
 
 		<!--ASSERT -->
@@ -2838,7 +2957,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/*" priority="1088" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/*" priority="1109" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/*"/>
 
 		<!--ASSERT -->
@@ -2861,56 +2980,56 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery" priority="1087" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery" priority="1108" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cbc:TrackingID" priority="1086" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cbc:TrackingID" priority="1107" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cbc:TrackingID"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:EstimatedDeliveryPeriod" priority="1085" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:EstimatedDeliveryPeriod" priority="1106" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:EstimatedDeliveryPeriod"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:EstimatedDeliveryPeriod/cbc:StartDate" priority="1084" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:EstimatedDeliveryPeriod/cbc:StartDate" priority="1105" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:EstimatedDeliveryPeriod/cbc:StartDate"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:EstimatedDeliveryPeriod/cbc:StartTime" priority="1083" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:EstimatedDeliveryPeriod/cbc:StartTime" priority="1104" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:EstimatedDeliveryPeriod/cbc:StartTime"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:EstimatedDeliveryPeriod/cbc:EndDate" priority="1082" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:EstimatedDeliveryPeriod/cbc:EndDate" priority="1103" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:EstimatedDeliveryPeriod/cbc:EndDate"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:EstimatedDeliveryPeriod/cbc:EndTime" priority="1081" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:EstimatedDeliveryPeriod/cbc:EndTime" priority="1102" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:EstimatedDeliveryPeriod/cbc:EndTime"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:EstimatedDeliveryPeriod/*" priority="1080" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:EstimatedDeliveryPeriod/*" priority="1101" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:EstimatedDeliveryPeriod/*"/>
 
 		<!--ASSERT -->
@@ -2933,91 +3052,91 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch" priority="1079" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch" priority="1100" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cbc:ActualDespatchDate" priority="1078" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cbc:ActualDespatchDate" priority="1099" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cbc:ActualDespatchDate"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cbc:ActualDespatchTime" priority="1077" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cbc:ActualDespatchTime" priority="1098" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cbc:ActualDespatchTime"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress" priority="1076" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress" priority="1097" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cbc:ID" priority="1075" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cbc:ID" priority="1096" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cbc:ID"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cbc:StreetName" priority="1074" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cbc:StreetName" priority="1095" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cbc:StreetName"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cbc:AdditionalStreetName" priority="1073" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cbc:AdditionalStreetName" priority="1094" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cbc:AdditionalStreetName"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cbc:CityName" priority="1072" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cbc:CityName" priority="1093" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cbc:CityName"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cbc:PostalZone" priority="1071" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cbc:PostalZone" priority="1092" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cbc:PostalZone"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cbc:CountrySubentity" priority="1070" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cbc:CountrySubentity" priority="1091" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cbc:CountrySubentity"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cac:AddressLine" priority="1069" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cac:AddressLine" priority="1090" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cac:AddressLine"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cac:AddressLine/cbc:Line" priority="1068" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cac:AddressLine/cbc:Line" priority="1089" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cac:AddressLine/cbc:Line"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cac:Country" priority="1067" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cac:Country" priority="1088" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cac:Country"/>
 
 		<!--ASSERT -->
@@ -3040,7 +3159,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cac:Country/cbc:IdentificationCode" priority="1066" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cac:Country/cbc:IdentificationCode" priority="1087" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cac:Country/cbc:IdentificationCode"/>
 
 		<!--ASSERT -->
@@ -3063,7 +3182,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cac:Country/*" priority="1065" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cac:Country/*" priority="1086" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/cac:Country/*"/>
 
 		<!--ASSERT -->
@@ -3086,7 +3205,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/*" priority="1064" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/*" priority="1085" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress/*"/>
 
 		<!--ASSERT -->
@@ -3109,7 +3228,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/*" priority="1063" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/*" priority="1084" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/*"/>
 
 		<!--ASSERT -->
@@ -3132,7 +3251,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/*" priority="1062" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/*" priority="1083" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Delivery/*"/>
 
 		<!--ASSERT -->
@@ -3155,7 +3274,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/*" priority="1061" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/*" priority="1082" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/*"/>
 
 		<!--ASSERT -->
@@ -3178,7 +3297,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine" priority="1060" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine" priority="1081" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine"/>
 
 		<!--ASSERT -->
@@ -3233,21 +3352,21 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cbc:ID" priority="1059" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cbc:ID" priority="1080" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cbc:ID"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cbc:Note" priority="1058" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cbc:Note" priority="1079" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cbc:Note"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cbc:DeliveredQuantity" priority="1057" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cbc:DeliveredQuantity" priority="1078" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cbc:DeliveredQuantity"/>
 
 		<!--ASSERT -->
@@ -3286,7 +3405,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cbc:OutstandingQuantity" priority="1056" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cbc:OutstandingQuantity" priority="1077" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cbc:OutstandingQuantity"/>
 
 		<!--ASSERT -->
@@ -3325,14 +3444,14 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cbc:OutstandingReason" priority="1055" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cbc:OutstandingReason" priority="1076" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cbc:OutstandingReason"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference" priority="1054" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference" priority="1075" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference"/>
 
 		<!--ASSERT -->
@@ -3371,14 +3490,14 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference/cbc:LineID" priority="1053" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference/cbc:LineID" priority="1074" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference/cbc:LineID"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference/cac:OrderReference" priority="1052" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference/cac:OrderReference" priority="1073" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference/cac:OrderReference"/>
 
 		<!--ASSERT -->
@@ -3401,14 +3520,14 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference/cac:OrderReference/cbc:ID" priority="1051" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference/cac:OrderReference/cbc:ID" priority="1072" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference/cac:OrderReference/cbc:ID"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference/cac:OrderReference/*" priority="1050" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference/cac:OrderReference/*" priority="1071" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference/cac:OrderReference/*"/>
 
 		<!--ASSERT -->
@@ -3431,7 +3550,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference/*" priority="1049" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference/*" priority="1070" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference/*"/>
 
 		<!--ASSERT -->
@@ -3454,7 +3573,35 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item" priority="1048" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:DocumentReference" priority="1069" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:DocumentReference"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:DocumentReference/cbc:ID" priority="1068" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:DocumentReference/cbc:ID"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:DocumentReference/cbc:IssueDate" priority="1067" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:DocumentReference/cbc:IssueDate"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:DocumentReference/cbc:DocumentType" priority="1066" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:DocumentReference/cbc:DocumentType"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item" priority="1065" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item"/>
 
 		<!--ASSERT -->
@@ -3477,14 +3624,35 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cbc:Name" priority="1047" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cbc:PackQuantity" priority="1064" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cbc:PackQuantity"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cbc:PackSizeNumeric" priority="1063" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cbc:PackSizeNumeric"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cbc:Name" priority="1062" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cbc:Name"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:BuyersItemIdentification" priority="1046" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cbc:AdditionalInformation" priority="1061" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cbc:AdditionalInformation"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:BuyersItemIdentification" priority="1060" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:BuyersItemIdentification"/>
 
 		<!--ASSERT -->
@@ -3507,14 +3675,14 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:BuyersItemIdentification/cbc:ID" priority="1045" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:BuyersItemIdentification/cbc:ID" priority="1059" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:BuyersItemIdentification/cbc:ID"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:BuyersItemIdentification/*" priority="1044" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:BuyersItemIdentification/*" priority="1058" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:BuyersItemIdentification/*"/>
 
 		<!--ASSERT -->
@@ -3537,7 +3705,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:SellersItemIdentification" priority="1043" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:SellersItemIdentification" priority="1057" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:SellersItemIdentification"/>
 
 		<!--ASSERT -->
@@ -3560,21 +3728,21 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:SellersItemIdentification/cbc:ID" priority="1042" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:SellersItemIdentification/cbc:ID" priority="1056" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:SellersItemIdentification/cbc:ID"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:SellersItemIdentification/cbc:ExtendedID" priority="1041" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:SellersItemIdentification/cbc:ExtendedID" priority="1055" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:SellersItemIdentification/cbc:ExtendedID"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:SellersItemIdentification/*" priority="1040" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:SellersItemIdentification/*" priority="1054" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:SellersItemIdentification/*"/>
 
 		<!--ASSERT -->
@@ -3597,7 +3765,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:StandardItemIdentification" priority="1039" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:StandardItemIdentification" priority="1053" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:StandardItemIdentification"/>
 
 		<!--ASSERT -->
@@ -3620,7 +3788,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:StandardItemIdentification/cbc:ID" priority="1038" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:StandardItemIdentification/cbc:ID" priority="1052" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:StandardItemIdentification/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -3659,14 +3827,14 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:StandardItemIdentification/cbc:ExtendedID" priority="1037" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:StandardItemIdentification/cbc:ExtendedID" priority="1051" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:StandardItemIdentification/cbc:ExtendedID"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:StandardItemIdentification/*" priority="1036" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:StandardItemIdentification/*" priority="1050" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:StandardItemIdentification/*"/>
 
 		<!--ASSERT -->
@@ -3689,14 +3857,21 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:HazardousItem" priority="1035" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:HazardousItem" priority="1049" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:HazardousItem"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:HazardousItem/cbc:UNDGCode" priority="1034" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:HazardousItem/cbc:ID" priority="1048" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:HazardousItem/cbc:ID"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:HazardousItem/cbc:UNDGCode" priority="1047" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:HazardousItem/cbc:UNDGCode"/>
 
 		<!--ASSERT -->
@@ -3719,14 +3894,28 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:HazardousItem/cbc:HazardClassID" priority="1033" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:HazardousItem/cbc:TechnicalName" priority="1046" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:HazardousItem/cbc:TechnicalName"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:HazardousItem/cbc:CategoryName" priority="1045" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:HazardousItem/cbc:CategoryName"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:HazardousItem/cbc:HazardClassID" priority="1044" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:HazardousItem/cbc:HazardClassID"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:HazardousItem/*" priority="1032" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:HazardousItem/*" priority="1043" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:HazardousItem/*"/>
 
 		<!--ASSERT -->
@@ -3749,7 +3938,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty" priority="1031" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty" priority="1042" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty"/>
 
 		<!--ASSERT -->
@@ -3788,14 +3977,14 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/cbc:Name" priority="1030" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/cbc:Name" priority="1041" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/cbc:Name"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/cbc:NameCode" priority="1029" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/cbc:NameCode" priority="1040" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/cbc:NameCode"/>
 
 		<!--ASSERT -->
@@ -3818,14 +4007,14 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/cbc:Value" priority="1028" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/cbc:Value" priority="1039" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/cbc:Value"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/cbc:ValueQuantity" priority="1027" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/cbc:ValueQuantity" priority="1038" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/cbc:ValueQuantity"/>
 
 		<!--ASSERT -->
@@ -3864,14 +4053,14 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/cbc:ValueQualifier" priority="1026" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/cbc:ValueQualifier" priority="1037" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/cbc:ValueQualifier"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/*" priority="1025" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/*" priority="1036" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/*"/>
 
 		<!--ASSERT -->
@@ -3894,56 +4083,56 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance" priority="1024" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance" priority="1035" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance/cbc:ManufactureDate" priority="1023" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance/cbc:ManufactureDate" priority="1034" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance/cbc:ManufactureDate"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance/cbc:BestBeforeDate" priority="1022" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance/cbc:BestBeforeDate" priority="1033" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance/cbc:BestBeforeDate"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance/cbc:SerialID" priority="1021" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance/cbc:SerialID" priority="1032" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance/cbc:SerialID"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance/cac:LotIdentification" priority="1020" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance/cac:LotIdentification" priority="1031" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance/cac:LotIdentification"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance/cac:LotIdentification/cbc:LotNumberID" priority="1019" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance/cac:LotIdentification/cbc:LotNumberID" priority="1030" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance/cac:LotIdentification/cbc:LotNumberID"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance/cac:LotIdentification/cbc:ExpiryDate" priority="1018" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance/cac:LotIdentification/cbc:ExpiryDate" priority="1029" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance/cac:LotIdentification/cbc:ExpiryDate"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance/cac:LotIdentification/*" priority="1017" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance/cac:LotIdentification/*" priority="1028" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance/cac:LotIdentification/*"/>
 
 		<!--ASSERT -->
@@ -3966,7 +4155,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance/*" priority="1016" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance/*" priority="1027" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:ItemInstance/*"/>
 
 		<!--ASSERT -->
@@ -3989,7 +4178,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/*" priority="1015" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/*" priority="1026" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/*"/>
 
 		<!--ASSERT -->
@@ -4012,7 +4201,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment" priority="1014" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment" priority="1025" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment"/>
 
 		<!--ASSERT -->
@@ -4035,7 +4224,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cbc:ID" priority="1013" mode="M10">
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cbc:ID" priority="1024" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -4053,6 +4242,83 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cbc:HandlingCode" priority="1023" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cbc:HandlingCode"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem" priority="1022" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:Temperature" priority="1021" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:Temperature"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:Temperature/cbc:AttributeID" priority="1020" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:Temperature/cbc:AttributeID"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:Temperature/cbc:Measure" priority="1019" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:Temperature/cbc:Measure"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:MinimumTemperature" priority="1018" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:MinimumTemperature"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:MinimumTemperature/cbc:AttributeID" priority="1017" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:MinimumTemperature/cbc:AttributeID"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:MinimumTemperature/cbc:Measure" priority="1016" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:MinimumTemperature/cbc:Measure"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:MaximumTemperature" priority="1015" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:MaximumTemperature"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:MaximumTemperature/cbc:AttributeID" priority="1014" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:MaximumTemperature/cbc:AttributeID"/>
+      <axsl:apply-templates select="@*|*" mode="M10"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:MaximumTemperature/cbc:Measure" priority="1013" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:MaximumTemperature/cbc:Measure"/>
       <axsl:apply-templates select="@*|*" mode="M10"/>
    </axsl:template>
 
@@ -4502,7 +4768,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="//cbc:EndpointID" priority="1002" mode="M12">
+   <axsl:template match="//cbc:EndpointID" priority="1004" mode="M12">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cbc:EndpointID"/>
 
 		<!--ASSERT -->
@@ -4557,7 +4823,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="//cac:DespatchLine" priority="1001" mode="M12">
+   <axsl:template match="//cac:DespatchLine" priority="1003" mode="M12">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:DespatchLine"/>
 
 		<!--ASSERT -->
@@ -4580,7 +4846,46 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:DespatchAdvice" priority="1000" mode="M12">
+   <axsl:template match="//cac:DespatchLine/cac:Item/cac:HazardousItem" priority="1002" mode="M12">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:DespatchLine/cac:Item/cac:HazardousItem"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="cbc:UNDGCode"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cbc:UNDGCode">
+               <axsl:attribute name="id">IT-T16-R029</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[IT-T16-R029] - L'elemento 'cbc:UNDGCode' DEVE essere valorizzato.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="cbc:HazardClassID"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cbc:HazardClassID">
+               <axsl:attribute name="id">IT-T16-R030</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[IT-T16-R030] - L'elemento 'cbc:HazardClassID' DEVE essere valorizzato.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M12"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice" priority="1001" mode="M12">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice"/>
 
 		<!--ASSERT -->
@@ -4606,9 +4911,9 @@ ProfileID = 'urn:fdc:peppol.eu:poacc:bis:despatch_advice:3'.</svrl:text>
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="cac:DespatchSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID and cac:DespatchSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName and cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:StreetName and cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:CityName and cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone and cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity and cac:DeliveryCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName and cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName and cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName and cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone and cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity and (not(cac:BuyerCustomerParty) or (cac:BuyerCustomerParty/cac:Party/cac:PartyName/cbc:Name and cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName and cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName and cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone and cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity)) and (not(cac:SellerSupplierParty) or (cac:SellerSupplierParty/cac:Party/cac:PartyName/cbc:Name and cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:StreetName and cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:CityName and cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone and cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity)) and cac:Shipment/cbc:GrossWeightMeasure and cac:Shipment/cbc:TotalTransportHandlingUnitQuantity and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyName/cbc:Name and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:StreetName and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:CityName and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:PostalZone and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:CountrySubentity"/>
+         <axsl:when test="cac:DespatchSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName and cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:StreetName and cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:CityName and cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone and cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity and cac:DeliveryCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName and cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName and cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName and cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone and cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity and (not(cac:BuyerCustomerParty) or (cac:BuyerCustomerParty/cac:Party/cac:PartyName/cbc:Name and cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName and cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName and cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone and cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity)) and (not(cac:SellerSupplierParty) or (cac:SellerSupplierParty/cac:Party/cac:PartyName/cbc:Name and cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:StreetName and cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:CityName and cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone and cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity)) and cac:Shipment/cbc:GrossWeightMeasure and cac:Shipment/cbc:TotalTransportHandlingUnitQuantity and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyName/cbc:Name and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:StreetName and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:CityName and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:PostalZone and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:CountrySubentity"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cac:DespatchSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID and cac:DespatchSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName and cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:StreetName and cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:CityName and cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone and cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity and cac:DeliveryCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName and cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName and cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName and cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone and cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity and (not(cac:BuyerCustomerParty) or (cac:BuyerCustomerParty/cac:Party/cac:PartyName/cbc:Name and cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName and cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName and cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone and cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity)) and (not(cac:SellerSupplierParty) or (cac:SellerSupplierParty/cac:Party/cac:PartyName/cbc:Name and cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:StreetName and cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:CityName and cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone and cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity)) and cac:Shipment/cbc:GrossWeightMeasure and cac:Shipment/cbc:TotalTransportHandlingUnitQuantity and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyName/cbc:Name and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:StreetName and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:CityName and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:PostalZone and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:CountrySubentity">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cac:DespatchSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName and cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:StreetName and cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:CityName and cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone and cac:DespatchSupplierParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity and cac:DeliveryCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName and cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName and cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName and cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone and cac:DeliveryCustomerParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity and (not(cac:BuyerCustomerParty) or (cac:BuyerCustomerParty/cac:Party/cac:PartyName/cbc:Name and cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:StreetName and cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:CityName and cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:PostalZone and cac:BuyerCustomerParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity)) and (not(cac:SellerSupplierParty) or (cac:SellerSupplierParty/cac:Party/cac:PartyName/cbc:Name and cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:StreetName and cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:CityName and cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone and cac:SellerSupplierParty/cac:Party/cac:PostalAddress/cbc:CountrySubentity)) and cac:Shipment/cbc:GrossWeightMeasure and cac:Shipment/cbc:TotalTransportHandlingUnitQuantity and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyName/cbc:Name and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:StreetName and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:CityName and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:PostalZone and cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:CountrySubentity">
                <axsl:attribute name="id">IT-T16-R002</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -4631,6 +4936,45 @@ ProfileID = 'urn:fdc:peppol.eu:poacc:bis:despatch_advice:3'.</svrl:text>
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
                <svrl:text>[IT-T16-R005] - Il numero dei colli deve essere un intero.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M12"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment" priority="1000" mode="M12">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="cac:CarrierParty"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cac:CarrierParty">
+               <axsl:attribute name="id">IT-T16-R031</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[IT-T16-R031] - L'elemento 'cac:CarrierParty' DEVE essere valorizzato.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="(some $code in $clISO3166 satisfies $code = normalize-space(cac:CarrierParty/cac:PostalAddress/cac:Country/cbc:IdentificationCode/text()))"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(some $code in $clISO3166 satisfies $code = normalize-space(cac:CarrierParty/cac:PostalAddress/cac:Country/cbc:IdentificationCode/text()))">
+               <axsl:attribute name="id">IT-T16-R032</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[IT-T16-R032] - L'elemento 'cac:Country/cbc:IdentificationCode' DEVE essere valorizzato in base alla codifica dei Paesi (ISO 3166-1:Alpha2).</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>

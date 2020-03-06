@@ -19,7 +19,7 @@
 		<cac:Party>
 			<cbc:EndpointID schemeID="9906">IT01234567890</cbc:EndpointID>
 			<cac:PartyIdentification>
-				<cbc:ID schemeID="9906">IT01234567890</cbc:ID>
+				<cbc:ID>IT:VAT:IT01234567890</cbc:ID>
 			</cac:PartyIdentification>
 			<cac:PartyLegalEntity>
 				<cbc:RegistrationName>Speditore/Fornitore</cbc:RegistrationName>
@@ -138,7 +138,7 @@
 			<cac:CarrierParty>
 				<cac:PartyIdentification>
 					<!-- Identificativo Fiscale Vettore -->
-					<cbc:ID schemeID="9906">01245267890</cbc:ID>
+					<cbc:ID>IT:VAT:IT01245267890</cbc:ID>
 				</cac:PartyIdentification>
                                 <!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
 				<cac:PartyName>

@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="css/bootstrap.css"/>
         <link rel="stylesheet" href="css/structure.css?v=1.1"/>
         <link rel="stylesheet" href="css/font-awesome.min.css?v=4.7.0"/>
-        <link rel="stylesheet" href="css/agid-custom.css?v=1.2"/>
+        <link rel="stylesheet" href="css/agid-custom.css?v=1.3"/>
 
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -23,7 +23,7 @@
         <script>
             //<![CDATA[
             $(function () {
-                const VER = "31";    // Math.random()*1000000
+                const VER = "32";    // Math.random()*1000000
                 var $body = $("body"), $main = $("#main"), $guide = $("#guide").hide(), $adoc = $("#adoc-viewer"), $loader = $("#loader");
                 var defBis = "peppol-bis-invoice-3";
 
@@ -216,6 +216,22 @@
                             .find(".context").text(branch.data("context")).end()
                             .find(".test").text(branch.data("test")).end().show();
                 }
+                // Istruzioni di navigazione
+                if (window.history && window.history.pushState) {
+                    var popstateCount = 3;
+                    history.pushState(null, null, location.href);
+                    history.back();
+                    history.forward();
+                    $(window).on("popstate", function () {
+                        if (popstateCount > 0) {
+                            popstateCount -= 1;
+                        }
+                        history.go(1);
+                        if (popstateCount === 0) {
+                           $('#navigazione').modal('show');
+                        }
+                    });
+                }
             });
             String.prototype.startsWith = function (t) {
                 return t === this.substring(0, t.length);
@@ -336,6 +352,26 @@
         <div id="parking" style="display: none;">
             <div id="loader"><i class="spinner fa fa-spinner fa-pulse fa-3x"></i></div>
         </div>
-
+        <div class="modal fade" id="navigazione" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Informazioni di Navigazione</h4>
+              </div>
+              <div class="modal-body">
+                <p>Per navigare nella documentazione utilizzare ove disponibile:</p>
+                <ul>
+                    <li>Il percorso di navigazione (breadcrum) all'inizio del documento</li>
+                    <li>Il menu in testata</li>
+                    <li>L'indice dei documenti a sinistra</li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
     </body>
 </html>

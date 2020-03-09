@@ -719,7 +719,7 @@
 						<Value type="EXAMPLE">DK88777654</Value>
 					</Element>
 				</Element>
-				<Element cardinality="0..1">
+				<Element agid:custom="cardinality">
 					<Term>cac:PartyName</Term>
 					<Name>Party name</Name>
 					<Element>
@@ -903,7 +903,7 @@
                                                         <Value type="EXAMPLE">DK88777654</Value>
                                                 </Element>
                                         </Element>
-					<Element cardinality="0..1">
+					<Element agid:custom="cardinality">
 						<Term>cac:PartyName</Term>
 						<Name>Party name</Name>
 						<Element>

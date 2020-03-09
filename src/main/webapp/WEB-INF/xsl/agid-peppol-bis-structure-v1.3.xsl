@@ -27,7 +27,7 @@
                 <link rel="stylesheet" href="css/bootstrap.css"/>
                 <link rel="stylesheet" href="css/structure.css"/>
                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"/>
-                <link rel="stylesheet" href="css/agid-custom.css"/>
+                <link rel="stylesheet" href="css/agid-custom.css?v=1.3"/>
 
                 <!--[if lt IE 9]>
                         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>

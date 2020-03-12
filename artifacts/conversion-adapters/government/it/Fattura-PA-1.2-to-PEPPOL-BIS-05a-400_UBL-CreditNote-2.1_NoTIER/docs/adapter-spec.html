@@ -81,7 +81,7 @@
          <div class="labelFont">TARGET</div>
          <div><strong>PEPPOL-BIS-05a-400_UBL-CreditNote-2.1_NoTIER</strong></div>
          <div class="labelFont">VERSION</div>
-         <div><strong>1.7.6</strong></div>
+         <div><strong>1.7.7</strong></div>
       </div>
       <table id="treegrid"></table>
       <div id="ptreegrid"></div>
@@ -116,7 +116,7 @@
                </td>
                <td>&nbsp;</td>
                <td>
-                  <div class="wrapCol200">DatiGenerali/DatiGeneraliDocumento[DatiCassaPrevidenziale or DatiBollo/ImportoBollo or DatiCassaPrevidenziale/AliquotaIVA
+                  <div class="wrapCol200">DatiGenerali/DatiGeneraliDocumento[DatiRitenuta or DatiCassaPrevidenziale or DatiBollo/ImportoBollo or DatiCassaPrevidenziale/AliquotaIVA
                      or DatiCassaPrevidenziale/Ritenuta or DatiCassaPrevidenziale/Natura] or DatiBeniServizi/DettaglioLinee[contains('|N1|N2|N3|N5|N7|',
                      concat('|', Natura, '|'))] or DatiBeniServizi/DatiRiepilogo[EsigibilitaIVA or contains('|N1|N2|N3|N5|N7|', concat('|', Natura,
                      '|'))]&nbsp;
@@ -2551,9 +2551,9 @@
                <td>
                   <div class="wrapCol200">&nbsp;</div>
                </td>
-               <td>if (matches(Indirizzo, '(\s|,)(\d+|s.n.c|snc)')) 
-			   then if (NumeroCivico) then if (matches(Indirizzo, concat('(\s|,)',NumeroCivico))) then Indirizzo else concat(Indirizzo, ', ', NumeroCivico) else Indirizzo 
-			   else concat(Indirizzo, if (NumeroCivico) then concat(', ', NumeroCivico) else '')&nbsp;
+               <td>if (matches(Indirizzo, '(\s|,)(\d+|s.n.c|snc)')) then if (NumeroCivico) then if (matches(Indirizzo, concat('(\s|,)',NumeroCivico)))
+                  then Indirizzo else concat(Indirizzo, ', ', NumeroCivico) else Indirizzo else concat(Indirizzo, if (NumeroCivico) then concat(',
+                  ', NumeroCivico) else '')&nbsp;
                </td>
                <td>
                   <div class="wrapCol200">&nbsp;</div>
@@ -3182,9 +3182,9 @@
                <td>
                   <div class="wrapCol200">&nbsp;</div>
                </td>
-               <td>if (matches(Indirizzo, '(\s|,)(\d+|s.n.c|snc)')) 
-			   then if (NumeroCivico) then if (matches(Indirizzo, concat('(\s|,)',NumeroCivico))) then Indirizzo else concat(Indirizzo, ', ', NumeroCivico) else Indirizzo 
-			   else concat(Indirizzo, if (NumeroCivico) then concat(', ', NumeroCivico) else '')&nbsp;
+               <td>if (matches(Indirizzo, '(\s|,)(\d+|s.n.c|snc)')) then if (NumeroCivico) then if (matches(Indirizzo, concat('(\s|,)',NumeroCivico)))
+                  then Indirizzo else concat(Indirizzo, ', ', NumeroCivico) else Indirizzo else concat(Indirizzo, if (NumeroCivico) then concat(',
+                  ', NumeroCivico) else '')&nbsp;
                </td>
                <td>
                   <div class="wrapCol200">&nbsp;</div>
@@ -3781,9 +3781,9 @@
                <td>
                   <div class="wrapCol200">&nbsp;</div>
                </td>
-               <td>if (matches(Indirizzo, '(\s|,)(\d+|s.n.c|snc)')) 
-			   then if (NumeroCivico) then if (matches(Indirizzo, concat('(\s|,)',NumeroCivico))) then Indirizzo else concat(Indirizzo, ', ', NumeroCivico) else Indirizzo 
-			   else concat(Indirizzo, if (NumeroCivico) then concat(', ', NumeroCivico) else '')&nbsp;
+               <td>if (matches(Indirizzo, '(\s|,)(\d+|s.n.c|snc)')) then if (NumeroCivico) then if (matches(Indirizzo, concat('(\s|,)',NumeroCivico)))
+                  then Indirizzo else concat(Indirizzo, ', ', NumeroCivico) else Indirizzo else concat(Indirizzo, if (NumeroCivico) then concat(',
+                  ', NumeroCivico) else '')&nbsp;
                </td>
                <td>
                   <div class="wrapCol200">&nbsp;</div>
@@ -4484,9 +4484,9 @@
                <td>
                   <div class="wrapCol200">&nbsp;</div>
                </td>
-               <td>if (matches(Indirizzo, '(\s|,)(\d+|s.n.c|snc)')) 
-			   then if (NumeroCivico) then if (matches(Indirizzo, concat('(\s|,)',NumeroCivico))) then Indirizzo else concat(Indirizzo, ', ', NumeroCivico) else Indirizzo 
-			   else concat(Indirizzo, if (NumeroCivico) then concat(', ', NumeroCivico) else '')&nbsp;
+               <td>if (matches(Indirizzo, '(\s|,)(\d+|s.n.c|snc)')) then if (NumeroCivico) then if (matches(Indirizzo, concat('(\s|,)',NumeroCivico)))
+                  then Indirizzo else concat(Indirizzo, ', ', NumeroCivico) else Indirizzo else concat(Indirizzo, if (NumeroCivico) then concat(',
+                  ', NumeroCivico) else '')&nbsp;
                </td>
                <td>
                   <div class="wrapCol200">Indirizzo&nbsp;</div>

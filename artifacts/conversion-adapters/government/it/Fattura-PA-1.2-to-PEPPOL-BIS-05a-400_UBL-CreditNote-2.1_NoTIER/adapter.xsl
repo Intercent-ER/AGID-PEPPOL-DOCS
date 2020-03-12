@@ -3,9 +3,9 @@
 
 <xsl:stylesheet xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
                 xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+                xmlns="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2"
                 xmlns:in="http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2"
                 xmlns:xsmap="http://www.javest.com/ns/mapper/snippet"
-                xmlns="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2"
                 xmlns:asmap="http://www.javest.com/ns/mapper/snippet/attribute"
                 xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
                 xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
@@ -1349,7 +1349,7 @@ the root node.
    <xsl:template match="FatturaElettronicaBody">
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
-      <xsl:if test="DatiGenerali/DatiGeneraliDocumento[DatiCassaPrevidenziale or DatiBollo/ImportoBollo or DatiCassaPrevidenziale/AliquotaIVA or DatiCassaPrevidenziale/Ritenuta or DatiCassaPrevidenziale/Natura] or DatiBeniServizi/DettaglioLinee[contains('|N1|N2|N3|N5|N7|', concat('|', Natura, '|'))] or DatiBeniServizi/DatiRiepilogo[EsigibilitaIVA or contains('|N1|N2|N3|N5|N7|', concat('|', Natura, '|'))]">
+      <xsl:if test="DatiGenerali/DatiGeneraliDocumento[DatiRitenuta or DatiCassaPrevidenziale or DatiBollo/ImportoBollo or DatiCassaPrevidenziale/AliquotaIVA or DatiCassaPrevidenziale/Ritenuta or DatiCassaPrevidenziale/Natura] or DatiBeniServizi/DettaglioLinee[contains('|N1|N2|N3|N5|N7|', concat('|', Natura, '|'))] or DatiBeniServizi/DatiRiepilogo[EsigibilitaIVA or contains('|N1|N2|N3|N5|N7|', concat('|', Natura, '|'))]">
          <ext:UBLExtensions>
             <xsl:apply-templates select="DatiGenerali/DatiGeneraliDocumento/DatiCassaPrevidenziale">
                <xsl:with-param name="CN" select="current()"/>

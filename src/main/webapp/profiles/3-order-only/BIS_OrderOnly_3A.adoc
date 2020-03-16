@@ -18,7 +18,7 @@ include::3_Requisiti_PA.adoc[]
 
 include::4_Codifiche_nazionali.adoc[]
 
-include::5_RB_INTERCENTER.adoc[]
+// include::5_RB_INTERCENTER.adoc[]
 
 include::6_Processi_Casi_D'uso_tipici.adoc[]
 

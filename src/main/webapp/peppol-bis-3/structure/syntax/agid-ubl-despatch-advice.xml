@@ -86,7 +86,7 @@
 				<DataType>Text</DataType>
 			</Element>
 		</Element>
-		<Element cardinality="0..n" agid:custom="extension">
+		<!--Element cardinality="0..n" agid:custom="extension">
 			<Term>cac:AdditionalDocumentReference</Term>
 			<Name>Additional documents</Name>
 			<Element>
@@ -107,7 +107,7 @@
 				<DataType>Text</DataType>
 				<Value type="EXAMPLE">CIG</Value>
 			</Element>
-		</Element>
+		</Element-->
 		<Element>
 			<Term>cac:DespatchSupplierParty</Term>
 			<Name>Despatching party information</Name>
@@ -1236,7 +1236,7 @@
 					</Element>
 				</Element>
 			</Element>
-                        <Element cardinality="0..n" agid:custom="extension">
+                        <!--Element cardinality="0..n" agid:custom="extension">
                                 <Term>cac:DocumentReference</Term>
                                 <Name>Additional documents</Name>
                                 <Element>
@@ -1257,11 +1257,11 @@
                                         <DataType>Text</DataType>
                                         <Value type="EXAMPLE">CIG</Value>
                                 </Element>
-                        </Element>
+                        </Element-->
 			<Element>
 				<Term>cac:Item</Term>
 				<Name>Item information</Name>
-				<Element cardinality="0..1" agid:custom="extension">
+				<!--Element cardinality="0..1" agid:custom="extension">
 					<Term>cbc:PackQuantity</Term>
 					<Name>Sotto Unità</Name>
 					<Description>Il numero di sotto-unità in un articolo.</Description>
@@ -1272,7 +1272,7 @@
 					<Name>Articoli per Confezione</Name>
 					<Description>Il numero di articoli in una confezione.</Description>
                                         <DataType>Integer</DataType>
-				</Element>
+				</Element-->
 				<Element>
 					<Term>cbc:Name</Term>
 					<Name>Item name</Name>

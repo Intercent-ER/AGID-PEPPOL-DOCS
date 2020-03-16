@@ -7,7 +7,7 @@ include::parties.adoc[]
 
 include::orderreference.adoc[]
 
-include::../custom/altririferimenti.adoc[]
+//include::../custom/altririferimenti.adoc[]
 
 include::shipment.adoc[]
 

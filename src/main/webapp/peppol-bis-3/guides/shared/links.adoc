@@ -37,7 +37,10 @@
 :EIF: http://ec.europa.eu/idabc/en/document/2319/5644.html[EIF]
 :schematron: http://schematron.com[Schematron]
 :dir-2009-101: http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2009:258:0011:0019:EN:PDF[Directive 2009/101/EC]
+
+//Italians
 :link-nota-aifa: http://www.ema.europa.eu/ema/index.jsp?curl=pages/regulation/document_listing/document_listing_000134.jsp&mid=WC0b01ac0580022c59
+:RGS-NSO: http://www.rgs.mef.gov.it/VERSIONE-I/e_government/amministrazioni_pubbliche/acquisti_pubblici_in_rete_apir/nodo_di_smistamento_degli_ordini_di_acquisto_delle_amministrazioni_pubbliche_nso/[RGS - NSO^, role="ext-link"]
 
 //codelists
 :ISO4217: https://www.iso.org/iso-4217-currency-codes.html[ISO 4217:2015]

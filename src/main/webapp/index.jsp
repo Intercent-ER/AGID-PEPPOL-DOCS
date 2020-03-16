@@ -23,7 +23,7 @@
         <script>
             //<![CDATA[
             $(function () {
-                const VER = "32";    // Math.random()*1000000
+                const VER = "34";    // Math.random()*1000000
                 var $body = $("body"), $main = $("#main"), $guide = $("#guide").hide(), $adoc = $("#adoc-viewer"), $loader = $("#loader");
                 var defBis = "peppol-bis-invoice-3";
 
@@ -264,14 +264,14 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="btn-group" id="peppol-bis">
-                            <button type="button" class="btn btn-primary" style="margin-top: 8px;">PEPPOL BIS Fatturazione 3</button>
+                            <button type="button" class="btn btn-primary" style="margin-top: 8px;">PEPPOL BIS 3 (altri processi)</button>
                             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 8px;">
                                 <span class="caret"></span>
                                 <span class="sr-only">Toggle Dropdown</span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="peppol-bis-invoice-3">PEPPOL BIS Fatturazione 3</a></li>
                                 <li><a href="peppol-bis-3">PEPPOL BIS 3 (altri processi)</a></li>
+                                <li><a href="peppol-bis-invoice-3">PEPPOL BIS Fatturazione 3</a></li>
                             </ul>
                         </li>
 
@@ -362,9 +362,9 @@
               <div class="modal-body">
                 <p>Per navigare nella documentazione utilizzare ove disponibile:</p>
                 <ul>
-                    <li>Il percorso di navigazione (breadcrum) all'inizio del documento</li>
+                    <li>Il percorso di navigazione all'inizio della pagina</li>
                     <li>Il menu in testata</li>
-                    <li>L'indice dei documenti a sinistra</li>
+                    <li>L'indice del documento a sinistra</li>
                 </ul>
               </div>
               <div class="modal-footer">

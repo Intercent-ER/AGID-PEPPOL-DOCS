@@ -1,6 +1,7 @@
 = PEPPOL BIS Ordine 3.1
 Note di Rilascio
 :doctype: book
+:icons: font
 :encoding: utf-8
 :lang: it
 :toc: left
@@ -10,3 +11,9 @@ Note di Rilascio
 
 
 include::list.adoc[]
+
+include::../../shared/links.adoc[]
+
+====
+IMPORTANT: La documentazione ufficiale di riferimento è quella pubblicata dal sito MEF della {RGS-NSO}.
+====

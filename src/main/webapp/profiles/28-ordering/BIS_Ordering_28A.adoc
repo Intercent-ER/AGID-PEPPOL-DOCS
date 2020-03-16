@@ -1,6 +1,7 @@
 = Ordine di Fornitura Elettronico con risposta 3.0
 PEPPOL
 :doctype: book
+:icons: font
 :encoding: utf-8
 :lang: it
 :toc: left

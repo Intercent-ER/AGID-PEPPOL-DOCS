@@ -23,9 +23,9 @@
         <script>
             //<![CDATA[
             $(function () {
-                const VER = "34";    // Math.random()*1000000
+                const VER = "35";    // Math.random()*1000000
                 var $body = $("body"), $main = $("#main"), $guide = $("#guide").hide(), $adoc = $("#adoc-viewer"), $loader = $("#loader");
-                var defBis = "peppol-bis-invoice-3";
+                var defBis = "peppol-bis-3";
 
                 $.bis = $.bis || {};
                 $.bis.initBIS = function ($bis) {
@@ -270,8 +270,8 @@
                                 <span class="sr-only">Toggle Dropdown</span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="peppol-bis-3">PEPPOL BIS 3 (altri processi)</a></li>
                                 <li><a href="peppol-bis-invoice-3">PEPPOL BIS Fatturazione 3</a></li>
+                                <li><a href="peppol-bis-3">PEPPOL BIS 3 (altri processi)</a></li>
                             </ul>
                         </li>
 

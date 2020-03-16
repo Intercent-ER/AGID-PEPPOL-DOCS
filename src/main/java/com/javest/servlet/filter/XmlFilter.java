@@ -39,7 +39,7 @@ public class XmlFilter implements Filter {
     private static final Logger LOGGER = Logger.getLogger(XmlFilter.class.getName());
     private static final String SAXON_TRANSFORMER = "net.sf.saxon.TransformerFactoryImpl";
     private static final TransformerFactory XSLT_FACTORY = getTransformerFactory(SAXON_TRANSFORMER);    // XSLT 2.0
-    private static final String FORCE_DOWNLOAD_CONTENT_TYPE = "application/force-download";
+    private static final String FORCE_DOWNLOAD_CONTENT_TYPE = "application/octet-stream";
         
     private static TransformerFactory getTransformerFactory(String factoryImpl) {
         try {

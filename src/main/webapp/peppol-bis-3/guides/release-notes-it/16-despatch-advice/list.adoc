@@ -3,7 +3,7 @@
 
 |===
 | Data
-| Cosa è cambiato / Attività programmate
+| Cosa è cambiato
 
 | 21/02/2020
 | Sintassi aggiornata con estensioni.
@@ -11,16 +11,4 @@
 
 | 24/02/2020
 | Codifiche ufficiali mappate su requisiti e significati italiani.
-
-| 13/03/2020
-| Invio comunicazione pubblicazione bozza per consultazione.
-
-| 19/09/2020
-| Webinar presentazione specifiche ai Service Provider.
-
-| 27/03/2020
-| Chiusura consultazione e termine invio commenti.
-
-| 06/04/2020
-| Pubblicazione specifica finale.
 |===

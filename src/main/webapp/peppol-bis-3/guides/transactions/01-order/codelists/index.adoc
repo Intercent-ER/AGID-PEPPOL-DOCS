@@ -1,8 +1,8 @@
 
 [[codelist]]
-= Code lists
+= Codifiche di riferimento
 
-The following chapters give an overview of the codes that is used in this PEPPOL BIS. 
+I capitoli seguenti rappresentano una overview sulle codifiche utilizzate in questa Peppol BIS.
 
 :leveloffset: +1
 

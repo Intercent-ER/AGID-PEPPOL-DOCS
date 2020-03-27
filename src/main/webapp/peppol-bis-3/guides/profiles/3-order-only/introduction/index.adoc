@@ -1,15 +1,20 @@
 
-= Introduction to openPEPPOL and BIS
+= Introduzione a openPEPPOL e alla BIS
 
-This BIS is a result of work within {openpeppol} and is published as part of the {peppol} specifications.
+Questa Business Interoperability Specification (BIS) è il risultato del lavoro svolto in https://peppol.eu/about-openpeppol/?rel=tab41[OpenPeppol] e pubblicato come parte delle specifiche https://docs.peppol.eu/poacc/upgrade-3/[Peppol].
 
-This PEPPOL BIS provides a set of specifications for implementing a {peppol} business process.
-The document is concerned with clarifying requirements for ensuring interoperability of pan-European Public eProcurement and provides guidelines for supporting these requirements and how to implement them.
-This PEPPOL BIS is based on the CEN WS/BII Profile “BII Profile 03 Order Only” {bii-order}.
+Questa Peppol BIS fornisce un set di specifiche per implementare un processo di business Peppol.
+Il documento è inteso per chiarire i requisiti necessari per assicurare l’interoperabilità nell’eProcurement Pubblico pan-europeo e fornisce le linee guida per il supporto e l’implementazione di questi requisiti. +
 
-*The purpose* of this document is to describe a common format for the order message in the European market, and to facilitate an efficient implementation and increased use of electronic collaboration regarding the ordering process based on this format.
+La Peppol BIS è basata sul CEN WS/BII “BII Profile 03 Order only” CEN BII2 Profile 03, Order Only e "localizzata" in base ai requisiti del modello italiano di e-Procurement, così come riportati nelle specifiche tecniche http://www.rgs.mef.gov.it/VERSIONE-I/e_government/amministrazioni_pubbliche/acquisti_pubblici_in_rete_apir/nodo_di_smistamento_degli_ordini_di_acquisto_delle_amministrazioni_pubbliche_nso/[NSO].
 
-.Relationship between BII profiles and PEPPOL BIS
+Fare riferimento alla sezione “ID Customizzazione” per ulteriori informazioni. +
+
+In questo documento le regole d'uso derivanti dal modello italiano di e-procurement sono evidenziate in giallo.
+
+*Lo scopo* di questo documento è di descrivere un formato comune per il messaggio dell’ordine di fornitura nel mercato europeo, e facilitare un’efficiente implementazione e diffusione della collaborazione elettronica relativa al processo dell’ordine basata su questo formato e di fornire indicazioni alla comunità degli implementatori italiani in merito alle regole d'uso nazionali.
+
+.Relazione tra profili BII e PEPPOL BIS
 image::../../shared/images/BII_relationship.png[]
 
 
@@ -19,3 +24,25 @@ include::../../../shared/files/audience.adoc[]
 
 
 :leveloffset: -1
+
+[[A-chi-si-rivolge]]
+= A chi si rivolge
+
+Questo documento si rivolge alle organizzazioni che intendono essere abilitate a PEPPOL per scambiare ordini elettronici, e/o ai loro fornitori ICT. Queste organizzazioni potrebbero essere:
+
+* Fornitori di Servizi
+
+* Autorità appaltanti
+
+* Operatori Economici
+
+* Sviluppatori Software
+
+Più specificatamente, i ruoli previsti sono i seguenti:
+
+* Architetti ICT
+
+* Sviluppatori ICT
+
+* Esperti di Business
+

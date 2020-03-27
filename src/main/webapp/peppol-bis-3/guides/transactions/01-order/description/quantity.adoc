@@ -1,28 +1,49 @@
 [[quantities-and-units]]
-= Quantities and units
+= Quantità e unità di misura
 
-Various quantities and units can be stated in the PEPPOL BIS Order.
-These are both related to the ordering process and the logistics process.
+Nell’Ordine PEPPOL possono essere fornite diverse Quantità e le relative Unità di misura. Esse sono relazionate sia al processo dell’ordine che a quello della logistica. +
 
-The table below lists quantities and units in the format.
-To all quantities there must be a valid Unit according to the Code list.
+La tabella seguente elenca le quantità e le relative unità di misura previste. Ogni quantità deve avere la sua unità di misura espressa secondo le Codifiche e Identificatori.
 
 [cols="1,5",options="header"]
 |====
-|Element name / (Tag name)
-|Description
+|Nome elemento / (Tag name)
+|Descrizione
 
 |Price Quantity +
 (`cbc:BaseQuantity`)
-|Quantity related to Price.
+|Quantità relative al Prezzo.
 
 |Order Quantity +
 (`cbc:Quantity`)
-|Quantity that is ordered, e.g. number of pieces or volume in litre .
+|Quantità ordinate, es. Il numero dei pezzi o il volume in litri.
 |====
 
-.Example of an order line with a quantity of 120 litre (cbc:Quantity) and price is given per litre.
+.Esempio di una riga d’ordine con quantità di prodotto a unità :
 [source, xml, indent=0]
 ----
-include::{snippet-dir}/snippet-01.xml[tags=quantity]
+<cac:OrderLine>
+    <cac:LineItem>
+    <cbc:Quantity unitCode=”C62”>3</cbc:Quantity>
+    </cac:LineItem>
+</cac:OrderLine>
 ----
+
+.Esempio di una riga d’ordine con una quantità di 120 litri (cbc:Quantity) e il prezzo al litro:
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>1</cbc:ID>
+        <cbc:Quantity unitCode="LTR" unitCodeListID=”UNECERec20”>120</cbc:Quantity>
+        <cbc:LineExtensionAmount currencyID="EUR">6000.00</cbc:LineExtensionAmount>
+        <cbc:PartialDeliveryIndicator>false</cbc:PartialDeliveryIndicator>
+        <cbc:AccountingCost>ProjectID123</cbc:AccountingCost>
+        <cac:Price>
+            <cbc:PriceAmount currencyID="EUR">50.00000</cbc:PriceAmount>
+            <cbc:BaseQuantity unitCode="LTR" unitCodeListID=”UNECERec20”>1</cbc:BaseQuantity>
+        </cac:Price>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+

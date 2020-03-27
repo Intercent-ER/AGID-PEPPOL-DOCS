@@ -1,33 +1,33 @@
 [[use-case-3-ordering-of-services]]
-= Use case 3 – Ordering of services
+= Caso d’uso 3 – Ordine di fornitura di servizi
 
-This use case contains an order of services.
+Questo caso d’uso è relativo a un ordine di servizi.
+
 
 [cols="1s,5",options="header"]
 |====
-|Use Case number
+|Caso d’uso nr.
 |3
-|Use Case Name
-|Ordering of services
+|Nome
+|Ordine servizi
 
-|Use Case Description
-|An order of translation services. +
-Delivery location and period is specified.
-|Parties involved
-|Buyer +
-Seller
+|Descrizione
+|Un ordine per servizi di traduzione. +
+Il luogo di consegna e il periodo sono specificati.
+|Ruoli coinvolti
+|Acquirente +
+Venditore
 
-|Assumptions
-|The buyer is using a form with pre-defined and agreed properties for this service.
+|Assunzioni
+|L’acquirente utilizza un modulo con una serie di proprietà predefinite e concordate per ordinare il servizio.
+|Il flusso
+|L’acquirente crea l’ordine di una sola riga richiedendo dei servizi di traduzione dallo Svedese allo Spagnolo. +
+Il venditore riceve l’ordine.
 
-|The flow
-|The buyer creates the order with one line requesting translation between Swedish and Spanish. +
-The seller receives the order.
+|Risultati
+|L’acquirente e il venditore hanno raggiunto un accordo. +
+Se la fattura contiene il riferimento all’ordine, questa può essere correlata automaticamente.
 
-|Result
-|The buyer and the seller has reached an agreement. +
-If the invoice has an order reference, the invoice can be matched automatically.
-
-|XML example file
-|{order-UC}
+|Esempio XML
+|Vedi sezione "Downloads" della https://notier.regione.emilia-romagna.it/docs/[home]
 |====

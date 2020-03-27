@@ -1,7 +1,7 @@
 [[version-id]]
 = Version ID
 
-IMPORTANT: The element `cbc:UBLVersionID` MUST be stated with the value *2.1*:
+IMPORTANT: L'elemento `cbc:UBLVersionID` DEVE essere valorizzato come *2.1*:
 
 
 .Example of UBL version identifier

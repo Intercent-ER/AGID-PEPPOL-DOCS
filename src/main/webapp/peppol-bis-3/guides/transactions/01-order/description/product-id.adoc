@@ -1,17 +1,55 @@
 [[product-identification]]
-= Product identification
+= Identificazione prodotto
 
-Product identification must be done using the identifiers described below:
+L’individuazione del prodotto (bene o servizio) all’interno di ciascuna linea d’ordine avviene, oltre che attraverso la denominazione (elemento “Name, che è obbligatorio) e la descrizione (elemento “Description”), anche per mezzo dell’utilizzo di codici identificativi che primariamente sono due:
 
-* Sellers ID
-* Standard ID, e.g. the GS1 Global Trade Item Number (GTIN)
+il codice attribuito dal Fornitore (elemento “SellersItemIdentification/ID”);
 
-Which identifier to use depends on what is known at the time ordering or what is commonly used in the relevant business sector.
+il codice standard, corrispondente all’identificativo assegnato al prodotto da un sistema di identificazione univoca (elemento “StandardItemIdentification/ID”) selezionato tra quelli presenti nell’apposita code list PEPPOL.
 
-IMPORTANT: Each order line MUST have an item identifier and/or an item name
+Quale identificatore deve essere usato dipende dalle informazioni conosciute al momento dell’ordine o da quello comunemente utilizzato nel settore business di riferimento.
 
-.Example of an PEPPOL BIS Order item using both Sellers ID and Standard ID (GTIN):
+IMPORTANT: Ogni ordine DEVE avere un identificatore per l’articolo e/o la sua denominazione
+
+
+.Esempio di ordine con Seller ID e Standard ID (GTIN):
 [source, xml, indent=0]
 ----
-include::{snippet-dir}/snippet-01.xml[tags=prod-id]
+<cac:SellersItemIdentification>
+  <cbc:ID>SN-33</cbc:ID>
+</cac:SellersItemIdentification>
+
+<cac:StandardItemIdentification>
+  <cbc:ID schemeID="0160">05704066204093</cbc:ID>
+</cac:StandardItemIdentification>
 ----
+
+
+:leveloffset: +1
+
+[[product-identification]]
+= Dettaglio sui Farmaci e loro identificazione
+
+[yellow-background]#Per i prodotti farmaceutici provvisti del codice di Autorizzazione all’Immissione in Commercio (AIC) rilasciato dell’Agenzia Italiana del Farmaco (AIFA), l’elemento “SellersItemIdentification/ID” deve essere valorizzato sempre con il relativo codice AIC, prefissato dalla stringa AICFARMACO.#
+
+.Esempio di ordine con l'indicazione del codice AIC farmaco
+[source, xml, indent=0]
+----
+<cac:Item>
+	<cbc:Name>ESMERON EV 10FL 10ML 10MG/ML [029209]</cbc:Name>
+	<cac:SellersItemIdentification>
+		<cbc:ID>AICFARMACO:141900</cbc:ID>
+	</cac:SellersItemIdentification>
+	<cac:ClassifiedTaxCategory>
+		<cbc:ID schemeID="UNCL5305">S</cbc:ID>
+		<cbc:Percent>10</cbc:Percent>
+		<cac:TaxScheme>
+			<cbc:ID>VAT</cbc:ID>
+		</cac:TaxScheme>
+	</cac:ClassifiedTaxCategory>
+</cac:Item>
+----
+
+:leveloffset: -1
+
+

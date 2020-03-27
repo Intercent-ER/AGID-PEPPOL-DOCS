@@ -1,10 +1,12 @@
 [[tax-total]]
-= Tax total
+= Totale imposte
 
-It is possible to state the tax amount of the order, on the header level (tax total) and also on line level.
+E’ possibile fornire il totale delle imposte dell’ordine a livello di testata.
 
-.Example of tax total (header level)
+.Livello di testata:
 [source, xml, indent=0]
 ----
-include::{snippet-dir}/snippet-01.xml[tags=tax-total]
+<cac:TaxTotal>
+    <cbc:TaxAmount currencyID="EUR">5.00</cbc:TaxAmount>
+</cac:TaxTotal>
 ----

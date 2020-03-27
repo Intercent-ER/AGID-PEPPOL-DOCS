@@ -2,9 +2,8 @@
 
 = Electronic address identifier scheme
 
-Electronic address identifiers (Endpoint identification) use of a code list to be maintained by CEF.
+L'Electronic address identifiers (Endpoint identification) utilizza una code list gestita dal CEF.
 
-#This code list is still not available. Use PEPPOL Policy for identifiers#
 
 [cols="2,3,3", options="header"]
 |===
@@ -14,5 +13,5 @@ Electronic address identifiers (Endpoint identification) use of a code list to b
 
 | Electronic address identifiers (Endpoint)
 | cbc:EndpointID/@schemeID
-a| Code list maintained by CEF, not yet available
+a| Code list maintained by CEF
 |===

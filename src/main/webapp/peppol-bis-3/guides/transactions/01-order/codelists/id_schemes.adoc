@@ -1,6 +1,6 @@
 
 [[id_schemes]]
-= Code lists for identifier schemes
+= Codifiche di riferimento per gli identifier schemes
 
 :leveloffset: +1
 

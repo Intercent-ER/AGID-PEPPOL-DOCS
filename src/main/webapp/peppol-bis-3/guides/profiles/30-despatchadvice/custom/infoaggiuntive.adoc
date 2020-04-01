@@ -1,0 +1,38 @@
+
+[[infoaggiuntive]]
+= Informazioni Aggiuntive (Omaggio o Sconto Merce)
+
+#Per fornire informazioni aggiuntive come gli omaggi e gli sconti nelle righe del documento di trasporto è possibile utilizzare l'elemento cbc:AdditionalInformation come negli esempi di seguito riportati.#
+
+.Esempio di articoli in #OMAGGIO#:
+[source, xml, indent=0]
+----
+<cbc:DespatchLine>
+	<cbc:ID>3</cbc:ID>
+	<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
+	<cbc:DeliveredQuantity unitCode="SR">20</cbc:DeliveredQuantity>
+	…
+	<cac:Item>
+		<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
+		<cbc:Name>Striscie per glucosio</cbc:Name>
+		<cbc:AdditionalInformation>OMAGGIO</cbc: AdditionalInformation>
+	</cac:Item>
+</cbc:DespatchLine>
+----
+
+
+.Esempio di articoli consegnati a titolo di sconto (#SCONTO MERCE#):
+[source, xml, indent=0]
+----
+<cbc:DespatchLine>
+	<cbc:ID>3</cbc:ID>
+	<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
+	<cbc:DeliveredQuantity unitCode="SR">20</cbc:DeliveredQuantity>
+	…
+	<cac:Item>
+		<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
+		<cbc:Name>Striscie per glucosio</cbc:Name>
+		<cbc:AdditionalInformation>SCONTO MERCE</cbc: AdditionalInformation>
+	</cac:Item>
+</cbc:DespatchLine>
+----

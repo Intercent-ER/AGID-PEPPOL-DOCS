@@ -1,5 +1,5 @@
 [[hazardous-item]]
-= Merce Pericolosa
+= Informazioni sulla merce pericolosa
 
 Il Documento di Trasporto PEPPOL contiene anche la possibilità di informare il Consegnatario riguardo agli articoli pericolosi (indicati anche come HAZMAT, Hazard Material o Dangerous Goods).
 
@@ -16,3 +16,27 @@ La classe di pericolosità è relativa a quella dell’articolo, per esempio la 
 ----
 include::{snippet-dir}/snippet-30-1.xml[tags=hazardous]
 ----
+
+In certi settori può essere necessario identificare la merce pericolosa in modo più preciso, fornendo le seguenti informazioni:
+
+.Informazioni estese sulla merce pericolosa
+[width="100%", cols="2h,3m,1m"]
+|===
+| *Informazione estesa*
+| *Descrizione*
+| *Sintassi UBL*
+
+| #Identificativo sostanza pericolosa#
+| identificativo UN assegnato (UN Number)
+| cbc:ID
+
+| #Denominazione tecnica sostanza#
+| Denominazione tecnica UN
+| cbc:TechnicalName
+
+| #Categoria sostanza pericolosa#
+| Denominazione del tipo di pericolo per un materiale o sostanza
+| cbc:CategoryName
+|===
+
+Nel paragrafo successivo si fornisce un esempio avanzato che utilizza tutte le informazioni estese sopra descritte.

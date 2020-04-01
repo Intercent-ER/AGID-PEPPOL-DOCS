@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="css/bootstrap.css"/>
         <link rel="stylesheet" href="css/structure.css?v=1.1"/>
         <link rel="stylesheet" href="css/font-awesome.min.css?v=4.7.0"/>
-        <link rel="stylesheet" href="css/agid-custom.css?v=1.3"/>
+        <link rel="stylesheet" href="css/agid-custom.css?v=1.4"/>
 
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -23,7 +23,7 @@
         <script>
             //<![CDATA[
             $(function () {
-                const VER = "38";    // Math.random()*1000000
+                const VER = "40";    // Math.random()*1000000
                 var $body = $("body"), $main = $("#main"), $guide = $("#guide").hide(), $adoc = $("#adoc-viewer"), $loader = $("#loader");
                 var defBis = "peppol-bis-3";
 
@@ -46,7 +46,7 @@
 
                 $.bis.current = $("#peppol-bis a[href='" + defBis + "']");
                 $.bis.initBIS($.bis.current);
-
+                // Bottone di scelta PEPPOL BIS
                 $('#peppol-bis a').click(function (e) {
                     e.preventDefault();
 
@@ -54,6 +54,8 @@
                     $.bis.current = $bis;
 
                     $("#peppol-bis > button:first").text($bis.text());
+                    $body.removeClass("adoc-mode");
+                    $adoc.hide();
                     $guide.hide();
                     $main.show();
                     $.bis.initBIS($bis);

@@ -1,8 +1,13 @@
 
-[[temperatura]]
-= Temperatura
+[[partitamerce]]
+= Specifiche Partita Merce
+#Per fornire ulteriori informazioni sulla partita merce è possibile utilizzare l'aggregato informativo cac:Shipment/cac:GoodsItem a livello di riga, come parte delle informazioni sulla spedizione.#
 
-Per indicare la temperatura impostata o consigliata per talune merci o la temperatura minima/massima tollerata è possibile specificarlo sempre nel dettaglio della spedizione come nell’esempio seguente:
+#In particolare è possibile specificare le temperature impostate e raccomandate col descritto nel paragrafo seguente.#
+
+[[temperatura]]
+== Temperatura
+#Per indicare la temperatura impostata e raccomandata per talune merci o la temperatura minima/massima tollerata è possibile specificarlo sempre nel dettaglio della spedizione come nell’esempio seguente:#
 
 .Esempio settaggi temperatura:
 [source, xml, indent=0]

@@ -128,33 +128,60 @@
 		</cac:Party>
 	</cac:OriginatorCustomerParty>
 	<!-- end::originator[] -->
+	<!-- tag::shipment[] -->
 	<cac:Shipment>
 		<cbc:ID>NA</cbc:ID>
-		<cbc:Information>The shipment is Despatched on schedule</cbc:Information>
-		<cbc:GrossWeightMeasure unitCode="KGM">10.00</cbc:GrossWeightMeasure>
-		<cbc:GrossVolumeMeasure unitCode="MTQ">25.00</cbc:GrossVolumeMeasure>
+		<cbc:Information>Informazioni testuali libere relative alla Spedizione</cbc:Information>
+		<!-- Peso lordo, obbligatorio in base all'Art. 21, comma 4 del DPR n. 633/1972 -->
+		<cbc:GrossWeightMeasure unitCode="KGM">23</cbc:GrossWeightMeasure><!--1-->
+		<!-- Volume lordo -->
+		<cbc:GrossVolumeMeasure unitCode="MTQ">27</cbc:GrossVolumeMeasure><!--2-->
+		<!-- Nr. Colli, obbligatorio in base all'Art. 21, comma 4 del DPR n. 633/1972 -->
+		<cbc:TotalTransportHandlingUnitQuantity>3</cbc:TotalTransportHandlingUnitQuantity><!--3-->
+		<!--TRASPORTO, VETTORE-->
 		<cac:Consignment>
-			<cbc:ID>12345</cbc:ID>
+			<cbc:ID>12345</cbc:ID><!--4-->
 			<cac:CarrierParty>
+				<cac:PartyIdentification>
+					<!-- Identificativo Fiscale Vettore -->
+					<cbc:ID>IT:VAT:IT01245267890</cbc:ID><!--5-->
+				</cac:PartyIdentification>
+				<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
 				<cac:PartyName>
-					<cbc:Name>CarrierPart</cbc:Name>
+					<cbc:Name>Trasportatore S.r.l.</cbc:Name><!--6-->
 				</cac:PartyName>
+				<cac:PostalAddress><!--7-->
+					<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
+					<cbc:StreetName>Via Europa 100</cbc:StreetName>
+					<cbc:AdditionalStreetName>Palazzo A</cbc:AdditionalStreetName>
+					<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
+					<cbc:CityName>Bologna</cbc:CityName>
+					<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
+					<cbc:PostalZone>40121</cbc:PostalZone>
+					<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
+					<cbc:CountrySubentity>Bologna</cbc:CountrySubentity>
+					<cac:Country>
+						<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+					</cac:Country>
+				</cac:PostalAddress>
 			</cac:CarrierParty>
 		</cac:Consignment>
-		<cac:Delivery>
+		<!-- TEMPI DI CONSEGNA PROMESSI/STIMATI -->
+		<cac:Delivery><!--8-->
 			<cac:EstimatedDeliveryPeriod>
 				<cbc:StartDate>2013-03-15</cbc:StartDate>
 				<cbc:StartTime>08:00:00</cbc:StartTime>
 				<cbc:EndDate>2013-03-16</cbc:EndDate>
 				<cbc:EndTime>12:00:00</cbc:EndTime>
 			</cac:EstimatedDeliveryPeriod>
-			<cac:Despatch>
+			<!-- DATA/ORA EVASIONE EFFETTIVA -->
+			<cac:Despatch><!--9-->
 				<cbc:ActualDespatchDate>2013-03-13</cbc:ActualDespatchDate>
 				<cbc:ActualDespatchTime>08:00:00</cbc:ActualDespatchTime>
 			</cac:Despatch>
 		</cac:Delivery>
-
 	</cac:Shipment>
+	<!-- end::shipment[] -->
 	<cac:DespatchLine>
 		<cbc:ID>1</cbc:ID>
 		<cbc:DeliveredQuantity unitCode="EA">10</cbc:DeliveredQuantity>
@@ -221,4 +248,23 @@
 			<!-- end::transporthandling[] -->
 		</cac:Shipment>
 	</cac:DespatchLine>
+        <!-- tag::antiblastici[] -->
+	<cac:DespatchLine>
+		<cac:Item>
+			<cac:HazardousItem>
+				<cbc:ID>3249</cbc:ID><!--1-->
+				<cbc:UNDGCode>ADR</cbc:UNDGCode><!--2-->
+				<cbc:TechnicalName>Medicine, solid, toxic, n.o.s</cbc:TechnicalName><!--3-->
+				<cbc:CategoryName>ANTIBLASTICI</cbc:CategoryName><!--4-->
+				<cbc:HazardClassID>6.1</cbc:HazardClassID><!--5-->
+			</cac:HazardousItem>
+		</cac:Item>
+		<cac:Shipment>
+			<cbc:ID>123456</cbc:ID>
+			<cac:TransportHandlingUnit>
+				<cbc:HazardousRiskIndicator>true</cbc:HazardousRiskIndicator>
+			</cac:TransportHandlingUnit>
+		</cac:Shipment>
+	</cac:DespatchLine>
+        <!-- end::antiblastici[] -->
 </DespatchAdvice>

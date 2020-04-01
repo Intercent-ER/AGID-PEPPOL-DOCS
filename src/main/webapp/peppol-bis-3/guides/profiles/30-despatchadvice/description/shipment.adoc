@@ -22,5 +22,14 @@ Esempio:
 
 [source, xml, indent=0]
 ----
-include::{snippet-dir}/snippet-30-1.xml[tags=shipment]
+include::{snippet-dir}/snippet-30-3.xml[tags=shipment]
 ----
+<1> Peso lordo
+<2> Volume lordo
+<3> Nr. Colli, espresso come numero intero (vedi regola IT-T16-R005)
+<4> Identificativo assegnato a questa consegna
+<5> Identificativo Fiscale Vettore
+<6> Ragione Sociale o denominazione del Vettore
+<7> Indirizzo
+<8> Tempi di consegna promessi/stimati
+<9> Data/ora effettiva di evasione

@@ -5,6 +5,8 @@
  */
 package com.javest.servlet.filter;
 
+import com.javest.net.Download;
+import com.javest.net.HTTPResourceDownload;
 import com.javest.util.IOUtils;
 import com.javest.util.ObjectPool;
 import java.io.BufferedOutputStream;
@@ -20,6 +22,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Result;
 import javax.xml.transform.Source;
@@ -33,13 +36,12 @@ import javax.xml.transform.stream.StreamSource;
 /**
  *
  * @author JST-HQ
- * @version 1.2
+ * @version 1.2.1
  */
 public class XmlFilter implements Filter {
     private static final Logger LOGGER = Logger.getLogger(XmlFilter.class.getName());
     private static final String SAXON_TRANSFORMER = "net.sf.saxon.TransformerFactoryImpl";
     private static final TransformerFactory XSLT_FACTORY = getTransformerFactory(SAXON_TRANSFORMER);    // XSLT 2.0
-    private static final String FORCE_DOWNLOAD_CONTENT_TYPE = "application/octet-stream";
         
     private static TransformerFactory getTransformerFactory(String factoryImpl) {
         try {
@@ -99,11 +101,15 @@ public class XmlFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         final HttpServletRequest req = (HttpServletRequest) request;
+        final HttpServletResponse res = (HttpServletResponse) response;
         
         if ("1".equals(req.getParameter("download"))) {
-            response.setContentType(FORCE_DOWNLOAD_CONTENT_TYPE);
-            // pass the request along the filter chain
-            chain.doFilter(request, response);
+            final HTTPResourceDownload downloader = new HTTPResourceDownload();
+            //final File file = new File(webAppPath, filterConfig.getInitParameter("adapter"));
+/*
+            final Download resource = new Download(instance.getFile().getPath(), instance.getFile().getName(), "application/xml");
+            downloader.initialize(req, res);
+            downloader.downloadFile(resource);*/
             return;
         }
         

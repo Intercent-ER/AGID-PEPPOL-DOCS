@@ -127,20 +127,22 @@
 	<cac:Shipment>
 		<cbc:ID>NA</cbc:ID>
 		<cbc:Information>Free text information relating to the Shipment</cbc:Information>
-                <!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
+		<!-- Peso lordo, obbligatorio in base all'Art. 21, comma 4 del DPR n. 633/1972 -->
 		<cbc:GrossWeightMeasure unitCode="KGM">23</cbc:GrossWeightMeasure>
+		<!-- Volume -->
 		<cbc:GrossVolumeMeasure unitCode="MTQ">27</cbc:GrossVolumeMeasure>
-                <!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
+		<!-- Nr. Colli, obbligatorio in base all'Art. 21, comma 4 del DPR n. 633/1972 -->
 		<cbc:TotalTransportHandlingUnitQuantity>3</cbc:TotalTransportHandlingUnitQuantity>
-                <!--TRASPORTO, VETTORE-->
+		<!--TRASPORTO, VETTORE-->
 		<cac:Consignment>
 			<cbc:ID>12345</cbc:ID>
+                        <!-- tag::carrier[] -->
 			<cac:CarrierParty>
 				<cac:PartyIdentification>
 					<!-- Identificativo Fiscale Vettore -->
-					<cbc:ID>IT:VAT:IT01245267890</cbc:ID>
+					<cbc:ID>IT:VAT:IT01245267890</cbc:ID><!--1-->
 				</cac:PartyIdentification>
-                                <!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
+				<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
 				<cac:PartyName>
 					<cbc:Name>Trasportatore S.r.l.</cbc:Name>
 				</cac:PartyName>
@@ -159,6 +161,7 @@
 					</cac:Country>
 				</cac:PostalAddress>
 			</cac:CarrierParty>
+                        <!-- end::carrier[] -->
 		</cac:Consignment>
                 <!-- TEMPI DI CONSEGNA PROMESSI/STIMATI -->
 		<cac:Delivery>

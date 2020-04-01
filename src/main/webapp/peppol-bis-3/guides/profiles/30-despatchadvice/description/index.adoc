@@ -1,5 +1,5 @@
 [[description-of-selected-parts-of-the-despatch-advice-message]]
-= Descrizioned di parti selezionate del messaggio di avviso di consegna (DDT)
+= Descrizione di parti selezionate del Documento di Trasporto (DDT)
 
 :leveloffset: +1
 
@@ -20,6 +20,8 @@ Descrizione degli articoli che vengono consegnati.
 
 :leveloffset: +1
 
+include::../custom/confezionamento.adoc[]
+
 include::itemdescription.adoc[]
 
 include::../custom/particolaretrattamento.adoc[]
@@ -28,9 +30,7 @@ include::../custom/temperatura.adoc[]
 
 include::outstandingquantity.adoc[]
 
-include::../custom/omaggi.adoc[]
-
-include::../custom/scontomerce.adoc[]
+include::../custom/infoaggiuntive.adoc[]
 
 include::hazardous.adoc[]
 
@@ -48,4 +48,3 @@ include::transporthandlingunit.adoc[]
 
 :leveloffset: -1
 
-include::../custom/confezionamento.adoc[]

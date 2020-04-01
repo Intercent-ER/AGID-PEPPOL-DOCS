@@ -1,5 +1,5 @@
 [[parties]]
-= Parti di Business
+= Parti e Ruoli
 
 Le seguenti parti/ruoli possono essere specificate nel messaggio.  Lo stesso attore gioca più di un ruolo a seconda dei casi.
 
@@ -68,3 +68,17 @@ Esempio:
 ----
 include::{snippet-dir}/snippet-30-1.xml[tags=originator]
 ----
+
+
+[[carrier-party-carrierparty]]
+== Vettore (CarrierParty)
+
+Il Vettore gestisce la consegna/trasporto fisico della spedizione inviata. Utilizzato se una terza parte effettua il trasporto fisico. 
+
+Esempio:
+
+[source, xml, indent=0]
+----
+include::{snippet-dir}/snippet-30-1.xml[tags=carrier]
+----
+<1> la P.IVA del Vettore viene specificata con il prefisso IT:VAT: e senza l'attributo @schemeID in quanto la codifica ICD non include gli identificativi fiscali

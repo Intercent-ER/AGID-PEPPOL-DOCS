@@ -23,7 +23,7 @@
         <script>
             //<![CDATA[
             $(function () {
-                const VER = "40";    // Math.random()*1000000
+                const VER = "41-order-3.1";    // Math.random()*1000000
                 var $body = $("body"), $main = $("#main"), $guide = $("#guide").hide(), $adoc = $("#adoc-viewer"), $loader = $("#loader");
                 var defBis = "peppol-bis-3";
 

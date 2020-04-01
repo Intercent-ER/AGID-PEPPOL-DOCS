@@ -1,5 +1,5 @@
 [[description-of-selected-parts-of-the-order-message]]
-= Description of selected parts of the order message
+= Descrizione di parti selezionate dell'ordine
 
 :leveloffset: +1
 
@@ -24,5 +24,19 @@ include::totals.adoc[]
 include::tax-total.adoc[]
 
 include::../../../shared/files/vat-cat-line.adoc[]
+
+include::riferimentialtroordine.adoc[]
+
+include::gestioneordiniparticolari.adoc[]
+
+include::altririferimenti.adoc[]
+
+include::classificazioneprodotto.adoc[]
+
+include::consegna.adoc[]
+
+include::confezionamento.adoc[]
+
+include::usonote.adoc[]
 
 :leveloffset: -1

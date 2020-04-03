@@ -9,7 +9,7 @@ Le regole che si applicano a questo BIS sono le seguenti:
 
 Tutti i messaggi contengono il ProfileID e il CustomizationID. Il ProfileID identifica a quale processo di business appartiene un dato messaggio, e il CustomizationID identifica il tipo di messaggio e le regole applicate.
 
-I profili sono connessi ad un processo di business e possono contenere molteplci tipologie di documento. Istanze di documenti validi debbono contenere i corrispondenti ProfileID e CustomizationID.
+I profili sono connessi ad un processo di business e possono contenere molteplici tipologie di documento. Istanze di documenti validi debbono contenere i corrispondenti ProfileID e CustomizationID.
 
 
-IMPORTANT: Il CustomizationID è una stringa senza spazi. La seguente lista contiene spazi nel CustomizationID sol a scopo di semplificarne la lettura. *Assicuratevi di rimuovere gli spazi prima di utilizzarla.*
+IMPORTANT: Il CustomizationID è una stringa senza spazi. La seguente lista contiene spazi nel CustomizationID al solo scopo di semplificarne la lettura. *Assicuratevi di rimuovere gli spazi prima di utilizzarla.*

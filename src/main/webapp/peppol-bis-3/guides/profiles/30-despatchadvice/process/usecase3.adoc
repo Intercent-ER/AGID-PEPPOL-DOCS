@@ -14,8 +14,8 @@ Il Documento di Trasporto è inviato dallo Speditore al Consegnatario quando la 
 
 |*Parti coinvolte* a|
 Lo Speditore (In UBL: DespatchSupplierParty) (In questo caso è soggetto giuridico diverso dal Venditore)
-Seller (In UBL: SellerSupplierParty)
-Consignee party (In UBL: DeliveryCustomerParty) (In questo caso è soggetto giuridico diverso dall’Acquirente)
+Venditore (In UBL: SellerSupplierParty)
+Consegnatario (In UBL: DeliveryCustomerParty) (In questo caso è soggetto giuridico diverso dall’Acquirente)
 Acquirente (In UBL: BuyerCustomerParty) 
 
 |*Pre conditions* |Allineamento delle anagrafiche centrali con ubicazioni (GLNs) e prodotti (GTINs).

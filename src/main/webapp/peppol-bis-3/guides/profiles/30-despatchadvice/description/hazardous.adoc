@@ -3,7 +3,7 @@
 
 Il Documento di Trasporto PEPPOL contiene anche la possibilità di informare il Consegnatario riguardo agli articoli pericolosi (indicati anche come HAZMAT, Hazard Material o Dangerous Goods).
 
-Questo viene fatto fornendo il codice di pericolosità in base al regolamento adottato, per esempio ADR (trasporto su gomma), IMDG (trasporto via mare) or RID (trasporto ferroviario).
+Questo viene fatto fornendo nell’elemento HazardousItem il codice di pericolosità in base al regolamento adottato, per esempio ADR (trasporto su gomma), IMDG (trasporto via mare) or RID (trasporto ferroviario).
 
 Quando si dichiarano delle merci pericolose si raccomanda l’uso del codice UNDG per informare in base a quale convenzione l’articolo viene dichiarato pericoloso (es. ADR).
 

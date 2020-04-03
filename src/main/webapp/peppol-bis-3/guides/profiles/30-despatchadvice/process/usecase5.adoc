@@ -35,7 +35,7 @@ Committente (In UBL: OriginatorCustomerParty)
 . Il Venditore ha accettato l’ordine senza modifiche. 
 . Lo Speditore è responsabile per la consegna e utilizza un trasportatore per il trasporto fisico.
 . Gli articoli nella prima e seconda riga sono nella stessa unità logistica.
-. Gli articoli nella riga tre e quatto sono in unità logistiche separate.
+. Gli articoli nella riga tre e quattro sono in unità logistiche separate.
 
 image:images/image10.png[image,width=143,height=94]
 

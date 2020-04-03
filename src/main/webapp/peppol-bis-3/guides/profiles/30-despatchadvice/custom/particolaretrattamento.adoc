@@ -16,5 +16,5 @@
 </cac:DespatchLine>
 ----
 
-#Utilizzare la codifica “HandlingInstructionDescriptionCode” (UNCL4079) disponibile nella specifica delle codifiche.#
+#Utilizzare la codifica “HandlingInstructionDescriptionCode” ({UNCL4079}) disponibile nella specifica delle codifiche.#
 

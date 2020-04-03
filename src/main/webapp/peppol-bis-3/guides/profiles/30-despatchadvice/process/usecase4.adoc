@@ -8,7 +8,7 @@ Questo caso d’uso dimostra l’uso del Documento di Trasporto, dove il Vendito
 |*Nr. Caso d’uso* |4
 |*Nome Caso d’uso* |Spedizione con articoli descritti mediante il peso, la lunghezza e/o il volume (es. verdure, carne)
 |*Descrizione Caso d’uso* a|
-Questo caso d’uso dimostra l’uso del Documento di Trasporto (DDT), dove il Venditore spedisce degli articoli prezzati in base al peso, lunghezza e/o volume. Quindi, il peso, la lunghezza o il volume degli articoli sono importanti.  Le unità logistiche vengono utilizzate per indicare come sono imballati gli gli articoli. 
+Questo caso d’uso dimostra l’uso del Documento di Trasporto (DDT), dove il Venditore spedisce degli articoli prezzati in base al peso, lunghezza e/o volume. Quindi, il peso, la lunghezza o il volume degli articoli sono importanti.  Le unità logistiche vengono utilizzate per indicare come sono imballati gli articoli. 
 Questo caso d’uso dimostra inoltre:
 * l’uso di identificatori per diverse parti (GLN ed il numero di organizzazione Svedese)
 * l’uso di ItemBestBeforeDate, ItemExpiryDate, ItemBatchNumber, ItemSerialNumbers, 

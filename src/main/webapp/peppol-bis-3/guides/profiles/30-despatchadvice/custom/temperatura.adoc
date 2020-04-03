@@ -34,5 +34,5 @@
 
 L’esempio denota l’uso delle unità di misura Celsius (CEL) e Fahrenheit (FAH). L’elemento AttributeID è obbligatorio ma può essere ignorato valorizzandolo con NA, tuttavia in alcuni casi può migliorare la comprensione della misura fornita (es. Recommended, Allowable, Alert).
 
-NOTA: #Le misure (***Measure) sono obbligatoriamente espresse secondo la codifica UN/ECE Rec20 e non è richiesto qualificarle con ulteriori attributi.#
+NOTA: #Le misure (***Measure) sono obbligatoriamente espresse secondo la codifica {UNRec20} e non è richiesto qualificarle con ulteriori attributi.#
 

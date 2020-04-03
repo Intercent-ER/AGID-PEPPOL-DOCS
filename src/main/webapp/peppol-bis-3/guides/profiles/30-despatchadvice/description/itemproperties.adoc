@@ -1,7 +1,7 @@
 [[item-properties]]
 = Proprietà dell'articolo
 
-Se sono necessarie informazioni ulteriori sull'articolo, come proprietà e identificatori, queste possono essere aggiunte utilizzando "Name" per identificare il tipo di informazione e "Value" per l'informazione.
+Se sono necessarie informazioni ulteriori sull'articolo, come proprietà e identificatori, queste possono essere aggiunte utilizzando "Name" per identificare il tipo di informazione e "Value" per l'informazione nell’elemento AdditionalItemProperty.
 
 .Esempio UBL per le proprietà dell'articolo
 [source, xml, indent=0]

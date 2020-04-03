@@ -1,7 +1,7 @@
 [[batchlot-numbers-expiry-date-and-best-before-date]]
 = Numeri di lotto merce, Data di Scadenza e Da consumarsi preferibilmente entro il (BestBeforeDate)
 
-Il numero di Lotto si applica a tutti gli articoli nella riga di spedizione.
+Il LotNumberID (numero di Lotto) si applica a tutti gli articoli nella riga di spedizione.
 
 ExpiryDate (data di scadenza) è utilizzata ad esempio per i farmaci.
 

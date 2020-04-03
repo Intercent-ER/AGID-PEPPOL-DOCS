@@ -105,11 +105,10 @@ public class XmlFilter implements Filter {
         
         if ("1".equals(req.getParameter("download"))) {
             final HTTPResourceDownload downloader = new HTTPResourceDownload();
-            //final File file = new File(webAppPath, filterConfig.getInitParameter("adapter"));
-/*
-            final Download resource = new Download(instance.getFile().getPath(), instance.getFile().getName(), "application/xml");
+            final File file = new File(webAppPath, req.getServletPath());
+            final Download resource = new Download(file.getPath(), file.getName(), "application/xml");
             downloader.initialize(req, res);
-            downloader.downloadFile(resource);*/
+            downloader.downloadFile(resource);
             return;
         }
         

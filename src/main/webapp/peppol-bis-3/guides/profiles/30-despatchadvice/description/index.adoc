@@ -20,17 +20,9 @@ Descrizione degli articoli che vengono consegnati.
 
 :leveloffset: +1
 
-include::../custom/confezionamento.adoc[]
-
 include::itemdescription.adoc[]
 
-include::../custom/particolaretrattamento.adoc[]
-
-include::../custom/temperatura.adoc[]
-
 include::outstandingquantity.adoc[]
-
-include::../custom/infoaggiuntive.adoc[]
 
 include::hazardous.adoc[]
 
@@ -45,6 +37,14 @@ include::batchnumber.adoc[]
 include::../custom/scadenzafarmaci.adoc[]
 
 include::transporthandlingunit.adoc[]
+
+include::../custom/particolaretrattamento.adoc[]
+
+include::../custom/temperatura.adoc[]
+
+include::../custom/infoaggiuntive.adoc[]
+
+include::../custom/confezionamento.adoc[]
 
 :leveloffset: -1
 

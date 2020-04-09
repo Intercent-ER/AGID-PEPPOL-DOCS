@@ -23,7 +23,11 @@
         <script>
             //<![CDATA[
             $(function () {
+<<<<<<< HEAD
                 const VER = "41";    // Math.random()*1000000
+=======
+                const VER = "42-order-3.1";    // Math.random()*1000000
+>>>>>>> order-3.1
                 var $body = $("body"), $main = $("#main"), $guide = $("#guide").hide(), $adoc = $("#adoc-viewer"), $loader = $("#loader");
                 var defBis = "peppol-bis-3";
 
@@ -220,18 +224,17 @@
                 }
                 // Istruzioni di navigazione
                 if (window.history && window.history.pushState) {
-                    var popstateCount = 3;
-                    history.pushState(null, null, location.href);
+                    history.pushState("history-locker", null, location.href);
                     history.back();
                     history.forward();
-                    $(window).on("popstate", function () {
-                        if (popstateCount > 0) {
-                            popstateCount -= 1;
+                    var popstateOnLoad = true;
+                    $(window).on("popstate", function (e) {
+                        if (popstateOnLoad || e.originalEvent.state !== "history-locker") {
+                            popstateOnLoad = false;
+                            return;
                         }
                         history.go(1);
-                        if (popstateCount === 0) {
-                           $('#navigazione').modal('show');
-                        }
+                        $('#navigazione').modal('show');
                     });
                 }
             });
@@ -258,9 +261,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <!--a class="navbar-brand" href="#">Specifiche PEPPOL 3.0</a-->
-                    <!--a class="navbar-brand" href="#">AGID</a-->
-                    <a class="navbar-brand" href="#" style="margin-top: -15px;"><img src="images/credits.png" height="50" alt="AGID"></a>
+                    <a class="navbar-brand" href="<%=request.getContextPath()%>" style="margin-top: -15px;"><img src="images/credits.png" height="50" alt="AGID"></a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -291,7 +292,7 @@
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Codifiche <span class="caret"></span></a>
-                            <ul class="dropdown-menu" id="codelist-menu">
+                            <ul class="dropdown-menu" id="codelist-menu" style="max-height: 610px; overflow-y: scroll;">
                             </ul>
                         </li>
                     </ul>

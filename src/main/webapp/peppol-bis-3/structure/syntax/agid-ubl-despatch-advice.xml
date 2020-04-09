@@ -81,7 +81,7 @@
             </Element>
             <Element cardinality="0..1" agid:custom="extension">
                 <Term>cbc:CustomerReference</Term>
-                <Name>Additional Order Reference</Name>
+                <Name>Riferimento supplementare all’Ordine</Name>
                 <Description>Riferimento supplementare all’Ordine (es. ID Paziente).</Description>
                 <DataType>Text</DataType>
             </Element>

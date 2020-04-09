@@ -44,3 +44,18 @@ Per riferirsi a più ordini sarà quindi possibile indicare uno o più numeri d�
 ----
 include::{snippet-dir}/snippet-30-3.xml[tags=ref-orderlinemulti]
 ----
+
+== Riferimento supplementare all’Ordine
+#Quando il documento di trasporto si riferisce ad un singolo ordine dalla testata, con l'elemento cbc:CustomerReference è possibile fornire un ulteriore riferimento del cliente.#
+
+#Questo ulteriore riferimento si presta ad essere utilizzato come riferimento emesso dal cliente per identificare l'oggetto della spedizione, come ad esempio il destinatario finale di farmaci (ID Paziente) in una consegna domiciliare (vedi §. 6.3.1)#
+
+.Esempio di riferimento del cliente in una consegna domiciliare:
+[source, xml, indent=0]
+----
+<cac:OrderReference>
+    <cbc:ID>4321#2013-01-30#ABCDEF</cbc:ID>
+    <!-- ID Paziente -->
+    <cbc:CustomerReference>123</cbc:CustomerReference>
+</cac:OrderReference>
+----

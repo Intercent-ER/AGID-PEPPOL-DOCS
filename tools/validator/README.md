@@ -2,7 +2,7 @@
 
 Ultime versioni:
 
-FATTURA 2.1
+## FATTURA 2.1
 **`Javest-PEPPOL-BIS-Test-V2.2.4`**
 
 FATTURA 3.0

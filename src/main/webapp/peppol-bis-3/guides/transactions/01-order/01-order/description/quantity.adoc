@@ -1,0 +1,49 @@
+[[quantities-and-units]]
+= Quantità e unità di misura
+
+Nell’Ordine PEPPOL possono essere fornite diverse Quantità e le relative Unità di misura. Esse sono relazionate sia al processo dell’ordine che a quello della logistica. +
+
+La tabella seguente elenca le quantità e le relative unità di misura previste. Ogni quantità deve avere la sua unità di misura espressa secondo le Codifiche e Identificatori.
+
+[cols="1,5",options="header"]
+|====
+|Nome elemento / (Tag name)
+|Descrizione
+
+|Price Quantity +
+(`cbc:BaseQuantity`)
+|Quantità relative al Prezzo.
+
+|Order Quantity +
+(`cbc:Quantity`)
+|Quantità ordinate, es. Il numero dei pezzi o il volume in litri.
+|====
+
+.Esempio di una riga d’ordine con quantità di prodotto a unità :
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+    <cbc:Quantity unitCode=”C62”>3</cbc:Quantity>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+
+.Esempio di una riga d’ordine con una quantità di 120 litri (cbc:Quantity) e il prezzo al litro:
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>1</cbc:ID>
+        <cbc:Quantity unitCode="LTR" unitCodeListID=”UNECERec20”>120</cbc:Quantity>
+        <cbc:LineExtensionAmount currencyID="EUR">6000.00</cbc:LineExtensionAmount>
+        <cbc:PartialDeliveryIndicator>false</cbc:PartialDeliveryIndicator>
+        <cbc:AccountingCost>ProjectID123</cbc:AccountingCost>
+        <cac:Price>
+            <cbc:PriceAmount currencyID="EUR">50.00000</cbc:PriceAmount>
+            <cbc:BaseQuantity unitCode="LTR" unitCodeListID=”UNECERec20”>1</cbc:BaseQuantity>
+        </cac:Price>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+

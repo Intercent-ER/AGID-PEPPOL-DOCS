@@ -1,0 +1,97 @@
+[[Classificazione-prodotto]]
+= Classificazione prodotto
+
+Per ciascun prodotto, all’interno della relativa linea d’ordine è possibile specificare uno o più codici di classificazione, valorizzando il campo “ItemClassificationCode/ID” dell’elemento “CommodityClassification”. Il valore da indicare deve essere tratto da un sistema di classificazione univoca selezionato tra quelli presenti nell’apposita code list PEPPOL come mostrato nell’esempio seguente:
+
+.Esempio di ordine con l'indicazione della classificazione prodotto
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>1</cbc:ID>
+    <cac:Item>
+	    <cac:CommodityClassification>
+	        <cbc:ItemClassificationCodelistID=”STL”>N05BA01<
+	        </cbc:ItemClassificationCode>
+        </cac:CommodityClassification>
+    </cac:Item>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+
+Si raccomanda di utilizzare almeno uno dei sistemi di classificazione di beni e servizi riportati nella tabella che segue, ove applicabili.
+
+
+[cols="1,4,2"]
+|====
+s|Codice
+s|Descrizione dello standard di classificazione
+s|Ambito di utilizzo
+
+|*STI*
+|Sistema ufficiale europeo di classificazione unico per gli appalti pubblici (CPV – Common Procurement Vocabulary)
+|Prodotti e servizi oggetto di appalti pubblici
+
+|*STL*
+|Sistema di classificazione anatomico, terapeutico e chimico (ATC - Anatomical Therapeutic Chemical classification system)
+|Farmaci
+
+|*STO*
+|Classificazione Nazionale italiana dei Dispositivi medici (CND)
+|Dispositivi medici
+
+|*STH*
+|Classificazione commerciale dei prodotti (GPC – Global Product Classification)
+|Beni di largo consumo
+
+|*IB*
+|Sistema di identificazione internazionale dei libri (ISBN - International Standard Book Number)
+|Libri (anche in formato elettronico e altri prodotti creati per essere utilizzati come libro
+
+|*ZZZ*
+|Sistema definito mutualmente tra le parti
+|Per i dispositivi medici permette di specificare i valori “DM1”, “DM2” o “DM0” (quando non applicabili i primi due)
+
+|====
+
+:leveloffset: +1
+
+[[Indicazioni-per-i-dispositivi-medici]]
+= Indicazioni per i dispositivi medici
+
+In questo esempio cac:CommodityClassification/cbc:ItemClassificationCode viene fornito il numero di registrazione attribuito al dispositivo medico nella Banca dati e Repertorio Dispositivi Medici dal Ministero della Salute.
+
+Si rammenta, infatti che, come indicato nella Circolare del Ministero della Salute DGSISS-0002051-P-08/02/2019 l’attributo schemeID dovrà essere valorizzato con:
+
+* DM1 per “Dispositivo medico o Dispositivo diagnostico in vitro”
+
+* DM2 per “Sistema o kit Assemblato”
+
+* DM0 per "Nessun numero di repertorio"
+
+.Esempio di un ordine con indicazione dispositivo medico
+[source, xml, indent=0]
+----
+<cac:Item>
+	<cbc:Name>ESMERON EV 10FL 10ML 10MG/ML [029209]</cbc:Name>
+	<cac:CommodityClassification>
+		<cbc:ItemClassificationCode listID="ZZZ">DM1:59788/R</cbc:ItemClassificationCode>
+	</cac:CommodityClassification>
+	<cac:ClassifiedTaxCategory>
+		<cbc:ID schemeID="UNCL5305">S</cbc:ID>
+		<cbc:Percent>10</cbc:Percent>
+		<cac:TaxScheme>
+			<cbc:ID>VAT</cbc:ID>
+		</cac:TaxScheme>
+	</cac:ClassifiedTaxCategory>
+</cac:Item>
+----
+
+
+:leveloffset: -1
+
+
+
+
+
+

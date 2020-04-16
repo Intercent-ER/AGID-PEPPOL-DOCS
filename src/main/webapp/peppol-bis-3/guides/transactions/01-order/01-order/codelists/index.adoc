@@ -1,0 +1,12 @@
+
+[[codelist]]
+= Codifiche di riferimento
+
+I capitoli seguenti rappresentano una overview sulle codifiche utilizzate in questa Peppol BIS.
+
+:leveloffset: +1
+
+include::elements.adoc[]
+include::id_schemes.adoc[]
+
+:leveloffset: -1

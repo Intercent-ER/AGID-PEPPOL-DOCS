@@ -1,5 +1,5 @@
 
-= Introduzione a openPEPPOL e alla BIS
+= Introduzione a openPEPPOL e alla BIS - Ordinazione Semplice
 
 Questa Business Interoperability Specification (BIS) è il risultato del lavoro svolto in https://peppol.eu/about-openpeppol/?rel=tab41[OpenPeppol] e pubblicato come parte delle specifiche https://docs.peppol.eu/poacc/upgrade-3/[Peppol].
 
@@ -25,24 +25,4 @@ include::../../../shared/files/audience.adoc[]
 
 :leveloffset: -1
 
-[[A-chi-si-rivolge]]
-= A chi si rivolge
-
-Questo documento si rivolge alle organizzazioni che intendono essere abilitate a PEPPOL per scambiare ordini elettronici, e/o ai loro fornitori ICT. Queste organizzazioni potrebbero essere:
-
-* Fornitori di Servizi
-
-* Autorità appaltanti
-
-* Operatori Economici
-
-* Sviluppatori Software
-
-Più specificatamente, i ruoli previsti sono i seguenti:
-
-* Architetti ICT
-
-* Sviluppatori ICT
-
-* Esperti di Business
 

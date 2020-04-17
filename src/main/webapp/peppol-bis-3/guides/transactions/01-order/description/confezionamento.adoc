@@ -21,6 +21,7 @@ s|Descrizione
 
 Seguono due esempi significativi.
 
+:leveloffset: +1
 
 = Caso 1: Articolo ordinato per singola unità
 
@@ -55,7 +56,9 @@ Esempio in cui l’articolo viene ordinato per singola unità e non a confezione
         </cac:OrderLine>
 ----
 
+:leveloffset: -1
 
+:leveloffset: +1
 
 =  Caso 2: Articolo ordinato a confezione
 
@@ -90,4 +93,4 @@ Esempio in cui l’articolo viene ordinato a confezione:
         </cac:OrderLine>
 ----
 
-
+:leveloffset: -1

@@ -557,7 +557,7 @@
 							<Name>Scheme identifier</Name>
 							<Description>Scheme identifier for party identification</Description>
 							<Reference type="CODE_LIST">ICD</Reference>
-							<Value type="EXAMPLE">9921</Value>
+							<Value type="EXAMPLE">0201</Value>
 						</Attribute>
 						<Value type="EXAMPLE">CODDEST:1234567</Value>
 					</Element>

@@ -1,5 +1,5 @@
 
-= Introduzione a openPEPPOL e alla BIS - Ordinazione Semplice
+= Introduzione a openPEPPOL e alla BIS
 
 Questa Business Interoperability Specification (BIS) è il risultato del lavoro svolto in https://peppol.eu/about-openpeppol/?rel=tab41[OpenPeppol] e pubblicato come parte delle specifiche https://docs.peppol.eu/poacc/upgrade-3/[Peppol].
 
@@ -10,7 +10,7 @@ La Peppol BIS è basata sul CEN WS/BII “BII Profile 03 Order only” CEN BII2 
 
 Fare riferimento alla sezione “ID Customizzazione” per ulteriori informazioni. +
 
-In questo documento le regole d'uso derivanti dal modello italiano di e-procurement sono evidenziate in giallo.
+#In questo documento le regole d'uso ed i paragrafi derivanti dal modello italiano di e-procurement sono evidenziate in giallo.#
 
 *Lo scopo* di questo documento è di descrivere un formato comune per il messaggio dell’ordine di fornitura nel mercato europeo, e facilitare un’efficiente implementazione e diffusione della collaborazione elettronica relativa al processo dell’ordine basata su questo formato e di fornire indicazioni alla comunità degli implementatori italiani in merito alle regole d'uso nazionali.
 

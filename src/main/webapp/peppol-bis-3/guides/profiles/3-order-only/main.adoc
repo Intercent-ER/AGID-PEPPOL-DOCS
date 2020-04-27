@@ -40,6 +40,14 @@ include::process/index.adoc[]
 
 include::../../shared/datatypes/index.adoc[]
 
+:leveloffset: +1
+
+include::custom/campistrutturati.adoc[]
+
+include::custom/tipologiaordine.adoc[]
+
+:leveloffset: -1
+
 include::../../shared/codes/index.adoc[]
 
 include::{transaction-path}/description/index.adoc[]

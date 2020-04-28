@@ -34,7 +34,7 @@ include::{snippet-dir}/snippet-30-3.xml[tags=shipment]
 <9> Data/ora effettiva di evasione
 
 
-Se trattasi di consegna domiciliare (ad esempio, all’indirizzo di un paziente), questa circostanza va specificata valorizzando il campo “ID” con il testo “Consegna domiciliare” e indicando con precisione nel campo “AddressLine/Line” l’indirizzo esatto di consegna (ad esempio, includendo il numero di interno), come mostrato nel seguente esempio:
+#Se trattasi di consegna domiciliare (ad esempio, all’indirizzo di un paziente), questa circostanza va specificata valorizzando il campo “ID” con il testo “Consegna domiciliare” e indicando con precisione nel campo “AddressLine/Line” l’indirizzo esatto di consegna (ad esempio, includendo il numero di interno), come mostrato nel seguente esempio:#
 
 
 .Esempio di consegna domiciliare:

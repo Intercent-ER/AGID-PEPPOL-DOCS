@@ -4,7 +4,7 @@
 
 [yellow-background]#Nei documenti di tipo ordine iniziale e sostitutivo è obbligatorio indicare il Codice identificativo di gara (CIG o Smart CIG)), censito nella Banca dati Nazionale dei contratti pubblici (BDNCP), a cui le prestazioni contenute nel Documento si riferiscono, oppure è obbligatori inserire il codice di esclusione (vedi paragrafo 4.1).#
 
-[cols="1,2,4"]
+[cols="1,2,5"]
 |====
 s|Riferimento
 s|Descrizione
@@ -12,9 +12,12 @@ s|Dove usarlo
 
 |*CIG*
 |Codice Identificativo Gara
-|In testata si usa `cac:OriginatorDocumentReference` (0..1). +
+|In testata si usa +
+`cac:OriginatorDocumentReference` (0..1) +
 
-A livello di riga `cac:OrderLine/cac:LineItem/cac:Item/cac:ItemSpecificationDocumentReference/ID` (0..n)
+A livello di riga +
+`cac:OrderLine/cac:LineItem/cac:Item/cac:ItemSpecificationDocumentReference/ID` (0..n)
+
 |====
 
 

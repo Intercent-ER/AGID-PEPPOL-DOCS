@@ -8,7 +8,7 @@ include::../../shared/links.adoc[]
 :source-language: xml
 :sectanchors:
 :sectnums:
-:transaction-path: ../../transactions/01-order
+:order: ../../transactions/01-order
 :snippet-dir: ../../../../rules/snippets/order
 
 image::../../shared/images/peppol.png[float="right"]
@@ -50,7 +50,7 @@ include::custom/tipologiaordine.adoc[]
 
 include::../../shared/codes/index.adoc[]
 
-include::{transaction-path}/description/index.adoc[]
+include::{order}/description/index.adoc[]
 
 include::profile/index.adoc[]
 

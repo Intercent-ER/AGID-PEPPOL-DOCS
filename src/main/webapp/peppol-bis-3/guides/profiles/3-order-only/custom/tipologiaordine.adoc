@@ -26,7 +26,7 @@ codice 220 senza sotto-tipi.
 |*CG*  | Comodato gratuito|
 |===
 
-#Note per l'utilizzo delle diverse tipologie d'ordine:#
+Note per l'utilizzo delle diverse tipologie d'ordine:
 
 *	**220** (Ordine di acquisto): corrisponde a un generico ordine di acquisto che può essere utilizzato sia per beni sia per servizi, con o senza emissione del relativo DDT. Sono inclusi gli ordini per l’acquisto di beni a scorta, gli ordini per l’acquisto di prodotti in transito ovvero prodotti che non vengono stoccati, gli ordini per l’invio di apparecchiature in riparazione e gli ordini di apparecchiature e beni di noleggio con canone. [underline]#Può# essere fornito un ulteriore dettaglio dell’ordine di acquisto usando i seguenti sotto-tipi: 
     

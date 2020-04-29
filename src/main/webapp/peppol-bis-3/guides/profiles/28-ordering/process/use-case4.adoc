@@ -1,39 +1,41 @@
 [[use-case-4-complex-ordering]]
-= Use case 4 – Complex ordering
+= Caso d’uso 4 – Risposta ad un ordine di fornitura complesso
 
-This use case contains an order with almost all elements in the order message used.
-The order is fully accepted by the seller.
+Questo caso d’uso è relativo a un ordine contenente quasi tutti gli elementi previsti per il messaggio dell’Ordine PEPPOL. +
+L’ordine viene accettato completamente dal venditore.
 
 [cols="1s,5",options="header"]
 |====
-|Use Case number
+|Caso d’uso nr.
 |4
 
-|Use Case Name
-|Complex ordering
+|Nome
+|Ordine complesso
 
-|Use Case Description
-|An order for numbered items with allowance and charges both on order level, line level and price.
+|Descrizione
+a|
+* Un ordine di articoli numerati con sconti e maggiorazioni sia a livello di testata che di riga e prezzo.
 
-|Parties involved
-|Buyer +
-Seller
-Originator
 
-|Assumptions
-|The buyer has a catalogue or list of products to order. +
-The catalogue contains the item numbers, names and type of unit of measure. +
-The buyer has reached a special agreement with the seller regarding discounts on the order, order lines and price. +
+|Parti coinvolte
+|Acquirente +
+Venditore +
+Committente
 
-|The flow
-|The buyer creates the order with 4 different lines and items. +
-The seller accepts to deliver all 4 items.
+|Assunzioni
+|L’acquirente ha a disposizione un catalogo o una lista di prodotti per effettuare l’ordine. +
+Il catalogo contiene gli identificativi degli articoli, nomi e unità di misura. +
+L’acquirente ha stretto uno speciale accordo con il venditore relativamente ad uno sconto sull’ordine, le righe d’ordine e sul prezzo.
 
-|Result
-|The buyer and the seller has reached an agreement. +
-The buyer has updated the order information based on the response. +
-If the invoice has an order reference, the invoice can be matched automatically.
+|Il flusso
+|L’acquirente crea l’ordine con 4 diverse righe e articoli. Il venditore accetta di consegnare tutti e 4 gli articoli. +
+L’ordine è stato accettato senza modifiche. Nessuna riga deve essere inviata nella risposta all’ordine.
 
-|XML example file
-|{order-response-UC}
+|Risultati
+|L’acquirente e il venditore hanno raggiunto un accordo. +
+L’acquirente ha aggiornato le informazioni dell’ordine in base alla risposta d’ordine. +
+Se la fattura contiene il riferimento all’ordine, questa può essere correlata automaticamente.
+
+|Esempio XML
+|Vedi sezione "Downloads" della https://notier.regione.emilia-romagna.it/docs/[home]
 |====

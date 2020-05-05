@@ -1,5 +1,5 @@
 <%@page 
-    contentType="text/html" 
+    contentType="text/html"
     pageEncoding="UTF-8"
     %><!DOCTYPE html>
 <html lang="en">
@@ -23,7 +23,7 @@
         <script>
             //<![CDATA[
             $(function () {
-                const VER = "45";    // Math.random()*1000000
+                const VER = "45-order-3.1";    // Math.random()*1000000
                 var $body = $("body"), $main = $("#main"), $guide = $("#guide").hide(), $adoc = $("#adoc-viewer"), $loader = $("#loader");
                 var defBis = "peppol-bis-3";
 
@@ -90,7 +90,7 @@
                     e.preventDefault();
                     var $a = $(this).parent("a");
                     var url = '<%=request.getContextPath()%>/' + $a.attr("href") + "?download=1";
-                    
+
                     var link = document.createElement('a');
                     document.body.appendChild(link);
                     link.href = url;

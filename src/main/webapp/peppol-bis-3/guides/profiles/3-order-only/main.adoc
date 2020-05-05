@@ -9,7 +9,7 @@ include::../../shared/links.adoc[]
 :source-language: xml
 :sectanchors:
 :sectnums:
-:transaction-path: ../../transactions/01-order
+:order: ../../transactions/01-order
 :snippet-dir: ../../../../rules/snippets/order
 
 = image:../../../../images/PEPPOL_Authority.jpg[width=100%, pdfwidth=100%, scaledwidth=100%, float="right"]PEPPOL BIS Ordinazione Semplice 3.1
@@ -39,9 +39,17 @@ include::process/index.adoc[]
 
 include::../../shared/datatypes/index.adoc[]
 
+:leveloffset: +1
+
+include::custom/campistrutturati.adoc[]
+
+include::custom/tipologiaordine.adoc[]
+
+:leveloffset: -1
+
 include::../../shared/codes/index.adoc[]
 
-include::{transaction-path}/description/index.adoc[]
+include::{order}/description/index.adoc[]
 
 include::profile/index.adoc[]
 

@@ -25,18 +25,18 @@ include::tax-total.adoc[]
 
 include::../../../shared/files/vat-cat-line.adoc[]
 
-include::riferimentialtroordine.adoc[]
+include::custom/riferimentialtroordine.adoc[]
 
-include::gestioneordiniparticolari.adoc[]
+include::custom/gestioneordiniparticolari.adoc[]
 
-include::altririferimenti.adoc[]
+include::custom/altririferimenti.adoc[]
 
-include::classificazioneprodotto.adoc[]
+include::custom/classificazioneprodotto.adoc[]
 
-include::consegna.adoc[]
+include::custom/consegna.adoc[]
 
-include::confezionamento.adoc[]
+include::custom/confezionamento.adoc[]
 
-include::usonote.adoc[]
+include::custom/usonote.adoc[]
 
 :leveloffset: -1

@@ -3,9 +3,9 @@
 
 L’individuazione del prodotto (bene o servizio) all’interno di ciascuna linea d’ordine avviene, oltre che attraverso la denominazione (elemento “Name, che è obbligatorio) e la descrizione (elemento “Description”), anche per mezzo dell’utilizzo di codici identificativi che primariamente sono due:
 
-il codice attribuito dal Fornitore (elemento “SellersItemIdentification/ID”);
+* il codice attribuito dal Fornitore (elemento “SellersItemIdentification/ID”);
 
-il codice standard, corrispondente all’identificativo assegnato al prodotto da un sistema di identificazione univoca (elemento “StandardItemIdentification/ID”) selezionato tra quelli presenti nell’apposita code list PEPPOL.
+* il codice standard, corrispondente all’identificativo assegnato al prodotto da un sistema di identificazione univoca (elemento “StandardItemIdentification/ID”) selezionato tra quelli presenti nell’apposita code list PEPPOL.
 
 Quale identificatore deve essere usato dipende dalle informazioni conosciute al momento dell’ordine o da quello comunemente utilizzato nel settore business di riferimento.
 

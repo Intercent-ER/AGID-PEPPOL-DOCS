@@ -8,4 +8,7 @@ include::../../../shared/profiles/03.adoc[]
 
 include::identifiers.adoc[]
 
+include::paragrafo7_sottoparagrafi.adoc[]
+
 :leveloffset: -1
+

@@ -1,34 +1,36 @@
 [[use-case-3-ordering-of-services]]
-= Use case 3 – Ordering of services
+= Caso d’uso 3 – Risposta all’ordine di fornitura per i servizi
 
-This use case contains an order of services.
+Questo caso d’uso è relativo a un ordine sui servizi e risposta con rigetto.
 
 [cols="1s,5",options="header"]
 |====
-|Use Case number
+|Caso d’uso nr.
 |3
-|Use Case Name
-|Ordering of services
 
-|Use Case Description
-|An order of translation services. +
-Delivery location and period is specified. +
-The seller rejects the order.
+|Nome
+|Ordine servizi
 
-|Parties involved
-|Buyer +
-Seller
+|Descrizione
+a|
+* Un ordine per servizi di traduzione.
+* Il luogo di consegna e il periodo sono specificati.
+* Il venditore respinge l’ordine.
 
-|Assumptions
-|The buyer is using a form with pre-defined and agreed properties for this service.
+|Parti coinvolte
+|Acquirente +
+Venditore
 
-|The flow
-|The buyer creates the order with one line requesting translation between Swedish and Spanish. +
-The seller rejects the order.
+|Assunzioni
+|L’acquirente utilizza un modulo con una serie di proprietà predefinite e concordate per ordinare il servizio.
 
-|Result
-|The buyer and the seller has not reached any agreement.
+|Il flusso
+|L’acquirente crea l’ordine di una sola riga richiedendo dei servizi di traduzione dallo Svedese allo Spagnolo. +
+Il venditore rifiuta l’ordine. Nessuna riga deve essere inviata ma deve avere la motivazione del rigetto nella risposta all’ordine.
 
-|XML example file
-|{order-response-UC}
+|Risultati
+|L’acquirente e il venditore non hanno raggiunto un accordo.
+
+|Esempio XML
+|Vedi sezione "Downloads" della https://notier.regione.emilia-romagna.it/docs/[home]
 |====

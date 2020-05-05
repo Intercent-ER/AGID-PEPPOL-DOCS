@@ -6,11 +6,11 @@ Questa Business Interoperability Specification (BIS) è il risultato del lavoro 
 Questa Peppol BIS fornisce un set di specifiche per implementare un processo di business Peppol.
 Il documento è inteso per chiarire i requisiti necessari per assicurare l’interoperabilità nell’eProcurement Pubblico pan-europeo e fornisce le linee guida per il supporto e l’implementazione di questi requisiti. +
 
-La Peppol BIS è basata sul CEN WS/BII “BII Profile 03 Order only” CEN BII2 Profile 03, Order Only e "localizzata" in base ai requisiti del modello italiano di e-Procurement, così come riportati nelle specifiche tecniche http://www.rgs.mef.gov.it/VERSIONE-I/e_government/amministrazioni_pubbliche/acquisti_pubblici_in_rete_apir/nodo_di_smistamento_degli_ordini_di_acquisto_delle_amministrazioni_pubbliche_nso/[NSO].
+La Peppol BIS è basata sul *CEN WS/BII “BII Profile 03 Order only”* e "localizzata" in base ai requisiti del modello italiano di e-Procurement, così come riportati nelle specifiche tecniche http://www.rgs.mef.gov.it/VERSIONE-I/e_government/amministrazioni_pubbliche/acquisti_pubblici_in_rete_apir/nodo_di_smistamento_degli_ordini_di_acquisto_delle_amministrazioni_pubbliche_nso/[NSO].
 
 Fare riferimento alla sezione “ID Customizzazione” per ulteriori informazioni. +
 
-In questo documento le regole d'uso derivanti dal modello italiano di e-procurement sono evidenziate in giallo.
+#In questo documento le regole d'uso ed i paragrafi derivanti dal modello italiano di e-procurement sono evidenziate in giallo.#
 
 *Lo scopo* di questo documento è di descrivere un formato comune per il messaggio dell’ordine di fornitura nel mercato europeo, e facilitare un’efficiente implementazione e diffusione della collaborazione elettronica relativa al processo dell’ordine basata su questo formato e di fornire indicazioni alla comunità degli implementatori italiani in merito alle regole d'uso nazionali.
 
@@ -25,24 +25,4 @@ include::../../../shared/files/audience.adoc[]
 
 :leveloffset: -1
 
-[[A-chi-si-rivolge]]
-= A chi si rivolge
-
-Questo documento si rivolge alle organizzazioni che intendono essere abilitate a PEPPOL per scambiare ordini elettronici, e/o ai loro fornitori ICT. Queste organizzazioni potrebbero essere:
-
-* Fornitori di Servizi
-
-* Autorità appaltanti
-
-* Operatori Economici
-
-* Sviluppatori Software
-
-Più specificatamente, i ruoli previsti sono i seguenti:
-
-* Architetti ICT
-
-* Sviluppatori ICT
-
-* Esperti di Business
 

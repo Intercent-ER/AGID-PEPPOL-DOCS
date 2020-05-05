@@ -1,37 +1,20 @@
-[[scope]]
-= Scope
+[[Ambito]]
+= Ambito
 
-This BIS describes a process comprising a Buyer to issue an electronic order, whereby the Seller may accept the order, accept with changes or reject.
-In his rejection the Seller may indicate reasons, so the Buyer may issue a new order that may be acceptable.
-The Seller may accept the order with changes, only if in a previously concluded contract the scope of such changes was agreed.
-The order that is agreed upon by acceptance has the commercial and legal status of a contract.
+Questo BIS descrive un processo che prevede l’emissione di un ordine elettronico da parte del Cliente senza che vi sia una conferma d’ordine da parte del Fornitore.
 
-The main activities supported by this profile are:
+Le principali attività supportate da questo profilo sono:
 
-Structured Ordering::
-The Order transaction should support the structured ordering of goods or services, using free text or use of identifiers.
-The information source of the ordered products may be a (paper or electronic) catalogue.
+Fornitura Strutturata:: La transazione dell’Ordine dovrebbe supportare la fornitura strutturata di beni o servizi, descritti sia mediante testo libero che identificatori. L’informazione di origine dei prodotti ordinati potrebbe provenire da un catalogo (cartaceo o elettronico).
 
-Accounting::
-The ordering process must support the allocation of budgets, so the value amounts of the ordered products may be stated.
-The buyer may provide some information that the seller is required to place on the invoice for aiding and automation of invoice processing.
+Contabilità:: Il processo dell’ordine di fornitura deve supportare l’allocazione del budget, in modo che possano essere indicati gli importi relativi al valore dei prodotti ordinati. L’acquirente può fornire alcune informazioni che il fornitore dovrà inserire in fattura per facilitare e automatizzare il processo di fatturazione.
 
-Invoice Verification::
-The buyer may provide some information that the seller is required to place on the invoice for aiding and automation of invoice approval.
+Verifica Fattura:: L’acquirente può fornire alcune informazioni che il fornitore dovrà inserire in fattura per facilitare e automatizzare il processo di approvazione di questa.
 
-VAT reporting::
-VAT reporting is not a general requirement on orders.
-The level of support in orders is to
+Resoconto IVA:: Il resoconto IVA non è un requisito generale negli ordini. Il livello di supporto negli ordini è il seguente:
+* Abilitare il resoconto IVA nelle fatture indicando il codice IVA del cliente nel caso di inversione contabile.
+* L’IVA può essere indicata come stimata per permettere ai clienti di indicare il valore previsto dell’ordine. Questo può essere utile per la correlazione automatica di ordini e relative fatture. Le informazioni IVA sono considerate informative e quindi non influiscono sui termini commerciali.
 
-* Enable VAT reporting in invoices by providing VAT number of buyer in case of reverse charges.
-* VAT can be stated as an estimate to enable buyers to state expected value of order. +
-This can be helpful in automated matching of orders and invoices. +
-VAT information is informative and does not affect the terms of trade.
+Trasporto e consegna:: Vi è solo un supporto limitato per le informazioni relative al trasporto, ma è noto che l’acquirente necessita di fornire alcune informazioni circa l’indirizzo o ubicazione di consegna richiesti, alcuni termini basilari, l’ora e la persona di contatto per la consegna dell’ordine.
 
-Transport and delivery::
-
-Only limited support is in scope for transport related information, but it is recognized that the buyer needs to be able to provide some information about requested delivery location, some basic term, time and contact persons for a delivery of an order.
-
-Inventory::
-
-Supporting inventory management is not in scope, but structured orders based on catalogues can be used to automate picking at supplier warehouses.
+Inventario:: Il supporto alla gestione dell’inventario non è previsto, ma gli ordini strutturati basati su cataloghi possono essere utilizzati per automatizzare la raccolta presso il magazzino del fornitore.

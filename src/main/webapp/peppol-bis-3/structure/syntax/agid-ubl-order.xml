@@ -2052,15 +2052,6 @@
 				<Element>
 					<Term>cac:Item</Term>
 					<Name>Item information</Name>
-					<Element>
-						<Term>cbc:Name</Term>
-						<Name>Item name</Name>
-						<Description>A short name for an item. A short name given to an
-							item, such as a name from a Catalogue, as distinct from a
-							description.</Description>
-						<DataType>Text</DataType>
-						<Reference type="BUSINESS_TERM">tir01-135</Reference>
-					</Element>
 					<Element cardinality="0..1">
 						<Term>cbc:Description</Term>
 						<Name>Item description</Name>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties
+  SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties version="1.0"><entry key="TD01">Fattura</entry><entry key="TD02">Acconto / anticipo su fattura</entry><entry key="TD03">Acconto / anticipo su parcella</entry><entry key="TD04">Nota di credito</entry><entry key="TD05">Nota di debito</entry><entry key="TD06">Parcella</entry></properties>

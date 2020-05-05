@@ -1,3 +1,2 @@
-Version 3.0.5
+Version 3.0.5 hotfix
 Release date	
-2019-11-01

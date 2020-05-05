@@ -73,11 +73,11 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 	</rule>
 	
 	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID" flag="fatal">
-		<assert test="(@schemeID = '9921' or @schemeID='0201') and (matches(.,'^(IT:IPA:)?[a-zA-Z0-9]{6}$') or (matches(.,'^IT:PEC:(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)$') and matches(.,'^.{14,256}$')) or matches(.,'^IT:CODDEST:[a-zA-Z0-9]{7}$'))" flag="fatal" id="BR-IT-200">[BR-IT-200] - Se l'elemento BT-49-1 Buyer electronic address identification scheme identifier contiene il valore "0201" (ex 9921), l'elemento BT-49 Buyer electronic address 
+		<assert test="@schemeID='0201' and (matches(.,'^(IT:IPA:)?[a-zA-Z0-9]{6}$') or (matches(.,'^IT:PEC:(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)$') and matches(.,'^.{14,256}$')) or matches(.,'^IT:CODDEST:[a-zA-Z0-9]{7}$'))" flag="fatal" id="BR-IT-200">[BR-IT-200] - Se l'elemento BT-49-1 Buyer electronic address identification scheme identifier contiene il valore "0201", l'elemento BT-49 Buyer electronic address 
 		rappresenta un codice IPA, può iniziare opzionalmente con il prefisso "IT:IPA:" e deve essere seguito da un identificatore con lunghezza pari a 6 caratteri,
 		oppure può iniziare con il prefisso "IT:PEC:" ed essere seguito da un indirizzo PEC di lunghezza compresa fra 7 e 256 caratteri,
 		oppure può iniziare con il prefisso "IT:CODDEST:" ed essere seguito da un identificatore con lunghezza pari a 7 caratteri.</assert>
-		<assert test="(@schemeID = '9921' or @schemeID='0201')" flag="fatal" id="BR-IT-190">[BR-IT-190] - L'elemento BT-49 Buyer electronic address deve contenere la PEC del destinatario della fattura, oppure l’indice IPA oppure il codice destinatario. Di conseguenza per l'elemento BT-49-1 Buyer electronic address identification scheme identifier DEVE indicare lo schema "0201" (ex 9921).</assert>
+		<assert test="@schemeID='0201'" flag="fatal" id="BR-IT-190">[BR-IT-190] - L'elemento BT-49 Buyer electronic address deve contenere la PEC del destinatario della fattura, oppure l’indice IPA oppure il codice destinatario. Di conseguenza per l'elemento BT-49-1 Buyer electronic address identification scheme identifier DEVE indicare lo schema "0201".</assert>
 	</rule>
 	
 	<rule context="/*/cac:AccountingCustomerParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']" flag="fatal">

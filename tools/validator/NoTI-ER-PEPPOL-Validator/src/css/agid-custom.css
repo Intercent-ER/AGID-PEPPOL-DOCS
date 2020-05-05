@@ -1,0 +1,9 @@
+.fixed-value {
+    background-color: LightGreen !important;
+}
+.cardinality {
+    background-color: LightYellow !important;
+}
+.extension {
+    background-color: LightCyan !important;
+}

@@ -557,7 +557,7 @@
 							<Name>Scheme identifier</Name>
 							<Description>Scheme identifier for party identification</Description>
 							<Reference type="CODE_LIST">ICD</Reference>
-							<Value type="EXAMPLE">9921</Value>
+							<Value type="EXAMPLE">0201</Value>
 						</Attribute>
 						<Value type="EXAMPLE">CODDEST:1234567</Value>
 					</Element>
@@ -2052,15 +2052,6 @@
 				<Element>
 					<Term>cac:Item</Term>
 					<Name>Item information</Name>
-					<Element>
-						<Term>cbc:Name</Term>
-						<Name>Item name</Name>
-						<Description>A short name for an item. A short name given to an
-							item, such as a name from a Catalogue, as distinct from a
-							description.</Description>
-						<DataType>Text</DataType>
-						<Reference type="BUSINESS_TERM">tir01-135</Reference>
-					</Element>
 					<Element cardinality="0..1">
 						<Term>cbc:Description</Term>
 						<Name>Item description</Name>

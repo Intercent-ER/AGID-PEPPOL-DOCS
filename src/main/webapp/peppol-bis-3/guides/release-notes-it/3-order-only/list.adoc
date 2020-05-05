@@ -1,0 +1,18 @@
+
+[cols="1h,1m,4m", options="header"]
+
+|===
+| Versione
+| Data
+| Cosa è cambiato
+
+
+| 3.1.0.1(IT)
+| 24/02/2020
+| Codifiche ufficiali mappate su requisiti e significati italiani.
+
+
+| 3.1.0.1.beta01(IT)
+| 21/02/2020
+| Regole di Business aggiornate con versione PEPPOL 3.1
+|===

@@ -17,7 +17,7 @@
         <filter-class>com.javest.servlet.filter.XmlFilter</filter-class>
         <init-param>
             <param-name>adapter</param-name>
-            <param-value>WEB-INF/xsl/agid-peppol-bis-structure-v1.4.xsl</param-value>
+            <param-value>WEB-INF/xsl/agid-peppol-bis-structure-v1.5.2.xsl</param-value>
         </init-param>
     </filter>
     <filter>

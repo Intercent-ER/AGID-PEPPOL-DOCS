@@ -1,5 +1,5 @@
-= Ordine di Fornitura Elettronico con risposta 3.0
-PEPPOL
+= PEPPOL BIS Ordinazione Completa 3.0
+OpenPEPPOL AISBL, Post-Award Coordinating Community
 :doctype: book
 :icons: font
 :encoding: utf-8

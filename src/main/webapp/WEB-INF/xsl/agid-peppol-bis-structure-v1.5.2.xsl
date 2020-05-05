@@ -6,7 +6,7 @@
                 exclude-result-prefixes="stx cus">
     <!--
             Author: JAVEST by Roberto Cisternino
-            Version 1.5.1
+            Version 1.5.2
     -->
     <xsl:output method="html"
                     doctype-system="about:legacy-compat"
@@ -116,9 +116,9 @@
                             <thead>
                                 <tr>
                                     <th style="width: 7%; font-size: smaller">Cardinalità</th>
-                                    <th style="width: 9%">ID</th>
+                                    <th style="width: 10%">ID</th>
                                     <th style="width: 28%">Nome</th>
-                                    <th style="width: 49%">Descrizione</th>
+                                    <th style="width: 48%">Descrizione</th>
                                     <th style="width: 7%">Stato</th>
                                 </tr>
                             </thead>
@@ -182,9 +182,10 @@
         <xsl:param name="level" select="0"/>
         <xsl:param name="parentId" select="''"/>
         <xsl:param name="rowClass" select="''"/>
+		<xsl:variable name="rowId" select="if (string-length($parentId) &gt; 0) then concat($parentId, '.', position()) else if ($level = 0) then '' else string(position())"/>
         <xsl:apply-templates select="document(.)/stx:Element">
             <xsl:with-param name="level" select="$level"/>
-            <xsl:with-param name="parentId" select="$parentId"/>
+            <xsl:with-param name="parentId" select="$rowId"/>
             <xsl:with-param name="rowClass" select="$rowClass"/>
         </xsl:apply-templates>
     </xsl:template>
@@ -227,6 +228,7 @@
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
+		<xsl:message><xsl:value-of select="$parentId"/> <xsl:value-of select="stx:Term"/></xsl:message>
         <tr id="{translate(translate(substring-after($location,'/'),':','-'),'/','_')}" data-level="{$level}">
             <xsl:if test="$extension or $restriction or $fixedValue">
                 <xsl:attribute name="class">

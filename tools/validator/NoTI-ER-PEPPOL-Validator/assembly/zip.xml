@@ -13,8 +13,8 @@
     <!--includeBaseDirectory>false</includeBaseDirectory-->
     <fileSets>
         <fileSet>
-            <directory>${project.basedir}</directory>
             <outputDirectory>/</outputDirectory>
+            <directory>src</directory>
             <includes>
                 <include>*.bat</include>
                 <include>*.jar</include>

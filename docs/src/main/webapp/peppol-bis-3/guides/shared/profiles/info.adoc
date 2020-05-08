@@ -1,0 +1,15 @@
+= Identificatori PEPPOL
+
+PEPPOL ha definito una {policy8} che specifica come utilizzare gli identificatori sia nella sua infrastruttura di trasporto che all’interno dei documenti scambiati su questa.
+Essa introduce anche i principi per ogni identificatore utilizzato nell’ambiente PEPPOL.
+Le regole che si applicano a questo BIS sono le seguenti:
+
+
+== Profili e messaggi [[profiles]]
+
+Tutti i messaggi contengono il ProfileID e il CustomizationID. Il ProfileID identifica a quale processo di business appartiene un dato messaggio, e il CustomizationID identifica il tipo di messaggio e le regole applicate.
+
+I profili sono connessi ad un processo di business e possono contenere molteplici tipologie di documento. Istanze di documenti validi debbono contenere i corrispondenti ProfileID e CustomizationID.
+
+
+IMPORTANT: Il CustomizationID è una stringa senza spazi. La seguente lista contiene spazi nel CustomizationID al solo scopo di semplificarne la lettura. *Assicuratevi di rimuovere gli spazi prima di utilizzarla.*

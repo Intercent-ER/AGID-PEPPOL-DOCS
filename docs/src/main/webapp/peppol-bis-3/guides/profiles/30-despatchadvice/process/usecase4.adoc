@@ -1,0 +1,61 @@
+[[use-case-4---despatch-with-weight-length-andor-volume-based-items-ie-vegetables-meat]]
+== Caso d’uso 4 – Spedizione con indicazione del peso, lunghezza e/o volume degli articoli merce
+
+Questo caso d’uso dimostra l’uso del Documento di Trasporto, dove il Venditore spedisce degli articoli prezzati in base al peso, lunghezza e/o volume (es. insalata, carne). 
+
+[cols="1,5",options="header",]
+|====
+|*Nr. Caso d’uso* |4
+|*Nome Caso d’uso* |Spedizione con articoli descritti mediante il peso, la lunghezza e/o il volume (es. verdure, carne)
+|*Descrizione Caso d’uso* a|
+Questo caso d’uso dimostra l’uso del Documento di Trasporto (DDT), dove il Venditore spedisce degli articoli prezzati in base al peso, lunghezza e/o volume. Quindi, il peso, la lunghezza o il volume degli articoli sono importanti.  Le unità logistiche vengono utilizzate per indicare come sono imballati gli articoli. 
+Questo caso d’uso dimostra inoltre:
+* l’uso di identificatori per diverse parti (GLN ed il numero di organizzazione Svedese)
+* l’uso di ItemBestBeforeDate, ItemExpiryDate, ItemBatchNumber, ItemSerialNumbers, 
+* l’uso delle chiavi SSCC,
+* l’uso dell’ItemSellersIdentifier e dell’ItemStandardIdentifier (GTIN).
+
+|*Parti coinvolte* a|
+Lo Speditore (In UBL: DespatchSupplierParty) (In questo caso è lo stesso soggetto giuridico del Fornitore/Venditore)
+Il Consegnatario (In UBL: DeliveryCustomerParty) (In questo caso è lo stesso soggetto giuridico del Cliente/Acquirente)
+
+|*Assunzioni* a|
+1. Il Venditore ha ricevuto un ordine dall’Acquirente con:
+a. 4 righe (4 articoli) che sono prezzate in base al peso
+b. Da consegnare ad un singolo indirizzo di consegna 
+c. Allo stesso tempo.
+2. Il Venditore ha accettato l’ordine senza modifiche.
+3. Il Venditore consegna l’ordine completo come accettato. 
+4. Gli articoli sono suddivisi in quattro unità logistiche diverse.
+
+image:images/image9.png[image,width=150,height=94]
+
+|*Il flusso* a|
+1. Il Venditore preleva gli articoli ordinati 
+2. Il Venditore pesa gli articoli merce. 
+3. Il Venditore carica gli articoli in unità logistiche (Scatole)
+4. Lo Speditore crea il messaggio di Avviso di Spedizione
+5. Lo Speditore invia il messaggio di Avviso di Spedizione al Consegnatario
+6. Il Consegnatario riceve il messaggio di Avviso di Spedizione
+7. Il Consegnatario usa il contenuto dell’Avviso di Spedizione per registrare l’accettazione.
+a. Quattro righe di spedizione, quattro articoli.
+b. Le unità logistiche sono identificate mediante identificatori SSCC
+c. Il peso consegnato è utilizzato nell’accettazione (per verifica)
+8. Il Consegnatario usa il contenuto del messaggio di Avviso Spedizione per lo stoccaggio e la movimentazione.
+a. Gli articoli possono essere stoccati per BestBeforeDate o ExpiryDate
+b. Gli articoli possono essere stoccati per lotto e/o numero seriale
+c. Gli articoli possono essere movimentati in base al peso della unità logistica
+
+|*Risultato* a|
+1. Il messaggio di Avviso di Spedizione ha aiutato il Consegnatario a preparare l’accettazione 
+a. In tempo
+b. Nel luogo corretto (indirizzo)
+c. Con strumenti di stoccaggio appropriati
+2. Il messaggio di Avviso di Spedizione ha aiutato il Consegnatario nel processo di registrazione dell’accettazione per identificare
+a. L’ordine
+b. Le righe d’ordine
+c. Le unità logistiche 
+d. Gli articoli
+e. La quantità evasa/peso
+
+|====

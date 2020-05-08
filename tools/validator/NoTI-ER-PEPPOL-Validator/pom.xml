@@ -12,14 +12,56 @@
     
     <build>
         <plugins>
-            <plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					 <execution>
+						<id>copy-resources-3</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+						   <goal>copy-resources</goal>
+						</goals>
+						<configuration>
+						   <outputDirectory>${basedir}/target/xsl/PEPPOL/3.0</outputDirectory>
+						   <resources>          
+								<resource>
+									<directory>${basedir}/../../../artifacts/validation/3.0/xsl</directory>
+									<filtering>false</filtering>
+								</resource>
+						   </resources>
+							<echo>Copying xsl files</echo>						   
+						</configuration>            
+					</execution>
+					<execution>
+						<id>copy-resources-2</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+						   <goal>copy-resources</goal>
+						</goals>
+						<configuration>
+						   <outputDirectory>${basedir}/target/xsl/PEPPOL/2.0</outputDirectory>
+						   <resources>          
+								<resource>
+									<directory>${basedir}/../../../artifacts/validation/2.0/xsl</directory>
+									<filtering>false</filtering>
+								</resource>
+						   </resources>
+							<echo>Copying xsl files</echo>						   
+						</configuration>            
+					</execution>
+				 </executions>
+			</plugin>
+			<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <configuration>
+                <!--<configuration>
                     <descriptors>
                         <descriptor>assembly/repository.xml</descriptor>
                     </descriptors>
-                </configuration>
+                </configuration>-->
                 <executions>
                     <execution>
                         <id>create-distribution</id>
@@ -35,13 +77,13 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
+            <!--<plugin>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <version>3.0.0</version>
                 <executions>
                     <execution>
                         <id>copy</id>
-                        <phase>deploy</phase>
+                        <phase>install</phase>
                         <configuration>
                             <target>
                                 <property name="todir" refid="project.build.directory"/>
@@ -60,7 +102,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
 </project>

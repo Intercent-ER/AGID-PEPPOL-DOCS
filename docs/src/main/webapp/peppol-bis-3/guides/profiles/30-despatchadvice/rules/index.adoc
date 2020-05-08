@@ -1,0 +1,8 @@
+[[despatch-advice-business-rules]]
+= Regole di Business per il Documento di Trasporto
+
+:leveloffset: +1
+
+include::businessrules.adoc[]
+
+:leveloffset: -1

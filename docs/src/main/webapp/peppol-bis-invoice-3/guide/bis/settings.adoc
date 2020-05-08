@@ -1,0 +1,8 @@
+:lang: it
+:doctitle: image:../shared/images/peppol.jpg[float="right",width=100%, pdfwidth=100%, scaledwidth=100%] PEPPOL BIS Fatturazione
+:version: 3.0.5
+:shared-dir: ../shared
+:snippet-dir: ../../rules/snippets
+:name-op-en: OpenPEPPOL AISBL, Post-Award Coordinating Community
+
+include::../shared/settings.adoc[]

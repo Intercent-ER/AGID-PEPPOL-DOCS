@@ -1,0 +1,42 @@
+*** Conversione Documenti OpenPEPPOL BIS 05A nel formato Fattura PA 1.1 ***
+
+Il pacchetto contiene un ambiente di test per la conversione dei documenti e l'ultima versione degli adapter.
+
+Eventuali errori di conversione vengono mostrati nel browser di default disponibile sul vs. PC.
+
+Per eseguire le conversioni è sufficiente invocare i rispettivi file batch disponibili nella root:
+
+# Conversione da OpenPEPPOL a FatturaPA
+
+	Converti FT PEPPOL in SDI.bat
+	Converti NC PEPPOL in SDI.bat
+
+	NOTA: Dopo la conversione viene eseguita automaticamente anche la validazione XSD della Fattura PA 1.1
+
+
+# Conversione da FatturaPA a OpenPEPPOL (Variante senza totali generati per NoTIER incompatibile con regole BII2)
+
+	Converti FT SDI in PEPPOL (No BII2).bat
+	Converti NC SDI in PEPPOL (No BII2).bat
+
+	NOTA: Dopo la conversione viene eseguita automaticamente anche la validazione XSD UBL e quella semantica OpenPEPPOL (Senza regole BII2)
+
+
+Il processo di conversione chiede esclusivamente di selezionare il file xml sorgente da validare.
+
+
+Il risulato delle conversioni e validazioni può essere anche letto dai file di output generato sotto:
+
+\output
+	conversion_report.txt  (output di conversione e validazione strutturale)
+
+
+*** ADATTATORI DI CONVERSIONE ***
+
+adapters.zip
+
+	Contiene gli adattatori XSLT e i file necessari per l'installazione nel vs. sistema (x Engineering)
+
+\adapters
+
+	Il folder adapters contiene gli stessi adattatori che sono nello zip di cui sopra ad uso dell'ambiente di test.

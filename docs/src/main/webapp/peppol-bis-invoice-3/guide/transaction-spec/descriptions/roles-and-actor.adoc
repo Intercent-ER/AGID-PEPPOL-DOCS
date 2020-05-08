@@ -1,0 +1,12 @@
+
+= Parti di business
+
+I seguenti ruoli posso essere specificati. Lo stesso attore può giocare diversi ruoli a seconda del caso.
+
+Ulteriori dettagli su parti/ruoli sono riportati in <<roles>>.
+
+:leveloffset: +1
+
+include::../../syntax/roles.adoc[]
+
+:leveloffset: -1

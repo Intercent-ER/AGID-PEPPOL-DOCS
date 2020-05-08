@@ -1,9 +1,0 @@
-
-[cols="1,4"]
-|===
-h| Percorso nel documento
-| `cbc:EmbeddedDocumentBinaryObject/@mimeCode`
-h| Sorgente della codifica
-|
-  Subset of link:http://www.iana.org/assignments/media-types[IANA]
-|===

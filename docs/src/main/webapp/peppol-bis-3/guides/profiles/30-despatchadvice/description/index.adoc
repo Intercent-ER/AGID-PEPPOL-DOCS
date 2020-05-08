@@ -1,0 +1,50 @@
+[[description-of-selected-parts-of-the-despatch-advice-message]]
+= Descrizione di parti selezionate del Documento di Trasporto (DDT)
+
+:leveloffset: +1
+
+include::parties.adoc[]
+
+include::orderreference.adoc[]
+
+//include::../custom/altririferimenti.adoc[]
+
+include::shipment.adoc[]
+
+:leveloffset: -1
+
+[[despatch-line]]
+= Riga DDT
+
+Descrizione degli articoli che vengono consegnati.
+
+:leveloffset: +1
+
+include::itemdescription.adoc[]
+
+include::outstandingquantity.adoc[]
+
+include::hazardous.adoc[]
+
+include::../custom/antiblastici.adoc[]
+
+include::itemproperties.adoc[]
+
+include::serialnumber.adoc[]
+
+include::batchnumber.adoc[]
+
+include::../custom/scadenzafarmaci.adoc[]
+
+include::transporthandlingunit.adoc[]
+
+include::../custom/infoaggiuntive.adoc[]
+
+include::../custom/confezionamento.adoc[]
+
+include::../custom/particolaretrattamento.adoc[]
+
+include::../custom/temperatura.adoc[]
+
+:leveloffset: -1
+

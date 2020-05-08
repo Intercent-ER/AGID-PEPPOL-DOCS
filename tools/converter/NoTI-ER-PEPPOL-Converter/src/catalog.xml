@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Core XML Catalog
+    $Revision: 1.2 $ on $Date: 2015/02/06 15:00:00 $ by $Author: rcisternino $
+
+    Copyright (C) 2009-2015 JAVEST
+-->
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" prefer="public" xml:base="./profiles/" xsi:schemaLocation="urn:oasis:names:tc:entity:xmlns:xml:catalog profiles/open/W3C/xsd/catalog.xsd">
+    <public publicId="-//W3C//DTD XMLSchema 200102//EN" uri="open/W3C/dtd/XMLSchema.dtd"/>
+    <public publicId="datatypes" uri="open/W3C/dtd/datatypes.dtd"/>
+    <public publicId="-//OASIS//DTD Entity Resolution XML Catalog V1.0//EN" uri="open/W3C/dtd/catalog.dtd"/>
+    <public publicId="-//OASIS//DTD XML Catalogs V1.0//EN" uri="open/W3C/dtd/catalog.dtd"/>
+
+    <uri name="urn:oasis:names:tc:entity:xmlns:xml:catalog" uri="open/W3C/xsd/catalog.xsd"/>
+    <uri name="http://www.w3.org/2001/XMLSchema" uri="open/W3C/xsd/XMLSchema.xsd"/>
+    <uri name="http://www.w3.org/XML/1998/namespace" uri="open/W3C/xsd/xml.xsd"/>
+    <uri name="http://www.w3.org/2001/xml.xsd" uri="open/W3C/xsd/xml.xsd"/>
+    <uri name="http://www.w3.org/2001/03/xml.xsd" uri="open/W3C/xsd/xml.xsd"/>
+    <uri name="http://www.w3.org/2004/10/xml.xsd" uri="open/W3C/xsd/xml.xsd"/>
+    <uri name="http://www.w3.org/2005/08/xml.xsd" uri="open/W3C/xsd/xml.xsd"/>
+    <uri name="http://www.w3.org/2000/09/xmldsig#" uri="open/W3C/xsd/xmldsig-core-schema.xsd"/>
+    <uri name="http://www.w3.org/TR/xmldsig-core/xmldsig-core-schema.xsd" uri="open/W3C/xsd/xmldsig-core-schema.xsd"/>
+	<uri name="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/xmldsig-core-schema.xsd" uri="open/W3C/xsd/xmldsig-core-schema.xsd"/>
+	<uri name="http://www.javest.com/xsd/java/properties" uri="tech/java/xsd/properties.xsd"/>
+    <system systemId="http://www.oasis-open.org/committees/release/1.0/catalog.dtd" uri="open/W3C/dtd/catalog.dtd"/>
+    <system systemId="http://www.oasis-open.org/committees/entity/release/1.0/catalog.dtd" uri="open/W3C/dtd/catalog.dtd"/>
+    <system systemId="http://www.w3.org/2001/XMLSchema.dtd" uri="open/W3C/dtd/XMLSchema.dtd"/>
+</catalog>

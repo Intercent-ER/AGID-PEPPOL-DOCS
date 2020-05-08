@@ -1,0 +1,13 @@
+
+[[buyerref]]
+= Riferimento dell'acquirente (BuyerReference)
+
+Il riferimento dell'acquirente è **facoltativo**. Una fattura deve avere il riferimento dell'acquirente o il riferimento dell'ordine (vedi <<orderref>>). 
+
+L'elemento è utilizzato come riferimento per chi ha ordinato  prodotti / servizi. L'esempio è dato dal nome della persona che ordina, il numero del dipendente o un codice che identifica questa persona o dipartimento / gruppo. Il loro riferimento viene spesso utilizzato per lo smistamento interno al beneficiario, quindi è importante valorizzare questo elemento con i valori corretti in base alle necessità del beneficiario.
+
+Se il cliente non fornisce né il riferimento dell'acquirente né un riferimento ad un ordine, il nome della persona che ordina o che è stato designato per cliente può essere fornito nel riferimento dell'acquirente se conosciuto dal fornitore.
+
+IMPORTANT: Quando il riferimento è fornito dal cliente, l'elemento corretto deve contenere il riferimento fornito.
+
+include::../../../syntax/references/buyer.adoc[]

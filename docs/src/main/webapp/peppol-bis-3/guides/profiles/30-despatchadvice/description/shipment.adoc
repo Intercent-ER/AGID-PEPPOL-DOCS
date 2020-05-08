@@ -1,0 +1,62 @@
+[[shipment]]
+= Spedizione
+
+Descrizione della spedizione effettiva che contiene la merce che è stata spedita.
+
+[[shipment-id]]
+== ID Spedizione, Vettore, informazioni di trasporto, consegna ed evasione 
+
+In alcuni usi del Documento di Trasporto, non c’è un unico identificatore assegnato alla spedizione.
+
+Comunque, la sintassi UBL richiede che lo Shipment ID sia specificato.
+
+Conseguentemente, per poter utilizzare elementi come GrossWeightMeasure o CarrierParty, lo Shipment/ID deve essere valorizzato.
+
+Per supportare scenari dove non è disponibile o non è utilizzato l’ID della spedizione si deve usare il valore **NA**.
+
+Come parte delle informazioni di spedizione (Shipment) vengono forniti: peso, volume, colli, vettore, tempi di consegna stimati e di effettiva evasione.
+
+NOTA: #Le misure (***Measure) come peso e volume sono obbligatoriamente espresse secondo la codifica {UNRec20} e non è richiesto qualificarle con ulteriori attributi.#
+
+.Esempio:
+[source, xml, indent=0]
+----
+include::{snippet-dir}/snippet-30-3.xml[tags=shipment]
+----
+<1> Peso lordo
+<2> Volume lordo
+<3> Nr. Colli, espresso come numero intero (vedi regola IT-T16-R005)
+<4> Identificativo assegnato a questa consegna
+<5> Identificativo Fiscale Vettore
+<6> Ragione Sociale o denominazione del Vettore
+<7> Indirizzo
+<8> Tempi di consegna promessi/stimati
+<9> Data/ora effettiva di evasione
+
+
+#Se trattasi di consegna domiciliare (ad esempio, all’indirizzo di un paziente), questa circostanza va specificata valorizzando il campo “ID” con il testo “Consegna domiciliare” e indicando con precisione nel campo “AddressLine/Line” l’indirizzo esatto di consegna (ad esempio, includendo il numero di interno), come mostrato nel seguente esempio:#
+
+
+.Esempio di consegna domiciliare:
+[source, xml, indent=0]
+----
+<cac:Delivery>
+    <cac:DeliveryLocation>
+        <cac:ID>Consegna domiciliare</cac:ID>
+        <Name>Entrata lato portineria</Name>
+        <cac:Address>
+            <cbc:StreetName>Via Attanasio Soldati 80</cbc:StreetName>
+            <cbc:AdditionalStreetName>Località La Rustica</cbc:AdditionalStreetName>
+            <cbc:CityName>Roma</cbc:CityName>
+            <cbc:PostalZone>00155</cbc:PostalZone>
+            <cbc:CountrySubentity>Lazio</cbc:CountrySubentity>
+            <cac:AddressLine>
+                <cbc:Line>Edificio C, Quarto piano, Stanza 01</cbc:Line>
+            </cac:AddressLine>
+            <cac:Country>
+                <cbc:IdentificationCode>IT</cbc:IdentificationCode>
+            </cac:Country>
+        </cac:Address>
+    </cac:DeliveryLocation>
+</cac:Delivery>
+----

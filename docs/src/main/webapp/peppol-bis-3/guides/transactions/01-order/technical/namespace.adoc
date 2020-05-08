@@ -1,0 +1,3 @@
+//test
+* Il Namespace dell’ordine http://docs.oasis-open.org/ubl/UBL-2.1.html[UBL 2.1] è: +
+`urn:oasis:names:specification:ubl:schema:xsd:Order-2`

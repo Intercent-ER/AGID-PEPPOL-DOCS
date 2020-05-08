@@ -1,0 +1,7 @@
+.Esempio UBL per le unità di misura
+[source, xml, indent=0]
+----
+include::{snippet-dir}/item.xml[tags=uom]
+----
+<1> Codice H87 dalla Recommendation no. 20
+<2> Codice PX, contrassegnato con X nella Recommendation no. 21

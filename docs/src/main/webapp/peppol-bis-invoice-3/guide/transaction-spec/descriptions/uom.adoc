@@ -1,0 +1,87 @@
+= Unità di misura
+
+L'unità di misura in una fattura prevede l'utilizzo delle codifiche presenti in UNECE Recommendation No. 20 (version 11e), unitamente alle codifiche riportate in UNECE Recommendation No. 21 con il prefisso X. 
+Si consiglia di consultare <<uom>> per ulteriori dettagli riferiti alle codifiche di riferimento.
+
+.Esempi di unità di misura dalla Recommendation No. 20
+[cols="1,5", options="header"]
+|===
+|Codice
+|Nome
+
+|H87
+|Piece
+
+|KGM
+|Kilogram
+
+|MTR
+|Meter
+
+|LTR
+|Litre
+
+|MTK
+|Square metre
+
+|MTQ
+|Cubic metre
+
+|KTM
+|Kilometre
+
+|TNE
+|Tonne (metric ton)
+
+|KWH
+|Kilowatt hour
+
+|DAY
+|Day
+
+|HUR
+|Hour
+
+|MIN
+|Minute
+|===
+
+.Examples of unit of measure from Recommendation No. 21, prefixed with an X
+[cols="1,5", options="header"]
+|===
+|Code
+|Name
+
+|XBG
+|Bag
+
+|XBX
+|Box
+
+|XCT
+|Carton
+
+|XCY
+|Cylinder
+
+|XBA
+|Barrel
+
+|XPK
+|Package
+
+|XPX
+|Pallet
+
+|XRL
+|Reel
+
+|XSA
+|Sack
+
+|XST
+|Sheet
+|===
+
+
+include::../../syntax/uom.adoc[]

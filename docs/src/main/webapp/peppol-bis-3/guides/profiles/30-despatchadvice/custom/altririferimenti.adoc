@@ -1,0 +1,59 @@
+
+= Altri Riferimenti
+
+Nel procurement pubblico possono essere diversi i riferimenti necessari a identificare una fornitura.
+
+Per fornire gli estremi di un documento di gara al quale si vuol fare riferimento è necessario specificarne la tipologia secondo i valori definiti nella tabella seguente.
+
+L’elemento <cac:DocumentType> tuttavia è di tipo testuale è può essere quindi utilizzato per esprimere altre tipologie di documento non essendo soggetto a validazione semantica.
+
+È importante assicurarsi che le tipologie di documento siano conformi alla seguente specifica per garantire l’interopeabilità.
+
+.Tipologie di riferimento
+[width="100%", cols="1h,2m,3m"]
+|===
+| *DocumentType*
+| *Descrizione*
+| *Dove usarlo*
+
+| CIG
+| Codice Identificativo Gara
+| cac:AdditionalDocumentReference (0..n)
+cac:DespatchLine/cac:DocumentReference (0..n)
+
+| CUP
+| Codice Unico Progetto
+| cac:AdditionalDocumentReference (0..n)
+cac:DespatchLine/cac:DocumentReference (0..n)
+
+| CONVENZIONE
+| Estremi Convenzione
+| cac:AdditionalDocumentReference (0..n)
+cac:DespatchLine/cac:DocumentReference (0..n)
+|===
+
+
+== Riferimento aggiuntivo a livello di testata
+
+.Esempio di riferimento a un CIG
+[source, xml, indent=0]
+----
+<cac:AdditionalDocumentReference>
+    <cbc:ID>1Z1A3EE456</cbc:ID>
+    <cbc:DocumentType>CIG</cbc:DocumentType>
+</cac:AdditionalDocumentReference>
+----
+
+
+== Riferimento aggiuntivo a livello di riga
+
+.Esempio di riferimento a un CIG
+[source, xml, indent=0]
+----
+<cac:DespatchLine>
+    <cac:DocumentReference>
+        <cbc:ID>1Z1A3EE456</cbc:ID>
+        <cbc:DocumentType>CIG</cbc:DocumentType>
+    </cac:DocumentReference>
+</cac:DespatchLine>
+----

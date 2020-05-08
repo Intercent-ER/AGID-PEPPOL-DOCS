@@ -1,0 +1,53 @@
+[[use-case-2---simple-despatch-with-outstanding-quantity.]]
+== Caso d’uso 2 – Spedizione semplice con quantità inevasa.
+
+Questo caso d’uso è un semplice Documento di Trasporto (DDT) dove non ci sono unità logistiche, ma una quantità inevasa a livello di riga.
+Ci sono vari esempi di utilizzo per la quantità inevasa e le motivazioni relative.
+Vi sono quattro parti (soggetti giuridici) in questo caso.
+
+[cols="1,5",options="header",]
+|====
+|*Nr. Caso d’uso* |2
+|*Nome Caso d’uso* |Spedizione Semplice con quantità inevasa 
+|*Descrizione Caso d’uso* |Questo caso d’uso è un semplice Documento di Trasporto (DDT) dove non ci sono unità logistica, ma una quantità inevasa a livello di riga. Ci sono vari esempi di utilizzo per la quantità inevasa e le motivazioni relative. Vi sono quattro parti (soggetti giuridici) in questo caso.
+|*Parti coinvolte* a|
+Acquirente (In UBL: BuyerCustomerParty)
+Venditore (In UBL: SellerSupplierParty)
+Speditore (In UBL: DespatchSupplierParty) (Soggetto giuridico diverso dal Venditore in questo caso)
+Consegnatario (In UBL: DeliveryCustomerParty) (Soggetto giuridico diverso dall’Acquirente in questo caso)
+
+|*Assunzioni* a|
+1.  Il Venditore ha ricevuto un ordine dall’Acquirente con 
+a.  5 righe (5 diversi articoli)
+b.  Da consegnare ad un singolo indirizzo di consegna
+c.  Allo stesso tempo.
+2.  Il Venditore ha accettato l’ordine senza modifiche.
+3.  Lo Speditore non può evadere l’ordine completo come accettato.
+4.  La prima riga contiene la quantità ordinata
+5.  La seconda riga contiene la consegna di 6 dei 10 articoli ordinati. I rimanenti 4 articoli saranno consegnati in un’altra Spedizione.  
+6.  La terza linea contiene la consegna di 6 dei 10 articoli ordinati. I rimanenti 4 articoli non-saranno consegnati.  
+7.  La quarta riga contiene la consegna di 6 dei 10 articoli. 3 articoli saranno consegnati in un’altra Spedizione e 1 articolo non sarà consegnato.
+8.  La quinta riga contiene una consegna di 12 invece dei 10 articoli ordinati. 
+
+|*Il flusso* a|
+1.  Il Venditore preleva gli articoli ordinati
+2.  Il Venditore dispone gli articoli in casse
+3.  Lo Speditore crea un messaggio di Avviso di Spedizione 
+4.  Lo Speditore invia il messaggio di Avviso di Spedizione al Cliente
+5.  Il Consegnatario riceve il messaggio di Avviso di Spedizione
+6.  Il Consegnatario utilizza il contenuto del messaggio di Avviso Spedizione per registrare l’accettazione.
+a.  Cinque righe della spedizione con articoli differenti, ma una parte degli articoli relativa alle righe 2-5 è sia inevasa o non può essere consegnata affatto. (Il messaggio non utilizza alcuna unità logistica)
+
+|*Risultato* a|
+1.  Il messaggio di Avviso di Spedizione ha aiutato il Consegnatario a preparare l’accettazione 
+a.  In tempo
+b.  Nel luogo corretto (indirizzo)
+2.  Il messaggio di Avviso di Spedizione ha aiutato il Consegnatario nella registrazione dell’accettazione per identificare:
+a.  L’ordine
+b.  Le righe d’ordine
+c.  Gli articoli
+d.  La quantità evasa
+e.  La quantità inevasa da consegnare successivamente
+f.  La quantità inevasa che non verrà mai consegnata
+
+|====

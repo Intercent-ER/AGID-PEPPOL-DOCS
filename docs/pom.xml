@@ -109,6 +109,10 @@
 					</includes>
 					<replacements>
 						<replacement>
+							<token>(#link_to_schematron#)</token>
+							<value>NoTI-ER-PEPPOL-Schematron-${project.parent.version}.zip</value>
+						</replacement>
+						<replacement>
 							<token>(#link_to_validator#)</token>
 							<value>NoTI-ER-PEPPOL-Validator-${project.parent.version}.zip</value>
 						</replacement>
@@ -144,6 +148,26 @@
 				<artifactId>maven-dependency-plugin</artifactId>
 				<version>2.6</version>
 				<executions>
+					<execution>
+						<id>copy-schematron-zip</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>it.gov.agid</groupId>
+									<artifactId>NoTI-ER-PEPPOL-Schematron</artifactId>
+									<version>${project.parent.version}</version>
+									<type>zip</type>
+									<overWrite>true</overWrite>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${project.build.directory}/${project.build.finalName}/attachments</outputDirectory>
+						</configuration>            
+					</execution>
 					<execution>
 						<id>copy-validator-zip</id>
 						<!-- here the phase you need -->

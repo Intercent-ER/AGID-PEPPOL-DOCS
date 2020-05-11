@@ -10,8 +10,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <modules>
-		<module>docs</module>
 		<!--<module>tools/converter/NoTI-ER-PEPPOL-Converter</module>-->
 		<module>tools/validator/NoTI-ER-PEPPOL-Validator</module>
+		<module>docs</module>
 	</modules>
 </project>

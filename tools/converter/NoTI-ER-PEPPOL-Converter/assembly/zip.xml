@@ -38,17 +38,13 @@
             <outputDirectory>xsl</outputDirectory>
             <directory>src/xsl</directory>
         </fileSet>
-        <fileSet> <!-- Create empty directory -->
+        <fileSet> <!-- Copy resources -->
             <outputDirectory>xsl/PEPPOL</outputDirectory>
-            <excludes>
-                <exclude>**/*</exclude>
-            </excludes>
+            <directory>target/xsl/PEPPOL</directory>
         </fileSet>
-        <fileSet> <!-- Create empty directory -->
+        <fileSet> <!-- Copy resources -->
             <outputDirectory>adapters</outputDirectory>
-            <excludes>
-                <exclude>**/*</exclude>
-            </excludes>
+            <directory>target/adapters</directory>
         </fileSet>
         <fileSet> <!-- Create empty directory -->
             <outputDirectory>xml</outputDirectory>

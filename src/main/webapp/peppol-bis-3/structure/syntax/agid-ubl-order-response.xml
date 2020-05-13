@@ -24,7 +24,7 @@
                 transaction.</Description>
 			<DataType>Identifier</DataType>
 			<Reference type="BUSINESS_TERM">tir76-001</Reference>
-			<Value type="FIXED">urn:fdc:peppol.eu:poacc:trns:order_response:3</Value>
+			<Value type="FIXED">urn:fdc:peppol.eu:poacc:trns:order_response:3:restrictive:urn:www.agid.gov.it:trns:risposta_ordine:3.0</Value>
 		</Element>
 		<Element>
 			<Term>cbc:ProfileID</Term>

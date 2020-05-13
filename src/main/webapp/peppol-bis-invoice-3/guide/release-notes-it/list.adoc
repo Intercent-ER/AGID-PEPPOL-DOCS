@@ -5,10 +5,13 @@
 | Data
 | Cosa è cambiato
 
+| 13/05/2020
+| Aggiornamento alle specifiche PEPPOL BIS Billing 3.0.6.
+
+| 24/02/2020
+| Codifiche ufficiali mappate su requisiti e significati italiani.
 
 | 21/02/2020
 | Regole di Business aggiornate con ultima EN 3.0.5 hotfix.
 
-| 24/02/2020
-| Codifiche ufficiali mappate su requisiti e significati italiani.
 |===

@@ -1,2 +1,1 @@
-Version 3.0.5 hotfix
-Release date	
+Version 3.0.6

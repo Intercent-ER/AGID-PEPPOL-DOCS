@@ -30,12 +30,12 @@ Committente (In UBL: OriginatorCustomerParty)
 .. La seconda riga della Spedizione contiene una consegna di 6 dei 10 articoli ordinati. I rimanenti 4 articoli saranno consegnati in un’altra spedizione.  
 .. La terza riga della Spedizione è basata sul peso.
 .. Ordine da consegnare ad un unico indirizzo di consegna.
-.. Allo stesso stempo.
+.. Allo stesso tempo.
 .. La riga 4 della Spedizione contiene articoli pericolosi.
 . Il Venditore ha accettato l’ordine senza modifiche. 
 . Lo Speditore è responsabile per la consegna e utilizza un trasportatore per il trasporto fisico.
 . Gli articoli nella prima e seconda riga sono nella stessa unità logistica.
-. Gli articoli nella riga tre e quattro sono in unità logistiche separate.
+. Gli articoli nelle righe tre e quattro sono in unità logistiche separate.
 
 image:images/image10.png[image,width=143,height=94]
 

@@ -30,7 +30,7 @@ Il catalogo contiene gli identificativi degli articoli, nomi e unità di misura.
 |Il flusso
 a|
 L’acquirente crea l’ordine con 3 diverse righe ed articoli. +
-Il Venditore    XXZriceve l’ordine. +
+Il Venditore XXZ riceve l’ordine. +
 
 * Accetta di consegnare un articolo.
 * Respinge un articolo.

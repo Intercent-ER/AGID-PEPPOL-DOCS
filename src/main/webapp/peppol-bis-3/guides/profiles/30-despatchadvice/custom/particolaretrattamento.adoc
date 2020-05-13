@@ -1,10 +1,10 @@
 
-[[item-special-handling]]
-= Codice Trattamento linea DDT
+[[Codice-Trattamento-linea-DDT]]
+= #Codice Trattamento linea DDT#
 
-#In certi casi una parte della spedizione necessita di un particolare trattamento, come ad esempio la refrigerazione della merce.#
+In certi casi una parte della spedizione necessita di un particolare trattamento, come ad esempio la refrigerazione della merce.
 
-#Dalle righe del DDT utilizzare l’elemento <cbc:HandlingCode> nei dettagli dello Shipment come nell’esempio seguente:#
+Dalle righe del DDT utilizzare l’elemento <cbc:HandlingCode> nei dettagli dello Shipment come nell’esempio seguente:
 
 .Esempio:
 [source, xml, indent=0]
@@ -16,5 +16,5 @@
 </cac:DespatchLine>
 ----
 
-#Utilizzare la codifica “HandlingInstructionDescriptionCode” ({UNCL4079}) disponibile nella specifica delle codifiche.#
+Utilizzare la codifica “HandlingInstructionDescriptionCode” ({UNCL4079}) disponibile nella specifica delle codifiche.
 

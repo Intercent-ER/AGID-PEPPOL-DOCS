@@ -1,6 +1,8 @@
-PEPPOL BIS Version 3.0.4 - 2020 Spring
+Documento di Trasporto
 
-Release date: 2020-05-01
+Peppol BIS 3.0.4
 
-NOTE:
-Customizzazione del DDT con Estensione di elementi e cardinalità.
+NOTA: Customizzazione del DDT con estensione di elementi.
+
+Customization ID:
+urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1

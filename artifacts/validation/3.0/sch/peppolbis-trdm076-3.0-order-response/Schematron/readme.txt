@@ -1,3 +1,7 @@
-PEPPOL BIS Version 3.0.4 - 2020 Spring
+Risposta d'Ordine
 
-Release date: 2020-05-01
+Peppol BIS 3.0.4
+NSO 4.3
+
+Customization ID:
+urn:fdc:peppol.eu:poacc:trns:order_response:3:restrictive:urn:www.agid.gov.it:trns:risposta_ordine:3.0

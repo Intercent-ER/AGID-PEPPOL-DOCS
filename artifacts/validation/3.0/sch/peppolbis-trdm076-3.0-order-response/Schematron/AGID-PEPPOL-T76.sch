@@ -10,7 +10,7 @@
         schemaVersion="iso"
         queryBinding="xslt2">
 
-    <title>Rules for PEPPOL Order Response transaction 3.0</title>
+    <title>Regole per la transazione della Risposta d'Ordine PEPPOL, versione 3.0</title>
     
     <ns uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
        prefix="cbc"/>
@@ -657,7 +657,7 @@
 		<rule abstract="true" id="verifica_codice_ipa">	
 			
 			<assert id="NSO_110" 
-				test="if(@schemeID=0201) then u:checkCodiceIPA(.) else true()" flag="fatal">NSO_110 - Il Codice IPA indicato nell’elemento non è valido. - The IPA Code specified in the element is invalid.
+				test="if(@schemeID='0201') then u:checkCodiceIPA(.) else true()" flag="fatal">NSO_110 - Il Codice IPA indicato nell’elemento non è valido. - The IPA Code specified in the element is invalid.
 			</assert>
 
 		</rule>
@@ -707,7 +707,7 @@
 
 			<!-- nel caso in cui schemeID = 9906 l'endpointID deve contenere una partita iva formalmente corretta -->
 			<assert id="NSO_130"
-                 test="if(@schemeID=9906) then ( if(u:checkPIVA(substring(.,3,13))!=0) then false() else true() ) else true()" flag="fatal">
+                 test="if(@schemeID='9906') then ( if(u:checkPIVA(substring(.,3,13))!=0) then false() else true() ) else true()" flag="fatal">
 					NSO_130 - La partita IVA indicata nell’elemento non è valida. - The VAT number specified in the element is invalid.
 			</assert>
 			
@@ -774,7 +774,7 @@
 		
 		<rule context="/ubl:OrderResponse/cac:BuyerCustomerParty/cac:Party/cbc:EndpointID">
 			<assert id="NSO_111"
-                 test="if(@schemeID=0201) then true() else false()"
+                 test="if(@schemeID='0201') then true() else false()"
                  flag="fatal">NSO_111 - Il valore dell’attributo schemeID dell’elemento è errato (il valore corretto è "0201"). - The value of schemeID attribute of the element is incorrect (the correct value is "0201").
 			</assert>
 		</rule>
@@ -786,18 +786,22 @@
 		
 		<rule context="/ubl:OrderResponse/cac:SellerSupplierParty/cac:Party/cbc:EndpointID">
 			<assert id="NSO_120"
-                 test="if(@schemeID=9907) then u:checkCF(.) else true()"
+                 test="if(@schemeID='9907') then u:checkCF(.) else true()"
                  flag="fatal">NSO_120 - Il Codice Fiscale indicato nell’elemento non è valido. - The Tax Code specified in the element is invalid.
 			</assert>
 		</rule>
 
 		<!--<rule context="/ubl:OrderResponse/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID">
 			<assert id="NSO_120"
-                 test="if(@schemeID=9907) then u:checkCF(.) else true()"
+                 test="if(@schemeID='9907') then u:checkCF(.) else true()"
                  flag="fatal">NSO_120 - Il Codice Fiscale indicato nell’elemento non è valido. - The Tax Code specified in the element is invalid.
 			</assert>
 		</rule>-->
 		
 	</pattern>	
+	
+	<!-- AGID rules -->
+	<!-- ======================== -->
+	<include href="AGID/AGID-PEPPOL-T76.sch"/>
 	
 </schema>

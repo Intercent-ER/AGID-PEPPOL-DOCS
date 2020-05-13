@@ -9,7 +9,7 @@
         schemaVersion="iso"
         queryBinding="xslt2">
 
-    <title>Rules for PEPPOL Despatch Advice transaction 3.0</title>
+    <title>Regole per la transazione del Documento di Trasporto (DDT) PEPPOL, versione 3.1</title>
     
     <ns uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
        prefix="cbc"/>
@@ -760,7 +760,7 @@
 
    </pattern>
    
-	<!-- Intercent-ER rules -->
+	<!-- AGID rules -->
 	<!-- ======================== -->
 	<include href="AGID/AGID-PEPPOL-T16.sch"/>
 	

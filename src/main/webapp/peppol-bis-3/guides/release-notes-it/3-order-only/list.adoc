@@ -6,6 +6,7 @@
 | Data
 | Cosa è cambiato
 
+| 3.1.0.2(IT)
 | 13/05/2020
 | Aggiornamento alle specifiche PEPPOL BIS 3.0.4.
 

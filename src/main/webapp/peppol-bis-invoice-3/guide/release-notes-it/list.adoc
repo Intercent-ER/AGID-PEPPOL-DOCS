@@ -1,17 +1,20 @@
 
-[cols="1h,4m", options="header"]
+[cols="1h,1m,4m", options="header"]
 
 |===
+| Versione
 | Data
 | Cosa è cambiato
 
+| 3.0.6.1(IT)
 | 13/05/2020
 | Aggiornamento alle specifiche PEPPOL BIS Billing 3.0.6.
 
+| 3.0.5.2(IT)
 | 24/02/2020
 | Codifiche ufficiali mappate su requisiti e significati italiani.
 
+| 3.0.5.1(IT)
 | 21/02/2020
 | Regole di Business aggiornate con ultima EN 3.0.5 hotfix.
-
 |===

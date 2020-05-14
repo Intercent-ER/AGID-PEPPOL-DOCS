@@ -1,4 +1,4 @@
-= PEPPOL BIS Ordinazione Completa 3.1.0.1(IT)
+= PEPPOL BIS Ordinazione Completa {ord_version_it}
 Note di Rilascio
 :doctype: book
 :icons: font

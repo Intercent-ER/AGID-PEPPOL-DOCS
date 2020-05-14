@@ -31,7 +31,7 @@ a|
 L’acquirente crea l’ordine con 2 diverse righe e articoli. +
 Il venditore riceve l’ordine:
 
-* Accetta di consegnare tutti gli articoli;
+* Accetta di consegnare tutti gli articoli.
 
 L’ordine è stato accettato senza modifiche. Nessuna riga deve essere inviata nella risposta all’ordine.
 

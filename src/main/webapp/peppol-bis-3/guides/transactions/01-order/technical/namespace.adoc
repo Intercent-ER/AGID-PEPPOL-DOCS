@@ -1,3 +1,8 @@
-//test
-* Il Namespace dell’ordine http://docs.oasis-open.org/ubl/UBL-2.1.html[UBL 2.1] è: +
-`urn:oasis:names:specification:ubl:schema:xsd:Order-2`
+
+* Il Namespace dell’Ordine 
+http://docs.oasis-open.org/ubl/UBL-2.1.html[UBL 2.1] è: +
+
+[source, xml, indent=0]
+----
+urn:oasis:names:specification:ubl:schema:xsd:Order-2
+----

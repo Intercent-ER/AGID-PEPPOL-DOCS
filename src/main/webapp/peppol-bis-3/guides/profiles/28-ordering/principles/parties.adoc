@@ -42,6 +42,6 @@ s|Descrizione
 |====
 
 
-Il diagramma seguente mostra i ruoli nel processo di evasione dell’ordine.
+Il diagramma seguente mostra i ruoli nel processo di evasione dell’ordine con risposta.
 
-image::images/order-roles.png[Roles in order process,width=100%, pdfwidth=100%, scaledwidth=100%]
+image::images/ordering-roles.png[Roles in order process,width=100%, pdfwidth=100%, scaledwidth=100%]

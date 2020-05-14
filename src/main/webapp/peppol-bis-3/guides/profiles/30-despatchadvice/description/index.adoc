@@ -44,7 +44,6 @@ include::../custom/confezionamento.adoc[]
 
 include::../custom/particolaretrattamento.adoc[]
 
-include::../custom/temperatura.adoc[]
+include::../custom/specifichepartitamerce.adoc[]
 
 :leveloffset: -1
-

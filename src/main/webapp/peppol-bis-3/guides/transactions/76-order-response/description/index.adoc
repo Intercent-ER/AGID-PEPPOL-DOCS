@@ -1,5 +1,5 @@
-[[order-response-message]]
-= Description of selected parts of the order response message
+[[Descrizione-di-parti-selezionate-del-messaggio-di-risposta-ordine]]
+= Descrizione di parti selezionate del messaggio di risposta d’ordine
 
 Il messaggio di risposta d’ordine viene inviato dal venditore all’acquirente attestando la capacità del venditore di evadere l’ordine. Le seguenti regole si applicano al PEPPOL BIS Order Response:
 

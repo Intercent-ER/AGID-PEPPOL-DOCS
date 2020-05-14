@@ -18,6 +18,7 @@ v{ddt_version_it}
 
 {description}
 
+image::../../../../images/PEPPOL_Authority.jpg[width=100%, pdfwidth=100%, scaledwidth=100%]
 include::../../shared/copyright.adoc[]
 
 image::../../shared/images/peppol.png[]
@@ -39,9 +40,13 @@ include::process/index.adoc[]
 
 include::../../shared/datatypes/index.adoc[]
 
-include::../../shared/codes/index.adoc[]
+:leveloffset: +1
 
 include::custom/campistrutturati.adoc[]
+
+:leveloffset: -1
+
+include::../../shared/codes/index.adoc[]
 
 //include::custom/tipologiaordine.adoc[]
 

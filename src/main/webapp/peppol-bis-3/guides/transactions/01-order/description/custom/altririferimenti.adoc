@@ -37,7 +37,7 @@ A livello di riga `cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDoc
 
 |*CONTRATTO*
 |Estremi Contratto
-|In testata si usa `cac:AdditionalDocumentReference` (0.n) +
+|In testata si usa `cac:Contract` (0.1) +
 
 A livello di riga `cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n)
 
@@ -49,7 +49,7 @@ A livello di riga `cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDoc
 
 |====
 
-.L’esempio seguente indica un CIG di riferimento a livello di testa (il prefisso CIG è opzionale).
+.Esempio di riferimento ad un CUP a livello di testata.
 [source, xml, indent=0]
 ----
 <cac:AdditionalDocumentReference>

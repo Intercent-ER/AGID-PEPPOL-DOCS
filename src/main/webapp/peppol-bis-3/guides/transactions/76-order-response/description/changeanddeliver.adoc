@@ -1,5 +1,5 @@
 [[Ordine-con-sostituzione-articolie-consegna-fuori-tempo]]
-= Ordine con sostituzione articolie consegna fuori tempo
+= Ordine con sostituzione articoli e consegna fuori tempo
 
 Una risposta d’ordine può sostituire gli articoli in due modalità. Se viene sostituita la quantità totale di un articolo, tale informazione può essere fornita utilizzando l’elemento che identifica il nuovo venditore (`cac:SellerSubstitutedLineItem`) nella risposta di fatturazione, come illustrato nell’esempio seguente.
 
@@ -52,7 +52,7 @@ Nell’esempio un venditore conferma la prima riga d’ordine, fornisce due date
 ----
 <cac:OrderLine>
     <cac:LineItem>
-        <cbc:ID>11</cbc:ID>
+        <cbc:ID>1</cbc:ID>
         <cbc:LineStatusCode>5</cbc:LineStatusCode>
         <cac:Item>
             <cbc:Name>Prodotto A</cbc:Name>
@@ -67,7 +67,7 @@ Nell’esempio un venditore conferma la prima riga d’ordine, fornisce due date
 </cac:OrderLine>
 <cac:OrderLine>
     <cac:LineItem>
-        <cbc:ID>10</cbc:ID>
+        <cbc:ID>2</cbc:ID>
         <cbc:LineStatusCode>3</cbc:LineStatusCode>
         <cbc:Quantity unitCode="C62">2</cbc:Quantity>
         <cac:Delivery>
@@ -88,7 +88,7 @@ Nell’esempio un venditore conferma la prima riga d’ordine, fornisce due date
 </cac:OrderLine>
 <cac:OrderLine>
     <cac:LineItem>
-        <cbc:ID>7</cbc:ID>
+        <cbc:ID>3</cbc:ID>
         <cbc:LineStatusCode>1</cbc:LineStatusCode>
         <cbc:Quantity unitCode="C62">1</cbc:Quantity>
         <cac:Delivery>
@@ -109,7 +109,7 @@ Nell’esempio un venditore conferma la prima riga d’ordine, fornisce due date
 </cac:OrderLine>
 <cac:OrderLine>
     <cac:LineItem>
-        <cbc:ID>8</cbc:ID>
+        <cbc:ID>4</cbc:ID>
         <cbc:LineStatusCode>42</cbc:LineStatusCode>
         <cac:Item>
             <cbc:Name>Prodotto C</cbc:Name>

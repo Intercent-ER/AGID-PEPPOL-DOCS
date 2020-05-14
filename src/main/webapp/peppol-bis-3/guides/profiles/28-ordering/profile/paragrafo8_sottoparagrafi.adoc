@@ -87,12 +87,10 @@ Ai fini logistici, può essere specificato un GLN (Global Location Number) secon
 [[ID-Profilo]]
 = #ID Profilo#
 
-L’elemento ProfileID identifica il processo del quale il documento di business fa parte. Il PEPPOL BIS usa il sistema d’identificazione di BII; l’identificativo di processo seguente è utilizzato per il profilo ― BII03 – Order Only: +
+L’elemento ProfileID identifica il processo del quale il documento di business fa parte. La PEPPOL BIS usa il sistema d’identificazione di BII; l’identificativo di processo seguente è utilizzato per il profilo ― BII28 – Ordering: +
 
 [source, xml, indent=0]
 ----
 ProfileID:
-urn:fdc:peppol.eu:poacc:bis:order_only:3
+urn:fdc:peppol.eu:poacc:bis:ordering:3
 ----
-
-

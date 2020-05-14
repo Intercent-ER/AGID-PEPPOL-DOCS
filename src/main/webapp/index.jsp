@@ -1,4 +1,4 @@
-<%@page 
+<%@page
     contentType="text/html"
     pageEncoding="UTF-8"
     %><!DOCTYPE html>
@@ -23,7 +23,7 @@
         <script>
             //<![CDATA[
             $(function () {
-                const VER = "45-order-3.1";    // Math.random()*1000000
+                const VER = "46-dev";    // Math.random()*1000000
                 var $body = $("body"), $main = $("#main"), $guide = $("#guide").hide(), $adoc = $("#adoc-viewer"), $loader = $("#loader");
                 var defBis = "peppol-bis-3";
 

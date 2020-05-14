@@ -182,7 +182,8 @@
         <xsl:param name="level" select="0"/>
         <xsl:param name="parentId" select="''"/>
         <xsl:param name="rowClass" select="''"/>
-		<xsl:variable name="rowId" select="if (string-length($parentId) &gt; 0) then concat($parentId, '.', position()) else if ($level = 0) then '' else string(position())"/>
+        <!--xsl:variable name="rowId" select="if (string-length($parentId) &gt; 0) then concat($parentId, '.', position()) else if ($level = 0) then '' else string(position())"/-->
+        <xsl:variable name="rowId" select="if (string-length($parentId) &gt; 0) then $parentId else if ($level = 0) then '' else string(position())"/>
         <xsl:apply-templates select="document(.)/stx:Element">
             <xsl:with-param name="level" select="$level"/>
             <xsl:with-param name="parentId" select="$rowId"/>

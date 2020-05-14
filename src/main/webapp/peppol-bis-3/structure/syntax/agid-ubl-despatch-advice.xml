@@ -21,7 +21,7 @@
             <DataType>Identifier</DataType>
             <Reference type="BUSINESS_TERM">tir16-002</Reference>
             <Reference type="RULE">IT-T16-R004</Reference>
-            <Value type="FIXED">urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.0</Value>
+            <Value type="FIXED">urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1</Value>
         </Element>
         <Element>
             <Term>cbc:ProfileID</Term>

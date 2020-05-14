@@ -1,11 +1,11 @@
 
 <!DOCTYPE html
   SYSTEM "about:legacy-compat">
-<html data-transaction="Rules for PEPPOL Despatch Advice transaction 3.0">
+<html data-transaction="Regole per la transazione del Documento di Trasporto (DDT) PEPPOL, versione 3.1">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    
-      <title>Rules for PEPPOL Despatch Advice transaction 3.0</title>
+      <title>Regole per la transazione del Documento di Trasporto (DDT) PEPPOL, versione 3.1</title>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -52,10 +52,10 @@
    <body>
       <div id="main" class="container">
          <ol id="path" class="breadcrumb">
-            <li class="active">Rules for PEPPOL Despatch Advice transaction 3.0</li>
+            <li class="active">Regole per la transazione del Documento di Trasporto (DDT) PEPPOL, versione 3.1</li>
          </ol>
          <div class="page-header">
-            <h1 id="context">Rules for PEPPOL Despatch Advice transaction 3.0</h1>
+            <h1 id="context">Regole per la transazione del Documento di Trasporto (DDT) PEPPOL, versione 3.1</h1>
          </div>
          <div id="rules" class="table-responsive">
             <table class="table table-striped">
@@ -77,12 +77,8 @@
                            (Nome articolo merce, identificativo articolo e quantit&agrave; consegnata).</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="IT-T16-R004" data-context="/ubl:DespatchAdvice" data-test="cbc:CustomizationID = 'urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.0' and cbc:ProfileID = 'urn:fdc:peppol.eu:poacc:bis:despatch_advice:3'">
-                     <td><a href="#">IT-T16-R004</a><br><span class="message">[IT-T16-R004] - La versione del DespatchAdvice (DDT) DEVE essere identificata dai seguenti identificativi: 
-                           
-                           CustomizationID = 'urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.0', 
-                           
-                           ProfileID = 'urn:fdc:peppol.eu:poacc:bis:despatch_advice:3'.</span></td>
+                  <tr id="IT-T16-R004" data-context="/ubl:DespatchAdvice" data-test="normalize-space(cbc:CustomizationID) = 'urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1'">
+                     <td><a href="#">IT-T16-R004</a><br><span class="message">[IT-T16-R004] - Il CustomizationID dell'Ordine DEVE essere valorizzato con la stringa 'urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1'.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="IT-T16-R005" data-context="/ubl:DespatchAdvice" data-test="cac:Shipment/cbc:TotalTransportHandlingUnitQuantity and (string(cac:Shipment/cbc:TotalTransportHandlingUnitQuantity) castable as xs:integer or cac:Shipment/cbc:TotalTransportHandlingUnitQuantity - floor(cac:Shipment/cbc:TotalTransportHandlingUnitQuantity) = 0)">
@@ -176,10 +172,6 @@
                   </tr>
                   <tr id="PEPPOL-T16-B00109" data-context="/ubl:DespatchAdvice/*" data-test="false()">
                      <td><a href="#">PEPPOL-T16-B00109</a><br><span class="message">Document MUST NOT contain elements not part of the data model.</span></td>
-                     <td style="width: 5%;">fatal</td>
-                  </tr>
-                  <tr id="PEPPOL-T16-B00201" data-context="/ubl:DespatchAdvice/cbc:CustomizationID" data-test="starts-with(normalize-space(text()), 'urn:fdc:peppol.eu:poacc:trns:despatch_advice:3')">
-                     <td><a href="#">PEPPOL-T16-B00201</a><br><span class="message">Element 'cbc:CustomizationID' MUST start with value 'urn:fdc:peppol.eu:poacc:trns:despatch_advice:3'.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="PEPPOL-T16-B00301" data-context="/ubl:DespatchAdvice/cbc:ProfileID" data-test="normalize-space(text()) = 'urn:fdc:peppol.eu:poacc:bis:despatch_advice:3'">
@@ -718,12 +710,24 @@
                      <td><a href="#">PEPPOL-T16-B19602</a><br><span class="message">Value MUST be part of code list 'Recommandation 20, including Recommondation 21 codes - prefixed with X (UN/ECE)'.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
+                  <tr id="PEPPOL-T16-B19801" data-context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:TransportHandlingUnit/cac:Package" data-test="cbc:ID">
+                     <td><a href="#">PEPPOL-T16-B19801</a><br><span class="message">Element 'cbc:ID' MUST be provided.</span></td>
+                     <td style="width: 5%;">fatal</td>
+                  </tr>
+                  <tr id="PEPPOL-T16-B19802" data-context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:TransportHandlingUnit/cac:Package/*" data-test="false()">
+                     <td><a href="#">PEPPOL-T16-B19802</a><br><span class="message">Document MUST NOT contain elements not part of the data model.</span></td>
+                     <td style="width: 5%;">fatal</td>
+                  </tr>
+                  <tr id="PEPPOL-T16-B20001" data-context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:TransportHandlingUnit/cac:Package/cbc:PackagingTypeCode" data-test="(some $code in $clUNECERec21 satisfies $code = normalize-space(text()))">
+                     <td><a href="#">PEPPOL-T16-B20001</a><br><span class="message">Value MUST be part of code list 'Recommandation 21 (UN/ECE)'.</span></td>
+                     <td style="width: 5%;">fatal</td>
+                  </tr>
                   <tr id="PEPPOL-T16-R002" data-context="ubl:DespatchAdvice" data-test="(cac:OrderReference/cbc:ID)">
                      <td><a href="#">PEPPOL-T16-R002</a><br><span class="message">A despatch advice SHOULD have an order identifier</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
                   <tr id="PEPPOL-T16-R003" data-context="cac:DespatchLine" data-test="(cac:Item/cac:StandardItemIdentification/cbc:ID) or  (cac:Item/cac:SellersItemIdentification/cbc:ID)">
-                     <td><a href="#">PEPPOL-T16-R003</a><br><span class="message">Each item in a Despatch Advice line SHALL be identifiable by either &#8220;item sellers identifier&#8221; or &#8220;item standard identifier&#8221;</span></td>
+                     <td><a href="#">PEPPOL-T16-R003</a><br><span class="message">Each item in a Despatch Advice line SHALL be identifiable by either "item sellers identifier" or "item standard identifier"</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="PEPPOL-T16-R004" data-context="cac:DespatchLine" data-test="(cac:Item/cbc:Name)">
@@ -752,6 +756,10 @@
                   </tr>
                   <tr id="PEPPOL-T16-R010" data-context="cac:OriginatorCustomerParty" data-test="(cac:Party/cac:PartyName/cbc:Name) or (cac:Party/cac:PartyIdentification/cbc:ID)">
                      <td><a href="#">PEPPOL-T16-R010</a><br><span class="message">A despatch advice buyer party SHALL contain the name or an identifier</span></td>
+                     <td style="width: 5%;">fatal</td>
+                  </tr>
+                  <tr id="PEPPOL-T16-R011" data-context="cbc:CustomizationID" data-test="starts-with(normalize-space(.), 'urn:fdc:peppol.eu:poacc:trns:despatch_advice:3')">
+                     <td><a href="#">PEPPOL-T16-R011</a><br><span class="message">Specification identifier SHALL start with the value 'urn:fdc:peppol.eu:poacc:trns:despatch_advice:3'.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                </tbody>

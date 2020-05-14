@@ -1,11 +1,11 @@
 
 <!DOCTYPE html
   SYSTEM "about:legacy-compat">
-<html data-transaction="Rules for PEPPOL Order transaction 3.0">
+<html data-transaction="Regole per la transazione dell'Ordine PEPPOL, versione 3.1">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    
-      <title>Rules for PEPPOL Order transaction 3.0</title>
+      <title>Regole per la transazione dell'Ordine PEPPOL, versione 3.1</title>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -52,10 +52,10 @@
    <body>
       <div id="main" class="container">
          <ol id="path" class="breadcrumb">
-            <li class="active">Rules for PEPPOL Order transaction 3.0</li>
+            <li class="active">Regole per la transazione dell'Ordine PEPPOL, versione 3.1</li>
          </ol>
          <div class="page-header">
-            <h1 id="context">Rules for PEPPOL Order transaction 3.0</h1>
+            <h1 id="context">Regole per la transazione dell'Ordine PEPPOL, versione 3.1</h1>
          </div>
          <div id="rules" class="table-responsive">
             <table class="table table-striped">
@@ -66,6 +66,10 @@
                   </tr>
                </thead>
                <tbody id="rules">
+                  <tr id="IT-T01-R001" data-context="/ubl:Order" data-test="normalize-space(cbc:CustomizationID) = 'urn:fdc:peppol.eu:poacc:trns:order:3:restrictive:urn:www.agid.gov.it:trns:ordine:3.1'">
+                     <td><a href="#">IT-T01-R001</a><br><span class="message">[IT-T01-R001] - Il CustomizationID dell'Ordine DEVE essere valorizzato con la stringa 'urn:fdc:peppol.eu:poacc:trns:order:3:restrictive:urn:www.agid.gov.it:trns:ordine:3.1'.</span></td>
+                     <td style="width: 5%;">fatal</td>
+                  </tr>
                   <tr id="NSO_010" data-context="" data-test="if(@schemeID=0201) then u:checkCodiceIPA(.) else true()">
                      <td><a href="#">NSO_010</a><br><span class="message">NSO_010 &#8211; Il Codice IPA indicato nell&#8217;elemento non &egrave; valido. - The IPA Code specified in the element is invalid.
                            			</span></td>
@@ -286,10 +290,6 @@
                      <td><a href="#">PEPPOL-T01-B00110</a><br><span class="message">Document MUST NOT contain elements not part of the data model.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="PEPPOL-T01-B00201" data-context="/ubl:Order/cbc:CustomizationID" data-test="normalize-space(text()) = 'urn:fdc:peppol.eu:poacc:trns:order:3'">
-                     <td><a href="#">PEPPOL-T01-B00201</a><br><span class="message">Element 'cbc:CustomizationID' MUST contain value 'urn:fdc:peppol.eu:poacc:trns:order:3'.</span></td>
-                     <td style="width: 5%;">fatal</td>
-                  </tr>
                   <tr id="PEPPOL-T01-B00801" data-context="/ubl:Order/cbc:OrderTypeCode" data-test="(some $code in $clUNCL1001_T01 satisfies $code = normalize-space(text()))">
                      <td><a href="#">PEPPOL-T01-B00801</a><br><span class="message">Value MUST be part of code list 'Order type code (UNCL1001 subset)'.</span></td>
                      <td style="width: 5%;">fatal</td>
@@ -448,10 +448,6 @@
                   </tr>
                   <tr id="PEPPOL-T01-B05302" data-context="/ubl:Order/cac:BuyerCustomerParty/cac:Party/cac:PartyTaxScheme/cac:TaxScheme/*" data-test="false()">
                      <td><a href="#">PEPPOL-T01-B05302</a><br><span class="message">Document MUST NOT contain elements not part of the data model.</span></td>
-                     <td style="width: 5%;">fatal</td>
-                  </tr>
-                  <tr id="PEPPOL-T01-B05401" data-context="/ubl:Order/cac:BuyerCustomerParty/cac:Party/cac:PartyTaxScheme/cac:TaxScheme/cbc:ID" data-test="normalize-space(text()) = 'VAT'">
-                     <td><a href="#">PEPPOL-T01-B05401</a><br><span class="message">Element 'cbc:ID' MUST contain value 'VAT'.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="PEPPOL-T01-B05501" data-context="/ubl:Order/cac:BuyerCustomerParty/cac:Party/cac:PartyLegalEntity" data-test="cbc:RegistrationName">
@@ -698,10 +694,6 @@
                      <td><a href="#">PEPPOL-T01-B13002</a><br><span class="message">Document MUST NOT contain elements not part of the data model.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="PEPPOL-T01-B13101" data-context="/ubl:Order/cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cac:TaxScheme/cbc:ID" data-test="normalize-space(text()) = 'VAT'">
-                     <td><a href="#">PEPPOL-T01-B13101</a><br><span class="message">Element 'cbc:ID' MUST contain value 'VAT'.</span></td>
-                     <td style="width: 5%;">fatal</td>
-                  </tr>
                   <tr id="PEPPOL-T01-B13201" data-context="/ubl:Order/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity" data-test="cbc:RegistrationName">
                      <td><a href="#">PEPPOL-T01-B13201</a><br><span class="message">Element 'cbc:RegistrationName' MUST be provided.</span></td>
                      <td style="width: 5%;">fatal</td>
@@ -912,10 +904,6 @@
                   </tr>
                   <tr id="PEPPOL-T01-B20102" data-context="/ubl:Order/cac:AllowanceCharge/cac:TaxCategory/cac:TaxScheme/*" data-test="false()">
                      <td><a href="#">PEPPOL-T01-B20102</a><br><span class="message">Document MUST NOT contain elements not part of the data model.</span></td>
-                     <td style="width: 5%;">fatal</td>
-                  </tr>
-                  <tr id="PEPPOL-T01-B20201" data-context="/ubl:Order/cac:AllowanceCharge/cac:TaxCategory/cac:TaxScheme/cbc:ID" data-test="normalize-space(text()) = 'VAT'">
-                     <td><a href="#">PEPPOL-T01-B20201</a><br><span class="message">Element 'cbc:ID' MUST contain value 'VAT'.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="PEPPOL-T01-B20301" data-context="/ubl:Order/cac:TaxTotal" data-test="cbc:TaxAmount">
@@ -1226,64 +1214,60 @@
                      <td><a href="#">PEPPOL-T01-B27602</a><br><span class="message">Value MUST be part of code list 'Item type identification code (UNCL7143)'.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="PEPPOL-T01-B27901" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:ClassifiedTaxCategory" data-test="cbc:ID">
-                     <td><a href="#">PEPPOL-T01-B27901</a><br><span class="message">Element 'cbc:ID' MUST be provided.</span></td>
+                  <tr id="PEPPOL-T01-B28001" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:ClassifiedTaxCategory" data-test="cbc:ID">
+                     <td><a href="#">PEPPOL-T01-B28001</a><br><span class="message">Element 'cbc:ID' MUST be provided.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="PEPPOL-T01-B27902" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:ClassifiedTaxCategory" data-test="cac:TaxScheme">
-                     <td><a href="#">PEPPOL-T01-B27902</a><br><span class="message">Element 'cac:TaxScheme' MUST be provided.</span></td>
+                  <tr id="PEPPOL-T01-B28002" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:ClassifiedTaxCategory" data-test="cac:TaxScheme">
+                     <td><a href="#">PEPPOL-T01-B28002</a><br><span class="message">Element 'cac:TaxScheme' MUST be provided.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="PEPPOL-T01-B27903" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:ClassifiedTaxCategory/*" data-test="false()">
-                     <td><a href="#">PEPPOL-T01-B27903</a><br><span class="message">Document MUST NOT contain elements not part of the data model.</span></td>
+                  <tr id="PEPPOL-T01-B28003" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:ClassifiedTaxCategory/*" data-test="false()">
+                     <td><a href="#">PEPPOL-T01-B28003</a><br><span class="message">Document MUST NOT contain elements not part of the data model.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="PEPPOL-T01-B28001" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:ClassifiedTaxCategory/cbc:ID" data-test="(some $code in $clUNCL5305 satisfies $code = normalize-space(text()))">
-                     <td><a href="#">PEPPOL-T01-B28001</a><br><span class="message">Value MUST be part of code list 'Duty or tax or fee category code (UNCL5305)'.</span></td>
+                  <tr id="PEPPOL-T01-B28101" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:ClassifiedTaxCategory/cbc:ID" data-test="(some $code in $clUNCL5305 satisfies $code = normalize-space(text()))">
+                     <td><a href="#">PEPPOL-T01-B28101</a><br><span class="message">Value MUST be part of code list 'Duty or tax or fee category code (UNCL5305)'.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="PEPPOL-T01-B28201" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:ClassifiedTaxCategory/cac:TaxScheme" data-test="cbc:ID">
-                     <td><a href="#">PEPPOL-T01-B28201</a><br><span class="message">Element 'cbc:ID' MUST be provided.</span></td>
+                  <tr id="PEPPOL-T01-B28301" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:ClassifiedTaxCategory/cac:TaxScheme" data-test="cbc:ID">
+                     <td><a href="#">PEPPOL-T01-B28301</a><br><span class="message">Element 'cbc:ID' MUST be provided.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="PEPPOL-T01-B28202" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:ClassifiedTaxCategory/cac:TaxScheme/*" data-test="false()">
-                     <td><a href="#">PEPPOL-T01-B28202</a><br><span class="message">Document MUST NOT contain elements not part of the data model.</span></td>
+                  <tr id="PEPPOL-T01-B28302" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:ClassifiedTaxCategory/cac:TaxScheme/*" data-test="false()">
+                     <td><a href="#">PEPPOL-T01-B28302</a><br><span class="message">Document MUST NOT contain elements not part of the data model.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="PEPPOL-T01-B28301" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:ClassifiedTaxCategory/cac:TaxScheme/cbc:ID" data-test="normalize-space(text()) = 'VAT'">
-                     <td><a href="#">PEPPOL-T01-B28301</a><br><span class="message">Element 'cbc:ID' MUST contain value 'VAT'.</span></td>
+                  <tr id="PEPPOL-T01-B28501" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:AdditionalItemProperty" data-test="cbc:Name">
+                     <td><a href="#">PEPPOL-T01-B28501</a><br><span class="message">Element 'cbc:Name' MUST be provided.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="PEPPOL-T01-B28401" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:AdditionalItemProperty" data-test="cbc:Name">
-                     <td><a href="#">PEPPOL-T01-B28401</a><br><span class="message">Element 'cbc:Name' MUST be provided.</span></td>
+                  <tr id="PEPPOL-T01-B28502" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:AdditionalItemProperty" data-test="cbc:Value">
+                     <td><a href="#">PEPPOL-T01-B28502</a><br><span class="message">Element 'cbc:Value' MUST be provided.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="PEPPOL-T01-B28402" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:AdditionalItemProperty" data-test="cbc:Value">
-                     <td><a href="#">PEPPOL-T01-B28402</a><br><span class="message">Element 'cbc:Value' MUST be provided.</span></td>
+                  <tr id="PEPPOL-T01-B28503" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:AdditionalItemProperty/*" data-test="false()">
+                     <td><a href="#">PEPPOL-T01-B28503</a><br><span class="message">Document MUST NOT contain elements not part of the data model.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="PEPPOL-T01-B28403" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:AdditionalItemProperty/*" data-test="false()">
-                     <td><a href="#">PEPPOL-T01-B28403</a><br><span class="message">Document MUST NOT contain elements not part of the data model.</span></td>
+                  <tr id="PEPPOL-T01-B28701" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:AdditionalItemProperty/cbc:NameCode" data-test="@listID">
+                     <td><a href="#">PEPPOL-T01-B28701</a><br><span class="message">Attribute 'listID' MUST be present.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="PEPPOL-T01-B28601" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:AdditionalItemProperty/cbc:NameCode" data-test="@listID">
-                     <td><a href="#">PEPPOL-T01-B28601</a><br><span class="message">Attribute 'listID' MUST be present.</span></td>
+                  <tr id="PEPPOL-T01-B29001" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:AdditionalItemProperty/cbc:ValueQuantity" data-test="@unitCode">
+                     <td><a href="#">PEPPOL-T01-B29001</a><br><span class="message">Attribute 'unitCode' MUST be present.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="PEPPOL-T01-B28901" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:AdditionalItemProperty/cbc:ValueQuantity" data-test="@unitCode">
-                     <td><a href="#">PEPPOL-T01-B28901</a><br><span class="message">Attribute 'unitCode' MUST be present.</span></td>
+                  <tr id="PEPPOL-T01-B29002" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:AdditionalItemProperty/cbc:ValueQuantity" data-test="not(@unitCode) or (some $code in $clUNECERec20 satisfies $code = @unitCode)">
+                     <td><a href="#">PEPPOL-T01-B29002</a><br><span class="message">Value MUST be part of code list 'Recommandation 20, including Recommondation 21 codes - prefixed with X (UN/ECE)'.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="PEPPOL-T01-B28902" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:AdditionalItemProperty/cbc:ValueQuantity" data-test="not(@unitCode) or (some $code in $clUNECERec20 satisfies $code = @unitCode)">
-                     <td><a href="#">PEPPOL-T01-B28902</a><br><span class="message">Value MUST be part of code list 'Recommandation 20, including Recommondation 21 codes - prefixed with X (UN/ECE)'.</span></td>
+                  <tr id="PEPPOL-T01-B29301" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:ItemInstance/*" data-test="false()">
+                     <td><a href="#">PEPPOL-T01-B29301</a><br><span class="message">Document MUST NOT contain elements not part of the data model.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="PEPPOL-T01-B29201" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:ItemInstance/*" data-test="false()">
-                     <td><a href="#">PEPPOL-T01-B29201</a><br><span class="message">Document MUST NOT contain elements not part of the data model.</span></td>
-                     <td style="width: 5%;">fatal</td>
-                  </tr>
-                  <tr id="PEPPOL-T01-B29401" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:ItemInstance/cac:LotIdentification/*" data-test="false()">
-                     <td><a href="#">PEPPOL-T01-B29401</a><br><span class="message">Document MUST NOT contain elements not part of the data model.</span></td>
+                  <tr id="PEPPOL-T01-B29501" data-context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:ItemInstance/cac:LotIdentification/*" data-test="false()">
+                     <td><a href="#">PEPPOL-T01-B29501</a><br><span class="message">Document MUST NOT contain elements not part of the data model.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="PEPPOL-T01-CL001" data-context="cac:AllowanceCharge[cbc:ChargeIndicator = 'false']/cbc:AllowanceChargeReasonCode" data-test="                         some $code in $clUNCL5189                         satisfies normalize-space(text()) = $code">
@@ -1336,7 +1320,7 @@
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="PEPPOL-T01-R011" data-context="cac:AnticipatedMonetaryTotal" data-test="$taxexclusiveAmount = $lineEtensionAmount - $allowanceTotalAmount + $chargeTotalAmount">
-                     <td><a href="#">PEPPOL-T01-R011</a><br><span class="message">Expected total amount without VAT = Expected total sum of line amounts - Sum of allowances on document level + Sum of charges
+                     <td><a href="#">PEPPOL-T01-R011</a><br><span class="message">Expected total amount without TAX = Expected total sum of line amounts - Sum of allowances on document level + Sum of charges
                            on document level</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
@@ -1349,11 +1333,11 @@
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="PEPPOL-T01-R016" data-context="cac:AnticipatedMonetaryTotal" data-test="if ($taxinclusiveAmount) then ($payableAmount = $taxinclusiveAmount - $prepaidAmount + $roundingAmount) else 1">
-                     <td><a href="#">PEPPOL-T01-R016</a><br><span class="message">Amount due for payment = Invoice total amount with VAT - Paid amount + Rounding amount.</span></td>
+                     <td><a href="#">PEPPOL-T01-R016</a><br><span class="message">Amount due for payment = Invoice total amount with TAX - Paid amount + Rounding amount.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="PEPPOL-T01-R017" data-context="cac:AnticipatedMonetaryTotal" data-test="if($taxinclusiveAmount and /ubl:Order/cac:TaxTotal) then ($taxinclusiveAmount = $taxexclusiveAmount + $VATamount) else 1">
-                     <td><a href="#">PEPPOL-T01-R017</a><br><span class="message">Expected total amount with VAT = Expected total amount without VAT + Order total VAT amount.</span></td>
+                  <tr id="PEPPOL-T01-R017" data-context="cac:AnticipatedMonetaryTotal" data-test="if($taxinclusiveAmount and /ubl:Order/cac:TaxTotal) then ($taxinclusiveAmount = $taxexclusiveAmount + $TAXamount) else 1">
+                     <td><a href="#">PEPPOL-T01-R017</a><br><span class="message">Expected total amount with TAX = Expected total amount without TAX + Order total TAX amount.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="PEPPOL-T01-R019" data-context="cac:Price/cac:AllowanceCharge" data-test="not(cbc:BaseAmount) or xs:decimal(../cbc:PriceAmount) = xs:decimal(cbc:BaseAmount) - xs:decimal(cbc:Amount)">
@@ -1386,8 +1370,8 @@
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="PEPPOL-T01-R026" data-context="cac:PartyTaxScheme[cac:TaxScheme/cbc:ID='VAT']" data-test="( contains( 'AD AE AF AG AI AL AM AN AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BL BJ BM BN BO BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CX CY CZ DE DJ DK DM DO DZ EC EE EG EH EL ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR ST SV SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW',substring(cbc:CompanyID,1,2) ) )">
-                     <td><a href="#">PEPPOL-T01-R026</a><br><span class="message">Party VAT identifiers SHALL have a prefix in accordance with ISO code ISO 3166-1 alpha-2 by which the country of issue may
-                           be identified. Nevertheless, Greece may use the prefix &#8216;EL&#8217;.</span></td>
+                     <td><a href="#">PEPPOL-T01-R026</a><br><span class="message">When TAX is VAT then Party VAT identifiers SHALL have a prefix in accordance with ISO code ISO 3166-1 alpha-2 by which the
+                           country of issue may be identified. Nevertheless, Greece may use the prefix &#8216;EL&#8217;.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="PEPPOL-T01-R027" data-context="cac:Price" data-test="(cac:AllowanceCharge/cbc:BaseAmount) &gt;= 0 or not(exists(cac:AllowanceCharge/cbc:BaseAmount))">
@@ -1399,11 +1383,11 @@
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="PEPPOL-T01-R029" data-context="cac:TaxCategory | cac:ClassifiedTaxCategory" data-test="cbc:Percent or (normalize-space(cbc:ID)='O')">
-                     <td><a href="#">PEPPOL-T01-R029</a><br><span class="message">Each Tax Category SHALL have a VAT category rate, except if the order is not subject to VAT.</span></td>
+                     <td><a href="#">PEPPOL-T01-R029</a><br><span class="message">Each Tax Category SHALL have a TAX category rate, except if the order is not subject to TAX.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="PEPPOL-T01-R030" data-context="cac:TaxCategory | cac:ClassifiedTaxCategory" data-test="not(normalize-space(cbc:ID)='S') or (cbc:Percent) &gt; 0">
-                     <td><a href="#">PEPPOL-T01-R030</a><br><span class="message">When VAT category code is "Standard rated" (S) the VAT rate SHALL be greater than zero.</span></td>
+                     <td><a href="#">PEPPOL-T01-R030</a><br><span class="message">When TAX category code is "Standard rated" (S) the TAX rate SHALL be greater than zero.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="PEPPOL-T01-R031" data-context="cbc:ProfileID" data-test="some $p in tokenize('urn:fdc:peppol.eu:poacc:bis:order_only:3 urn:fdc:peppol.eu:poacc:bis:ordering:3', '\s') satisfies $p = normalize-space(.)">
@@ -1416,6 +1400,10 @@
                   </tr>
                   <tr id="PEPPOL-T01-R033" data-context="cac:Price" data-test="number(cac:AllowanceCharge/cbc:Amount) &gt;= 0 or not(exists(cac:AllowanceCharge/cbc:Amount))">
                      <td><a href="#">PEPPOL-T01-R033</a><br><span class="message">Allowance or charge amounts SHALL NOT be negative.</span></td>
+                     <td style="width: 5%;">fatal</td>
+                  </tr>
+                  <tr id="PEPPOL-T01-R034" data-context="cbc:CustomizationID" data-test="starts-with(normalize-space(.), 'urn:fdc:peppol.eu:poacc:trns:order:3')">
+                     <td><a href="#">PEPPOL-T01-R034</a><br><span class="message">Specification identifier SHALL start with the value 'urn:fdc:peppol.eu:poacc:trns:order:3'.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                </tbody>

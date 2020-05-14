@@ -12,10 +12,10 @@ Nella tabella seguente troverai i valori da utilizzare come identificatore della
 
 
 | Order (Trdm01)
-| urn:fdc:peppol.eu:poacc:trns:order:3
+| #urn:fdc:peppol.eu:poacc:trns:order:3 :restrictive:urn:www.agid.gov.it:trns:ordine:3.1#
 .2+.^| urn:fdc:peppol.eu:poacc:bis:ordering:3
 
 | Order response (Trdm76)
-| urn:fdc:peppol.eu:poacc:trns:order_response:3
+| #urn:fdc:peppol.eu:poacc:trns:order_response:3 :restrictive:urn:www.agid.gov.it:trns:risposta_ordine:3.0#
 |
 |===

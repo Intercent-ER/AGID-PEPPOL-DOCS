@@ -1,3 +1,4 @@
+include::../shared/settings.adoc[]
 = PEPPOL BIS Fatturazione {version}
 Note di Rilascio
 :doctype: book

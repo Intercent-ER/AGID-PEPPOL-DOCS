@@ -1,3 +1,4 @@
+include::../../shared/links.adoc[]
 = PEPPOL BIS Documento di Trasporto (DDT) {ddt_version_it}
 Note di Rilascio
 :doctype: book
@@ -8,8 +9,6 @@ Note di Rilascio
 :toclevels: 2
 :numbered:
 
-
-include::../../shared/links.adoc[]
 
 //[IMPORTANT]
 //====

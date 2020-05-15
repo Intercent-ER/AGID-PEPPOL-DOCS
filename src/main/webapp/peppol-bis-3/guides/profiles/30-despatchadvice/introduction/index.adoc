@@ -4,13 +4,13 @@
 Questa Business Interoperability Specification (BIS) è il risultato del lavoro svolto in https://peppol.eu/about-openpeppol/?rel=tab41[OpenPeppol] e pubblicato come parte delle specifiche https://docs.peppol.eu/poacc/upgrade-3/[Peppol].
 
 Questo PEPPOL BIS fornisce un set di specifiche per implementare un processo di business PEPPOL.
-Il documento è inteso per chiarire i requisiti necessari per assicurare l’interoperabilità nell’eProcurement Pubblico pan-europeo e fornisce le linee guida per il supporto e l’implementazione di questi requisiti.+
+Il documento è inteso per chiarire i requisiti necessari per assicurare l’interoperabilità nell’eProcurement Pubblico pan-europeo e fornisce le linee guida per il supporto e l’implementazione di questi requisiti. +
 
-La PEPPOL BIS è basata sul profilo *CEN WS/BII2 “Profile BII30 Dispatch Only”*, il quale è stato esteso in base ai requisiti di e-Procurement della Regione Emilia Romagna. +
+La PEPPOL BIS è basata sul profilo *CEN WS/BII2 “Profile BII30 Dispatch Only”*, il quale è stato esteso in base ai requisiti del modello italiano di e-Procurement. +
 
 Fare riferimento alla sezione "8.2 Identificatori per la customizzazione e profilo" per ulteriori informazioni.
 
-#In questo documento le regole d'uso ed i paragrafi derivanti dal modello italiano di e-procurement sono evidenziate in giallo.#
+#In questo documento le regole d'uso ed i paragrafi derivanti dal modello italiano di e-Procurement sono evidenziate in giallo.#
 
 .Relazioni fra i profili BII e il PEPPOL BIS
 image::../../shared/images/BII_relationship.png[align="center", width=600]

@@ -42,7 +42,7 @@ In Italia si raccomanda l’uso del codice IPA per registrare le pubbliche ammin
 [[ID-Profilo]]
 = #ID Profilo#
 
-L’elemento ProfileID identifica il processo del quale il documento di business fa parte. Il PEPPOL BIS usa il sistema d’identificazione di BII; l’identificativo di processo seguente è utilizzato per il profilo ― BII03 – Order Only: +
+L’elemento ProfileID identifica il processo del quale il documento di business fa parte. Il PEPPOL BIS usa il sistema d’identificazione di BII; l’identificativo di processo seguente è utilizzato per il profilo ― BII30 – Dispatch Only: +
 
 [source, xml, indent=0]
 ----

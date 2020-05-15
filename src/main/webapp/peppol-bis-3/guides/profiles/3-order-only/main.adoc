@@ -2,7 +2,6 @@ include::../../shared/links.adoc[]
 :doctype: book
 :icons: font
 :stem:
-:lang: it
 :toc: left
 :toclevels: 2
 :source-highlighter: coderay
@@ -12,15 +11,17 @@ include::../../shared/links.adoc[]
 :order: ../../transactions/01-order
 :snippet-dir: ../../../../rules/snippets/order
 
-= image:../../../../images/PEPPOL_Authority.jpg[width=100%, pdfwidth=100%, scaledwidth=100%, float="right"]PEPPOL BIS Ordinazione Semplice 3.1
+image::../../shared/images/peppol.png[float="right"]
+
+= [black]#BIS Ordinazione Semplice 3.1#
+
 {author}
 v{ord_version_it}
 
 {description}
 
+image::../../../../images/PEPPOL_Authority.jpg[width=100%, pdfwidth=100%, scaledwidth=100%]
 include::../../shared/copyright.adoc[]
-
-image:../../shared/images/peppol.png[]
 
 //= Link to main site of documentation
 

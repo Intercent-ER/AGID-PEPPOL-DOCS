@@ -34,12 +34,14 @@
                     // Home Menu
                     $("#syntax-menu").load(bisRef + '/menu/syntax-menu.html?v=' + VER + ' .dropdown-menu > li');
                     $("#rule-menu").load(bisRef + '/menu/rule-menu.html?v=' + VER + ' .dropdown-menu > li');
+                    $("#stylesheet-menu").load(bisRef + '/menu/stylesheet-menu.html?v=' + VER + ' .dropdown-menu > li');
                     $("#codelist-menu").load(bisRef + '/menu/codelist-menu.html?v=' + VER + ' .dropdown-menu > li');
                     // Home List
                     $("#intro-list").load(bisRef + '/menu/intro-list.html?v=' + VER + ' .list-group > a');
                     $("#bis-list").load(bisRef + '/menu/bis-list.html?v=' + VER + ' .list-group > a');
                     $("#syntax-list").load(bisRef + '/menu/syntax-list.html?v=' + VER + ' .list-group > a');
                     $("#rule-list").load(bisRef + '/menu/rule-list.html?v=' + VER + ' .list-group > a');
+                    $("#stylesheet-list").load(bisRef + '/menu/stylesheet-list.html?v=' + VER + ' .list-group > a');
                     $("#codelist-list").load(bisRef + '/menu/codelist-list.html?v=' + VER + ' .list-group > a');
                     $("#download-list").load(bisRef + '/menu/download-list.html?v=' + VER + ' .list-group > a');
                 };
@@ -291,6 +293,12 @@
                             <ul class="dropdown-menu" id="codelist-menu" style="max-height: 610px; overflow-y: scroll;">
                             </ul>
                         </li>
+                        
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fogli di stile <span class="caret"></span></a>
+                            <ul class="dropdown-menu" id="stylesheet-menu" style="max-height: 610px; overflow-y: scroll;">
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -327,12 +335,18 @@
                     <div class="list-group" id="rule-list">
                     </div>
                 </dd>
+                
+                <dt>Fogli di stile</dt>
+                <dd>
+                    <div class="list-group" id="stylesheet-list">
+                    </div>
+                </dd>
 
                 <dt>Codifiche</dt>
                 <dd>
                     <div class="list-group" id="codelist-list">
-                    </div>
-                </dd>
+					</div>
+				</dd>
 
                 <dt>Downloads</dt>
                 <dd>

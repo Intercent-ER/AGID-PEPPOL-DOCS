@@ -9,8 +9,8 @@
 
 	<rule context="cbc:CustomizationID">
 			<assert id="PEPPOL-T110-R030"
-					test="starts-with(normalize-space(.), 'urn:fdc:peppol.eu:poacc:trns:order_agreement:3')"
-					flag="fatal">Specification identifier SHALL start with the value 'urn:fdc:peppol.eu:poacc:trns:order_agreement:3'.</assert>
+                                test="starts-with(normalize-space(.), 'urn:fdc:peppol.eu:poacc:trns:order_agreement:3')"
+                                flag="fatal">Specification identifier SHALL start with the value 'urn:fdc:peppol.eu:poacc:trns:order_agreement:3'.</assert>
 	</rule>
 
 

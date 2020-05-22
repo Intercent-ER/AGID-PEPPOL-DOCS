@@ -21,13 +21,13 @@ I seguenti elementi mostrano gli importi totali presenti nell’ordine:
 | stem:[sum("cac:AllowanceCharge[ChargeIndicator='false'$$]$$/cbc:Amount")]
 
 | <cbc:TaxExclusiveAmount>
-| Importo totale dell’Ordine senza IVA
+| Importo totale dell’Ordine escluse le imposte
 | stem:[\ \ \ \ "cac:LegalMonetaryTotal/cbc:LineExtensionAmount"] +
 stem:[– \ "cac:LegalMonetaryTotal/cbc:AllowanceTotalAmount"] +
 stem:[+ \ "cac:LegalMonetaryTotal/cbc:ChargeTotalAmount"]
 
 | <cbc:TaxInclusiveAmount>
-| Importo totale dell’Ordine incluso IVA
+| Importo totale dell’Ordine incluse le imposte
 | stem:[\ \ \ \ "cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount"] +
 stem:[+ \ "cac:TaxTotal/cbc:TaxAmount"]
 
@@ -89,11 +89,11 @@ Esempio: *Importo 999.81 arrotondato a 1000.00 PayableRoundingAmount = 0.19.*
 |`cbc:ChargeTotalAmount`
 |200.00
 
-|Importo totale dell’Ordine senza IVA
+|Importo totale dell’Ordine escluse le imposte
 |`cbc:TaxExclusiveAmount`
 |800
 
-|Importo totale dell'IVA
+|Importo totale delle imposte
 |`cac:TaxTotal/cbc:TaxAmount`
 |85.63
 
@@ -101,7 +101,7 @@ Esempio: *Importo 999.81 arrotondato a 1000.00 PayableRoundingAmount = 0.19.*
 |`cbc:PayableRoundingAmount`
 |0.37
 
-|Importo totale dell’Ordine incluso IVA
+|Importo totale dell’Ordine incluse le imposte
 |`cbc:TaxInclusiveAmount`
 |885.63
 

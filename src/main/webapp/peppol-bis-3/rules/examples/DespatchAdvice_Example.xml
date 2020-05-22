@@ -250,6 +250,14 @@
 						<cbc:AttributeID>AAW</cbc:AttributeID>
 						<cbc:Measure unitCode="C62">1</cbc:Measure>
 					</cac:MeasurementDimension>
+				<cac:Package>
+					<cbc:ID>126</cbc:ID>
+					<cbc:PackagingTypeCode>BX</cbc:PackagingTypeCode>
+				</cac:Package>
+				<cac:Package>
+					<cbc:ID>667</cbc:ID>
+					<cbc:PackagingTypeCode>BX</cbc:PackagingTypeCode>
+				</cac:Package>
 				</cac:TransportHandlingUnit>
 			</cac:Shipment>
 	</cac:DespatchLine>

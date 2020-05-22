@@ -7,12 +7,12 @@ L’elemento `cac:AllowanceCharge` con il sotto elemento `cac:ChargeIndicator` p
 
 Livello di testata:: _Si applica all’intero ordine ed è incluso nel calcolo dell’importo totale dell’ordine (se specificato)._
 * Possono essere forniti sconti e maggiorazioni
-* L’indicazione IVA per sconti e maggiorazioni (cac:TaxCategory con i suoi sotto elementi ) deve essere fornita
+* Le informazioni sulle imposte relative agli sconti e maggiorazioni (cac:TaxCategory con i suoi sotto elementi) devono essere fornite
 * La somma di tutti gli sconti e maggiorazioni a livello di testata deve essere specificato rispettivamente nel AllowanceTotalAmount e nel ChargeTotalAmount, [yellow-background]#vedi paragrafo 7.13 Calcolo dei totali (AnticipatedMonetaryTotals)#
 
 Elemento Prezzo a livello di riga:: _Il prezzo indicato deve essere sempre il prezzo netto, cioè l’importo base ridotto da uno sconto._
 * Solamente una occorrenza di sconto è consentita
-* L’indicazione IVA per gli sconti non deve essere specificata
+* Le informazioni sulle imposte relative agli sconti non devono essere specificate
 * Gli sconti relativi al prezzo sono solo informativi e non sono considerati in qualsiasi altro calcolo
 * Gli sconti relativi al prezzo possono specificare l’importo e l’importo base
 
@@ -29,7 +29,7 @@ stem:["Importo" =  "Importo base" times ("Percentuale" div 100)]
 ====
 
 
-.Esempio di UBL di sconti e maggiorazioni a livello di testata
+.Esempio di UBL di sconti e maggiorazioni a livello di testata, per l'IVA
 [source, xml, indent=0]
 ----
 <cac:AllowanceCharge>

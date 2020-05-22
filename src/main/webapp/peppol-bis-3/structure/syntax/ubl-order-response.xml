@@ -584,7 +584,7 @@
 							<Name>Tax scheme information</Name>
 							<Element>
 								<Term>cbc:ID</Term>
-								<Description>Tax scheme. E.g. “VAT” or “GST”</Description>
+								<Description>Tax scheme. E.g. "VAT" or "GST"</Description>
 								<DataType>Identifier</DataType>
 								<Reference type="BUSINESS_TERM">tir76-p003</Reference>
 								<Value type="EXAMPLE">VAT or GST</Value>

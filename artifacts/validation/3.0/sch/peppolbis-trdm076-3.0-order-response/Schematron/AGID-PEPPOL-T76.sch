@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 	Peppol BIS 3.0.4
-	NSO 4.3
+	NSO 4.5
+	
+	NOTE:
+	Controllo del CIG elaborato a partire dalla regola pubblicata dal MIN SAL cfr http://www.salute.gov.it/imgs/C_17_pagineAree_3849_listaFile_itemName_3_file.pdf
 -->
 <schema xmlns="http://purl.oclc.org/dsdl/schematron"
         xmlns:u="utils"

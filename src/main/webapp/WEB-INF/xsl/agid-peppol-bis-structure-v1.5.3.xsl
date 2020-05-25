@@ -182,11 +182,11 @@
         <xsl:param name="level" select="0"/>
         <xsl:param name="parentId" select="''"/>
         <xsl:param name="rowClass" select="''"/>
-        <!--xsl:variable name="rowId" select="if (string-length($parentId) &gt; 0) then concat($parentId, '.', position()) else if ($level = 0) then '' else string(position())"/-->
-        <xsl:variable name="rowId" select="if (string-length($parentId) &gt; 0) then $parentId else if ($level = 1) then '' else string(position())"/>
+        <xsl:variable name="rowId" select="if (string-length($parentId) &gt; 0) then concat($parentId, '.', position()) else string(position())"/>
         <xsl:apply-templates select="document(.)/stx:Element">
-            <xsl:with-param name="level" select="$level -1"/>
-            <xsl:with-param name="parentId" select="$rowId"/>
+            <xsl:with-param name="level" select="$level"/>
+            <xsl:with-param name="parentId" select="$parentId"/>
+            <xsl:with-param name="rowId" select="$rowId"/>
             <xsl:with-param name="rowClass" select="$rowClass"/>
         </xsl:apply-templates>
     </xsl:template>
@@ -194,6 +194,7 @@
     <xsl:template match="stx:Document | stx:Element" priority="1">
         <xsl:param name="level" select="0"/>
         <xsl:param name="parentId" select="''"/>
+        <xsl:param name="rowId" select="if (string-length($parentId) &gt; 0) then concat($parentId, '.', position()) else if ($level = 0) then '' else string(position())"/>
         <xsl:param name="rowClass" select="''"/>
         <xsl:variable name="card">
             <xsl:choose>
@@ -217,7 +218,7 @@
         <xsl:variable name="references" select="stx:Reference[@type='BUSINESS_TERM']"/>
         <xsl:variable name="rules" select="stx:Reference[@type='RULE']"/>
         <xsl:variable name="codelists" select="stx:Reference[@type='CODE_LIST']"/>
-        <xsl:variable name="rowId" select="if (string-length($parentId) &gt; 0) then concat($parentId, '.', position()) else if ($level = 0) then '' else string(position())"/>
+        <!--xsl:variable name="rowId" select="if (string-length($parentId) &gt; 0) then concat($parentId, '.', position()) else if ($level = 0) then '' else string(position())"/-->
         <xsl:variable name="customClass" select="replace(@cus:custom, ',', ' ')"/>
         <xsl:variable name="newRowClass">
             <xsl:choose>

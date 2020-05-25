@@ -1,4 +1,4 @@
 # AGID PEPPOL Documentation
 _Web Application Resource_
 
-Build: **`47`**
+Build: **`48`**

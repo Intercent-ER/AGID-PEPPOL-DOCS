@@ -23,7 +23,7 @@
         <script>
             //<![CDATA[
             $(function () {
-                const VER = "47";    // Math.random()*1000000
+                const VER = "48";    // Math.random()*1000000
                 var $body = $("body"), $main = $("#main"), $guide = $("#guide").hide(), $adoc = $("#adoc-viewer"), $loader = $("#loader");
                 var defBis = "peppol-bis-3";
 
@@ -336,17 +336,17 @@
                     </div>
                 </dd>
                 
-                <dt>Fogli di stile</dt>
-                <dd>
-                    <div class="list-group" id="stylesheet-list">
-                    </div>
-                </dd>
-
                 <dt>Codifiche</dt>
                 <dd>
                     <div class="list-group" id="codelist-list">
 					</div>
 				</dd>
+
+                <dt>Fogli di stile</dt>
+                <dd>
+                    <div class="list-group" id="stylesheet-list">
+                    </div>
+                </dd>
 
                 <dt>Downloads</dt>
                 <dd>

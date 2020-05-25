@@ -1,18 +1,18 @@
-= Calcolo dell'IVA
+= Calcolo delle imposte
 
 [[vat-calc]]
-== Totale importo VAT
+== Totale imposte
 
-L'importo totale IVA può essere specificato senza fornire il riepilogo IVA, ma se questo è presente, l'importo IVA totale è dato dalla somma di tutti gli importo IVA per ogni categoria.
+L'importo totale delle imposte (es. IVA in Italia) può essere specificato senza fornire il riepilogo delle imposte, ma se questo è presente, l'importo totale delle imposte è dato dalla somma di tutte le imposte per ogni categoria.
 
 
 ====
 stem:["Importo totale IVA" = sum("Importo categoria IVA")]
 ====
 
-== Riepilogo IVA
+== Riepilogo imposte
 
-Un Riepilogo IVA deve essere fornito per ogni combinazione distinta di codice categoria e aliquota IVA presente a livello di riga nelle informazioni IVA o in testata nelle maggiorazioni e sconti.
+In Italia deve essere fornito il Riepilogo IVA per ogni combinazione distinta di codice categoria e aliquota IVA presente a livello di riga nelle informazioni IVA o in testata nelle maggiorazioni e sconti.
 
 Per ogni combinazione distinta di codice categoria e aliquota IVA il calcoli necessari sono:
 ====
@@ -32,7 +32,7 @@ Notate che per le aliquote IVA dovrebbero essere considerati solo i decimali sig
 ====
 Riga 1 ha il codice categoria = S e aliquota IVA = *25* +
 Riga 2 ha il codice categoria = S e aliquota IVA = *25.00* +
-Questo dovrebnbe dare origine ad un solo riepilogo IVA.
+Questo dovrebbe dare origine ad un solo riepilogo IVA.
 ====
 
 .Esempio UBL di totale e riepilogo imposte

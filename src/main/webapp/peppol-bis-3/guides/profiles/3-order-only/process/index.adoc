@@ -15,6 +15,16 @@ Il flusso del processo dell’Ordine può essere descritto come segue:
 
 * Un Ordine può contenere voci (merce o servizi) espresso mediante identificatori o descrizioni testuali.
 
+[[Requisiti-dei-processi-di-business]]
+== #Requisiti dei processi di business#
+
+Salvo che non sia previsto diversamente da norme, usi commerciali o accordi tra le parti,
+il Fornitore non è tenuto a trasmettere la Risposta, pertanto l’assenza di Risposta equivale ad accettazione dell’Ordine.  +
+
+In caso di utilizzo della risposta, si veda il profilo Ordinazione Completa. +
+
+
+
 :leveloffset: +1
 
 include::../../../shared/bpmn/bpmn-legend.adoc[]

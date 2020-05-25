@@ -15,7 +15,7 @@ Le principali attività supportate da questo BIS sono:
 * Comparazione di articoli
 * Gerarchia articoli e loro composizione
 * Descrizione degli imballaggi e requisiti di stoccaggio
-* Classificazione IVA
+* Classificazione delle imposte (es. per IVA/VAT, GST o Sales Tax)
 * Descrizione di una precisa istanza dell'articolo
 * Manutenzione del catalogo
 

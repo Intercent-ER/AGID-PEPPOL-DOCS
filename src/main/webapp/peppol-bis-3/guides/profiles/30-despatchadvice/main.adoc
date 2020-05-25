@@ -9,18 +9,19 @@ include::../../shared/links.adoc[]
 :source-language: xml
 :sectanchors:
 :sectnums:
-//:title-logo-image: ../../shared/images/peppol.png
 :snippet-dir: ../../../../rules/snippets/despatch
 
-= image:../../../../images/PEPPOL_Authority.jpg[width=100%, pdfwidth=100%, scaledwidth=100%, float="right"]PEPPOL BIS Documento di Trasporto 3.0
+image:../../shared/images/peppol.png[float="right"]
+
+= [black]#BIS Documento di Trasporto 3.1#
+
 {author}
 v{ddt_version_it}
 
 {description}
 
+image::../../../../images/PEPPOL_Authority.jpg[width=100%, pdfwidth=100%, scaledwidth=100%]
 include::../../shared/copyright.adoc[]
-
-image::../../shared/images/peppol.png[]
 
 //= Collegamento al sito principale della documentazione
 
@@ -39,9 +40,13 @@ include::process/index.adoc[]
 
 include::../../shared/datatypes/index.adoc[]
 
-include::../../shared/codes/index.adoc[]
+:leveloffset: +1
 
 include::custom/campistrutturati.adoc[]
+
+:leveloffset: -1
+
+include::../../shared/codes/index.adoc[]
 
 //include::custom/tipologiaordine.adoc[]
 

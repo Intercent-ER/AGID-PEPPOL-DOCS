@@ -1,5 +1,5 @@
-<%@page 
-    contentType="text/html" 
+<%@page
+    contentType="text/html"
     pageEncoding="UTF-8"
     %><!DOCTYPE html>
 <html lang="en">
@@ -90,7 +90,7 @@
                     e.preventDefault();
                     var $a = $(this).parent("a");
                     var url = '<%=request.getContextPath()%>/' + $a.attr("href") + "?download=1";
-                    
+
                     var link = document.createElement('a');
                     document.body.appendChild(link);
                     link.href = url;

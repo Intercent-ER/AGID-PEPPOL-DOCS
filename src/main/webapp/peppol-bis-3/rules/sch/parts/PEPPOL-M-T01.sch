@@ -7,17 +7,17 @@
     <let name="sumCharge" value="if (/ubl:Order/cac:AllowanceCharge[normalize-space(cbc:ChargeIndicator) = 'true']) then round(sum(/ubl:Order/cac:AllowanceCharge[normalize-space(cbc:ChargeIndicator) = 'true']/cbc:Amount/xs:decimal(.)) * 10 * 10) div 100 else 0"/>
     <let name="TAXamount" value="if(/ubl:Order/cac:TaxTotal/cbc:TaxAmount) then xs:decimal(/ubl:Order/cac:TaxTotal/cbc:TaxAmount) else 0"/>
 
-        <rule context="cbc:ProfileID">
-                <assert id="PEPPOL-T01-R031"
-                        test="some $p in tokenize('urn:fdc:peppol.eu:poacc:bis:order_only:3 urn:fdc:peppol.eu:poacc:bis:ordering:3', '\s') satisfies $p = normalize-space(.)"
-                        flag="fatal">An order transaction SHALL use profile order only or ordering.</assert>
-        </rule>
+    <rule context="cbc:ProfileID">
+        <assert id="PEPPOL-T01-R031"
+                test="some $p in tokenize('urn:fdc:peppol.eu:poacc:bis:order_only:3 urn:fdc:peppol.eu:poacc:bis:ordering:3', '\s') satisfies $p = normalize-space(.)"
+                flag="fatal">An order transaction SHALL use profile order only or ordering.</assert>
+    </rule>
  
-		<rule context="cbc:CustomizationID">
-				<assert id="PEPPOL-T01-R034" 
-						test="starts-with(normalize-space(.), 'urn:fdc:peppol.eu:poacc:trns:order:3')"
-						flag="fatal">Specification identifier SHALL start with the value 'urn:fdc:peppol.eu:poacc:trns:order:3'.</assert>
-		</rule>
+    <rule context="cbc:CustomizationID">
+        <assert id="PEPPOL-T01-R034" 
+                test="starts-with(normalize-space(.), 'urn:fdc:peppol.eu:poacc:trns:order:3')"
+                flag="fatal">Specification identifier SHALL start with the value 'urn:fdc:peppol.eu:poacc:trns:order:3'.</assert>
+    </rule>
 
     <!-- Amounts -->
     <rule context="cbc:Amount | cbc:TaxAmount | cbc:LineExtensionAmount | cbc:PriceAmount | cbc:BaseAmount | cac:AnticipatedMonetaryTotal/cbc:*">

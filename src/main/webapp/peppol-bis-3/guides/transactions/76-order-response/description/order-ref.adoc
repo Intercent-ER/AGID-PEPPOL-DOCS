@@ -1,18 +1,83 @@
-[[order-reference]]
-= Order reference
+[[Riferimento-all-ordine]]
+= Riferimento all’ordine
 
-Reference to the related order must be done on Header level.
+Il riferimento all’ordine correlato deve essere effettuato a livello di testata.
 
-.Example of order reference on header level in a PEPPOL BIS Order Response
+#Nell’elemento “OrderReference” i seguenti campi sono obbligatori:#
+
+
+* #“DocumentReference/ID”, valorizzato con l’identificativo dell’Ordine a cui si intende rispondere;#
+
+* #“DocumentReference/IssueDate”, valorizzato con la data dell’Ordine a cui si intende rispondere;#
+
+* #“DocumentReference/IssuerParty”, al cui interno dovrà essere indicato il campo “EndpointID” e “PartyIdendification/ID” con il corrispondente valore presente nel documento a cui si intende rispondere (BuyerCustomerParty).#
+
+
+.Esempio di riferimento d’ordine a livello di testata in un messaggio di risposta d’ordine BIS PEPPOL
 [source, xml, indent=0]
 ----
-include::{snippet-response-dir}/snippet-1.xml[tags=order-ref]
+    ...
+<cbc:ID>12</cbc:ID>
+<cbc:IssueDate>2018-10-01</cbc:IssueDate>
+<cbc:IssueTime>12:30:00</cbc:IssueTime>
+<cbc:OrderResponseCode listID=”UNCL4343”>CA</cbc:OrderResponseCode>
+<cbc:Note>Modifica in una linea ordine</cbc:Note>
+   ​<cac:OrderReference>
+       ​<cbc:ID>34#2018-09-20#ABCDEF</cbc:ID>
+   ​</cac:OrderReference>
+    ...
 ----
 
-If lines are sent in the Order Response, reference to the related order line must be sent.
+Se le righe vengono inviate nel messaggio di risposta d’ordine, deve essere inviato un riferimento alla riga ordine relativa..
 
-.Example of order line reference on line level:
+.Esempio di riferimento alla linea d’ordine a livello di riga
 [source, xml, indent=0]
 ----
-include::{snippet-response-dir}/snippet-1.xml[tags=order-ref-line]
+    ​...
+<cac:OrderLine>
+   ​<cac:LineItem>
+       ​<cbc:ID>2</cbc:ID>
+       ​<cbc:LineStatusCode listID=”UNCL1229”>5</cbc:LineStatusCode>
+		    ...
+       ​<cac:Item>
+           ​<cbc:Name>Salviette umide per bambini</cbc:Name>
+       ​</cac:Item>
+   ​</cac:LineItem>
+           ​...
+   ​<cac:OrderLineReference>
+       ​<cac:LineID>2</cac:LineID>
+   ​</cac:OrderLineReference>
+</cac:OrderLine>
+   ​...
 ----
+
+:leveloffset: +1
+
+[[Ordine-rifiutato]]
+= Ordine rifiutato
+
+Quando il venditore rifiuta un ordine, il codice di risposta «RE» deve essere inviato a livello di testata. In questo caso non deve essere fornita alcuna riga di dettaglio.
+
+
+[source, xml, indent=0]
+----
+<cbc:ID>34</cbc:ID>
+<cbc:IssueDate>2012-10-01</cbc:IssueDate>
+<cbc:IssueTime>12:30:00</cbc:IssueTime>
+<cbc:OrderResponseCode listID=”UNCL4343”>RE</cbc:OrderResponseCode
+----
+
+[[Ordine-accettato]]
+= Ordine accettato
+
+Quando il venditore accetta un ordine senza modifiche, il codice di risposta «AP» deve essere inviato a livello di testata. In questo caso non deve essere fornita alcuna riga di dettaglio.
+
+[source, xml, indent=0]
+----
+<cbc:ID>34</cbc:ID>
+<cbc:IssueDate>2012-10-01</cbc:IssueDate>
+<cbc:IssueTime>12:30:00</cbc:IssueTime>
+<cbc:OrderResponseCode listID=”UNCL4343”>AP</cbc:OrderResponseCode>
+----
+
+:leveloffset: -1

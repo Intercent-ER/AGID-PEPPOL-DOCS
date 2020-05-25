@@ -7,7 +7,7 @@ Se i prezzi non vengono forniti con l’Ordine la prassi è quella di verificare
 
 Il Prezzo viene specificato per gli articoli o servizi indicati nell’ordine.
 
-In particolare i prezzi dovrebbero includere abbuoni/sconti e/o maggiorazioni ma al netto delle imposte (IVA).
+In particolare i prezzi dovrebbero includere abbuoni/sconti e/o maggiorazioni ma al netto delle imposte (es. IVA, GST o Sales tax).
 
 
 .Esempio di prezzo per un articolo merce:

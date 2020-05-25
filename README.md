@@ -7,5 +7,3 @@ _PEPPOL Documentation Repository_
 **`NoTI-ER PEPPOL Converter`**
 
 **`NoTI-ER PEPPOL Validator`**
-
-

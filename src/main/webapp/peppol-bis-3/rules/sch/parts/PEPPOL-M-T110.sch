@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <pattern xmlns="http://purl.oclc.org/dsdl/schematron">
-	
+
 
 	<let name="taxCategoryPercents" value="for $cat in /ubl:OrderResponse/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory return u:cat2str($cat)"/>
-	<let name="taxCategories" value="for $cat in /ubl:OrderResponse/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory return normalize-space($cat/cbc:ID)"/>		
+	<let name="taxCategories" value="for $cat in /ubl:OrderResponse/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory return normalize-space($cat/cbc:ID)"/>
 	<let name="documentCurrencyCode" value="/ubl:OrderResponse/cbc:DocumentCurrencyCode"/>
 
 	<rule context="cbc:CustomizationID">
-			<assert id="PEPPOL-T110-R030" 
-					test="starts-with(normalize-space(.), 'urn:fdc:peppol.eu:poacc:trns:order_agreement:3')"
-					flag="fatal">Specification identifier SHALL start with the value 'urn:fdc:peppol.eu:poacc:trns:order_agreement:3'.</assert>
+			<assert id="PEPPOL-T110-R030"
+                                test="starts-with(normalize-space(.), 'urn:fdc:peppol.eu:poacc:trns:order_agreement:3')"
+                                flag="fatal">Specification identifier SHALL start with the value 'urn:fdc:peppol.eu:poacc:trns:order_agreement:3'.</assert>
 	</rule>
 
 
@@ -28,45 +28,45 @@
 				test="ancestor::node()/local-name() = 'Price' or string-length(substring-after(., '.')) &lt;= 2"
 				flag="fatal">Elements of data type amount cannot have more than 2 decimals (I.e. all amounts except unit price amounts)</assert>
 	</rule>
-	
-	
+
+
 <!-- TAX rules -->
-	
+
 	<rule context="cac:TaxTotal/cac:TaxSubtotal">
-			
+
 		<assert id="PEPPOL-T110-R024"
 			test="(round(cac:TaxCategory/xs:decimal(cbc:Percent)) = 0 and (round(xs:decimal(cbc:TaxAmount)) = 0)) or (round(cac:TaxCategory/xs:decimal(cbc:Percent)) != 0 and (xs:decimal(cbc:TaxAmount) = round(xs:decimal(cbc:TaxableAmount) * (cac:TaxCategory/xs:decimal(cbc:Percent) div 100) * 10 * 10) div 100 )) or (not(exists(cac:TaxCategory/xs:decimal(cbc:Percent))) and (round(xs:decimal(cbc:TaxAmount)) = 0))"
 			flag="fatal">TAX category tax amount = TAX category taxable amount  x (TAX category rate  / 100), rounded to two decimals.</assert>
-		
-	</rule>	
-	
+
+	</rule>
+
 	<rule context="/ubl:OrderResponse/cac:TaxTotal[cac:TaxSubtotal]">
 		<assert id="PEPPOL-T110-R025"
 			test="(xs:decimal(child::cbc:TaxAmount)= round((sum(cac:TaxSubtotal/xs:decimal(cbc:TaxAmount)) * 10 * 10)) div 100) or not(cac:TaxSubtotal)"
 			flag="fatal">If TAX breakdown is present, the order agreement TAX total amount  = Σ TAX category tax amount.</assert>
 	</rule>
-		
+
 	<rule context="cac:TaxSubtotal/cac:TaxCategory[not(cbc:TaxExemptionReason)]">
 		<assert id="PEPPOL-T110-R028"
 			test="contains( ' S Z L M ',concat(' ',normalize-space(cbc:ID),' '))"
 			flag="fatal">A TAX breakdown with TAX Category codes E, AE, K, G or O SHALL have a TAX exemption reason text </assert>
 	</rule>
-	
+
 	<rule context="cac:TaxSubtotal/cac:TaxCategory[cbc:TaxExemptionReason]">
 		<assert id="PEPPOL-T110-R029"
 			test="contains( ' E AE O K G ',concat(' ',normalize-space(cbc:ID),' '))"
 			flag="fatal">A TAX breakdown with TAX Category codes S, Z, L and M SHALL NOT have a TAX exemption reason text </assert>
 	</rule>
-	
+
 	<rule context="cac:AllowanceCharge/cac:TaxCategory[cbc:Percent and //cac:TaxTotal] | cac:Item/cac:ClassifiedTaxCategory[cbc:Percent and //cac:TaxTotal]">
-		
+
 		<let name="category" value="u:cat2str(.)"/>
-		
+
 		<assert id="PEPPOL-T110-R026"
-			test="some $cat in $taxCategoryPercents satisfies $cat = $category"
+                        test="some $cat in $taxCategoryPercents satisfies $cat = $category"
 			flag="fatal">Tax categories MUST match provided tax categories on document level.</assert>
 	</rule>
-		
+
 	<rule context="cac:AllowanceCharge/cac:TaxCategory | cac:Item/cac:ClassifiedTaxCategory">
 		<assert id="PEPPOL-T110-R027"
 			test="some $cat in $taxCategories satisfies $cat = cbc:ID"
@@ -81,7 +81,7 @@
 
 
 <!-- Document totals -->
-	
+
 	<rule context="cac:LegalMonetaryTotal">
 
 		<let name="lineExtensionAmount" value="xs:decimal(if (cbc:LineExtensionAmount) then cbc:LineExtensionAmount else 0)"/>
@@ -163,7 +163,7 @@
 	</rule>
 
 
-	
+
 	<!-- Price -->
 	<rule context="cac:Price">
 		<assert id="PEPPOL-T110-R001"
@@ -185,7 +185,7 @@
 			satisfies normalize-space(text()) = $code"
 			flag="fatal">Reason code MUST be according to subset of UNCL 5189 D.16B.</assert>
 	</rule>
-	
+
 	<rule context="cac:AllowanceCharge[cbc:ChargeIndicator = 'true']/cbc:AllowanceChargeReasonCode">
 		<assert id="PEPPOL-T110-CL002"
 			test="

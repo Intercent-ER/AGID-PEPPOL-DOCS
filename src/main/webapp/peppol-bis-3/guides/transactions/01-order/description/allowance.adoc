@@ -127,16 +127,16 @@ Questo esempio mostra uno sconto di 10 EUR sul prezzo base:
         <cbc:ID>1</cbc:ID>
         <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">10</cbc:Quantity>
         <cbc:LineExtensionAmount currencyID="EUR">90.00</cbc:LineExtensionAmount>
-            <cac:AllowanceCharge>
-				<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-				<cbc:AllowanceChargeReason>Sconto sulla riga</cbc:AllowanceChargeReason>
-			    <cbc:MultiplierFactorNumeric>10</cbc:MultiplierFactorNumeric>
-				<cbc:Amount currencyID="EUR">10.00</cbc:Amount>
-				<cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
-			</cac:AllowanceCharge>
-            <cac:Price>
+        <cac:AllowanceCharge>
+			<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+			<cbc:AllowanceChargeReason>Sconto sulla riga</cbc:AllowanceChargeReason>
+			<cbc:MultiplierFactorNumeric>10</cbc:MultiplierFactorNumeric>
+			<cbc:Amount currencyID="EUR">10.00</cbc:Amount>
+			<cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
+		</cac:AllowanceCharge>
+        <cac:Price>
             <cbc:PriceAmount currencyID="EUR">10.00000</cbc:PriceAmount><!-- Opzionale -->
-            </cac:Price>
+        </cac:Price>
     </cac:LineItem>
 </cac:OrderLine>
 ----
@@ -160,22 +160,22 @@ Questo esempio mostra uno sconto di 10 EUR sul prezzo base:
         <cbc:ID>1</cbc:ID>
         <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">10</cbc:Quantity>
         <cbc:LineExtensionAmount currencyID="EUR">0.00</cbc:LineExtensionAmount>
-            <cac:AllowanceCharge>
-	            <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-	            <cbc:AllowanceChargeReason>Sconto Merce</cbc:AllowanceChargeReason>
-		        <cbc:MultiplierFactorNumeric>10</cbc:MultiplierFactorNumeric>
-	            <cbc:Amount currencyID="EUR">90.00</cbc:Amount>
-            </cac:AllowanceCharge>
-            <cac:Price>
-                 <cbc:PriceAmount currencyID="EUR">9.00000</cbc:PriceAmount>
-            </cac:Price>
-            <cac:Item>
-                <cbc:Description>1x12 PACCHI</cbc:Description>
-                <cbc:Name>ARTICOLO MERCE</cbc:Name>
+        <cac:AllowanceCharge>
+	        <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+	        <cbc:AllowanceChargeReason>Sconto Merce</cbc:AllowanceChargeReason>
+		    <cbc:MultiplierFactorNumeric>10</cbc:MultiplierFactorNumeric>
+	        <cbc:Amount currencyID="EUR">90.00</cbc:Amount>
+        </cac:AllowanceCharge>
+        <cac:Price>
+            <cbc:PriceAmount currencyID="EUR">9.00000</cbc:PriceAmount>
+        </cac:Price>
+        <cac:Item>
+            <cbc:Description>1x12 PACCHI</cbc:Description>
+            <cbc:Name>ARTICOLO MERCE</cbc:Name>
             <cac:ClassifiedTaxCategory>
                 <cbc:ID>E</cbc:ID>
             </cac:ClassifiedTaxCategory>
-            </cac:Item>
+        </cac:Item>
   	</cac:LineItem>
 </cac:OrderLine>
 ----

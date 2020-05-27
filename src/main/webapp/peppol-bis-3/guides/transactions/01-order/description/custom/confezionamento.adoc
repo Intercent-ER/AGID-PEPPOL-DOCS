@@ -84,7 +84,7 @@ Esempio in cui l’articolo viene ordinato a confezione:
                 <cbc:ID>XYZ500</cbc:ID>
             </cac:SellersItemIdentification>
             <cac:AdditionalItemProperty>
-                <!—Una articolo (confezione) contiene 500 pezzi-->
+                <!—Un articolo (confezione) contiene 500 pezzi-->
                 <cbc:Name>PackQuantity</cbc:Name>
                 <cbc:Value>500</cbc:Value>
                 <cac:AdditionalItemProperty>

@@ -6,7 +6,7 @@ Le seguenti parti/I seguenti ruoli possono essere specificate/i nel messaggio:
 [[sellersupplierparty-seller]]
 == Fornitore/Venditore (SellerSupplierParty)
 
-Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è obbligatorio in quanto destinatario dell’ordine PEPPOL, pertanto è obbligatori includere l’EndpointID (ParticipantID) con il quale è registrato su PEPPOL.
+Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è obbligatorio in quanto destinatario dell'ordine PEPPOL, pertanto è obbligatori includere l'EndpointID (ParticipantID) con il quale è registrato su PEPPOL.
 
 
 .Esempio di informazioni per un fornitore italiano con indicazione della Partita Iva nell'Endpoint
@@ -50,11 +50,11 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 </cac:SellerSupplierParty>
 ----
 
-#Se il Fornitore è un’amministrazione pubblica, il campo *EndpointID/@schemeID* deve essere valorizzato con “0201:” seguito dal Codice UFE della PA.#
+#Se il Fornitore è un'amministrazione pubblica, il campo *EndpointID/@schemeID* deve essere valorizzato con “0201:” seguito dal Codice UFE della PA.#
 
-#Nel caso in cui non si inserisca la Partita IVA nell’EndpointID, la Partita IVA va indicata nel *Seller party identification*.#
+#Nel caso in cui non si inserisca la Partita IVA nell'EndpointID, la Partita IVA va indicata nel *Seller party identification*.#
 
-#Nel caso in cui si voglia indicare anche il Codice Fiscale, quest’ultimo va indicato nel *Seller legal registration identifier*#.
+#Nel caso in cui si voglia indicare anche il Codice Fiscale, quest'ultimo va indicato nel *Seller legal registration identifier*#.
 
 .Esempio di indicazione della Partita Iva e del Codice Fiscale
 [source, xml, indent=0]
@@ -138,11 +138,11 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 
 [yellow-background]#Il Fornitore è un elemento essenziale del processo che, eccezionalmente, può non essere determinato a priori, ma divenirlo solo al momento della cessione dei beni e/o della prestazione dei servizi. Ad esempio quando la facoltà di scegliere il Fornitore è riservata al Beneficiario.# 
 
-[yellow-background]#In questo caso (Fornitore non predeterminato) l’elemento “SellerSupplierParty/Party” deve contenere solo i campi di seguito indicati:# 
+[yellow-background]#In questo caso (Fornitore non predeterminato) l'elemento “SellerSupplierParty/Party” deve contenere solo i campi di seguito indicati:# 
 
 * [yellow-background]#“EndpointID”, valorizzato con “9999999999999999” (sedici volte 9) indicando il valore "9907" per lo "Scheme ID";# 
 
-* [yellow-background]#“PostalAddress/Country/IdentificationCode”, valorizzato con il codice corrispondente allo Stato in cu verrà effettuato l’acquisto (per l’Italia “IT”);# 
+* [yellow-background]#“PostalAddress/Country/IdentificationCode”, valorizzato con il codice corrispondente allo Stato in cu verrà effettuato l'acquisto (per l'Italia “IT”);# 
 
 * [yellow-background]#“PartyLegalEntity/RegistrationName”, valorizzato con “NDEF”.# 
 
@@ -176,9 +176,9 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 [[buyercustomerparty-buyer]]
 == Cliente/Acquirente (BuyerCustomerParty)
 
-Il cliente è colui che acquista la merce o i servizi dal fornire. Il cliente è obbligatorio in quanto mittente del messaggio dell’ordine PEPPOL, pertanto è necessario includere l’EndpointID (ID partecipante) con il quale è registrato in PEPPOL.
+Il cliente è colui che acquista la merce o i servizi dal fornire. Il cliente è obbligatorio in quanto mittente del messaggio dell'ordine PEPPOL, pertanto è necessario includere l'EndpointID (ID partecipante) con il quale è registrato in PEPPOL.
 
-#Se l’Amministrazione Aggiudicatrice è identificata in PEPPOL con il Codice UFE (ID Partecipante nei registri SMP), deve essere indicato l’Identificativo UFE come endpoint (cac:EndpointID):#
+#Se l'Amministrazione Aggiudicatrice è identificata in PEPPOL con il Codice UFE (ID Partecipante nei registri SMP), deve essere indicato l'Identificativo UFE come endpoint (cac:EndpointID):#
 
 [source, xml, indent=0]
 ----
@@ -238,7 +238,7 @@ La Partita IVA invece va indicata nel cac:Tax Scheme/cbc:CompanyID.
 [[originatorcustomerparty-originator]]
 == Committente (OriginatorCustomerParty)
 
-Generalmente, il committente è l’utente finale che emette l’ordine. Le informazioni presenti nel messaggio dell’ordine inerenti al committente sono facoltative.
+Generalmente, il committente è l'utente finale che emette l'ordine. Le informazioni presenti nel messaggio dell'ordine inerenti al committente sono facoltative.
 
 .Esempio di informazioni del committente appartenente alla medesima organizzazione del cliente/acquirente
 [source, xml, indent=0]
@@ -260,9 +260,9 @@ Generalmente, il committente è l’utente finale che emette l’ordine. Le info
 </cac:OriginatorCustomerParty>
 ----
 
-[yellow-background]#Qualora il Documento sia emesso con l’uso di strumenti messi a disposizione da un Intermediario (ad esempio, un Ordine emesso utilizzando la piattaforma telematica di una centrale di acquisto), è possibile evidenziare il committente valorizzando l’elemento “OriginatorCustomerParty”, come mostrato nel seguente esempio.#
+[yellow-background]#Qualora il Documento sia emesso con l'uso di strumenti messi a disposizione da un Intermediario (ad esempio, un Ordine emesso utilizzando la piattaforma telematica di una centrale di acquisto), è possibile evidenziare il committente valorizzando l'elemento “OriginatorCustomerParty”, come mostrato nel seguente esempio.#
 
-.Esempio di informazioni del committente che utilizza una piattaforma telematica di un terzo intermediario per l’emissione dell’ordine
+.Esempio di informazioni del committente che utilizza una piattaforma telematica di un terzo intermediario per l'emissione dell'ordine
 [source, xml, indent=0]
 ----
 <cac:OriginatorCustomerParty>
@@ -285,21 +285,21 @@ Generalmente, il committente è l’utente finale che emette l’ordine. Le info
 [[accountingcustomerparty-invoicee]]
 ==  Intestatario fattura (AccountingCustomerParty)
 
-L’intestatario della fattura è la persona giuridica che agisce per conto del Cliente e che riceve la fattura relativa all’ordine. Le informazioni sull’intestatario della fattura sono opzionali nel messaggio dell’Ordine PEPPOL. 
+L'intestatario della fattura è la persona giuridica che agisce per conto del Cliente e che riceve la fattura relativa all'ordine. Le informazioni sull'intestatario della fattura sono opzionali nel messaggio dell'Ordine PEPPOL. 
 
 [IMPORTANT]
 ====
-Qualora l’Acquirente (BuyerCustomerParty) sia una Pubblica Amministrazione, l’informazione deve essere fornita anche quando Intestatario della fattura (AccountingCustomerParty) e Acquirente coincidono, in tal caso il codice IPA deve essere inserito riportato nel *cac:EndpointID.*
+Qualora l'Acquirente (BuyerCustomerParty) sia una Pubblica Amministrazione, l'informazione deve essere fornita anche quando Intestatario della fattura (AccountingCustomerParty) e Acquirente coincidono, in tal caso il codice IPA deve essere inserito riportato nel *cac:EndpointID.*
 ====
 
-.Esempio di informazioni dell’intestatario fattura
+.Esempio di informazioni dell'intestatario fattura
 [source, xml, indent=0]
 ----
 <cac:AccountingCustomerParty>
     <cac:Party>
         <cbc:EndpointID schemeID=”0201”>ABCDEF</cbc:EndpoinID>
         <cac:PartyName>
-            <cbc:Name>Ospedale Sant’Anna</cbc:Name>
+            <cbc:Name>Ospedale Sant'Anna</cbc:Name>
         </cac:PartyName>
         <cac:PostalAddress>
             <cbc:StreetName>Via del pensiero, 1</cbc:StreetName>
@@ -321,7 +321,7 @@ Qualora l’Acquirente (BuyerCustomerParty) sia una Pubblica Amministrazione, l�
             </cac:TaxScheme>
         </cac:PartyTaxScheme>
         <cac:PartyLegalEntity>
-            <cbc:RegistrationName>OspedaleSant’Anna</cbc:RegistrationName>
+            <cbc:RegistrationName>OspedaleSant'Anna</cbc:RegistrationName>
             <cbc:CompanyID <cbc:ID>IT:CF:00234567890</cbc:CompanyID>
             <cac:RegistrationAddress>
                 <cbc:CityName>Modena</cbc:CityName>

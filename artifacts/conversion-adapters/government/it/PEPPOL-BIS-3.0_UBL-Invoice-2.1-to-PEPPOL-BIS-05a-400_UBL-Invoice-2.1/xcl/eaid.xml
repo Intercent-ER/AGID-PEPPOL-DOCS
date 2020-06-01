@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java:properties xmlns:java="http://www.javest.com/xsd/java/properties"
+            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<comment>CEF Electronic address identifier (EAID)</comment>
+	<!-- System Information et Repertoire des Entreprise et des Etablissements: SIRENE -->
+	<entry key="0002">FR:SIRENE</entry>
+	<!-- Organisationsnumme -->
+	<entry key="0007">SE:ORGNR</entry>
+	<!-- SIRET-CODE -->
+	<entry key="0009">FR:SIRET</entry>
+	<!-- LY-tunnus -->
+	<entry key="0037">FI:OVT</entry>
+	<!-- Data Universal Numbering System (D-U-N-S Number) -->
+	<entry key="0060">DUNS</entry>
+	<!-- EAN Location Code -->
+	<entry key="0088">GLN</entry>
+	<!-- DANISH CHAMBER OF COMMERCE Scheme (EDIRA compliant) -->
+	<entry key="0096">DK:P</entry>
+	<!-- FTI - Ediforum Italia, (EDIRA compliant) -->
+	<entry key="0097">IT:FTI</entry>
+	<!-- "Vereniging van Kamers van Koophandel en Fabrieken in Nederland (Association of
+            Chambers of Commerce and Industry in the Netherlands), Scheme (EDIRA compliant)" -->
+	<entry key="0106">NL:KVK</entry>
+	<!-- SIA Object Identifiers -->
+	<entry key="0135">IT:SIA</entry>
+	<!-- SECETI Object Identifiers -->
+	<entry key="0142">IT:SECETI</entry>
+	<!-- DIGSTORG -->
+	<entry key="0184"></entry>
+	<!-- Dutch Originator's Identification Number -->
+	<entry key="0190"></entry>
+	<!-- Centre of Registers and Information Systems of the Ministry of Justice -->
+	<entry key="0191"></entry>
+	<!-- Enhetsregisteret ved Bronnoysundregisterne  -->
+	<entry key="0192"></entry>
+	<!-- UBL.BE party identifier -->
+	<entry key="0193"></entry>
+	<!-- Singapore UEN identifier -->
+	<entry key="0195"></entry>
+	<!-- Kennitala - Iceland legal id for individuals and legal entities -->
+	<entry key="0196"></entry>
+	<!-- The Danish Commerce and Companies Agency  -->
+	<entry key="9902">DK:CVR</entry>
+	<!-- Danish Ministry of Taxation, Central Customs and Tax Administration -->
+	<entry key="9904">DK:SE</entry>
+	<!-- Danish VANS providers -->
+	<entry key="9905">DK:VANS</entry>
+	<!-- Ufficio responsabile gestione partite IVA -->
+	<entry key="9906">IT:VAT</entry>
+	<!-- TAX Authority -->
+	<entry key="9907">IT:CF</entry>
+	<!-- Hungary VAT number -->
+	<entry key="9910">HU:VAT</entry>
+	<!-- Business Registers Network -->
+	<entry key="9913">EU:REID</entry>
+	<!-- Österreichische Umsatzsteuer-Identifikationsnummer -->
+	<entry key="9914">AT:VAT</entry>
+	<!-- Österreichisches Verwaltungs bzw. Organisationskennzeichen -->
+	<entry key="9915">AT:GOV</entry>
+	<!-- Kennitala - Iceland legal id for organizations and individuals -->
+	<entry key="9917">IS:KT</entry>
+	<!-- SOCIETY FOR WORLDWIDE INTERBANK FINANCIAL, TELECOMMUNICATION S.W.I.F.T -->
+	<entry key="9918">IBAN</entry>
+	<!-- Kennziffer des Unternehmensregisters  -->
+	<entry key="9919">AT:KUR</entry>
+	<!-- Agencia Española de Administración Tributaria  -->
+	<entry key="9920">ES:VAT</entry>
+	<!-- Indice delle Pubbliche Amministrazioni  -->
+	<entry key="9921">IT:IPA</entry>
+	<!-- Andorra VAT number -->
+	<entry key="9922">AD:VAT</entry>
+	<!-- Albania VAT number -->
+	<entry key="9923">AL:VAT</entry>
+	<!-- Bosnia and Herzegovina VAT number -->
+	<entry key="9924">BA:VAT</entry>
+	<!-- Belgium VAT number -->
+	<entry key="9925">BE:VAT</entry>
+	<!-- Bulgaria VAT number -->
+	<entry key="9926">BG:VAT</entry>
+	<!-- Switzerland VAT number -->
+	<entry key="9927">CH:VAT</entry>
+	<!-- Cyprus VAT number -->
+	<entry key="9928">CH:VAT</entry>
+	<!-- Czech Republic VAT number -->
+	<entry key="9929">CZ:VAT</entry>
+	<!-- Germany VAT number -->
+	<entry key="9930">DE:VAT</entry>
+	<!-- Estonia VAT number -->
+	<entry key="9931">EE:VAT</entry>
+	<!-- United Kingdom VAT number -->
+	<entry key="9932">GB:VAT</entry>
+	<!-- Greece VAT number -->
+	<entry key="9933">GR:VAT</entry>
+	<!-- Croatia VAT number -->
+	<entry key="9934">HR:VAT</entry>
+	<!-- Ireland VAT number -->
+	<entry key="9935">IE:VAT</entry>
+	<!-- Liechtenstein VAT number -->
+	<entry key="9936">LI:VAT</entry>
+	<!-- Lithuania VAT number -->
+	<entry key="9937">LT:VAT</entry>
+	<!-- Luxemburg VAT number -->
+	<entry key="9938">LU:VAT</entry>
+	<!-- Latvia VAT number -->
+	<entry key="9939">LV:VAT</entry>
+	<!-- Monaco VAT number -->
+	<entry key="9940">MC:VAT</entry>
+	<!-- Montenegro VAT number -->
+	<entry key="9941">ME:VAT</entry>
+	<!-- Macedonia, the former Yugoslav Republic of VAT number -->
+	<entry key="9942">MK:VAT</entry>
+	<!-- Malta VAT number -->
+	<entry key="9943">MT:VAT</entry>
+	<!-- Netherlands VAT number -->
+	<entry key="9944">NL:VAT</entry>
+	<!-- Poland VAT number -->
+	<entry key="9945">PL:VAT</entry>
+	<!-- Portugal VAT number -->
+	<entry key="9946">PT:VAT</entry>
+	<!-- Romania VAT number -->
+	<entry key="9947">RO:VAT</entry>
+	<!-- Serbia VAT number -->
+	<entry key="9948">RS:VAT</entry>
+	<!-- Slovenia VAT number -->
+	<entry key="9949">SI:VAT</entry>
+	<!-- Slovakia VAT number -->
+	<entry key="9950">SK:VAT</entry>
+	<!-- San Marino VAT number -->
+	<entry key="9951">SM:VAT</entry>
+	<!-- Turkey VAT number -->
+	<entry key="9952">TU:VAT</entry>
+	<!-- Holy See (Vatican City State) VAT number -->
+	<entry key="9953">TR:VAT</entry>
+	<!-- Swedish VAT number -->
+	<entry key="9955">SE:VAT</entry>
+	<!-- Belgian Crossroad Bank of Enterprises  -->
+	<entry key="9956"></entry>
+	<!-- French VAT number -->
+	<entry key="9957">FR:VAT</entry>
+	<!-- German Leitweg ID -->
+	<entry key="9958"></entry>
+</java:properties>

@@ -1,0 +1,7 @@
+
+[[prof-01]]
+= Profilo 01 - Fatturazione
+
+Nella tabella seguente troverete i valori da utilizzare in questo profilo per l'identificatore della specifica (BT-24) e per il tipo di processo di business (BT-23).
+
+include::../../syntax/profile.adoc[]

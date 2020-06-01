@@ -1,0 +1,31 @@
+
+= Identifier
+
+Gli identificatori (IDs) sono chiavi emesse dal mittente o dal destinatario di un documento o da una terza parte.
+
+====
+IMPORTANT: L’utilizzo degli attributi è specificato per ogni elemento informativo.
+====
+
+[cols="1s,1,1,1", options="header"]
+|===
+|Componente
+|Uso
+|Tipo primitivo
+|Esempio
+
+|Contenuto
+|Obbligatorio
+|String
+|abc:123-DEF
+
+|Scheme identifier
+|Facoltativo
+|String
+|0088
+
+|Scheme version identifier
+|Facoltativo
+|String
+|1.0
+|===

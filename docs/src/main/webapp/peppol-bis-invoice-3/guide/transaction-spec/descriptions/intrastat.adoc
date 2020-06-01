@@ -1,0 +1,9 @@
+
+= Intrastat
+
+Quando gli stati membri EU acquistano da altri stati membri EU, i commercianti solitamente richiedono che alcune informazioni statistiche siano specificate in fattura, normalmente un codice di classificazione come la Nomenclatura Combinata.
+
+Si raccomanda, a questo scopo, l'uso dell'elemento Item classification identifier (BT-158), con il codice "HS" come identificatore della lista.
+
+
+include::../../syntax/intrastat.adoc[]

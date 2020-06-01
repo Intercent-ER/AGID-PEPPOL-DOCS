@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+           targetNamespace="urn:fdc:agid.gov.it:peppol:customization" xmlns="urn:fdc:agid.gov.it:peppol:customization">
+	<xs:attribute name="custom" type="xs:string"/>
+	<xs:attribute name="note" type="CustomEnum"/>
+	
+	<xs:element name="Extension" type="ExtensionType"/>
+	
+    <xs:complexType name="ExtensionType">
+        <xs:sequence>
+			<xs:element name="ID" type="xs:normalizedString"/>
+            <xs:element name="Name" type="xs:string"/>
+            <xs:element name="Description" type="xs:string" minOccurs="0"/>
+            <xs:element name="Version" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+	
+    <xs:simpleType name="CustomEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="value"/>
+            <xs:enumeration value="cardinality"/>
+            <xs:enumeration value="extension"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

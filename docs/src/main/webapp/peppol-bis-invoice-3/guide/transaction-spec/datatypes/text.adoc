@@ -1,0 +1,17 @@
+
+= Text
+
+Il testo è la formulazione di qualsiasi contenuto redatto o stampato. Potrebbero essere presenti dei troncamenti nel testo, qualsiasi troncamento dovrebbe essere preservato e rispettato dal sistema ricevente.
+
+[cols="1s,1,1,1", options="header"]
+|===
+|Componente
+|Uso
+|Tipo primitivo
+|Esempio
+
+|Contenuto
+|Obbligatorio
+|String
+|5% di sconto se pagato entro 30 giorni
+|===

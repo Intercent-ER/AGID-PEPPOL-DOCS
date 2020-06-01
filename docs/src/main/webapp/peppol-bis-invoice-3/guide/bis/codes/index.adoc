@@ -1,0 +1,14 @@
+
+[[codelist]]
+= Codifiche
+
+I capitoli seguenti forniscono una panoramica sulle restrizioni applicate alle codifiche utilizzate in questa PEPPOL BIS. Per la maggior parte delle codifiche le restrizioni consistono nella sola aggiunta di una data di riferimento per la codifica, ma per la codifica Invoice Type Code è stato stabilito un sottoinsieme di valori validi.
+
+
+:leveloffset: +1
+
+include::elements.adoc[]
+
+include::id_schemes.adoc[]
+
+:leveloffset: -1

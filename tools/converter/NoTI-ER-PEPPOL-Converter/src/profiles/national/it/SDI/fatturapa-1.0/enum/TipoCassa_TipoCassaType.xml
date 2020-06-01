@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties
+  SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties version="1.0"><entry key="TC01">
+						Cassa nazionale previdenza e assistenza avvocati e procuratori legali
+					</entry><entry key="TC02">
+						Cassa previdenza dottori commercialisti
+					</entry><entry key="TC03">
+						Cassa previdenza e assistenza geometri
+					</entry><entry key="TC04">
+						Cassa nazionale previdenza e assistenza ingegneri e architetti liberi professionisti
+					</entry><entry key="TC05">
+						Cassa nazionale del notariato
+					</entry><entry key="TC06">
+						Cassa nazionale previdenza e assistenza ragionieri e periti commerciali
+					</entry><entry key="TC07">
+						Ente nazionale assistenza agenti e rappresentanti di commercio (ENASARCO)
+					</entry><entry key="TC08">
+						Ente nazionale previdenza e assistenza consulenti del lavoro (ENPACL)
+					</entry><entry key="TC09">
+						Ente nazionale previdenza e assistenza medici (ENPAM)
+					</entry><entry key="TC10">
+						Ente nazionale previdenza e assistenza farmacisti (ENPAF)
+					</entry><entry key="TC11">
+						Ente nazionale previdenza e assistenza veterinari (ENPAV)
+					</entry><entry key="TC12">
+						Ente nazionale previdenza e assistenza impiegati dell'agricoltura (ENPAIA)
+					</entry><entry key="TC13">
+						Fondo previdenza impiegati imprese di spedizione e agenzie marittime
+					</entry><entry key="TC14">
+						Istituto nazionale previdenza giornalisti italiani (INPGI)
+					</entry><entry key="TC15">
+						Opera nazionale assistenza orfani sanitari italiani (ONAOSI)
+					</entry><entry key="TC16">
+						Cassa autonoma assistenza integrativa giornalisti italiani (CASAGIT)
+					</entry><entry key="TC17">
+						Ente previdenza periti industriali e periti industriali laureati (EPPI)
+					</entry><entry key="TC18">
+						Ente previdenza e assistenza pluricategoriale (EPAP)
+					</entry><entry key="TC19">
+						Ente nazionale previdenza e assistenza biologi (ENPAB)
+					</entry><entry key="TC20">
+						Ente nazionale previdenza e assistenza professione infermieristica (ENPAPI)
+					</entry><entry key="TC21">
+						Ente nazionale previdenza e assistenza psicologi (ENPAP)
+					</entry><entry key="TC22">
+						INPS
+					</entry></properties>

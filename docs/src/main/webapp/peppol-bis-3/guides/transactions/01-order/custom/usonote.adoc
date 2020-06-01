@@ -1,0 +1,16 @@
+[[uso-degli-elementi-note]]
+= #Uso degli elementi "Note"#
+
+
+Eccezionalmente, ove vi sia l’esigenza di fornire indicazioni particolari, è possibile valorizzare con testo libero gli elementi “Note” presenti a vari livelli degli schemi dati dei Documenti. In particolare, con riferimento al campo “Note” dell’elemento “PaymentTerms”, si raccomanda di indicare il numero di giorni dall’emissione della fattura. In assenza di indicazioni si intendono i termini massimi stabiliti dalla normativa vigente.
+
+.Esempio
+[source, xml, indent=0]
+----
+<cac:PaymentTerms>
+    <cbc:Note>30 giorni fattura</cbc:Note>
+</cac:PaymentTerms>
+----
+
+
+IMPORTANT: Come regola generale, si raccomanda l’utilizzo delle note testuali solo se assolutamente necessario e in mancanza di altri elementi degli schemi dati che possano contenere la medesima informazione.

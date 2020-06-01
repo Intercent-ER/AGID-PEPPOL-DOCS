@@ -1,0 +1,4032 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Conversion Adapter Specification - [ PEPPOL-BIS-3.0_UBL-Invoice-2.1-to-PEPPOL-BIS-05a-400_UBL-Invoice-2.1 ]</title><script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script><script type="text/javascript">
+                    //
+					var focusOn = false;
+                    $("html").css({visibility: "hidden"});
+                    $(function() {
+                        $("html").css({visibility: "visible"});
+						
+                        $("tr").click(function() {
+							if (focusOn) {
+								$("tr").show();
+								focusOn = false;
+								return;
+							}
+							
+                            var level = parseInt($(this).attr("data-level"));
+							var branch = $(this).hasClass("branch") ? $(this) : $(this).prevAll("[class='branch']").filter(function(index) {
+								return parseInt($(this).attr("data-level")) === level -1;
+							}).first();
+                            $(this).nextAll().hide();
+							$(this).prevAll("tr[class='leaf']").hide();
+							$(this).prevAll("tr[class='branch']").filter(function(index) {
+								if ($(this).is(branch))
+									return false;
+								return parseInt($(this).attr("data-level")) >= level -1;
+							}).hide();
+							for (i = level -1; i > 0; i--) {
+								$(this).prevAll("tr[class='branch'][data-level='"+i+"']").each(function(index) {
+									if (index > 0)
+										$(this).hide();
+								});
+							}
+							
+							focusOn = true;
+                        });						
+                    });
+                    //
+                </script><style>
+                    * {
+                    font-family: Arial; color: black;
+                    }
+                    .defaultFont {
+                    font-size: 8pt;
+                    }
+                    .labelFont {
+                    font-size: 9pt; margin-top: 5px
+                    }
+                    .header th {
+                    border-right-style: dotted; border-right-width: 1px; border-right-color: black;
+                    }
+                    .branch td {
+                    vertical-align: top;
+                    border-top-style: solid; border-top-width: 1px; border-top-color: black;
+                    border-right-style: dotted; border-right-width: 1px; border-right-color: black
+                    }
+                    .leaf td {
+                    vertical-align: top;
+                    border-top-style: dotted; border-top-width: 1px; border-top-color: black;
+                    border-right-style: dotted; border-right-width: 1px; border-right-color: black
+                    }
+                    .headerFont {
+                    font-family: Arial; font-size: 10pt; font-weight: bold
+                    }
+                    .branchFont pre {
+                    font-family: Arial; font-size: 8pt; margin-bottom: 2px; font-weight: bold
+                    }
+                    .leafFont pre {
+                    font-family: Arial; font-size: 8pt; margin-bottom: 2px
+                    }
+                    .wrapCol200 {
+                    width: 200px; word-wrap: break-word;
+                    }
+                </style></head>
+   <body>
+      <h2>Conversion Adapter Specification</h2>
+      <div style="height: 120px; margin-bottom: 10px">
+         <div class="labelFont">SOURCE</div>
+         <div><strong>PEPPOL-BIS-3.0_UBL-Invoice-2.1</strong></div>
+         <div class="labelFont">TARGET</div>
+         <div><strong>PEPPOL-BIS-05a-400_UBL-Invoice-2.1</strong></div>
+         <div class="labelFont">VERSION</div>
+         <div><strong>1.2.1</strong></div>
+      </div>
+      <table id="treegrid"></table>
+      <div id="ptreegrid"></div>
+      <table class="defaultFont" style="border:2px solid black">
+         <thead>
+            <tr class="header">
+               <th class="headerFont">Target</th>
+               <th class="headerFont">Source Context</th>
+               <th class="headerFont">Source Expression</th>
+               <th class="headerFont">Source Condition</th>
+               <th class="headerFont">Default Value</th>
+               <th class="headerFont">Notes</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr class="branch" data-level="1">
+               <td class="branchFont" style="border-left: 0px solid gray"><pre> /Invoice</pre></td>
+               <td>
+                  <div class="wrapCol200">/in:Invoice&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="2">
+               <td class="branchFont" style="border-left: 8px solid gray"><pre> /ext:UBLExtensions</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="3">
+               <td class="branchFont" style="border-left: 16px solid gray"><pre> /ext:UBLExtension</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - ext:ExtensionURI</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">urn:www.ubl-italia.org:spec:fatturapa:esigibilita_iva&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /ext:ExtensionContent</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:TaxTypeCode</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>if ((cbc:IssueDate and cbc:TaxPointDate and cbc:IssueDate != cbc:TaxPointDate) or cac:InvoicePeriod/cbc:DescriptionCode='paid
+                  to date') then 'D' else 'I'&nbsp;
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="2">
+               <td class="leafFont" style="border-left: 0px solid gray"><pre>  - cbc:UBLVersionID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">2.1&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="2">
+               <td class="leafFont" style="border-left: 0px solid gray"><pre>  - cbc:CustomizationID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol5a:ver2.0:extended:urn:www.ubl-italia.org:spec:fatturapa:ver2.0&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="2">
+               <td class="leafFont" style="border-left: 0px solid gray"><pre>  - cbc:ProfileID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">urn:www.cenbii.eu:profile:bii05:ver2.0&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="2">
+               <td class="leafFont" style="border-left: 0px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="2">
+               <td class="leafFont" style="border-left: 0px solid gray"><pre>  - cbc:IssueDate</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:IssueDate&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="2">
+               <td class="leafFont" style="border-left: 0px solid gray"><pre>  - cbc:DueDate</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:DueDate&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:DueDate&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="2">
+               <td class="leafFont" style="border-left: 0px solid gray"><pre>  - cbc:InvoiceTypeCode</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:InvoiceTypeCode&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:InvoiceTypeCode&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="2" style="border-left: 0px solid gray">
+               <td class="leafFont" style="border-left: 0px solid gray"><pre>    @ listID</pre></td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">UNCL1001&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="2">
+               <td class="leafFont" style="border-left: 0px solid gray"><pre>  - cbc:Note</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:Note&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:Note&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="2">
+               <td class="leafFont" style="border-left: 0px solid gray"><pre>  - cbc:TaxPointDate</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:TaxPointDate&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:TaxPointDate&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="2">
+               <td class="leafFont" style="border-left: 0px solid gray"><pre>  - cbc:DocumentCurrencyCode</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:DocumentCurrencyCode&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:DocumentCurrencyCode&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="2" style="border-left: 0px solid gray">
+               <td class="leafFont" style="border-left: 0px solid gray"><pre>    @ listID</pre></td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">ISO4217&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="2">
+               <td class="leafFont" style="border-left: 0px solid gray"><pre>  - cbc:TaxCurrencyCode</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:TaxCurrencyCode&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:TaxCurrencyCode&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="2">
+               <td class="leafFont" style="border-left: 0px solid gray"><pre>  - cbc:AccountingCost</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:AccountingCost&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:AccountingCost&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="2">
+               <td class="leafFont" style="border-left: 0px solid gray"><pre>  - cbc:BuyerReference</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:BuyerReference&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:BuyerReference&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="2">
+               <td class="branchFont" style="border-left: 8px solid gray"><pre> /cac:InvoicePeriod</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:InvoicePeriod&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:StartDate or cbc:EndDate&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:StartDate</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:StartDate&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:StartDate&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:EndDate</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:EndDate&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:EndDate&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:DescriptionCode</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:DescriptionCode&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:DescriptionCode&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="2">
+               <td class="branchFont" style="border-left: 8px solid gray"><pre> /cac:OrderReference</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:OrderReference&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:SalesOrderID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:SalesOrderID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="2">
+               <td class="branchFont" style="border-left: 8px solid gray"><pre> /cac:BillingReference</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:BillingReference&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cac:InvoiceDocumentReference&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="3">
+               <td class="branchFont" style="border-left: 16px solid gray"><pre> /cac:InvoiceDocumentReference</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:InvoiceDocumentReference&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:IssueDate</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:IssueDate&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="2">
+               <td class="branchFont" style="border-left: 8px solid gray"><pre> /cac:DespatchDocumentReference</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:DespatchDocumentReference&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:IssueDate</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">2000-01-01&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:DocumentType</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">DDT&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="2">
+               <td class="branchFont" style="border-left: 8px solid gray"><pre> /cac:ReceiptDocumentReference</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:ReceiptDocumentReference&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="2">
+               <td class="branchFont" style="border-left: 8px solid gray"><pre> /cac:ContractDocumentReference</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:ContractDocumentReference&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="2">
+               <td class="branchFont" style="border-left: 8px solid gray"><pre> /cac:AdditionalDocumentReference</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:AdditionalDocumentReference&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3" style="border-left: 8px solid gray">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>    @ schemeID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:ID/@schemeID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:DocumentType</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:DocumentDescription&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:DocumentDescription</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:DocumentDescription&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="3">
+               <td class="branchFont" style="border-left: 16px solid gray"><pre> /cac:Attachment</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:Attachment&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:EmbeddedDocumentBinaryObject or cac:ExternalReference&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:EmbeddedDocumentBinaryObject</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:EmbeddedDocumentBinaryObject&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4" style="border-left: 16px solid gray">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>    @ filename</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:EmbeddedDocumentBinaryObject/@filename&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4" style="border-left: 16px solid gray">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>    @ mimeCode</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:EmbeddedDocumentBinaryObject/@mimeCode&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:ExternalReference</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:ExternalReference&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:URI&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:URI</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:URI&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="2">
+               <td class="branchFont" style="border-left: 8px solid gray"><pre> /cac:AdditionalDocumentReference</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:OriginatorDocumentReference&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3" style="border-left: 8px solid gray">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>    @ schemeID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:ID/@schemeID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:DocumentType</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">CIG&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="2">
+               <td class="branchFont" style="border-left: 8px solid gray"><pre> /cac:AdditionalDocumentReference</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:ProjectReference&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3" style="border-left: 8px solid gray">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>    @ schemeID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:ID/@schemeID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:DocumentType</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">CUP&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="2">
+               <td class="branchFont" style="border-left: 8px solid gray"><pre> /cac:AccountingSupplierParty</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:AccountingSupplierParty&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="3">
+               <td class="branchFont" style="border-left: 16px solid gray"><pre> /cac:Party</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:Party&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:EndpointID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:EndpointID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:EndpointID&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4" style="border-left: 16px solid gray">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>    @ schemeID</pre></td>
+               <td>&nbsp;</td>
+               <td>document($xclEAID)//entry[@key=current()/cbc:EndpointID/@schemeID][1]&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:PartyIdentification</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:PartyIdentification&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5" style="border-left: 24px solid gray">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>    @ schemeID</pre></td>
+               <td>&nbsp;</td>
+               <td>document($xclEAID)//entry[@key=current()/cbc:ID/@schemeID][1]&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:PartyName</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:PartyName&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:Name&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:Name</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:Name&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:PostalAddress</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:PostalAddress&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:StreetName</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:StreetName&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:StreetName&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:AdditionalStreetName</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:AdditionalStreetName&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:AdditionalStreetName&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:CityName</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:CityName&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:CityName&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:PostalZone</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:PostalZone&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:PostalZone&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:CountrySubentity</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:CountrySubentity&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:CountrySubentity&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="5">
+               <td class="branchFont" style="border-left: 32px solid gray"><pre> /cac:AddressLine</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:AddressLine&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:Line&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="6">
+               <td class="leafFont" style="border-left: 32px solid gray"><pre>  - cbc:Line</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:Line&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="5">
+               <td class="branchFont" style="border-left: 32px solid gray"><pre> /cac:Country</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:Country&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:IdentificationCode&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="6">
+               <td class="leafFont" style="border-left: 32px solid gray"><pre>  - cbc:IdentificationCode</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:IdentificationCode&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="6" style="border-left: 32px solid gray">
+               <td class="leafFont" style="border-left: 32px solid gray"><pre>    @ listID</pre></td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">ISO3166-1:Alpha2&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:PartyTaxScheme</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:PartyTaxScheme&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:CompanyID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:CompanyID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:CompanyID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5" style="border-left: 24px solid gray">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>    @ schemeID</pre></td>
+               <td>&nbsp;</td>
+               <td>concat(substring(cbc:CompanyID,1,2),':VAT')&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="5">
+               <td class="branchFont" style="border-left: 32px solid gray"><pre> /cac:TaxScheme</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="6">
+               <td class="leafFont" style="border-left: 32px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cac:TaxScheme/cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:PartyLegalEntity</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:PartyLegalEntity&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:RegistrationName or cbc:CompanyID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:RegistrationName</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:RegistrationName&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:RegistrationName&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:CompanyID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:CompanyID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:CompanyID&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5" style="border-left: 24px solid gray">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>    @ schemeID</pre></td>
+               <td>&nbsp;</td>
+               <td>document($xclEAID)//entry[@key=current()/cbc:CompanyID/@schemeID][1]&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:CompanyLegalForm</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:CompanyLegalForm&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:CompanyLegalForm&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:Contact</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:Contact&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:Name&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:Name</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:Name&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:Name&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:Telephone</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:Telephone&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:Telephone&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:ElectronicMail</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ElectronicMail&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ElectronicMail&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="2">
+               <td class="branchFont" style="border-left: 8px solid gray"><pre> /cac:AccountingCustomerParty</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:AccountingCustomerParty&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="3">
+               <td class="branchFont" style="border-left: 16px solid gray"><pre> /cac:Party</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:Party&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:EndpointID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:EndpointID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:EndpointID&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4" style="border-left: 16px solid gray">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>    @ schemeID</pre></td>
+               <td>&nbsp;</td>
+               <td>document($xclEAID)//entry[@key=current()/cbc:EndpointID/@schemeID][1]&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:PartyIdentification</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:PartyIdentification&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5" style="border-left: 24px solid gray">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>    @ schemeID</pre></td>
+               <td>&nbsp;</td>
+               <td>document($xclEAID)//entry[@key=current()/cbc:ID/@schemeID][1]&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:PartyIdentification</pre></td>
+               <td>
+                  <div class="wrapCol200">cbc:EndpointID[@schemeID='9921']&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">not(../cac:PartyIdentification/cbc:ID)&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>normalize-space(.)&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5" style="border-left: 24px solid gray">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>    @ schemeID</pre></td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">IT:IPA&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:PartyName</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:PartyName&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:Name&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:Name</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:Name&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:PostalAddress</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:PostalAddress&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:StreetName</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:StreetName&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:StreetName&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:AdditionalStreetName</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:AdditionalStreetName&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:AdditionalStreetName&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:CityName</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:CityName&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:CityName&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:PostalZone</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:PostalZone&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:PostalZone&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:CountrySubentity</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:CountrySubentity&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:CountrySubentity&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="5">
+               <td class="branchFont" style="border-left: 32px solid gray"><pre> /cac:AddressLine</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:AddressLine&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:Line&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="6">
+               <td class="leafFont" style="border-left: 32px solid gray"><pre>  - cbc:Line</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:Line&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="5">
+               <td class="branchFont" style="border-left: 32px solid gray"><pre> /cac:Country</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:Country&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:IdentificationCode&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="6">
+               <td class="leafFont" style="border-left: 32px solid gray"><pre>  - cbc:IdentificationCode</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:IdentificationCode&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="6" style="border-left: 32px solid gray">
+               <td class="leafFont" style="border-left: 32px solid gray"><pre>    @ listID</pre></td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">ISO3166-1:Alpha2&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:PartyTaxScheme</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:PartyTaxScheme&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:CompanyID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:CompanyID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:CompanyID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5" style="border-left: 24px solid gray">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>    @ schemeID</pre></td>
+               <td>&nbsp;</td>
+               <td>concat(substring(cbc:CompanyID,1,2),':VAT')&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="5">
+               <td class="branchFont" style="border-left: 32px solid gray"><pre> /cac:TaxScheme</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="6">
+               <td class="leafFont" style="border-left: 32px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cac:TaxScheme/cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:PartyLegalEntity</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:PartyLegalEntity&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:RegistrationName or cbc:CompanyID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:RegistrationName</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:RegistrationName&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:RegistrationName&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:CompanyID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:CompanyID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:CompanyID&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5" style="border-left: 24px solid gray">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>    @ schemeID</pre></td>
+               <td>&nbsp;</td>
+               <td>document($xclEAID)//entry[@key=current()/cbc:CompanyID/@schemeID][1]&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:Contact</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:Contact&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:Name&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:Name</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:Name&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:Name&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:Telephone</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:Telephone&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:Telephone&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:ElectronicMail</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ElectronicMail&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ElectronicMail&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="2">
+               <td class="branchFont" style="border-left: 8px solid gray"><pre> /cac:PayeeParty</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:PayeeParty&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cac:PartyIdentification or cac:PartyName&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="3">
+               <td class="branchFont" style="border-left: 16px solid gray"><pre> /cac:PartyIdentification</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:PartyIdentification&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4" style="border-left: 16px solid gray">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>    @ schemeID</pre></td>
+               <td>&nbsp;</td>
+               <td>document($xclEAID)//entry[@key=current()/cbc:ID/@schemeID][1]&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="3">
+               <td class="branchFont" style="border-left: 16px solid gray"><pre> /cac:PartyName</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:PartyName&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:Name&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:Name</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:Name&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="3">
+               <td class="branchFont" style="border-left: 16px solid gray"><pre> /cac:PartyLegalEntity</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:PartyLegalEntity&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:CompanyID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:CompanyID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:CompanyID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:CompanyID&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4" style="border-left: 16px solid gray">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>    @ schemeID</pre></td>
+               <td>&nbsp;</td>
+               <td>document($xclEAID)//entry[@key=current()/cbc:CompanyID/@schemeID][1]&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="2">
+               <td class="branchFont" style="border-left: 8px solid gray"><pre> /cac:TaxRepresentativeParty</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:TaxRepresentativeParty&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cac:PartyName&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="3">
+               <td class="branchFont" style="border-left: 16px solid gray"><pre> /cac:PartyName</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:PartyName&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:Name&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:Name</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:Name&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="3">
+               <td class="branchFont" style="border-left: 16px solid gray"><pre> /cac:PostalAddress</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:PostalAddress&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:StreetName</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:StreetName&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:StreetName&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:AdditionalStreetName</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:AdditionalStreetName&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:AdditionalStreetName&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:CityName</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:CityName&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:CityName&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:PostalZone</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:PostalZone&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:PostalZone&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:CountrySubentity</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:CountrySubentity&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:CountrySubentity&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:AddressLine</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:AddressLine&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:Line&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:Line</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:Line&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:Country</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:Country&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:IdentificationCode&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:IdentificationCode</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:IdentificationCode&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="3">
+               <td class="branchFont" style="border-left: 16px solid gray"><pre> /cac:PartyTaxScheme</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:PartyTaxScheme&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:CompanyID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:CompanyID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:CompanyID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4" style="border-left: 16px solid gray">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>    @ schemeID</pre></td>
+               <td>&nbsp;</td>
+               <td>concat(substring(cbc:CompanyID,1,2),':VAT')&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:TaxScheme</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:TaxScheme&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="2">
+               <td class="branchFont" style="border-left: 8px solid gray"><pre> /cac:Delivery</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:Delivery&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ActualDeliveryDate or cac:DeliveryLocation&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:ActualDeliveryDate</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ActualDeliveryDate&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ActualDeliveryDate&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="3">
+               <td class="branchFont" style="border-left: 16px solid gray"><pre> /cac:DeliveryLocation</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:DeliveryLocation&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ID or cac:Address&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ID&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4" style="border-left: 16px solid gray">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>    @ schemeID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:ID/@schemeID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:Address</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:Address&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:CityName&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:StreetName</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:StreetName&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:StreetName&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:AdditionalStreetName</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:AdditionalStreetName&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:AdditionalStreetName&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:CityName</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:CityName&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:CityName&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:PostalZone</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:PostalZone&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:PostalZone&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:CountrySubentity</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:CountrySubentity&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:CountrySubentity&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="5">
+               <td class="branchFont" style="border-left: 32px solid gray"><pre> /cac:AddressLine</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:AddressLine&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:Line&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="6">
+               <td class="leafFont" style="border-left: 32px solid gray"><pre>  - cbc:Line</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:Line&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="5">
+               <td class="branchFont" style="border-left: 32px solid gray"><pre> /cac:Country</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:Country&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:IdentificationCode&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="6">
+               <td class="leafFont" style="border-left: 32px solid gray"><pre>  - cbc:IdentificationCode</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:IdentificationCode&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="6" style="border-left: 32px solid gray">
+               <td class="leafFont" style="border-left: 32px solid gray"><pre>    @ listID</pre></td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">ISO3166-1:Alpha2&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="3">
+               <td class="branchFont" style="border-left: 16px solid gray"><pre> /cac:Despatch</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:DespatchParty</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:DeliveryParty&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cac:PartyName&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="5">
+               <td class="branchFont" style="border-left: 32px solid gray"><pre> /cac:PartyName</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:PartyName&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:Name&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="6">
+               <td class="leafFont" style="border-left: 32px solid gray"><pre>  - cbc:Name</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:Name&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="2">
+               <td class="branchFont" style="border-left: 8px solid gray"><pre> /cac:PaymentMeans</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:PaymentMeans&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:PaymentMeansCode&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:PaymentMeansCode</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:PaymentMeansCode&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3" style="border-left: 8px solid gray">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>    @ name</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:PaymentMeansCode/@name&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3" style="border-left: 8px solid gray">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>    @ listID</pre></td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">UNCL4461&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:PaymentID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:PaymentID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:PaymentID&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="3">
+               <td class="branchFont" style="border-left: 16px solid gray"><pre> /cac:CardAccount</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:CardAccount&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:PrimaryAccountNumberID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:PrimaryAccountNumberID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:PrimaryAccountNumberID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:NetworkID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:NetworkID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:HolderName</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:HolderName&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:HolderName&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="3">
+               <td class="branchFont" style="border-left: 16px solid gray"><pre> /cac:PayeeFinancialAccount</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:PayeeFinancialAccount&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4" style="border-left: 16px solid gray">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>    @ schemeID</pre></td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">IBAN&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:Name</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:Name&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:Name&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:FinancialInstitutionBranch</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="5">
+               <td class="branchFont" style="border-left: 32px solid gray"><pre> /cac:FinancialInstitution</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:FinancialInstitutionBranch&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="6">
+               <td class="leafFont" style="border-left: 32px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="6" style="border-left: 32px solid gray">
+               <td class="leafFont" style="border-left: 32px solid gray"><pre>    @ schemeID</pre></td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">BIC&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="5">
+               <td class="branchFont" style="border-left: 32px solid gray"><pre> /cac:FinancialInstitution</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">not(cac:FinancialInstitutionBranch/cbc:ID)&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="6">
+               <td class="leafFont" style="border-left: 32px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">XXXXITX0&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="6" style="border-left: 32px solid gray">
+               <td class="leafFont" style="border-left: 32px solid gray"><pre>    @ schemeID</pre></td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">BIC&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="3">
+               <td class="branchFont" style="border-left: 16px solid gray"><pre> /cac:PaymentMandate</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:PaymentMandate&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ID&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:PayerFinancialAccount</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:PayerFinancialAccount&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="2">
+               <td class="branchFont" style="border-left: 8px solid gray"><pre> /cac:PaymentTerms</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:PaymentTerms&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:Note&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:Note</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:Note&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="2">
+               <td class="branchFont" style="border-left: 8px solid gray"><pre> /cac:AllowanceCharge</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:AllowanceCharge&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ChargeIndicator&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:ChargeIndicator</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ChargeIndicator&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:AllowanceChargeReasonCode</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:AllowanceChargeReasonCode&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:AllowanceChargeReasonCode&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:AllowanceChargeReason</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:AllowanceChargeReason&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:AllowanceChargeReason&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:MultiplierFactorNumeric</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:MultiplierFactorNumeric&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:MultiplierFactorNumeric&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:Amount</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:Amount&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3" style="border-left: 8px solid gray">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>    @ currencyID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:Amount/@currencyID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:BaseAmount</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:BaseAmount&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:BaseAmount&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3" style="border-left: 8px solid gray">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>    @ currencyID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:BaseAmount/@currencyID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="3">
+               <td class="branchFont" style="border-left: 16px solid gray"><pre> /cac:TaxCategory</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:TaxCategory&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:TaxScheme</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:TaxScheme&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="2">
+               <td class="branchFont" style="border-left: 8px solid gray"><pre> /cac:TaxTotal</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:TaxTotal&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:TaxAmount</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:TaxAmount&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3" style="border-left: 8px solid gray">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>    @ currencyID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:TaxAmount/@currencyID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="3">
+               <td class="branchFont" style="border-left: 16px solid gray"><pre> /cac:TaxSubtotal</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:TaxSubtotal&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:TaxableAmount</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:TaxableAmount&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4" style="border-left: 16px solid gray">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>    @ currencyID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:TaxableAmount/@currencyID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:TaxAmount</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:TaxAmount&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4" style="border-left: 16px solid gray">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>    @ currencyID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:TaxAmount/@currencyID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:TaxCategory</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:TaxCategory&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5" style="border-left: 24px solid gray">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>    @ schemeID</pre></td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">UNCL5305&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:Percent</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:Percent&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:TaxExemptionReasonCode</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:TaxExemptionReasonCode&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:TaxExemptionReasonCode&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">CEF VATEX&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:TaxExemptionReason</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>document($xclVATEX)//entry[@key=current()/cbc:TaxExemptionReasonCode][1]&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:TaxExemptionReasonCode&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">Rif.to normativo secondo CEF VATEX&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="5">
+               <td class="branchFont" style="border-left: 32px solid gray"><pre> /cac:TaxScheme</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="6">
+               <td class="leafFont" style="border-left: 32px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cac:TaxScheme/cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="2">
+               <td class="branchFont" style="border-left: 8px solid gray"><pre> /cac:LegalMonetaryTotal</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:LegalMonetaryTotal&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:LineExtensionAmount</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:LineExtensionAmount&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:LineExtensionAmount&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3" style="border-left: 8px solid gray">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>    @ currencyID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:LineExtensionAmount/@currencyID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:TaxExclusiveAmount</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:TaxExclusiveAmount&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:TaxExclusiveAmount&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3" style="border-left: 8px solid gray">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>    @ currencyID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:TaxExclusiveAmount/@currencyID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:TaxInclusiveAmount</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:TaxInclusiveAmount&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:TaxInclusiveAmount&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3" style="border-left: 8px solid gray">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>    @ currencyID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:TaxInclusiveAmount/@currencyID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:AllowanceTotalAmount</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:AllowanceTotalAmount&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:AllowanceTotalAmount&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3" style="border-left: 8px solid gray">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>    @ currencyID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:AllowanceTotalAmount/@currencyID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:ChargeTotalAmount</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ChargeTotalAmount&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ChargeTotalAmount&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3" style="border-left: 8px solid gray">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>    @ currencyID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:ChargeTotalAmount/@currencyID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:PrepaidAmount</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:PrepaidAmount&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:PrepaidAmount&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3" style="border-left: 8px solid gray">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>    @ currencyID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:PrepaidAmount/@currencyID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:PayableRoundingAmount</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:PayableRoundingAmount&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:PayableRoundingAmount&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3" style="border-left: 8px solid gray">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>    @ currencyID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:PayableRoundingAmount/@currencyID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:PayableAmount</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:PayableAmount&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3" style="border-left: 8px solid gray">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>    @ currencyID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:PayableAmount/@currencyID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="2">
+               <td class="branchFont" style="border-left: 8px solid gray"><pre> /cac:InvoiceLine</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:InvoiceLine&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:Note</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:Note&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:Note&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:InvoicedQuantity</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:InvoicedQuantity&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:InvoicedQuantity&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3" style="border-left: 8px solid gray">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>    @ unitCode</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:InvoicedQuantity/@unitCode&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3" style="border-left: 8px solid gray">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>    @ unitCodeListID</pre></td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">UNECERec20&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:LineExtensionAmount</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:LineExtensionAmount&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3" style="border-left: 8px solid gray">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>    @ currencyID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:LineExtensionAmount/@currencyID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="3">
+               <td class="leafFont" style="border-left: 8px solid gray"><pre>  - cbc:AccountingCost</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:AccountingCost&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:AccountingCost&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="3">
+               <td class="branchFont" style="border-left: 16px solid gray"><pre> /cac:InvoicePeriod</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:InvoicePeriod&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:StartDate or cbc:EndDate&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:StartDate</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:StartDate&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:StartDate&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:EndDate</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:EndDate&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:EndDate&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="3">
+               <td class="branchFont" style="border-left: 16px solid gray"><pre> /cac:OrderLineReference</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:OrderLineReference&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:LineID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:LineID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:LineID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="3">
+               <td class="branchFont" style="border-left: 16px solid gray"><pre> /cac:DocumentReference</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:DocumentReference&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4" style="border-left: 16px solid gray">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>    @ schemeID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:ID/@schemeID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="3">
+               <td class="branchFont" style="border-left: 16px solid gray"><pre> /cac:AllowanceCharge</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:AllowanceCharge&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ChargeIndicator&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:ChargeIndicator</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ChargeIndicator&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:AllowanceChargeReasonCode</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:AllowanceChargeReasonCode&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:AllowanceChargeReasonCode&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:AllowanceChargeReason</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:AllowanceChargeReason&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:AllowanceChargeReason&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:MultiplierFactorNumeric</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:MultiplierFactorNumeric&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:MultiplierFactorNumeric&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:Amount</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:Amount&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4" style="border-left: 16px solid gray">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>    @ currencyID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:Amount/@currencyID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:BaseAmount</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:BaseAmount&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:BaseAmount&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4" style="border-left: 16px solid gray">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>    @ currencyID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:BaseAmount/@currencyID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="3">
+               <td class="branchFont" style="border-left: 16px solid gray"><pre> /cac:Item</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:Item&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:Description</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:Description&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:Description&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:Name</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:Name&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:Name&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:BuyersItemIdentification</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:BuyersItemIdentification&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:SellersItemIdentification</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:SellersItemIdentification&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:StandardItemIdentification</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:StandardItemIdentification&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5" style="border-left: 24px solid gray">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>    @ schemeID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:ID/@schemeID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:OriginCountry</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:OriginCountry&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:IdentificationCode&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:IdentificationCode</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:IdentificationCode&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:CommodityClassification</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:CommodityClassification&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:IdentificationCode&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:ItemClassificationCode</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ItemClassificationCode&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5" style="border-left: 24px solid gray">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>    @ listID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:ItemClassificationCode/@listID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5" style="border-left: 24px solid gray">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>    @ listVersionID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:ItemClassificationCode/@listVersionID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:ClassifiedTaxCategory</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:ClassifiedTaxCategory&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ID&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:Percent</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:Percent&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="5">
+               <td class="branchFont" style="border-left: 32px solid gray"><pre> /cac:TaxScheme</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="6">
+               <td class="leafFont" style="border-left: 32px solid gray"><pre>  - cbc:ID</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cac:TaxScheme/cbc:ID&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:AdditionalItemProperty</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:AdditionalItemProperty&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:Name&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:Name</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:Name&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:Value</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:Value&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="3">
+               <td class="branchFont" style="border-left: 16px solid gray"><pre> /cac:Price</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:Price&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:PriceAmount&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:PriceAmount</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:PriceAmount&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4" style="border-left: 16px solid gray">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>    @ currencyID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:PriceAmount/@currencyID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>  - cbc:BaseQuantity</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:BaseQuantity&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:BaseQuantity&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="4" style="border-left: 16px solid gray">
+               <td class="leafFont" style="border-left: 16px solid gray"><pre>    @ unitCode</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:BaseQuantity/@unitCode&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="branch" data-level="4">
+               <td class="branchFont" style="border-left: 24px solid gray"><pre> /cac:AllowanceCharge</pre></td>
+               <td>
+                  <div class="wrapCol200">cac:AllowanceCharge&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:ChargeIndicator&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:ChargeIndicator</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:ChargeIndicator&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:Amount</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:Amount&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5" style="border-left: 24px solid gray">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>    @ currencyID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:Amount/@currencyID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>  - cbc:BaseAmount</pre></td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>cbc:BaseAmount&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">cbc:BaseAmount&nbsp;</div>
+               </td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td style="min-width: 120px;">&nbsp;</td>
+            </tr>
+            <tr class="leaf" data-level="5" style="border-left: 24px solid gray">
+               <td class="leafFont" style="border-left: 24px solid gray"><pre>    @ currencyID</pre></td>
+               <td>&nbsp;</td>
+               <td>cbc:BaseAmount/@currencyID&nbsp;</td>
+               <td>&nbsp;</td>
+               <td>
+                  <div class="wrapCol200">&nbsp;</div>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+         </tbody>
+      </table>
+      <p>
+         <address style="font-size: 9pt">Generated using JAVEST Any-to-Any Business Document Converter (A2AC)</address>
+      </p>
+   </body>
+</html>

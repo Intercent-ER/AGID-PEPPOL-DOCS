@@ -1,0 +1,16 @@
+[[peppol_rules]]
+= Regole di business PEPPOL per le transazioni
+
+Le seguenti regole sono state definite da {openpeppol} in aggiunta a quelle adottate dalla {EN16931}.
+Queste regole si applicano a *tutti* i profili che usano la specifica di questa transazione.
+
+Vedasi anche <<Restrictions on EN16931>> per ulteriori dettagli alle restrizioni imposte da queste regole.
+
+.Regole di business PEPPOL per le transazioni
+[cols="1,4", options="header"]
+|====
+|Regola
+|Messaggio/Contesto/Test
+
+include::{rules-dir}/PEPPOL-EN16931-UBL-GENERAL.sch.adoc[]
+|====

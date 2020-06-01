@@ -1,0 +1,8 @@
+
+
+= Schemi per gli identificatori delle parti di business e per la loro registrazione legale
+
+Tutti gli identificatori delle parti di business e quelli per la loro registrazione legale hanno un attributo opzionale per fornire lo schema su cui si basano. Se utilizzato, il valore deve essere scelto fra quelli della codifica ICD secondo {ISO6523}
+
+
+include::../../syntax/codelists/party-id.adoc[]

@@ -1,0 +1,96 @@
+[[Confezionamento]]
+= #Confezionamento#
+
+Per fornire informazioni sul confezionamento è possibile usare due diverse modalità a seconda di come viene effettuato l’ordine, e quindi se l’articolo corrisponde alla singola unità "C62" o alla confezione "XPK". Se l’articolo ordinato è una confezione è importante indicarne l’unità di misura corretta. +
+
+Nella tabella seguente si forniscono chiarimenti per aggiungere informazioni sulle singole unità all’interno della confezione e viceversa, quando l’articolo coincide con l’unità base, per fornire informazioni sul confezionamento.
+
+
+[cols="1,3"]
+|====
+s|Tipo di informazione
+s|Descrizione
+
+|PackSizeNumeric
+|Indica il numero di articoli contenuti in un confezionamento primario (ad esempio, quante pasticche o unità “C62” una confezione “XPK”)
+
+|PackQuantity
+|Indica il numero di sotto-unità contenute in un confezionamento secondario (ad esempio, quante scatole o confezioni “XPK” sono presenti in un imballaggio “XBX”)
+
+|====
+
+Seguono due esempi significativi.
+
+:leveloffset: +1
+
+= Caso 1: Articolo ordinato per singola unità
+
+
+Esempio in cui l’articolo viene ordinato per singola unità e non a confezione, ed indicazione del numero di pezzi per confezione primaria:
+
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+        <!-- 5000 guanti -->
+        <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">5000</cbc:Quantity>
+        <cbc:LineExtensionAmount currencyID="EUR">500.00</cbc:LineExtensionAmount>
+        <cac:Price>
+                <!-- Prezzo singolo guanto -->
+            <cbc:PriceAmount currencyID="EUR">0.10000</cbc:PriceAmount>
+            <cbc:BaseQuantity unitCode="C62" unitCodeListID=”UNECERec20”>1</cbc:BaseQuantity>
+        </cac:Price>
+        <cac:Item>
+            <cbc:Name>Guanti</cbc:Name>
+            <cac:SellersItemIdentification>
+                <!-- O altro identificativo (es. Standard) -->
+                <cbc:ID>XYZ</cbc:ID>
+            </cac:SellersItemIdentification>
+            <cac:AdditionalItemProperty>
+                <!—Una confezione contiene 500 pezzi-->
+                <cbc:Name>PackSizeNumeric</cbc:Name>
+                <cbc:Value>500</cbc:Value>
+                <cac:AdditionalItemProperty>
+                </cac:Item>
+            </cac:LineItem>
+        </cac:OrderLine>
+----
+
+:leveloffset: -1
+
+:leveloffset: +1
+
+=  Caso 2: Articolo ordinato a confezione
+
+
+Esempio in cui l’articolo viene ordinato a confezione:
+
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+                <!--10 confezioni di guanti -->
+        <cbc:Quantity unitCode="XPK" unitCodeListID="UNECERec20">10</cbc:Quantity>
+        <cbc:LineExtensionAmount currencyID="EUR">500.00</cbc:LineExtensionAmount>
+        <cac:Price>
+                <!--Prezzo confezione -->
+            <cbc:PriceAmount currencyID="EUR">50.00000</cbc:PriceAmount>
+            <cbc:BaseQuantity unitCode="XPK" unitCodeListID=”UNECERec20”>1</cbc:BaseQuantity>
+        </cac:Price>
+        <cac:Item>
+            <cbc:Name>CONFEZIONE GUANTI</cbc:Name>
+            <cac:SellersItemIdentification>
+                <!-- O altro identificativo (es. Standard) -->
+                <cbc:ID>XYZ500</cbc:ID>
+            </cac:SellersItemIdentification>
+            <cac:AdditionalItemProperty>
+                <!—Un articolo (confezione) contiene 500 pezzi-->
+                <cbc:Name>PackQuantity</cbc:Name>
+                <cbc:Value>500</cbc:Value>
+                <cac:AdditionalItemProperty>
+                </cac:Item>
+            </cac:LineItem>
+        </cac:OrderLine>
+----
+
+:leveloffset: -1

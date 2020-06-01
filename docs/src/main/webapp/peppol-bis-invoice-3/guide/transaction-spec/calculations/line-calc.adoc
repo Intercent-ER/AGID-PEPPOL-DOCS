@@ -1,0 +1,36 @@
+
+= Calcoli a livello di riga
+
+[[price-calc]]
+== Prezzo netto del'articolo (BT-146)
+
+Se è presente il prezzo lordo e lo sconto, il prezzo netto dell'articolo deve essere uguale al prezzo lordo dell'articolo meno lo sconto sul prezzo.
+
+Formula di calcolo:
+====
+stem:["Item net price" = "Item gross price (BT-148)" - "Item price discount (BT-147)"]
+====
+
+include::../../syntax/priceamount.adoc[]
+
+
+
+[[lineamount-calc]]
+== Importo netto della riga fattura (BT-131)
+
+L'importo netto delle riga fattura (BT-131) è, come il suo nome lo implica, l'importo *netto* senza IVA inclusivo degli sconti e maggiorazioni di riga.
+
+La formula per calcolare l'importo netto di riga è:
+
+====
+stem:["Item line net amount" = (("Item net price (BT-146)" div "Item price base quantity (BT-149)")] +
+stem:[times ("Invoiced Quantity (BT-129)")] +
+stem:[+ "Invoice line charge amount (BT-141)" - "Invoice line allowance amount (BT-136)"]
+====
+
+IMPORTANT: Siccome l'importo netto di riga deve essere arrotondato a due decimali, bisogna prestare attenzione ad arrotondare le diverse parti del calcolo separatamente. +
+Es. il risultato di
+stem:["Item line net amount" = (("Item net price (BT-146)" div "Item price base quantity (BT-149)") times ("Invoiced Quantity (BT-129)")]
+deve essere arrontondato a due decimali e gli sconti/maggiorazionisono anch'essi arrotondati separatamente.
+
+include::../../syntax/lineamount.adoc[]

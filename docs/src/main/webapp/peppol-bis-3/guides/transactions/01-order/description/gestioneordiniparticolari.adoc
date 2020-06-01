@@ -1,0 +1,119 @@
+[[Gestione-ordini-particolari]]
+= Gestione ordini particolari
+
+
+:leveloffset: +1
+
+[[titolo]]
+= Ordini in Conto Visione e Ordini di fatturazione e reintegro
+
+Gli ordini con tipologia 227 di beni in conto visione (CV) e gli ordini con tipologia 220 di fatturazione e reintegro (OFR) prevedono che l’emissione dell’ordine avvenga successivamente alla consegna e all’utilizzo dei beni forniti. Pertanto, in questi ordini è obbligatorio specificare i riferimenti relativi al Lotto, Numero Seriale e Numero DDT di consegna dell’articolo utilizzato.
+
+Esempio:
+
+[source, xml, indent=0]
+----
+<cac:ItemSpecificationDocumentReference>
+    <cbc:Id>DDT123</cbc:Id>
+</cac:ItemSpecificationDocumentReference>
+        ...
+    <cac:ItemInstance>
+            <!--Seriale-->
+        <cbc:SerialID>23456TY</cbc:SerialID>
+            <!--Lotto-->
+        <cac:LotIdentification>
+            <cbc:LotNumberID>AB123WE</cbc:LotNumberID>
+        </cac:LotIdentification>
+    </cac:ItemInstance>
+----
+    
+:leveloffset: -1
+
+
+
+:leveloffset: +1
+
+[[titolo]]
+= Ordini di Kit a componenti predefinite e a componenti variabili (virtuali)
+
+I componenti di un Kit (generalmente si tratta di dispositivi sanitari impiantabili) possono essere predefiniti (definiti a listino dal fornitore e sempre utilizzati congiuntamente) o variabili (nel listino del fornitore vengono indicati i possibili componenti richiedibili). Solitamente esiste un codice articolo del kit e un codice articolo per ciascun componente del kit.
+
+Nell’Ordine l’Item può essere definito nei termini del KIT o del Componente.
+
+[red]#Esempio di Item definito nei termini del KIT#
+
+Codice articolo fornitore per il “KIT” (esempio: “KITCARTO9”) Dettaglio dei componenti del KIT usando uno o più AdditionalItemProperty (non obbligatorio, cardinalità 0-n) in questo modo:
+
+* Name = Componente;
+
+* Value = ID componente Kit (esempio: “34A35M”, “34N01M”, …)
+
+E’ possibile usare l’unità di misura che descrive un KIT:
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+         <cbc:ID>1</cbc:ID>
+         <cbc:Quantity unitCode="KT" unitCodeListID="UNECERec20">10</cbc:Quantity>
+        <cbc:LineExtensionAmount currencyID="EUR">1000.00</cbc:LineExtensionAmount>
+        <cac:Price>
+            <cbc:PriceAmount currencyID="EUR">100.00000</cbc:PriceAmount>
+            <cbc:BaseAmount currencyID="EUR">5.00</cbc:BaseAmount>
+        </cac:Price>
+        <cac:Item>
+            <cbc:Name>KIT</cbc:Name>
+            <cac:SellersItemIdentification>
+                <cbc:ID>KITCARTO9</cbc:ID>
+                <!—ID KIT-->
+            </cac:SellersItemIdentification>
+            <cac:AdditionalItemProperty>
+                <cbc:Name>Componente</cbc:Name>
+                <cbc:Value>KITCARTO9</cbc:Value>
+            </cac:AdditionalItemProperty>
+            <cac:AdditionalItemProperty>
+                <cbc:Name>Componente</cbc:Name>
+                <cbc:Value>34N01M</cbc:Value>
+            </cac:AdditionalItemProperty>
+        </cac:Item>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+
+[red]#Esempio di Item definito nei termini del Componente di un KIT#
+
+Codice articolo fornitore per il “Componente” (esempio: NAVI-STAR 34A35M) Riferimento al KIT di appartenenza usando un AdditionalItemProperty (non obbligatorio, cardinalità 0-n) in questo modo:
+
+* Name = KIT;
+
+* Value = ID Kit (esempio: “KITCARTO9”)
+
+E’ possibile usare l’unità di misura che descrive un componente (parte): C62
+
+E’ possibile usare l’unità di misura che descrive un KIT:
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">10</cbc:Quantity>
+        <cbc:LineExtensionAmount currencyID="EUR">100.00</cbc:LineExtensionAmount>
+        <cac:Price>
+            <cbc:PriceAmount currencyID="EUR">10.00000</cbc:PriceAmount>
+            <cbc:BaseAmount currencyID="EUR">5.00</cbc:BaseAmount>
+        </cac:Price>
+        <cac:Item>
+            <cbc:Name>Articolo Componente</cbc:Name>
+            <cac:SellersItemIdentification>
+                <cbc:ID>NAVI-STAR 34A35M</cbc:ID>
+                <!—ID Componente-->
+            </cac:SellersItemIdentification>
+            <cac:AdditionalItemProperty>
+                <cbc:Name>KIT</cbc:Name>
+                <cbc:Value>34A35M</cbc:Value>
+            </cac:AdditionalItemProperty>
+        </cac:Item>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+
+:leveloffset: -1
+

@@ -1,0 +1,58 @@
+[[outstanding-quantity]]
+= Quantità inevasa
+
+L’elemento per specificare la parte inevasa nella riga di spedizione è utilizzata sia per segnalare la quantità inevasa che per informare circa le eventuali discrepanze relative alla consegna.
+
+La gestione della “quantità inevasa che non sarà mai consegnata” viene ottenuta come segue: l’importo che è dichiarato nell’elemento OutstandingQuantity è equivalente all’importo che sarà consegnato in una Spedizione successiva. Questo significa implicitamente che gli articoli mancanti che NON sono dichiarati nell’elemento OutstandingQuantity non possono o non saranno consegnati.
+
+*Esempio 1:*
+
+10 articoli vengono ordinati, 6 sono in consegna e i 4 rimanenti verranno spediti successivamente:
+
+Quantity ordered: 10
+
+Quantity delivered: 6
+
+Outstanding quantity: 4
+
+[source, xml, indent=0]
+----
+include::{snippet-dir}/snippet-30-1.xml[tags=quantity1]
+----
+
+
+*Esempio 2:*
+
+10 articoli vengono ordinati.
+6 sono in consegna e i 4 rimanenti NON saranno consegnati:
+
+Quantity ordered: 10
+
+Quantity delivered: 6
+
+Outstanding quantity: 0
+
+[source, xml, indent=0]
+----
+include::{snippet-dir}/snippet-30-1.xml[tags=quantity2]
+----
+
+
+*Esempio 3:*
+
+10 articoli vengono ordinati.
+6 sono in consegna, 3 saranno consegnati succesivamente e 1 articolo NON sarà consegnato:
+
+Quantity ordered: 10
+
+Quantity delivered: 6
+
+Outstanding quantity: 3
+
+[source, xml, indent=0]
+----
+include::{snippet-dir}/snippet-30-1.xml[tags=quantity3]
+----
+
+Ref.
+caso d'uso 2 sopra.

@@ -1,0 +1,35 @@
+.file {}
+.filename {}
+.label {}
+.status {}
+.no {
+  color: red;
+}
+.yes {
+  color: green;
+}
+.schematron {}
+.schematron-title {}
+.schematron-version {}
+.schematron-ns {}
+.result {}
+
+.result-report {
+  margin-top: 20px;
+}
+.result-report-test {}
+.result-report-location {}
+.result-report-text {
+}
+
+.result-assert {
+  margin-top: 20px;
+}
+.result-assert-test {}
+.result-assert-location {}
+.result-assert-text-warning {
+  color: darkOrange;
+}
+.result-assert-text-fatal {
+  color: red;
+}

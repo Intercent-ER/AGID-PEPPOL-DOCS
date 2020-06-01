@@ -1,0 +1,49 @@
+
+[[totals]]
+== Formule di calcolo per la sintassi UBL
+
+I seguenti elementi mostrano gli importi monetari legali per una fattura o nota di credito
+[cols="3,5", options="header"]
+|===
+| Elemento
+| Formula
+
+| <cbc:LineExtensionAmount>
+| stem:[sum("cac:InvoiceLine/cbc:LineExtensionAmount")]
+
+| <cbc:AllowanceTotalAmount>
+| stem:[sum("cac:AllowanceCharge[ChargeIndicator='false'$$]$$/cbc:Amount")]
+
+| <cbc:ChargeTotalAmount>
+| stem:[sum("cac:AllowanceCharge[ChargeIndicator='true'$$]$$/cbc:Amount")]
+
+| <cbc:TaxExclusiveAmount>
+| stem:[\ \ \ \ "cac:LegalMonetaryTotal/cbc:LineExtensionAmount"] +
+stem:[– \ "cac:LegalMonetaryTotal/cbc:AllowanceTotalAmount"] +
+stem:[+ \ "cac:LegalMonetaryTotal/cbc:ChargeTotalAmount"]
+
+| <cbc:TaxInclusiveAmount>
+| stem:[\ \ \ \ "cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount"] +
+stem:[+ \ "cac:TaxTotal/cbc:TaxAmount"]
+
+| <cbc:PrepaidAmount>
+| _Not applicable_
+
+| <cbc:PayableRoundingAmount>
+| _Not applicable_
+
+| <cbc:PayableAmount>
+| stem:[\ \ \ \ "cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount"] +
+stem:[- \ "cac:LegalMonetaryTotal/cbc:PrepaidAmount"] +
+stem:[+ \ "cac:LegalMonetaryTotal/cbc:PayableRoundingAmount"]
+|===
+
+
+
+== L'elemento PayableRoundingAmount per l'arrotondamento dell'importo da pagare
+
+E' possibile arrotondare l'importo da pagare previsto.
+
+L'elemento `cac:LegalMonetaryTotal/cbc:PayableRoundingAmount` è utilizzato a questo scopo e viene specificato a livello di testata. Questo valore deve essere aggiunto al valore del `cac:LegalMonetaryTotal/cbc:PayableAmount`.
+
+Esempio:  L'importo  999.81 arrotondato a  1000.  PayableRounding Amount = 0.19

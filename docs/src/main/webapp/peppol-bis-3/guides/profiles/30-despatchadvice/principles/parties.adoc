@@ -1,0 +1,64 @@
+[[parties-and-roles]]
+= Parti e ruoli
+
+La tabella sottostante fornisce le definizioni delle parti e dei ruoli nel processo di evasione dell’ordine (fulfillment).
+
+[cols="2,4",options="header",]
+|====
+|Parti |Definizione
+|*Cliente (Cessionario)* a|
+Il cliente è la persona giuridica che richiede un prodotto o servizio.
+
+Esempi di ruoli ricoperti dal cliente sono: acquirente, consegnatario, debitore, autorità appaltante.
+
+|*Fornitore (Cedente)* a|
+Il fornitore è la persona giuridica che fornisce un prodotto o servizio.
+
+Esempi di ruoli ricoperti dal fornitore sono: venditore, vettore, creditore, operatore economico.
+
+|*Trasportatore (Vettore)* |Il trasportatore gestisce la consegna/trasporto fisico della spedizione inviata. Utilizzato se una terza parte effettua il trasporto fisico.
+|====
+[cols="2,4",options="header",]
+|====
+|Ruolo/Attore |Definizione
+a|
+*Speditore*
+
+`cac:DespatchSupplierParty`
+
+ |Lo Speditore è la persona o organizzazione che spedisce la merce o eroga i servizi. Questo ruolo viene ricoperto dal fornitore o per suo conto. (Lo Speditore è anche detto Mittente)
+a|
+*Consegnatario*
+
+`cac:DeliveryCustomerParty`
+
+ |Il consegnatario è la persona o organizzazione alla quale i prodotti saranno spediti e che ne prenderà il possesso. Questo ruolo viene ricoperto dal cliente o per suo conto. (Il Consegnatario è anche detto Destinatario)
+a|
+*Acquirente*
+
+`cac:BuyerCustomerParty`
+
+ |L’acquirente è la persona giuridica che acquista la merce o i servizi. Questo ruolo viene ricoperto dal Cliente o per suo conto.
+a|
+*Venditore*
+
+`cac:SellerSupplierParty`
+
+ |Il Venditore è la persona giuridica che vende la merce o i servizi al cliente. Questo ruolo viene ricoperto dal Fornitore o per suo conto.
+a|
+*Committente*
+
+`cac:OriginatorCustomerParty`
+
+ |La parte che eventualmente riceve o consuma la merce e per la quale la parte acquirente fa l’acquisto.
+a|
+*Vettore*
+
+`cac:CarrierParty`
+
+ |Il Vettore gestisce la consegna/trasporto fisico della spedizione inviata. Utilizzato se una terza parte effettua il trasporto fisico.
+|====
+
+Il diagramma seguente mostra i ruoli nel processo di evasione dell’ordine.
+
+image::images/roles.png[image,width=649,height=260]

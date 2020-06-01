@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties
+  SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties version="1.0"><entry key="TP01">pagamento a rate</entry><entry key="TP02">pagamento completo</entry><entry key="TP03">anticipo</entry></properties>

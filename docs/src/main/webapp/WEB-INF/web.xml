@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <description>PEPPOL BIS 3.0 Documentation</description>
+    <display-name>PEPPOL BIS 3.0</display-name>
+    <filter>
+        <description>AsciiDoc to HTML5 Filter</description>
+        <filter-name>AsciiDoc Filter</filter-name>
+        <filter-class>com.javest.servlet.filter.AsciidocFilter</filter-class>
+        <init-param>
+            <param-name>docbook-xsl-fo-adapter</param-name>
+            <param-value>docbook/fo/docbook.xsl</param-value>
+        </init-param>
+    </filter>
+    <filter>
+        <description>DIFI XML Document Syntax to HTML5 Filter</description>
+        <filter-name>XML Document Syntax Filter</filter-name>
+        <filter-class>com.javest.servlet.filter.XmlFilter</filter-class>
+        <init-param>
+            <param-name>adapter</param-name>
+            <param-value>WEB-INF/xsl/agid-peppol-bis-structure-v1.5.3.xsl</param-value>
+        </init-param>
+    </filter>
+    <filter>
+        <description>DIFI XML Code List to HTML5 Filter</description>
+        <filter-name>XML Code List Filter</filter-name>
+        <filter-class>com.javest.servlet.filter.XmlFilter</filter-class>
+        <init-param>
+            <param-name>adapter</param-name>
+            <param-value>WEB-INF/xsl/agid-peppol-bis-codelist-v1.2.xsl</param-value>
+        </init-param>
+    </filter>
+    <filter>
+        <description>Schematron Business Rules to HTML5 Filter</description>
+        <filter-name>XML Rules Filter</filter-name>
+        <filter-class>com.javest.servlet.filter.XmlFilter</filter-class>
+        <init-param>
+            <param-name>adapter</param-name>
+            <param-value>WEB-INF/xsl/agid-peppol-bis-rules-v1.2.xsl</param-value>
+        </init-param>
+        <init-param>
+            <param-name>suffix</param-name>
+            <param-value>sch</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>AsciiDoc Filter</filter-name>
+        <url-pattern>*.adoc</url-pattern>
+        <url-pattern>*.md</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>XML Document Syntax Filter</filter-name>
+        <url-pattern>/peppol-bis-3/structure/syntax/*</url-pattern>
+        <url-pattern>/peppol-bis-invoice-3/structure/syntax/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>XML Code List Filter</filter-name>
+        <url-pattern>/peppol-bis-3/structure/codelist/*</url-pattern>
+        <url-pattern>/peppol-bis-invoice-3/structure/codelist/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>XML Rules Filter</filter-name>
+        <url-pattern>/sch/*</url-pattern>
+        <url-pattern>/peppol-bis-3/rules/sch/*</url-pattern>
+        <url-pattern>/peppol-bis-invoice-3/rules/sch/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+    <session-config>
+        <session-timeout>1</session-timeout>
+        <cookie-config>
+            <max-age>0</max-age>
+        </cookie-config>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>

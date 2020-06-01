@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeList xmlns="urn:fdc:difi.no:2017:vefa:structure:CodeList-1">
+
+    <Title>Esclusioni CIG</Title>
+    <Identifier>AEESCIG</Identifier>
+    <Version>1.0</Version>
+    <Agency>Agenzia delle Entrate</Agency>
+  
+    <Code>
+        <Id>ES01</Id>
+        <Name>"ACQUISTO_LOCAZIONE": Acquisto o locazione di terreni, fabbricati esistenti o altri beni immobili o riguardanti diritti su tali beni. [art.17, comma 1, lettera a), del d.lgs. 50/2016]</Name>
+    </Code>
+    
+    <Code>
+        <Id>ES02</Id>
+        <Name>"ARBITRATO": Servizi d'arbitrato e di conciliazione. [art.17, comma 1, lettera c), del d.lgs. 50/2016]</Name>
+    </Code>
+    
+    <Code>
+        <Id>ES03</Id>
+        <Name>"SERVIZI_BANCHE_CENTRALI_EFSF": Servizi finanziari relativi all'emissione, all'acquisto, alla vendita e al trasferimento di titoli o di  altri strumenti finanziari ai sensi del  decreto  legislativo  24  febbraio 1998, n. 58, e successive modificazioni, servizi  forniti  da  banche centrali e operazioni concluse con il  Fondo  europeo di stabilità finanziaria e il meccanismo europeo di stabilità. [art.17, comma 1, lettera e), del d.lgs. 50/2016]</Name>
+    </Code>
+    
+    <Code>
+        <Id>ES04</Id>
+        <Name>"CONTRATTI_LAVORO": Contratti di lavoro. [art.17, comma 1, lettera g), del d.lgs. 50/2016]</Name>
+    </Code>
+    
+    <Code>
+        <Id>ES05</Id>
+        <Name>"CONTRATTI_DIFESA": Contratti di difesa, protezione civile e prevenzione contro i pericoli forniti da organizzazioni e associazioni senza scopo di lucro. [art.17, comma 1, lettera g), del d.lgs. 50/2016]</Name>
+    </Code>
+    
+    <Code>
+        <Id>ES06</Id>
+        <Name>"SERVIZI_CAMPAGNE_POLITICHE": Servizi connessi a campagne politiche se aggiudicati da un partito politico nel contesto di una campagna elettorale per gli appalti relativi ai settori ordinari e alle concessioni (se non coperti da finanziamenti pubblici). [art.17, comma 1, lettera l), del d.lgs. 50/2016]</Name>
+    </Code>
+    
+    <Code>
+        <Id>ES07</Id>
+        <Name>"DIRITTO_ESCLUSIVO": Servizi aggiudicati da un'amministrazione aggiudicatrice o da un ente aggiudicatore ad un'altra amministrazione aggiudicatrice o ad un'associazione o consorzio di amministrazioni aggiudicatrici, in base ad un diritto esclusivo di cui esse beneficiano in virtù di disposizioni legislative, regolamentari o amministrative pubblicate, purché tali disposizioni siano compatibili con il Trattato sul funzionamento dell’Unione europea. [art. 9, comma 1, del d.lgs. 50/2016]</Name>
+    </Code>
+    
+    <Code>
+        <Id>ES08</Id>
+        <Name>"APPALTI_ENERGIA_ACQUA": Appalti aggiudicati per l'acquisto di acqua e per la fornitura di energia o di combustibili destinati alla produzione di energia. [art. 11 e 12 del d.lgs. 50/2016]</Name>
+    </Code>
+    
+    <Code>
+        <Id>ES09</Id>
+        <Name>"CONCESSIONI_PAESI_TERZI": Concessioni aggiudicate dagli enti aggiudicatori per l'esercizio delle loro attività in un paese terzo, in circostanze che non comportino lo sfruttamento materiale di una rete o di un'area geografica all'interno dell'Unione europea. [art. 18, comma 1 del d.lgs. 50/2016]</Name>
+    </Code>
+    
+    <Code>
+        <Id>ES10</Id>
+        <Name>"SPONSORIZZAZIONE_PURA": Sponsorizzazione pura, ovvero ogni contributo, anche in beni o servizi, erogato con lo scopo di promuovere il nome, il marchio, l'immagine, l'attività o il prodotto del soggetto erogante. [art. 19, comma 1, del d.lgs. 50/2016]</Name>
+    </Code>
+    
+    <Code>
+        <Id>ES11</Id>
+        <Name>"ACCORDO_AMM_AGGIUDICATRICI": Accordo concluso esclusivamente tra due o più amministrazioni aggiudicatrici che stabilisce o realizza una cooperazione tra le amministrazioni aggiudicatrici o gli enti aggiudicatori partecipanti, finalizzata a garantire che i servizi pubblici che essi sono tenuti a svolgere siano prestati nell'ottica di conseguire gli obiettivi che essi hanno in comune. [art. 5, comma 5-8, del d.lgs. 50/2016]</Name>
+    </Code>
+    
+    <Code>
+        <Id>ES12</Id>
+        <Name>"AFFIDAMENTI_IN_HOUSE": Affidamenti diretti a società in house. [art. 5, comma 1-4, del d.lgs. 50/2016]</Name>
+    </Code>
+    
+    <Code>
+        <Id>ES13</Id>
+        <Name>"JOINT_VENTURE": Appalti e concessioni aggiudicati ad una joint venture o ad un ente aggiudicatore facente parte di una joint venture. [art. 6 del d.lgs. 50/2016]</Name>
+    </Code>
+    
+    <Code>
+        <Id>ES14</Id>
+        <Name>"IMPRESA_COLLEGATA": Appalti e concessioni aggiudicati ad un'impresa collegata. [art. 7 del d.lgs. 50/2016]</Name>
+    </Code>
+    
+    <Code>
+        <Id>ES15</Id>
+        <Name>"ATTIVITA_CONCORRENZA": Esclusione di attività direttamente esposte alla concorrenza. [art. 8 del d.lgs. 50/2016]</Name>
+    </Code>
+    
+    <Code>
+        <Id>ES16</Id>
+        <Name>"AMMINISTRAZIONE_DIRETTA": Prestazioni di lavori, servizi e forniture tramite amministrazione diretta. [art 3, comma 1, let. gggg) del d.lgs. 50/2016]</Name>
+    </Code>
+    
+    <Code>
+        <Id>ES17</Id>
+        <Name>"CONTRATTI_ESTERO": Contratti stipulati da un operatore economico italiano con una stazione appaltante estera. [art. 14 del d.lgs. 50/2016]</Name>
+    </Code>
+    
+    <Code>
+        <Id>ES18</Id>
+        <Name>"TRASPORTO_AEREO": Esclusioni specifiche per contratti di concessioni: trasporto aereo. [art. 18, comma 1, let. a) del d.lgs. 50/2016]</Name>
+    </Code>
+    
+    <Code>
+        <Id>ES19</Id>
+        <Name>"INCARICHI_COLLABORAZIONE": Incarichi di collaborazione ex articolo 7, comma 6, del dlgs n.165/2001.</Name>
+    </Code>
+    
+    <Code>
+        <Id>ES20</Id>
+        <Name>"EROGAZIONI_LIBERALITA": Erogazione diretta, a titolo individuale, di contributi da parte della pubblica amministrazione a soggetti indigenti o comunque a persone in condizioni di bisogno economico e fragilità personale e sociale, ovvero finalizzati alla realizzazione di progetti educativi.</Name>
+    </Code>
+    
+    <Code>
+        <Id>ES21</Id>
+        <Name>"CONTRATTI_ASSOCIAZIONE": Contratti di associazione (pagamento quote associative da parte delle stazioni appaltanti).</Name>
+    </Code>
+    
+    <Code>
+        <Id>ES22</Id>
+        <Name>"CONTRATTI_AUTORITA_GIUDIZIARIA": Contratti dell’autorità giudiziaria (se strettamente funzionali ed indispensabili per le conduzioni delle attività processuali e investigative non sono sottoposti alla tracciabilità).</Name>
+    </Code>
+    
+    <Code>
+        <Id>ES23</Id>
+        <Name>"RISARCIMENTI_INDENNIZZI": Risarcimenti ed Indennizzi.</Name>
+    </Code>
+    
+    <Code>
+        <Id>ES24</Id>
+        <Name>"SPESE_ECONOMALI": Spese effettuate dai cassieri, che utilizzano il fondo economale (solo se tali spese non originano da contratti d’appalto e se sono state tipizzate dall’amministrazione mediante l’introduzione di un elenco dettagliato all’interno di un proprio regolamento di contabilità ed amministrazione).</Name>
+    </Code>
+    
+    <Code>
+        <Id>ES25</Id>
+        <Name>"PRESTAZIONI": Prestazioni socio-sanitarie e di ricovero, di specialistica ambulatoriale e diagnostica strumentale erogate dai soggetti privati in regime di accreditamento, senza svolgimento di procedura di gara.</Name>
+    </Code>
+    
+    <Code>
+        <Id>ES26</Id>
+        <Name>"RIASSICURAZIONE": Contratti di riassicurazione con cui le imprese di assicurazione coprono i rischi assunti nello svolgimento della loro attività di impresa.</Name>
+    </Code>
+    
+    <Code>
+        <Id>ES27</Id>
+        <Name>"TRASFERIMENTO_FONDI": il trasferimento di fondi da parte delle amministrazioni dello Stato in favore di soggetti pubblici, se relativi alla copertura di costi per le attività istituzionali espletate dall’ente.</Name>
+    </Code>
+
+</CodeList>

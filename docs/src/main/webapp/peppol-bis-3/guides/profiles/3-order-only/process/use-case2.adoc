@@ -1,0 +1,36 @@
+[[use-case-2-ordering-of-free-text-articles]]
+= Caso d’uso 2 – Ordine di fornitura con articoli e un allegato
+
+Questo caso d’uso è relativo a un ordine composto da articoli e un allegato.
+
+[cols="1s,5",options="header"]
+|====
+|Caso d’uso nr.
+|2
+
+|Nome
+|Ordine con articoli e un allegato
+
+|Descrizione
+|Un ordine con unità/articoli descritti in modo strutturati. È presente un allegato.
+
+|Ruoli coinvolti
+a|Acquirente +
+Venditore +
+Committente
+
+|Assunzioni
+|L’acquirente ha informazioni strutturate sugli articoli. +
+L’acquirente deve specificare gli articoli in modo da assicurare che il venditore possa identificare gli articoli richiesti in modo appropriato.
+
+|Il flusso
+|L’acquirente crea l’ordine con 2 diverse righe e articoli. +
+Il venditore riceve l’ordine.
+
+|Risultati
+|L’acquirente e il venditore hanno raggiunto un accordo. +
+Se la fattura contiene il riferimento all’ordine, questa può essere correlata automaticamente.
+
+|Esempio XML
+|Vedi sezione "Downloads" della https://notier.regione.emilia-romagna.it/docs/[home]
+|==== 

@@ -22,7 +22,7 @@ include::{snippet-dir}/snippet-30-1.xml[tags=despatchsupplier]
 
 Il Consegnatario è la persona o organizzazione alla quale saranno spediti i prodotti e che ne prenderà il possesso.
 Questo ruolo è ricoperto dal Cliente o per suo conto.
-Il Consegnatario è un’informazione obbligatoria nel messaggio di Avviso Spedizione e lo è anche per legge come da Art. 21, comma 4 del DPR n. 633/1972.
+Il Consegnatario è un’informazione obbligatoria nel Documento di Trasporto come da Art. 21, comma 4 del DPR n. 633/1972.
 
 Esempio:
 [source, xml, indent=0]

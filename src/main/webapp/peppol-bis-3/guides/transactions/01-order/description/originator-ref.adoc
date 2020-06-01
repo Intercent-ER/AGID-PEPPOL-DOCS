@@ -29,7 +29,7 @@ A livello di riga +
 </cac:OriginatorDocumentReference>
 ----
 
-[yellow-background]#Nei casi di esclusione previsti dalle norme vigenti, in luogo del valore del CIG deve essere utilizzato uno dei codici presenti nella codelist *"Cause esclusione CIG (IT)"*, disponibile nella sezione CODIFICHE. Il motivo di esclusione va indicato inserendo l'apposito codice.#
+[yellow-background]#Nei casi di esclusione previsti dalle norme vigenti, in luogo del valore del CIG deve essere utilizzato uno dei codici presenti nella codelist *"Esclusioni CIG (IT)"*, disponibile nella sezione CODIFICHE. Il motivo di esclusione va indicato inserendo l'apposito codice.#
 
 .L’esempio seguente indica un ordine con il motivo di esclusione ES12 “AFFIDAMENTI_IN_HOUSE”.
 [source, xml, indent=0]

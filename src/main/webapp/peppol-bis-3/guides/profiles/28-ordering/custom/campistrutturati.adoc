@@ -16,4 +16,7 @@ I campi strutturati ammessi sono, esclusivamente e tassativamente, quelli elenca
 |OrderReference/ID
 
 |DeliveryTerms/SpecialTerms
+
+|AccountingCost
+
 |===

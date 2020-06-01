@@ -9,17 +9,18 @@ Questo caso d’uso è relativamente più complesso e dimostra l’uso della mag
 |*Nome Caso d’uso* |Documento di Trasporto (DDT) avanzato con dimostrazione della maggior parte dei termini di business
 |*Descrizione Caso d’uso* a|
 Questo caso d’uso rappresenta un uso molto complesso del Documento di Trasporto perchè dimostra l’uso di tutti i termini di business esistenti nel messaggio del Documento di Trasporto elettronico.
-Questo caso d’uso dimostra anche diversi utilizzi di:
+Questo caso d’uso dimostra anche diversi utilizzi di: +
+
 * Identificativo delle Parti di business
 * Identificativo degli articoli
 * Imballaggi
 
 |*Parti coinvolte* a|
-Acquirente (In UBL: BuyerCustomerParty)
-Venditore (In UBL: SellerSupplierParty)
-Speditore (In UBL: DespatchSupplierParty) (In questo caso d’uso è un soggetto giuridico diverso dal Venditore)
-Consegnatario (In UBL: DeliveryCustomerParty) (In questo caso d’uso è un soggetto giuridico diverso dall’Acquirente)
-Committente (In UBL: OriginatorCustomerParty)
+* Acquirente (In UBL: BuyerCustomerParty)
+* Venditore (In UBL: SellerSupplierParty)
+* Speditore (In UBL: DespatchSupplierParty) (In questo caso d’uso è un soggetto giuridico diverso dal Venditore)
+* Consegnatario (In UBL: DeliveryCustomerParty) (In questo caso d’uso è un soggetto giuridico diverso dall’Acquirente)
+* Committente (In UBL: OriginatorCustomerParty)
 
 |*Assunzioni* a|
 . Il Venditore e lo Speditore sono soggetti giuridici diversi.
@@ -44,26 +45,26 @@ image:images/image10.png[image,width=143,height=94]
 . Il Venditore carica gli articoli in unità logistiche (Scatole, casse, pallet, etc..)
 . Lo Speditore identifica tutti i dettagli della spedizione
 . Il trasportatore prende la merce per iniziare il trasporto  
-. Lo Speditore crea il messaggio di Avviso Spedizione
-. Lo Speditore invia il messaggio di Avviso Spedizione al Consegnatario
+. Lo Speditore crea il DDT
+. Lo Speditore invia il DDT al Consegnatario
 . Il Consegnatario può usare l’ID di tracking per tracciare la spedizione
-. Il Consegnatario riceve il messaggio di Avviso Spedizione
+. Il Consegnatario riceve il DDT
 . Il trasportatore consegna la merce al Consegnatario
-. Il Consegnatario usa il contenuto del messaggio di Avviso Spedizione per la registrazione dell’accettazione.
+. Il Consegnatario usa il contenuto del DDT per la registrazione dell’accettazione.
 .. Quattro righe di Spedizione, Quattro articoli.
 .. Le unità logistiche sono identificate mediante identificatori SSCC
-. Il Consegnatario usa il contenuto del messaggio di Avviso Spedizione per stoccaggio e movimentazione.
+. Il Consegnatario usa il contenuto del DDT per stoccaggio e movimentazione.
 .. Le unità logistiche con articoli pericolosi vengono identificate
 .. Gli articoli possono essere stoccati per best before date, per lotto e/o numero seriale
 .. Gli articoli possono essere movimentati in base al peso della unità logistica
 
 |*Risultato* a|
-. Il messaggio di Avviso Spedizione ha aiutato il Consegnatario a preparare l’accettazione 
+. Il Documento di Trasporto ha aiutato il Consegnatario a preparare l’accettazione 
 .. In tempo
 .. Nel luogo giusto (indirizzo)
 .. Con strumenti di stoccaggio appropriati
 .. In modo sicuro
-. Il messaggio di Avviso di Spedizione ha aiutato il Consegnatario nel processo di registrazione dell’accettazione per identificare
+. Il Documento di Trasporto ha aiutato il Consegnatario nel processo di registrazione dell’accettazione per identificare
 .. L’ordine
 .. Le righe d’ordine
 .. Le unità logistiche 

@@ -13,17 +13,17 @@ Il Documento di Trasporto (DDT) abilita il Fornitore / Trasportatore a fornire i
 Il Documento di Trasporto è inviato dallo Speditore al Consegnatario quando la merce viene inviata. 
 
 |*Parti coinvolte* a|
-Lo Speditore (In UBL: DespatchSupplierParty) (In questo caso è soggetto giuridico diverso dal Venditore)
-Venditore (In UBL: SellerSupplierParty)
-Consegnatario (In UBL: DeliveryCustomerParty) (In questo caso è soggetto giuridico diverso dall’Acquirente)
-Acquirente (In UBL: BuyerCustomerParty) 
+* Speditore (In UBL: DespatchSupplierParty) (In questo caso è soggetto giuridico diverso dal Venditore)
+* Venditore (In UBL: SellerSupplierParty)
+* Consegnatario (In UBL: DeliveryCustomerParty) (In questo caso è soggetto giuridico diverso dall’Acquirente)
+* Acquirente (In UBL: BuyerCustomerParty) 
 
 |*Pre conditions* |Allineamento delle anagrafiche centrali con ubicazioni (GLNs) e prodotti (GTINs).
 |*Post conditions* |Il Documento di Trasporto è ricevuto dal destinatario della merce.
 |*Assunzioni* a|
 [loweralpha]
-..  L’Avviso di Spedizione ha un ID di spedizione (GSIN) assegnato dal venditore
-..  L’Avviso di Spedizione ha un ID di consegna che è stato assegnato dal trasportatore (GINC)
+..  Il DDT ha un ID di spedizione (GSIN) assegnato dal venditore
+..  Il DDT ha un ID di consegna che è stato assegnato dal trasportatore (GINC)
 ..  Un luogo di consegna (no cross-docking) che è identificato da un GLN.
 ..  Le quattro righe di spedizione sono ciascuna una unità ordinabile – un GTIN.
 ..  Due unità ordinate (GTIN) sono imballate in ogni pallet.
@@ -41,15 +41,15 @@ Il Venditore ha accettato l’ordine senza modifiche.
 .  Il Venditore preleva la merce ordinata 
 .  La merce ordinata consiste di un pallet ogni 2 righe di articoli ordinati.
 .  Lo Speditore carica la merce per il trasporto. 
-.  Lo Speditore invia l’Avviso di Spedizione (DDT) al Consegnatario
-.  Il Consegnatario receve il messaggio di Avviso di Spedizione
-.  Il Consegnatario usa il contenuto del messaggio di Avviso di Spedizione per registrare l’accettazione.
+.  Lo Speditore invia il DDT al Consegnatario
+.  Il Consegnatario receve il DDT 
+.  Il Consegnatario usa il contenuto del DDT per registrare l’accettazione.
 
 |*Risultato* a|
-.  Il messaggio di Avviso di Spedizione ha aiutato il Consegnatario a preparare l’accettazione della merce:
+.  Il Documento di Trasporto ha aiutato il Consegnatario a preparare l’accettazione della merce:
 ..  In tempo
 ..  Nel luogo corretto (indirizzo)
-.  L’Avviso di Spedizione ha aiutato il Consegnatario nella registrazione dell’accettazione per identificare:
+.  Il Documento di Trasporto ha aiutato il Consegnatario nella registrazione dell’accettazione per identificare:
 ..  L’ordine
 ..  Le righe d’ordine
 ..  Le unità logistiche 
@@ -71,14 +71,14 @@ a|
 
 Global location number |
 
-Speditore - Identificazione organizzativa.
-Speditore - Identificazione Endpoint 
-Consegnatario - Identificazione organizzativa.
-Consegnatario - Identificazione Endpoint
-Acquirente - Identificazione organizzativa.
-Acquirente - Identificazione Endpoint.
-Venditore - Identificazione organizzativa
-Venditore - Identificazione Endpoint.
+Speditore - Identificazione organizzativa. +
+Speditore - Identificazione Endpoint. +
+Consegnatario - Identificazione organizzativa. +
+Consegnatario - Identificazione Endpoint. +
+Acquirente - Identificazione organizzativa. +
+Acquirente - Identificazione Endpoint. +
+Venditore - Identificazione organizzativa. +
+Venditore - Identificazione Endpoint. +
 
 a|
 **SSCC**:
@@ -86,7 +86,8 @@ a|
 Serial Shipping Container Code
 
  a|
-Ad ogni unità logistica viene assegnata una SSCC.
+Ad ogni unità logistica viene assegnata una SSCC. +
+
 L’SSCC è una chiave identificativa GS1 per un articolo di qualsiasi composizione utilizzato per il trasporto e/o deposito che necessita di essere gestito attraverso la catena di fornitura. L’SSCC è assegnato per la durata del trasporto dell’articolo merce ed è un elemento obbligatorio nell’Etichetta Logistica di GS1
 
 a|
@@ -95,11 +96,14 @@ a|
 Global Shipment Identification Number
 
  a|
-Identificativo della Spedizione. Un numero di spedizione per il Documento di Trasporto.
-A livello documento questo specifica il numero assegnato all’intera Spedizione, che può essere formata da diverse consegne.
-*  Numero assegnato dal venditore per identificare un raggruppamento logico di unità logistiche o di trasporto che sono tipicamente assemblate dal venditore per il trasporto di una spedizione.
-*  È allineato al requisito del Unique Consignment Reference (UCR) del World Customs Organisation (WCO).
-È approvato da ISO/IEC 15459 (ISO License Plate)
+Identificativo della Spedizione. Un numero di spedizione per il Documento di Trasporto. +
+
+A livello documento questo specifica il numero assegnato all’intera Spedizione, che può essere formata da diverse consegne. +
+
+* Numero assegnato dal venditore per identificare un raggruppamento logico di unità logistiche o di trasporto che sono tipicamente assemblate dal venditore per il trasporto di una spedizione.
+* È allineato al requisito del Unique Consignment Reference (UCR) del World Customs Organisation (WCO). +
+
+È approvato da ISO/IEC 15459 (ISO License Plate).
 
 a|
 *GINC:*
@@ -107,9 +111,10 @@ a|
 Global Identification Number of Consignment
 
  a|
-Un numero di consegna per il Documento di Trasporto
-*  Utilizzato per identificare il raggruppamento logico di unità logistiche o di trasporto che sono assemblate per il trasporto associato ad un documento di trasporto.
-*  È utilizzato per identificare il raggruppamento logico di unità logistiche durante uno specifico viaggio nel quale ci potrebbbero essere molteplici fasi di consegna.
+Un numero di consegna per il Documento di Trasporto +
+
+* Utilizzato per identificare il raggruppamento logico di unità logistiche o di trasporto che sono assemblate per il trasporto associato ad un documento di trasporto.
+* È utilizzato per identificare il raggruppamento logico di unità logistiche durante uno specifico viaggio nel quale ci potrebbbero essere molteplici fasi di consegna.
 
 a|
 *GTIN:*
@@ -117,7 +122,8 @@ a|
 Global trade Item Number
 
  a|
-Ogni articolo ordinato come un GTIN.
+Ogni articolo ordinato come un GTIN. +
+
 Identificazione del Prodotto.
 
 |====

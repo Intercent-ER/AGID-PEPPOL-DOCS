@@ -1,9 +1,0 @@
-
-
-.Esempio UBL di riferimento ad un ordine di acquisto o di vendita
-[source, xml, indent=0]
-----
-include::../{snippet-dir}/Snippet-refs.xml[tags=order-ref]
-----
-<1> Riferimento all'ordine di acquisto
-<2> Riferimento all'ordine di vendita

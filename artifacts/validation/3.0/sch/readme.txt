@@ -1,1 +1,0 @@
-ISO Schematron business rules

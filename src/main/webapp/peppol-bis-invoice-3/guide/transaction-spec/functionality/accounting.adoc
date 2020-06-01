@@ -1,6 +1,0 @@
-
-= Contabilità
-
-Registrare una fattura in contabilità è uno dei principali obiettivi della fatturazione. Secondo una buona prassi in materia di contabilità finanziaria e regole IVA, ogni soggetto deve avere una contabilità sufficientemente dettagliata per l'applicazione dell'IVA e la sua applicazione deve essere controllata dalle autorità fiscali. Per questo motivo, una fattura deve fornire quelle informazioni sia di testata sia a livello di riga che consentano di effettuare registrazioni contabili di debito e di credito.
-
-Per i requisiti dettagliati al supporto della funzione di contabilità, si consiglia di consultare i <<accountingreq>>

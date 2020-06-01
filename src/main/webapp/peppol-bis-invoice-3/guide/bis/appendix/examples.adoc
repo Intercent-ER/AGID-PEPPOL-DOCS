@@ -1,8 +1,0 @@
-[appendix]
-[[examples]]
-= File di esempio
-
-I file di esempio sono pubblicati su GitHub. In aggiunta, diversi file di esempio sono stati sviluppati allo scopo di estrarre delle unità funzionali (snippet) in questa guida. Potete usarle liberamente, ma è necessario prestare attenzione in quanto esse includono diversi commenti utilizzati per estrarle.
-
-* {link-examples}
-* {link-snippets}

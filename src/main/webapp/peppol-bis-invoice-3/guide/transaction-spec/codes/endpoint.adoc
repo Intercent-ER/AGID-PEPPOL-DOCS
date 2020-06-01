@@ -1,8 +1,0 @@
-
-
-= Schema per gli identificatori degli indirizzi elettronici
-
-Per BT-49 e BT-34, gli identificatori degli indirizzi elettronici dei venditori e acquirenti (Endpoint identification), la {EN16931} richiede l'uso di una codifica manutenuta da _Connecting Europe Facility (CEF)_.
-
-
-include::../../syntax/codelists/endpoint.adoc[]

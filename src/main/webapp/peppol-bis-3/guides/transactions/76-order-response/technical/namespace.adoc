@@ -1,7 +1,0 @@
-
-* Il Namespace della http://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-OrderResponse-2.1.xsd[Risposta d’Ordine UBL 2.1] è: + 
-
-[source, xml, indent=0]
-----
-urn:oasis:names:specification:ubl:schema:xsd:OrderResponse-2
-----

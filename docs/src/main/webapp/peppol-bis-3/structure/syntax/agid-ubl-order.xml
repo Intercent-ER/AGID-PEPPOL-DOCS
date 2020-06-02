@@ -282,6 +282,7 @@
 							<Name>Scheme identifier</Name>
 							<Description>Scheme identifier dell'identificativo del Cliente</Description>
 							<Reference type="CODE_LIST">ICD</Reference>
+                                                </Attribute>
 					</Element>
 				</Element>
 				<Element agid:custom="cardinality">
@@ -500,12 +501,13 @@
 						<DataType>Identifier</DataType>
 						<Reference type="BUSINESS_TERM">tir01-059</Reference>
 						<Reference type="RULE">NSO_010</Reference>
+						<Value type="EXAMPLE">PIVA:IT07643520567</Value>
 						<Attribute usage="optional">
 							<Term>schemeID</Term>
 							<Name>Scheme identifier</Name>
 							<Description>Scheme identifier dell'identificativo del Fornitore.</Description>
 							<Reference type="CODE_LIST">ICD</Reference>
-							<Value type="EXAMPLE">PIVA:IT07643520567</Value>
+                                                </Attribute>
 					</Element>
 				</Element>
 				<Element cardinality="0..1">

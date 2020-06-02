@@ -143,12 +143,13 @@
 						<Description>Ulteriore identificativo relativo al Fornitore.</Description>
 						<DataType>Identifier</DataType>
 						<Reference type="BUSINESS_TERM">tir76-059</Reference>
+						<Value type="EXAMPLE">PIVA:IT07643520567</Value>
 						<Attribute usage="optional">
 							<Term>schemeID</Term>
 							<Name>Scheme identifier</Name>
 							<Description>Scheme identifier dell'identificativo del Fornitore.</Description>
 							<Reference type="CODE_LIST">ICD</Reference>
-							<Value type="EXAMPLE">PIVA:IT07643520567</Value>
+                                                </Attribute>
 					</Element>
 				</Element>
 				<Element cardinality="0..1">
@@ -203,6 +204,7 @@
 							<Name>Scheme identifier</Name>
 							<Description>Scheme identifier dell'identificativo del Cliente</Description>
 							<Reference type="CODE_LIST">ICD</Reference>
+                                                </Attribute>
 					</Element>
 				</Element>
 				<Element cardinality="0..1">
@@ -250,7 +252,7 @@
 		</Element>
 		<Element cardinality="0..n" agid:custom="rule">
 			<Term>cac:OrderLine</Term>
-			<Name>Specification of order lines - Specificazioni linee d'ordine</Name></Name>
+			<Name>Specification of order lines - Specificazioni linee d'ordine</Name>
 			<Reference type="RULE">INT-T76-R004</Reference>
 			<Reference type="RULE">INT-T76-R005</Reference>
 			<Reference type="RULE">INT-T76-R006</Reference>
@@ -558,6 +560,7 @@
 								<Term>listID</Term>
 								<Name>Name code list id. - Identificativo della lista di codifiche</Name>
 								<Description>Identificativo della lista di codifiche usata per la proprietà, concordato bilateralmente.</Description>
+                                                        </Attribute>
 						</Element>
 						<Element>
 							<Term>cbc:Value</Term>

@@ -17,7 +17,7 @@ echo ____________________________________________________________
 echo - Phase 2: XSLT semantic validation
 
 echo   - OPENPEPPOL Rules + Regole italiane
-call _xslt2 "%xml%" xsl\PEPPOL\ITNAT-UBL-T16.xsl output\svrl_report.xml
+call _xslt2 "%xml%" xsl\PEPPOL\2.0\ITNAT-UBL-T16.xsl output\svrl_report.xml
 echo Output is provided using Schematron Validation Report Language (SVRL)
 call _xslt2 output\svrl_report.xml xsl\SVRLReportRender-IT.xsl output\semantic_report.html
 

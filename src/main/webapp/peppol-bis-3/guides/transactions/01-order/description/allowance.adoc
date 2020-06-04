@@ -8,7 +8,7 @@ L’elemento `cac:AllowanceCharge` con il sotto elemento `cac:ChargeIndicator` p
 Livello di testata:: _Si applica all’intero ordine ed è incluso nel calcolo dell’importo totale dell’ordine (se specificato)._
 * Possono essere forniti sconti e maggiorazioni
 * Le informazioni sulle imposte relative agli sconti e maggiorazioni (cac:TaxCategory con i suoi sotto elementi) devono essere fornite
-* La somma di tutti gli sconti e maggiorazioni a livello di testata deve essere specificato rispettivamente nel AllowanceTotalAmount e nel ChargeTotalAmount, [yellow-background]#vedi paragrafo 7.13 Calcolo dei totali (AnticipatedMonetaryTotals)#
+* La somma di tutti gli sconti e maggiorazioni a livello di testata deve essere specificato rispettivamente nel AllowanceTotalAmount e nel ChargeTotalAmount, vedi paragrafo "6.9 Calcolo dei totali (AnticipatedMonetaryTotals)".
 
 Elemento Prezzo a livello di riga:: _Il prezzo indicato deve essere sempre il prezzo netto, cioè l’importo base ridotto da uno sconto._
 * Solamente una occorrenza di sconto è consentita
@@ -173,7 +173,7 @@ Questo esempio mostra uno sconto di 10 EUR sul prezzo base:
             <cbc:Description>1x12 PACCHI</cbc:Description>
             <cbc:Name>ARTICOLO MERCE</cbc:Name>
             <cac:ClassifiedTaxCategory>
-                <cbc:ID>E</cbc:ID>
+                <cbc:ID>O</cbc:ID>
             </cac:ClassifiedTaxCategory>
         </cac:Item>
   	</cac:LineItem>

@@ -6,7 +6,7 @@ Per fornire informazioni sul confezionamento è possibile usare due diverse moda
 Nella tabella seguente si forniscono chiarimenti per aggiungere informazioni sulle singole unità all’interno della confezione e viceversa, quando l’articolo coincide con l’unità base, per fornire informazioni sul confezionamento.
 
 
-[cols="1,3"]
+[cols="1,3",options="header"]
 |====
 s|Tipo di informazione
 s|Descrizione

@@ -4,7 +4,7 @@
 
 [yellow-background]#Nei documenti di tipo ordine iniziale e sostitutivo è obbligatorio indicare il Codice identificativo di gara (CIG o Smart CIG), censito nella Banca dati Nazionale dei contratti pubblici (BDNCP), a cui le prestazioni contenute nel Documento si riferiscono.#
 
-[cols="1,2,5"]
+[cols="1,2,5", options="header"]
 |====
 s|Riferimento
 s|Descrizione

@@ -3,7 +3,7 @@
 
 La tabella sottostante fornisce le definizioni delle parti e dei ruoli nel processo di evasione dell’ordine (fulfillment).
 
-[cols="2,4",options="header",]
+[cols="2,5",options="header",]
 |====
 |Parti |Definizione
 |*Cliente (Cessionario)* a|
@@ -18,7 +18,8 @@ Esempi di ruoli ricoperti dal fornitore sono: venditore, vettore, creditore, ope
 
 |*Trasportatore (Vettore)* |Il trasportatore gestisce la consegna/trasporto fisico della spedizione inviata. Utilizzato se una terza parte effettua il trasporto fisico.
 |====
-[cols="2,4",options="header",]
+
+[cols="2,5",options="header",]
 |====
 |Ruolo/Attore |Definizione
 a|

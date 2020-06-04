@@ -16,7 +16,7 @@
 			<cbc:EndpointID schemeID="9906">IT01234567890</cbc:EndpointID>
                         <!-- tag::partyid-it[] -->
                         <cac:PartyIdentification>
-				<cbc:ID>IT:VAT:IT01234567890</cbc:ID>
+				<cbc:ID>PIVA:IT01234567890</cbc:ID>
 			</cac:PartyIdentification>
                         <!-- end::partyid-it[] -->
 			<!-- tag::partyid-se[] -->
@@ -144,7 +144,7 @@
 			<cac:CarrierParty>
 				<cac:PartyIdentification>
 					<!-- Identificativo Fiscale Vettore -->
-					<cbc:ID>IT:VAT:IT01245267890</cbc:ID><!--5-->
+					<cbc:ID>PIVA:IT01245267890</cbc:ID><!--5-->
 				</cac:PartyIdentification>
 				<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
 				<cac:PartyName>

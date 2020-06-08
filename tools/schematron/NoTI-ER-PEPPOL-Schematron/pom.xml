@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<name>NoTI-ER-PEPPOL-Validator</name>
+	<name>NoTI-ER-PEPPOL-Schematron</name>
 	<groupId>it.gov.agid</groupId>
-	<artifactId>NoTI-ER-PEPPOL-Validator</artifactId>
+	<artifactId>NoTI-ER-PEPPOL-Schematron</artifactId>
 	<parent>
 		<groupId>it.gov.agid</groupId>
 		<artifactId>NoTI-ER-PEPPOL</artifactId>
@@ -22,39 +22,21 @@
 				<version>3.0.1</version>
 				<executions>
 					<execution>
-						<id>copy-resources-3</id>
+						<id>copy-sch</id>
 						<!-- here the phase you need -->
 						<phase>validate</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${basedir}/target/xsl/PEPPOL/3.0</outputDirectory>
+							<outputDirectory>${project.build.directory}/sch</outputDirectory>
 							<resources>          
 								<resource>
-									<directory>${basedir}/../../../artifacts/validation/3.0/xsl</directory>
+									<directory>${basedir}/../../../artifacts/validation/3.0/sch</directory>
 									<filtering>false</filtering>
 								</resource>
 							</resources>
-							<echo>Copying xsl files</echo>						   
-						</configuration>            
-					</execution>
-					<execution>
-						<id>copy-resources-2</id>
-						<!-- here the phase you need -->
-						<phase>validate</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${basedir}/target/xsl/PEPPOL/2.0</outputDirectory>
-							<resources>          
-								<resource>
-									<directory>${basedir}/../../../artifacts/validation/2.0/xsl</directory>
-									<filtering>false</filtering>
-								</resource>
-							</resources>
-							<echo>Copying xsl files</echo>						   
+							<echo>Copying sch files</echo>				   
 						</configuration>            
 					</execution>
 				</executions>

@@ -18,6 +18,8 @@
             <includes>
                 <include>*.bat</include>
                 <include>*.jar</include>
+                <include>*.xml</include>
+                <include>*.txt</include>
             </includes>
         </fileSet>
         <fileSet>
@@ -25,16 +27,12 @@
             <directory>src/css</directory>
         </fileSet>
         <fileSet>
-            <outputDirectory>js</outputDirectory>
-            <directory>src/js</directory>
-        </fileSet>
-        <fileSet>
             <outputDirectory>lib</outputDirectory>
             <directory>src/lib</directory>
         </fileSet>
         <fileSet>
-            <outputDirectory>xsd</outputDirectory>
-            <directory>src/xsd</directory>
+            <outputDirectory>profiles</outputDirectory>
+            <directory>src/profiles</directory>
         </fileSet>
         <fileSet>
             <outputDirectory>xsl</outputDirectory>
@@ -43,6 +41,10 @@
         <fileSet> <!-- Copy resources -->
             <outputDirectory>xsl/PEPPOL</outputDirectory>
             <directory>target/xsl/PEPPOL</directory>
+        </fileSet>
+        <fileSet> <!-- Copy resources -->
+            <outputDirectory>adapters</outputDirectory>
+            <directory>target/adapters</directory>
         </fileSet>
         <fileSet> <!-- Create empty directory -->
             <outputDirectory>xml</outputDirectory>

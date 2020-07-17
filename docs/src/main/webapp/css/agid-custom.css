@@ -16,3 +16,11 @@
 .rowid {
     font-size: 80% !important;
 }
+
+.warning_indefinizione{
+	color: red;
+    font-style: italic;
+    margin: 0;
+    padding: 0;
+    display: inline;
+}

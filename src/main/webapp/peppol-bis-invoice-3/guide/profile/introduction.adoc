@@ -1,9 +1,12 @@
 [preface]
 = Introduzione a openPEPPOL e alla BIS
 
-Questa specifica {peppol} BIS fornisce un insieme di specifiche per l’implementazione di un processo di business {peppol}.
+Questa Business Interoperability Specification (BIS) fornisce un insieme di specifiche per l'implementanzione della fatturazione elettronica e pubblicato come parte delle specifiche [https://docs.peppol.eu/poacc/billing/3.0/[Peppol].
 
-Questa specifica è una Core Invoice Usage Specification (CIUS) della {EN16931}, che ne segue le indicazioni fornite al capitolo 7. Qualsiasi documento compatibile a questa specifica sarà compatibile alla normativa europea ({EN16931}).
+Questa specifica è composta da: +
+
+* un insieme di specifiche derivanti dalla Core Invoice Usage Specification (CIUS) della {EN16931} emanate con provvedimento #...# dell'Agenzia delle Entrate;
+* un insieme di estensioni della Core Invoice atte a rendere equipollente il contenuto di una fattura elettronica redatta secondo queste specifiche con FatturaPA. 
 
 L’obiettivo di questo documento è facilitare un’efficiente implementazione e diffusione delle collaborazioni elettroniche per il processo di fatturazione.
 

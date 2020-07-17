@@ -9,4 +9,7 @@ L'elemento di consegna contiene informazioni su nome, indirizzo e identificatore
 
 Esempi sono GLN (Global Location Number) oppure GSRN (Global Service Relationship Number) entrambi emessi da GS1.
 
+#Quando la fattura si riferisce ad un unico DDT, la data del DDT viene riportata nel *cbc:ActualDeliveryDate* (BT-72 Actual delivery date).#
+
+
 include::../../syntax/delivery.adoc[]

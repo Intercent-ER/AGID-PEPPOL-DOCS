@@ -12,3 +12,28 @@ include::../../syntax/item-identification.adoc[]
 Sulla riga di fattura possono essere forniti diversi codici di classificazione per l'attributo e questi devono essere fra gli schemi di classificazione della codifica UNCL7143.
 
 include::../../syntax/item-classification.adoc[]
+
+== #Tipo cessione prestazione#
+
+La gestione del tipo cessione prestazione è operata a mezzo dell’utilizzo di: +
+
+1.	*cac:AdditionalItemProperty/cbc:Name* 
+(BT-160 Item attribute name), inserendo la stringa _IT:TipoCessionePrestazione_;
+2. *cac:AdditionalItemProperty/cbc:Value* 
+(BT-161 Item attribute value) inserendo il valore ammesso da FatturaPA: _[SC] sconto, [PR] premio, [AB] abbuono, [AC] spesa accessoria_.
+
+.Esempio sulla gestione del tipo cessione prestazione
+
+[source, xml, indent=0]
+----
+<cac:InvoiceLine>
+  <!-- ... -->
+  <cac:Item>
+    <!-- ... -->
+    <cac:AdditionalItemProperty>
+      <cbc:Name>IT:TipoCessionePrestazione</cbc:Name>
+      <cbc:Value>AB</cbc:Value>
+    </cac:AdditionalItemProperty>
+  </cac:Item>
+</cac:InvoiceLine>
+----

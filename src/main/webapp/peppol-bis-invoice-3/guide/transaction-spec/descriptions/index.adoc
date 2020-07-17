@@ -8,8 +8,6 @@ Nei paragrafi seguenti vengono riportarti esempi di parti selezionate della tran
 
 include::roles-and-actor.adoc[]
 
-include::address.adoc[]
-
 include::delivery-details.adoc[]
 
 include::references/index.adoc[]
@@ -30,5 +28,8 @@ include::price.adoc[]
 
 include::uom.adoc[]
 
+include::tipodocumento.adoc[]
+
+include::address.adoc[]
 
 :leveloffset: -1

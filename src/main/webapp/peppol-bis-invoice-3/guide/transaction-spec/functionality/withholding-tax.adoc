@@ -1,11 +1,20 @@
 
-= Ritenuta d'acconto
+= #Ritenuta d'acconto (estensione)#
 
-La ritenuta d'acconto è un metodo di riscossione dei tributi previsti dall’ordinamento italiano.
+La sezione ritenuta d'acconto serve ad evidenziare: +
 
-In particolare è una trattenuta Irpef (per i redditi delle persone fisiche) o Ires (per le persone giuridiche: società) che viene effettuata sul totale imponibile della fattura che inviamo al cliente, detto anche sostituto d'imposta.
+* una trattenuta Irpef (per i redditi delle persone fisiche) o Ires (per le persone giuridiche: società) che viene effettuata sul totale imponibile della fattura inviata al Cliente da parte del Fornitore, che agisce come sostituto d'imposta;
+* una trattenuta previdenziale che viene effettuata sul totale imponibile della fattura inviata al Cliente da parte del Fornitore che si occuperà del successivo riversamento all'Ente previdenziale di riferimento.
 
-.Esempio UBL di ritenuta d'acconto
+[IMPORTANT]
+====
+Paragrafo da completare
+====
+
+
+/// esempio da rivedere
+
+.Esempio UBL di ritenuta d'acconto 
 L'esempio riportato è relativo alla fattura emessa da un professionista con regime dei minimi e soggetto a ritenuta d'acconto.
 [source, xml, indent=0]
 ----

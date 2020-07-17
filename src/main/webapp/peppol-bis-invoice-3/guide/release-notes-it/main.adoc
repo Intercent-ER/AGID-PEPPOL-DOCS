@@ -1,4 +1,5 @@
-= PEPPOL BIS Fatturazione 3.0
+include::../shared/settings.adoc[]
+= PEPPOL BIS Fatturazione {version}
 Note di Rilascio
 :doctype: book
 :encoding: utf-8

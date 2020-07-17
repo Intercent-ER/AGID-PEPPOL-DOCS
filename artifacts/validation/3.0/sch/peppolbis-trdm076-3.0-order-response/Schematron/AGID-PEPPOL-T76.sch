@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 	Peppol BIS 3.0.4
-	NSO 4.3
+	NSO 4.5
 
 	NOTE:
 	Controllo del CIG elaborato a partire dalla regola pubblicata dal MIN SAL cfr http://www.salute.gov.it/imgs/C_17_pagineAree_3849_listaFile_itemName_3_file.pdf
@@ -14,7 +14,7 @@
         queryBinding="xslt2">
 
     <title>Regole per la transazione della Risposta d'Ordine PEPPOL, versione 3.0</title>
-    
+
     <ns uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
        prefix="cbc"/>
     <ns uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
@@ -23,10 +23,10 @@
        prefix="ubl"/>
     <ns uri="http://www.w3.org/2001/XMLSchema" prefix="xs"/>
     <ns uri="utils" prefix="u"/>
-    
+
     <xsl:key name="k_lineId" match="cac:LineItem" use="cbc:ID"/>
-    
-    
+
+
 
     <function xmlns="http://www.w3.org/1999/XSL/Transform"
              name="u:gln"
@@ -51,14 +51,14 @@
       <value-of select="number($val) &gt; 0 and (11 - ($weightedSum mod 11)) mod 11 = number(substring($val, $length + 1, 1))"/>
    </function>
 
-    
+
 
     <pattern>
- 
+
 		    <rule context="//*[not(*) and not(normalize-space())]">
 			      <assert id="PEPPOL-COMMON-R001" test="false()" flag="fatal">Document MUST not contain empty elements.</assert>
-		    </rule> 
-   
+		    </rule>
+
    </pattern>
     <pattern>
 
@@ -75,7 +75,7 @@
                  flag="fatal">A date must be formatted YYYY-MM-DD.</assert>
       </rule>
 
-    
+
       <rule context="cbc:EndpointID[@schemeID = '0088'] | cac:PartyIdentification/cbc:ID[@schemeID = '0088'] | cbc:CompanyID[@schemeID = '0088']">
         <assert id="PEPPOL-COMMON-R040"
                  test="matches(normalize-space(), '^[0-9]+$') and u:gln(normalize-space())"
@@ -408,127 +408,127 @@
       </rule>
    </pattern>
     <pattern>
-    
+
       <let name="documentCurrencyCode"
            value="/ubl:OrderResponse/cbc:DocumentCurrencyCode"/>
-    
-    
+
+
       <rule context="cbc:CustomizationID">
 			      <assert id="PEPPOL-T76-R006"
                  test="starts-with(normalize-space(.), 'urn:fdc:peppol.eu:poacc:trns:order_response:3')"
                  flag="fatal">Specification identifier SHALL start with the value 'urn:fdc:peppol.eu:poacc:trns:order_response:3'.</assert>
       </rule>
-    
+
       <rule context="cbc:PriceAmount">
         <assert id="PEPPOL-T76-R005"
                  test="@currencyID = $documentCurrencyCode"
                  flag="fatal">An order response SHALL be stated in a single currency</assert>
-       
+
       </rule>
-    
-    
+
+
       <rule context="cac:BuyerCustomerParty/cac:Party">
         <assert id="PEPPOL-T76-R001"
                  test="cac:PartyLegalEntity/cbc:RegistrationName or cac:PartyIdentification/cbc:ID"
                  flag="fatal">An order response SHALL have the buyer party official name or a buyer party identifier</assert>
       </rule>
 
-    
+
       <rule context="cac:SellerSupplierParty/cac:Party">
         <assert id="PEPPOL-T76-R002"
                  test="cac:PartyLegalEntity/cbc:RegistrationName or cac:PartyIdentification/cbc:ID"
                  flag="fatal">An order response SHALL have the seller party official name or a seller party identifier</assert>
       </rule>
 
-    
+
       <rule context="cac:PromisedDeliveryPeriod | cac:OrderLine/cac:LineItem/cac:PromisedDeliveryPeriod">
         <assert id="PEPPOL-T76-R004"
                  test="(exists(cbc:EndDate) and exists(cbc:StartDate) and (cbc:EndDate) &gt;= (cbc:StartDate)) or not(exists(cbc:StartDate)) or not(exists(cbc:EndDate)) "
                  flag="fatal">If both delivery period start date and delivery period end date are given then the end date SHALL be later or equal to the start date.</assert>
       </rule>
 
-    
+
       <rule context="cac:OrderLine/cac:LineItem">
         <assert id="PEPPOL-T76-R003"
                  test="count(key('k_lineId',cbc:ID)) = 1"
                  flag="fatal">Each order response line SHALL have a document line identifier that is unique within the order.</assert>
       </rule>
 
- 
+
    </pattern>
-   
+
 	<!-- MEF NSO rules -->
 	<!-- ======================== -->
     <!-- DEFINIZIONE FUNZIONI -->
-   
+
     <!-- La funzione estrae la stringa posizionale in un takenize di # -->
    	<function xmlns="http://www.w3.org/1999/XSL/Transform"
-             name="u:getPartTokenizeID" as="xs:string">		 
+             name="u:getPartTokenizeID" as="xs:string">
 		<param name="reference" as="xs:string"/>
 		<param name="arg" as="xs:integer"/>
-	  
-		<variable name="listToken" select="tokenize($reference, '#')" /> 
+
+		<variable name="listToken" select="tokenize($reference, '#')" />
 
 		<sequence select="$listToken[$arg]"/>
-	 		
+
 	</function>
-	
+
 	<!-- La funzione estrae il numero di stringhe in un takenize di # -->
 	<function xmlns="http://www.w3.org/1999/XSL/Transform"
-             name="u:countDelitited" as="xs:integer">		 
+             name="u:countDelitited" as="xs:integer">
       <param name="reference" as="xs:string"/>
 	  <variable name="stringList" select="tokenize($reference, '#')"/>
-	  
+
 	  <sequence select="count($stringList) - 1"/>
-		
+
 	</function>
-   
+
 	<!-- Controllo se la data è valida -->
 	<function name="u:validationDate" as="xs:boolean"
               xmlns="http://www.w3.org/1999/XSL/Transform">
-		
+
 		<param name="arg" as="xs:string?"/>
 
 		<sequence select="string(normalize-space($arg)) castable as xs:date"/>
 
 	</function>
-	
+
 	<!-- Controllo della PIVA secondo le regole https://databularium.com/it/2015/08/21/come-controllare-la-correttezza-della-partita-iva/ -->
     <function name="u:checkPIVA" as="xs:integer"
 			  xmlns="http://www.w3.org/1999/XSL/Transform">
 
         <param name="arg" as="xs:string?"/>
-		
+
 		<sequence select="
-				if (not($arg castable as xsd:integer)) 
+				if (not($arg castable as xsd:integer))
 					then 1
 					else ( u:addPIVA($arg,xs:integer(0)) mod 10 )" />
-		
+
     </function>
-	
+
 	<!-- Funzione di utilità per il controllo della PIVA -->
-	<function name="u:addPIVA" as="xs:integer" 
+	<function name="u:addPIVA" as="xs:integer"
 			  xmlns="http://www.w3.org/1999/XSL/Transform">
-		
+
 		<param name="arg" as="xs:string"/>
 		<param name="pari" as="xs:integer"/>
 
 		<variable name="tappo" select="if (not($arg castable as xsd:integer)) then 0 else 1"/>
-		
-		<variable name="mapper" select="if ($tappo = 0) then 0 else 
-																		( if ($pari = 1) 
-																			then ( xs:integer(substring('0246813579', ( xs:integer(substring($arg,1,1)) +1 ) ,1)) ) 
+
+		<variable name="mapper" select="if ($tappo = 0) then 0 else
+																		( if ($pari = 1)
+																			then ( xs:integer(substring('0246813579', ( xs:integer(substring($arg,1,1)) +1 ) ,1)) )
 																			else ( xs:integer(substring($arg,1,1) ) )
 																		)"/>
-			
+
 		<sequence select="if ($tappo = 0) then $mapper else ( xs:integer($mapper) + u:addPIVA(substring(xs:string($arg),2), (if($pari=0) then 1 else 0) ) )"/>
-		
+
 	</function>
 
 	<!-- Funzione di utilità per il controllo del EndpointID -->
-	<function name="u:checkPIVAseIT" as="xs:boolean" 
+	<function name="u:checkPIVAseIT" as="xs:boolean"
 			  xmlns="http://www.w3.org/1999/XSL/Transform">
-		
+
 		<param name="arg" as="xs:string"/>
 
 		<variable name="paese" select="substring($arg,1,2)"/>
@@ -540,7 +540,7 @@
 			then
 			(
 				if ( ( string-length($codice) = 11 ) and ( if (u:checkPIVA($codice)!=0) then false() else true() ))
-				then 
+				then
 				(
 					true()
 				)
@@ -555,23 +555,23 @@
 			)
 
 		"/>
-			
+
 	</function>
-	
+
 	<!-- Controllo Codice Fiscale-->
     <function name="u:checkCF" as="xs:boolean"
 			  xmlns="http://www.w3.org/1999/XSL/Transform">
 
         <param name="arg" as="xs:string?"/>
-		
+
 		<sequence select="
-			if ( (string-length($arg) = 16) or (string-length($arg) = 11) ) 		
-			then 
+			if ( (string-length($arg) = 16) or (string-length($arg) = 11) )
+			then
 			(
-				if ((string-length($arg) = 16)) 
+				if ((string-length($arg) = 16))
 				then
 				(
-					if (u:checkCF16($arg)) 
+					if (u:checkCF16($arg))
 					then
 					(
 						true()
@@ -584,7 +584,7 @@
 				else
 				(
 					if(($arg castable as xsd:integer)) then true() else false()
-	
+
 				)
 			)
 			else
@@ -592,104 +592,104 @@
 				false()
 			)
 			"/>
-		
-    </function>	
+
+    </function>
 
 	<!-- Controllo Codice Fiscale 16 -->
     <function name="u:checkCF16" as="xs:boolean"
 			  xmlns="http://www.w3.org/1999/XSL/Transform">
 
         <param name="arg" as="xs:string?"/>
-		
+
 		<variable name="allowed-characters">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz</variable>
-		
+
 		<sequence select="
-					if ( 	(string-length(translate(substring($arg,1,6), $allowed-characters, '')) = 0) and  
-					        (substring($arg,7,2) castable as xsd:integer) and 
-							(string-length(translate(substring($arg,9,1), $allowed-characters, '')) = 0) and 
-							(substring($arg,10,2) castable as xsd:integer) and  
-							(substring($arg,12,3) castable as xsd:string) and 
-							(substring($arg,15,1) castable as xsd:integer) and  
+					if ( 	(string-length(translate(substring($arg,1,6), $allowed-characters, '')) = 0) and
+					        (substring($arg,7,2) castable as xsd:integer) and
+							(string-length(translate(substring($arg,9,1), $allowed-characters, '')) = 0) and
+							(substring($arg,10,2) castable as xsd:integer) and
+							(substring($arg,12,3) castable as xsd:string) and
+							(substring($arg,15,1) castable as xsd:integer) and
 							(string-length(translate(substring($arg,16,1), $allowed-characters, '')) = 0)
-						) 
+						)
 					then true()
 					else false()
 					" />
-					
+
     </function>
-	
+
 	<!-- Controllo Codice Fiscale 11 -->
     <function name="u:checkCF11" as="xs:boolean"
 			  xmlns="http://www.w3.org/1999/XSL/Transform">
 
         <param name="arg" as="xs:string?"/>
-		
+
 		<sequence select="
-					if ( ($arg castable as xsd:integer) and (string-length($arg) = 11) ) 
+					if ( ($arg castable as xsd:integer) and (string-length($arg) = 11) )
 					then true()
 					else false()
 					" />
-					
-    </function>	
-	
+
+    </function>
+
 	<!-- Controllo Codice IPA -->
     <function name="u:checkCodiceIPA" as="xs:boolean"
 			  xmlns="http://www.w3.org/1999/XSL/Transform">
 
         <param name="arg" as="xs:string?"/>
-		
+
 		<variable name="allowed-characters">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</variable>
 
 		<sequence select="if ( (string-length(translate($arg, $allowed-characters, '')) = 0) and (string-length($arg) = 6) ) then true() else false()"/>
-		
+
     </function>
-	
+
     <!-- DEFINIZIONE PHASE -->
     <phase id="underConstruction">
 	   <active pattern="verificaOrderReferenceID"/>
-	   <active pattern="verificaPIVA"/>	   	   
-	   <active pattern="verificaLinee"/>	
+	   <active pattern="verificaPIVA"/>
+	   <active pattern="verificaLinee"/>
 	   <active pattern="verificaCodiceIPA"/>
 	   <active pattern="verificaBuyer"/>
-	   <active pattern="verificaCF"/>  	   
+	   <active pattern="verificaCF"/>
     </phase>
 
-    <!-- DEFINIZIONE ABSTRACT ROLE PATTERN -->	
+    <!-- DEFINIZIONE ABSTRACT ROLE PATTERN -->
 	<pattern id="Abstract">
-		
-		<rule abstract="true" id="verifica_codice_ipa">	
-			
-			<assert id="NSO_110" 
+
+		<rule abstract="true" id="verifica_codice_ipa">
+
+			<assert id="NSO_110"
 				test="if(@schemeID='0201') then u:checkCodiceIPA(.) else true()" flag="fatal">NSO_110 - Il Codice IPA indicato nell’elemento non è valido. - The IPA Code specified in the element is invalid.
 			</assert>
 
 		</rule>
-		
+
 	</pattern>
 
     <!-- DEFINIZIONE PATTERN NELLA PHASE verificaOrderReferenceID -->
     <pattern id="verificaOrderReferenceID">
 
-		<!-- Verifica cac:OrderReference sia presente una sola volta -->	
+		<!-- Verifica cac:OrderReference sia presente una sola volta -->
 		<rule context="ubl:OrderResponse">
-								
+
 			<assert id="NSO_145" test="count(/ubl:OrderResponse/cac:OrderReference) = 1" flag="fatal">
-				NSO_145 - Il Documento contiene più di un elemento "cac:OrderReference". - The Document contains more than one "cac:OrderReference" element. 
+				NSO_145 - Il Documento contiene più di un elemento "cac:OrderReference". - The Document contains more than one "cac:OrderReference" element.
 			</assert>
 
 		</rule>
-		
-		<!-- Verifica struttura cac:OrderReference/cbc:ID -->	
+
+		<!-- Verifica struttura cac:OrderReference/cbc:ID -->
 		<rule context="ubl:OrderResponse/cac:OrderReference/cbc:ID">
-					
-			
+
+
 			<assert id="NSO_140" test="(u:countDelitited(.) = 2)" flag="fatal">
-				NSO_140 - Il formato dell’elemento "cac:OrderReference/cbc:ID" non è valido (esempio di formato corretto: "110#2018-01-30#QLHCFC "). - The format of the element "cac:OrderReference/cbc:ID" is invalid (correct format example:"110#2018-01-30#QLHCFC"). 
+				NSO_140 - Il formato dell’elemento "cac:OrderReference/cbc:ID" non è valido (esempio di formato corretto: "110#2018-01-30#QLHCFC "). - The format of the element "cac:OrderReference/cbc:ID" is invalid (correct format example:"110#2018-01-30#QLHCFC").
 			</assert>
 
 			<assert id="NSO_141" test="(if (u:countDelitited(.) != 2) then false() else u:getPartTokenizeID(.,1)!='')" flag="fatal">
 				NSO_141 - L'ID presente nell’elemento non è valorizzato. - The ID in the element is not set.
-			</assert>			
+			</assert>
 
 			<assert id="NSO_142" test="(if (u:countDelitited(.) != 2) then false() else u:validationDate(u:getPartTokenizeID(.,2)))" flag="fatal">
 				NSO_142 - Il formato della data presente nell’elemento non è corretto (esempio corretto: "2020-01-31"). - The format of the date in the element is incorrect (correct format example: "2020-01-31").
@@ -702,7 +702,7 @@
 		</rule>
 
 	</pattern>
-	
+
    <pattern id="verificaPIVA">
 
 		<!-- Controllo della PIVA secondo le regole https://databularium.com/it/2015/08/21/come-controllare-la-correttezza-della-partita-iva/ -->
@@ -713,80 +713,80 @@
                  test="if(@schemeID='9906') then ( if(u:checkPIVA(substring(.,3,13))!=0) then false() else true() ) else true()" flag="fatal">
 					NSO_130 - La partita IVA indicata nell’elemento non è valida. - The VAT number specified in the element is invalid.
 			</assert>
-			
+
 		</rule>
-		
-	</pattern>	
+
+	</pattern>
 
    <pattern id="verificaLinee">
 
 		<rule context="ubl:OrderResponse">
 
-			<!-- le rige ordine sono permesse sono nel caso di modifica CA -->			
+			<!-- le rige ordine sono permesse sono nel caso di modifica CA -->
 			<assert id="NSO_150" test="( if (/ubl:OrderResponse/cbc:OrderResponseCode = 'CA') then ( if (count(/ubl:OrderResponse/cac:OrderLine)=0) then false() else true() ) else ( if (count(/ubl:OrderResponse/cac:OrderLine)=0) then true() else false() ) )" flag="fatal">
 				NSO_150 - Il Documento contiene uno o più elementi "cac:OrderLine". - The Document contains one or more "cac:OrderLine" elements.
 			</assert>
-			
-		</rule>
-				
-	</pattern>	
 
-   <!-- DEFINIZIONE PATTERN NELLA PHASE verificaCodiceIPA -->	
+		</rule>
+
+	</pattern>
+
+   <!-- DEFINIZIONE PATTERN NELLA PHASE verificaCodiceIPA -->
 	<pattern id="verificaCodiceIPA">
 
 		<rule context="/ubl:OrderResponse/cac:SellerSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID">
 			<extends rule="verifica_codice_ipa"/>
-		</rule>	
-		
+		</rule>
+
 		<rule context="/ubl:OrderResponse/cac:BuyerCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID">
 			<extends rule="verifica_codice_ipa"/>
-		</rule>	
-		
+		</rule>
+
 		<rule context="/ubl:OrderResponse/cac:OrderLine/cac:LineItem/cac:Item/cac:StandardItemIdentification/cbc:ID">
 			<extends rule="verifica_codice_ipa"/>
-		</rule>	
-		
+		</rule>
+
 		<rule context="/ubl:OrderResponse/cac:OrderLine/cac:SellerSubstitutedLineItem/cac:Item/cac:StandardItemIdentification/cbc:ID">
 			<extends rule="verifica_codice_ipa"/>
-		</rule>	
-		
+		</rule>
+
 		<rule context="/ubl:OrderResponse/cac:SellerSupplierParty/cac:Party/cbc:EndpointID">
 			<extends rule="verifica_codice_ipa"/>
-		</rule>	
-		
+		</rule>
+
 		<rule context="/ubl:OrderResponse/cac:BuyerCustomerParty/cac:Party/cbc:EndpointID">
 			<extends rule="verifica_codice_ipa"/>
-		</rule>	
-		
+		</rule>
+
 		<rule context="/ubl:OrderResponse/cac:OriginatorCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID">
 			<extends rule="verifica_codice_ipa"/>
-		</rule>	
-		
+		</rule>
+
 		<rule context="/ubl:OrderResponse/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID">
 			<extends rule="verifica_codice_ipa"/>
-		</rule>	
-		
+		</rule>
+
 		<rule context="/ubl:OrderResponse/cac:Delivery/cac:DeliveryParty/cac:PartyIdentification/cbc:ID">
 			<extends rule="verifica_codice_ipa"/>
 		</rule>
-		
+
 	</pattern>
-	
-	<!-- Verifica Buyer: schemaID dell'Endopoint deve essere sempre 0201 -->	
+
+	<!-- Verifica Buyer: schemaID dell'Endopoint deve essere sempre 0201 -->
 	<pattern id="verificaBuyer">
-		
+
 		<rule context="/ubl:OrderResponse/cac:BuyerCustomerParty/cac:Party/cbc:EndpointID">
 			<assert id="NSO_111"
                  test="if(@schemeID='0201') then true() else false()"
                  flag="fatal">NSO_111 - Il valore dell’attributo schemeID dell’elemento è errato (il valore corretto è "0201"). - The value of schemeID attribute of the element is incorrect (the correct value is "0201").
 			</assert>
 		</rule>
-		
+
 	</pattern>
 
-    <!--  CF da 16 (verificare solo struttura, no controlli di merito) o CF da 11  (11 numeri senza IT);  -->	
+    <!--  CF da 16 (verificare solo struttura, no controlli di merito) o CF da 11  (11 numeri senza IT);  -->
 	<pattern id="verificaCF">
-		
+
 		<rule context="/ubl:OrderResponse/cac:SellerSupplierParty/cac:Party/cbc:EndpointID">
 			<assert id="NSO_120"
                  test="if(@schemeID='9907') then u:checkCF(.) else true()"
@@ -800,11 +800,11 @@
                  flag="fatal">NSO_120 - Il Codice Fiscale indicato nell’elemento non è valido. - The Tax Code specified in the element is invalid.
 			</assert>
 		</rule>-->
-		
-	</pattern>	
-	
+
+	</pattern>
+
 	<!-- AGID rules -->
 	<!-- ======================== -->
 	<include href="AGID/AGID-PEPPOL-T76.sch"/>
-	
+
 </schema>

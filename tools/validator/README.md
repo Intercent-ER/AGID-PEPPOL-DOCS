@@ -5,10 +5,10 @@ Ultime versioni:
 ## PEPPOL 3.0
 
 > ### FATTURA 3.0
-> **`Javest-PEPPOL-BIS-3.0-NotiER-Test-V1.1.5`**
+> **`Javest-PEPPOL-BIS-3.0.6-NotiER-Test-V1.1.6`**
 
-> ### ORDINE 3.1
-> **`Javest-PEPPOL-BIS-3.0-NSO-4.3-Test`**
+> ### ORDINE 3.1, RISPOSTA D'ORDINE 3.0, DDT 3.1
+> **`Javest-PEPPOL-BIS-3.0.4-NSO-4.5-Test`**
 
 ## PEPPOL 2.1
 

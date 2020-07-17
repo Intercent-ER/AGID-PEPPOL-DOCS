@@ -1,0 +1,56 @@
+[[parti-e-ruoli]]
+= Parti e ruoli
+
+La tabella seguente fornisce le definizioni delle parti e dei ruoli nel processo dell’ordine di fornitura.
+
+[cols="2,5", options="header"]
+|====
+s|Parti di business
+s|Descrizione
+
+|*Cliente (Cessionario)*
+|Il cliente è la persona giuridica o l'organizzazione che richiede un prodotto o servizio.
+
+I ruoli che possono essere ricoperti dal Cliente sono: acquirente, committente, intestatario fattura, consegnatario/destinatario.
+
+
+|*Fornitore (Cedente)*
+|Il fornitore è la persona giuridca o organizzazione che fornisce un prodotto o servizio. 
+
+I ruoli che possono essere ricoperti dal Fornitore sono: venditore, speditore.
+|====
+
+[cols="2,5", options="header"]
+|====
+s|Ruolo/attore
+s|Descrizione
+
+|*Acquirente* +
+
+`cac:BuyerCustomerParty` +
+
+|L’Acquirente è la persona giuridica o l'organizzazione che acquista la merce o i servizi. Questo ruolo viene ricoperto dal Cliente o per suo conto.
+
+|*Venditore* +
+
+`cac:SellerSupplierParty` +
+
+|Il Venditore è la persona giuridica o l'organizzazione che vende la merce o i servizi al cliente. Questo ruolo viene ricoperto dal Fornitore o per suo conto.
+
+|*Committente* +
+
+`cac:OriginatorCustomerParty` +
+
+|Il Committente è la persona giuridica o l'organizzazione che riceve o consuma la merce e per la quale l'Acquirente fa l'acquisto.
+
+|*Intestatario fattura* +
+
+`cac:AccountingCustomerParty` +
+
+|L'Intestatario Fattura è la persona giuridica o l'organizzazione che riceve la fattura per conto del Cliente.
+|====
+
+
+Il diagramma seguente mostra i ruoli nel processo di evasione dell’ordine con risposta.
+
+image::images/ordering-roles.png[Roles in order process,width=100%, pdfwidth=100%, scaledwidth=100%]

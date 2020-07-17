@@ -1,0 +1,20 @@
+
+[cols="1h,1m,4m", options="header"]
+
+|===
+| Versione
+| Data
+| Cosa è cambiato
+
+| 3.1.0.3(IT)
+| 04/06/2020
+| Aggiornamento alle regole tecniche NSO v. 4.5.
+
+| 3.1.0.2(IT)
+| 13/05/2020
+| Aggiornamento alle specifiche PEPPOL BIS 3.0.4.
+
+| 3.1.0.1(IT)
+| 24/02/2020
+| Codifiche ufficiali mappate su requisiti e significati italiani.
+|===

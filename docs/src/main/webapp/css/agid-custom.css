@@ -16,7 +16,20 @@
 .rowid {
     font-size: 80% !important;
 }
-
+.navbar-agid{
+	background-color: #0059b3;
+}
+.navbar-default .navbar-nav>li>a {
+	color: #FFFFFF;
+}
+.btn-agid{
+	background-color: #e0e0e0;
+	color: #333333;
+}
+.btn-agid:hover{
+	background-color: #FFFFFF;
+	color: #333333;
+}
 .warning_indefinizione{
 	color: red;
     font-style: italic;

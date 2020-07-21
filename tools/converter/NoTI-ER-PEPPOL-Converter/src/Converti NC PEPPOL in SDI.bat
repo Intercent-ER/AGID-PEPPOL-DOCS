@@ -14,7 +14,7 @@ echo Validating output\converted.xml
 echo ____________________________________________________________
 echo - Phase 2: XSD schema validation
 
-call _w3cschema profiles\national\it\SDI\fatturapa-1.2\fatturapa_v1.2.xsd output\converted.xml >>output\conversion_report.txt
+call _w3cschema profiles\national\it\SDI\fatturapa-1.2.1\fatturapa_v1.2.1.xsd output\converted.xml >>output\conversion_report.txt
 
 explorer "file://%~d0%~p0output\conversion_report.txt"
 

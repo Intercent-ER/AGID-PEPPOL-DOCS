@@ -1,4 +1,4 @@
-*** Conversione Documenti OpenPEPPOL BIS 05A nel formato Fattura PA 1.1 ***
+*** Conversione Documenti OpenPEPPOL BIS 05A nel formato Fattura PA 1.2.1 ***
 
 Il pacchetto contiene un ambiente di test per la conversione dei documenti e l'ultima versione degli adapter.
 

@@ -4,17 +4,17 @@
 <xsl:stylesheet xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
                 xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
                 xmlns:nx="http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2"
-                xmlns:in="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
                 xmlns:saxon="http://saxon.sf.net/"
                 xmlns:xsmap="http://www.javest.com/ns/mapper/snippet"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:in="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
+                xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2"
                 xmlns:asmap="http://www.javest.com/ns/mapper/snippet/attribute"
+                xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2"
                 xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
                 xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
                 xmlns:ccts="urn:un:unece:uncefact:documentation:2"
-                xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2"
                 xmlns:cr="http://www.ubl-italia.org/ns/CrossReference"
-                xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 exclude-result-prefixes="xsmap asmap in cac cbc ccts ext saxon qdt udt ds cr"
                 version="2.0">
@@ -31,7 +31,7 @@ Processing starts at node: /in:Invoice
 See the template rule at end of stylesheet for the default processing of 
 the root node.
 -->
-<xsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = concat('urn:fdc:agid.gov.it:fatturapa:TipoRitenuta::', 1 + count(current()/preceding-sibling::cac:WithholdingTaxTotal))]">
+<xsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = concat('urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta::', 1 + count(current()/preceding-sibling::cac:WithholdingTaxTotal))]">
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
       <xsl:if test=".">
@@ -40,10 +40,10 @@ the root node.
          </TipoRitenuta>
       </xsl:if>
    </xsl:template>
-   <xsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:TipoRitenuta']/ext:ExtensionContent/cr:XCode">
+   <xsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta']/ext:ExtensionContent/cr:XCode">
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
-      <xsl:if test=". and not(/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI,'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta::')])">
+      <xsl:if test=". and not(/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI,'urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta::')])">
          <TipoRitenuta>
             <xsl:value-of select="normalize-space(.)"/>
          </TipoRitenuta>
@@ -67,7 +67,7 @@ the root node.
                  mode="RitenutaPersoneFisiche">
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
-      <xsl:if test="cac:Person and not(/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI,'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta')])">
+      <xsl:if test="cac:Person and not(/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI,'urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta')])">
          <TipoRitenuta>
             <xsl:text>RT01</xsl:text>
          </TipoRitenuta>
@@ -77,7 +77,7 @@ the root node.
                  mode="RitenutaPersoneGiuridiche">
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
-      <xsl:if test="cac:PartyName/cbc:Name and not(cac:Person) and not(/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI,'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta')])">
+      <xsl:if test="cac:PartyName/cbc:Name and not(cac:Person) and not(/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI,'urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta')])">
          <TipoRitenuta>
             <xsl:text>RT02</xsl:text>
          </TipoRitenuta>
@@ -1905,11 +1905,11 @@ the root node.
                <xsl:with-param name="CN" select="current()"/>
                <xsl:with-param name="CNP" select="position()"/>
             </xsl:apply-templates>
-            <xsl:apply-templates select="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:TipoRitenuta']/ext:ExtensionContent/cr:XCode">
+            <xsl:apply-templates select="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta']/ext:ExtensionContent/cr:XCode">
                <xsl:with-param name="CN" select="current()"/>
                <xsl:with-param name="CNP" select="position()"/>
             </xsl:apply-templates>
-            <xsl:apply-templates select="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = concat('urn:fdc:agid.gov.it:fatturapa:TipoRitenuta::', 1 + count(current()/preceding-sibling::cac:WithholdingTaxTotal))]">
+            <xsl:apply-templates select="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = concat('urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta::', 1 + count(current()/preceding-sibling::cac:WithholdingTaxTotal))]">
                <xsl:with-param name="CN" select="current()"/>
                <xsl:with-param name="CNP" select="position()"/>
             </xsl:apply-templates>
@@ -1945,20 +1945,20 @@ the root node.
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
       <nx:FatturaElettronica>
-         <xsl:variable name="variable_d16e1a1050901">
+         <xsl:variable name="variable_d10e1a1050901">
             <xsl:value-of select="normalize-space(ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:SistemaEmittente']/ext:ExtensionContent/cbc:Description)"/>
          </xsl:variable>
-         <xsl:if test="string($variable_d16e1a1050901)">
+         <xsl:if test="string($variable_d10e1a1050901)">
             <xsl:attribute name="SistemaEmittente">
-               <xsl:value-of select="string($variable_d16e1a1050901)"/>
+               <xsl:value-of select="string($variable_d10e1a1050901)"/>
             </xsl:attribute>
          </xsl:if>
-         <xsl:variable name="variable_d16e1a1050311">
+         <xsl:variable name="variable_d10e1a1050311">
             <xsl:value-of select="if (starts-with(upper-case(cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID[1][@schemeID='IT:IPA']), 'CODDEST:')) then 'FPR12' else 'FPA12'"/>
          </xsl:variable>
-         <xsl:if test="string($variable_d16e1a1050311)">
+         <xsl:if test="string($variable_d10e1a1050311)">
             <xsl:attribute name="versione">
-               <xsl:value-of select="string($variable_d16e1a1050311)"/>
+               <xsl:value-of select="string($variable_d10e1a1050311)"/>
             </xsl:attribute>
          </xsl:if>
          <FatturaElettronicaHeader>
@@ -2040,7 +2040,7 @@ the root node.
                <DatiGeneraliDocumento>
                   <xsl:if test="cbc:InvoiceTypeCode">
                      <TipoDocumento>
-                        <xsl:value-of select="if (ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:TipoDocumento']) then ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:TipoDocumento']/ext:ExtensionContent/cr:XCode else if (cbc:InvoiceTypeCode) then document($xclTipoDocumento)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xcode']/SimpleValue=current()/cbc:InvoiceTypeCode][1] else 'TD01'"/>
+                        <xsl:value-of select="if (ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_documento']) then ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_documento']/ext:ExtensionContent/cr:XCode else if (cbc:InvoiceTypeCode) then document($xclTipoDocumento)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xcode']/SimpleValue=current()/cbc:InvoiceTypeCode][1] else 'TD01'"/>
                      </TipoDocumento>
                   </xsl:if>
                   <Divisa>

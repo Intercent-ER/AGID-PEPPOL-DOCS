@@ -49,7 +49,7 @@
                 <SimpleValue>Acconto / anticipo su fattura</SimpleValue>
             </Value>
             <Value ColumnRef="xcode">
-                <SimpleValue>386</SimpleValue>
+                <SimpleValue>380</SimpleValue>
             </Value>
         </Row>
         <Row>
@@ -60,7 +60,7 @@
                 <SimpleValue>Acconto / anticipo su parcella</SimpleValue>
             </Value>
             <Value ColumnRef="xcode">
-                <SimpleValue>386</SimpleValue>
+                <SimpleValue>380</SimpleValue>
             </Value>
         </Row>
         <Row>
@@ -82,7 +82,7 @@
                 <SimpleValue>Nota di debito</SimpleValue>
             </Value>
             <Value ColumnRef="xcode">
-                <SimpleValue>383</SimpleValue>
+                <SimpleValue>380</SimpleValue>
             </Value>
         </Row>
         <Row>
@@ -192,7 +192,7 @@
                 <SimpleValue>Fattura differita di cui all'art. 21, comma 4, lett. a)</SimpleValue>
             </Value>
             <Value ColumnRef="xcode">
-                <SimpleValue>385</SimpleValue>
+                <SimpleValue>380</SimpleValue>
             </Value>
         </Row>
         <Row>
@@ -203,7 +203,7 @@
                 <SimpleValue>Fattura differita di cui all'art. 21, comma 4, terzo periodo lett. b)</SimpleValue>
             </Value>
             <Value ColumnRef="xcode">
-                <SimpleValue>385</SimpleValue>
+                <SimpleValue>380</SimpleValue>
             </Value>
         </Row>
         <Row>
@@ -225,7 +225,7 @@
                 <SimpleValue>Fattura per autoconsumo o per cessioni gratuite senza rivalsa</SimpleValue>
             </Value>
             <Value ColumnRef="xcode">
-                <SimpleValue>389</SimpleValue>
+                <SimpleValue>380</SimpleValue>
             </Value>
         </Row>
     </SimpleCodeList>

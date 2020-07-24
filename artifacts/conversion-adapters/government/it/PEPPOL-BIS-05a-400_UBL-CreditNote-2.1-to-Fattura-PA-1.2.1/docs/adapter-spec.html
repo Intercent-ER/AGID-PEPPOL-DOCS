@@ -1428,7 +1428,8 @@
                <td>
                   <div class="wrapCol200">&nbsp;</div>
                </td>
-               <td>if (ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:TipoDocumento']) then ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:TipoDocumento']/ext:ExtensionContent/cr:XCode
+               <td>if (ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_documento']) then
+                  ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_documento']/ext:ExtensionContent/cr:XCode
                   else if (cbc:CreditNoteTypeCode) then document($xclTipoDocumento)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xcode']/SimpleValue=current()/cbc:CreditNoteTypeCode][1]
                   else 'TD04'&nbsp;
                </td>
@@ -1501,7 +1502,7 @@
                </td>
                <td>&nbsp;</td>
                <td>
-                  <div class="wrapCol200">cac:Person and not(/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI,'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta')])&nbsp;</div>
+                  <div class="wrapCol200">cac:Person and not(/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI,'urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta')])&nbsp;</div>
                </td>
                <td>
                   <div class="wrapCol200">RT01&nbsp;</div>
@@ -1515,7 +1516,7 @@
                </td>
                <td>&nbsp;</td>
                <td>
-                  <div class="wrapCol200">cac:PartyName/cbc:Name and not(cac:Person) and not(/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI,'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta')])&nbsp;</div>
+                  <div class="wrapCol200">cac:PartyName/cbc:Name and not(cac:Person) and not(/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI,'urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta')])&nbsp;</div>
                </td>
                <td>
                   <div class="wrapCol200">RT02&nbsp;</div>
@@ -1525,11 +1526,11 @@
             <tr class="leaf" data-level="6">
                <td class="leafFont" style="border-left: 32px solid gray"><pre>  - TipoRitenuta</pre></td>
                <td>
-                  <div class="wrapCol200">/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:TipoRitenuta']/ext:ExtensionContent/cr:XCode&nbsp;</div>
+                  <div class="wrapCol200">/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta']/ext:ExtensionContent/cr:XCode&nbsp;</div>
                </td>
                <td>.&nbsp;</td>
                <td>
-                  <div class="wrapCol200">. and not(/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI,'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta::')])&nbsp;</div>
+                  <div class="wrapCol200">. and not(/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI,'urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta::')])&nbsp;</div>
                </td>
                <td>
                   <div class="wrapCol200">&nbsp;</div>
@@ -1539,7 +1540,9 @@
             <tr class="leaf" data-level="6">
                <td class="leafFont" style="border-left: 32px solid gray"><pre>  - TipoRitenuta</pre></td>
                <td>
-                  <div class="wrapCol200">/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = concat('urn:fdc:agid.gov.it:fatturapa:TipoRitenuta::', 1 + count(current()/preceding-sibling::cac:WithholdingTaxTotal))]&nbsp;</div>
+                  <div class="wrapCol200">/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = concat('urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta::',
+                     1 + count(current()/preceding-sibling::cac:WithholdingTaxTotal))]&nbsp;
+                  </div>
                </td>
                <td>ext:ExtensionContent/cr:XCode&nbsp;</td>
                <td>

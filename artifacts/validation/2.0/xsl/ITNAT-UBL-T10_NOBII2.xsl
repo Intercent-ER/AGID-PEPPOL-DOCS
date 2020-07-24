@@ -13,7 +13,7 @@
                 xmlns:ubl="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
                 version="2.0"><!--Implementers: please note that overriding process-prolog or process-root is 
     the preferred method for meta-stylesheets to use where possible. -->
-	<!--ITNAT-UBL-T10 V1.7.4 (estende ed include BIS2.0-VA-V3.5.0-->
+	<!--ITNAT-UBL-T10 V1.7.5 (estende ed include BIS2.0-VA-V3.5.0, supporta FatturaPA 1.2.1-->
 	<!--Supporta i Tax Category del BIS 3.0 per facilitare la migrazione-->
    <xsl:param name="archiveDirParameter"/>
    <xsl:param name="archiveNameParameter"/>
@@ -41,10 +41,9 @@
    <xsl:variable name="vTaxCategoryIDList" select="' AA AE L M E S Z G O K '"/><!-- AE E S Z H AA O -->
    <xsl:variable name="vPaymentMeansCodeList" select="' 1 9 10 15 20 21 22 23 25 30 46 48 49 50 60 70 91 92 '"/>
    <xsl:variable name="vCompanyLiquidationStatusCodeList" select="' LS LN '"/>
-   <xsl:variable name="vInvoiceTypeCodeList" select="' 380 384 386 '"/>
+   <xsl:variable name="vInvoiceTypeCodeList" select="' 380 393 384 '"/>
    <xsl:variable name="vCausalePagamentoCodeList" select="' A B C D E G H I L M N O P Q R S T U V W X Y Z L1 M1 O1 V1 '"/>
    <xsl:variable name="vEsigibilitaIVACodeList" select="' I D S '"/>
-   <xsl:variable name="vEsenzioniCIGCodeList" select="' ES01 ES02 ES03 ES04 ES05 ES06 ES07 ES08 ES09 ES10 ES11 ES12 ES13 ES14 ES15 ES16 ES17 ES18 ES19 ES20 ES21 ES22 ES23 ES24 ES25 ES26 ES27 '"/>
 
    <!--PHASES-->
 
@@ -2624,7 +2623,7 @@
 <!--PATTERN ITNAT-INT-T10-->
    
    	  <!--RULE -->
-   <xsl:template match="//cbc:EndpointID" priority="1020" mode="M10">
+   <xsl:template match="//cbc:EndpointID" priority="1021" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cbc:EndpointID"/>
 
 		    <!--ASSERT -->
@@ -2676,7 +2675,7 @@
 
 	<!--RULE -->
 
-   <xsl:template match="//cac:WithholdingTaxTotal/cac:TaxSubtotal[1]" priority="1019" mode="M10">
+   <xsl:template match="//cac:WithholdingTaxTotal/cac:TaxSubtotal[1]" priority="1020" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:WithholdingTaxTotal/cac:TaxSubtotal[1]"/>
 
 		<!--ASSERT -->
@@ -2698,7 +2697,7 @@
    
 	<!--RULE -->
 
-   <xsl:template match="//ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:contributo_cassa']/ext:ExtensionContent/cac:TaxTotal/cac:TaxSubtotal[cac:TaxCategory/cac:TaxScheme/cbc:ID = 'SSS']" priority="1018" mode="M10">
+   <xsl:template match="//ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:contributo_cassa']/ext:ExtensionContent/cac:TaxTotal/cac:TaxSubtotal[cac:TaxCategory/cac:TaxScheme/cbc:ID = 'SSS']" priority="1019" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:contributo_cassa']/ext:ExtensionContent/cac:TaxTotal/cac:TaxSubtotal[cac:TaxCategory/cac:TaxScheme/cbc:ID = 'SSS']"/>
 
 		<!--ASSERT -->
@@ -2720,7 +2719,7 @@
 
 	<!--RULE -->
 
-   <xsl:template match="//ext:UBLExtensions" priority="1017" mode="M10">
+   <xsl:template match="//ext:UBLExtensions" priority="1018" mode="M10">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//ext:UBLExtensions"/>
 
 		<!--ASSERT -->
@@ -2741,11 +2740,11 @@
 		<!--ASSERT -->
 
       <xsl:choose>
-         <xsl:when test="count(ext:UBLExtension[starts-with(ext:ExtensionURI ,'urn:www.ubl-italia.org:spec:fatturapa:')]) = count(ext:UBLExtension[starts-with(ext:ExtensionURI ,'urn:www.ubl-italia.org:spec:fatturapa:') and not(ext:ExtensionURI = preceding-sibling::ext:UBLExtension/ext:ExtensionURI)])">
+         <xsl:when test="count(distinct-values(ext:UBLExtension/ext:ExtensionURI)) = count(ext:UBLExtension)">
             <xsl:apply-templates select="." mode="schematron-get-full-path"/>
          </xsl:when>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="count(ext:UBLExtension[starts-with(ext:ExtensionURI ,'urn:www.ubl-italia.org:spec:fatturapa:')]) = count(ext:UBLExtension[starts-with(ext:ExtensionURI ,'urn:www.ubl-italia.org:spec:fatturapa:') and not(ext:ExtensionURI = preceding-sibling::ext:UBLExtension/ext:ExtensionURI)])">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="count(distinct-values(ext:UBLExtension/ext:ExtensionURI)) = count(ext:UBLExtension)">
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-get-full-path"/>
@@ -2758,9 +2757,9 @@
 		<!--ASSERT -->
 
       <xsl:choose>
-         <xsl:when test="ext:UBLExtension[not(starts-with(ext:ExtensionURI,'urn:www.ubl-italia.org:spec:fatturapa:')) or starts-with(ext:ExtensionURI,'urn:www.ubl-italia.org:spec:fatturapa:xref:') or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:bollo') and ext:ExtensionContent/cbc:TaxAmount) or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:contributo_cassa') and ext:ExtensionContent/cac:TaxTotal) or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:contributo_cassa:ritenuta') and ext:ExtensionContent/cbc:TaxEvidenceIndicator) or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:contributo_cassa:aliquota_iva') and ext:ExtensionContent/cbc:Percent) or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:esigibilita_iva') and ext:ExtensionContent/cbc:TaxTypeCode) or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:parcella') and ext:ExtensionContent/cbc:Description) or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:modalita_pagamento') and ext:ExtensionContent/cbc:TypeCode) or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:ritenuta') and ext:ExtensionContent/cac:WithholdingTaxTotal)]"/>
+         <xsl:when test="ext:UBLExtension[not(starts-with(ext:ExtensionURI,'urn:www.ubl-italia.org:spec:fatturapa:')) or starts-with(ext:ExtensionURI,'urn:www.ubl-italia.org:spec:fatturapa:xref:') or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:bollo') and ext:ExtensionContent/cbc:TaxAmount) or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:contributo_cassa') and ext:ExtensionContent/cac:TaxTotal) or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:contributo_cassa:ritenuta') and ext:ExtensionContent/cbc:TaxEvidenceIndicator) or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:contributo_cassa:aliquota_iva') and ext:ExtensionContent/cbc:Percent) or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:esigibilita_iva') and ext:ExtensionContent/cbc:TaxTypeCode) or (starts-with(ext:ExtensionURI, 'urn:fdc:agid.gov.it:fatturapa:SistemaEmittente') and ext:ExtensionContent/cbc:Description) or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:modalita_pagamento') and ext:ExtensionContent/cbc:TypeCode) or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:ritenuta') and ext:ExtensionContent/cac:WithholdingTaxTotal)]"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="ext:UBLExtension[not(starts-with(ext:ExtensionURI,'urn:www.ubl-italia.org:spec:fatturapa:')) or starts-with(ext:ExtensionURI,'urn:www.ubl-italia.org:spec:fatturapa:xref:') or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:bollo') and ext:ExtensionContent/cbc:TaxAmount) or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:contributo_cassa') and ext:ExtensionContent/cac:TaxTotal) or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:contributo_cassa:ritenuta') and ext:ExtensionContent/cbc:TaxEvidenceIndicator) or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:contributo_cassa:aliquota_iva') and ext:ExtensionContent/cbc:Percent) or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:esigibilita_iva') and ext:ExtensionContent/cbc:TaxTypeCode) or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:parcella') and ext:ExtensionContent/cbc:Description) or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:modalita_pagamento') and ext:ExtensionContent/cbc:TypeCode) or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:ritenuta') and ext:ExtensionContent/cac:WithholdingTaxTotal)]">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="ext:UBLExtension[not(starts-with(ext:ExtensionURI,'urn:www.ubl-italia.org:spec:fatturapa:')) or starts-with(ext:ExtensionURI,'urn:www.ubl-italia.org:spec:fatturapa:xref:') or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:bollo') and ext:ExtensionContent/cbc:TaxAmount) or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:contributo_cassa') and ext:ExtensionContent/cac:TaxTotal) or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:contributo_cassa:ritenuta') and ext:ExtensionContent/cbc:TaxEvidenceIndicator) or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:contributo_cassa:aliquota_iva') and ext:ExtensionContent/cbc:Percent) or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:esigibilita_iva') and ext:ExtensionContent/cbc:TaxTypeCode) or (starts-with(ext:ExtensionURI, 'urn:fdc:agid.gov.it:fatturapa:SistemaEmittente') and ext:ExtensionContent/cbc:Description) or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:modalita_pagamento') and ext:ExtensionContent/cbc:TypeCode) or (starts-with(ext:ExtensionURI, 'urn:www.ubl-italia.org:spec:fatturapa:ritenuta') and ext:ExtensionContent/cac:WithholdingTaxTotal)]">
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-get-full-path"/>
@@ -2768,7 +2767,67 @@
                <svrl:text>[INT-T10-R023] - In ogni estensione speciale l'URI DEVE corrispondere ad un contenuto predefinito come da specifica. Verificare il nome dell'elemento fornito come contenuto dell'estensione UBL.</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
-      </xsl:choose>	  
+      </xsl:choose>
+	  
+		<!--ASSERT -->
+
+      <xsl:choose>
+         <xsl:when test="contains(' TD01 TD02 TD03 TD05 TD06 TD16 TD17 TD18 TD19 TD20 TD21 TD22 TD23 TD24 TD25 TD26 TD27 ', concat(' ',normalize-space(ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_documento']/ext:ExtensionContent/cr:XCode),' '))">
+            <xsl:apply-templates select="." mode="schematron-get-full-path"/>
+         </xsl:when>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="contains(' TD01 TD02 TD03 TD05 TD06 TD16 TD17 TD18 TD19 TD20 TD21 TD22 TD23 TD24 TD25 TD26 TD27 ', concat(' ',normalize-space(ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_documento']/ext:ExtensionContent/cr:XCode),' '))">
+               <xsl:attribute name="flag">fatal</xsl:attribute>
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-get-full-path"/>
+               </xsl:attribute>
+               <svrl:text>[INT-T10-R029] - Insieme al Tipo Fattura (cbc:InvoiceTypeCode) è obbligatorio fornire una UBLExtension per indicare il Tipo Documento corrispondente secondo la specifica FatturaPA 1.2.x con ExtensionURI pari a 
+'urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_documento' (vedi specifica delle codifiche).</svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+
+		<!--ASSERT -->
+
+      <xsl:choose>
+         <xsl:when test="count(/*/cac:WithholdingTaxTotal) &lt; 2 or count(/*/cac:WithholdingTaxTotal) = count(ext:UBLExtension[starts-with(ext:ExtensionURI,'urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta')])">
+            <xsl:apply-templates select="." mode="schematron-get-full-path"/>
+         </xsl:when>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="count(/*/cac:WithholdingTaxTotal) &lt; 2 or count(/*/cac:WithholdingTaxTotal) = count(ext:UBLExtension[starts-with(ext:ExtensionURI,'urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta')])">
+               <xsl:attribute name="flag">fatal</xsl:attribute>
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-get-full-path"/>
+               </xsl:attribute>
+               <svrl:text>[INT-T10-R031] - Se viene specificata più di una ritenuta con l’elemento cac:WithholdingTaxTotal, dovrà anche essere fornita per ognuna una ext:UBLExtension contenente il tipo di ritenuta secondo la specifica FatturaPA 1.2.x con ExtensionURI pari a 
+'urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta' (vedi specifica delle codifiche).</svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
+      <xsl:apply-templates select="@*|*" mode="M10"/>
+   </xsl:template>
+
+   
+	<!--RULE -->
+
+   <xsl:template match="/*/ext:UBLExtension[starts-with(ext:ExtensionURI,'urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta')]" priority="1017" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/ext:UBLExtension[starts-with(ext:ExtensionURI,'urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta')]"/>
+		<!--ASSERT -->
+
+      <xsl:choose>
+         <xsl:when test="contains(' RT01 RT02 RT03 RT04 RT05 RT06 ', concat(' ',normalize-space(ext:ExtensionURI/ext:ExtensionContent/cr:XCode),' '))">
+            <xsl:apply-templates select="." mode="schematron-get-full-path"/>
+         </xsl:when>
+         <xsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="contains(' RT01 RT02 RT03 RT04 RT05 RT06 ', concat(' ',normalize-space(ext:ExtensionURI/ext:ExtensionContent/cr:XCode),' '))">
+               <xsl:attribute name="flag">fatal</xsl:attribute>
+               <xsl:attribute name="location">
+                  <xsl:apply-templates select="." mode="schematron-get-full-path"/>
+               </xsl:attribute>
+               <svrl:text>[INT-T10-R030] - Se viene indicato il Tipo di Ritenuta mediante UBLExtension questa dovrà contenere un valore fra quelli previsti dalla specifica FatturaPA 1.2.x (vedi specifica delle codifiche).</svrl:text>
+            </svrl:failed-assert>
+         </xsl:otherwise>
+      </xsl:choose>
       <xsl:apply-templates select="@*|*" mode="M10"/>
    </xsl:template>
    

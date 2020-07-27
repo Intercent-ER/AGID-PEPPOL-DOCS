@@ -11,6 +11,6 @@
 
 :leveloffset: +1
 
-include::index.adoc[]
+include::_index.adoc[]
 
 :leveloffset: -1

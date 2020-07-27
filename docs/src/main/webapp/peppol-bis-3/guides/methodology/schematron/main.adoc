@@ -16,6 +16,6 @@ NOTE: This document is work in progress and will be further developed. If you ha
 
 :leveloffset: +1
 
-include::index.adoc[]
+include::_index.adoc[]
 
 :leveloffset: -1

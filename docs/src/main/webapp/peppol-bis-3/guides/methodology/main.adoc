@@ -1,4 +1,4 @@
-include::links.adoc[]
+include::_links.adoc[]
 
 = image:../shared/images/peppol.png[float="right"]PEPPOL Documentation Methodology
 OpenPEPPOL AISBL, Post-Award Coordinating Community
@@ -16,12 +16,12 @@ v0.1.0
 
 :leveloffset: +1
 
-include::introduction.adoc[]
+include::_introduction.adoc[]
 
-include::asciidoc/index.adoc[]
+include::asciidoc/_index.adoc[]
 
-include::structure/index.adoc[]
+include::structure/_index.adoc[]
 
-include::schematron/index.adoc[]
+include::schematron/_index.adoc[]
 
 :leveloffset: -1

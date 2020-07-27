@@ -1,8 +1,0 @@
-
-
-= Identificatore per la classificazione degli articoli
-
-Un identificatore per la classificazione degli articoli ha l'attributo dello schema *obbligatorio*. Il valore deve essere scelto da {UNCL7143}.
-
-
-include::../../syntax/codelists/item-classification.adoc[]

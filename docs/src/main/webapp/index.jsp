@@ -23,7 +23,7 @@
         <script>
             //<![CDATA[
             $(function () {
-                const VER = "52";    // Math.random()*1000000
+                const VER = "54";    // Math.random()*1000000
                 var $body = $("body"), $main = $("#main"), $guide = $("#guide").hide(), $adoc = $("#adoc-viewer"), $loader = $("#loader");
                 var defBis = "peppol-bis-3";
 
@@ -321,6 +321,7 @@
                 <dt>Documentazione</dt>
                 <dd>
                     <div class="list-group" id="bis-list">
+                    
                     </div>
                 </dd>
 

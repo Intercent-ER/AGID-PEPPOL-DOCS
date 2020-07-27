@@ -1,6 +1,6 @@
-include::../../shared/links.adoc[]
+include::../../shared/_links.adoc[]
 
-= image:../../shared/images/peppol.png[float="right"]PEPPOL BIS Catalogue Only 3.0
+= image:../shared/images/peppol.png[float="right"]PEPPOL BIS Catalogue Only 3.0
 {author}
 v{version}
 :doctype: book
@@ -18,7 +18,7 @@ v{version}
 
 {description}
 
-include::../../shared/copyright.adoc[]
+include::../../shared/_copyright.adoc[]
 
 = Link to main site of documentation
 
@@ -27,18 +27,18 @@ include::../../shared/copyright.adoc[]
 
 :leveloffset: +1
 
-include::introduction/index.adoc[]
+include::introduction/_index.adoc[]
 
-include::principles/index.adoc[]
+include::principles/_index.adoc[]
 
-include::process/index.adoc[]
+include::process/_index.adoc[]
 
-include::../../shared/datatypes/index.adoc[]
+include::../../shared/datatypes/_index.adoc[]
 
-include::../../shared/codes/index.adoc[]
+include::../../shared/codes/_index.adoc[]
 
-include::{catalogue-path}/description/index.adoc[]
+include::{catalogue-path}/description/_index.adoc[]
 
-include::profile/index.adoc[]
+include::profile/_index.adoc[]
 
 :leveloffset: -1

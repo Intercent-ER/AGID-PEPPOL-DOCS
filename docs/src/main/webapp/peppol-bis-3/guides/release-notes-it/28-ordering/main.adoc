@@ -1,4 +1,4 @@
-include::../../shared/links.adoc[]
+include::../../shared/_links.adoc[]
 = PEPPOL BIS Ordinazione Completa {ord_version_it}
 Note di Rilascio
 :doctype: book
@@ -11,7 +11,7 @@ Note di Rilascio
 
 
 
-include::list.adoc[]
+include::_list.adoc[]
 
 
 ====

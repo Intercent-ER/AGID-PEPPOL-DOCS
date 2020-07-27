@@ -11,23 +11,23 @@
 
 :leveloffset: +1
 
-include::order.adoc[]
+include::_order.adoc[]
 
-include::order-response.adoc[]
+include::_order-response.adoc[]
 
-include::catalogue.adoc[]
+include::_catalogue.adoc[]
 
-include::order-agreement.adoc[]
+include::_order-agreement.adoc[]
 
-include::despatch-advice.adoc[]
+include::_despatch-advice.adoc[]
 
-include::punchout.adoc[]
+include::_punchout.adoc[]
 
-include::mlr.adoc[]
+include::_mlr.adoc[]
 
-include::imr.adoc[]
+include::_imr.adoc[]
 
-include::billing.adoc[]
+include::_billing.adoc[]
 
 
 :leveloffset: -1

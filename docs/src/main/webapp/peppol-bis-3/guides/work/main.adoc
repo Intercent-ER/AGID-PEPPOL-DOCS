@@ -11,16 +11,16 @@
 
 :leveloffset: +1
 
-include::checklist.adoc[]
+include::_checklist.adoc[]
 
-include::structure.adoc[]
+include::_structure.adoc[]
 
-include::vat-alignment.adoc[]
+include::_vat-alignment.adoc[]
 
-include::allowance.adoc[]
+include::_allowance.adoc[]
 
-include::codelists.adoc[]
+include::_codelists.adoc[]
 
-include::references.adoc[]
+include::_references.adoc[]
 
 :leveloffset: -1

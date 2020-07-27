@@ -1,4 +1,4 @@
-include::../shared/settings.adoc[]
+include::../shared/_settings.adoc[]
 = PEPPOL BIS Fatturazione {version}
 Note di Rilascio
 :doctype: book
@@ -10,4 +10,4 @@ Note di Rilascio
 
 
 
-include::list.adoc[]
+include::_list.adoc[]

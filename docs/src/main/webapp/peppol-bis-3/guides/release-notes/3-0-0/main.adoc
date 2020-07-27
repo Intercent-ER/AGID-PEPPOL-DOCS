@@ -8,20 +8,20 @@
 :sectanchors:
 
 
-This release is a new non-backwards compatible major upgrade of all OpenPEPPOL BIS specifications, other than the BIS Billing 3.0.
+This release is a new non-backwards compatible major upgrade of all OpenPEPPOL BIS specifications, other than the BIS B_illing 3.0.
 
-The OpenPEPPOL BIS 3.0 upgrade project was started in January 2018. Project was mandated to upgrade the PEPPOL BIS specifications so that they are aligned with the PEPPOL BIS Billing 3.0 specification that is based on the CEN/EN 16931 eInvoicing standard.
+The OpenPEPPOL BIS 3.0 upgrade project was started in January 2018. Project was mandated to upgrade the PEPPOL BIS specifications so that they are aligned with the PEPPOL BIS B_illing 3.0 specification that is based on the CEN/EN 16931 eInvoicing standard.
 
 :leveloffset: +1
 
-include::introduction.adoc[]
+include::_introduction.adoc[]
 
-include::explaindocument.adoc[]
+include::_explaindocument.adoc[]
 
-include::alignoverview.adoc[]
+include::_alignoverview.adoc[]
 
-include::rfc.adoc[]
+include::_rfc.adoc[]
 
-include::credits.adoc[]
+include::_credits.adoc[]
 
 :leveloffset: -1

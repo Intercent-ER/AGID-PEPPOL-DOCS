@@ -1,0 +1,15 @@
+
+
+= Calcoli
+
+:leveloffset: +1
+
+include::_totals.adoc[]
+
+include::_line-calc.adoc[]
+
+include::_allowance-calc.adoc[]
+
+include::_vat.adoc[]
+
+:leveloffset: -1

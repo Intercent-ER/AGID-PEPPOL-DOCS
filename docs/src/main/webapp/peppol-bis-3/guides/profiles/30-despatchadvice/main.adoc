@@ -1,4 +1,4 @@
-include::../../shared/links.adoc[]
+include::../../shared/_links.adoc[]
 :doctype: book
 :icons: font
 :stem:
@@ -11,7 +11,7 @@ include::../../shared/links.adoc[]
 :sectnums:
 :snippet-dir: ../../../../rules/snippets/despatch
 
-image:../../shared/images/peppol.png[float="right"]
+image:../../../shared/images/peppol.png[float="right"]
 
 = [black]#BIS Documento di Trasporto 3.1#
 
@@ -21,7 +21,7 @@ v{ddt_version_it}
 {description}
 
 image::../../../../images/PEPPOL_Authority.jpg[width=100%, pdfwidth=100%, scaledwidth=100%]
-include::../../shared/copyright.adoc[]
+include::../../shared/_copyright.adoc[]
 
 //= Collegamento al sito principale della documentazione
 
@@ -30,28 +30,28 @@ include::../../shared/copyright.adoc[]
 
 :leveloffset: +1
 
-include::introduction/index.adoc[]
+include::introduction/_index.adoc[]
 
-include::principles/index.adoc[]
+include::principles/_index.adoc[]
 
-include::process/index.adoc[]
+include::process/_index.adoc[]
 
-//include::requirements/index.adoc[]
+//include::requirements/_index.adoc[]
 
-include::../../shared/datatypes/index.adoc[]
+include::../../shared/datatypes/_index.adoc[]
 
 :leveloffset: +1
 
-include::custom/campistrutturati.adoc[]
+include::custom/_campistrutturati.adoc[]
 
 :leveloffset: -1
 
-include::../../shared/codes/index.adoc[]
+include::../../shared/codes/_index.adoc[]
 
-//include::custom/tipologiaordine.adoc[]
+//include::custom/_tipologiaordine.adoc[]
 
-include::description/index.adoc[]
+include::description/_index.adoc[]
 
-include::profile/index.adoc[]
+include::profile/_index.adoc[]
 
 :leveloffset: -1

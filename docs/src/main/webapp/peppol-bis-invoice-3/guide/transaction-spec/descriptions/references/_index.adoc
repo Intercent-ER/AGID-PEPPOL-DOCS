@@ -1,0 +1,18 @@
+
+= Riferimenti
+
+Il supporto per la verifica della fattura (riconciliazione) è una funzione chiave della fattura. La fattura deve fornire informazioni sufficienti per correlare, in modo pertinente, la documentazione esistente, elettronica o cartacea.
+
+IMPORTANT: Qualsiasi elemento di riferimento dovrebbe contenere informazioni valide, se non si dispone di un riferimento, l'elemento non deve essere presente nel documento creato.
+
+Le transazioni su fatture e note di credito supportano i seguenti riferimenti alla documentazione esistente:
+
+:leveloffset: +1
+
+include::_order.adoc[]
+include::_buyer.adoc[]
+include::_invoiced-object.adoc[]
+include::_attachments.adoc[]
+include::../../../syntax/references/_index.adoc[]
+
+:leveloffset: -1

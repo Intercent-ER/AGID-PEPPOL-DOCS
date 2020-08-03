@@ -31,13 +31,31 @@ Processing starts at node: /in:Invoice
 See the template rule at end of stylesheet for the default processing of 
 the root node.
 -->
-<xsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = concat('urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta::', 1 + count(current()/preceding-sibling::cac:WithholdingTaxTotal))]">
+<xsl:template match="/*/ext:UBLExtensions/ext:UBLExtension" mode="OgniRitenuta">
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
-      <xsl:if test=".">
+      <xsl:if test=".[ext:ExtensionURI = concat('urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta::',  $CNP)]">
          <TipoRitenuta>
             <xsl:value-of select="normalize-space(ext:ExtensionContent/cr:XCode)"/>
          </TipoRitenuta>
+      </xsl:if>
+   </xsl:template>
+   <xsl:template match="/*/ext:UBLExtensions/ext:UBLExtension" mode="RiepilogoSpeseAccessorie">
+      <xsl:param name="CN" select="."/>
+      <xsl:param name="CNP" select="1"/>
+      <xsl:if test=".[ext:ExtensionURI = concat('urn:www.ubl-italia.org:spec:fatturapa:spese_accessorie_riepilogo::',  $CNP)]">
+         <SpeseAccessorie>
+            <xsl:value-of select="ext:ExtensionContent/cbc:Amount"/>
+         </SpeseAccessorie>
+      </xsl:if>
+   </xsl:template>
+   <xsl:template match="/*/ext:UBLExtensions/ext:UBLExtension" mode="RiepilogoArrotondamento">
+      <xsl:param name="CN" select="."/>
+      <xsl:param name="CNP" select="1"/>
+      <xsl:if test=".[ext:ExtensionURI = concat('urn:www.ubl-italia.org:spec:fatturapa:arrotondamento_riepilogo::',  $CNP)]">
+         <Arrotondamento>
+            <xsl:value-of select="ext:ExtensionContent/cbc:Amount"/>
+         </Arrotondamento>
       </xsl:if>
    </xsl:template>
    <xsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta']/ext:ExtensionContent/cr:XCode">
@@ -48,20 +66,6 @@ the root node.
             <xsl:value-of select="normalize-space(.)"/>
          </TipoRitenuta>
       </xsl:if>
-   </xsl:template>
-   <xsl:template match="//ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI=concat('urn:www.ubl-italia.org:spec:fatturapa:arrotondamento_riepilogo::',  1 + count(current()/preceding-sibling::cac:TaxSubtotal))]/ext:ExtensionContent/cbc:Amount">
-      <xsl:param name="CN" select="."/>
-      <xsl:param name="CNP" select="1"/>
-      <Arrotondamento>
-         <xsl:value-of select="."/>
-      </Arrotondamento>
-   </xsl:template>
-   <xsl:template match="//ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI=concat('urn:www.ubl-italia.org:spec:fatturapa:spese_accessorie_riepilogo::', 1 + count(current()/preceding-sibling::cac:TaxSubtotal))]/ext:ExtensionContent/cbc:Amount">
-      <xsl:param name="CN" select="."/>
-      <xsl:param name="CNP" select="1"/>
-      <SpeseAccessorie>
-         <xsl:value-of select="."/>
-      </SpeseAccessorie>
    </xsl:template>
    <xsl:template match="/in:Invoice/cac:AccountingSupplierParty/cac:Party"
                  mode="RitenutaPersoneFisiche">
@@ -1721,7 +1725,7 @@ the root node.
             </DataScadenzaPagamento>
          </xsl:if>
          <ImportoPagamento>
-            <xsl:value-of select="format-number(if (/in:Invoice/cac:PaymentTerms[1]/cbc:Amount) then /in:Invoice/cac:PaymentTerms[1]/cbc:Amount else (if (/in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount) then (/in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount - /in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount) else /in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount),'###########0.00')"/>
+            <xsl:value-of select="format-number(if (/in:Invoice/cac:PaymentTerms[1]/cbc:Amount) then /in:Invoice/cac:PaymentTerms[1]/cbc:Amount else (if (/in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount) then (xs:decimal(/in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount) - xs:decimal(sum(/in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount))) else /in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount),'###########0.00')"/>
          </ImportoPagamento>
          <xsl:apply-templates select="cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cac:FinancialInstitution">
             <xsl:with-param name="CN" select="current()"/>
@@ -1865,11 +1869,11 @@ the root node.
                   <xsl:value-of select="if (/in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = concat('urn:www.ubl-italia.org:spec:fatturapa:xref:natura_riepilogo::', 1 + count(current()/preceding-sibling::cac:TaxSubtotal))]) then /in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = concat('urn:www.ubl-italia.org:spec:fatturapa:xref:natura_riepilogo::', 1 + count(current()/preceding-sibling::cac:TaxSubtotal))]/ext:ExtensionContent/cr:XCode else (if (/in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI=concat('urn:www.ubl-italia.org:spec:fatturapa:xref:natura::', current()/cac:TaxCategory/cbc:ID)]) then /in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI=concat('urn:www.ubl-italia.org:spec:fatturapa:xref:natura::', current()/cac:TaxCategory/cbc:ID)]/ext:ExtensionContent/cr:XCode else (document($xclCategoriaImposte)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xcode']/SimpleValue=current()/cac:TaxCategory/cbc:ID])[1])"/>
                </Natura>
             </xsl:if>
-            <xsl:apply-templates select="//ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI=concat('urn:www.ubl-italia.org:spec:fatturapa:spese_accessorie_riepilogo::', 1 + count(current()/preceding-sibling::cac:TaxSubtotal))]/ext:ExtensionContent/cbc:Amount">
+            <xsl:apply-templates select="/*/ext:UBLExtensions/ext:UBLExtension" mode="RiepilogoSpeseAccessorie">
                <xsl:with-param name="CN" select="current()"/>
                <xsl:with-param name="CNP" select="position()"/>
             </xsl:apply-templates>
-            <xsl:apply-templates select="//ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI=concat('urn:www.ubl-italia.org:spec:fatturapa:arrotondamento_riepilogo::',  1 + count(current()/preceding-sibling::cac:TaxSubtotal))]/ext:ExtensionContent/cbc:Amount">
+            <xsl:apply-templates select="/*/ext:UBLExtensions/ext:UBLExtension" mode="RiepilogoArrotondamento">
                <xsl:with-param name="CN" select="current()"/>
                <xsl:with-param name="CNP" select="position()"/>
             </xsl:apply-templates>
@@ -1911,7 +1915,7 @@ the root node.
                <xsl:with-param name="CN" select="current()"/>
                <xsl:with-param name="CNP" select="position()"/>
             </xsl:apply-templates>
-            <xsl:apply-templates select="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = concat('urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta::', 1 + count(current()/preceding-sibling::cac:WithholdingTaxTotal))]">
+            <xsl:apply-templates select="/*/ext:UBLExtensions/ext:UBLExtension" mode="OgniRitenuta">
                <xsl:with-param name="CN" select="current()"/>
                <xsl:with-param name="CNP" select="position()"/>
             </xsl:apply-templates>
@@ -1947,20 +1951,20 @@ the root node.
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
       <nx:FatturaElettronica>
-         <xsl:variable name="variable_d1e1a1049877">
+         <xsl:variable name="variable_d43e1a1049877">
             <xsl:value-of select="normalize-space(ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:SistemaEmittente']/ext:ExtensionContent/cbc:Description)"/>
          </xsl:variable>
-         <xsl:if test="string($variable_d1e1a1049877)">
+         <xsl:if test="string($variable_d43e1a1049877)">
             <xsl:attribute name="SistemaEmittente">
-               <xsl:value-of select="string($variable_d1e1a1049877)"/>
+               <xsl:value-of select="string($variable_d43e1a1049877)"/>
             </xsl:attribute>
          </xsl:if>
-         <xsl:variable name="variable_d1e1a1050311">
+         <xsl:variable name="variable_d43e1a1050311">
             <xsl:value-of select="if (starts-with(upper-case(cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID[1][@schemeID='IT:IPA']), 'CODDEST:')) then 'FPR12' else 'FPA12'"/>
          </xsl:variable>
-         <xsl:if test="string($variable_d1e1a1050311)">
+         <xsl:if test="string($variable_d43e1a1050311)">
             <xsl:attribute name="versione">
-               <xsl:value-of select="string($variable_d1e1a1050311)"/>
+               <xsl:value-of select="string($variable_d43e1a1050311)"/>
             </xsl:attribute>
          </xsl:if>
          <FatturaElettronicaHeader>
@@ -2192,7 +2196,7 @@ the root node.
                            <xsl:text>MP05</xsl:text>
                         </ModalitaPagamento>
                         <ImportoPagamento>
-                           <xsl:value-of select="format-number(if (/in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount) then (/in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount - /in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount) else /in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount,'###########0.00')"/>
+                           <xsl:value-of select="format-number(if (/in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount) then (xs:decimal(/in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount) - xs:decimal(sum(/in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount))) else /in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount,'###########0.00')"/>
                         </ImportoPagamento>
                      </DettaglioPagamento>
                   </xsl:if>
@@ -2217,7 +2221,7 @@ the root node.
                            </GiorniTerminiPagamento>
                         </xsl:if>
                         <ImportoPagamento>
-                           <xsl:value-of select="format-number(if (/in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount) then (/in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount - /in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount) else /in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount,'###########0.00')"/>
+                           <xsl:value-of select="format-number(if (/in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount) then (xs:decimal(/in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount) - xs:decimal(sum(/in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount))) else /in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount,'###########0.00')"/>
                         </ImportoPagamento>
                         <xsl:if test="/in:Invoice/cac:PaymentTerms[1]/cbc:SettlementDiscountAmount">
                            <ScontoPagamentoAnticipato>

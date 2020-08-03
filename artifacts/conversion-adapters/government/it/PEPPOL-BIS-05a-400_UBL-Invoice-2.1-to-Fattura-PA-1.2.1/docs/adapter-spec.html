@@ -81,7 +81,7 @@
          <div class="labelFont">TARGET</div>
          <div><strong>Fattura-PA-1.2.1</strong></div>
          <div class="labelFont">VERSION</div>
-         <div><strong>1.8.7</strong></div>
+         <div><strong>1.8.8</strong></div>
       </div>
       <table id="treegrid"></table>
       <div id="ptreegrid"></div>
@@ -1554,13 +1554,11 @@
             <tr class="leaf" data-level="6">
                <td class="leafFont" style="border-left: 32px solid gray"><pre>  - TipoRitenuta</pre></td>
                <td>
-                  <div class="wrapCol200">/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = concat('urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta::',
-                     1 + count(current()/preceding-sibling::cac:WithholdingTaxTotal))]&nbsp;
-                  </div>
+                  <div class="wrapCol200">/*/ext:UBLExtensions/ext:UBLExtension&nbsp;</div>
                </td>
                <td>normalize-space(ext:ExtensionContent/cr:XCode)&nbsp;</td>
                <td>
-                  <div class="wrapCol200">.&nbsp;</div>
+                  <div class="wrapCol200">.[ext:ExtensionURI = concat('urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta::',  $CNP)]&nbsp;</div>
                </td>
                <td>
                   <div class="wrapCol200">&nbsp;</div>
@@ -4083,13 +4081,11 @@
             <tr class="leaf" data-level="5">
                <td class="leafFont" style="border-left: 24px solid gray"><pre>  - SpeseAccessorie</pre></td>
                <td>
-                  <div class="wrapCol200">//ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI=concat('urn:www.ubl-italia.org:spec:fatturapa:spese_accessorie_riepilogo::',
-                     1 + count(current()/preceding-sibling::cac:TaxSubtotal))]/ext:ExtensionContent/cbc:Amount&nbsp;
-                  </div>
+                  <div class="wrapCol200">/*/ext:UBLExtensions/ext:UBLExtension&nbsp;</div>
                </td>
-               <td>.&nbsp;</td>
+               <td>ext:ExtensionContent/cbc:Amount&nbsp;</td>
                <td>
-                  <div class="wrapCol200">&nbsp;</div>
+                  <div class="wrapCol200">.[ext:ExtensionURI = concat('urn:www.ubl-italia.org:spec:fatturapa:spese_accessorie_riepilogo::',  $CNP)]&nbsp;</div>
                </td>
                <td>
                   <div class="wrapCol200">&nbsp;</div>
@@ -4099,13 +4095,11 @@
             <tr class="leaf" data-level="5">
                <td class="leafFont" style="border-left: 24px solid gray"><pre>  - Arrotondamento</pre></td>
                <td>
-                  <div class="wrapCol200">//ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI=concat('urn:www.ubl-italia.org:spec:fatturapa:arrotondamento_riepilogo::',
-                     1 + count(current()/preceding-sibling::cac:TaxSubtotal))]/ext:ExtensionContent/cbc:Amount&nbsp;
-                  </div>
+                  <div class="wrapCol200">/*/ext:UBLExtensions/ext:UBLExtension&nbsp;</div>
                </td>
-               <td>.&nbsp;</td>
+               <td>ext:ExtensionContent/cbc:Amount&nbsp;</td>
                <td>
-                  <div class="wrapCol200">&nbsp;</div>
+                  <div class="wrapCol200">.[ext:ExtensionURI = concat('urn:www.ubl-italia.org:spec:fatturapa:arrotondamento_riepilogo::',  $CNP)]&nbsp;</div>
                </td>
                <td>
                   <div class="wrapCol200">&nbsp;</div>
@@ -4295,7 +4289,8 @@
                   <div class="wrapCol200">&nbsp;</div>
                </td>
                <td>format-number(if (/in:Invoice/cac:PaymentTerms[1]/cbc:Amount) then /in:Invoice/cac:PaymentTerms[1]/cbc:Amount else (if (/in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount)
-                  then (/in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount - /in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount) else /in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount),'###########0.00')&nbsp;
+                  then (xs:decimal(/in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount) - xs:decimal(sum(/in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount)))
+                  else /in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount),'###########0.00')&nbsp;
                </td>
                <td>
                   <div class="wrapCol200">&nbsp;</div>
@@ -4494,8 +4489,8 @@
                <td>
                   <div class="wrapCol200">&nbsp;</div>
                </td>
-               <td>format-number(if (/in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount) then (/in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount
-                  - /in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount) else /in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount,'###########0.00')&nbsp;
+               <td>format-number(if (/in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount) then (xs:decimal(/in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount)
+                  - xs:decimal(sum(/in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount))) else /in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount,'###########0.00')&nbsp;
                </td>
                <td>
                   <div class="wrapCol200">&nbsp;</div>
@@ -4578,8 +4573,8 @@
                <td>
                   <div class="wrapCol200">&nbsp;</div>
                </td>
-               <td>format-number(if (/in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount) then (/in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount
-                  - /in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount) else /in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount,'###########0.00')&nbsp;
+               <td>format-number(if (/in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount) then (xs:decimal(/in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount)
+                  - xs:decimal(sum(/in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount))) else /in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount,'###########0.00')&nbsp;
                </td>
                <td>
                   <div class="wrapCol200">&nbsp;</div>

@@ -1528,7 +1528,7 @@
                <td>
                   <div class="wrapCol200">/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta']/ext:ExtensionContent/cr:XCode&nbsp;</div>
                </td>
-               <td>.&nbsp;</td>
+               <td>normalize-space(.)&nbsp;</td>
                <td>
                   <div class="wrapCol200">. and not(/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI,'urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta::')])&nbsp;</div>
                </td>
@@ -1540,13 +1540,11 @@
             <tr class="leaf" data-level="6">
                <td class="leafFont" style="border-left: 32px solid gray"><pre>  - TipoRitenuta</pre></td>
                <td>
-                  <div class="wrapCol200">/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = concat('urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta::',
-                     1 + count(current()/preceding-sibling::cac:WithholdingTaxTotal))]&nbsp;
-                  </div>
+                  <div class="wrapCol200">/*/ext:UBLExtensions/ext:UBLExtension&nbsp;</div>
                </td>
-               <td>ext:ExtensionContent/cr:XCode&nbsp;</td>
+               <td>normalize-space(ext:ExtensionContent/cr:XCode)&nbsp;</td>
                <td>
-                  <div class="wrapCol200">.&nbsp;</div>
+                  <div class="wrapCol200">.[ext:ExtensionURI = concat('urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta::',  $CNP)]&nbsp;</div>
                </td>
                <td>
                   <div class="wrapCol200">&nbsp;</div>
@@ -4073,13 +4071,11 @@
             <tr class="leaf" data-level="5">
                <td class="leafFont" style="border-left: 24px solid gray"><pre>  - SpeseAccessorie</pre></td>
                <td>
-                  <div class="wrapCol200">//ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI=concat('urn:www.ubl-italia.org:spec:fatturapa:spese_accessorie_riepilogo::',
-                     1 + count(current()/preceding-sibling::cac:TaxSubtotal))]/ext:ExtensionContent/cbc:Amount&nbsp;
-                  </div>
+                  <div class="wrapCol200">/*/ext:UBLExtensions/ext:UBLExtension&nbsp;</div>
                </td>
-               <td>.&nbsp;</td>
+               <td>ext:ExtensionContent/cbc:Amount&nbsp;</td>
                <td>
-                  <div class="wrapCol200">&nbsp;</div>
+                  <div class="wrapCol200">.[ext:ExtensionURI = concat('urn:www.ubl-italia.org:spec:fatturapa:spese_accessorie_riepilogo::',  $CNP)]&nbsp;</div>
                </td>
                <td>
                   <div class="wrapCol200">&nbsp;</div>
@@ -4089,13 +4085,11 @@
             <tr class="leaf" data-level="5">
                <td class="leafFont" style="border-left: 24px solid gray"><pre>  - Arrotondamento</pre></td>
                <td>
-                  <div class="wrapCol200">//ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI=concat('urn:www.ubl-italia.org:spec:fatturapa:arrotondamento_riepilogo::',
-                     1 + count(current()/preceding-sibling::cac:TaxSubtotal))]/ext:ExtensionContent/cbc:Amount&nbsp;
-                  </div>
+                  <div class="wrapCol200">/*/ext:UBLExtensions/ext:UBLExtension&nbsp;</div>
                </td>
-               <td>.&nbsp;</td>
+               <td>ext:ExtensionContent/cbc:Amount&nbsp;</td>
                <td>
-                  <div class="wrapCol200">&nbsp;</div>
+                  <div class="wrapCol200">.[ext:ExtensionURI = concat('urn:www.ubl-italia.org:spec:fatturapa:arrotondamento_riepilogo::',  $CNP)]&nbsp;</div>
                </td>
                <td>
                   <div class="wrapCol200">&nbsp;</div>

@@ -4,84 +4,85 @@
 [cols="1,10", options="header"]
 |===
 |Id
-|Requirement (depending, as applicable, on the respective business case)
+|Requisiti (se applicabili)
 
 |R5
-|information to trace to a single related purchase order from the document level
+|informazioni per tracciare un unico ordine di acquisto collegato a livello di documento
 |R6
-|information to trace to a single related purchase order line from the invoice line
+|informazioni per tracciare un unico ordine di acquisto collegato a livello di riga
 |R7
-|information to trace to a single contract and the underlying call for tenders from the document level
+|informazioni [lime-background]#to trace to a single contract and the underlying call for tenders from the document level#
 |R8
-|a reference supplied by the Buyer at document level
+|un riferimento fornito dal Cliente a livello di documento
 |R9
-|information to trace to a single despatch advice from the document level
+|informazioni per tracciare un unico documento di trasporto collegato a livello di documento
 |R10
-|information to trace to a single receiving advice from the document level
+|informazioni per tracciare un unico avviso di ricevimento a livello di documento
 |R11
-|information to trace to a related invoice to be corrected from the document level
+|informazioni per tracciare un unica fattura da correggere a livello di documento
 |R13
-|information to allow an invoice and related documents to be transferred to a responsible authority, entity, person or department, for verification and approval
+|informazioni che permettono ad una fattura e ai documenti correlati di essere trasmessi ad una Autorità Competente, Ente, persona o dipartimento, per verifiche ed approvazioni
 |R14
-|information about net price and the quantity on which the price is based at invoice line level, additional information such
-as gross price and price discount may be added
+|informazioni sul prezzo netto e la quantità sui quali il prezzo è basato a livello di riga, informazioni addizionali come il prezzo lordo e sconto di prezzo possono essere aggiunte
 |R15
-|descriptive and coded information about allowances and charges at both document level and at invoice line level
+|informazioni descrittive e codificate riguardo sconti e maggiorazioni a livello di documento e riga di fattura
 |R16
-|information about charges, (non-VAT-)taxes, duties and levies, with their VAT information, that are not included in the line amounts at document level
+|informazioni riguardo le maggiorazioni, tasse (non-IVA), dazi e prelievi, con le informazioni IVA, che non sono incluse nell'ammontare delle righe a livello di documento
 |R17
-|information about charges, (non-VAT-)taxes, duties and levies that compose the taxable amount and are not included in the unit price at separate invoice lines, with a proper identification and/or description
+|informazioni riguardo le maggiorazioni, tasse (non-IVA), dazi e prelievi che compongono l'imponibile IVA e che incluse nel prezzo netto [lime-background]#at separate invoice lines, with a proper identification and/or description#
 |R18
-|information about charges at invoice line level as part of the line amount
+|informazioni riguardo le maggiorazioni a livello di riga come parte dell'ammontare della riga
 |R19
-|the amounts of allowances and charges at document and invoice line level
+|ammontare di sconti e maggiorazioni a livelli di documento o di riga della fattura
 |R20
-|textual descriptions of invoiced goods and services at invoice line level
+|descrizione testuale dei beni e servizi fatturati a livello di riga di fattura
 |R21
-|identification of invoiced goods and services by means of a Seller's item number at invoice line level
+|identificazione di beni e servizi mediante il numero bene/servizio del Fornitore a livello di riga di fattura
 |R22
-|identification of invoiced goods and services by means of a Buyer's item number at invoice line level
+|identificazione dei beni e servizi mediante il numero bene/servizio del Cliente a livello di riga
 |R23
-|identification of invoiced goods and services by means of a qualified general item identifier at invoice line level as agreed by the Buyer and the Seller
+|identificazione dei beni e servizi fatturati mediante un numero generale identificativo qualificato a livello di riga come convenuto da Cliente e Fornitore 
 |R24
-|classification of invoiced goods and services by means of applicable classification identifiers and schema reference as agreed between the Seller and the Buyer at invoice line level
+|identificazione dei beni e servizi fatturati mediante un identitificativo di classificazione applicabile e schema di riferimento a livello di riga come convenuto da Cliente e Fornitore 
 |R25
-|information about returned and credited returnable assets or packages, such as pallets, and package charges, stated as normal invoice lines
+|informazioni relative a resi e beni o imballaggi a credito come i pallets, [lime-background]#package charges, stated as normal invoice lines#
 |R26
-|information about returnable asset charges, stated as normal invoice lines
+|informazioni riguardo a maggiorazioni su beni restituibili, dichiarati come normale riga di fattura
 |R27
-|information about returned goods, stated as normal invoice lines
+|information rifuardo i beni resi, dichiarati come normale riga di fattura
 |R28
-|descriptive information about attributes of goods and services at invoice line level
+|informazioni descrittive dei beni/servizi a livello di riga
 |R29
-|information about the country of origin of goods and services at invoice line level
+|informazioni riguardo il paese di origine dei beni/servizi a livello di riga
+|R29
+|informazioni riguardo il paese di origine dei beni/servizi a livello di riga di fattura
 |R30
-|an invoice line period at invoice line level
+|periodo di fatturazione a livello di riga
 |R31
-|one delivery date at document level
+|una data di consegna a livello di documento
 |R32
-|one delivery location or address at document level
+|un indirizzo o luogo di consegna a livello di documento
 |R33
-|identification of the invoiced object at document and line level
+|identificazione dell'oggetto fatturato a livello di documento o di riga della fattura
 |R34
-|a delivery/invoice period at document level
+|periodo di consegna/fattura a livello di documento
 |R35
-|attached documents of a limited set of file types
+|documenti allegati di un set limitato di file 
 |R36
-|multiple attached or referenced documents at document level
+|allegati multipli o documenti referenziati a livello di documento
 |R37
-|a VAT category and rate at invoice line level
+|categoria IVA e aliquota a livello di riga
 |R38
-|VAT totals per category at document level
+|totali IVA per categoria a livello di documento
 |R39
-|a quantity and a net amount (exclusive of VAT) at invoice line level
+|quantità e ammontare netto (escluso IVA) a livello di riga
 |R40
-|all amounts at document and invoice line level that make up the invoice total amount and the amount due for payment
+|tutti gli ammontari a livello di documento e di riga di fattura che formano il totale documento ed il totale importo da pagare
 |R41
-|Reference to a sales order, issued by the Seller at document level
+|riferimento ad un ordine di vendita, proposto dal Fornitore a livello di documento 
 |R42
-|Allowance/charge percentage and base amount at document and invoice line level
+|sconto/maggiorazione percentuale e ammontare a livello di documento e di riga di fattura
 |R44
-|Information to allow automated validation of a received electronic invoice
+|informazioni che permettono una validazione automatica di una fattura ricevuta elettronicamente
 
 |===

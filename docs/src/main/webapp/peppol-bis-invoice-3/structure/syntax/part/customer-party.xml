@@ -2,14 +2,14 @@
 <Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1">
 
         <Term>cac:AccountingCustomerParty</Term>
-        <Name>BUYER</Name>
+        <Name>BUYER - FPA 1.4 'CessionarioCommittente'</Name>
         <Description>A group of business terms providing information about the Buyer.</Description>
         <Reference type="BUSINESS_TERM">BG-7</Reference>
-        
+
         <Element>
             <Term>cac:Party</Term>
             <Name>PARTY</Name>
-            
+
             <Element>
                 <Term>cbc:EndpointID</Term>
                 <Name>Buyer electronic address</Name>
@@ -17,8 +17,8 @@
                 <DataType>Identifier</DataType>
                 <Reference type="BUSINESS_TERM">BT-49</Reference>
                 <Reference type="RULE">BR-63</Reference>
-                
-                
+
+
                 <Attribute>
                     <Term>schemeID</Term>
                     <Name>Buyer electronic address identification scheme identifier</Name>
@@ -26,27 +26,27 @@
                     <Reference type="CODE_LIST">eas</Reference>
                     <Value type="EXAMPLE">0192</Value>
                 </Attribute>
-                
+
                 <Value type="EXAMPLE">987654321</Value>
-                
+
             </Element>
-            
+
             <Element cardinality="0..1">
                 <Term>cac:PartyIdentification</Term>
                 <Name>PARTY IDENTIFICATION</Name>
-                
+
                 <Element>
                     <Term>cbc:ID</Term>
-                    <Name>Buyer identifier</Name>
+                    <Name>Buyer identifier - FPA 1.4.1.3.5 'CodEORI'</Name>
                     <Description>An identifier of the Buyer.</Description>
                     <DataType>Identifier</DataType>
                     <Reference type="BUSINESS_TERM">BT-46</Reference>
-                    
-                    
+
+
                     <Attribute usage="Optional">
                         <Term>schemeID</Term>
                         <Name>Buyer identifier identification scheme identifier</Name>
-                        <Description>The identification scheme identifier of the Buyer identifier.</Description>    
+                        <Description>The identification scheme identifier of the Buyer identifier.</Description>
                         <Reference type="RULE">BR-CL-10</Reference>
                         <Reference type="RULE">DK-R-013</Reference>
                         <Reference type="CODE_LIST">ICD</Reference>
@@ -55,11 +55,11 @@
                     <Value type="EXAMPLE">SE8765456787</Value>
                 </Element>
             </Element>
-            
+
             <Element cardinality="0..1">
                 <Term>cac:PartyName</Term>
                 <Name>PARTY NAME</Name>
-                
+
                 <Element>
                     <Term>cbc:Name</Term>
                     <Name>Buyer trading name</Name>
@@ -69,27 +69,27 @@
                     <Value type="EXAMPLE">Buyer Trading Name</Value>
                 </Element>
             </Element>
-            
+
             <Element>
                 <Term>cac:PostalAddress</Term>
-                <Name>BUYER POSTAL ADDRESS</Name>
+                <Name>BUYER POSTAL ADDRESS - FPA 1.4.2 'Sede'</Name>
                 <Description>A group of business terms providing information about the postal address for the Buyer.
                     Sufficient components of the address are to be filled to comply with legal requirements.</Description>
                 <Reference type="BUSINESS_TERM">BG-8</Reference>
                 <Reference type="RULE">BR-10</Reference>
-                
+
                 <Element cardinality="0..1">
                     <Term>cbc:StreetName</Term>
-                    <Name>Buyer address line 1</Name>
+                    <Name>Buyer address line 1 - FPA 1.4.2.1 'Indirizzo'</Name>
                     <Description>The main address line in an address.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-50</Reference>
                     <Value type="EXAMPLE">Hovudgatan 32</Value>
                 </Element>
-                
+
                 <Element cardinality="0..1">
                     <Term>cbc:AdditionalStreetName</Term>
-                    <Name>Buyer address line 2</Name>
+                    <Name>Buyer address line 2 - FPA 1.4.2.2 'NumeroCivico'</Name>
                     <Description>An additional address line in an address that can be used to give further details supplementing the
                         main line.
                     </Description>
@@ -97,39 +97,39 @@
                     <Reference type="BUSINESS_TERM">BT-51</Reference>
                     <Value type="EXAMPLE">Po box 43</Value>
                 </Element>
-                
+
                 <Element cardinality="0..1">
                     <Term>cbc:CityName</Term>
-                    <Name>Buyer city</Name>
+                    <Name>Buyer city - FPA 1.4.2.4 'Comune'</Name>
                     <Description>The common name of the city, town or village, where the Buyer's address is located.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-52</Reference>
                     <Value type="EXAMPLE">Stockholm</Value>
                 </Element>
-                
+
                 <Element cardinality="0..1">
                     <Term>cbc:PostalZone</Term>
-                    <Name>Buyer post code</Name>
+                    <Name>Buyer post code - FPA 1.4.2.3 'CAP'</Name>
                     <Description>The identifier for an addressable group of properties according to the relevant postal service.
                     </Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-53</Reference>
                     <Value type="EXAMPLE">34567</Value>
                 </Element>
-                
+
                 <Element cardinality="0..1">
                     <Term>cbc:CountrySubentity</Term>
-                    <Name>Buyer country subdivision</Name>
+                    <Name>Buyer country subdivision - FPA 1.4.2.5 'Provincia'</Name>
                     <Description>The subdivision of a country.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-54</Reference>
                     <Value type="EXAMPLE">Region A</Value>
                 </Element>
-                
+
                 <Element cardinality="0..1">
                     <Term>cac:AddressLine</Term>
                     <Name>ADDRESS LINE</Name>
-                    
+
                     <Element>
                         <Term>cbc:Line</Term>
                         <Name>Buyer address line 3</Name>
@@ -141,14 +141,14 @@
                         <Value type="EXAMPLE">Building F2</Value>
                     </Element>
                 </Element>
-                
+
                 <Element>
                     <Term>cac:Country</Term>
                     <Name>COUNTRY</Name>
-                    
+
                     <Element>
                         <Term>cbc:IdentificationCode</Term>
-                        <Name>Buyer country code</Name>
+                        <Name>Buyer country code - FPA 1.4.2.6 'Nazione'</Name>
                         <Description>A code that identifies the country.</Description>
                         <DataType>Code</DataType>
                         <Reference type="BUSINESS_TERM">BT-55</Reference>
@@ -159,11 +159,11 @@
                     </Element>
                 </Element>
             </Element>
-            
+
             <Element cardinality="0..1">
                 <Term>cac:PartyTaxScheme</Term>
                 <Name>PARTY VAT IDENTIFIER</Name>
-                
+
                 <Element>
                     <Term>cbc:CompanyID</Term>
                     <Name>Buyer VAT identifier</Name>
@@ -182,25 +182,25 @@
                     <Reference type="RULE">BR-O-04</Reference>
                     <Value type="EXAMPLE">SE8765456787</Value>
                 </Element>
-                
+
                 <Element>
                     <Term>cac:TaxScheme</Term>
                     <Name>TAX SCHEME</Name>
-                    
+
                     <Element>
                         <Term>cbc:ID</Term>
                         <Description>Mandatory element. Use “VAT”</Description>
                         <DataType>Identifier</DataType>
                         <Value type="DEFAULT">VAT</Value>
-                        
+
                     </Element>
                 </Element>
             </Element>
-            
+
             <Element>
                 <Term>cac:PartyLegalEntity</Term>
                 <Name>PARTY LEGAL ENTITY</Name>
-                
+
                 <Element>
                     <Term>cbc:RegistrationName</Term>
                     <Name>Buyer name</Name>
@@ -210,10 +210,10 @@
                     <Reference type="RULE">BR-07</Reference>
                     <Value type="EXAMPLE">Buyer Full Name AS</Value>
                 </Element>
-                
+
                 <Element cardinality="0..1">
                     <Term>cbc:CompanyID</Term>
-                    <Name>Buyer legal registration identifier</Name>
+                    <Name>Buyer legal registration identifier - FPA 1.4.1.2 'CodiceFiscale'</Name>
                     <Description>An identifier issued by an official registrar that identifies the Buyer as a legal entity or
                         person.
                     </Description>
@@ -223,7 +223,7 @@
                     <Reference type="RULE">BR-AE-03</Reference>
                     <Reference type="RULE">BR-AE-04</Reference>
                     <Reference type="RULE">DK-R-014</Reference>
-                    
+
                     <Attribute usage="Optional">
                         <Term>schemeID</Term>
                         <Name>Buyer legal registration identifier identification scheme identifier</Name>
@@ -234,13 +234,13 @@
                     <Value type="EXAMPLE">7300010000001</Value>
                 </Element>
             </Element>
-            
+
             <Element cardinality="0..1">
                 <Term>cac:Contact</Term>
                 <Name>BUYER CONTACT</Name>
                 <Description>A group of business terms providing contact information relevant for the Buyer.</Description>
                 <Reference type="BUSINESS_TERM">BG-9</Reference>
-                
+
                 <Element cardinality="0..1">
                     <Term>cbc:Name</Term>
                     <Name>Buyer contact point</Name>
@@ -249,7 +249,7 @@
                     <Reference type="BUSINESS_TERM">BT-56</Reference>
                     <Value type="EXAMPLE">Jens Jensen</Value>
                 </Element>
-                
+
                 <Element cardinality="0..1">
                     <Term>cbc:Telephone</Term>
                     <Name>Buyer contact telephone number</Name>
@@ -258,7 +258,7 @@
                     <Reference type="BUSINESS_TERM">BT-57</Reference>
                     <Value type="EXAMPLE">876 654 321</Value>
                 </Element>
-                
+
                 <Element cardinality="0..1">
                     <Term>cbc:ElectronicMail</Term>
                     <Name>Buyer contact email address</Name>
@@ -270,4 +270,3 @@
             </Element>
         </Element>
     </Element>
-    

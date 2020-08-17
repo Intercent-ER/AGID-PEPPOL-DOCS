@@ -1,7 +1,7 @@
 
 = Processo generale di fatturazione
 
-Il processo di fatturazione include l'emissione e l'invio della fattura e della nota di credito dal fornitore al cliente e la ricezione e gestione dello stesso da parte del cliente.
+Il processo di fatturazione include l'emissione e l'invio della fattura e della nota di credito dal fornitore al cliente e la ricezione e gestione delle stesse da parte del cliente.
 
 Il processo di fatturazione è mostrato nel seguente flusso:
 
@@ -26,26 +26,10 @@ Questo profilo riguarda i seguenti processi di fatturazione:
 P1:: Fatturazione della consegna di beni e servizi a fronte di ordini di acquisto, in base ad un contratto
 P2:: Fatturazione della consegna di beni e servizi in base ad un contratto
 P3:: Fatturazione della consegna di un ordine di acquisto senza contratto
-P4:: Pre pagamento
-P5:: Pagamento immediato di un ordine senza contratto
-P6:: Pagamento anticipato rispetto alla consegna
+P4:: [lime-background]#Pre pagamento#
+P5:: [lime-background]#Pagamento immediato di un ordine senza contratto#
+P6:: [lime-background]#Pagamento anticipato rispetto alla consegna#
 P7:: Fatture con riferimento ad un documento di trasporto
 P8:: Fatture con riferimenti ad un documento di trasporto e ad un avviso di ricezione merce
 P9:: Note di credito o fatture con importi negativi, emesse per particolari casistiche, tra cui la restituzione di imballaggi vuoti
 
-Nei capitoli seguenti viene fatta una valutazione di quali informazioni sono necessarie per ciascuno dei processi sopra elencati e se rientrano o meno nel campo di applicazione del presente PEPPOL BIS.
-
-Per ulteriori dettagli, consultare anche //link:/cap5 
-i requisiti di business relativi a fatture e note di accredito.
-
-I seguenti processi non rientrano nell'ambito di applicazione della specifica:
-
-* Gestione delle scorte
-
-* Processi di consegna
-
-* Sdoganamento
-
-* Marketing
-
-* Reporting

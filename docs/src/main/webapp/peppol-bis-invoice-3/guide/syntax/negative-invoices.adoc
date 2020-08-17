@@ -6,8 +6,8 @@
 include::{snippet-dir}/base-example.xml[tags=negative]
 ----
 <1> Importo della maggiorazione
-<2> Riga 1 della fattura con quantità positiva e importo di riga
-<3> Riga 2 della fattura con quantità negativa e importo di riga
+<2> Riga 1 della fattura con quantità positiva e importo di riga positivo
+<3> Riga 2 della fattura con quantità negativa e importo di riga negativo
 
 == Accredito tramite nota di credito
 
@@ -20,8 +20,8 @@ include::{snippet-dir}/base-creditnote-correction.xml[tags=negative]
 ----
 <1> Codice 381 indica una nota di credito
 <2> Importo della maggiorazione
-<3> Riga 1 della fattura con quantità positiva e importo di riga
-<4> Riga 2 della fattura con quantità negativa e importo di riga
+<3> Riga 1 della fattura con quantità positiva e importo di riga positivo
+<4> Riga 2 della fattura con quantità negativa e importo di riga negativo
 
 == Accredito tramite fattura negativa
 

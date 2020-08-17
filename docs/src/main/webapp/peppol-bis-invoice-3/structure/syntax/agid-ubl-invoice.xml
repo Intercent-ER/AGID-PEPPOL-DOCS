@@ -47,8 +47,8 @@
 
         <Element agid:custom="rule">
             <Term>cbc:ID</Term>
-            <Name>Invoice number</Name>
-            <Description>A unique identification of the Invoice. The sequential number required in Article 226(2) of the directive 2006/112/EC [2], to uniquely identify the Invoice 
+            <Name>Invoice number - FPA 2.1.1.4 'Numero'</Name>
+            <Description>A unique identification of the Invoice. The sequential number required in Article 226(2) of the directive 2006/112/EC [2], to uniquely identify the Invoice
                 within the business context, time-frame, operating systems and records of the Seller. No identification scheme is to be used.</Description>
             <DataType>Identifier</DataType>
             <Reference type="BUSINESS_TERM">BT-1</Reference>
@@ -70,7 +70,7 @@
 
         <Element cardinality="0..1">
             <Term>cbc:DueDate</Term>
-            <Name>Payment due date</Name>
+            <Name>Payment due date - FPA 2.4.2.5 'DataScadenzaPagamento'</Name>
             <Description>The date when the payment is due.Format "YYYY-MM-DD". In case the Amount due for payment (BT-115) is positive, either the Payment due date (BT-9) or the Payment terms (BT-20) shall be present.</Description>
             <DataType>Date</DataType>
             <Reference type="BUSINESS_TERM">BT-9</Reference>
@@ -117,7 +117,7 @@
 
         <Element>
             <Term>cbc:DocumentCurrencyCode</Term>
-            <Name>Invoice currency code</Name>
+            <Name>Invoice currency code - FPA 2.1.1.2 'Divisa'</Name>
             <Description>The currency in which all Invoice amounts are given, except for the Total VAT amount in accounting
                 currency. Only one currency shall be used in the Invoice, except for the VAT accounting currency code (BT-6) and the invoice total VAT amount in accounting currency (BT-111).
             </Description>
@@ -133,7 +133,7 @@
             <Term>cbc:TaxCurrencyCode</Term>
             <Name>VAT accounting currency code</Name>
             <Description>The currency used for VAT accounting and reporting purposes as accepted or required in the country
-                of the Seller. Shall be used in combination with the Invoice total VAT amount in accounting currency (BT-111), when the VAT accounting currency code differs from the 
+                of the Seller. Shall be used in combination with the Invoice total VAT amount in accounting currency (BT-111), when the VAT accounting currency code differs from the
                 Invoice currency code.
             </Description>
             <DataType>Code</DataType>
@@ -146,7 +146,7 @@
 
         <Element cardinality="0..1" agid:custom="rule">
             <Term>cbc:AccountingCost</Term>
-            <Name>Buyer accounting reference</Name>
+            <Name>Buyer accounting reference - FPA 1.2.6 'RiferimentoAmministrazione'</Name>
             <Description>A textual value that specifies where to book the relevant data into the Buyer's financial
                 accounts.
             </Description>
@@ -170,7 +170,7 @@
         <Element cardinality="0..1">
             <Term>cac:InvoicePeriod</Term>
             <Name>DELIVERY OR INVOICE PERIOD</Name>
-            <Description>A group of business terms providing information on the invoice period. Also called delivery period. 
+            <Description>A group of business terms providing information on the invoice period. Also called delivery period.
                 If the group is used, the invoiceing period start date and/or end date must be used.</Description>
             <Reference type="BUSINESS_TERM">BG-14</Reference>
             <Reference type="RULE">BR-IC-11</Reference>
@@ -238,17 +238,17 @@
 
         <Element cardinality="0..n">
             <Term>cac:BillingReference</Term>
-            <Name>PRECEDING INVOICE REFERENCE</Name>
+            <Name>PRECEDING INVOICE REFERENCE - FPA 2.1.6 'DatiFattureCollegate'</Name>
             <Description>A group of business terms providing information on one or more preceding Invoices.</Description>
             <Reference type="BUSINESS_TERM">BG-3</Reference>
 
             <Element>
                 <Term>cac:InvoiceDocumentReference</Term>
-                <Name>INVOICE DOCUMENT REFERENCE</Name>      
+                <Name>INVOICE DOCUMENT REFERENCE</Name>
 
                 <Element agid:custom="rule">
                     <Term>cbc:ID</Term>
-                    <Name>Preceding Invoice number</Name>
+                    <Name>Preceding Invoice number - FPA 2.1.6.2 'IdDocumento'</Name>
                     <Description>The identification of an Invoice that was previously sent by the Seller.</Description>
                     <DataType>Document Reference</DataType>
                     <Reference type="BUSINESS_TERM">BT-25</Reference>
@@ -258,7 +258,7 @@
                 </Element>
                 <Element cardinality="0..1">
                     <Term>cbc:IssueDate</Term>
-                    <Name>Preceding Invoice issue date</Name>
+                    <Name>Preceding Invoice issue date - FPA 2.1.6.3 'Data'</Name>
                     <Description>The date when the Preceding Invoice was issued.Shall be
                         provided in case the Preceding Invoice identifier is not unique. Format = "YYYY-MM-DD".</Description>
                     <DataType>Date</DataType>
@@ -290,7 +290,7 @@
 
             <Element agid:custom="rule">
                 <Term>cbc:ID</Term>
-                <Name>Receiving advice reference</Name>
+                <Name>Receiving advice reference - FPA 2.1.7.1 'RiferimentoFase'</Name>
                 <Description>An identifier of a referenced receiving advice.</Description>
                 <DataType>Document Reference</DataType>
                 <Reference type="BUSINESS_TERM">BT-15</Reference>
@@ -328,11 +328,11 @@
                 <Value type="EXAMPLE">123Contractref</Value>
             </Element>
         </Element>
-        
-    
+
+
         <Include>part/additional-docs.xml</Include>
-       
-      
+
+
 
         <Element cardinality="0..1">
             <Term>cac:ProjectReference</Term>
@@ -351,24 +351,24 @@
 
 
         <Include>part/supplier-party.xml</Include>
-        
+
         <Include>part/customer-party.xml</Include>
-        
+
         <Include>part/payee-party.xml</Include>
-        
+
         <Include>part/taxrep-party.xml</Include>
 
         <Include>part/delivery.xml</Include>
 
         <Element cardinality="0..n">
             <Term>cac:PaymentMeans</Term>
-            <Name>PAYMENT INSTRUCTIONS</Name>
+            <Name>PAYMENT INSTRUCTIONS - FPA 2.4 'DatiPagamento'</Name>
             <Description>A group of business terms providing information about the payment.</Description>
             <Reference type="BUSINESS_TERM">BG-16</Reference>
-        
+
             <Element>
                 <Term>cbc:PaymentMeansCode</Term>
-                <Name>Payment means type code</Name>
+                <Name>Payment means type code - FPA 2.4.2.2 'ModalitaPagamento'</Name>
                 <Description>The means, expressed as code, for how a payment is expected to be or has been settled.
                 </Description>
                 <DataType>Code</DataType>
@@ -376,8 +376,8 @@
                 <Reference type="RULE">BR-49</Reference>
                 <Reference type="RULE">BR-CL-16</Reference>
                 <Reference type="CODE_LIST">UNCL4461</Reference>
-            
-            
+
+
                 <Attribute usage="Optional">
                     <Term>name</Term>
                     <Name>Payment means text</Name>
@@ -387,14 +387,14 @@
                     <Reference type="BUSINESS_TERM">BT-82</Reference>
                     <Value type="EXAMPLE">Credit transfer</Value>
                 </Attribute>
-            
+
                 <Value type="EXAMPLE">30</Value>
-            
+
             </Element>
-        
+
             <Element cardinality="0..1">
                 <Term>cbc:PaymentID</Term>
-                <Name>Remittance information</Name>
+                <Name>Remittance information - FPA 2.4.2.21 'CodicePagamento'</Name>
                 <Description>A textual value used to establish a link between the payment and the Invoice, issued by the
                     Seller. Used for creditor's critical reconciliation information. This information element helps the Seller to assign an incoming payment to the relevant payment process.
                 </Description>
@@ -402,17 +402,17 @@
                 <Reference type="BUSINESS_TERM">BT-83</Reference>
                 <Value type="EXAMPLE">432948234234234</Value>
             </Element>
-        
-            <Include>part/card-payment.xml</Include>
-            
-            <Include>part/credit-transfer.xml</Include>
-            
-            <Include>part/payment-mandate.xml</Include>
-            
-        </Element>
-       
 
-      
+            <Include>part/card-payment.xml</Include>
+
+            <Include>part/credit-transfer.xml</Include>
+
+            <Include>part/payment-mandate.xml</Include>
+
+        </Element>
+
+
+
 
         <Element cardinality="0..1">
             <Term>cac:PaymentTerms</Term>
@@ -430,23 +430,23 @@
                 <Value type="EXAMPLE">Net within 30 days</Value>
             </Element>
         </Element>
-        
+
         <Include>part/allowance-charge.xml</Include>
-        
+
         <Include>part/tax-total.xml</Include>
-     
+
         <Include>part/monetary-totals.xml</Include>
-    
 
 
-     
+
+
         <Element cardinality="1..n">
             <Term>cac:InvoiceLine</Term>
-            <Name>INVOICE LINE</Name>
+            <Name>INVOICE LINE - FPA 2.2.1 'DettaglioLinee'</Name>
             <Description>A group of business terms providing information on individual Invoice lines.</Description>
             <Reference type="BUSINESS_TERM">BG-25</Reference>
             <Reference type="RULE">BR-16</Reference>
-           
+
 
             <Element>
                 <Term>cbc:ID</Term>
@@ -470,7 +470,7 @@
 
             <Element agid:custom="rule">
                 <Term>cbc:InvoicedQuantity</Term>
-                <Name>Invoiced quantity</Name>
+                <Name>Invoiced quantity - FPA 2.2.1.5 'Quantita'</Name>
                 <Description>The quantity of items (goods or services) that is charged in the Invoice line.</Description>
                 <DataType>Quantity</DataType>
                 <Reference type="BUSINESS_TERM">BT-129</Reference>
@@ -479,7 +479,7 @@
 
                 <Attribute>
                     <Term>unitCode</Term>
-                    <Name>Invoiced quantity unit of measure</Name>
+                    <Name>Invoiced quantity unit of measure - FPA 2.2.1.6 'UnitaMisura'</Name>
                     <Description>The unit of measure that applies to the invoiced quantity.
                         Codes for unit of packaging from UNECE Recommendation No. 21 can be used in accordance with the descriptions in the "Intro" section of UN/ECE Recommendation 20, Revision 11 (2015):
                         The 2 character alphanumeric code values in UNECE Recommendation 21 shall be used. To avoid duplication with existing code values in UNECE Recommendation No. 20, each code value from UNECE Recommendation 21 shall be prefixed with an “X”, resulting in a 3 alphanumeric code when used as a unit of measure.
@@ -496,7 +496,7 @@
 
             <Element agid:custom="rule">
                 <Term>cbc:LineExtensionAmount</Term>
-                <Name>Invoice line net amount</Name>
+                <Name>Invoice line net amount - FPA 2.2.1.11 'PrezzoTotale'</Name>
                 <Description>The total amount of the Invoice line.
                     The amount is “net” without VAT, i.e. inclusive of line level allowances and charges as well as other relevant taxes.
                     Must be rounded to maximum 2 decimals.</Description>
@@ -507,7 +507,7 @@
                 <Reference type="RULE">BR-DEC-23</Reference>
                 <Reference type="RULE">UBL-DT-01</Reference>
                 <Reference type="RULE">BR-IT-390</Reference>
-				
+
                 <Attribute>
                     <Term>currencyID</Term>
                     <Description>Mandatory attribute. Use BT-5</Description>
@@ -516,13 +516,13 @@
                     <Reference type="CODE_LIST">ISO4217</Reference>
                     <Value type="EXAMPLE">EUR</Value>
                 </Attribute>
-                
+
                 <Value type="EXAMPLE">2145.00</Value>
             </Element>
 
             <Element cardinality="0..1" agid:custom="rule">
                 <Term>cbc:AccountingCost</Term>
-                <Name>Invoice line Buyer accounting reference</Name>
+                <Name>Invoice line Buyer accounting reference - FPA 2.2.1.15 'RiferimentoAmministrazione'</Name>
                 <Description>A textual value that specifies where to book the relevant data into the Buyer's financial
                     accounts.
                 </Description>
@@ -531,10 +531,10 @@
                 <Reference type="RULE">BR-IT-410</Reference>
                 <Value type="EXAMPLE">1287:65464</Value>
             </Element>
-            
+
             <Include>part/line-period.xml</Include>
 
-          
+
 
             <Element cardinality="0..1" agid:custom="rule">
                 <Term>cac:OrderLineReference</Term>
@@ -542,7 +542,7 @@
 
                 <Element>
                     <Term>cbc:LineID</Term>
-                    <Name>Referenced purchase order line reference</Name>
+                    <Name>Referenced purchase order line reference - FPA 2.1.2.4 'NumItem'</Name>
                     <Description>An identifier for a referenced line within a purchase order, issued by the Buyer.</Description>
                     <DataType>Identifier</DataType>
                     <Reference type="BUSINESS_TERM">BT-132</Reference>
@@ -562,7 +562,7 @@
                     <DataType>Identifier</DataType>
                     <Reference type="BUSINESS_TERM">BT-128</Reference>
                     <Reference type="RULE">BR-IT-370</Reference>
-                    
+
                     <Attribute usage="Optional">
                         <Term>schemeID</Term>
                         <Name>Invoice line object identifier identification scheme identifier</Name>
@@ -572,7 +572,7 @@
                     </Attribute>
                     <Value type="EXAMPLE">AB12345</Value>
                 </Element>
-                
+
                 <Element>
                     <Term>cbc:DocumentTypeCode</Term>
                     <Name>Document type code</Name>
@@ -581,15 +581,15 @@
                     <Reference type="BUSINESS_TERM">BT-128</Reference>
                     <Value type="DEFAULT">130</Value>
                 </Element>
-                
+
             </Element>
-            
+
             <Include>part/line-allowance-charge.xml</Include>
 
             <Include>part/item.xml</Include>
-              
+
             <Include>part/price.xml</Include>
-          
+
         </Element>
     </Document>
 

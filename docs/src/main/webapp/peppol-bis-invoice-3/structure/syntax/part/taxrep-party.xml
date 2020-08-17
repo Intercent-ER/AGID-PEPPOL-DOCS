@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" cardinality="0..1">
- 
+
         <Term>cac:TaxRepresentativeParty</Term>
-        <Name>SELLER TAX REPRESENTATIVE PARTY</Name>
+        <Name>SELLER TAX REPRESENTATIVE PARTY - FPA 1.3 'RappresentanteFiscale'</Name>
         <Description>A group of business terms providing information about the Seller's tax representative.
         </Description>
         <Reference type="BUSINESS_TERM">BG-11</Reference>
-        
+
         <Element>
             <Term>cac:PartyName</Term>
             <Name>PARTY NAME</Name>
-            
+
             <Element>
                 <Term>cbc:Name</Term>
                 <Name>Seller tax representative name</Name>
@@ -21,7 +21,7 @@
                 <Value type="EXAMPLE">Tax Representative Name AS</Value>
             </Element>
         </Element>
-        
+
         <Element>
             <Term>cac:PostalAddress</Term>
             <Name>SELLER TAX REPRESENTATIVE POSTAL ADDRESS</Name>
@@ -30,8 +30,8 @@
             </Description>
             <Reference type="BUSINESS_TERM">BG-12</Reference>
             <Reference type="RULE">BR-19</Reference>
-            
-            
+
+
             <Element cardinality="0..1">
                 <Term>cbc:StreetName</Term>
                 <Name>Tax representative address line 1</Name>
@@ -40,7 +40,7 @@
                 <Reference type="BUSINESS_TERM">BT-64</Reference>
                 <Value type="EXAMPLE">Lille gatan 545</Value>
             </Element>
-            
+
             <Element cardinality="0..1">
                 <Term>cbc:AdditionalStreetName</Term>
                 <Name>Tax representative address line 2</Name>
@@ -51,7 +51,7 @@
                 <Reference type="BUSINESS_TERM">BT-65</Reference>
                 <Value type="EXAMPLE">Po Box 987</Value>
             </Element>
-            
+
             <Element cardinality="0..1">
                 <Term>cbc:CityName</Term>
                 <Name>Tax representative city</Name>
@@ -61,7 +61,7 @@
                 <Reference type="BUSINESS_TERM">BT-66</Reference>
                 <Value type="EXAMPLE">Göteborg</Value>
             </Element>
-            
+
             <Element cardinality="0..1">
                 <Term>cbc:PostalZone</Term>
                 <Name>Tax representative post code</Name>
@@ -71,7 +71,7 @@
                 <Reference type="BUSINESS_TERM">BT-67</Reference>
                 <Value type="EXAMPLE">12345</Value>
             </Element>
-            
+
             <Element cardinality="0..1">
                 <Term>cbc:CountrySubentity</Term>
                 <Name>Tax representative country subdivision</Name>
@@ -80,12 +80,12 @@
                 <Reference type="BUSINESS_TERM">BT-68</Reference>
                 <Value type="EXAMPLE">Region Vest</Value>
             </Element>
-            
-            
+
+
             <Element cardinality="0..1">
                 <Term>cac:AddressLine</Term>
                 <Name>ADDRESS LINE</Name>
-                
+
                 <Element>
                     <Term>cbc:Line</Term>
                     <Name>Tax representative address line 3</Name>
@@ -97,11 +97,11 @@
                     <Value type="EXAMPLE">A87</Value>
                 </Element>
             </Element>
-            
+
             <Element>
                 <Term>cac:Country</Term>
                 <Name>COUNTRY</Name>
-                
+
                 <Element>
                     <Term>cbc:IdentificationCode</Term>
                     <Name>Tax representative country code</Name>
@@ -115,11 +115,11 @@
                 </Element>
             </Element>
         </Element>
-        
+
         <Element>
             <Term>cac:PartyTaxScheme</Term>
             <Name>PARTY VAT IDENTIFIER</Name>
-            
+
             <Element>
                 <Term>cbc:CompanyID</Term>
                 <Name>Seller tax representative VAT identifier</Name>
@@ -157,11 +157,11 @@
                 <Reference type="RULE">BR-IP-04</Reference>
                 <Value type="EXAMPLE">FR932874294</Value>
             </Element>
-            
+
             <Element>
                 <Term>cac:TaxScheme</Term>
                 <Name>TAX SCHEME</Name>
-                
+
                 <Element>
                     <Term>cbc:ID</Term>
                     <Description>Mandatory element. Use “VAT”</Description>
@@ -170,4 +170,3 @@
             </Element>
         </Element>
     </Element>
-    

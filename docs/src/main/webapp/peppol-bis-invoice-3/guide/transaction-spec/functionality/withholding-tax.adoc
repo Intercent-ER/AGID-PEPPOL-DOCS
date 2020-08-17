@@ -6,6 +6,9 @@ La sezione ritenuta d'acconto serve ad evidenziare: +
 * una trattenuta Irpef (per i redditi delle persone fisiche) o Ires (per le persone giuridiche: società) che viene effettuata sul totale imponibile della fattura inviata al Cliente da parte del Fornitore, che agisce come sostituto d'imposta;
 * una trattenuta previdenziale che viene effettuata sul totale imponibile della fattura inviata al Cliente da parte del Fornitore che si occuperà del successivo riversamento all'Ente previdenziale di riferimento.
 
+Entrambe le tipologie di ritenuta d'acconto possono essere contenute nella medesima fattura.
+
+
 [IMPORTANT]
 ====
 Paragrafo da completare

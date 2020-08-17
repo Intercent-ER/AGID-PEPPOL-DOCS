@@ -5,9 +5,10 @@ La scissione dei pagamenti o split payment è un regime particolare che stabilis
 
 Per supportare questo particolare caso si valorizza il *cac:TaxCategory/cbc:ID* (BT-118 VAT Category code) utilizzando il TaxCategory 'B' (Transferred VAT) secondo la codifica #UN/ECE 5305#.
 
+[lime-background]#Per evidenziare che il totale fattura non include l'IVA (a carico del committente), si deve utilizzare il *cbc:PrepaidAmount* indicando il valore delle tasse. Si evidenzia che il cbc:PrepaidAmount non è supportato in FatturaPA ma viene utilizzato solo per validare il calcolo del totale fattura.#
 
 .Esempio di Scissione dei pagamenti
-L'esempio riportato è relativo alla fattura emessa ad una autorità pubblica soggetta alla scissione pagamento.
+L'esempio riportato è relativo alla fattura emessa ad una PA soggetta alla scissione pagamento.
 
 [source, xml, indent=0]
 ----

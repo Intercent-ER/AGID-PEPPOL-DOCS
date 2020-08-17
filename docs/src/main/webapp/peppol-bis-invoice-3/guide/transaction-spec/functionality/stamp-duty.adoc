@@ -1,28 +1,31 @@
 
-= #Marca da Bollo (CIUS)#
+= #Imposta di Bollo (CIUS)#
 
-La gestione del bollo è operata a mezzo dell’utilizzo del *cac:AllowanceCharge*: +
+La gestione del bollo è operata come sconto o maggiorazione a livello di documento a mezzo dell’utilizzo del *cac:AllowanceCharge* (BG-21 Document level charge): +
 
-* nel caso di bollo su fattura, ponendo il *cbc:ChargeIndicator* = true;
-* nel caso di bollo su nota di credito, ponendo il *cbc:ChargeIndicator* = false.
+* nel caso di bollo su fattura, inserendo il *cbc:ChargeIndicator* = true;
+* nel caso di bollo su nota di credito, inserendo il *cbc:ChargeIndicator* = false.
 
 L'emittente fattura può decidere se:
 [loweralpha]
-. effettuare la rivalsa dell'imposta di bollo (B2B) indicando una maggiorazione di 2 euro a livello di testata nell'elemento *cac:AllowanceCharge/cbc:Amount*;
-. non effettuare la rivalsa (B2G) indicando una maggiorazione di 0 euro a livello di testata nell'elemento *cac:AllowanceCharge/cbc:Amount*.
+. effettuare la rivalsa dell'imposta di bollo indicando una maggiorazione di 2 euro a livello di testata nell'elemento *cac:AllowanceCharge/cbc:Amount* (FPA 2.1.1.6.2 ImportoBollo);
+. non effettuare la rivalsa indicando una maggiorazione di 0 euro a livello di testata nell'elemento *cac:AllowanceCharge/cbc:Amount* (FPA 2.1.1.6.2 ImportoBollo).
+
+Il *cac:TaxCategory/cbc:ID* (BT-95 Document level charge VAT category code) viene posto a Z (zero) per indicare che l’importo è escluso IVA ex art. 15 DPR n. 633 del 1972 (per ulteriori dettagli vedi paragrafo 7.3). +
+
+Il *cbc:AllowanceChargeReasonCode* (BT-105 Document level charge reason code) è valorizzato con SAE ed il *cbc:AllowanceChargeReason* (BT-104 Document level charge reason) è valorizzato con la stringa IT:BOLLO. +
 
 
 == Caso 1 - Bollo su fattura non addebitato al Cliente
 
 In questo caso si valorizza il *cbc:Amount* (BT-99 Document level charge amount) con il valore 0 così che il valore del bollo non influisca sul *cbc:TaxInclusiveAmount* (BT-112 Invoice total amount with VAT). +
 
-Il *cac:TaxCategory/cbc:ID* (BT-95 Document level charge VAT category code) viene posto a Z (zero) per indicare che l’importo è escluso IVA ex art. 15 DPR n. 633 del 1972 (per ulteriori dettagli vedi paragrafo 7.3). +
-
-Il *cbc:AllowanceChargeReasonCode* (BT-105 Document level charge reason code) è valorizzato con SAE ed il *cbc:AllowanceChargeReason* (BT-104 Document level charge reason) è valorizzato con la stringa IT:BOLLO. +
 
 .Esempio di fattura per prestazione esente del valore di 100 euro con bollo non addebitato al Cliente
 [source, xml, indent=0]
 ----
+<ubl:Invoice>
+...
 <cac:AllowanceCharge>
   <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
   <cbc:AllowanceChargeReasonCode>SAE</cbc:AllowanceChargeReasonCode>
@@ -64,13 +67,13 @@ Il *cbc:AllowanceChargeReasonCode* (BT-105 Document level charge reason code) è
 
 In questo caso si valorizza il *cbc:Amount* (BT-99 Document level charge amount) con il valore 2 così che il valore del bollo influisca sul *cbc:TaxInclusiveAmount* (BT-112 Invoice total amount with VAT). +
 
-Anche in questo caso il *cac:TaxCategory/cbc:ID* (BT-95 Document level charge VAT category code) viene posto a Z (zero) per indicare che l’importo è escluso IVA ex art. 15 DPR n. 633 del 1972. +
 
-Il *cbc:AllowanceChargeReasonCode* (BT-105 Document level charge reason code) è valorizzato con SAE ed il *cbc:AllowanceChargeReason* (BT-104 Document level charge reason) è valorizzato con la stringa IT:BOLLO. +
 
 .Esempio di fattura per prestazione esente del valore di 100 euro con bollo addebitato al Cliente
 [source, xml, indent=0]
 ----
+<ubl:Invoice>
+...
 <cac:AllowanceCharge>
   <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
   <cbc:AllowanceChargeReasonCode>SAE</cbc:AllowanceChargeReasonCode>
@@ -121,7 +124,7 @@ Il *cbc:AllowanceChargeReasonCode* (BT-105 Document level charge reason code) è
 
 == Caso 3 - Bollo su nota di credito addebitato al Cliente
 
-In questo caso si valorizza il *cbc:Amount* (BT-92 Document level allowance amount) con il valore 2 così che il valore del bollo influisca sul *cbc:TaxInclusiveAmount* (BT-112 Invoice total amount with VAT).
+Nel caso di bollo su nota di credito si valorizza il *cbc:ChargeIndicator* = false e il *cbc:Amount* (BT-92 Document level allowance amount) con il valore 2 così che il valore del bollo influisca sul *cbc:TaxInclusiveAmount* (BT-112 Invoice total amount with VAT).
 
 Anche in questo caso il *cac:TaxCategory/cbc:ID* (BT-95 Document level charge VAT category code) viene posto a Z (zero) per indicare che l’importo è escluso ex art. 15 DPR n. 633 del 1972. +
 
@@ -130,6 +133,8 @@ Il *cbc:AllowanceChargeReasonCode* (BT-98 Document level allowance reason code) 
 .Esempio di nota di credito di una prestazione esente del valore di 100 euro con bollo addebitato al Cliente
 [source, xml, indent=0]
 ----
+<ubl:CreditNote>
+...
 <cac:AllowanceCharge>
   <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
   <cbc:AllowanceChargeReasonCode>95</cbc:AllowanceChargeReasonCode>

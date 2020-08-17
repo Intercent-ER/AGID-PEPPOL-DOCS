@@ -1,6 +1,8 @@
 
 = VAT category codes
 
+[[anchor-1]]
+
 A subset of values from {UNCL5305} shall be used.
 
 include::../../syntax/codelists/vat-category.adoc[]

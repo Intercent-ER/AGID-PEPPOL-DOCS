@@ -1,13 +1,18 @@
 
 [[projectref]]
-= Riferimento al progetto
+= Riferimento al progetto (CUP)
 
-Il riferimento al progetto è opzionale e viene inviato nella fattura nell'elemento `cac:ProjectReference/cbc:ID`. In una nota di credito, questo elemento non esiste, il riferimento al progetto viene quindi inviato utilizzando l'elemento `cac:AdditionalDocumentReference[cbc:DocumentTypeCode='50']/cbc:ID`.
+Il riferimento al progetto è opzionale e viene inviato nella fattura nell'elemento `cac:ProjectReference/cbc:ID`. +
+
+#L'indicazione del Codice Unico di Progetto (CUP) è obbligatoria nei contesti in cui questo è richiesto, ed è necessario al fine dei processi di verifica, riconciliazione e approvazione al pagamento delle fatture.# +
+
+
+In una nota di credito, questo elemento non esiste, il riferimento al progetto viene quindi inviato utilizzando l'elemento `cac:AdditionalDocumentReference[cbc:DocumentTypeCode='50']/cbc:ID`.
 
 NOTE: Quando si invia il riferimento al progetto, solo il `cbc:ID` e il `cbc:DocumentTypeCode` sono permessi all'interno dell'elemento `cac:AdditionalDocumentReference`.
 
 
-.Esempio UBL example per il riferimento al progetto in una fattura
+.Esempio UBL example per il riferimento al progetto (CUP) in una fattura
 [source, xml, indent=0]
 ----
 include::../{snippet-dir}/Snippet-refs.xml[tags=project]
@@ -15,7 +20,7 @@ include::../{snippet-dir}/Snippet-refs.xml[tags=project]
 
 
 
-.Esempio UBL per il riferimento al progetto in una nota di credito
+.Esempio UBL per il riferimento al progetto (CUP) in una nota di credito
 [source, xml, indent=0]
 ----
 include::../{snippet-dir}/CreditNote-snippets.xml[tags=project ]

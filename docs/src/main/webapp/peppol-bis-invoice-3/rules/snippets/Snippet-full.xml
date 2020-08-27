@@ -19,13 +19,13 @@
     <!--2-->
     <!-- end::vat-curr1[] -->
     <cbc:AccountingCost>4025:123:4343</cbc:AccountingCost>
-    <cbc:BuyerReference>0150abc</cbc:BuyerReference>
+    <cbc:BuyerReference>110#2018-01-30#aaaaaa</cbc:BuyerReference>
     <cac:InvoicePeriod>
         <cbc:StartDate>2017-11-01</cbc:StartDate>
         <cbc:EndDate>2017-12-31</cbc:EndDate>
     </cac:InvoicePeriod>
     <cac:OrderReference>
-        <cbc:ID>o-998877</cbc:ID>
+        <cbc:ID>CE20-HF1-4001</cbc:ID>
         <cbc:SalesOrderID>so-12343</cbc:SalesOrderID>
     </cac:OrderReference>
     <cac:DespatchDocumentReference>
@@ -147,7 +147,7 @@
             </cac:PartyTaxScheme>
             <cac:PartyLegalEntity>
                 <cbc:RegistrationName>Cliente S.p.A.</cbc:RegistrationName>
-                <!--cbc:CompanyID schemeID="0183">39937423947</cbc:CompanyID-->
+                <cbc:CompanyID>CF:39937423947</cbc:CompanyID>
                 <!--4-->
             </cac:PartyLegalEntity>
             <cac:Contact>
@@ -168,10 +168,10 @@
         <cac:PartyName>
             <cbc:Name>Beneficiario e F.lli S.a.s</cbc:Name>
         </cac:PartyName>
-        <cac:PartyLegalEntity>
-            <!--cbc:CompanyID schemeID="0192">IT07663520567</cbc:CompanyID-->
+        <!-- <cac:PartyLegalEntity> -->
+            <!--cbc:CompanyID schemeID="0192">NO07663520567</cbc:CompanyID-->
             <!--2-->
-        </cac:PartyLegalEntity>
+        <!-- </cac:PartyLegalEntity> -->
     </cac:PayeeParty>
     <!-- end::payee[] -->
     <!-- tag::taxrep[] -->
@@ -205,14 +205,14 @@
     <cac:Delivery>
         <cbc:ActualDeliveryDate>2017-11-01</cbc:ActualDeliveryDate>
         <cac:DeliveryLocation>
-            <cbc:ID schemeID="0201">ABCDEF</cbc:ID>
+            <cbc:ID>01598570354-MCR-FEA</cbc:ID>
             <cac:Address>
                 <cbc:StreetName>Viale Viali,2 - PAD.01</cbc:StreetName>
                 <cbc:AdditionalStreetName>CENTRO LOG</cbc:AdditionalStreetName>
                 <cbc:CityName>Bologna</cbc:CityName>
                 <cbc:PostalZone>40100</cbc:PostalZone>
                 <cac:AddressLine>
-                    <cbc:Line>C38</cbc:Line>
+                    <cbc:Line>MCR-FEA</cbc:Line>
                 </cac:AddressLine>
                 <cac:Country>
                     <cbc:IdentificationCode>IT</cbc:IdentificationCode>

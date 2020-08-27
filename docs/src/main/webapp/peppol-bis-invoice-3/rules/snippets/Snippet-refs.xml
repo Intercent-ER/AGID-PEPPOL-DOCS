@@ -14,7 +14,7 @@
     <cbc:DocumentCurrencyCode>EUR</cbc:DocumentCurrencyCode>
     <cbc:AccountingCost>4025:123:4343</cbc:AccountingCost>
     <!-- tag::buyer-ref[] -->
-    <cbc:BuyerReference>0150abc</cbc:BuyerReference>
+    <cbc:BuyerReference>110#2018-01-30#aaaaaa</cbc:BuyerReference>
     <!-- end::buyer-ref[] -->
     <cac:InvoicePeriod>
         <cbc:StartDate>2017-11-01</cbc:StartDate>
@@ -22,21 +22,21 @@
     </cac:InvoicePeriod>
     <!-- tag::order-ref[] -->
     <cac:OrderReference>
-        <cbc:ID>o-998877</cbc:ID><!--1-->       
-        <cbc:SalesOrderID>so-12343</cbc:SalesOrderID><!--2-->      
+        <cbc:ID>CE20-HF1-4001</cbc:ID><!--1-->
+        <cbc:SalesOrderID>so-12343</cbc:SalesOrderID><!--2-->
     </cac:OrderReference>
     <!-- end::order-ref[] -->
     <!-- tag::desp-rec[] -->
     <cac:DespatchDocumentReference>
         <cbc:ID>despadv-3</cbc:ID><!--1-->
     </cac:DespatchDocumentReference>
-    <cac:ReceiptDocumentReference>     
+    <cac:ReceiptDocumentReference>
         <cbc:ID>resadv-1</cbc:ID><!--2-->
     </cac:ReceiptDocumentReference>
     <!-- end::desp-rec[] -->
     <!-- tag::tender[] -->
     <cac:OriginatorDocumentReference>
-        <cbc:ID>ppid-123</cbc:ID>
+        <cbc:ID>1Z1A3EE456</cbc:ID>
     </cac:OriginatorDocumentReference>
     <!-- end::tender[] -->
     <!-- tag::contract[] -->
@@ -46,8 +46,8 @@
     <!-- end::contract[] -->
     <!-- tag::object[] -->
     <cac:AdditionalDocumentReference>
-        <cbc:ID schemeID="ABT">DR35141</cbc:ID><!--1-->   
-        <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode><!--2-->      
+        <cbc:ID schemeID="ABT">DR35141</cbc:ID><!--1-->
+        <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode><!--2-->
     </cac:AdditionalDocumentReference>
     <!-- end::object[] -->
     <cac:AdditionalDocumentReference>
@@ -61,7 +61,7 @@
     </cac:AdditionalDocumentReference>
     <!-- tag::project[] -->
     <cac:ProjectReference>
-        <cbc:ID>project333</cbc:ID>
+        <cbc:ID>J31E01000010004</cbc:ID>
     </cac:ProjectReference>
     <!-- end::project[] -->
     <cac:AccountingSupplierParty>

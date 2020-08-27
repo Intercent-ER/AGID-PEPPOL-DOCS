@@ -136,7 +136,7 @@
 
                 <Element cardinality="0..1">
                     <Term>cbc:Percent</Term>
-                    <Name>VAT category rate - FPA 2.2.1 'AliquotaIVA'</Name>
+                    <Name>VAT category rate - FPA 2.2.2.1 'AliquotaIVA'</Name>
                     <Description>The VAT rate, represented as percentage that applies for the relevant VAT category.</Description>
                     <DataType>Percentage</DataType>
                     <Reference type="BUSINESS_TERM">BT-119</Reference>

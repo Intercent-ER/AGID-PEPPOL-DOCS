@@ -3,7 +3,7 @@
 
 [[anchor-2]]
 
-Un Riepilogo IVA deve essere fornito per ogni combinazione distinta di codice categoria e aliquota IVA trovate sia nelle informazioni IVA di riga che a livello di testata negli sconti/maggiorazioni.
+Un riepilogo IVA deve essere fornito per ogni combinazione distinta di codice categoria e aliquota IVA trovate sia nelle informazioni IVA di riga che a livello di testata negli sconti/maggiorazioni.
 
 Per ogni combinazione distinta i calcoli sono:
 ====
@@ -15,6 +15,6 @@ stem:[+ "Document level charge amount (BT-99)" - "Document level allowance amoun
 stem:["VAT category tax amount (BT-117)" = "VAT category taxable amount (BT-116)" times ("VAT rate (BT-119)" div 100)]
 ====
 
-IMPORTANT: Per il Riepilogo IVA dove la categoria IVA è "Non soggetta" (O), l'importo IVA delle categoria deve essere posta a zero.
+IMPORTANT: Per il riepilogo IVA dove la categoria IVA è "Non soggetta" (O), l'importo IVA delle categoria deve essere posta a zero.
 
 include::../../syntax/vat-calc.adoc[]

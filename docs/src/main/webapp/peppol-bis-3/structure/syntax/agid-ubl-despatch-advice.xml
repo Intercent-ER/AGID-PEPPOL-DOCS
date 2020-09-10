@@ -66,11 +66,12 @@
             <Term>cac:OrderReference</Term>
             <Name>Order reference - Riferimento all'Ordine</Name>
       			<Element agid:custom="rule">
-      				<Term>cbc:ID</Term>
-      				<Name>Order document reference - Riferimento all'ordine di riferimento </Name>
-      				<Description>Contiene gli estremi dell’Ordine, precedentemente emesso, a cui fa riferimento la Risposta e il suo nuovo stato (c.d. Tripletta).</Description>
+      				  <Term>cbc:ID</Term>
+      				  <Name>Order document reference - Riferimento all'ordine di riferimento </Name>
+      			    <Description>Contiene gli estremi dell’Ordine precedentemente emesso (c.d. Tripletta).</Description>
                 <DataType>Identifier</DataType>
                 <Reference type="BUSINESS_TERM">tir16-006</Reference>
+                <Value type="EXAMPLE">4321#2013-01-30#ABCDEF</Value>
             </Element>
             <Element cardinality="0..1" agid:custom="extension">
                 <Term>cbc:CustomerReference</Term>
@@ -1052,7 +1053,7 @@
                 <Description>Riporta informazioni in testo libero (non strutturate) che, perciò, non sono elaborabili con sistemi automatizzati.</Description>
                 <Reference type="BUSINESS_TERM">tir16-047</Reference>
             </Element>
-            <Element cardinality="0..1">
+            <Element cardinality="1..1">
                 <Term>cbc:DeliveredQuantity</Term>
                 <Name>Delivererd quantity - Quantità consegnata</Name>
                 <Description>Indica la quantità consegnata nella riga.</Description>
@@ -1109,6 +1110,7 @@
                         <Description>Identifica l'ordine al quale la riga d'ordine si riferisce. Contiene gli estremi dell'ordine (c.d. Tripletta).</Description>
                         <Reference type="BUSINESS_TERM">tir16-p010</Reference>
                         <Reference type="RULE">PEPPOL-T16-R002</Reference>
+                        <Value type="EXAMPLE">4321#2013-01-30#ABCDEF</Value>
                     </Element>
                 </Element>
             </Element>
@@ -1391,7 +1393,7 @@
                             <Reference type="CODE_LIST">UNCL6313-T16</Reference>
                             <Value type="EXAMPLE">Consigliata</Value>
                         </Element>
-                        <Element cardinality="0..1">
+                        <Element cardinality="1..1">
                             <Term>cbc:Measure</Term>
                             <Name>Temperatura</Name>
                             <Description>Comunemente la temperatura viene espressa in gradi Celsius “CEL” o Fahrenheit “FAH”.</Description>
@@ -1415,7 +1417,7 @@
                             <Description>Qualificatore temperatura.</Description>
                             <Reference type="CODE_LIST">UNCL6313-T16</Reference>
                         </Element>
-                        <Element cardinality="0..1">
+                        <Element cardinality="1..1">
                             <Term>cbc:Measure</Term>
                             <Name>Temperatura</Name>
                             <Description>Comunemente la temperatura viene espressa in gradi Celsius “CEL” o Fahrenheit “FAH”.</Description>
@@ -1439,7 +1441,7 @@
                             <Description>Qualificatore temperatura</Description>
                             <Reference type="CODE_LIST">UNCL6313-T16</Reference>
                         </Element>
-                        <Element cardinality="0..1">
+                        <Element cardinality="1..1">
                             <Term>cbc:Measure</Term>
                             <Name>Temperatura</Name>
                             <Description>Comunemente la temperatura viene espressa in gradi Celsius “CEL” o Fahrenheit “FAH”.</Description>

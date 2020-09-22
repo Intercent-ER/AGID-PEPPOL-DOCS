@@ -7,7 +7,7 @@
 | Cosa è cambiato
 
 | 3.1.0.3(IT)
-| 04/06/2020
+a| 04/06/2020
 a| _Aggiornamento alle http://www.rgs.mef.gov.it/_Documenti/VERSIONE-I/e-GOVERNME1/apir/NSO-Regole-tecniche-IT.pdf[Regole Tecniche NSO v. 4.5]_. +
 
 Di seguito una lista dei principali cambiamenti:
@@ -26,7 +26,7 @@ Di seguito una lista dei principali cambiamenti:
 
 
 | 3.1.0.2(IT)
-| 13/05/2020
+a| 13/05/2020
 a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3.0.4]_.
 
 [red]#*Cambiamenti alla specifica (Documentazione)*#
@@ -59,6 +59,6 @@ mlr/snippet-3.xml per renderlo conforme alla sintassi mlr.
 * Le descrizioni e alcuni nomi o codici della UNCL7143 sono state corrette in linea con la code list ufficiale, versione d19a. 
 
 | 3.1.0.1(IT)
-| 24/02/2020
-a| _Codifiche ufficiali mappate su requisiti e significati italiani._
+a| 24/02/2020
+a| Codifiche ufficiali mappate su requisiti e significati italiani.
 |===

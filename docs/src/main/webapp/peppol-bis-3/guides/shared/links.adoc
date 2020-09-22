@@ -3,7 +3,7 @@
 :author: OpenPEPPOL AISBL, Post-Award Coordinating Community
 :version: 3.0.4
 :ord_version_it: 3.1.0.3(IT)
-:ddt_version_it: 3.1.0.1(IT)
+:ddt_version_it: 3.1.0.2(IT)
 //PEPPOL
 :peppol: https://peppol.eu/?rel=undefined[PEPPOL]
 :common: https://joinup.ec.europa.eu/svn/peppol/PEPPOL%20BIS%20Common%20text%20and%20introduction%20-%20ver%201%202014-04-14.pdf[PEPPOL BIS common text and introduction]

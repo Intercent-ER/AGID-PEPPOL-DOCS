@@ -8,17 +8,61 @@
 
 | 3.1.0.3(IT)
 | 04/06/2020
-| Aggiornamento alle regole tecniche NSO v. 4.5.
+a| _Aggiornamento alle http://www.rgs.mef.gov.it/_Documenti/VERSIONE-I/e-GOVERNME1/apir/NSO-Regole-tecniche-IT.pdf[Regole Tecniche NSO v. 4.5]_. +
+
+Di seguito una lista dei principali cambiamenti:
+
+* Aggiunte istruzioni per l’Ordinazione e la fatturazione di farmaci e dispositivi medici (Paragrafi NSO 3.3.7 e 8.1).
+* Aggiunto il sotto-tipo “Ordinazione di noleggio” (Paragrafo NSO 3.3.3.5).
+* Aggiunto l’elemento AccountingCost tra i campi strutturati (Paragrafi NSO 3.2.1.3 e 3.3.3.12).
+* Aggiunte istruzioni relative ad alcuni adempimenti a carico dei Fornitori (Paragrafo NSO 3.3.6.3).
+* Aggiunte alcune precisazioni sull’uso dell’Ordine di convalida (Paragrafi NSO 2.3.3.3 e 2.3.4.2).
+* Aggiunte alcune precisazioni sull’uso delle unità di misura (Paragrafi NSO 3.3.3.9 e 3.3.6.2).
+* Aggiunte alcune precisazioni sulle informazioni di natura fiscale (Paragrafi NSO 3.3.3.11 e 3.3.6.2).
+* Aggiunte alcune precisazioni sulle classificazioni contabili (Paragrafo NSO 3.3.3.12).
+* Aggiunte alcune precisazioni sull’efficacia della catena dei Documenti (Paragrafo NSO 8.2).
+* Apportate alcune modifiche per adattare il presente testo alla Spring Release (Version 3.0.4) dello standard PEPPOL.
+* Apportate altre piccole integrazioni e correzioni di errori.
+
 
 | 3.1.0.2(IT)
 | 13/05/2020
-| Aggiornamento alle specifiche PEPPOL BIS 3.0.4.
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3.0.4]_.
+
+[red]#*Cambiamenti alla specifica (Documentazione)*#
+
+* La specifica del profilo Ordine è stata generalizzata in modo da poter usare il termine TAX invece di VAT, permettendo quindi di usare altre tasse simili come ad esempio GST (Global Service Tax).
+** Il testo nelle guidelines è stato generalizzato da VAT a GST;
+** Gli elementi con nome e descrizione contententi VAT sono stati generalizzati con il termine TAX;
+** Le regole che prevedevano unicamente  VAT come "Tax type ID" sono state rimosse per permettere l'utilizzo del codice GST. Il Tax type ID VAT adesso è utilizzato come esempio;
+** Aggiunta di un nuovo codice valido come TaxScheme Identifiers. Ora può essere valorizzato come VAT o GST.
+* Aggiornamento del link “Peppol Identifiers” di tutti i profili Peppol presenti al seguente link https://docs.peppol.eu/poacc/upgrade-3/, in modo da riflettere la nuova versione della “Policy for use of identifiers”.
+
+[red]#*Cambiamenti alla sintassi*# +
+
+* Aggiunto il cac:Package con elementi cbc:ID e cbc:PackageTypeCode per supportare l'identificazione del packaging all'interno di un'unità logistica di trasporto.
+* La sequenza di Item Description (tir01-133) e Item Name (tir01-135) è stata corretta così che Description viene ora prima di Name. Questo è in linea con le specifiche di sintassi UBL 2.1.
+* Aggiunto l'elemento @name al cbc:ItemClassificationCode.
+
+[red]#*Cambiamenti ai documenti di supporto*#
+
+* Aggiornati i test files con numeri GLN validi in modo da passare il processo di validazione, in accordo alle regole di validazione aggiornate per il GLN, introdotte con la versione 3.0.3.
+
+[red]#*Cambiamenti alle code lists e ai tool di validazione*#
+
+* Aggiunto il codice paese 1A per il Kosovo all'interno della ISO 3166 per tutte le specifiche BIS.
+* Aggiornamento del test file poacc-upgrade-3\\rules\\snippets
+mlr/snippet-3.xml per renderlo conforme alla sintassi mlr.
+* Modificate le regole PEPPOL-T19-R011 e PEPPOL-T19-R016 per permettere la ripetizione del cac:RequiredItemLocationQuantity.
+* Cambiato il carattere (codice) per le citazioni (“) poichè era in conflitto con alcune implementazioni. Il cambiamento è stato fatto nelle "Rules for transactions" numero T16, T19 and T110.
+* La validazione del cbc:CustomizationID in tutte le BIS è stata cambiata da "l'elemento deve contenere esattamente l'identificatore  della transazione rilevante" a "l'elemento deve iniziare con il valore dell'identificativo della ttransazione rilevante".
+* Le descrizioni e alcuni nomi o codici della UNCL7143 sono state corrette in linea con la code list ufficiale, versione d19a. 
 
 | 3.1.0.1(IT)
 | 24/02/2020
-| Codifiche ufficiali mappate su requisiti e significati italiani.
+a| _Codifiche ufficiali mappate su requisiti e significati italiani_
 
 | 3.1.0.1.beta01(IT)
 | 21/02/2020
-| Regole di Business aggiornate con versione PEPPOL 3.1
+a| _Regole di Business aggiornate con versione PEPPOL 3.1_
 |===

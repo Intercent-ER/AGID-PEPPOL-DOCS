@@ -13,11 +13,11 @@ I seguenti elementi mostrano gli importi totali presenti nell’ordine:
 | stem:[sum("cac:OrderLine/cac:LineItem/cbc:LineExtensionAmount")]
 
 | <cbc:AllowanceTotalAmount>
-|Sconti/Abbuoni a livello di testata
+|Maggiorazioni a livello di testata
 | stem:[sum("cac:AllowanceCharge[ChargeIndicator='true'$$]$$/cbc:Amount")]
 
 | <cbc:ChargeTotalAmount>
-|Maggiorazioni a livello di testata
+|Sconti/Abbuoni a livello di testata
 | stem:[sum("cac:AllowanceCharge[ChargeIndicator='false'$$]$$/cbc:Amount")]
 
 | <cbc:TaxExclusiveAmount>

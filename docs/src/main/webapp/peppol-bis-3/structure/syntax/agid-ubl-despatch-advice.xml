@@ -815,7 +815,7 @@
                                 <Reference type="CODE_LIST">ICD</Reference>
                                 <Value type="EXAMPLE">0184</Value>
                             </Attribute>
-                            <Value type="EXAMPLE">IT:VAT:IT01245267890</Value>
+                            <Value type="EXAMPLE">PIVA:IT01245267890</Value>
                         </Element>
                     </Element>
                     <Element agid:custom="cardinality">

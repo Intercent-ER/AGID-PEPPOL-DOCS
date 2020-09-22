@@ -17,6 +17,9 @@ Esempio:
 include::{snippet-dir}/snippet-30-1.xml[tags=despatchsupplier]
 ----
 
+<1> la Partita IVA viene specificata con il prefisso PIVA: e senza l'attributo @schemeID in quanto al momento la codifica ICD non include il codice per le partite IVA italiane
+
+
 [[consignee-deliverycustomerparty]]
 == Consegnatario - Destinatario (DeliveryCustomerParty)
 
@@ -29,6 +32,9 @@ Esempio:
 ----
 include::{snippet-dir}/snippet-30-1.xml[tags=deliverycustomer]
 ----
+
+<1> il Codice Fiscale viene specificato con il prefisso CF: e senza l'attributo @schemeID in quanto al momento la codifica ICD non include il codice per i codici fiscali italiani
+
 
 [[buyer-buyercustomerparty]]
 == Acquirente (BuyerCustomerParty)
@@ -81,4 +87,3 @@ Esempio:
 ----
 include::{snippet-dir}/snippet-30-1.xml[tags=carrier]
 ----
-<1> la Partita IVA del Vettore viene specificata con il prefisso PIVA: e senza l'attributo @schemeID in quanto la codifica ICD non include gli identificativi fiscali

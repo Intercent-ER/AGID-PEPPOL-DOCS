@@ -11,7 +11,7 @@
 |R6
 |informazioni per tracciare un unico ordine di acquisto collegato a livello di riga
 |R7
-|informazioni [lime-background]#to trace to a single contract and the underlying call for tenders from the document level#
+|informazioni per tracciare il riferimento al contratto e il bando di gara a livello di documento
 |R8
 |un riferimento fornito dal Cliente a livello di documento
 |R9
@@ -27,11 +27,11 @@
 |R15
 |informazioni descrittive e codificate riguardo sconti e maggiorazioni a livello di documento e riga di fattura
 |R16
-|informazioni riguardo le maggiorazioni, tasse (non-IVA), dazi e prelievi, con le informazioni IVA, che non sono incluse nell'ammontare delle righe a livello di documento
+|informazioni su addebiti, tasse (non-IVA), dazi e prelievi, con le informazioni IVA, che non sono incluse nell'ammontare delle righe a livello di documento
 |R17
-|informazioni riguardo le maggiorazioni, tasse (non-IVA), dazi e prelievi che compongono l'imponibile IVA e che incluse nel prezzo netto [lime-background]#at separate invoice lines, with a proper identification and/or description#
+|informazioni su addebiti, tasse (non-IVA), dazi e prelievi che compongono la base imponibile e non sono incluse nel prezzo unitario in righe di fattura separate, con un appropriato identificativo e/o descrizione
 |R18
-|informazioni riguardo le maggiorazioni a livello di riga come parte dell'ammontare della riga
+|informazioni su addebiti a livello di riga come parte dell'ammontare della riga
 |R19
 |ammontare di sconti e maggiorazioni a livelli di documento o di riga della fattura
 |R20
@@ -45,7 +45,7 @@
 |R24
 |identificazione dei beni e servizi fatturati mediante un identitificativo di classificazione applicabile e schema di riferimento a livello di riga come convenuto da Cliente e Fornitore 
 |R25
-|informazioni relative a resi e beni o imballaggi a credito come i pallets, [lime-background]#package charges, stated as normal invoice lines#
+|informazioni relative a resi e beni o imballaggi a credito come i pallets, maggiorazioni per imballaggio, dichiarate normalmente a livello di riga
 |R26
 |informazioni riguardo a maggiorazioni su beni restituibili, dichiarati come normale riga di fattura
 |R27

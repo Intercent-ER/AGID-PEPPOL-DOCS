@@ -6,7 +6,7 @@ include::{snippet-dir}/item.xml[tags=item]
 ----
 <1> 0160 è il valore ICD per l'identificatore GTIN
 
-#In coerenza con quanto previsto per l’ordine, la gestione dell’AICFarmaco è operata a mezzo del *cac:SellersItemIdentification/cbc:ID* (BT-155 Item Seller's Identifier) in cui viene inserito il codice AICFarmaco stesso preceduto dalla stringa “AICFarmaco:”.#
+#In coerenza con quanto previsto per l’ordine, la gestione dell’AICFarmaco è operata a mezzo del *cac:SellersItemIdentification/cbc:ID* (BT-155 Item Seller's Identifier) in cui viene inserito il codice AICFarmaco stesso preceduto dalla stringa “AICFARMACO:”.#
 
 .Esempio UBL di identificatore AIC per i farmaci
 [source, xml, indent=0]

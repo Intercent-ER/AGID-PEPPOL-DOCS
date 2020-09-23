@@ -26,6 +26,10 @@ include::../../syntax/card-payment.adoc[]
 
 == Addebito diretto
 
+[important]
+Valutare se gestire per PagoPA
+
+
 Vedi <<payment-means>> per tutti i codici ammessi. Esempi di codici per l'addebito diretto sono:
 
 * 49 - Addebito diretto
@@ -42,7 +46,7 @@ Vedi <<payment-means>> per tutti i codici ammessi. Esempi di codici per il posta
 
 include::../../syntax/giro.adoc[]
 
-== Pagamento mediante contante
+== #Pagamento mediante contante#
 
 Vedi <<payment-means>> per tutti i codici ammessi. Esempio di codice per il pagamento in contante:
 
@@ -50,7 +54,7 @@ Vedi <<payment-means>> per tutti i codici ammessi. Esempio di codice per il paga
 
 include::../../syntax/cash-payment.adoc[]
 
-== Pagamento non specificato
+//== Pagamento non specificato
 
 Se il venditore non dà indicazioni su come regolarizzare il pagamento della fattura, esiste solitamente un contratto che lo regola.
 

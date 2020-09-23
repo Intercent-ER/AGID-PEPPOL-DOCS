@@ -58,11 +58,11 @@
                     <cbc:ID>VAT</cbc:ID>
                 </cac:TaxScheme>
             </cac:PartyTaxScheme>
-          
+
             <cac:PartyLegalEntity>
                 <cbc:RegistrationName>SupplierOfficialName Ltd</cbc:RegistrationName>
                 <cbc:CompanyID>GB983294</cbc:CompanyID>
-                <cbc:CompanyLegalForm>AdditionalLegalInformation</cbc:CompanyLegalForm>   
+                <cbc:CompanyLegalForm>AdditionalLegalInformation</cbc:CompanyLegalForm>
             </cac:PartyLegalEntity>
 
         </cac:Party>
@@ -83,7 +83,7 @@
                 <cbc:CityName>Stockholm</cbc:CityName>
                 <cbc:PostalZone>456 34</cbc:PostalZone>
                 <cbc:CountrySubentity>Södermalm</cbc:CountrySubentity>
-  
+
                 <cac:Country>
                     <cbc:IdentificationCode>SE</cbc:IdentificationCode>
                 </cac:Country>
@@ -234,7 +234,7 @@
         </cac:AllowanceCharge>
         <!-- tag::item[] -->
         <cac:Item>
-            
+
             <!-- Codice omesso per chiarezza -->
             <!-- end::item[] -->
             <cbc:Description>XANAX MG.0,50 CPR</cbc:Description>
@@ -249,17 +249,15 @@
             <cac:StandardItemIdentification>
                 <cbc:ID schemeID="0160">97iugug876</cbc:ID> <!--1-->
             </cac:StandardItemIdentification>
-            
+
             <!-- Codice omesso per chiarezza -->
             <!-- end::item[] -->
            <cac:OriginCountry>
                 <cbc:IdentificationCode>NO</cbc:IdentificationCode>
             </cac:OriginCountry>
-            <!-- tag::cpv[] -->
             <cac:CommodityClassification>
-                <cbc:ItemClassificationCode listID="STI">09348023</cbc:ItemClassificationCode><!--1-->
+                <cbc:ItemClassificationCode listID="STI">50421000-2</cbc:ItemClassificationCode><!--1-->
             </cac:CommodityClassification>
-            <!-- end::cpv[] -->
             <cac:ClassifiedTaxCategory>
                 <cbc:ID>S</cbc:ID>
                 <cbc:Percent>25.0</cbc:Percent>
@@ -267,7 +265,7 @@
                     <cbc:ID>VAT</cbc:ID>
                 </cac:TaxScheme>
             </cac:ClassifiedTaxCategory>
-     
+
         </cac:Item>
 
         <cac:Price>
@@ -356,7 +354,7 @@
             <cbc:AllowanceChargeReason>Discount</cbc:AllowanceChargeReason>
             <cbc:Amount currencyID="EUR">101</cbc:Amount>
         </cac:AllowanceCharge>
- 
+
         <cac:Item>
             <cbc:Description>Description of item</cbc:Description>
             <cbc:Name>item name</cbc:Name>
@@ -384,7 +382,7 @@
             <cbc:PriceAmount currencyID="EUR">100</cbc:PriceAmount>
         </cac:Price>
 
-    </cac:InvoiceLine>    
+    </cac:InvoiceLine>
     <cac:InvoiceLine>
         <cbc:ID>4</cbc:ID>
         <cbc:Note>Testing note on line level</cbc:Note>
@@ -450,7 +448,7 @@
             <cbc:Amount currencyID="EUR">101</cbc:Amount>
         </cac:AllowanceCharge>
         <cac:Item>
-            
+
             <!-- Codice omesso per chiarezza -->
             <cbc:Description>XANAX MG.0,50 CPR</cbc:Description>
             <cbc:Name>XANAX MG.0,50</cbc:Name>
@@ -465,14 +463,14 @@
             <cac:StandardItemIdentification>
                 <cbc:ID schemeID="0160">97iugug876</cbc:ID>
             </cac:StandardItemIdentification>
-            
+
             <!-- Codice omesso per chiarezza -->
            <cac:OriginCountry>
                 <cbc:IdentificationCode>NO</cbc:IdentificationCode>
             </cac:OriginCountry>
             <!-- tag::cpv[] -->
             <cac:CommodityClassification>
-                <cbc:ItemClassificationCode listID="STI">09348023</cbc:ItemClassificationCode><!--1-->
+                <cbc:ItemClassificationCode listID="STI">50421000-2</cbc:ItemClassificationCode><!--1-->
             </cac:CommodityClassification>
             <!-- end::cpv[] -->
             <cac:ClassifiedTaxCategory>
@@ -482,7 +480,7 @@
                     <cbc:ID>VAT</cbc:ID>
                 </cac:TaxScheme>
             </cac:ClassifiedTaxCategory>
-     
+
         </cac:Item>
 
         <cac:Price>
@@ -498,5 +496,3 @@
     </cac:InvoiceLine>
 
 </Invoice>
-
-

@@ -19,8 +19,8 @@ a|informazioni a supporto dei seguenti casi d'uso sull'IVA:
 *	Fatture verso Fornitori ai quali l'IVA è addebbitata sulla base di un motivo di esenzione; 
 *	Fatture verso Fornitori per i quali beni e servizi l'IVA è esente a livello di riga; 
 *	Fatture verso Fornitori in regime di reverse charge;
-*	[lime-background]#Invoices for exempt intra-community supplies for which an intra-community acquisition shall be done;#
-* [lime-background]#Invoices for supplies outside the scope of the {VAT-dir} (non-VAT invoices).#
+*	Fatture per forniture intra-comunitarie esenti, per le quali l’acquisizione deve essere fatta in modo intra-comunitario;
+* Fatture al di fuori del campo di applicazione della  {VAT-dir} (Fatture fuori campo IVA).
 
 |R49
 |il totale IVA a livello di documento

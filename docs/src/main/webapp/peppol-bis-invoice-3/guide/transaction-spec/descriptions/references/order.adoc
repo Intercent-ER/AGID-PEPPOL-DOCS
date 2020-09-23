@@ -4,7 +4,32 @@
 
 L'ordine di acquisto è **facoltativo**. Se esiste un riferimento all'ordine bisogna utilizzarlo, altrimenti utilizzare il riferimento dell'acquirente (vedi <<buyerref>>).
 
-Il cliente emetterà un ordine con un identificativo di ordine univoco. Questo identificativo di ordine di acquisto univoco deve essere fornito come ordine di riferimento nella fattura.
+Il cliente deve emettere un ordine caratterizzato da un identificativo univoco che deve essere fornito come ordine di riferimento nella fattura. +
+
+#Se la fattura viene messa nell'ambito di un processo di Ordinazione Semplice o Ordinazione Completa rilevante ai fini del sistema NSO, occorre riportare il riferimento all'ordine nel seguente modo:#
+
+1. #Nel *cac:OrderReference/cbc:ID*  (BT-13 Purchase order reference) riportare il solo identificativo dell’ordine, come nel seguente esempio:#
+
+[source, xml, indent=0]
+----
+<cac:OrderReference>
+    <cbc:ID>110</cbc:ID>
+</cac:OrderReference>
+----
+
+2. #Nel *cbc:BuyerReference* (BT-10 Buyer reference) riportare la Tripletta di identificazione completa separando i componenti (Id, data e Endpoint) con il carattere &#x0023; senza interposizione di spazi, come nel seguente esempio:#
+
+[source, xml, indent=0]
+----
+<cbc:BuyerReference>110#2018-01-30#aaaaaa</cbc:BuyerReference>
+----
+
+#Si evidenzia che, ove la fattura non sia stata emessa a fronte di un processo di Ordinazione elettronica e, perciò, non è legata ad alcun Ordine o Ordine pre-concordato rilevante per il sistema NSO:#
+
+a.	#se la fornitura non promana da alcun processo di ordinazione (elettronico o tradizionale), è sufficiente non compilare i campi sopra menzionati;#
+
+b. #se la fornitura promana da un processo di ordinazione tradizionale (ad esempio, via lettera, fax, ecc.), ovvero non gestito tramite NSO, per dare maggior evidenza a tale circostanza si può indicare l’identificativo dell’ordine emesso nelle forme tradizionali nei campi di cui al precedente punto e valorizzare i campi di cui al precedente punto con il testo "&#x0023;NO&#x0023;".#
+
 
 Se il riferimento dell'ordine è indicato a livello di testata, è possibile utilizzare l'elemento di riferimento all'ordine a livello di riga per specificare i numeri di riga dell'ordine.
 

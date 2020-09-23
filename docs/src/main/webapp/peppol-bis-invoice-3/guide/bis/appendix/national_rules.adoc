@@ -3,7 +3,7 @@
 = Regole Nazionali
 
 Le seguenti regole sono state definite dalle Autorità PEPPOL in aggiunta alle regole {peppol} BIS in generale.
-Queste regole sono applicate in base al paese di origine del venditore, e non saranno influenzate le fattyre emesse in altri paesi. Queste si applicano a *tutti* i profili che utilizzano la specifica di questa transazione.
+Queste regole sono applicate in base al paese di origine del venditore, e non saranno influenzate le fatture emesse in altri paesi. Queste si applicano a *tutti* i profili che utilizzano la specifica di questa transazione.
 
 Le regole nazionali sono fornite dalle Autorità PEPPOL di ogni paese, e se sono necessarie modifiche o aggiunte a queste regole, pregasi contattare la vostra Autorità PEPPOL.
 

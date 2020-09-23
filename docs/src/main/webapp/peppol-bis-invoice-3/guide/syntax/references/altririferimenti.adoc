@@ -1,0 +1,55 @@
+[[altri-riferimenti]]
+= #Altri riferimenti#
+
+
+I tipi di documento ”CommessaConvenzione”, ”CIG” e ”CUP” possono essere utilizzati in riferimento all’Ordine o al Contratto (in mancanza del primo). +
+
+Per riferirsi precisamente al Contratto, Convenzione, informazioni di Ricezione o alle Fatture Collegate (vedasi documentazione FatturaPA) è necessario utilizzare i seguenti valori o stringhe di valori:
+
+
+[cols="2,3,2,2", options="header"]
+|====
+s|Riferimento
+s|Commessa Convenzione
+s|CUP
+s|CIG
+
+|*Ordine*
+|CommessaConvenzione
+|CUP
+|CIG
+
+|*Contratto*
+|CommessaConvenzione_CONTRATTO
+|CUP_CONTRATTO
+|CIG_CONTRATTO
+
+|*Convenzione*
+|CommessaConvenzione_CONVENZIONE
+|CUP_CONVENZIONE
+|CIG_CONVENZIONE
+
+|*Ricezione*
+|CommessaConvenzione_RICEZIONE
+|CUP_RICEZIONE
+|CIG_RICEZIONE
+
+|*Fatture Collegate*
+|CommessaConvenzione_FATTURE_COLLEGATE
+|CUP_FATTURE_COLLEGATE
+|CIG_FATTURE_COLLEGATE
+
+
+|====
+
+
+
+.Esempio di riferimento ad un CUP a livello di testata.
+[source, xml, indent=0]
+----
+<cac:AdditionalDocumentReference>
+    <cbc:ID>J31E01</cbc:ID>
+    <cbc:DocumentDescription>CommessaConvenzione</cbc:DocumentType>
+</cac:AdditionalDocumentReference>
+----
+

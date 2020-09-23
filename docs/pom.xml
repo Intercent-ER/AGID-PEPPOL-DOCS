@@ -17,6 +17,9 @@
 	<properties>
 		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<validator.version>2.2.6</validator.version>
+		<converter.version>2.4.0</converter.version>
+		<schematron.version>2.2.6</schematron.version>
 	</properties>
 
 	<dependencies>
@@ -111,11 +114,11 @@
 					<replacements>
 						<replacement>
 							<token>(#link_to_schematron#)</token>
-							<value>NoTI-ER-PEPPOL-Schematron-${project.parent.version}.zip</value>
+							<value>NoTI-ER-PEPPOL-Schematron-${schematron.version}.zip</value>
 						</replacement>
 						<replacement>
 							<token>(#link_to_validator#)</token>
-							<value>NoTI-ER-PEPPOL-Validator-${project.parent.version}.zip</value>
+							<value>NoTI-ER-PEPPOL-Validator-${validator.version}.zip</value>
 						</replacement>
 					</replacements>
 				</configuration>
@@ -161,7 +164,7 @@
 								<artifactItem>
 									<groupId>it.gov.agid</groupId>
 									<artifactId>NoTI-ER-PEPPOL-Schematron</artifactId>
-									<version>${project.parent.version}</version>
+									<version>${schematron.version}</version>
 									<type>zip</type>
 									<overWrite>true</overWrite>
 								</artifactItem>
@@ -181,7 +184,7 @@
 								<artifactItem>
 									<groupId>it.gov.agid</groupId>
 									<artifactId>NoTI-ER-PEPPOL-Validator</artifactId>
-									<version>${project.parent.version}</version>
+									<version>${validator.version}</version>
 									<type>zip</type>
 									<overWrite>true</overWrite>
 								</artifactItem>

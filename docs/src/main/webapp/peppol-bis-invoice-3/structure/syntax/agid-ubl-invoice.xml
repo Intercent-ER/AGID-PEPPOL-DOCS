@@ -4,11 +4,11 @@
 
     <Term>ubl-invoice</Term>
     <Name>PEPPOL BIS Invoice 3.0</Name>
-    <agid:Restriction>
+    <agid:Extension>
         <agid:ID>urn:fatturapa.gov.it:CIUS-IT:1.0.0.20170801</agid:ID>
         <agid:Name>Linee guida per lo schema XML - Fattura Elettronica 3.0 (EN16931 CIUS Italiano)</agid:Name>
         <agid:Version>1.0.0.20170801</agid:Version>
-    </agid:Restriction>
+    </agid:Extension>
 
     <Namespace prefix="ubl">urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</Namespace>
     <Namespace prefix="cac">urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"</Namespace>
@@ -30,7 +30,7 @@
             <Reference type="BUSINESS_TERM">BT-24</Reference>
             <Reference type="RULE">PEPPOL-EN16931-R004</Reference>
             <Reference type="RULE">BR-01</Reference>
-            <Value type="FIXED">urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#compliant#urn:fatturapa.gov.it:CIUS-IT:1.0.0.20170801</Value>
+            <Value type="FIXED">urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:www.agid.gov.it:trns:fattura:3.0</Value>
         </Element>
 
         <Element>

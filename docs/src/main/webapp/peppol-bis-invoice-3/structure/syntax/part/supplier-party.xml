@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1">
+<Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" xmlns:agid="urn:fdc:agid.gov.it:peppol:customization">
 
         <Term>cac:AccountingSupplierParty</Term>
         <Name>SELLER - FPA 1.2 'CedentePrestatore'</Name>
@@ -214,7 +214,16 @@
                     <Reference type="RULE">SE-R-005</Reference>
                     <Value type="EXAMPLE">NO999888777</Value>
                 </Element>
-
+				
+                <Element cardinality="0..1" agid:custom="rule">
+                    <Term>cbc:TaxLevelCode</Term>
+                    <Name>Codice Regime Fiscale - FPA 1.2.1.8 'RegimeFiscale'</Name>
+                    <Description>Il Regime Fiscale secondo la normativa italiana. Se non è specificato il regime è quello ordinario RF01</Description>
+                    <DataType>Code</DataType>
+                    <Reference type="RULE">BR-IT-121</Reference>
+                    <Value type="EXAMPLE">RF19</Value>
+                </Element>
+				
                 <Element>
                     <Term>cac:TaxScheme</Term>
                     <Name>TAX SCHEME</Name>
@@ -309,5 +318,8 @@
                     <Value type="EXAMPLE">test.name@foo.bar</Value>
                 </Element>
             </Element>
+			
+			<Include>part/agid-stabile-organizzazione-cedente-prestatore.xml</Include>
+			
         </Element>
     </Element>

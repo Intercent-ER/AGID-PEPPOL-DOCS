@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" xmlns:agid="urn:fdc:agid.gov.it:peppol:customization" cardinality="0..1">
+
+	<Term>cac:AgentParty</Term>
+	<Name>Stabile Organizzazione del Cessionario/Committente - FPA 1.4.3 'StabileOrganizzazione'</Name>
+	<Description>Elemento da valorizzare se il Cessionario/Committente non è residente e ha una stabile organizzazione in Italia.</Description>
+
+	<Element>
+		<Term>cac:PostalAddress</Term>
+		<Name>Indirizzo Stabile Organizzazione</Name>
+
+		<Element>
+			<Term>cbc:StreetName</Term>
+			<Name>Indirizzo - FPA 1.4.3.1 'Indirizzo' e 1.4.3.2 'NumeroCivico'</Name>
+			<Description>Indirizzo relativo alla stabile organizzazione in Italia</Description>
+			<DataType>Text</DataType>
+			<Reference type="RULE">IT-R-002</Reference>
+		</Element>
+
+		<Element>
+			<Term>cbc:CityName</Term>
+			<Name>Comune - FPA 1.4.2.4 'Comune'</Name>
+			<Description>Comune relativo alla stabile organizzazione in Italia</Description>
+			<DataType>Text</DataType>
+			<Reference type="RULE">IT-R-003</Reference>
+			<Value type="EXAMPLE">Milano</Value>
+		</Element>
+
+		<Element>
+			<Term>cbc:PostalZone</Term>
+			<Name>Codice Avviamento Postale - FPA 1.4.3.3 'CAP'</Name>
+			<DataType>Text</DataType>
+			<Reference type="RULE">IT-R-004</Reference>
+			<Value type="EXAMPLE">20100</Value>
+		</Element>
+
+		<Element>
+			<Term>cbc:CountrySubentity</Term>
+			<Name>Provincia - FPA  1.4.3.5 'Provincia'</Name>
+			<DataType>Text</DataType>
+			<Value type="EXAMPLE">MI</Value>
+		</Element>
+
+		<Element>
+			<Term>cac:Country</Term>
+			<Name>Nazione</Name>
+
+			<Element>
+				<Term>cbc:IdentificationCode</Term>
+				<Name>Codice Paese - FPA 1.4.3.6 'Nazione'</Name>
+				<DataType>Text</DataType>
+				<Reference type="RULE">BR-09</Reference>
+				<Reference type="RULE">BR-CL-14</Reference>
+				<Reference type="CODE_LIST">ISO3166</Reference>
+				<Value type="EXAMPLE">IT</Value>
+			</Element>
+		</Element>
+	</Element>
+
+</Element>

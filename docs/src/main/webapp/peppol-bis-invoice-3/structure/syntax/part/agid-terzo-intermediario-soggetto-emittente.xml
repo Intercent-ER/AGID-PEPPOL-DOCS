@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" xmlns:agid="urn:fdc:agid.gov.it:peppol:customization" cardinality="0..1" agid:custom="extension">
 
-	<Term>cac:PowerOfAttorney</Term>
-	<Name>La procura per la rappresentanza fiscale associata al Cessionario/Committente</Name>
-	<Description>Elemento da valorizzare se il Cessionario/Committente si avvale di un rappresentante fiscale in Italia.</Description>
-	
+	<Term>cac:ServiceProviderParty</Term>
+	<Name>Terzo Intermediario o Soggetto Emittente - FPA 1.5 'TerzoIntermediarioOSoggettoEmittente'</Name>
+	<Description>Dati relativi al soggetto terzo che emette fattura per conto del cedente / prestatore.</Description>
+
 	<Element>
-		<Term>cbc:Description</Term>
-		<Name>Denominazione della procura</Name>
-		<DataType>Text</DataType>
-        <Value type="FIXED">Rappresentante Fiscale</Value>
-	</Element>
-	
-	<Element>
-		<Term>cac:AgentParty</Term>
-		<Name>Il Rappresentante Fiscale che detiene questa procura per conto del Cessionario/Committente - FPA 1.4.4 'RappresentanteFiscale'</Name>
+		<Term>cac:Party</Term>
+		<Name>Terzo Intermediario o Soggetto Emittente - FPA 1.5 'TerzoIntermediarioOSoggettoEmittente'</Name>
 
 		<Element cardinality="0..1">
 			<Term>cac:PartyName</Term>
@@ -22,9 +15,9 @@
 
 			<Element>
 				<Term>cbc:Name</Term>
-				<Name>Denominazione Rappresentante Fiscale</Name>
+				<Name>Denominazione Terzo Intermediario</Name>
 				<DataType>Text</DataType>
-				<Value type="EXAMPLE">Rappresentante Fiscale Srl</Value>
+				<Value type="EXAMPLE">Terzo Intermediario Srl</Value>
 			</Element>
 		</Element>
 
@@ -34,7 +27,7 @@
 
 			<Element>
 				<Term>cbc:CompanyID</Term>
-				<Name>Identificativo fiscale (Partita IVA) del Rappresentante Fiscale - FPA 1.4.4.1 'IdFiscaleIVA'</Name>
+				<Name>Identificativo fiscale (Partita IVA) del Terzo Intermediario - FPA 1.5.1.1 'IdFiscaleIVA'</Name>
 				<DataType>Identifier</DataType>
 				<Reference type="BUSINESS_TERM">BT-31, BT-32</Reference>
 				<Reference type="RULE">BR-CO-09</Reference>

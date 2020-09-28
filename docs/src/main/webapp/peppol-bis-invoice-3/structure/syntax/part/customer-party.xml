@@ -271,6 +271,8 @@
 			
 			<Include>agid-stabile-organizzazione-cessionario-committente.xml</Include>
 
+			<Include>agid-terzo-intermediario-soggetto-emittente.xml</Include>
+			
 			<Include>agid-rappresentante-fiscale-cessionario-committente.xml</Include>
 			
         </Element>

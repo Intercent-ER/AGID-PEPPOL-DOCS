@@ -595,6 +595,38 @@
 				</Element>
 			</Element>
 
+			<Element cardinality="0..n" agid:custom="extension">
+				<Term>cac:DespatchLineReference</Term>
+				<Name>Riferimento a un DDT dalla riga fattura - FPA 2.1.8 'DatiDDT'</Name>
+				<Description>Elemento da valorizzare nei casi di fattura "differita" per indicare il documento con cui è stato consegnato il bene.</Description>
+
+				<Element>
+					<Term>cbc:LineID</Term>
+					<Name>Riferimento ad una riga DDT dalla riga fattura. Non supportato da SDI. Valorizzarlo sempre con 0 (zero).</Name>
+					<DataType>Identifier</DataType>
+					<Value type="FIXED">0</Value>
+				</Element>
+
+				<Element>
+					<Term>cac:DocumentReference</Term>
+					<Name>Riferimento a un DDT</Name>
+					
+					<Element>
+						<Term>cbc:ID</Term>
+						<Name>Numero DDT - FPA 2.1.8.1 'NumeroDDT'</Name>
+						<DataType>Identifier</DataType>
+						<Value type="EXAMPLE">33445566</Value>
+					</Element>
+
+					<Element>
+						<Term>cbc:IssueDate</Term>
+						<Name>Data DDT - FPA 2.1.8.2 'DataDDT'</Name>
+						<DataType>Date</DataType>
+						<Value type="EXAMPLE">2017-11-01</Value>
+					</Element>
+				</Element>
+			</Element>
+
 			<Element cardinality="0..1">
 				<Term>cac:DocumentReference</Term>
 				<Name>LINE OBJECT IDENTIFIER</Name>

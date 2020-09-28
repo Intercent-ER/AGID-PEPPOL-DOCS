@@ -269,9 +269,9 @@
                 </Element>
             </Element>
 			
-			<Include>part/agid-stabile-organizzazione-cessionario-committente.xml</Include>
+			<Include>agid-stabile-organizzazione-cessionario-committente.xml</Include>
 
-			<Include>part/agid-rappresentante-fiscale-cessionario-committente.xml</Include>
+			<Include>agid-rappresentante-fiscale-cessionario-committente.xml</Include>
 			
         </Element>
     </Element>

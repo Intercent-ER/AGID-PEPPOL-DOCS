@@ -319,7 +319,7 @@
                 </Element>
             </Element>
 			
-			<Include>part/agid-stabile-organizzazione-cedente-prestatore.xml</Include>
+			<Include>agid-stabile-organizzazione-cedente-prestatore.xml</Include>
 			
         </Element>
     </Element>

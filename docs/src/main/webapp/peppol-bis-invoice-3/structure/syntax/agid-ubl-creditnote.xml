@@ -438,8 +438,7 @@
 
         <Include>part/delivery.xml</Include>
 
-
-
+		<Include>part/agid-delivery-terms.xml</Include>
 
         <Element cardinality="0..n">
             <Term>cac:PaymentMeans</Term>

@@ -136,8 +136,97 @@
         </Element>
 
         <Element cardinality="0..1">
+            <Term>cac:CarrierParty</Term>
+            <Name>Vettore</Name>
+			<Description>Elemento valorizzabile nei casi di fattura "accompagnatoria" per inserire informazioni relative al trasporto</Description>
+
+            <Element cardinality="0..1">
+                <Term>cac:PartyName</Term>
+                <Name>PARTY NAME</Name>
+
+                <Element>
+                    <Term>cbc:Name</Term>
+                    <Name>Vettore - FPA 2.1.9.1.3.1 'Denominazione'</Name>
+                    <Description>Ditta, denominazione o ragione sociale (ditta, impresa, società, ente) che effettua il trasporto.</Description>
+                    <DataType>Text</DataType>
+                    <Reference type="BUSINESS_TERM">BT-70</Reference>
+                    <Value type="EXAMPLE">Super Cargo SpA</Value>
+                </Element>
+            </Element>
+			
+           <Element cardinality="1..2">
+                <Term>cac:PartyTaxScheme</Term>
+                <Name>PARTY VAT IDENTIFIER</Name>
+
+                <Element>
+                    <Term>cbc:CompanyID</Term>
+                    <Name>Partita IVA o C.F. del Vettore</Name>
+                    <DataType>Identifier</DataType>
+                    <Reference type="RULE">BR-CO-09</Reference>
+                    <Reference type="RULE">BR-AE-02</Reference>
+                    <Reference type="RULE">BR-AE-03</Reference>
+                    <Reference type="RULE">BR-AE-04</Reference>
+                    <Reference type="RULE">BR-IC-02</Reference>
+                    <Reference type="RULE">BR-IC-03</Reference>
+                    <Reference type="RULE">BR-IC-04</Reference>
+                    <Reference type="RULE">BR-O-02</Reference>
+                    <Reference type="RULE">BR-O-03</Reference>
+                    <Reference type="RULE">BR-O-04</Reference>
+                </Element>
+
+                <Element>
+                    <Term>cac:TaxScheme</Term>
+                    <Name>TAX SCHEME</Name>
+
+                    <Element>
+                        <Term>cbc:ID</Term>
+                        <Description>Mandatory element. Use “VAT”</Description>
+                        <DataType>Identifier</DataType>
+                        <Value type="DEFAULT">VAT</Value>
+
+                    </Element>
+                </Element>
+            </Element>
+
+           <Element cardinality="0..1">
+                <Term>cac:Person</Term>
+                <Name>Persona Fisica</Name>
+
+                <Element>
+                    <Term>cbc:FirstName</Term>
+                    <Name>Nome Persona Fisica</Name>
+                    <DataType>Text</DataType>
+                </Element>
+                <Element>
+                    <Term>cbc:FamilyName</Term>
+                    <Name>Cognome Persona Fisica</Name>
+                    <DataType>Text</DataType>
+                </Element>
+
+                <Element cardinality="0..1">
+                    <Term>cac:IdentityDocumentReference</Term>
+                    <Name>Documento di identità</Name>
+
+                    <Element>
+                        <Term>cbc:ID</Term>
+                        <Name>Cognome Persona Fisica - FPA 2.1.9.1.4 'NumeroLicenzaGuida'</Name>
+                        <DataType>Identifier</DataType>
+                    </Element>
+					
+                    <Element>
+                        <Term>cbc:DocumentTypeCode</Term>
+                        <Name>Tipo Documento (Licenza di guida)</Name>
+                        <DataType>Code</DataType>
+						<Value type="FIXED">40</Value>
+                    </Element>
+                </Element>
+            </Element>
+
+        </Element>
+		
+        <Element cardinality="0..1">
             <Term>cac:DeliveryParty</Term>
-            <Name>DELIVER PARTY</Name>
+            <Name>DELIVER PARTY (ERRATO DA RIMUOVERE, VEDI CARRIER)</Name>
 
             <Element>
                 <Term>cac:PartyName</Term>
@@ -153,4 +242,9 @@
                 </Element>
             </Element>
         </Element>
+
+		<Include>agid-ritiro-merce.xml</Include>
+		
+		<Include>agid-spedizione.xml</Include>
+		
     </Element>

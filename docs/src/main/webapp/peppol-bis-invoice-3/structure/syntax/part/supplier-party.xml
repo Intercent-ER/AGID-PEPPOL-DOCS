@@ -215,7 +215,7 @@
                     <Value type="EXAMPLE">NO999888777</Value>
                 </Element>
 				
-                <Element cardinality="0..1" agid:custom="rule">
+                <Element cardinality="0..1" agid:custom="extension,rule">
                     <Term>cbc:TaxLevelCode</Term>
                     <Name>Codice Regime Fiscale - FPA 1.2.1.8 'RegimeFiscale'</Name>
                     <Description>Il Regime Fiscale secondo la normativa italiana. Se non è specificato il regime è quello ordinario RF01</Description>

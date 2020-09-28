@@ -8,9 +8,9 @@
         The tag names are correct according to the UBL Credit note schema
     </Description>
     <agid:Extension>
-        <agid:ID>urn:fatturapa.gov.it:CIUS-IT:1.0.0.20170801</agid:ID>
-        <agid:Name>Linee guida per lo schema XML - Nota di Credito 3.0 (EN16931 Italian CIUS)</agid:Name>
-        <agid:Version>1.0.0.20170801</agid:Version>
+		<agid:ID>urn:www.agid.gov.it:trns:nota_credito:3.0</agid:ID>
+		<agid:Name>Struttura Nota di Credito Elettronica 3.0 (Estension Italiana della EN16931)</agid:Name>
+		<agid:Version>3.0.0</agid:Version>
     </agid:Extension>
 
     <Namespace prefix="ubl">urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</Namespace>
@@ -33,7 +33,7 @@
             <Reference type="BUSINESS_TERM">BT-24</Reference>
             <Reference type="RULE">PEPPOL-EN16931-R004</Reference>
             <Reference type="RULE">BR-01</Reference>
-            <Value type="FIXED">urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:www.agid.gov.it:trns:nota_di_credito:3.0</Value>
+            <Value type="FIXED">urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:www.agid.gov.it:trns:nota_credito:3.0</Value>
         </Element>
 
         <Element>
@@ -521,6 +521,51 @@
                 <Reference type="RULE">BR-CO-25</Reference>
                 <Value type="EXAMPLE">Net within 30 days</Value>
             </Element>
+			
+			<Element cardinality="0..1" agid:custom="extension">
+				<Term>cbc:PenaltyAmount</Term>
+				<Name>Importo penalità - FPA 2.4.2.19 'PenalitaPagamentiRitardati'</Name>
+				<Description>Ammontare della penalità dovuta per pagamenti ritardati.</Description>
+				<DataType>Amount</DataType>
+
+				<Attribute>
+					<Term>currencyID</Term>
+					<Description>Mandatory attribute. Use BT-5</Description>
+					<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
+					<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
+					<Reference type="CODE_LIST">ISO4217</Reference>
+					<Value type="EXAMPLE">EUR</Value>
+				</Attribute>
+
+				<Value type="EXAMPLE">100.00</Value>
+			</Element>
+
+			<Element cardinality="0..1" agid:custom="extension">
+				<Term>cac:SettlementPeriod</Term>
+				<Name>Il periodo durante il quale può essere regolato il pagamento.</Name>
+
+				<Element cardinality="0..1">
+					<Term>cbc:EndDate</Term>
+					<Name>Data limite pagamento anticipato - FPA 2.4.2.18 'DataLimitePagamentoAnticipato'</Name>
+					<DataType>Date</DataType>
+					<Value type="EXAMPLE">2020-10-31</Value>
+				</Element>
+
+			</Element>			
+
+			<Element cardinality="0..1" agid:custom="extension">
+				<Term>cac:PenaltyPeriod</Term>
+				<Name>Il periodo durante il quale si applica la penalità.</Name>
+
+				<Element cardinality="0..1">
+					<Term>cbc:StartDate</Term>
+					<Name>Data decorrenza penale - FPA 2.4.2.20 'DataDecorrenzaPenale'</Name>
+					<DataType>Date</DataType>
+					<Value type="EXAMPLE">2020-10-01</Value>
+				</Element>
+
+			</Element>
+			
         </Element>
 
 

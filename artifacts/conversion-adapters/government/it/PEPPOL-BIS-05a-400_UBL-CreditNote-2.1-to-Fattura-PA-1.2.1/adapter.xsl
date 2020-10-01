@@ -1937,20 +1937,20 @@ the root node.
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
       <nx:FatturaElettronica>
-         <xsl:variable name="variable_d10e1a1049877">
+         <xsl:variable name="variable_d7e1a1049877">
             <xsl:value-of select="normalize-space(ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:SistemaEmittente']/ext:ExtensionContent/cbc:Description)"/>
          </xsl:variable>
-         <xsl:if test="string($variable_d10e1a1049877)">
+         <xsl:if test="string($variable_d7e1a1049877)">
             <xsl:attribute name="SistemaEmittente">
-               <xsl:value-of select="string($variable_d10e1a1049877)"/>
+               <xsl:value-of select="string($variable_d7e1a1049877)"/>
             </xsl:attribute>
          </xsl:if>
-         <xsl:variable name="variable_d10e1a1050311">
+         <xsl:variable name="variable_d7e1a1050311">
             <xsl:value-of select="if (starts-with(upper-case(cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID[1][@schemeID='IT:IPA']), 'CODDEST:')) then 'FPR12' else 'FPA12'"/>
          </xsl:variable>
-         <xsl:if test="string($variable_d10e1a1050311)">
+         <xsl:if test="string($variable_d7e1a1050311)">
             <xsl:attribute name="versione">
-               <xsl:value-of select="string($variable_d10e1a1050311)"/>
+               <xsl:value-of select="string($variable_d7e1a1050311)"/>
             </xsl:attribute>
          </xsl:if>
          <FatturaElettronicaHeader>
@@ -2022,7 +2022,7 @@ the root node.
             <DatiGenerali>
                <DatiGeneraliDocumento>
                   <TipoDocumento>
-                     <xsl:value-of select="if (ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_documento']) then ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_documento']/ext:ExtensionContent/cr:XCode else if (cbc:CreditNoteTypeCode) then document($xclTipoDocumento)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xcode']/SimpleValue=current()/cbc:CreditNoteTypeCode][1] else 'TD04'"/>
+                     <xsl:value-of select="if (ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_documento']) then ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_documento']/ext:ExtensionContent/cr:XCode else if (cbc:CreditNoteTypeCode) then (document($xclTipoDocumento)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xcode']/SimpleValue=current()/cbc:CreditNoteTypeCode])[1] else 'TD04'"/>
                   </TipoDocumento>
                   <Divisa>
                      <xsl:value-of select="if (cbc:DocumentCurrencyCode) then cbc:DocumentCurrencyCode else 'EUR'"/>

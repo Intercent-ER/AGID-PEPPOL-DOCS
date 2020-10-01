@@ -81,7 +81,7 @@
          <div class="labelFont">TARGET</div>
          <div><strong>Fattura-PA-1.2.1</strong></div>
          <div class="labelFont">VERSION</div>
-         <div><strong>1.8.7</strong></div>
+         <div><strong>1.8.8</strong></div>
       </div>
       <table id="treegrid"></table>
       <div id="ptreegrid"></div>
@@ -1430,7 +1430,7 @@
                </td>
                <td>if (ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_documento']) then
                   ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_documento']/ext:ExtensionContent/cr:XCode
-                  else if (cbc:CreditNoteTypeCode) then document($xclTipoDocumento)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xcode']/SimpleValue=current()/cbc:CreditNoteTypeCode][1]
+                  else if (cbc:CreditNoteTypeCode) then (document($xclTipoDocumento)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xcode']/SimpleValue=current()/cbc:CreditNoteTypeCode])[1]
                   else 'TD04'&nbsp;
                </td>
                <td>

@@ -10,6 +10,32 @@
 		<Name>Terzo Intermediario o Soggetto Emittente - FPA 1.5 'TerzoIntermediarioOSoggettoEmittente'</Name>
 
 		<Element cardinality="0..1">
+			<Term>cac:PartyIdentification</Term>
+			<Name>PARTY IDENTIFICATION</Name>
+
+			<Element>
+				<Term>cbc:ID</Term>
+				<Name>Codice Fiscale - FPA 1.5.1.2 'CodiceFiscale'</Name>
+				<Description>Numero di Codice Fiscale. Utilizzare sempre il prefisso 'CF:'</Description>
+				<DataType>Identifier</DataType>
+				<Value type="EXAMPLE">CF:CXXNXX68M06E123H</Value>
+			</Element>
+		</Element>
+
+		<Element cardinality="0..1">
+			<Term>cac:PartyIdentification</Term>
+			<Name>PARTY IDENTIFICATION</Name>
+
+			<Element>
+				<Term>cbc:ID</Term>
+				<Name>Codice EORI - FPA 1.5.1.3.5 'CodEORI'</Name>
+				<Description>Numero del Codice EORI (Economic Operator Registration and Identification) in base al Regolamento (CE) n. 312 del 16 aprile 2009. In vigore dal 1 luglio 2009. Utilizzare sempre il prefisso 'EORI:'</Description>
+				<DataType>Identifier</DataType>
+				<Value type="EXAMPLE">EORI:12345678901</Value>
+			</Element>
+		</Element>
+
+		<Element cardinality="0..1">
 			<Term>cac:PartyName</Term>
 			<Name>PARTY NAME</Name>
 
@@ -79,17 +105,22 @@
 
 		</Element>
 
-		<Element>
-			<Term>cac:PartyLegalEntity</Term>
-			<Name>PARTY LEGAL ENTITY</Name>
+		<Element cardinality="0..1">
+			<Term>cac:Person</Term>
+			<Name>Persona Fisica</Name>
 
 			<Element>
-				<Term>cbc:RegistrationName</Term>
-				<Name>Ragione Sociale</Name>
+				<Term>cbc:FirstName</Term>
+				<Name>Nome Persona Fisica - FPA 1.5.1.3.2 'Nome'</Name>
 				<DataType>Text</DataType>
-				<Reference type="RULE">BR-06</Reference>
+			</Element>
+			<Element>
+				<Term>cbc:FamilyName</Term>
+				<Name>Cognome Persona Fisica - FPA 1.5.1.3.3 'Cognome'</Name>
+				<DataType>Text</DataType>
 			</Element>
 
 		</Element>
+
 	</Element>
 </Element>

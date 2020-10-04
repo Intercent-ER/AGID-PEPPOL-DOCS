@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" xmlns:agid="urn:fdc:agid.gov.it:peppol:customization" cardinality="0..1" agid:custom="extension">
+
+	<Term>cac:WithholdingTaxTotal</Term>
+	<Name>Ritenuta d'acconto</Name>
+
+	<Element>
+		<Term>cbc:TaxAmount</Term>
+		<Name>Totale ritenute</Name>
+		<DataType>Amount</DataType>
+		<Attribute>
+			<Term>currencyID</Term>
+			<Description>Mandatory attribute. Use BT-5 or BT-6.</Description>
+			<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
+			<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
+			<Reference type="CODE_LIST">ISO4217</Reference>
+			<Value type="EXAMPLE">EUR</Value>
+		</Attribute>
+
+		<Value type="EXAMPLE">486.25</Value>
+	</Element>
+
+	<Element cardinality="1..2">
+		<Term>cac:TaxSubtotal</Term>
+		<Name>Dettaglio Ritenuta - FPA 2.1.1.5 'DatiRitenuta'</Name>
+
+		<Element>
+			<Term>cbc:TaxAmount</Term>
+			<Name>Importo Ritenuta - FPA 2.1.1.5.2 'ImportoRitenuta'</Name>
+			<DataType>Amount</DataType>
+
+			<Attribute>
+				<Term>currencyID</Term>
+				<Description>Mandatory attribute. Use BT-5</Description>
+				<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
+				<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
+				<Reference type="CODE_LIST">ISO4217</Reference>
+				<Value type="EXAMPLE">EUR</Value>
+			</Attribute>
+			<Value type="EXAMPLE">486.25</Value>
+		</Element>
+
+		<Element>
+			<Term>cac:TaxCategory</Term>
+			<Name>VAT CATEGORY</Name>
+
+			<Element>
+				<Term>cbc:ID</Term>
+				<Name>Categoria Ritenuta</Name>
+				<DataType>Code</DataType>
+				<Reference type="CODE_LIST">UNCL5305</Reference>
+				<Value type="FIXED">S</Value>
+			</Element>
+
+			<Element>
+				<Term>cbc:Percent</Term>
+				<Name>Aliquota Ritenuta - FPA 2.1.1.5.3 'AliquotaRitenuta'</Name>
+				<DataType>Percentage</DataType>
+				<Value type="EXAMPLE">25</Value>
+			</Element>
+
+			<Element>
+				<Term>cac:TaxScheme</Term>
+				<Name>TAX SCHEME</Name>
+
+				<Element>
+					<Term>cbc:ID</Term>
+					<Description>Il valore dell'identificatore dello schema di imposta deve essere 'SWT' (Shifted Wage Tax).</Description>
+					<Value type="FIXED">SWT</Value>
+				</Element>
+
+				<Element>
+					<Term>cbc:TaxTypeCode</Term>
+					<Name>Codice Motivo Ritenuta (Causale Pagamento) - FPA 2.1.1.5.4 'CausalePagamento'</Name>
+					<Description>Causale del pagamento (quella del Mod CU).</Description>
+					<DataType>Code</DataType>
+					<Value type="EXAMPLE">A</Value>
+				</Element>
+			</Element>
+		</Element>
+	</Element>
+
+</Element>

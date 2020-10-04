@@ -91,7 +91,7 @@
 		<Element>
 			<Term>ext:ExtensionURI</Term>
 			<Name>URI dell'estensione</Name>
-			<Description>Per supportare una singola ritenuta è sufficiente indicare l'URI 'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta'. Per fare riferimento a più ritenute nello stesso documento aggiungere il suffisso '::2' ad esempio per indicare la seconda ritenuta.</Description>
+			<Description>Per supportare una singola ritenuta è sufficiente indicare l'URI 'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta'. Per fare riferimento a più ritenute nello stesso documento aggiungere il suffisso '::n' indicante il numero di riga della ritenuta a cui si fa riferimento.</Description>
 			<Value type="EXAMPLE">urn:fdc:agid.gov.it:fatturapa:TipoRitenuta</Value>
 			<Value type="EXAMPLE">urn:fdc:agid.gov.it:fatturapa:TipoRitenuta::2</Value>
 		</Element>
@@ -131,6 +131,33 @@
 				<Name>Art 73 del DPR 633/72</Name>
 				<DataType>Code</DataType>
 				<Value type="FIXED">SI</Value>
+			</Element>
+			
+		</Element>
+
+	</Element>
+	
+	<Element cardinality="0..1">
+		<Term>ext:UBLExtension</Term>
+		<Name>Estensione Arrotondamento Imponibile Riepilogo IVA - FPA 2.2.2.4 'Arrotondamento'</Name>
+		<Description>Importo dell'arrotondamento eventualmente applicato alle somme dei dati di dettaglio per riportarle al centesimo di euro, come espresse nell'elemento 2.2.2.5 'ImponibileImporto'.</Description>
+		
+		<Element>
+			<Term>ext:ExtensionURI</Term>
+			<Name>URI dell'estensione</Name>
+			<Description>Indicare l'URI 'urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento' seguito dal suffisso '::n' indicante il numero di riga del riepilogo IVA a cui si fa riferimento.</Description>
+			<Value type="EXAMPLE">urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento::1</Value>
+		</Element>
+
+		<Element>
+			<Term>ext:ExtensionContent</Term>
+			<Name>Definizione del contenuto dell'estensione</Name>
+			
+			<Element>
+				<Term>cbc:Amount</Term>
+				<Name>Arrotondamento</Name>
+				<DataType>Amount</DataType>
+				<Value type="EXAMPLE">0.20</Value>
 			</Element>
 			
 		</Element>

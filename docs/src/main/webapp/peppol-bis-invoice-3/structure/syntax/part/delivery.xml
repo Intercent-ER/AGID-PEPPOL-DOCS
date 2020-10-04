@@ -10,7 +10,7 @@
 
         <Element cardinality="0..1">
             <Term>cbc:ActualDeliveryDate</Term>
-            <Name>Actual delivery date - FPA 2.1.8.2 'DataDDT'</Name>
+            <Name>Actual delivery date - FPA 2.1.8.2 'DataDDT', 2.1.9.13 'DataOraConsegna'</Name>
             <Description>The date on which the supply of goods or services was made or completed. Format = "YYYY-MM-DD"</Description>
             <DataType>Date</DataType>
             <Reference type="BUSINESS_TERM">BT-72</Reference>
@@ -135,11 +135,24 @@
             </Element>
         </Element>
 
-        <Element cardinality="0..1">
+        <Element cardinality="0..1" agid:custom="extension">
             <Term>cac:CarrierParty</Term>
             <Name>Vettore</Name>
 			<Description>Elemento valorizzabile nei casi di fattura "accompagnatoria" per inserire informazioni relative al trasporto</Description>
 
+            <Element cardinality="0..1">
+                <Term>cac:PartyIdentification</Term>
+                <Name>PARTY IDENTIFICATION</Name>
+
+                <Element>
+                    <Term>cbc:ID</Term>
+                    <Name>Codice Fiscale - FPA 2.1.9.1.2 'CodiceFiscale'</Name>
+                    <Description>Numero di Codice Fiscale. Utilizzare sempre il prefisso 'CF:'</Description>
+                    <DataType>Identifier</DataType>
+                    <Value type="EXAMPLE">CF:CXXNXX68M06E123H</Value>
+                </Element>
+            </Element>
+			
             <Element cardinality="0..1">
                 <Term>cac:PartyName</Term>
                 <Name>PARTY NAME</Name>
@@ -154,7 +167,7 @@
                 </Element>
             </Element>
 			
-           <Element cardinality="1..2" agid:custom="extension">
+           <Element>
                 <Term>cac:PartyTaxScheme</Term>
                 <Name>PARTY VAT IDENTIFIER</Name>
 
@@ -188,7 +201,7 @@
                 </Element>
             </Element>
 
-           <Element cardinality="0..1" agid:custom="extension">
+           <Element cardinality="0..1">
                 <Term>cac:Person</Term>
                 <Name>Persona Fisica</Name>
 
@@ -224,25 +237,6 @@
 
         </Element>
 		
-        <Element cardinality="0..1">
-            <Term>cac:DeliveryParty</Term>
-            <Name>DELIVER PARTY (ERRATO DA RIMUOVERE, VEDI CARRIER)</Name>
-
-            <Element>
-                <Term>cac:PartyName</Term>
-                <Name>PARTY NAME</Name>
-
-                <Element>
-                    <Term>cbc:Name</Term>
-                    <Name>Deliver to party name - FPA 2.1.9.1.3.1 'Denominazione'</Name>
-                    <Description>The name of the party to which the goods and services are delivered.</Description>
-                    <DataType>Text</DataType>
-                    <Reference type="BUSINESS_TERM">BT-70</Reference>
-                    <Value type="EXAMPLE">Deliver name</Value>
-                </Element>
-            </Element>
-        </Element>
-
 		<Include>agid-ritiro-merce.xml</Include>
 		
 		<Include>agid-spedizione.xml</Include>

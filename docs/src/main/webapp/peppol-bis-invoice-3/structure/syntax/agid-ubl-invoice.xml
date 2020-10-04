@@ -20,6 +20,8 @@
 	<Document>
 		<Term>ubl:Invoice</Term>
 
+        <Include>part/agid-ubl-extensions.xml</Include>
+		
 		<Element agid:custom="fixed-value">
 			<Term>cbc:CustomizationID</Term>
 			<Name>Specification identifier</Name>
@@ -267,6 +269,27 @@
 					<Value type="EXAMPLE">2017-09-15</Value>
 				</Element>
 			</Element>
+			
+			<Element cardinality="0..1" agid:custom="extension">
+				<Term>cac:AdditionalDocumentReference</Term>
+				<Name>Riferimento alla fattura principale</Name>
+
+				<Element>
+					<Term>cbc:ID</Term>
+					<Name>Numero Fattura Principale - FPA 2.1.10.1 'NumeroFatturaPrincipale'</Name>
+					<Description>Numero della fattura relativa al trasporto di beni, da indicare sulle fatture emesse dagli autotrasportatori per certificare le operazioni accessorie.</Description>
+					<DataType>Document Reference</DataType>
+					<Value type="EXAMPLE">inv123</Value>
+				</Element>
+				<Element>
+					<Term>cbc:IssueDate</Term>
+					<Name>Data Fattura Principale - FPA 2.1.10.2 'DataFatturaPrincipale'</Name>
+					<Description>Data della fattura. Formato = "YYYY-MM-DD".</Description>
+					<DataType>Date</DataType>
+					<Value type="EXAMPLE">2020-09-15</Value>
+				</Element>
+			</Element>
+
 		</Element>
 
 		<Element cardinality="0..1">
@@ -305,7 +328,7 @@
 
 			<Element agid:custom="rule">
 				<Term>cbc:ID</Term>
-				<Name>Tender or lot reference</Name>
+				<Name>Tender or lot reference - FPA 2.1.3.7 'CodiceCIG'</Name>
 				<Description>The identification of the call for tender or lot the invoice relates to.</Description>
 				<DataType>Document Reference</DataType>
 				<Reference type="BUSINESS_TERM">BT-17</Reference>
@@ -340,7 +363,7 @@
 
 			<Element agid:custom="rule">
 				<Term>cbc:ID</Term>
-				<Name>Project reference</Name>
+				<Name>Project reference - FPA 2.1.3.6 'CodiceCUP'</Name>
 				<Description>The identification of the project the invoice refers to.</Description>
 				<DataType>Document Reference</DataType>
 				<Reference type="BUSINESS_TERM">BT-11</Reference>
@@ -360,7 +383,7 @@
 
 		<Include>part/delivery.xml</Include>
 
-		<Include>part/agid-delivery-terms.xml</Include>
+		<Include>part/agid-termini-di-consegna.xml</Include>
 
 		<Element cardinality="0..n">
 			<Term>cac:PaymentMeans</Term>
@@ -424,9 +447,28 @@
                     description of possible penalties). In case the Amount due for payment (BT-115) is positive, either the Payment due date (BT-9) or the Payment terms (BT-20) shall be present.
 				</Description>
 				<DataType>Text</DataType>
-				<Reference type="BUSINESS_TERM">BT-20</Reference>
+				<!--Reference type="BUSINESS_TERM">BT-20</Reference-->
 				<Reference type="RULE">BR-CO-25</Reference>
 				<Value type="EXAMPLE">Net within 30 days</Value>
+			</Element>
+
+			<Element cardinality="0..1" agid:custom="extension">
+				<Term>cbc:SettlementDiscountAmount</Term>
+				<Name>Sconto Pagamento Anticipato - FPA 2.4.2.17 'ScontoPagamentoAnticipato'</Name>
+				<Description>Ammontare dello sconto per pagamento anticipato.</Description>
+				<DataType>Amount</DataType>
+
+				<Attribute>
+					<Term>currencyID</Term>
+					<Description>Mandatory attribute. Use BT-5</Description>
+					<Reference type="BUSINESS_TERM">BT-20</Reference>
+					<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
+					<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
+					<Reference type="CODE_LIST">ISO4217</Reference>
+					<Value type="EXAMPLE">EUR</Value>
+				</Attribute>
+
+				<Value type="EXAMPLE">100.00</Value>
 			</Element>
 
 			<Element cardinality="0..1" agid:custom="extension">
@@ -479,10 +521,9 @@
 
 		<Include>part/tax-total.xml</Include>
 
+		<Include>part/agid-ritenute.xml</Include>
+
 		<Include>part/monetary-totals.xml</Include>
-
-
-
 
 		<Element cardinality="1..n">
 			<Term>cac:InvoiceLine</Term>

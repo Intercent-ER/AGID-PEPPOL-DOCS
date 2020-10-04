@@ -77,11 +77,11 @@
 
 	<Element cardinality="0..1">
 		<Term>cac:GoodsItem</Term>
-		<Name>Numero Colli - FPA 2.1.9.5 'Descrizione'</Name>
+		<Name>Dettaglio Merce</Name>
 
 		<Element>
 			<Term>cbc:Description</Term>
-			<Name>Mezzo di Trasporto - FPA 2.1.9.5 'Descrizione'</Name>
+			<Name>Descrizione Merce - FPA 2.1.9.5 'Descrizione'</Name>
 			<Description>Descrizione (natura, qualità, aspetto …) relativa ai colli trasportati.</Description>
 			<DataType>Text</DataType>
 
@@ -97,10 +97,10 @@
 		<Element>
 			<Term>cbc:TransportMeansTypeCode</Term>
 			<Name>Mezzo di Trasporto - FPA 2.1.9.2 'MezzoTrasporto'</Name>
-			<Description>Mezzo utilizzato per il trasporto</Description>
+			<Description>Mezzo utilizzato per il trasporto.</Description>
 			<DataType>Code</DataType>
 
-			<Value type="EXAMPLE">NAVE</Value>
+			<Value type="EXAMPLE">CAMION</Value>
 
 		</Element>
 	</Element>

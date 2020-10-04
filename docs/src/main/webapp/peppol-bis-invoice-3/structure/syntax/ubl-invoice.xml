@@ -14,6 +14,8 @@
     <Document>
         <Term>ubl:Invoice</Term>
 
+        <Include>part/ubl-extensions.xml</Include>
+
         <Element>
             <Term>cbc:CustomizationID</Term>
             <Name>Specification identifier</Name>

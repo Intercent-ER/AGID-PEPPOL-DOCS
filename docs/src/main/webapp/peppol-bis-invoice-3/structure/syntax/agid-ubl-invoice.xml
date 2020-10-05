@@ -20,7 +20,7 @@
 	<Document>
 		<Term>ubl:Invoice</Term>
 
-        <Include>part/agid-ubl-extensions.xml</Include>
+        <Include>part/agid-ft-ubl-extensions.xml</Include>
 		
 		<Element agid:custom="fixed-value">
 			<Term>cbc:CustomizationID</Term>
@@ -628,12 +628,34 @@
 				<Element>
 					<Term>cbc:LineID</Term>
 					<Name>Referenced purchase order line reference - FPA 2.1.2.4 'NumItem'</Name>
-					<Description>An identifier for a referenced line within a purchase order, issued by the Buyer.</Description>
+					<Description>An identifier for a referenced line within a purchase order, issued by the Buyer. Indicare 'NA' se ci si riferisce ad un ordine intero.</Description>
 					<DataType>Identifier</DataType>
 					<Reference type="BUSINESS_TERM">BT-132</Reference>
 					<Reference type="RULE">BR-IT-400</Reference>
 					<Value type="EXAMPLE">3</Value>
 				</Element>
+				
+				<Element agid:custom="extension">
+					<Term>cac:OrderReference</Term>
+					<Name>Referenced purchase order line reference - FPA 2.1.2 'DatiOrdineAcquisto'</Name>
+					<Description>A reference to the Order containing the referenced order line.</Description>
+					
+					<Element>
+						<Term>cbc:ID</Term>
+						<Name>Numero Ordine - FPA 2.1.2.2 'IdDocumento'</Name>
+						<DataType>Identifier</DataType>
+						<Value type="EXAMPLE">33445566</Value>
+					</Element>
+
+					<Element>
+						<Term>cbc:IssueDate</Term>
+						<Name>Data Ordine - FPA 2.1.2.3 'Data'</Name>
+						<DataType>Date</DataType>
+						<Value type="EXAMPLE">2017-11-01</Value>
+					</Element>
+					
+				</Element>
+
 			</Element>
 
 			<Element cardinality="0..n" agid:custom="extension">
@@ -668,7 +690,7 @@
 				</Element>
 			</Element>
 
-			<Element cardinality="0..1">
+			<Element cardinality="0..n" agid:custom="cardinality">
 				<Term>cac:DocumentReference</Term>
 				<Name>LINE OBJECT IDENTIFIER</Name>
 
@@ -683,9 +705,15 @@
 					<Attribute usage="Optional">
 						<Term>schemeID</Term>
 						<Name>Invoice line object identifier identification scheme identifier</Name>
-						<Description>The identification scheme identifier of the Invoice line object identifier.</Description>
+						<Description>The identification scheme identifier of the Invoice line object identifier.
+						Per la fatturazione verso la PA gli schemi per riferimenti più comuni sono i seguenti:
+						CT = Contract number
+						AEP = Project number (CUP)
+						GB = Contract party reference number (CIG)
+						ALA = Procurement budget number (impegno)
+						AVV = Framework Agreement Number (Convenzione)</Description>
 						<Reference type="CODE_LIST">UNCL1153</Reference>
-						<Value type="EXAMPLE">ABZ</Value>
+						<Value type="EXAMPLE">AVV</Value>
 					</Attribute>
 					<Value type="EXAMPLE">AB12345</Value>
 				</Element>

@@ -23,7 +23,7 @@
     <Document>
         <Term>ubl:CreditNote</Term>
 
-        <Include>part/agid-ubl-extensions.xml</Include>
+        <Include>part/agid-nc-ubl-extensions.xml</Include>
 		
         <Element agid:custom="fixed-value">
             <Term>cbc:CustomizationID</Term>
@@ -352,7 +352,9 @@
                 <Attribute usage="Optional">
                     <Term>schemeID</Term>
                     <Name>Scheme identifier</Name>
-                    <Description>The identification scheme identifier of the Invoiced object identifier.</Description>
+                    <Description>The identification scheme identifier of the Invoiced object identifier.
+						Per la fatturazione verso la PA è possibile usare i seguenti schemi:
+						AVV = Framework Agreement Number (Convenzione)</Description>
                     <Reference type="RULE">BR-CL-07</Reference>
                     <Reference type="CODE_LIST">UNCL1153</Reference>
                     <Value type="EXAMPLE">AUN</Value>
@@ -758,7 +760,7 @@
 				</Element>
 			</Element>
 			
-            <Element cardinality="0..1">
+            <Element cardinality="0..n" agid:custom="cardinality">
                 <Term>cac:DocumentReference</Term>
                 <Name>LINE OBJECT IDENTIFIER</Name>
 
@@ -772,7 +774,13 @@
                     <Attribute usage="Optional">
                         <Term>schemeID</Term>
                         <Name>Invoice line object identifier identification scheme identifier</Name>
-                        <Description>The identification scheme identifier of the Invoice line object identifier.</Description>
+                        <Description>The identification scheme identifier of the Invoice line object identifier.
+						Per la fatturazione verso la PA gli schemi per riferimenti più comuni sono i seguenti:
+						CT = Contract number
+						AEP = Project number (CUP)
+						GB = Contract party reference number (CIG)
+						ALA = Procurement budget number (impegno)
+						AVV = Framework Agreement Number (Convenzione)</Description>
                         <Reference type="CODE_LIST">UNCL1153</Reference>
                         <Value type="EXAMPLE">AVV</Value>
                     </Attribute>

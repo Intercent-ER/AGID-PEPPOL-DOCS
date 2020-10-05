@@ -19,7 +19,9 @@
             <Attribute usage="Optional">
                 <Term>schemeID</Term>
                 <Name>Scheme identifier</Name>
-                <Description>The identification scheme identifier of the Invoiced object identifier.</Description>
+                <Description>The identification scheme identifier of the Invoiced object identifier.
+						Per la fatturazione verso la PA è possibile usare i seguenti schemi:
+						AVV = Framework Agreement Number (Convenzione)</Description>
                 <Reference type="RULE">BR-CL-07</Reference>
                 <Reference type="CODE_LIST">UNCL1153</Reference>
                 <Value type="EXAMPLE">AUN</Value>

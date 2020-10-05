@@ -60,7 +60,7 @@
 	<Element cardinality="0..1">
 		<Term>ext:UBLExtension</Term>
 		<Name>Estensione Soggetto Emittente - FPA 2.1.1.1 'TipoDocumento'</Name>
-		<Description>Tipologia di documento.</Description>
+		<Description>Tipologia di documento. Se l'estensione viene omessa, la fattura sarà intesa come 'ordinaria' (TD01).</Description>
 		
 		<Element>
 			<Term>ext:ExtensionURI</Term>

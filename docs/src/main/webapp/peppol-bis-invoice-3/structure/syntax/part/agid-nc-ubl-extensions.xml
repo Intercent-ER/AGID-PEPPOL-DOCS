@@ -59,32 +59,6 @@
 	
 	<Element cardinality="0..1">
 		<Term>ext:UBLExtension</Term>
-		<Name>Estensione Soggetto Emittente - FPA 2.1.1.1 'TipoDocumento'</Name>
-		<Description>Tipologia di documento.</Description>
-		
-		<Element>
-			<Term>ext:ExtensionURI</Term>
-			<Name>URI dell'estensione</Name>
-			<Value type="FIXED">urn:fdc:agid.gov.it:fatturapa:TipoDocumento</Value>
-		</Element>
-
-		<Element>
-			<Term>ext:ExtensionContent</Term>
-			<Name>Definizione del contenuto dell'estensione</Name>
-			
-			<Element>
-				<Term>cbc:TypeCode</Term>
-				<Name>Tipo Documento</Name>
-				<DataType>Code</DataType>
-				<Value type="EXAMPLE">TD22</Value>
-			</Element>
-			
-		</Element>
-
-	</Element>
-
-	<Element cardinality="0..1">
-		<Term>ext:UBLExtension</Term>
 		<Name>Estensione Tipo Ritenuta - FPA 2.1.1.5.1 'TipoRitenuta'</Name>
 		<Description>Tipologia della ritenuta.</Description>
 		

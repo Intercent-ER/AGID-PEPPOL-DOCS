@@ -149,7 +149,7 @@ Il Cliente, detto anche Cessionario o Committente, è la persona o organizzazion
 
 #Il cliente può essere una PA, un operatore economico, un cittadino o un soggetto residente, non residente, non stabilito/identificato in Italia.#
 
-Le informazioni inerenti al cliente sono obbligatorie e vengono fornite nell'elemento `cac:AccountingCustomerParty`
+Le informazioni inerenti al cliente sono obbligatorie e vengono fornite nell'elemento 'cac:AccountingCustomerParty'
 
 .Esempio UBL di informazioni sul Cliente
 [source, xml, indent=0]

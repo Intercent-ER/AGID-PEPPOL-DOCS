@@ -44,8 +44,6 @@ include::ext-termini-pagamento.adoc[]
 
 include::ext-arrotondamento-riepilogo-IVA.adoc[]
 
-include::ext-fattura-principale.adoc[]
-
 include::ext-dati-trasporto.adoc[]
 
 :leveloffset: -1

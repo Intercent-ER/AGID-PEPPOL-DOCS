@@ -1,0 +1,10 @@
+
+= #Codice Fiscale# (estensione)
+
+Il Codice Fiscale della persona fisica o dell'azienda, quando differisce dalla P.IVA, può essere espresso all'interno del Party nell'elemento PartyIdentification/ID omettendo l'attributo @schemeID ma includendo il prefisso "CF:" come nell'esempio di seguito.
+
+.Esempio UBL per esprimere il codice fiscale
+[source, xml, indent=0]
+----
+
+----

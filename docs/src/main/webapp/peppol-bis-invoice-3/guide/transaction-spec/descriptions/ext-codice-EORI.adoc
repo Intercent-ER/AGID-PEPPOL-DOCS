@@ -1,0 +1,11 @@
+
+= #Codice EORI# (estensione)
+
+Il numero del Codice EORI (Economic Operator Registration and Identification) si basa sul Regolamento (CE) n. 312 del 16 aprile 2009 ed è in vigore dal 1 luglio 2009.
+Può essere espresso all'interno del Party nell'elemento PartyIdentification/ID omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.
+
+.Esempio UBL per esprimere il codice EORI
+[source, xml, indent=0]
+----
+
+----

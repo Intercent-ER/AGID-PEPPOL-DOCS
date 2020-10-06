@@ -17,4 +17,6 @@ include::invoiced-object.adoc[]
 
 include::../../../syntax/references/index.adoc[]
 
+include::ext-fattura-principale.adoc[]
+
 :leveloffset: -1

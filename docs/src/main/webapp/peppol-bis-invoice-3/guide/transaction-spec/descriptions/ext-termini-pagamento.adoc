@@ -1,7 +1,23 @@
-= #Termini di Pagamento#
+
+= #Termini di Pagamento# (estensione)
 
 
-== Pagamanto Anticipato
+== Pagamento Anticipato
 
+A fronte di un pagamento anticipato è possibile offrire uno sconto specificandone l'importo e la data limite entro il quale il pagamento deve essere perfezionato.
+
+.Esempio UBL per specificare un pagamento anticipato
+[source, xml, indent=0]
+----
+
+----
 
 == Pagamento Ritardato
+
+A fronte di un pagamento ritardato è possibile fissare una penalità specificandone l'importo dovuto e la data di decorrenza della penale.
+
+.Esempio UBL per specificare un pagamento ritardato
+[source, xml, indent=0]
+----
+
+----

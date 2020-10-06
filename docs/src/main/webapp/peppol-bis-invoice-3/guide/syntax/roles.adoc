@@ -295,27 +295,6 @@ Nella fatturazione tra privati (B2B), se il cessionario/committente si avvale di
 ----
 
 
-= #La Stabile Organizzazione del fornitore (AccountingSupplierParty/Party/AgentParty)#
-
-Nella fatturazione tra privati (B2B), se il cedente/prestatore non residente ha una stabile organizzazione in Italia, si può specificare in fattura come parte dei dati del fornitore nell'elemento AgentParty.
-
-.Esempio UBL per la stabile organizzazione del fornitore
-[source, xml, indent=0]
-----
-----
-
-
-= #La Stabile Organizzazione del cliente (AccountingCustomerParty/Party/AgentParty)#
-
-Nella fatturazione tra privati (B2B), se il cessionario/committente non residente ha una stabile organizzazione in Italia, si può specificare in fattura come parte dei dati del cliente nell'elemento AgentParty.
-
-
-.Esempio UBL per la stabile organizzazione del cliente
-[source, xml, indent=0]
-----
-----
-
-
 = #Il Terzo Intermediario o Soggetto Emittente (AccountingSupplierParty/ServiceProviderParty)#
 
 Nel caso sia un soggetto terzo ad emettere fattura per conto del cedente / prestatore, si può specificare in fattura come parte dei dati del fornitore nell'elemento ServiceProviderParty.

@@ -32,4 +32,20 @@ include::tipodocumento.adoc[]
 
 include::address.adoc[]
 
+include::ext-regime-fiscale.adoc[]
+
+include::ext-stabile-organizzazione.adoc[]
+
+include::ext-codice-fiscale.adoc[]
+
+include::ext-codice-EORI.adoc[]
+
+include::ext-termini-pagamento.adoc[]
+
+include::ext-arrotondamento-riepilogo-IVA.adoc[]
+
+include::ext-fattura-principale.adoc[]
+
+include::ext-dati-trasporto.adoc[]
+
 :leveloffset: -1

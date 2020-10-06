@@ -1,7 +1,10 @@
 
 = #Indirizzo (CIUS)#
 
-[lime-background]#L'utilizzo dell’aggregato informativo cac:PostalAddress è diventato obbligatorio, ma i requisiti dettagliati di questo componente vengono mantenuti opzionali, perché questi dipendono sia da regole EU che nazionali. Sotto si riportano due esempi di come compilare le informazioni dell’indirizzo.#  
+Nell'utilizzo dell’aggregato informativo *cac:PostalAddress*, è obbligatorio l'utilizzo delle informazioni di indirizzo, CAP, Comune e nazione. +
+
+Sotto si riportano due esempi di come compilare le informazioni dell’indirizzo.
+
 
 .Indirizzo semplice
 [source, xml]

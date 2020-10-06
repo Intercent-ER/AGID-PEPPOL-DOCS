@@ -162,7 +162,7 @@
     <!-- tag::payee[] -->
     <cac:PayeeParty>
         <cac:PartyIdentification>
-            <cbc:ID schemeID="0192">987654325</cbc:ID>
+            <cbc:ID>PIVA:IT01598570354</cbc:ID>
             <!--1-->
         </cac:PartyIdentification>
         <cac:PartyName>

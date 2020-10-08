@@ -86,6 +86,29 @@
                     </execution>
                 </executions>
             </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+                                <version>2.3.1</version>
+				<executions>
+					<execution>
+						<id>install-external</id>
+						<phase>install</phase>
+						<configuration>
+							<file>${project.build.directory}/${project.artifactId}-${project.version}-zip.zip</file>
+							<repositoryLayout>default</repositoryLayout>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>${project.artifactId}</artifactId>
+							<version>${project.version}</version>
+							<packaging>zip</packaging>
+							<generatePom>false</generatePom>
+						</configuration>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
             <!--<plugin>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <version>3.0.0</version>

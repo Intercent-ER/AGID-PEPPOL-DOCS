@@ -120,6 +120,10 @@
 							<token>(#link_to_validator#)</token>
 							<value>NoTI-ER-PEPPOL-Validator-${validator.version}.zip</value>
 						</replacement>
+						<replacement>
+							<token>(#link_to_converter#)</token>
+							<value>NoTI-ER-PEPPOL-Converter-${converter.version}.zip</value>
+						</replacement>
 					</replacements>
 				</configuration>
 			</plugin>
@@ -165,6 +169,26 @@
 									<groupId>it.gov.agid</groupId>
 									<artifactId>NoTI-ER-PEPPOL-Schematron</artifactId>
 									<version>${schematron.version}</version>
+									<type>zip</type>
+									<overWrite>true</overWrite>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${project.build.directory}/${project.build.finalName}/attachments</outputDirectory>
+						</configuration>            
+					</execution>
+					<execution>
+						<id>copy-converter-zip</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>it.gov.agid</groupId>
+									<artifactId>NoTI-ER-PEPPOL-Converter</artifactId>
+									<version>${converter.version}</version>
 									<type>zip</type>
 									<overWrite>true</overWrite>
 								</artifactItem>

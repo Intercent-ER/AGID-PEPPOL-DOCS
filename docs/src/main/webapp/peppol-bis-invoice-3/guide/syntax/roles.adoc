@@ -203,6 +203,16 @@ Nel contesto B2C il Cliente può essere un cittadino (una persona fisica). +
 </cac:AccountingCustomerParty>
 
 
+Nel contesto B2B o G2B, in base alla specifica della FatturaPA italiana, il Cliente può essere identificato mediante il *Codice Destinatario*. +
+
+.Esempio di un soggetto (non persona fisica) in possesso del Codice Destinatario accreditato presso l'Agenzia delle Entrate.
+
+[source, xml]
+
+<cac:EndPointID>
+    <cbc:ID schemeID="0205">L0U7KO4</cbc:ID>
+</cac:EndPointID>
+
 .Esempio di un soggetto residente privo di Codice Destinatario e di PEC:
 
 [source, xml]
@@ -212,16 +222,6 @@ Nel contesto B2C il Cliente può essere un cittadino (una persona fisica). +
 </cac:EndPointID>
 
 
-Nel contesto B2B o G2B, in base alla specifica della FatturaPA italiana, il Cliente può essere identificato mediante il *Codice Destinatario*. +
-
-.Esempio di un soggetto (non persona fisica) in possesso del Codice Destinatario accreditato presso l'Agenzia delle Entrate.
-
-[source, xml]
-
-<cac:EndPointID>
-    <cbc:ID schemeID="0205">OBSH87</cbc:ID>
-</cac:EndPointID>
-
 .Esempio di un soggetto (non persona fisica) non residente, non stabilito o identificato in Italia, privo di Codice e Destinatario e di PEC.
 
 [source, xml]
@@ -230,18 +230,6 @@ Nel contesto B2B o G2B, in base alla specifica della FatturaPA italiana, il Clie
     <cbc:ID schemeID="0205">XXXXXXX</cbc:ID>
 </cac:EndPointID>
 
-
-[lime-background]#Indirizzo PEC del cliente (valutare se eliminare dopo test)#
-
-Quando disponibile è necessario fornire la PEC, soprattutto se il Cliente è un operatore economico non accreditato presso SDI.
-La PEC può essere fornita al posto della e-mail nelle informazioni di contatto utilizzando il prefisso “pec:” non case-sensitive (es. PEC: )
-
-[source, xml]
-
-<cac:Contact>
-        <cbc:Telephone>06123456</cbc:Telephone>
-        <cbc:ElectronicMail>PEC:nome.cognome@pec-domain.it</cbc:ElectronicMail>
-</cac:Contact>
 
 
 = Il Beneficiario (PayeeParty)

@@ -26,9 +26,9 @@ Questo profilo riguarda i seguenti processi di fatturazione:
 P1:: Fatturazione della consegna di beni e servizi a fronte di ordini di acquisto, in base ad un contratto
 P2:: Fatturazione della consegna di beni e servizi in base ad un contratto
 P3:: Fatturazione della consegna di un ordine di acquisto senza contratto
-P4:: [lime-background]#Pre pagamento#
-P5:: [lime-background]#Pagamento immediato di un ordine senza contratto#
-P6:: [lime-background]#Pagamento anticipato rispetto alla consegna#
+P4:: Pre pagamento
+P5:: Pagamento immediato di un ordine senza contratto
+P6:: Pagamento anticipato rispetto alla consegna
 P7:: Fatture con riferimento ad un documento di trasporto
 P8:: Fatture con riferimenti ad un documento di trasporto e ad un avviso di ricezione merce
 P9:: Note di credito o fatture con importi negativi, emesse per particolari casistiche, tra cui la restituzione di imballaggi vuoti

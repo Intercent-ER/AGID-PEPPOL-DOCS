@@ -16,18 +16,6 @@
 		<Term>cac:AgentParty</Term>
 		<Name>Il Rappresentante Fiscale che detiene questa procura per conto del Cessionario/Committente - FPA 1.4.4 'RappresentanteFiscale'</Name>
 
-		<Element cardinality="0..1">
-			<Term>cac:PartyName</Term>
-			<Name>PARTY NAME</Name>
-
-			<Element>
-				<Term>cbc:Name</Term>
-				<Name>Denominazione Rappresentante Fiscale</Name>
-				<DataType>Text</DataType>
-				<Value type="EXAMPLE">Rappresentante Fiscale Srl</Value>
-			</Element>
-		</Element>
-
 		<Element agid:custom="cardinality">
 			<Term>cac:PartyTaxScheme</Term>
 			<Name>PARTY VAT/TAX IDENTIFIERS</Name>
@@ -92,11 +80,30 @@
 
 			<Element>
 				<Term>cbc:RegistrationName</Term>
-				<Name>Ragione Sociale</Name>
+				<Name>Ragione Sociale - FPA 1.4.4.2 'Denominazione'</Name>
 				<DataType>Text</DataType>
 				<Reference type="RULE">BR-06</Reference>
+				<Value type="EXAMPLE">Rappresentante Fiscale Srl</Value>
 			</Element>
 
 		</Element>
+		
+		<Element cardinality="0..1">
+			<Term>cac:Person</Term>
+			<Name>Persona Fisica</Name>
+
+			<Element>
+				<Term>cbc:FirstName</Term>
+				<Name>Nome Persona Fisica - FPA 1.4.4.3 'Nome'</Name>
+				<DataType>Text</DataType>
+			</Element>
+			<Element>
+				<Term>cbc:FamilyName</Term>
+				<Name>Cognome Persona Fisica - FPA 1.4.4.4 'Cognome'</Name>
+				<DataType>Text</DataType>
+			</Element>
+
+		</Element>
+		
 	</Element>
 </Element>

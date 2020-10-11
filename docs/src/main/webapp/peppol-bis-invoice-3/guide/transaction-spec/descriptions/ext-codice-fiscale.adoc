@@ -6,5 +6,5 @@ Il Codice Fiscale della persona fisica o dell'azienda, quando differisce dalla P
 .Esempio UBL per esprimere il codice fiscale
 [source, xml, indent=0]
 ----
-
+include::../../../rules/snippets/agid-extensions.xml[tag=cf]
 ----

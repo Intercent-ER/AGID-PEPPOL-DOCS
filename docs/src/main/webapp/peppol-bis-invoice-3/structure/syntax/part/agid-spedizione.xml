@@ -30,7 +30,7 @@
 			<Reference type="RULE">BR-23</Reference>
 			<Reference type="CODE_LIST">UNECERec20</Reference>
 			<Reference type="CODE_LIST">UNECERec21</Reference>
-			<Value type="EXAMPLE">C62</Value>
+			<Value type="EXAMPLE">KGM</Value>
 		</Attribute>
 
 	</Element>
@@ -50,7 +50,7 @@
 			<Reference type="RULE">BR-23</Reference>
 			<Reference type="CODE_LIST">UNECERec20</Reference>
 			<Reference type="CODE_LIST">UNECERec21</Reference>
-			<Value type="EXAMPLE">C62</Value>
+			<Value type="EXAMPLE">KGM</Value>
 		</Attribute>
 
 	</Element>

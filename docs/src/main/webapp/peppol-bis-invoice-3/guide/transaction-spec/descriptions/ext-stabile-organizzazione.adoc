@@ -6,6 +6,7 @@ Nella fatturazione tra privati (B2B), se il cedente/prestatore non residente ha 
 .Esempio UBL per la stabile organizzazione del fornitore
 [source, xml, indent=0]
 ----
+include::../../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_fornitore]
 ----
 
 
@@ -17,4 +18,5 @@ Nella fatturazione tra privati (B2B), se il cessionario/committente non resident
 .Esempio UBL per la stabile organizzazione del cliente
 [source, xml, indent=0]
 ----
+include::../../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_cliente]
 ----

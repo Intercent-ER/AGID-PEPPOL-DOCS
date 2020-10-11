@@ -9,7 +9,7 @@ A fronte di un pagamento anticipato è possibile offrire uno sconto specificando
 .Esempio UBL per specificare un pagamento anticipato
 [source, xml, indent=0]
 ----
-
+include::../../../rules/snippets/agid-extensions.xml[tag=pagamento_anticipato]
 ----
 
 == Pagamento Ritardato
@@ -19,5 +19,5 @@ A fronte di un pagamento ritardato è possibile fissare una penalità specifican
 .Esempio UBL per specificare un pagamento ritardato
 [source, xml, indent=0]
 ----
-
+include::../../../rules/snippets/agid-extensions.xml[tag=pagamento_ritardato]
 ----

@@ -131,6 +131,16 @@
 				<Term>cbc:Amount</Term>
 				<Name>Arrotondamento</Name>
 				<DataType>Amount</DataType>
+				
+				<Attribute>
+					<Term>currencyID</Term>
+					<Description>Mandatory attribute. Use BT-5</Description>
+					<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
+					<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
+					<Reference type="CODE_LIST">ISO4217</Reference>
+					<Value type="EXAMPLE">EUR</Value>
+				</Attribute>
+				
 				<Value type="EXAMPLE">0.20</Value>
 			</Element>
 			

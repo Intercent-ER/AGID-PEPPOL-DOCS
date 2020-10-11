@@ -55,6 +55,8 @@
                     </Attribute>
 
                     <Value type="EXAMPLE">5060012349998</Value>
+					<Value type="EXAMPLE">IT:EORI:1234567890</Value>
+					<Value type="EXAMPLE">IT:ALBO:GEOMETRI:12345</Value>
 
                 </Element>
 
@@ -320,6 +322,8 @@
             </Element>
 			
 			<Include>agid-stabile-organizzazione-cedente-prestatore.xml</Include>
-			
+
+			<Include>agid-terzo-intermediario-soggetto-emittente.xml</Include>
+
         </Element>
     </Element>

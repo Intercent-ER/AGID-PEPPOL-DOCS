@@ -173,7 +173,7 @@
 
                 <Element>
                     <Term>cbc:CompanyID</Term>
-                    <Name>Partita IVA o C.F. del Vettore</Name>
+                    <Name>Partita IVA del Vettore</Name>
                     <DataType>Identifier</DataType>
                     <Reference type="RULE">BR-CO-09</Reference>
                     <Reference type="RULE">BR-AE-02</Reference>
@@ -235,6 +235,25 @@
                 </Element>
             </Element>
 
+        </Element>
+		
+        <Element cardinality="0..1">
+            <Term>cac:DeliveryParty</Term>
+            <Name>DELIVER PARTY</Name>
+
+            <Element>
+                <Term>cac:PartyName</Term>
+                <Name>PARTY NAME</Name>
+
+                <Element>
+                    <Term>cbc:Name</Term>
+                    <Name>Deliver to party name</Name>
+                    <Description>The name of the party to which the goods and services are delivered.</Description>
+                    <DataType>Text</DataType>
+                    <Reference type="BUSINESS_TERM">BT-70</Reference>
+                    <Value type="EXAMPLE">Deliver name</Value>
+                </Element>
+            </Element>
         </Element>
 		
 		<Include>agid-ritiro-merce.xml</Include>

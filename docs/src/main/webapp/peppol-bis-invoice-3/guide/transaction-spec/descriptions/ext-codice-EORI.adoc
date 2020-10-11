@@ -7,5 +7,5 @@ Può essere espresso all'interno del Party nell'elemento PartyIdentification/ID 
 .Esempio UBL per esprimere il codice EORI
 [source, xml, indent=0]
 ----
-
+include::../../../rules/snippets/agid-extensions.xml[tag=eori]
 ----

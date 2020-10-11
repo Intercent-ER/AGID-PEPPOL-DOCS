@@ -6,5 +6,5 @@ Eventuali arrotondamenti necessari a riportare al centesimo di euro le somme dei
 .Esempio UBL per fornire l'arrotondamento di un imponibile nel riepilogo IVA
 [source, xml, indent=0]
 ----
-
+include::../../../rules/snippets/agid-extensions.xml[tag=ext_RiepilogoIVA_Arrotondamento]
 ----

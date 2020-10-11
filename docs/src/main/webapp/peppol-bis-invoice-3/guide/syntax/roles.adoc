@@ -292,6 +292,7 @@ Nella fatturazione tra privati (B2B), se il cessionario/committente si avvale di
 .Esempio UBL per il rappresentante fiscale del cliente
 [source, xml, indent=0]
 ----
+include::{snippet-dir}/agid-extensions.xml[tag=rappresentante_fiscale_cliente]
 ----
 
 
@@ -299,9 +300,10 @@ Nella fatturazione tra privati (B2B), se il cessionario/committente si avvale di
 
 Nel caso sia un soggetto terzo ad emettere fattura per conto del cedente / prestatore, si può specificare in fattura come parte dei dati del fornitore nell'elemento ServiceProviderParty.
 
-.Esempio UBL per il terzo intermediario o soggetto emittente per conto del cliente
+.Esempio UBL per il terzo intermediario o soggetto emittente per conto del fornitore
 [source, xml, indent=0]
 ----
+include::{snippet-dir}/agid-extensions.xml[tag=terzo_intermediario]
 ----
 
 
@@ -312,4 +314,5 @@ Nei casi di fattura "accompagnatoria", come parte delle informazioni relative al
 .Esempio UBL per il vettore che effettua il trasporto
 [source, xml, indent=0]
 ----
+include::{snippet-dir}/agid-extensions.xml[tag=info_vettore]
 ----

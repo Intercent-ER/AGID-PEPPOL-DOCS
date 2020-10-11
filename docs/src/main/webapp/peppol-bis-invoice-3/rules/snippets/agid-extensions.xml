@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+    xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+	xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+    xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+    <ext:UBLExtensions>
+		<!-- tag::ext_SistemaEmittente[] -->
+		<ext:UBLExtension>
+			<ext:ExtensionURI>urn:fdc:agid.gov.it:fatturapa:SistemaEmittente</ext:ExtensionURI>
+			<ext:ExtensionContent>
+				<cbc:Description>B2Brouter</cbc:Description>
+			</ext:ExtensionContent>
+		</ext:UBLExtension>
+		<!-- end::ext_SistemaEmittente[] -->
+		<!-- tag::ext_SoggettoEmittente[] -->
+		<ext:UBLExtension>
+			<ext:ExtensionURI>urn:fdc:agid.gov.it:fatturapa:SoggettoEmittente</ext:ExtensionURI>
+			<ext:ExtensionContent>
+				<cbc:TypeCode>TZ</cbc:TypeCode>
+			</ext:ExtensionContent>
+		</ext:UBLExtension>
+		<!-- end::ext_SoggettoEmittente[] -->
+		<!-- tag::ext_TipoDocumento[] -->
+		<ext:UBLExtension>
+			<ext:ExtensionURI>urn:fdc:agid.gov.it:fatturapa:TipoDocumento</ext:ExtensionURI>
+			<ext:ExtensionContent>
+				<cbc:TypeCode>TD22</cbc:TypeCode>
+			</ext:ExtensionContent>
+		</ext:UBLExtension>
+		<!-- end::ext_TipoDocumento[] -->
+		<!-- tag::ext_TipoRitenuta[] -->
+		<ext:UBLExtension>
+			<ext:ExtensionURI>urn:fdc:agid.gov.it:fatturapa:TipoRitenuta::1</ext:ExtensionURI>
+			<ext:ExtensionContent>
+				<cbc:TypeCode>RT01</cbc:TypeCode>
+			</ext:ExtensionContent>
+		</ext:UBLExtension>
+		<ext:UBLExtension>
+			<ext:ExtensionURI>urn:fdc:agid.gov.it:fatturapa:TipoRitenuta::2</ext:ExtensionURI>
+			<ext:ExtensionContent>
+				<cbc:TypeCode>RT04</cbc:TypeCode>
+			</ext:ExtensionContent>
+		</ext:UBLExtension>
+		<!-- end::ext_TipoRitenuta[] -->
+		<!-- tag::ext_Art73[] -->
+		<ext:UBLExtension>
+			<ext:ExtensionURI>urn:fdc:agid.gov.it:fatturapa:Art73</ext:ExtensionURI>
+			<ext:ExtensionContent>
+				<cbc:TypeCode>SI</cbc:TypeCode>
+			</ext:ExtensionContent>
+		</ext:UBLExtension>
+		<!-- end::ext_Art73[] -->
+		<!-- tag::ext_RiepilogoIVA_Arrotondamento[] -->
+		<ext:UBLExtension>
+			<ext:ExtensionURI>urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento::1</ext:ExtensionURI>
+			<ext:ExtensionContent>
+				<cbc:Amount currencyID="EUR">0.5</cbc:Amount>
+			</ext:ExtensionContent>
+		</ext:UBLExtension>
+		<ext:UBLExtension>
+			<ext:ExtensionURI>urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento::2</ext:ExtensionURI>
+			<ext:ExtensionContent>
+				<cbc:Amount currencyID="EUR">0.8</cbc:Amount>
+			</ext:ExtensionContent>
+		</ext:UBLExtension>
+		<!-- end::ext_RiepilogoIVA_Arrotondamento[] -->
+		<!-- tag::ext_ritenuta_NC[] -->
+		<ext:UBLExtension>
+			<ext:ExtensionURI>urn:fdc:agid.gov.it:fatturapa:Ritenuta</ext:ExtensionURI>
+			<ext:ExtensionContent>
+    			<cac:WithholdingTaxTotal>
+        			<cbc:TaxAmount currencyID="EUR">486.25</cbc:TaxAmount>
+        			<cac:TaxSubtotal>
+            			<cbc:TaxAmount currencyID="EUR">486.25</cbc:TaxAmount>
+            			<cac:TaxCategory>
+                			<cbc:ID>S</cbc:ID>
+                			<cbc:Percent>25</cbc:Percent>
+                			<cac:TaxScheme>
+                    			<cbc:ID>SWT</cbc:ID>
+                    			<cbc:TaxTypeCode>A</cbc:TaxTypeCode>
+                			</cac:TaxScheme>
+            			</cac:TaxCategory>
+        			</cac:TaxSubtotal>
+        			<cac:TaxSubtotal>
+            			<cbc:TaxAmount currencyID="EUR">200.25</cbc:TaxAmount>
+            			<cac:TaxCategory>
+                			<cbc:ID>S</cbc:ID>
+                			<cbc:Percent>4</cbc:Percent>
+                			<cac:TaxScheme>
+                    			<cbc:ID>SWT</cbc:ID>
+                    			<cbc:TaxTypeCode>B</cbc:TaxTypeCode>
+                			</cac:TaxScheme>
+            			</cac:TaxCategory>
+        			</cac:TaxSubtotal>
+    			</cac:WithholdingTaxTotal>
+			</ext:ExtensionContent>
+		</ext:UBLExtension>
+		<!-- end::ext_ritenuta_NC[] -->
+    </ext:UBLExtensions>
+    <!-- tag::profile[] -->
+    <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID>
+    <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
+    <!-- end::profile[] -->
+    <cbc:ID>Snippet1</cbc:ID>
+    <cbc:IssueDate>2017-11-13</cbc:IssueDate>
+    <cbc:DueDate>2017-12-01</cbc:DueDate>
+    <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
+    <cbc:Note>Please note we have a new phone number: 22 22 22 22</cbc:Note>
+    <cbc:TaxPointDate>2017-12-01</cbc:TaxPointDate>
+    <!-- tag::vat-curr1[] -->
+    <cbc:DocumentCurrencyCode>EUR</cbc:DocumentCurrencyCode>
+    <!--1-->
+    <cbc:TaxCurrencyCode>SEK</cbc:TaxCurrencyCode>
+    <!--2-->
+    <!-- end::vat-curr1[] -->
+    <cbc:AccountingCost>4025:123:4343</cbc:AccountingCost>
+    <cbc:BuyerReference>110#2018-01-30#aaaaaa</cbc:BuyerReference>
+    <cac:InvoicePeriod>
+        <cbc:StartDate>2017-11-01</cbc:StartDate>
+        <cbc:EndDate>2017-12-31</cbc:EndDate>
+    </cac:InvoicePeriod>
+    <cac:OrderReference>
+        <cbc:ID>CE20-HF1-4001</cbc:ID>
+        <cbc:SalesOrderID>so-12343</cbc:SalesOrderID>
+    </cac:OrderReference>
+	<!-- tag::rif_fattura_principale[] -->
+    <cac:BillingReference>
+		<cac:InvoiceDocumentReference>
+			<cbc:ID>ft123</cbc:ID>
+			<cbc:IssueDate>2020-09-15</cbc:IssueDate>
+		</cac:InvoiceDocumentReference>
+		<!--1-->
+		<cac:AdditionalDocumentReference>
+			<cbc:ID>ft001</cbc:ID>
+			<cbc:IssueDate>2020-09-15</cbc:IssueDate>
+		</cac:AdditionalDocumentReference>
+    </cac:BillingReference>
+	<!-- end::rif_fattura_principale[] -->
+    <cac:DespatchDocumentReference>
+        <cbc:ID>despadv-3</cbc:ID>
+    </cac:DespatchDocumentReference>
+    <cac:ReceiptDocumentReference>
+        <cbc:ID>resadv-1</cbc:ID>
+    </cac:ReceiptDocumentReference>
+    <cac:OriginatorDocumentReference>
+        <cbc:ID>ppid-123</cbc:ID>
+    </cac:OriginatorDocumentReference>
+    <cac:ContractDocumentReference>
+        <cbc:ID>Contratto321</cbc:ID>
+    </cac:ContractDocumentReference>
+    <cac:AdditionalDocumentReference>
+        <!-- Invoiced object -->
+        <cbc:ID schemeID="ABT">DR35141</cbc:ID>
+        <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
+    </cac:AdditionalDocumentReference>
+    <cac:AdditionalDocumentReference>
+        <cbc:ID>ts12345</cbc:ID>
+        <cbc:DocumentDescription>Technical specification</cbc:DocumentDescription>
+        <cac:Attachment>
+            <cac:ExternalReference>
+                <cbc:URI>www.techspec.no</cbc:URI>
+            </cac:ExternalReference>
+        </cac:Attachment>
+    </cac:AdditionalDocumentReference>
+    <cac:AdditionalDocumentReference>
+        <cbc:ID>mr4343</cbc:ID>
+        <cbc:DocumentDescription>milage report</cbc:DocumentDescription>
+        <cac:Attachment>
+            <cbc:EmbeddedDocumentBinaryObject mimeCode="text/csv" filename="milage.csv"
+                >bWlsYWdlIHJlcG9ydA==</cbc:EmbeddedDocumentBinaryObject>
+        </cac:Attachment>
+    </cac:AdditionalDocumentReference>
+    <cac:ProjectReference>
+        <cbc:ID>project333</cbc:ID>
+    </cac:ProjectReference>
+    <cac:AccountingSupplierParty>
+        <cac:Party>
+            <cbc:EndpointID schemeID="9906">IT07643520567</cbc:EndpointID>
+            <cac:PartyIdentification>
+                <cbc:ID schemeID="9906">IT07643520567</cbc:ID>
+            </cac:PartyIdentification>
+            <cac:PartyName>
+                <cbc:Name>Fornitore S.r.l</cbc:Name>
+            </cac:PartyName>
+            <cac:PostalAddress>
+                <cbc:StreetName>Via principale, 1</cbc:StreetName>
+                <cbc:AdditionalStreetName>PO Box 123</cbc:AdditionalStreetName>
+                <cbc:CityName>La Spezia</cbc:CityName>
+                <cbc:PostalZone>19100</cbc:PostalZone>
+                <cac:AddressLine>
+                    <cbc:Line>Informazioni Aggiuntive</cbc:Line>
+                </cac:AddressLine>
+                <cac:Country>
+                    <cbc:IdentificationCode>IT</cbc:IdentificationCode>
+                </cac:Country>
+            </cac:PostalAddress>
+			<!-- tag::regime_fiscale[] -->
+            <cac:PartyTaxScheme>
+                <cbc:CompanyID>IT07643520567</cbc:CompanyID>
+				<cbc:TaxLevelCode>RF19</cbc:TaxLevelCode>
+                <cac:TaxScheme>
+                    <cbc:ID>VAT</cbc:ID>
+                </cac:TaxScheme>
+            </cac:PartyTaxScheme>
+			<!-- end::regime_fiscale[] -->
+            <cac:PartyTaxScheme>
+                <cbc:CompanyID>IT07643520987</cbc:CompanyID>
+                <cac:TaxScheme>
+                    <cbc:ID>TAX</cbc:ID>
+                </cac:TaxScheme>
+            </cac:PartyTaxScheme>
+            <cac:PartyLegalEntity>
+                <cbc:RegistrationName>Fornitore S.r.l</cbc:RegistrationName>
+                <cbc:CompanyLegalForm>SRL</cbc:CompanyLegalForm>
+            </cac:PartyLegalEntity>
+            <cac:Contact>
+                <cbc:Name>Mario Rossi</cbc:Name>
+                <cbc:Telephone>0187559999</cbc:Telephone>
+                <cbc:ElectronicMail>nome.cognome@fornitore.it</cbc:ElectronicMail>
+            </cac:Contact>
+			<!-- tag::stabile_organizzazione_fornitore[] -->
+			<cac:AgentParty>
+				<cac:PostalAddress>
+					<cbc:StreetName>Corso Sempione, 1</cbc:StreetName>
+					<cbc:CityName>Milano</cbc:CityName>
+					<cbc:PostalZone>20100</cbc:PostalZone>
+					<cbc:CountrySubentity>MI</cbc:CountrySubentity>
+					<cac:Country>
+						<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+					</cac:Country>
+				</cac:PostalAddress>
+			</cac:AgentParty>
+			<!-- end::stabile_organizzazione_fornitore[] -->
+			<!-- tag::terzo_intermediario[] -->
+			<cac:ServiceProviderParty>
+				<cac:Party>
+					<cac:PartyIdentification>
+						<cbc:ID>IT:EORI:12345678901</cbc:ID>
+					</cac:PartyIdentification>
+					<cac:PartyName>
+						<cbc:Name>Terzo Intermediario Srl</cbc:Name>
+					</cac:PartyName>
+					<cac:PartyTaxScheme>
+						<cbc:CompanyID>IT07643520567</cbc:CompanyID>
+						<cac:TaxScheme>
+							<cbc:ID>VAT</cbc:ID>
+						</cac:TaxScheme>
+					</cac:PartyTaxScheme>
+				</cac:Party>
+			</cac:ServiceProviderParty>
+			<!-- end::terzo_intermediario[] -->
+        </cac:Party>
+    </cac:AccountingSupplierParty>
+    <!-- tag::buyer[] -->
+    <cac:AccountingCustomerParty>
+        <cac:Party>
+            <cbc:EndpointID schemeID="0201">ABCDEF</cbc:EndpointID>
+            <!--1-->
+            <cac:PartyIdentification>
+                <cbc:ID schemeID="0201">ABCDEF</cbc:ID>
+                <!--2-->
+            </cac:PartyIdentification>
+            <cac:PartyName>
+                <cbc:Name>Cliente S.p.A.</cbc:Name>
+            </cac:PartyName>
+            <cac:PostalAddress>
+                <cbc:StreetName>Via Pubblica, 712</cbc:StreetName>
+                <cbc:CityName>Roma</cbc:CityName>
+                <cbc:PostalZone>00199</cbc:PostalZone>
+                <cac:AddressLine>
+                    <cbc:Line>Informazioni Aggiuntive</cbc:Line>
+                </cac:AddressLine>
+                <cac:Country>
+                    <cbc:IdentificationCode>IT</cbc:IdentificationCode>
+                </cac:Country>
+            </cac:PostalAddress>
+            <cac:PartyTaxScheme>
+                <cbc:CompanyID>IT07663520567</cbc:CompanyID>
+                <!--3-->
+                <cac:TaxScheme>
+                    <cbc:ID>VAT</cbc:ID>
+                </cac:TaxScheme>
+            </cac:PartyTaxScheme>
+            <cac:PartyLegalEntity>
+                <cbc:RegistrationName>Cliente S.p.A.</cbc:RegistrationName>
+                <cbc:CompanyID>IT:CF:39937423947</cbc:CompanyID>
+                <!--4-->
+            </cac:PartyLegalEntity>
+            <cac:Contact>
+                <cbc:Name>Giuseppe Verdi</cbc:Name>
+                <cbc:Telephone>06123456</cbc:Telephone>
+                <cbc:ElectronicMail>giuseppe.verdi@cliente.it</cbc:ElectronicMail>
+            </cac:Contact>
+			<!-- tag::stabile_organizzazione_cliente[] -->
+			<cac:AgentParty>
+				<cac:PostalAddress>
+					<cbc:StreetName>Via Navigli, 100</cbc:StreetName>
+					<cbc:CityName>Milano</cbc:CityName>
+					<cbc:PostalZone>20100</cbc:PostalZone>
+					<cbc:CountrySubentity>MI</cbc:CountrySubentity>
+					<cac:Country>
+						<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+					</cac:Country>
+				</cac:PostalAddress>
+			</cac:AgentParty>
+			<!-- end::stabile_organizzazione_cliente[] -->
+			<!-- tag::rappresentante_fiscale_cliente[] -->
+			<cac:PowerOfAttorney>
+				<cbc:Description>Rappresentante Fiscale</cbc:Description>
+				<cac:AgentParty>
+					<cac:PartyTaxScheme>
+						<cbc:CompanyID>IT07643520567</cbc:CompanyID>
+						<cac:TaxScheme>
+							<cbc:ID>VAT</cbc:ID>
+						</cac:TaxScheme>
+					</cac:PartyTaxScheme>
+					<cac:PartyLegalEntity>
+						<cbc:RegistrationName>Rappresentante Fiscale Srl</cbc:RegistrationName>
+					</cac:PartyLegalEntity>
+				</cac:AgentParty>
+			</cac:PowerOfAttorney>
+			<!-- end::rappresentante_fiscale_cliente[] -->
+        </cac:Party>
+    </cac:AccountingCustomerParty>
+    <!-- end::buyer[] -->
+
+    <!-- tag::payee[] -->
+    <cac:PayeeParty>
+        <cac:PartyIdentification>
+            <cbc:ID schemeID="0192">987654325</cbc:ID>
+            <!--1-->
+        </cac:PartyIdentification>
+        <cac:PartyName>
+            <cbc:Name>Beneficiario e F.lli S.a.s</cbc:Name>
+        </cac:PartyName>
+        <!-- <cac:PartyLegalEntity> -->
+            <!--cbc:CompanyID schemeID="0192">NO07663520567</cbc:CompanyID-->
+            <!--2-->
+        <!-- </cac:PartyLegalEntity> -->
+    </cac:PayeeParty>
+    <!-- end::payee[] -->
+    <!-- tag::taxrep[] -->
+    <cac:TaxRepresentativeParty>
+		<!-- tag::cf[] -->
+		<cac:PartyIdentification>
+			<cbc:ID>IT:CF:CXXNXX68M06E123H</cbc:ID>
+		</cac:PartyIdentification>
+		<!-- end::cf[] -->
+		<!-- tag::eori[] -->
+		<cac:PartyIdentification>
+			<cbc:ID>IT:EORI:12345678901</cbc:ID>
+		</cac:PartyIdentification>
+		<!-- end::eori[] -->
+        <cac:PartyName>
+            <cbc:Name>Commercialista Snc</cbc:Name>
+        </cac:PartyName>
+        <cac:PostalAddress>
+            <cbc:StreetName>Corso di Francia</cbc:StreetName>
+            <cbc:AdditionalStreetName>Blocco 1</cbc:AdditionalStreetName>
+            <cbc:CityName>Roma</cbc:CityName>
+            <cbc:PostalZone>00197</cbc:PostalZone>
+            <cbc:CountrySubentity>RM</cbc:CountrySubentity>
+            <cac:AddressLine>
+                <cbc:Line>Informazioni Aggiuntive</cbc:Line>
+            </cac:AddressLine>
+            <cac:Country>
+                <cbc:IdentificationCode>IT</cbc:IdentificationCode>
+            </cac:Country>
+        </cac:PostalAddress>
+        <cac:PartyTaxScheme>
+            <cbc:CompanyID>IT07643520567</cbc:CompanyID>
+            <!--1-->
+            <cac:TaxScheme>
+                <cbc:ID>VAT</cbc:ID>
+            </cac:TaxScheme>
+        </cac:PartyTaxScheme>
+    </cac:TaxRepresentativeParty>
+    <!-- end::taxrep[] -->
+    <cac:Delivery>
+        <cbc:ActualDeliveryDate>2017-11-01</cbc:ActualDeliveryDate>
+        <cac:DeliveryLocation>
+            <cbc:ID>01598570354-MCR-FEA</cbc:ID>
+            <cac:Address>
+                <cbc:StreetName>Viale Viali,2 - PAD.01</cbc:StreetName>
+                <cbc:AdditionalStreetName>CENTRO LOG</cbc:AdditionalStreetName>
+                <cbc:CityName>Bologna</cbc:CityName>
+                <cbc:PostalZone>40100</cbc:PostalZone>
+                <cac:AddressLine>
+                    <cbc:Line>MCR-FEA</cbc:Line>
+                </cac:AddressLine>
+                <cac:Country>
+                    <cbc:IdentificationCode>IT</cbc:IdentificationCode>
+                </cac:Country>
+            </cac:Address>
+        </cac:DeliveryLocation>
+        <!-- tag::info_vettore[] -->
+        <cac:CarrierParty>
+            <cac:PartyIdentification>
+                <cbc:ID>IT:CF:CXXNXX68M06E123H</cbc:ID>
+            </cac:PartyIdentification>
+            <cac:PartyName>
+                <cbc:Name>Trasporti di Mario Rossi</cbc:Name>
+            </cac:PartyName>
+            <cac:PartyTaxScheme>
+                <cbc:CompanyID>IT12345678901</cbc:CompanyID>
+                <cac:TaxScheme>
+                    <cbc:ID>VAT</cbc:ID>
+                </cac:TaxScheme>
+            </cac:PartyTaxScheme>
+            <cac:Person>
+                <cbc:FirstName>Mario</cbc:FirstName>
+                <cbc:FamilyName>Rossi</cbc:FamilyName>
+                <cac:IdentityDocumentReference>
+                    <cbc:ID>MI1234567H</cbc:ID>
+                    <cbc:DocumentTypeCode>40</cbc:DocumentTypeCode>
+                </cac:IdentityDocumentReference>
+            </cac:Person>
+        </cac:CarrierParty>
+        <!-- end::info_vettore[] -->
+        <cac:DeliveryParty>
+            <cac:PartyName>
+                <cbc:Name>Nome Acquirente</cbc:Name>
+            </cac:PartyName>
+        </cac:DeliveryParty>
+		<!-- tag::info_ritiro_merce[] -->
+        <cac:Despatch>
+            <cbc:Instructions>Vendita</cbc:Instructions>
+			<cbc:RequestedDespatchDate>2020-11-01</cbc:RequestedDespatchDate>
+			<cbc:RequestedDespatchTime>10:00:00</cbc:RequestedDespatchTime>
+			<cbc:ActualDespatchDate>2020-11-01</cbc:ActualDespatchDate>
+        </cac:Despatch>
+        <!-- end::info_ritiro_merce[] -->
+		<!-- tag::info_spedizione[] -->
+        <cac:Shipment>
+            <cbc:ID>NA</cbc:ID>
+			<cbc:GrossWeightMeasure unitCode="KGM">10.0</cbc:GrossWeightMeasure>
+			<cbc:NetWeightMeasure unitCode="KGM">8.0</cbc:NetWeightMeasure>
+			<cbc:TotalTransportHandlingUnitQuantity unitCode="C62">1</cbc:TotalTransportHandlingUnitQuantity>
+			<cac:GoodsItem>
+				<cbc:Description>Medicinali</cbc:Description>
+			</cac:GoodsItem>
+			<cac:ShipmentStage>
+				<cbc:TransportMeansTypeCode>CAMION</cbc:TransportMeansTypeCode>
+			</cac:ShipmentStage>
+        </cac:Shipment>
+        <!-- end::info_spedizione[] -->
+    </cac:Delivery>
+	<!-- tag::termini_consegna[] -->
+	<cac:DeliveryTerms>
+		<cbc:ID schemeID="Incoterms2000">EXW</cbc:ID>
+	</cac:DeliveryTerms>
+	<!-- end::termini_consegna[] -->
+    <cac:PaymentMeans>
+        <cbc:PaymentMeansCode name="Credit transfer">30</cbc:PaymentMeansCode>
+        <cbc:PaymentID>Snippet1</cbc:PaymentID>
+        <cac:PayeeFinancialAccount>
+            <cbc:ID>IBAN32423940</cbc:ID>
+            <cbc:Name>AccountName</cbc:Name>
+            <cac:FinancialInstitutionBranch>
+                <cbc:ID>BIC324098</cbc:ID>
+            </cac:FinancialInstitutionBranch>
+        </cac:PayeeFinancialAccount>
+    </cac:PaymentMeans>
+	<!-- tag::pagamento_anticipato[] -->
+    <cac:PaymentTerms>
+        <cbc:Note>Sconto per pagamento anticipato</cbc:Note>
+        <cbc:SettlementDiscountAmount currencyID="EUR">100.00</cbc:SettlementDiscountAmount>
+        <cac:SettlementPeriod>
+            <cbc:EndDate>2020-10-31</cbc:EndDate>
+        </cac:SettlementPeriod>
+    </cac:PaymentTerms>
+	<!-- end::pagamento_anticipato[] -->
+	<!-- tag::pagamento_ritardato[] -->
+    <cac:PaymentTerms>
+        <cbc:Note>Penale per pagamento ritardato</cbc:Note>
+        <cbc:PenaltyAmount currencyID="EUR">100.00</cbc:PenaltyAmount>
+        <cac:PenaltyPeriod>
+            <cbc:StartDate>2020-10-01</cbc:StartDate>
+        </cac:PenaltyPeriod>
+    </cac:PaymentTerms>
+	<!-- end::pagamento_ritardato[] -->
+    <cac:AllowanceCharge>
+        <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+        <cbc:AllowanceChargeReasonCode>FC</cbc:AllowanceChargeReasonCode>
+        <cbc:AllowanceChargeReason>Servizio di Trasporto</cbc:AllowanceChargeReason>
+        <cbc:MultiplierFactorNumeric>20</cbc:MultiplierFactorNumeric>
+        <cbc:Amount currencyID="EUR">200</cbc:Amount>
+        <cbc:BaseAmount currencyID="EUR">1000</cbc:BaseAmount>
+        <cac:TaxCategory>
+            <cbc:ID>S</cbc:ID>
+            <cbc:Percent>25</cbc:Percent>
+            <cac:TaxScheme>
+                <cbc:ID>VAT</cbc:ID>
+            </cac:TaxScheme>
+        </cac:TaxCategory>
+    </cac:AllowanceCharge>
+    <cac:AllowanceCharge>
+        <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+        <cbc:AllowanceChargeReasonCode>65</cbc:AllowanceChargeReasonCode>
+        <cbc:AllowanceChargeReason>Sconto Errore Produzione</cbc:AllowanceChargeReason>
+        <cbc:Amount currencyID="EUR">300</cbc:Amount>
+        <cac:TaxCategory>
+            <cbc:ID>S</cbc:ID>
+            <cbc:Percent>25</cbc:Percent>
+            <cac:TaxScheme>
+                <cbc:ID>VAT</cbc:ID>
+            </cac:TaxScheme>
+        </cac:TaxCategory>
+    </cac:AllowanceCharge>
+    <!-- tag::vat-curr2[] -->
+
+    <cac:TaxTotal>
+        <cbc:TaxAmount currencyID="EUR">1000.00</cbc:TaxAmount>
+        <!--3-->
+        <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="EUR">4000.0</cbc:TaxableAmount>
+            <cbc:TaxAmount currencyID="EUR">1000</cbc:TaxAmount>
+            <cac:TaxCategory>
+                <cbc:ID>S</cbc:ID>
+                <cbc:Percent>25</cbc:Percent>
+                <cac:TaxScheme>
+                    <cbc:ID>VAT</cbc:ID>
+                </cac:TaxScheme>
+            </cac:TaxCategory>
+        </cac:TaxSubtotal>
+    </cac:TaxTotal>
+    <cac:TaxTotal>
+        <cbc:TaxAmount currencyID="SEK">100017.50</cbc:TaxAmount>
+        <!--4-->
+    </cac:TaxTotal>
+    <!-- end::vat-curr2[] -->
+	<!-- tag::ritenute[] -->
+    <cac:WithholdingTaxTotal>
+        <cbc:TaxAmount currencyID="EUR">486.25</cbc:TaxAmount>
+        <cac:TaxSubtotal>
+            <cbc:TaxAmount currencyID="EUR">486.25</cbc:TaxAmount>
+            <cac:TaxCategory>
+                <cbc:ID>S</cbc:ID>
+                <cbc:Percent>25</cbc:Percent>
+                <cac:TaxScheme>
+                    <cbc:ID>SWT</cbc:ID>
+                    <cbc:TaxTypeCode>A</cbc:TaxTypeCode>
+                </cac:TaxScheme>
+            </cac:TaxCategory>
+        </cac:TaxSubtotal>
+    </cac:WithholdingTaxTotal>
+	<!-- end::ritenute[] -->
+    <cac:LegalMonetaryTotal>
+        <cbc:LineExtensionAmount currencyID="EUR">4100</cbc:LineExtensionAmount>
+        <cbc:TaxExclusiveAmount currencyID="EUR">4000</cbc:TaxExclusiveAmount>
+        <cbc:TaxInclusiveAmount currencyID="EUR">5000</cbc:TaxInclusiveAmount>
+        <cbc:AllowanceTotalAmount currencyID="EUR">300</cbc:AllowanceTotalAmount>
+        <cbc:ChargeTotalAmount currencyID="EUR">200</cbc:ChargeTotalAmount>
+        <cbc:PrepaidAmount currencyID="EUR">1000</cbc:PrepaidAmount>
+        <cbc:PayableAmount currencyID="EUR">4000</cbc:PayableAmount>
+    </cac:LegalMonetaryTotal>
+    <cac:InvoiceLine>
+        <cbc:ID>1</cbc:ID>
+        <cbc:InvoicedQuantity unitCode="C62">1</cbc:InvoicedQuantity>
+        <cbc:LineExtensionAmount currencyID="EUR">4100.00</cbc:LineExtensionAmount>
+        <cbc:AccountingCost>Konteringsstreng</cbc:AccountingCost>
+        <cac:InvoicePeriod>
+            <cbc:StartDate>2017-12-01</cbc:StartDate>
+            <cbc:EndDate>2017-12-05</cbc:EndDate>
+        </cac:InvoicePeriod>
+        <cac:OrderLineReference>
+            <cbc:LineID>123</cbc:LineID>
+        </cac:OrderLineReference>
+        <cac:DocumentReference>
+            <!-- schemeID not validated from TC434 -->
+            <!-- Code AWV from UNCL1153 are phone number -->
+            <cbc:ID schemeID="AWV">Mobile number 1223432432</cbc:ID>
+            <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
+        </cac:DocumentReference>
+        <cac:AllowanceCharge>
+            <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+            <cbc:AllowanceChargeReasonCode>CG</cbc:AllowanceChargeReasonCode>
+            <cbc:AllowanceChargeReason>Cleaning</cbc:AllowanceChargeReason>
+            <cbc:MultiplierFactorNumeric>10</cbc:MultiplierFactorNumeric>
+            <cbc:Amount currencyID="EUR">100</cbc:Amount>
+            <cbc:BaseAmount currencyID="EUR">1000</cbc:BaseAmount>
+        </cac:AllowanceCharge>
+        <cac:AllowanceCharge>
+            <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+            <cbc:AllowanceChargeReasonCode>95</cbc:AllowanceChargeReasonCode>
+            <cbc:AllowanceChargeReason>Discount</cbc:AllowanceChargeReason>
+            <cbc:Amount currencyID="EUR">100</cbc:Amount>
+        </cac:AllowanceCharge>
+        <!-- end::charge-line[] -->
+        <cac:Item>
+            <cbc:Description>Description of item</cbc:Description>
+            <cbc:Name>item name</cbc:Name>
+            <cac:BuyersItemIdentification>
+                <cbc:ID>lfjsdlfkj</cbc:ID>
+            </cac:BuyersItemIdentification>
+            <cac:SellersItemIdentification>
+                <cbc:ID>97iugug876</cbc:ID>
+            </cac:SellersItemIdentification>
+            <cac:StandardItemIdentification>
+                <cbc:ID schemeID="0088">7300010000001</cbc:ID>
+            </cac:StandardItemIdentification>
+            <cac:OriginCountry>
+                <cbc:IdentificationCode>NO</cbc:IdentificationCode>
+            </cac:OriginCountry>
+            <cac:CommodityClassification>
+                <!-- SRV= GTIN -->
+                <cbc:ItemClassificationCode listID="SRV">09348023</cbc:ItemClassificationCode>
+            </cac:CommodityClassification>
+            <!-- tag::intrastat[] -->
+            <cac:CommodityClassification>
+                <cbc:ItemClassificationCode listID="HS">080110</cbc:ItemClassificationCode>
+            </cac:CommodityClassification>
+            <!-- end::intrastat[] -->
+            <cac:ClassifiedTaxCategory>
+                <cbc:ID>S</cbc:ID>
+                <cbc:Percent>25.0</cbc:Percent>
+                <cac:TaxScheme>
+                    <cbc:ID>VAT</cbc:ID>
+                </cac:TaxScheme>
+            </cac:ClassifiedTaxCategory>
+            <cac:AdditionalItemProperty>
+                <cbc:Name>AdditionalItemName</cbc:Name>
+                <cbc:Value>AdditionalItemValue</cbc:Value>
+            </cac:AdditionalItemProperty>
+        </cac:Item>
+        <!-- tag::price[] -->
+        <cac:Price>
+            <cbc:PriceAmount currencyID="EUR">4100</cbc:PriceAmount>
+            <cbc:BaseQuantity unitCode="C62">1</cbc:BaseQuantity>
+            <cac:AllowanceCharge>
+                <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+                <cbc:Amount currencyID="EUR">100</cbc:Amount>
+                <cbc:BaseAmount currencyID="EUR">4200</cbc:BaseAmount>
+            </cac:AllowanceCharge>
+        </cac:Price>
+        <!-- end::price[] -->
+    </cac:InvoiceLine>
+
+
+</Invoice>

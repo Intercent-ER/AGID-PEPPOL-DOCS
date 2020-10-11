@@ -53,6 +53,7 @@
                         <Value type="EXAMPLE">0088</Value>
                     </Attribute>
                     <Value type="EXAMPLE">SE8765456787</Value>
+					<Value type="EXAMPLE">IT:EORI:1234567890</Value>
                 </Element>
             </Element>
 
@@ -270,9 +271,7 @@
             </Element>
 			
 			<Include>agid-stabile-organizzazione-cessionario-committente.xml</Include>
-
-			<Include>agid-terzo-intermediario-soggetto-emittente.xml</Include>
-			
+		
 			<Include>agid-rappresentante-fiscale-cessionario-committente.xml</Include>
 			
         </Element>

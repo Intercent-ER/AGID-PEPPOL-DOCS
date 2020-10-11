@@ -7,5 +7,5 @@ Se il regime fiscale non viene specificato, si intende il regime ordinario.
 .Esempio UBL per specificare il regime fiscale
 [source, xml, indent=0]
 ----
-
+include::../../../rules/snippets/agid-extensions.xml[tag=regime_fiscale]
 ----

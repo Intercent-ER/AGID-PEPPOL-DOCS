@@ -26,9 +26,10 @@ include::../../syntax/card-payment.adoc[]
 
 == Addebito diretto
 
-[important]
-Valutare se gestire per PagoPA
-
+[IMPORTANT]
+====
+[lime-background]#Valutare se gestire per PagoPA#
+====
 
 Vedi <<payment-means>> per tutti i codici ammessi. Esempi di codici per l'addebito diretto sono:
 

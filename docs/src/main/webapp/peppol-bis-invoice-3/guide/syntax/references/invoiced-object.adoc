@@ -1,5 +1,5 @@
 
-Il riferimento all'oggetto fatturato viene fornito utilizzando l'elemento `cac:AdditionalDocumentReference` con il codice tipo documento = 130
+Il riferimento all'oggetto fatturato viene fornito utilizzando l'elemento 'cac:AdditionalDocumentReference' con il codice tipo documento = 130
 
 .Esempio UBL di identificatore per l'oggetto principale della fattura
 [source, xml, indent=0]

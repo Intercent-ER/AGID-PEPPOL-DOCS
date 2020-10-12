@@ -7,3 +7,7 @@ include::despatch-receipt.adoc[]
 include::tender.adoc[]
 
 include::project.adoc[]
+
+include::agid-convenzione.adoc[]
+
+include::agid-impegno.adoc[]

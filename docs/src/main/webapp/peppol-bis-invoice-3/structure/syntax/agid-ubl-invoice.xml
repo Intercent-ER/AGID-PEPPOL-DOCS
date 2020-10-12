@@ -629,16 +629,18 @@
 				<Element>
 					<Term>cbc:LineID</Term>
 					<Name>Referenced purchase order line reference - FPA 2.1.2.4 'NumItem'</Name>
-					<Description>An identifier for a referenced line within a purchase order, issued by the Buyer. Indicare 'NA' se ci si riferisce ad un ordine intero.</Description>
+					<Description>Il riferimento ad una riga d'ordine. Se non viene specificato l'ordine al quale si fa riferimento aggiungendo di seguito un cac:OrderReference, la riga d'ordine farà riferimento all'ordine indicato in testata in cac:OrderReference.
+					Indicare 'NA' se ci si riferisce ad un ordine intero aggiungendo di seguito un cac:OrderReference.</Description>
 					<DataType>Identifier</DataType>
 					<Reference type="BUSINESS_TERM">BT-132</Reference>
 					<Reference type="RULE">BR-IT-400</Reference>
+					<Reference type="RULE">TODO</Reference>
 					<Value type="EXAMPLE">3</Value>
 				</Element>
 				
 				<Element agid:custom="extension">
 					<Term>cac:OrderReference</Term>
-					<Name>Referenced purchase order line reference - FPA 2.1.2 'DatiOrdineAcquisto'</Name>
+					<Name>Il riferimento all'ordine che contiene la riga alla quale si fa riferimento - FPA 2.1.2 'DatiOrdineAcquisto'</Name>
 					<Description>A reference to the Order containing the referenced order line.</Description>
 					
 					<Element>
@@ -666,9 +668,9 @@
 
 				<Element>
 					<Term>cbc:LineID</Term>
-					<Name>Riferimento ad una riga DDT dalla riga fattura. Non supportato da SDI. Valorizzarlo sempre con 0 (zero).</Name>
+					<Name>Riferimento ad una riga DDT dalla riga fattura. Non supportato da SDI. Valorizzarlo sempre con NA.</Name>
 					<DataType>Identifier</DataType>
-					<Value type="FIXED">0</Value>
+					<Value type="FIXED">NA</Value>
 				</Element>
 
 				<Element>
@@ -708,11 +710,11 @@
 						<Name>Invoice line object identifier identification scheme identifier</Name>
 						<Description>The identification scheme identifier of the Invoice line object identifier.
 						Per la fatturazione verso la PA gli schemi per riferimenti più comuni sono i seguenti:
-						CT = Contract number
-						AEP = Project number (CUP)
-						GB = Contract party reference number (CIG)
-						ALA = Procurement budget number (impegno)
-						AVV = Framework Agreement Number (Convenzione)</Description>
+						* CT = Contract number (Contratto)
+						* AEP = Project number (CUP)
+						* GB = Contract party reference number (CIG)
+						* ALA = Procurement budget number (impegno)
+						* AVV = Framework Agreement Number (Convenzione)</Description>
 						<Reference type="CODE_LIST">UNCL1153</Reference>
 						<Value type="EXAMPLE">AVV</Value>
 					</Attribute>

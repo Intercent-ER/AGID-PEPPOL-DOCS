@@ -299,12 +299,20 @@
 
 			<Element agid:custom="rule">
 				<Term>cbc:ID</Term>
-				<Name>Despatch advice reference</Name>
+				<Name>Numero DDT - FPA 2.1.8.1 'NumeroDDT'</Name>
 				<Description>An identifier of a referenced despatch advice.</Description>
 				<DataType>Document Reference</DataType>
 				<Reference type="BUSINESS_TERM">BT-16</Reference>
 				<Reference type="RULE">BR-IT-060</Reference>
 				<Value type="EXAMPLE">desp98</Value>
+			</Element>
+			
+			<Element agid:custom="extension">
+				<Term>cbc:IssueDate</Term>
+				<Name>Data DDT - FPA 2.1.8.2 'DataDDT'</Name>
+				<Description>Data della fattura. Formato = "YYYY-MM-DD".</Description>
+				<DataType>Date</DataType>
+				<Value type="EXAMPLE">2020-09-15</Value>
 			</Element>
 		</Element>
 

@@ -19,7 +19,7 @@
 
 		<Element>
 			<Term>cbc:CityName</Term>
-			<Name>Comune - FPA 1.4.2.4 'Comune'</Name>
+			<Name>Comune - FPA 1.4.3.4 'Comune'</Name>
 			<Description>Comune relativo alla stabile organizzazione in Italia</Description>
 			<DataType>Text</DataType>
 			<Reference type="RULE">IT-R-003</Reference>

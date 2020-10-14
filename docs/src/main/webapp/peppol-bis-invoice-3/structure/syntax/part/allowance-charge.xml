@@ -12,8 +12,8 @@
 
         <Element>
             <Term>cbc:ChargeIndicator</Term>
-            <Description>Use “true” when informing about Charges and “false” when informing about
-                Allowances.
+			<Name>Tipo (Sconto o Maggiorazione) - FPA 2.1.1.8.1 'Tipo'</Name>
+            <Description>Usare "true" per indicare una Maggiorazione e "false" per uno Sconto.
             </Description>
             <Value type="EXAMPLE">false</Value>
         </Element>
@@ -59,7 +59,7 @@
 
         <Element cardinality="0..1">
             <Term>cbc:MultiplierFactorNumeric</Term>
-            <Name>Document level allowance or charge percentage</Name>
+            <Name>Percentuale dello sconto o della maggiorazione a livello documento - FPA 2.1.1.8.2 'Percentuale'</Name>
             <Description>The percentage that may be used, in conjunction with the document level allowance base amount, to
                 calculate the document level allowance or charge amount. To state 20%, use value 20.
             </Description>
@@ -71,7 +71,7 @@
 
         <Element>
             <Term>cbc:Amount</Term>
-            <Name>Document level allowance or charge amount</Name>
+            <Name>Importo dello sconto o della maggiorazione a livello documento - FPA 2.1.1.8.3 'Importo'</Name>
             <Description>The amount of an allowance or a charge, without VAT. Must be rounded to maximum 2 decimals
             </Description>
             <DataType>Amount</DataType>

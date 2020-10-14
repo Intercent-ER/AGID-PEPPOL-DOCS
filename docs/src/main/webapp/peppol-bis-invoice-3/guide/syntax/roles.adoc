@@ -297,7 +297,7 @@ include::{snippet-dir}/agid-extensions.xml[tag=terzo_intermediario]
 
 = #Il Vettore (Delivery/CarrierParty)#
 
-Nei casi di fattura "accompagnatoria", come parte delle informazioni relative al trasporto è possibile specificare i dati fiscali e anagrafici del vettore nell'elemento CarrierParty.
+Nei casi di fattura "accompagnatoria", come parte delle informazioni relative al trasporto è possibile specificare i dati fiscali e anagrafici del vettore che trasporta e consegna la merce, nell'elemento CarrierParty.
 
 .Esempio UBL per il vettore che effettua il trasporto
 [source, xml, indent=0]

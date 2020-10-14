@@ -11,12 +11,27 @@ image::../shared/images/functionality-and-roles.png[Functionality and roles, ali
 == Parti
 
 Cliente::
-Il cliente è la persona giuridica o organizzazione che richiede beni e/o servizi.
+Il cliente è la persona giuridica o organizzazione (es. amministrazione pubblica) che richiede beni e/o servizi.
 Esempi di ruoli per il cliente: acquirente (buyer), consegnatario (consignee), debitore (debtor), autorità appaltante (contracting authority)
 
 Fornitore::
 Il fornitore è la persona giuridica o organizzazione che fornisce beni e/o servizi.
 Esempi di ruoli per il fornitore: venditore (seller), speditore (consignor), creditore (creditor), operatore economico (economic operator).
+
+#Rappresentante Fiscale#::
+In alcuni scenari di business, le aziende che commerciano oltre confine sono tenute secondo le autorità fiscali locali a nominare un rappresentante fiscale. 
+Sono comprese le aziende extra-EU che operano in Europa, gli importatori in EU e i commercianti.  
+
+I rappresentanti fiscali sono responsabili per la gestione corretta e la regolarizzazione dell'IVA per conto delle aziende, in linea con le normative locali. Un rappresentante fiscale è considerato come l'agente locale del commerciante.  In molti casi, il rappresentante fiscale è ritenuto responsabile in solido per le tasse del commerciante.
+
+#Il Beneficiario#::
+Il beneficiario è una persona, istituto bancario o entità di business alla quale si effettua il pagamento (es. factoring).
+
+#Soggetto Emittente#::
+Un soggetto terzo (intermediario) che emette fattura per conto del cedente / prestatore.
+
+#Vettore#::
+Il vettore è la persona giuridica o organizzazione che consegna la merce al destinatario ed è responsabile del suo trasporto.
 
 == Ruoli
 

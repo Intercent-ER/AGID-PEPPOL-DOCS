@@ -28,7 +28,7 @@ include::price.adoc[]
 
 include::uom.adoc[]
 
-include::tipodocumento.adoc[]
+include::ext-tipo-documento.adoc[]
 
 include::address.adoc[]
 
@@ -43,7 +43,5 @@ include::ext-codice-EORI.adoc[]
 include::ext-termini-pagamento.adoc[]
 
 include::ext-arrotondamento-riepilogo-IVA.adoc[]
-
-include::ext-dati-trasporto.adoc[]
 
 :leveloffset: -1

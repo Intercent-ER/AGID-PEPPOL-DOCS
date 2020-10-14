@@ -10,7 +10,7 @@
 
         <Element cardinality="0..1">
             <Term>cbc:ActualDeliveryDate</Term>
-            <Name>Actual delivery date - FPA 2.1.8.2 'DataDDT', 2.1.9.13 'DataOraConsegna'</Name>
+            <Name>Actual delivery date - FPA 2.1.9.13 'DataOraConsegna'</Name>
             <Description>The date on which the supply of goods or services was made or completed. Format = "YYYY-MM-DD"</Description>
             <DataType>Date</DataType>
             <Reference type="BUSINESS_TERM">BT-72</Reference>
@@ -173,7 +173,7 @@
 
                 <Element>
                     <Term>cbc:CompanyID</Term>
-                    <Name>Partita IVA del Vettore</Name>
+                    <Name>Partita IVA del Vettore - FPA 2.1.9.1.1.1 'IdPaese' e 2.1.9.1.1.2 'IdCodice'</Name>
                     <DataType>Identifier</DataType>
                     <Reference type="RULE">BR-CO-09</Reference>
                     <Reference type="RULE">BR-AE-02</Reference>
@@ -207,12 +207,12 @@
 
                 <Element>
                     <Term>cbc:FirstName</Term>
-                    <Name>Nome Persona Fisica</Name>
+                    <Name>Nome Persona Fisica - FPA 2.1.9.1.3.2 'Nome'</Name>
                     <DataType>Text</DataType>
                 </Element>
                 <Element>
                     <Term>cbc:FamilyName</Term>
-                    <Name>Cognome Persona Fisica</Name>
+                    <Name>Cognome Persona Fisica - FPA 2.1.9.1.3.3 'Cognome'</Name>
                     <DataType>Text</DataType>
                 </Element>
 
@@ -222,13 +222,13 @@
 
                     <Element>
                         <Term>cbc:ID</Term>
-                        <Name>Cognome Persona Fisica - FPA 2.1.9.1.4 'NumeroLicenzaGuida'</Name>
+                        <Name>Numero Licenza Guida - FPA 2.1.9.1.4 'NumeroLicenzaGuida'</Name>
                         <DataType>Identifier</DataType>
                     </Element>
 					
                     <Element>
                         <Term>cbc:DocumentTypeCode</Term>
-                        <Name>Tipo Documento (Licenza di guida)</Name>
+                        <Description>The type of document being referenced, expressed as a code.</Description>
                         <DataType>Code</DataType>
 						<Value type="FIXED">40</Value>
                     </Element>

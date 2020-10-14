@@ -25,7 +25,7 @@
 
 		<Attribute>
 			<Term>unitCode</Term>
-			<Name>Unità di misura</Name>
+			<Name>Unità di misura - FPA 2.1.9.6 'UnitaMisuraPeso'</Name>
 			<DataType>Code</DataType>
 			<Reference type="RULE">BR-23</Reference>
 			<Reference type="CODE_LIST">UNECERec20</Reference>
@@ -45,7 +45,7 @@
 
 		<Attribute>
 			<Term>unitCode</Term>
-			<Name>Unità di misura</Name>
+			<Name>Unità di misura - FPA 2.1.9.6 'UnitaMisuraPeso'</Name>
 			<DataType>Code</DataType>
 			<Reference type="RULE">BR-23</Reference>
 			<Reference type="CODE_LIST">UNECERec20</Reference>

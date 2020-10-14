@@ -53,7 +53,7 @@
                         <Value type="EXAMPLE">0088</Value>
                     </Attribute>
                     <Value type="EXAMPLE">SE8765456787</Value>
-					<Value type="EXAMPLE">IT:EORI:1234567890</Value>
+					<Value type="EXAMPLE">EORI:1234567890</Value>
                 </Element>
             </Element>
 

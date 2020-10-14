@@ -46,7 +46,7 @@
 
 			<Element>
 				<Term>cbc:ID</Term>
-				<Name>Categoria Ritenuta</Name>
+				<Name>Tax Category</Name>
 				<DataType>Code</DataType>
 				<Reference type="CODE_LIST">UNCL5305</Reference>
 				<Value type="FIXED">S</Value>

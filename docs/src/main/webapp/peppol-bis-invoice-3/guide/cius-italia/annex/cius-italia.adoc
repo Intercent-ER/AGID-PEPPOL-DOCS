@@ -79,8 +79,8 @@
 |BT-29 Seller identifier
 |An identification of the Seller.
 |1.2.1.3.5 CodEORI or 1.2.1.4 AlboProfessionale and 1.2.1.6 NumeroIscrizioneAlbo
-|Se il valore dell’elemento BT-40 Seller country code è ”IT”, se il valore dell'elemento BT-29 Seller identifier comincia con "IT:EORI:",  la sua lunghezza deve essere compresa fra 21 e 25 caratteri. 
-Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "IT:ALBO:",  la sua lunghezza non può superare i 129 caratteri e deve essere indicato come "IT:ALBO:AlboProfessionale:NumeroIscrizioneAlbo"
+|Se il valore dell’elemento BT-40 Seller country code è ”IT”, se il valore dell'elemento BT-29 Seller identifier comincia con "EORI:",  la sua lunghezza deve essere compresa fra 21 e 25 caratteri. 
+Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "ALBO:",  la sua lunghezza non può superare i 129 caratteri e deve essere indicato come "ALBO:AlboProfessionale:NumeroIscrizioneAlbo"
 |
 
 |BR-IT-110
@@ -88,7 +88,7 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 |An identifier issued by an official registrar that identifies the Seller as a legal entity or person.
 |1.2.4.1 Ufficio 
 1.2.4.2 NumeroREA
-|Se il valore dell’elemento BT-40 Seller country code è ”IT”, se il valore dell'elemento BT-30 Seller legal registration identifier comincia con "IT:REA:", la sua lunghezza deve essere compresa fra 10 e 30 caratteri e deve essere indicato come "IT:REA:Ufficio:NumeroREA"
+|Se il valore dell’elemento BT-40 Seller country code è ”IT”, se il valore dell'elemento BT-30 Seller legal registration identifier comincia con "REA:", la sua lunghezza deve essere compresa fra 10 e 30 caratteri e deve essere indicato come "REA:Ufficio:NumeroREA"
 |
 
 |BR-IT-120
@@ -132,13 +132,13 @@ An identifier of the Buyer.
 The identification scheme identifier of the Buyer identifier.
 |1.4.1.2 CodiceFiscale
 1.4.1.1 IdFiscaleIVA
-|Almeno uno degli elementi  BT-48 Buyer VAT identifier e BT-46 Buyer identifier deve essere valorizzato. BT-46 Buyer identifier, se presente, deve iniziare con "IT:CF:" e la sua lunghezza deve essere compresa fra 17 e 22 caratteri
+|Almeno uno degli elementi  BT-48 Buyer VAT identifier e BT-46 Buyer identifier deve essere valorizzato. BT-46 Buyer identifier, se presente, deve iniziare con "CF:" e la sua lunghezza deve essere compresa fra 17 e 22 caratteri
 |In Fattura PA è obbligatorio valorizzare almeno uno degli elementi relativi al cessionario/committente 1.4.1.1 <IdFiscaleIVA> e 1.4.1.2 <CodiceFiscale>.	|
 BR-IT-170
 |BT-47 Buyer legal registration identifier
 |An identifier issued by an official registrar that identifies the Buyer as a legal entity or person.
 |1.4.1.3.5 CodEori
-|Se l'elemento BT-47 Buyer legal registration identifier inizia con "IT:EORI:", la lunghezza dell'elemento BT-47 Buyer legal registration identifier deve essere compresa fra 21 e 25 caratteri
+|Se l'elemento BT-47 Buyer legal registration identifier inizia con "EORI:", la lunghezza dell'elemento BT-47 Buyer legal registration identifier deve essere compresa fra 21 e 25 caratteri
 |
 
 |BR-IT-180

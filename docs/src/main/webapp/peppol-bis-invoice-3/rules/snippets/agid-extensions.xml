@@ -235,7 +235,7 @@
 			<cac:ServiceProviderParty>
 				<cac:Party>
 					<cac:PartyIdentification>
-						<cbc:ID>IT:EORI:12345678901</cbc:ID>
+						<cbc:ID>EORI:12345678901</cbc:ID>
 					</cac:PartyIdentification>
 					<cac:PartyName>
 						<cbc:Name>Terzo Intermediario Srl</cbc:Name>
@@ -283,7 +283,7 @@
             </cac:PartyTaxScheme>
             <cac:PartyLegalEntity>
                 <cbc:RegistrationName>Cliente S.p.A.</cbc:RegistrationName>
-                <cbc:CompanyID>IT:CF:39937423947</cbc:CompanyID>
+                <cbc:CompanyID>CF:39937423947</cbc:CompanyID>
                 <!--4-->
             </cac:PartyLegalEntity>
             <cac:Contact>
@@ -343,12 +343,12 @@
     <cac:TaxRepresentativeParty>
 		<!-- tag::cf[] -->
 		<cac:PartyIdentification>
-			<cbc:ID>IT:CF:CXXNXX68M06E123H</cbc:ID>
+			<cbc:ID>CF:CXXNXX68M06E123H</cbc:ID>
 		</cac:PartyIdentification>
 		<!-- end::cf[] -->
 		<!-- tag::eori[] -->
 		<cac:PartyIdentification>
-			<cbc:ID>IT:EORI:12345678901</cbc:ID>
+			<cbc:ID>EORI:12345678901</cbc:ID>
 		</cac:PartyIdentification>
 		<!-- end::eori[] -->
         <cac:PartyName>
@@ -396,7 +396,7 @@
         <!-- tag::info_vettore[] -->
         <cac:CarrierParty>
             <cac:PartyIdentification>
-                <cbc:ID>IT:CF:CXXNXX68M06E123H</cbc:ID>
+                <cbc:ID>CF:CXXNXX68M06E123H</cbc:ID>
             </cac:PartyIdentification>
             <cac:PartyName>
                 <cbc:Name>Trasporti di Mario Rossi</cbc:Name>

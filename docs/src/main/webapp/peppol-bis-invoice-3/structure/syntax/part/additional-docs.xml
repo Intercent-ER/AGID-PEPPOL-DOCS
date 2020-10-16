@@ -21,7 +21,8 @@
                 <Name>Scheme identifier</Name>
                 <Description>The identification scheme identifier of the Invoiced object identifier.
 						Per la fatturazione verso la PA è possibile usare i seguenti schemi:
-						* AVV = Framework Agreement Number (Convenzione)</Description>
+						* AOR = Statement of work (SAL: FPA 2.1.7.1 'RiferimentoFase')
+						* AVV = Framework Agreement Number (Convenzione: FPA 2.1.2.5 'CodiceCommessaConvenzione')</Description>
                 <Reference type="RULE">BR-CL-07</Reference>
                 <Reference type="CODE_LIST">UNCL1153</Reference>
                 <Value type="EXAMPLE">AVV</Value>

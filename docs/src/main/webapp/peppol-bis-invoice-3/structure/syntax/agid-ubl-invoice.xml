@@ -322,7 +322,7 @@
 
 			<Element agid:custom="rule">
 				<Term>cbc:ID</Term>
-				<Name>Receiving advice reference - FPA 2.1.7.1 'RiferimentoFase'</Name>
+				<Name>Receiving advice reference - FPA 2.1.5.2 'IdDocumento'</Name>
 				<Description>An identifier of a referenced receiving advice.</Description>
 				<DataType>Document Reference</DataType>
 				<Reference type="BUSINESS_TERM">BT-15</Reference>
@@ -718,11 +718,10 @@
 						<Name>Invoice line object identifier identification scheme identifier</Name>
 						<Description>The identification scheme identifier of the Invoice line object identifier.
 						Per la fatturazione verso la PA gli schemi per riferimenti più comuni sono i seguenti:
-						* CT = Contract number (Contratto)
-						* AEP = Project number (CUP)
-						* GB = Contract party reference number (CIG)
-						* ALA = Procurement budget number (impegno)
-						* AVV = Framework Agreement Number (Convenzione)</Description>
+						* CT = Contract number (Contratto: FPA 2.1.3.2 'IdDocumento')
+						* AEP = Project number (CUP: FPA 2.1.3.6 'CodiceCUP')
+						* GB = Contract party reference number (CIG: FPA 2.1.3.7 'CodiceCIG')
+						* AVV = Framework Agreement Number (Convenzione: FPA 2.1.2.5 'CodiceCommessaConvenzione')</Description>
 						<Reference type="CODE_LIST">UNCL1153</Reference>
 						<Value type="EXAMPLE">AVV</Value>
 					</Attribute>

@@ -13,7 +13,7 @@ include::order.adoc[]
 include::buyer.adoc[]
 include::invoiced-object.adoc[]
 
-///include::attachments.adoc[]
+////include::attachments.adoc[]
 
 include::../../../syntax/references/index.adoc[]
 

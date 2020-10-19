@@ -168,4 +168,66 @@
 
 	</Element>
 	
+	<Element cardinality="0..1">
+		<Term>ext:UBLExtension</Term>
+		<Name>Estensione per lo Sconto o Maggiorazione sul Totale Documento - FPA 2.1.1.8 'ScontoMaggiorazione'</Name>
+		<Description>Questa estensione deve essere usata per esprimere uno sconto o maggiorazione applicato sul totale generale ma che non modifica l’imponibile.</Description>
+
+		<Element>
+			<Term>ext:ExtensionURI</Term>
+			<Name>URI dell'estensione</Name>
+			<Value type="FIXED">urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione</Value>
+		</Element>
+
+		<Element>
+			<Term>ext:ExtensionContent</Term>
+			<Name>Definizione del contenuto dell'estensione</Name>
+
+			<Element cardinality="1..n">
+
+				<Term>cac:AllowanceCharge</Term>
+				<Name>Sconto o Maggiorazione sul Totale Documento</Name>
+
+				<Element>
+					<Term>cbc:ChargeIndicator</Term>
+					<Name>Tipo (Sconto o Maggiorazione) - FPA 2.1.1.8.1 'Tipo'</Name>
+					<Description>Usare "true" per indicare una Maggiorazione e "false" per uno Sconto.
+					</Description>
+					<Value type="EXAMPLE">false</Value>
+				</Element>
+
+				<Element cardinality="0..1">
+					<Term>cbc:MultiplierFactorNumeric</Term>
+					<Name>Percentuale dello sconto o della maggiorazione a livello documento - FPA 2.1.1.8.2 'Percentuale'</Name>
+					<Description>The percentage that may be used, in conjunction with the document level allowance base amount, to
+                calculate the document level allowance or charge amount. To state 20%, use value 20.
+					</Description>
+					<DataType>Percentage</DataType>
+					<Value type="EXAMPLE">20</Value>
+				</Element>
+
+				<Element>
+					<Term>cbc:Amount</Term>
+					<Name>Importo dello sconto o della maggiorazione a livello documento - FPA 2.1.1.8.3 'Importo'</Name>
+					<Description>The amount of an allowance or a charge, without VAT. Must be rounded to maximum 2 decimals
+					</Description>
+					<DataType>Amount</DataType>
+
+					<Attribute>
+						<Term>currencyID</Term>
+						<Description>Mandatory attribute. Use BT-5</Description>
+						<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
+						<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
+						<Reference type="CODE_LIST">ISO4217</Reference>
+						<Value type="EXAMPLE">EUR</Value>
+					</Attribute>
+					<Value type="EXAMPLE">200</Value>
+				</Element>
+
+			</Element>
+
+		</Element>
+
+	</Element>
+
 </Element>

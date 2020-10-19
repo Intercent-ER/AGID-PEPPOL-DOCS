@@ -5,13 +5,21 @@ L'elemento `cac:AllowanceCharge` con il sotto elemento `cbc:ChargeIndicator` ind
 
 Gli elementi informativi relativi agli sconti e maggiorazioni si trovano in tre livelli.
 
-A livello di testata:: _Il livello di testata si applica a tutta la fattura ed è incluso quindi nel calcolo del suo totale._
-* Possono essere indicati diversi sconti e maggiorazioni
+A livello di testata::
+
+a. _Applicato a tutta la fattura, ma incluso nel calcolo del suo totale._
+* Possono essere indicati diversi sconti e maggiorazioni.
 * L’IVA relativa a sconti e maggiorazioni deve essere specificata attraverso l'elemento `cac:TaxCategory` e i suoi sotto elementi.
 * La somma di tutti gli sconti e maggiorazioni a livello di testata deve essere specificata rispettivamente in `cbc:AllowanceTotalAmount` e `cbc:ChargeTotalAmount`. Vedi <<totals>>
++
+b. _#Applicato sul totale generale senza cambiare l’imponibile.#_
+* Il medesimo sconto usato in FatturaPA a livello di testata.
+* Espresso mediante estensione UBL.
+* Possono essere indicati diversi sconti e maggiorazioni, a catena.
+* Non modifica nè l'imponibile, nè l'IVA.
 
 A livello di riga:: _Il livello di riga si applica alle sole righe ed è incluso nel calcolo dell’importo di riga._
-* Possono essere indicati diversi sconti e maggiorazioni
+* Possono essere indicati diversi sconti e maggiorazioni.
 * L’IVA relativa a sconti e maggiorazioni non deve essere specificata, in quanto la categoria IVA fornita sulla stessa riga fattura si applica anche agli sconti/maggiorazioni della riga.
 * Quando si calcola il totale della riga fattura bisogna tenere conto della somma di tutti gli sconti e maggiorazioni sulla stessa riga e sottraendola o sommandola opportunamente. Questi sconti e maggiorazioni a livello di riga non devono essere calcolati a livello di testata.
 
@@ -26,3 +34,8 @@ Dettagli ulteriori sul calcolo degli sconti/maggiorazioni sono disponibili press
 include::../../syntax/allowance.adoc[]
 include::../../syntax/allowance-line.adoc[]
 
+.Esempio UBL per fornire lo sconto sul totale documento, mediante estensione.
+[source, xml, indent=0]
+----
+include::../../../rules/snippets/agid-extensions.xml[tag=ext_ScontoFatturaPA]
+----

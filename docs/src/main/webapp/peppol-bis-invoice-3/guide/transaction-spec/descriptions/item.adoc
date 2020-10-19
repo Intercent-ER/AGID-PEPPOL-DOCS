@@ -18,7 +18,7 @@ include::../../syntax/item-classification.adoc[]
 La gestione del tipo cessione prestazione è operata a mezzo dell’utilizzo di: +
 
 1.	*cac:AdditionalItemProperty/cbc:Name* 
-(BT-160 Item attribute name), inserendo la stringa _IT:TipoCessionePrestazione_;
+(BT-160 Item attribute name), inserendo la stringa _TipoCessionePrestazione_;
 2. *cac:AdditionalItemProperty/cbc:Value* 
 (BT-161 Item attribute value) inserendo il valore ammesso da FatturaPA: _[SC] sconto, [PR] premio, [AB] abbuono, [AC] spesa accessoria_.
 
@@ -31,7 +31,7 @@ La gestione del tipo cessione prestazione è operata a mezzo dell’utilizzo di:
   <cac:Item>
     <!-- ... -->
     <cac:AdditionalItemProperty>
-      <cbc:Name>IT:TipoCessionePrestazione</cbc:Name>
+      <cbc:Name>TipoCessionePrestazione</cbc:Name>
       <cbc:Value>AB</cbc:Value>
     </cac:AdditionalItemProperty>
   </cac:Item>

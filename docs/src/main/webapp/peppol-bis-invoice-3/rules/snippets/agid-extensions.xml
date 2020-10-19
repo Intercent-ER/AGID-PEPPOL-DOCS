@@ -96,6 +96,17 @@
 			</ext:ExtensionContent>
 		</ext:UBLExtension>
 		<!-- end::ext_ritenuta_NC[] -->
+		<!-- tag::ext_ScontoFatturaPA[] -->
+		<ext:UBLExtension>
+			<ext:ExtensionURI>urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione</ext:ExtensionURI>
+			<ext:ExtensionContent>
+				<cac:AllowanceCharge>
+					<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+					<cbc:Amount currencyID="EUR">100</cbc:Amount>
+				</cac:AllowanceCharge>
+			</ext:ExtensionContent>
+		</ext:UBLExtension>
+		<!-- end::ext_ScontoFatturaPA[] -->
     </ext:UBLExtensions>
     <!-- tag::profile[] -->
     <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID>

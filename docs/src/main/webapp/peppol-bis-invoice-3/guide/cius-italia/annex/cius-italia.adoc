@@ -155,7 +155,7 @@ BT-49-1 Buyer electronic address identification scheme identifier
 The identification scheme identifier of the Buyer electronic address.
 |1.1.6 PECDestinatario
 1.1.4 CodiceDestinatario
-|L'elemento BT-49 Buyer electronic address deve contenere la PEC del destinatario della fattura, oppure l’indice IPA oppure il codice destinatario. Di conseguenza per l'elemento BT-49-1 Buyer electronic address identification scheme identifier sono previsti i valori IT:PEC, IT:IPA oppure IT:CODDEST
+|L'elemento BT-49 Buyer electronic address deve contenere la PEC del destinatario della fattura, oppure l’indice IPA oppure il codice destinatario. Di conseguenza per l'elemento BT-49-1 Buyer electronic address identification scheme identifier sono previsti i valori PEC, IPA oppure CODDEST
 |Questa lista è stata assegnata dal CEN/TC 434 al CEF: i valori da aggiungere alla code list per l'Italia sono stati definiti ma i lavori lato CEF sono in corso.	|
 BR-IT-200
 |BT-49 Buyer electronic address
@@ -163,9 +163,9 @@ BT-49-1 Buyer electronic address identification scheme identifier
 |Identifies the Buyer's electronic address to which a business document should be delivered.
 The identification scheme identifier of the Buyer electronic address.
 |
-|Se l'elemento BT-49-1 Buyer electronic address identification scheme identifier contiene il valore "IT:PEC", la lunghezza dell'elemento BT-49 Buyer electronic address deve essere compresa fra 7 e 256 caratteri. 
-Altrimenti, se l'elemento BT-49-1 Buyer electronic address identification scheme identifier contiene il valore "IT:IPA", la lunghezza dell'elemento BT-49 Buyer electronic address deve essere di 6 caratteri. 
-Altrimenti, se l'elemento BT-49-1 Buyer electronic address identification scheme identifier contiene il valore "IT:CODDEST", la lunghezza dell'elemento BT-49 Buyer electronic address deve essere di 7 caratteri
+|Se l'elemento BT-49-1 Buyer electronic address identification scheme identifier contiene il valore "PEC", la lunghezza dell'elemento BT-49 Buyer electronic address deve essere compresa fra 7 e 256 caratteri. 
+Altrimenti, se l'elemento BT-49-1 Buyer electronic address identification scheme identifier contiene il valore "IPA", la lunghezza dell'elemento BT-49 Buyer electronic address deve essere di 6 caratteri. 
+Altrimenti, se l'elemento BT-49-1 Buyer electronic address identification scheme identifier contiene il valore "CODDEST", la lunghezza dell'elemento BT-49 Buyer electronic address deve essere di 7 caratteri
 |
 
 |BR-IT-210

@@ -1,5 +1,5 @@
 
-= Informazioni di consegna (Data e Luogo)
+= Informazioni di consegna e #trasporto#
 
 Le informazioni di consegna possono essere fornite a livello di testata.
 
@@ -12,13 +12,17 @@ In italia, in seguito alle Regole Tecniche NSO, l'identificativo del luogo di co
 Altri esempi dell'identificativo del luogo di consegna sono GLN (Global Location Number) oppure  GSRN (Global Service Relationship Number) entrambi emessi da GS1. +
 
 
-#Quando la fattura si riferisce ad un unico Documento di Trasporto, la data del DDT viene riportata nel *cbc:ActualDeliveryDate* (BT-72 Actual delivery date).#
+#Quando la fattura si riferisce ad un unico Documento di Trasporto, la data del DDT viene riportata nel *cac:DespatchDocumentReference/cbc:IssueDate*.#
 
 
 include::../../syntax/delivery.adoc[]
 
-include::ext-vettore.adoc[]
+:leveloffset: +1
+
+//include::ext-vettore.adoc[]
 
 include::ext-ritiro-merce.adoc[]
 
 include::ext-spedizione.adoc[]
+
+:leveloffset: -1

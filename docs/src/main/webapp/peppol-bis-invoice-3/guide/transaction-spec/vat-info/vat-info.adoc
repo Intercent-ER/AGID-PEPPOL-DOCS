@@ -13,6 +13,10 @@ Ogni riga della fattura deve avere il codice della categoria IVA riferita alla v
 
 Ogni sconto o maggiorazione a livello di testata deve avere il codice di categoria IVA (BT-95 e BT-102). Per tutte le categorie IVA, eccetto "Non soggetto ad IVA" (O), deve essere fornita l'aliquota IVA.
 
+#Nel contesto nazionale la sezione è utilizzata solo per Bollo (vedi paragrafo 4.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 4.8).# 
+
+#Per gli sconti e maggiorazioni a livello di testata di FatturaPA si utilizza la specifica UBLextension ....#.
+
 == Riepiloghi IVA e natura dell'operazione
 
 Deve essere fornito un solo riepilogo IVA per ogni combinazione distinta di categoria e aliquota IVA sia a livello di riga che negli sconti e maggiorazioni a livello di testata. Per alcune categorie IVA, l'aliquota deve essere posta a zero e quindi non viene utilizzata in questi casi per raggruppare il riepilovo IVA.

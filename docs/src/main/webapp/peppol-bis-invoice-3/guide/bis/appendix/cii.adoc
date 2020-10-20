@@ -1,7 +1,7 @@
 [appendix]
 = Cross Industry Invoice
 
-Questo {peppol} BIS supporta l'uso *opzionale* della UN/CEFACT XML Cross Industry Invoice, D16B (CII), che significa che i destinatari delle fatture possono registrarsi in un SMP per ricevere fatture CII parallelamente alla versione UBL obbligatoria.
+Questa {peppol} BIS supporta l'uso *opzionale* della UN/CEFACT XML Cross Industry Invoice, D16B (CII), che significa che i destinatari delle fatture possono registrarsi in un SMP per ricevere fatture CII parallelamente alla versione UBL obbligatoria.
 
 Tutte le istanze delle fatture espresse in CII devono essere conformi alle restrizioni e alle regole realizzate in questa BIS, e quindi un'istanza CII, deve essere validata secondo specifiche regole PEPPOL, allo stesso modo delle istanze UBL.
 

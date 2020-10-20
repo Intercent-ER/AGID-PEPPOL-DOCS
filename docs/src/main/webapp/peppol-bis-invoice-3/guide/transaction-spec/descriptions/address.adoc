@@ -1,5 +1,5 @@
 
-= #Indirizzo (CIUS)#
+= #Indirizzo# (CIUS)
 
 Nell'utilizzo dell’aggregato informativo *cac:PostalAddress*, è obbligatorio l'utilizzo delle informazioni di indirizzo, CAP, Comune e nazione. +
 

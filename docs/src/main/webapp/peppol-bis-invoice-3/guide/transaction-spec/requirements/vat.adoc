@@ -15,7 +15,7 @@
 |R48
 a|informazioni a supporto dei seguenti casi d'uso sull'IVA:
 
-*	Fatture verso Fornitori ai quali l'IVA è addebbitata; for supplies for which VAT is charged;
+*	Fatture verso Fornitori ai quali l'IVA è addebbitata; 
 *	Fatture verso Fornitori ai quali l'IVA è addebbitata sulla base di un motivo di esenzione; 
 *	Fatture verso Fornitori per i quali beni e servizi l'IVA è esente a livello di riga; 
 *	Fatture verso Fornitori in regime di reverse charge;

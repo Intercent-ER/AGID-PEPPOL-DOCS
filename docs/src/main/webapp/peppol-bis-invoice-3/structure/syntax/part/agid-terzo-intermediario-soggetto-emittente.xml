@@ -7,7 +7,7 @@
 
 	<Element>
 		<Term>cac:Party</Term>
-		<Name>Terzo Intermediario o Soggetto Emittente - FPA 1.5 'TerzoIntermediarioOSoggettoEmittente'</Name>
+		<Name>PARTY</Name>
 
 		<Element cardinality="0..1">
 			<Term>cac:PartyIdentification</Term>

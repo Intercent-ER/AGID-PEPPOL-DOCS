@@ -34,9 +34,9 @@ include::address.adoc[]
 
 include::ext-regime-fiscale.adoc[]
 
-include::ext-stabile-organizzazione.adoc[]
+//include::ext-stabile-organizzazione.adoc[]
 
-include::ext-codice-fiscale.adoc[]
+//include::ext-codice-fiscale.adoc[]
 
 include::ext-codice-EORI.adoc[]
 

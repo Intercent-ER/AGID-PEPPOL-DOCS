@@ -152,21 +152,21 @@
                     <Value type="EXAMPLE">CF:CXXNXX68M06E123H</Value>
                 </Element>
             </Element>
-			
+
             <Element cardinality="0..1">
                 <Term>cac:PartyName</Term>
                 <Name>PARTY NAME</Name>
 
                 <Element>
                     <Term>cbc:Name</Term>
-                    <Name>Vettore - FPA 2.1.9.1.3.1 'Denominazione'</Name>
+                    <Name>Nome Vettore - FPA 2.1.9.1.3.1 'Denominazione'</Name>
                     <Description>Ditta, denominazione o ragione sociale (ditta, impresa, società, ente) che effettua il trasporto.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-70</Reference>
                     <Value type="EXAMPLE">Super Cargo SpA</Value>
                 </Element>
             </Element>
-			
+
            <Element>
                 <Term>cac:PartyTaxScheme</Term>
                 <Name>PARTY VAT IDENTIFIER</Name>
@@ -225,7 +225,7 @@
                         <Name>Numero Licenza Guida - FPA 2.1.9.1.4 'NumeroLicenzaGuida'</Name>
                         <DataType>Identifier</DataType>
                     </Element>
-					
+
                     <Element>
                         <Term>cbc:DocumentTypeCode</Term>
                         <Description>The type of document being referenced, expressed as a code.</Description>
@@ -236,7 +236,7 @@
             </Element>
 
         </Element>
-		
+
         <Element cardinality="0..1">
             <Term>cac:DeliveryParty</Term>
             <Name>DELIVER PARTY</Name>
@@ -255,9 +255,9 @@
                 </Element>
             </Element>
         </Element>
-		
+
 		<Include>agid-ritiro-merce.xml</Include>
-		
+
 		<Include>agid-spedizione.xml</Include>
-		
+
     </Element>

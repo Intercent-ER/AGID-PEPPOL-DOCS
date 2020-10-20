@@ -35,12 +35,6 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 	 </cac:PartyTaxScheme>
 	 <cac:PartyLegalEntity>
 	 	<cbc:RegistrationName>Azienda fornitore</cbc:RegistrationName>
-	 	<cac:RegistrationAddress>
-	 		<cbc:CityName>Bologna</cbc:CityName>
-	 		<cac:Country>
-            <cbc:IdentificationCode listID="ISO3166-1:Alpha2">IT</cbc:IdentificationCode>
-	 		</cac:Country>
-	 	</cac:RegistrationAddress>
 	 </cac:PartyLegalEntity>
 	 <cac:Contact>
 	 	<cbc:Name>Lucio Grande</cbc:Name>
@@ -53,9 +47,9 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 
 #Se il Fornitore è un’amministrazione pubblica, il campo *EndpointID/@schemeID* deve essere valorizzato con “0201:” seguito dal Codice UFE della PA.#
 
-#Nel caso in cui non si inserisca la Partita IVA nell’EndpointID, la Partita IVA va indicata nel *Seller party identification*.#
+#Nel caso in cui non si inserisca la Partita IVA nell’EndpointID, la Partita IVA va indicata nel *cac:PartyTaxScheme/cbc:CompanyID*.#
 
-#Nel caso in cui si voglia indicare anche il Codice Fiscale, quest’ultimo va indicato nel *Seller legal registration identifier*.#
+#Nel caso in cui si voglia indicare anche il Codice Fiscale, quest’ultimo va indicato nel *cac:PartyLegalEntity/cbc:CompanyID*.#
 
 .Esempio di indicazione della Partita Iva e del Codice Fiscale
 [source, xml, indent=0]
@@ -63,9 +57,6 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 <cac:AccountingSupplierParty>
  <cac:Party>
 	<cbc:EndpointID schemeID="0201">UFY9MH</cbc:EndpointID>
-	<cac:PartyIdentification>
-		<cbc:ID>PIVA:IT01598570354</cbc:ID>
-	</cac:PartyIdentification>
 	<cac:PartyName>
 		<cbc:Name>Azienda USL di Reggio Emilia</cbc:Name>
 	</cac:PartyName>
@@ -78,15 +69,15 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 			<cbc:IdentificationCode listID="ISO3166-1:Alpha2">IT</cbc:IdentificationCode>
 		</cac:Country>
 	</cac:PostalAddress>
+	<cac:PartyTaxScheme>
+	    <cbc:CompanyID>IT01234567890</cbc:CompanyID>
+	    <cac:TaxScheme>
+	        <cbc:ID>VAT</cbc:ID>
+	    </cac:TaxScheme>
+	</cac:PartyTaxScheme>
 	<cac:PartyLegalEntity>
 		<cbc:RegistrationName>Azienda USL di Reggio Emilia</cbc:RegistrationName>
 		<cbc:CompanyID>CF:01598570354</cbc:CompanyID>
-		<cac:RegistrationAddress>
-			<cbc:CityName>Reggio Emilia</cbc:CityName>
-			<cac:Country>
-				<cbc:IdentificationCode listID="ISO3166-1:Alpha2">IT</cbc:IdentificationCode>
-			</cac:Country>
-		</cac:RegistrationAddress>
 	</cac:PartyLegalEntity>
 	<cac:Contact>
 		<cbc:Name>Giovanni Rossi</cbc:Name>
@@ -126,12 +117,6 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 	 </cac:PartyTaxScheme>
 	 <cac:PartyLegalEntity>
 	 	<cbc:RegistrationName>Fornitore Estero</cbc:RegistrationName>
-	 	<cac:RegistrationAddress>
-	 		<cbc:CityName>Bruxelles</cbc:CityName>
-	 		<cac:Country>
-            <cbc:IdentificationCode listID="ISO3166-1:Alpha2">BE</cbc:IdentificationCode>
-	 		</cac:Country>
-	 	</cac:RegistrationAddress>
 	 </cac:PartyLegalEntity>
 	 <cac:Contact>
 	 	<cbc:Name>Lucio Grande</cbc:Name>
@@ -141,6 +126,40 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
     </cac:Party>
 </cac:AccountingSupplierParty>
 ----
+
+
+Le informazioni relative all'Albo vengono fornite nel *cac:PartyIdentification/cbc:ID* concatenando il Nome Albo, il numero e la data iscrizione con il simbolo "#", preceduti dalla stringa "ALBO:".
+
+.Esempio UBL per esprimere informazioni relative all'Albo
+
+[source, xml, indent=0]
+----
+</cac:AccountingSupplierParty>
+    <cac:Party>
+    ...
+	    <cac:PartyIdentification>
+            <cbc:ID>ALBO:NomeAlbo#12345#YYYY-MM-DD</cbc:ID>
+        </cac:PartyIdentification>
+    ...
+    </cac:Party>
+</cac:AccountingSupplierParty>
+----
+
+
+:leveloffset: +1
+
+
+= #La Stabile Organizzazione del fornitore (AccountingSupplierParty/Party/AgentParty)#
+
+Nella fatturazione tra privati (B2B), se il cedente/prestatore non residente ha una stabile organizzazione in Italia, si può specificare in fattura come parte dei dati del fornitore nell'elemento AgentParty.
+
+.Esempio UBL per la stabile organizzazione del fornitore
+[source, xml, indent=0]
+----
+include::../../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_fornitore]
+----
+
+:leveloffset: -1
 
 
 = Il Cliente (AccountingCustomerParty)
@@ -157,9 +176,9 @@ Le informazioni inerenti al cliente sono obbligatorie e vengono fornite nell'ele
 include::{snippet-dir}/Snippet-full.xml[tags=buyer]
 ----
 <1> L'attributo schemeID è obbligatorio per indirizzi elettronici, es. EndpointID
-<2> L'attributo schemeID è raccomandato per tutti gli identificatori delle parti
-<3> Gli identificatori per il VAT/IVA devono incudere il prefisso del codice paese
-<4> L'attributo schemeID è raccomandato per gli identificatori di registrazione legale delle imprese
+
+<2> Gli identificatori per il VAT/IVA devono incudere il prefisso del codice paese
+<3> Il codice fiscale è preceduto dalla stringa "CF:"
 
 Nel contesto B2C il Cliente può essere un cittadino (una persona fisica). +
 
@@ -185,20 +204,15 @@ Nel contesto B2C il Cliente può essere un cittadino (una persona fisica). +
                         </cac:Country>
                 </cac:PostalAddress>
                 <cac:PartyTaxScheme>
-                    <cbc:CompanyID>RSSMRA68M06F839G</cbc:CompanyID>
+                    <cbc:CompanyID>IT01234567890</cbc:CompanyID>
                     <cac:TaxScheme>
                         <cbc:ID>VAT</cbc:ID>
                     </cac:TaxScheme>
                 </cac:PartyTaxScheme>
-                <cac:Contact><!— PEC opzionale -->
+                <cac:Contact>
                         <cbc:Telephone>06123456</cbc:Telephone>
                         <cbc:ElectronicMail>nome.cognome@pec-domain.it</cbc:ElectronicMail>
                 </cac:Contact>
-                <cac:Person><!— C.F. Persona Fisica -->
-                        <cbc:ID schemeID="9907">RSSMRA68M06F839G</cbc:ID>
-                        <cbc:FirstName>Mario</cbc:FirstName>
-                        <cbc:FamilyName>Rossi</cbc:FamilyName>
-                </cac:Person>
 	</cac:Party>
 </cac:AccountingCustomerParty>
 
@@ -231,6 +245,21 @@ Nel contesto B2B o G2B, in base alla specifica della FatturaPA italiana, il Clie
 </cac:EndPointID>
 
 
+:leveloffset: +1
+
+= #La Stabile Organizzazione del cliente (AccountingCustomerParty/Party/AgentParty)#
+
+Nella fatturazione tra privati (B2B), se il cessionario/committente non residente ha una stabile organizzazione in Italia, si può specificare in fattura come parte dei dati del cliente nell'elemento AgentParty.
+
+
+.Esempio UBL per la stabile organizzazione del cliente
+[source, xml, indent=0]
+----
+include::../../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_cliente]
+----
+
+:leveloffset: -1
+
 
 = Il Beneficiario (PayeeParty)
 
@@ -258,7 +287,7 @@ include::{snippet-dir}/Snippet-full.xml[tags=payee]
 <2> L'attributo schemeID è raccomandato per gli identificatori di registrazione legale delle imprese
 
 
-= Rappresentante fiscale del fornitore (TaxRepresentativePary)
+= Rappresentante fiscale del fornitore (TaxRepresentativeParty)
 
 In alcuni scenari di business, le aziende che commerciano oltre confine sono tenute secondo le autorità fiscali locali a nominare un rappresentante fiscale. 
 Sono comprese le aziende extra-EU che operano in Europa, gli importatori in EU e i commercianti.  

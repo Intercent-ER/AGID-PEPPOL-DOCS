@@ -120,10 +120,6 @@
         <cac:Party>
             <cbc:EndpointID schemeID="0201">ABCDEF</cbc:EndpointID>
             <!--1-->
-            <cac:PartyIdentification>
-                <cbc:ID schemeID="0201">ABCDEF</cbc:ID>
-                <!--2-->
-            </cac:PartyIdentification>
             <cac:PartyName>
                 <cbc:Name>Cliente S.p.A.</cbc:Name>
             </cac:PartyName>
@@ -140,7 +136,7 @@
             </cac:PostalAddress>
             <cac:PartyTaxScheme>
                 <cbc:CompanyID>IT07663520567</cbc:CompanyID>
-                <!--3-->
+                <!--2-->
                 <cac:TaxScheme>
                     <cbc:ID>VAT</cbc:ID>
                 </cac:TaxScheme>
@@ -148,7 +144,7 @@
             <cac:PartyLegalEntity>
                 <cbc:RegistrationName>Cliente S.p.A.</cbc:RegistrationName>
                 <cbc:CompanyID>CF:39937423947</cbc:CompanyID>
-                <!--4-->
+                <!--3-->
             </cac:PartyLegalEntity>
             <cac:Contact>
                 <cbc:Name>Giuseppe Verdi</cbc:Name>

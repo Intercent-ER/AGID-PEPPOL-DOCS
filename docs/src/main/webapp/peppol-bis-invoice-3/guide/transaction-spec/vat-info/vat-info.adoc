@@ -15,7 +15,7 @@ Ogni sconto o maggiorazione a livello di testata deve avere il codice di categor
 
 #Nel contesto nazionale la sezione è utilizzata solo per Bollo (vedi paragrafo 4.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 4.8).# 
 
-#Per gli sconti e maggiorazioni a livello di testata di FatturaPA si utilizza la specifica UBLextension ....#.
+#Per gli sconti e maggiorazioni a livello di testata di FatturaPA vedasi 10.5. Sconti e maggiorazioni.#
 
 == Riepiloghi IVA e natura dell'operazione
 

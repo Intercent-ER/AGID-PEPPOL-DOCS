@@ -152,7 +152,7 @@ Nella fatturazione tra privati (B2B), se il cedente/prestatore non residente ha 
 .Esempio UBL per la stabile organizzazione del fornitore
 [source, xml, indent=0]
 ----
-include::../../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_fornitore]
+include::../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_fornitore]
 ----
 
 Il campo *cac:PartylegalEntity/cbc:CompanyID* può essere usato per indicare le informazioni relative a FPA 1.2.4.1 Ufficio e FPA 1.2.4.2 Numero REA  concatenando i due dati con il "#", preceduti dalla stringa "REA:".
@@ -277,7 +277,7 @@ Nella fatturazione tra privati (B2B), se il cessionario/committente non resident
 .Esempio UBL per la stabile organizzazione del cliente
 [source, xml, indent=0]
 ----
-include::../../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_cliente]
+include::../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_cliente]
 ----
 
 

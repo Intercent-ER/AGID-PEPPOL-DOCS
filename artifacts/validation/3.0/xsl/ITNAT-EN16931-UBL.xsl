@@ -15822,22 +15822,6 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="(count(cac:OrderLineReference/cbc:LineID) &lt;= 1)"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(count(cac:OrderLineReference/cbc:LineID) &lt;= 1)">
-               <axsl:attribute name="id">UBL-SR-35</axsl:attribute>
-               <axsl:attribute name="flag">warning</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </axsl:attribute>
-               <svrl:text>[UBL-SR-35]-Referenced purchase order line identifier shall occur maximum once</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
          <axsl:when test="(count(cac:InvoicePeriod) &lt;= 1)"/>
          <axsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(count(cac:InvoicePeriod) &lt;= 1)">
@@ -17103,22 +17087,6 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="(count(cac:DocumentReference) &lt;= 1)"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(count(cac:DocumentReference) &lt;= 1)">
-               <axsl:attribute name="id">PEPPOL-EN16931-R100</axsl:attribute>
-               <axsl:attribute name="flag">fatal</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </axsl:attribute>
-               <svrl:text>Only one invoiced object is allowed pr line</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
          <axsl:when test="(not(cac:DocumentReference) or (cac:DocumentReference/cbc:DocumentTypeCode='130'))"/>
          <axsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(not(cac:DocumentReference) or (cac:DocumentReference/cbc:DocumentTypeCode='130'))">
@@ -18317,7 +18285,292 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cbc:ID" priority="1044" mode="M38">
+   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:SoggettoEmittente']/ext:ExtensionContent" priority="1071" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:SoggettoEmittente']/ext:ExtensionContent"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="( ( not(contains(normalize-space(cbc:TypeCode),' ')) and contains( ' CC TZ ',concat(' ',normalize-space(cbc:TypeCode),' ') ) ) )"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="( ( not(contains(normalize-space(cbc:TypeCode),' ')) and contains( ' CC TZ ',concat(' ',normalize-space(cbc:TypeCode),' ') ) ) )">
+               <axsl:attribute name="id">BR-IT-E01</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-E01][FPA 1.6 - Soggetto Emittente] - L'estensione deve contenere un elemento cbc:TypeCode valorizzato esclusivamente con i valori 'CC' o 'TZ'.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:TipoDocumento']/ext:ExtensionContent" priority="1070" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:TipoDocumento']/ext:ExtensionContent"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="( ( not(contains(normalize-space(cbc:TypeCode),' ')) and contains( ' TD01 TD02 TD03 TD04 TD05 TD06 TD16 TD17 TD18 TD19 TD20 TD21 TD22 TD23 TD24 TD25 TD26 TD27 ',concat(' ',normalize-space(cbc:TypeCode),' ') ) ) )"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="( ( not(contains(normalize-space(cbc:TypeCode),' ')) and contains( ' TD01 TD02 TD03 TD04 TD05 TD06 TD16 TD17 TD18 TD19 TD20 TD21 TD22 TD23 TD24 TD25 TD26 TD27 ',concat(' ',normalize-space(cbc:TypeCode),' ') ) ) )">
+               <axsl:attribute name="id">BR-IT-E02</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-E02][FPA 2.1.1.1 - Tipo Documento] - L'estensione deve contenere un elemento cbc:TypeCode valorizzato esclusivamente con i valori del TipoDocumento, secondo la specifica FatturaPA 1.2.1.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI, 'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta')]/ext:ExtensionContent" priority="1069" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI, 'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta')]/ext:ExtensionContent"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="( ( not(contains(normalize-space(cbc:TypeCode),' ')) and contains( ' RT01 RT02 RT03 RT04 RT05 RT06 ',concat(' ',normalize-space(cbc:TypeCode),' ') ) ) )"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="( ( not(contains(normalize-space(cbc:TypeCode),' ')) and contains( ' RT01 RT02 RT03 RT04 RT05 RT06 ',concat(' ',normalize-space(cbc:TypeCode),' ') ) ) )">
+               <axsl:attribute name="id">BR-IT-E03</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-E03][FPA 2.1.1.5.1 - Tipo Ritenuta] - L'estensione deve contenere un elemento cbc:TypeCode valorizzato esclusivamente con i valori del TipoRitenuta, secondo la specifica FatturaPA 1.2.1.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Art73']/ext:ExtensionContent" priority="1068" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Art73']/ext:ExtensionContent"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="cbc:TypeCode = 'SI'"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cbc:TypeCode = 'SI'">
+               <axsl:attribute name="id">BR-IT-E04</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-E04][FPA 2.1.1.12 - Art73] - L'estensione deve contenere un elemento cbc:TypeCode valorizzato esclusivamente con il valore 'SI' per applicare l'Articolo 73 del DPR 633/72.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI, 'urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento')]/ext:ExtensionContent" priority="1067" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI, 'urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento')]/ext:ExtensionContent"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="matches(cbc:Amount,'^[.\d]{1,15}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(cbc:Amount,'^[.\d]{1,15}$')">
+               <axsl:attribute name="id">BR-IT-E05</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-E05][FPA 2.2.2.4 - Arrotondamento] - L'estensione deve contenere un elemento cbc:Amount la cui lunghezza non può superare i 15 caratteri incluso 2 cifre decimali.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']/ext:ExtensionContent" priority="1066" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']/ext:ExtensionContent"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="cac:AllowanceCharge"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cac:AllowanceCharge">
+               <axsl:attribute name="id">BR-IT-E06</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-E06][FPA 2.1.1.8 - Sconto Maggiorazione] - L'estensione deve contenere uno o più elementi cac:AllowanceCharge.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']/ext:ExtensionContent/cac:AllowanceCharge" priority="1065" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']/ext:ExtensionContent/cac:AllowanceCharge"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="matches(cbc:Amount,'^[.\d]{4,21}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(cbc:Amount,'^[.\d]{4,21}$')">
+               <axsl:attribute name="id">BR-IT-E07</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-E07][FPA 2.1.1.8 - Sconto Maggiorazione] - L'importo dello sconto o maggiorazione (cbc:Amount) deve contenere da 4 fino a 21 caratteri incluso 2 cifre decimali.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="not(cbc:MultiplierFactorNumeric) or matches(cbc:MultiplierFactorNumeric,'^[.\d]{4,6}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cbc:MultiplierFactorNumeric) or matches(cbc:MultiplierFactorNumeric,'^[.\d]{4,6}$')">
+               <axsl:attribute name="id">BR-IT-E08</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-E08][FPA 2.1.1.8 - Sconto Maggiorazione] - L'importo dello sconto/maggiorazione in percentuale, se presente, (cbc:MultiplierFactorNumeric) deve contenere da 4 fino a 6 caratteri incluso 2 cifre decimali.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Ritenuta']/ext:ExtensionContent" priority="1064" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Ritenuta']/ext:ExtensionContent"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="cac:WithholdingTaxTotal"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cac:WithholdingTaxTotal">
+               <axsl:attribute name="id">BR-IT-E09</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-E09][FPA 2.1.1.5 - Dati Ritenuta] - L'estensione deve contenere uno elemento cac:WithholdingTaxTotal.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="//cac:WithholdingTaxTotal" priority="1063" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:WithholdingTaxTotal"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="matches(cbc:TaxAmount,'^[.\d]{4,15}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(cbc:TaxAmount,'^[.\d]{4,15}$')">
+               <axsl:attribute name="id">BR-IT-E10</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-E10][FPA 2.1.1.5 - Dati Ritenuta] - L'importo totale delle ritenute (cbc:TaxAmount) deve contenere da 4 fino a 15 caratteri incluso 2 cifre decimali.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="count(cac:TaxSubtotal) &gt;= 1 and count(cac:TaxSubtotal) &lt;= 2"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="count(cac:TaxSubtotal) &gt;= 1 and count(cac:TaxSubtotal) &lt;= 2">
+               <axsl:attribute name="id">BR-IT-E11</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-E11][FPA 2.1.1.5 - Dati Ritenuta] - Possono essere incluse da 1 a massimo 2 ritenute (cac:TaxSubtotal).</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="//cac:WithholdingTaxTotal/cac:TaxSubtotal" priority="1062" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:WithholdingTaxTotal/cac:TaxSubtotal"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="matches(cbc:TaxAmount,'^[.\d]{4,15}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(cbc:TaxAmount,'^[.\d]{4,15}$')">
+               <axsl:attribute name="id">BR-IT-E12</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-E12][FPA 2.1.1.5 - Dati Ritenuta] - L'importo di ogni ritenuta (cbc:TaxAmount) deve contenere da 4 fino a 15 caratteri incluso 2 cifre decimali.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="//cac:WithholdingTaxTotal/cac:TaxSubtotal/cac:TaxCategory" priority="1061" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:WithholdingTaxTotal/cac:TaxSubtotal/cac:TaxCategory"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="cbc:ID = 'S' and matches(cbc:Percent,'^[.\d]{4,6}$') and cac:TaxScheme/cbc:ID = 'SWT'"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cbc:ID = 'S' and matches(cbc:Percent,'^[.\d]{4,6}$') and cac:TaxScheme/cbc:ID = 'SWT'">
+               <axsl:attribute name="id">BR-IT-E13</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-E13][FPA 2.1.1.5 - Dati Ritenuta] - Ogni ritenuta deve contenere la categoria della ritenuta (cac:TaxCategory) con identificativo uguale a "S" (cbc:ID), percentuale della ritenuta (cbc:Percent) da 4 fino a 6 caratteri incluso 2 cifre decimali e schema della ritenuta valorizzato con cac:TaxScheme/cbc:ID = 'SWT'.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/cbc:ID" priority="1060" mode="M38">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -18340,7 +18593,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:ProjectReference/cbc:ID" priority="1043" mode="M38">
+   <axsl:template match="/*/cac:ProjectReference/cbc:ID" priority="1059" mode="M38">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:ProjectReference/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -18363,7 +18616,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:ContractDocumentReference/cbc:ID" priority="1042" mode="M38">
+   <axsl:template match="/*/cac:ContractDocumentReference/cbc:ID" priority="1058" mode="M38">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:ContractDocumentReference/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -18386,7 +18639,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:OrderReference/cbc:ID" priority="1041" mode="M38">
+   <axsl:template match="/*/cac:OrderReference/cbc:ID" priority="1057" mode="M38">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:OrderReference/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -18409,7 +18662,46 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:ReceiptDocumentReference/cbc:ID" priority="1040" mode="M38">
+   <axsl:template match="/*/cac:BillingReference/cac:AdditionalDocumentReference" priority="1056" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:BillingReference/cac:AdditionalDocumentReference"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="cbc:ID and cbc:IssueDate"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cbc:ID and cbc:IssueDate">
+               <axsl:attribute name="id">BR-IT-041</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-041][FPA 2.1.10] - Se si vuole fare riferimento ad una fattura principale relativa al trasporto di beni devono essere obbligatoriamente valorizzati gli estremi della fattura con gli elementi ID e IssueDate.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="matches(cbc:ID,'^(\p{IsBasicLatin}){0,20}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(cbc:ID,'^(\p{IsBasicLatin}){0,20}$')">
+               <axsl:attribute name="id">BR-IT-042</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-042][FPA 2.1.10.1] - L'identificativo della fattura principale non può superare i 20 caratteri.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/cac:ReceiptDocumentReference/cbc:ID" priority="1055" mode="M38">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:ReceiptDocumentReference/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -18432,15 +18724,15 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:DespatchDocumentReference/cbc:ID" priority="1039" mode="M38">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:DespatchDocumentReference/cbc:ID"/>
+   <axsl:template match="/*/cac:DespatchDocumentReference" priority="1054" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:DespatchDocumentReference"/>
 
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="matches(.,'^(\p{IsBasicLatin}){0,20}$')"/>
+         <axsl:when test="matches(cbc:ID,'^(\p{IsBasicLatin}){0,20}$')"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^(\p{IsBasicLatin}){0,20}$')">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(cbc:ID,'^(\p{IsBasicLatin}){0,20}$')">
                <axsl:attribute name="id">BR-IT-060</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -18450,12 +18742,28 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="cbc:IssueDate"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cbc:IssueDate">
+               <axsl:attribute name="id">BR-IT-061</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-061][FPA 2.1.8.2] - La data del documento di trasporto deve essere obbligatoriamente valorizzata.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
       <axsl:apply-templates select="@*|*" mode="M38"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:OriginatorDocumentReference/cbc:ID" priority="1038" mode="M38">
+   <axsl:template match="/*/cac:OriginatorDocumentReference/cbc:ID" priority="1053" mode="M38">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:OriginatorDocumentReference/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -18478,7 +18786,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cbc:AccountingCost" priority="1037" mode="M38">
+   <axsl:template match="/*/cbc:AccountingCost" priority="1052" mode="M38">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cbc:AccountingCost"/>
 
 		<!--ASSERT -->
@@ -18501,7 +18809,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID" priority="1036" mode="M38">
+   <axsl:template match="/*/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID" priority="1051" mode="M38">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -18524,22 +18832,21 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'IT:EORI:')) then 1 else 0) &gt; 0]" priority="1035" mode="M38">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'IT:EORI:')) then 1 else 0) &gt; 0]"/>
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'EORI:')) then 1 else 0) &gt; 0]" priority="1050" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'EORI:')) then 1 else 0) &gt; 0]"/>
 
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^IT:EORI:[A-Z0-9]+$') and string-length($i) &gt;= 21 and string-length($i) &lt;= 25) then 1 else 0) &gt; 0"/>
+         <axsl:when test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^EORI:[A-Z0-9]+$') and string-length($i) &gt;= 21 and string-length($i) &lt;= 25) then 1 else 0) &gt; 0"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^IT:EORI:[A-Z0-9]+$') and string-length($i) &gt;= 21 and string-length($i) &lt;= 25) then 1 else 0) &gt; 0">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^EORI:[A-Z0-9]+$') and string-length($i) &gt;= 21 and string-length($i) &lt;= 25) then 1 else 0) &gt; 0">
                <axsl:attribute name="id">BR-IT-100</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-100] - BT-29 (Seller identifier) Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT-29 Seller identifier comincia con "IT:EORI:",  la sua lunghezza deve essere compresa fra 21 e 25 caratteri. 
-Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "IT:ALBO:",  la sua lunghezza non può superare i 129 caratteri e deve essere indicato come "IT:ALBO:AlboProfessionale:NumeroIscrizioneAlbo".</svrl:text>
+               <svrl:text>[BR-IT-100] - BT-29 (Seller identifier) Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT-29 Seller identifier comincia con "EORI:", la sua lunghezza deve essere compresa fra 21 e 25 caratteri.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -18548,22 +18855,21 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'IT:ALBO:')) then 1 else 0) &gt; 0]" priority="1034" mode="M38">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'IT:ALBO:')) then 1 else 0) &gt; 0]"/>
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'ALBO:')) then 1 else 0) &gt; 0]" priority="1049" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'ALBO:')) then 1 else 0) &gt; 0]"/>
 
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^IT:ALBO:[a-zA-Z]+:[A-Z0-9]+$') and string-length($i) &gt;= 1 and string-length($i) &lt;= 129) then 1 else 0) &gt; 0"/>
+         <axsl:when test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^ALBO:[a-zA-Z]+:[A-Z0-9]+$') and string-length($i) &gt;= 1 and string-length($i) &lt;= 129) then 1 else 0) &gt; 0"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^IT:ALBO:[a-zA-Z]+:[A-Z0-9]+$') and string-length($i) &gt;= 1 and string-length($i) &lt;= 129) then 1 else 0) &gt; 0">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^ALBO:[a-zA-Z]+:[A-Z0-9]+$') and string-length($i) &gt;= 1 and string-length($i) &lt;= 129) then 1 else 0) &gt; 0">
                <axsl:attribute name="id">BR-IT-100</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-100] - BT-29 (Seller identifier) Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT-29 Seller identifier comincia con "IT:EORI:",  la sua lunghezza deve essere compresa fra 21 e 25 caratteri. 
-Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "IT:ALBO:",  la sua lunghezza non può superare i 129 caratteri e deve essere indicato come "IT:ALBO:AlboProfessionale:NumeroIscrizioneAlbo".</svrl:text>
+               <svrl:text>[BR-IT-100] - BT-29 (Seller identifier) Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT-29 Seller identifier comincia con "ALBO:", la sua lunghezza non può superare i 129 caratteri e deve essere indicato come "ALBO:AlboProfessionale:NumeroIscrizioneAlbo".</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -18572,21 +18878,44 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'IT:REA:')) then 1 else 0) &gt; 0]" priority="1033" mode="M38">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'IT:REA:')) then 1 else 0) &gt; 0]"/>
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'CF:')) then 1 else 0) &gt; 0]" priority="1048" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'CF:')) then 1 else 0) &gt; 0]"/>
 
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^IT:REA:[a-zA-Z0-9]+:[A-Z0-9]+$') and string-length($i) &gt;= 10 and string-length($i) &lt;= 30) then 1 else 0) &gt; 0"/>
+         <axsl:when test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^CF:[A-Z0-9]{11,16}$')) then 1 else 0) &gt; 0"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^IT:REA:[a-zA-Z0-9]+:[A-Z0-9]+$') and string-length($i) &gt;= 10 and string-length($i) &lt;= 30) then 1 else 0) &gt; 0">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^CF:[A-Z0-9]{11,16}$')) then 1 else 0) &gt; 0">
+               <axsl:attribute name="id">BR-IT-100</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-100] - BT-29 (Seller identifier) Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT-29 Seller identifier comincia con "CF:", la sua lunghezza deve essere compresa fra 14 e 19 caratteri.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'REA:')) then 1 else 0) &gt; 0]" priority="1047" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'REA:')) then 1 else 0) &gt; 0]"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^REA:[a-zA-Z0-9]+:[A-Z0-9]+$') and string-length($i) &gt;= 10 and string-length($i) &lt;= 30) then 1 else 0) &gt; 0"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^REA:[a-zA-Z0-9]+:[A-Z0-9]+$') and string-length($i) &gt;= 10 and string-length($i) &lt;= 30) then 1 else 0) &gt; 0">
                <axsl:attribute name="id">BR-IT-110</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-110] - Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT-30 Seller legal registration identifier comincia con "IT:REA:", la sua lunghezza deve essere compresa fra 10 e 30 caratteri e deve essere indicato come "IT:REA:Ufficio:NumeroREA".</svrl:text>
+               <svrl:text>[BR-IT-110] - Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT-30 Seller legal registration identifier comincia con "REA:", la sua lunghezza deve essere compresa fra 10 e 30 caratteri e deve essere indicato come "REA:Ufficio:NumeroREA".</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -18595,7 +18924,7 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID" priority="1032" mode="M38">
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID" priority="1046" mode="M38">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID"/>
 
 		<!--ASSERT -->
@@ -18618,24 +18947,54 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']" priority="1031" mode="M38">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']"/>
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:TaxLevelCode" priority="1045" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:TaxLevelCode"/>
 
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="cac:PartyTaxScheme/cac:TaxScheme/cbc:ID = 'VAT' or matches(cac:PartyTaxScheme/cbc:CompanyID,'^[a-zA-Z0-9]{17,22}$')"/>
+         <axsl:when test="( ( not(contains(normalize-space(.),' ')) and contains( ' RF01 RF02 RF04 RF05 RF06 RF07 RF08 RF09 RF10 RF11 RF12 RF13 RF14 RF15 RF16 RF17 RF18 RF19 ',concat(' ',normalize-space(.),' ') ) ) )"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cac:PartyTaxScheme/cac:TaxScheme/cbc:ID = 'VAT' or matches(cac:PartyTaxScheme/cbc:CompanyID,'^[a-zA-Z0-9]{17,22}$')">
-               <axsl:attribute name="id">BR-IT-130</axsl:attribute>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="( ( not(contains(normalize-space(.),' ')) and contains( ' RF01 RF02 RF04 RF05 RF06 RF07 RF08 RF09 RF10 RF11 RF12 RF13 RF14 RF15 RF16 RF17 RF18 RF19 ',concat(' ',normalize-space(.),' ') ) ) )">
+               <axsl:attribute name="id">BR-IT-121</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-130] - Se il valore dell’elemento BT-40 Seller country code è "IT", la lunghezza dell'elemento BT-32 Seller tax registration identifier deve essere compresa fra 17 e 22 caratteri.</svrl:text>
+               <svrl:text>[BR-IT-121][FPA 1.2.1.8 - Regime Fiscale] - Il Regime Fiscale (cbc:TaxLevelCode) deve essere valorizzato esclusivamente con i valori della relativa codifica, secondo la specifica FatturaPA 1.2.1.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLegalForm" priority="1044" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLegalForm"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test=""/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="">
+               <axsl:attribute name="id">BR-IT-122</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-122][FPA 1.2.4.3 CapitaleSociale, 1.2.4.4 SocioUnico, 1.2.4.5 StatoLiquidazione] - La lunghezza dell'elemento non può superare i 19 caratteri.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']" priority="1043" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']"/>
 
 		<!--ASSERT -->
 
@@ -18657,21 +19016,85 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party" priority="1030" mode="M38">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:Party"/>
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party/cac:AgentParty/cac:PostalAddress" priority="1042" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party/cac:AgentParty/cac:PostalAddress"/>
 
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="cac:PartyTaxScheme/cbc:CompanyID or (cac:PartyIdentification/cbc:ID and matches(cac:PartyIdentification/cbc:ID,'^IT:CF:[a-zA-Z0-9]{17,22}$'))"/>
+         <axsl:when test="cbc:StreetName and cbc:CityName and cbc:PostalZone and cbc:CountrySubentity and cac:Country/cbc:IdentificationCode"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cac:PartyTaxScheme/cbc:CompanyID or (cac:PartyIdentification/cbc:ID and matches(cac:PartyIdentification/cbc:ID,'^IT:CF:[a-zA-Z0-9]{17,22}$'))">
-               <axsl:attribute name="id">BR-IT-160</axsl:attribute>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cbc:StreetName and cbc:CityName and cbc:PostalZone and cbc:CountrySubentity and cac:Country/cbc:IdentificationCode">
+               <axsl:attribute name="id">BR-IT-151</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-160] - Almeno uno degli elementi  BT-48 Buyer VAT identifier e BT-46 Buyer identifier deve essere valorizzato. BT-46 Buyer identifier, se presente, deve iniziare con "IT:CF:" e la sua lunghezza deve essere compresa fra 17 e 22 caratteri.</svrl:text>
+               <svrl:text>[BR-IT-151][FPA 1.2.3 - Stabile Organizzazione] - La Stabile Organizzazione deve fornire l'indirizzo completo di via e numero civico, comune, cap, provincia e nazione.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="matches(cbc:StreetName,'^(\p{IsBasicLatin}){0,60}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(cbc:StreetName,'^(\p{IsBasicLatin}){0,60}$')">
+               <axsl:attribute name="id">BR-IT-152</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-152][FPA 1.2.3.1 - Indirizzo e 1.2.3.2 - NumeroCivico] - La lunghezza dell'elemento non può superare i 60 caratteri.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="matches(cbc:Cityname,'^(\p{IsBasicLatin}){0,60}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(cbc:Cityname,'^(\p{IsBasicLatin}){0,60}$')">
+               <axsl:attribute name="id">BR-IT-153</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-153][FPA 1.2.3.4 - Comune] - La lunghezza dell'elemento non può superare i 60 caratteri.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="matches(cbc:PostalZone,'^(\p{IsBasicLatin}){0,8}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(cbc:PostalZone,'^(\p{IsBasicLatin}){0,8}$')">
+               <axsl:attribute name="id">BR-IT-154</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-154][FPA 1.2.3.3 - CAP] - La lunghezza dell'elemento non può superare 8 caratteri.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="matches(cbc:CountrySubentity,'^[A-Z]{0,2}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(cbc:CountrySubentity,'^[A-Z]{0,2}$')">
+               <axsl:attribute name="id">BR-IT-155</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-155][FPA 1.2.3.5 - Provincia] - La lunghezza dell'elemento non può superare 2 caratteri.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -18680,21 +19103,21 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party[starts-with(cac:PartyLegalEntity/cbc:CompanyID, 'IT:EORI:')]" priority="1029" mode="M38">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:Party[starts-with(cac:PartyLegalEntity/cbc:CompanyID, 'IT:EORI:')]"/>
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty/cac:Party" priority="1041" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty/cac:Party"/>
 
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="matches(cac:PartyLegalEntity/cbc:CompanyID,'^IT:EORI:[A-Z0-9]+$') and string-length(cac:PartyLegalEntity/cbc:CompanyID) &gt;= 21 and string-length(cac:PartyLegalEntity/cbc:CompanyID) &lt;= 25"/>
+         <axsl:when test="cac:PartyTaxScheme/cbc:CompanyID and cac:PartyTaxScheme/cac:TaxScheme/cbc:ID = 'VAT' and (cac:PartyName/cbc:Name or (cac:Person/cbc:FirstName and cac:Person/cbc:FamilyName))"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(cac:PartyLegalEntity/cbc:CompanyID,'^IT:EORI:[A-Z0-9]+$') and string-length(cac:PartyLegalEntity/cbc:CompanyID) &gt;= 21 and string-length(cac:PartyLegalEntity/cbc:CompanyID) &lt;= 25">
-               <axsl:attribute name="id">BR-IT-170</axsl:attribute>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cac:PartyTaxScheme/cbc:CompanyID and cac:PartyTaxScheme/cac:TaxScheme/cbc:ID = 'VAT' and (cac:PartyName/cbc:Name or (cac:Person/cbc:FirstName and cac:Person/cbc:FamilyName))">
+               <axsl:attribute name="id">BR-IT-156</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-170] - Se l'elemento BT-47 Buyer legal registration identifier inizia con "IT:EORI:", la lunghezza dell'elemento BT-47 Buyer legal registration identifier deve essere compresa fra 21 e 25 caratteri.</svrl:text>
+               <svrl:text>[BR-IT-156][FPA 1.5 - Terzo Intermediario] - Il Terzo Intermediario o Soggetto Emittente deve contenere la P.IVA, lo schema fiscale = 'VAT', la ragione sociale o una persona fisica (nome e cognome).</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -18703,7 +19126,7 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID" priority="1028" mode="M38">
+   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID" priority="1040" mode="M38">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID"/>
 
 		<!--ASSERT -->
@@ -18726,24 +19149,70 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID" priority="1027" mode="M38">
+   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party" priority="1039" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:Party"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="cac:PartyTaxScheme/cbc:CompanyID or (cac:PartyLegalEntity/cbc:CompanyID and matches(cac:PartyLegalEntity/cbc:CompanyID,'^CF:[A-Z0-9]{11,16}$'))"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cac:PartyTaxScheme/cbc:CompanyID or (cac:PartyLegalEntity/cbc:CompanyID and matches(cac:PartyLegalEntity/cbc:CompanyID,'^CF:[A-Z0-9]{11,16}$'))">
+               <axsl:attribute name="id">BR-IT-510</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-510] - Almeno uno degli elementi  BT-48 (Buyer VAT identifier) o BT-47 (Buyer legal registration identifier) deve essere valorizzato.  BT-47 (Buyer legal registration identifier), se presente, deve iniziare con 'CF:' e la sua lunghezza deve essere compresa fra 14 e 19 caratteri.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/cac:AccountingCustomerParty/cac:PartyIdentification/cbc:ID" priority="1038" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:PartyIdentification/cbc:ID"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="matches(.,'^EORI:[A-Z0-9]{13,17}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^EORI:[A-Z0-9]{13,17}$')">
+               <axsl:attribute name="id">BR-IT-520</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-520][FPA 1.4.1.3.5 - Codice EORI] - Il Codice EORI (BT-46 Buyer identifier) deve essere preceduto dal prefisso 'EORI:' ed avere la lunghezza del codice compresa fra 13 e 17 caratteri alfanumerici.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID" priority="1037" mode="M38">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID"/>
 
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="@schemeID='0201' and (matches(.,'^(IT:IPA:)?[a-zA-Z0-9]{6}$') or (matches(.,'^IT:PEC:(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)$') and matches(.,'^.{14,256}$')) or matches(.,'^IT:CODDEST:[a-zA-Z0-9]{7}$'))"/>
+         <axsl:when test="@schemeID='0201' and (matches(.,'^(IPA:)?[a-zA-Z0-9]{6}$') or (matches(.,'^PEC:(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)$') and matches(.,'^.{14,256}$')) or matches(.,'^CODDEST:[a-zA-Z0-9]{7}$'))"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="@schemeID='0201' and (matches(.,'^(IT:IPA:)?[a-zA-Z0-9]{6}$') or (matches(.,'^IT:PEC:(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)$') and matches(.,'^.{14,256}$')) or matches(.,'^IT:CODDEST:[a-zA-Z0-9]{7}$'))">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="@schemeID='0201' and (matches(.,'^(IPA:)?[a-zA-Z0-9]{6}$') or (matches(.,'^PEC:(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)$') and matches(.,'^.{14,256}$')) or matches(.,'^CODDEST:[a-zA-Z0-9]{7}$'))">
                <axsl:attribute name="id">BR-IT-200</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
                <svrl:text>[BR-IT-200] - Se l'elemento BT-49-1 Buyer electronic address identification scheme identifier contiene il valore "0201", l'elemento BT-49 Buyer electronic address 
-		rappresenta un codice IPA, può iniziare opzionalmente con il prefisso "IT:IPA:" e deve essere seguito da un identificatore con lunghezza pari a 6 caratteri,
-		oppure può iniziare con il prefisso "IT:PEC:" ed essere seguito da un indirizzo PEC di lunghezza compresa fra 7 e 256 caratteri,
-		oppure può iniziare con il prefisso "IT:CODDEST:" ed essere seguito da un identificatore con lunghezza pari a 7 caratteri.</svrl:text>
+		rappresenta un codice IPA, può iniziare opzionalmente con il prefisso "IPA:" e deve essere seguito da un identificatore con lunghezza pari a 6 caratteri,
+		oppure può iniziare con il prefisso "PEC:" ed essere seguito da un indirizzo PEC di lunghezza compresa fra 7 e 256 caratteri,
+		oppure può iniziare con il prefisso "CODDEST:" ed essere seguito da un identificatore con lunghezza pari a 7 caratteri.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -18768,7 +19237,7 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']" priority="1026" mode="M38">
+   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']" priority="1036" mode="M38">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']"/>
 
 		<!--ASSERT -->
@@ -18791,7 +19260,156 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:TaxRepresentativeParty/cac:PartyTaxScheme/cbc:CompanyID" priority="1025" mode="M38">
+   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cac:AgentParty/cac:PostalAddress" priority="1035" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:Party/cac:AgentParty/cac:PostalAddress"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="cbc:StreetName and cbc:CityName and cbc:PostalZone and cbc:CountrySubentity and cac:Country/cbc:IdentificationCode"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cbc:StreetName and cbc:CityName and cbc:PostalZone and cbc:CountrySubentity and cac:Country/cbc:IdentificationCode">
+               <axsl:attribute name="id">BR-IT-221</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-221][FPA 1.2.3 - Stabile Organizzazione] - La Stabile Organizzazione deve fornire l'indirizzo completo di via e numero civico, comune, cap, provincia e nazione.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="matches(cbc:StreetName,'^(\p{IsBasicLatin}){0,60}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(cbc:StreetName,'^(\p{IsBasicLatin}){0,60}$')">
+               <axsl:attribute name="id">BR-IT-222</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-222][FPA 1.2.3.1 - Indirizzo e 1.2.3.2 - NumeroCivico] - La lunghezza dell'elemento non può superare i 60 caratteri.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="matches(cbc:Cityname,'^(\p{IsBasicLatin}){0,60}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(cbc:Cityname,'^(\p{IsBasicLatin}){0,60}$')">
+               <axsl:attribute name="id">BR-IT-223</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-223][FPA 1.2.3.4 - Comune] - La lunghezza dell'elemento non può superare i 60 caratteri.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="matches(cbc:PostalZone,'^(\p{IsBasicLatin}){0,8}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(cbc:PostalZone,'^(\p{IsBasicLatin}){0,8}$')">
+               <axsl:attribute name="id">BR-IT-224</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-224][FPA 1.2.3.3 - CAP] - La lunghezza dell'elemento non può superare 8 caratteri.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="matches(cbc:CountrySubentity,'^[A-Z]{0,2}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(cbc:CountrySubentity,'^[A-Z]{0,2}$')">
+               <axsl:attribute name="id">BR-IT-225</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-225][FPA 1.2.3.5 - Provincia] - La lunghezza dell'elemento non può superare 2 caratteri.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cac:PowerOfAttorney/cac:AgentParty" priority="1034" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:Party/cac:PowerOfAttorney/cac:AgentParty"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="cac:PartyTaxScheme/cbc:CompanyID and cac:PartyTaxScheme/cac:TaxScheme/cbc:ID = 'VAT' and cac:PartyLegalEntity/cbc:RegistrationName and (not(cac:Person) or (cac:Person/cbc:FirstName and cac:Person/cbc:FamilyName))"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cac:PartyTaxScheme/cbc:CompanyID and cac:PartyTaxScheme/cac:TaxScheme/cbc:ID = 'VAT' and cac:PartyLegalEntity/cbc:RegistrationName and (not(cac:Person) or (cac:Person/cbc:FirstName and cac:Person/cbc:FamilyName))">
+               <axsl:attribute name="id">BR-IT-226</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-226][FPA 1.4.4 - Rappresentante Fiscale del Cliente] - Il Rappresentante Fiscale del Cliente deve contenere la P.IVA, lo schema fiscale = 'VAT', la ragione sociale e se viene specificata una persona fisica, il nome e cognome.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/cac:TaxRepresentativeParty/cac:PartyIdentification/cbc:ID" priority="1033" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:TaxRepresentativeParty/cac:PartyIdentification/cbc:ID"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="matches(.,'^CF:[A-Z0-9]{11,16}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^CF:[A-Z0-9]{11,16}$')">
+               <axsl:attribute name="id">BR-IT-228</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-228][FPA 1.3.1.2 - Codice Fiscale] - Il Codice Fiscale deve essere preceduto dal prefisso 'CF:' ed avere la lunghezza del codice compresa fra 11 e 16 caratteri alfanumerici.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="matches(.,'^EORI:[A-Z0-9]{13,17}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^EORI:[A-Z0-9]{13,17}$')">
+               <axsl:attribute name="id">BR-IT-229</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-229][FPA 1.3.1.3.5 - Codice EORI] - Il Codice EORI deve essere preceduto dal prefisso 'EORI:' ed avere la lunghezza del codice compresa fra 13 e 17 caratteri alfanumerici.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/cac:TaxRepresentativeParty/cac:PartyTaxScheme/cbc:CompanyID" priority="1032" mode="M38">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:TaxRepresentativeParty/cac:PartyTaxScheme/cbc:CompanyID"/>
 
 		<!--ASSERT -->
@@ -18814,7 +19432,7 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:Delivery/cac:DeliveryLocation/cac:Address[cac:Country/cbc:IdentificationCode='IT']" priority="1024" mode="M38">
+   <axsl:template match="/*/cac:Delivery/cac:DeliveryLocation/cac:Address[cac:Country/cbc:IdentificationCode='IT']" priority="1031" mode="M38">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:Delivery/cac:DeliveryLocation/cac:Address[cac:Country/cbc:IdentificationCode='IT']"/>
 
 		<!--ASSERT -->
@@ -18853,7 +19471,211 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:PaymentMeans" priority="1023" mode="M38">
+   <axsl:template match="/*/cac:Delivery/cac:CarrierParty" priority="1030" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:Delivery/cac:CarrierParty"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="not(cac:PartyIdentification/cbc:ID) or matches(cac:PartyIdentification/cbc:ID,'^CF:[A-Z0-9]{11,16}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:PartyIdentification/cbc:ID) or matches(cac:PartyIdentification/cbc:ID,'^CF:[A-Z0-9]{11,16}$')">
+               <axsl:attribute name="id">BR-IT-251</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-251][FPA 2.1.9.1.2 - Codice Fiscale] - Il Codice Fiscale deve essere preceduto dal prefisso 'CF:' ed avere la lunghezza del codice compresa fra 11 e 16 caratteri alfanumerici.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="matches(cac:PartyName/cbc:Name,'^(\p{IsBasicLatin}){0,80}$') or (matches(cac:Person/cbc:FirstName,'^(\p{IsBasicLatin}){0,60}$') and matches(cac:Person/cbc:FamilyName,'^(\p{IsBasicLatin}){0,60}$'))"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(cac:PartyName/cbc:Name,'^(\p{IsBasicLatin}){0,80}$') or (matches(cac:Person/cbc:FirstName,'^(\p{IsBasicLatin}){0,60}$') and matches(cac:Person/cbc:FamilyName,'^(\p{IsBasicLatin}){0,60}$'))">
+               <axsl:attribute name="id">BR-IT-252</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-252][FPA 2.1.9.1.3 - Anagrafica] - Se la Denominazione del Vettore è valorizzata, la sua lunghezza non può superare 80 caratteri, alternativamente, se è invece valorizzato il Nome e il Cognome, la loro lunghezza non potrà superare 60 caratteri.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="matches(cac:PartyTaxScheme/cbc:CompanyID,'^[a-zA-Z0-9]{0,30}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(cac:PartyTaxScheme/cbc:CompanyID,'^[a-zA-Z0-9]{0,30}$')">
+               <axsl:attribute name="id">BR-IT-253</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-253][FPA 2.1.9.1.1 - Partita IVA] - La lunghezza dell'elemento non può superare i 30 caratteri.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="cac:PartyTaxScheme/cac:TaxScheme/cbc:ID = 'VAT'"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cac:PartyTaxScheme/cac:TaxScheme/cbc:ID = 'VAT'">
+               <axsl:attribute name="id">BR-IT-254</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-254] - L'identificativo del TaxScheme deve essere valorizzato con 'VAT'.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="not(cac:Person/cac:IdentityDocumentReference) or (matches(cac:Person/cac:IdentityDocumentReference/cbc:ID,'^[A-Z0-9]{0,20}$') and cac:Person/cac:IdentityDocumentReference/cbc:DocumentTypeCode = '40')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:Person/cac:IdentityDocumentReference) or (matches(cac:Person/cac:IdentityDocumentReference/cbc:ID,'^[A-Z0-9]{0,20}$') and cac:Person/cac:IdentityDocumentReference/cbc:DocumentTypeCode = '40')">
+               <axsl:attribute name="id">BR-IT-255</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-255][FPA 2.1.9.1.4 - Numero Licenza Guida] - Se il Numero Licenza Guida è valorizzata, la sua lunghezza non può superare 20 caratteri e il tipo documento (cbc:DocumentTypeCode) deve essere '40'.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/cac:Delivery/cac:Despatch" priority="1029" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:Delivery/cac:Despatch"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="not(cbc:Instructions) or matches(cbc:Instructions,'^(\p{IsBasicLatin}){0,100}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cbc:Instructions) or matches(cbc:Instructions,'^(\p{IsBasicLatin}){0,100}$')">
+               <axsl:attribute name="id">BR-IT-261</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-261][FPA 2.1.9.3 - Causale Trasporto] - La lunghezza dell'elemento non può superare i 100 caratteri.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/cac:Delivery/cac:Shipment" priority="1028" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:Delivery/cac:Shipment"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="(not(cbc:GrossWeightMeasure) or matches(cbc:GrossWeightMeasure,'^[0-9]{1,4}\.[0-9]{1,2}$')) and (not(cbc:NetWeightMeasure) or matches(cbc:NetWeightMeasure,'^[0-9]{1,4}\.[0-9]{1,2}$'))"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(not(cbc:GrossWeightMeasure) or matches(cbc:GrossWeightMeasure,'^[0-9]{1,4}\.[0-9]{1,2}$')) and (not(cbc:NetWeightMeasure) or matches(cbc:NetWeightMeasure,'^[0-9]{1,4}\.[0-9]{1,2}$'))">
+               <axsl:attribute name="id">BR-IT-256</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-256][FPA 2.1.9.7 - Peso Lordo, FPA 2.1.9.8 - Peso Netto] - La lunghezza del Peso Lordo o Netto deve essere da 4 a 7 caratteri, incluse 1 o 2 cifre decimali.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="not(cbc:TotalTransportHandlingUnitQuantity) or matches(cbc:TotalTransportHandlingUnitQuantity,'^[0-9]{1,9999}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cbc:TotalTransportHandlingUnitQuantity) or matches(cbc:TotalTransportHandlingUnitQuantity,'^[0-9]{1,9999}$')">
+               <axsl:attribute name="id">BR-IT-257</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-257][FPA 2.1.9.4 - Numero Colli] - Il Numero di Colli può essere da 1 a 9999.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="not(cac:GoodsItem/cbc:Description) or matches(cac:GoodsItem/cbc:Description,'^(\p{IsBasicLatin}){0,100}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:GoodsItem/cbc:Description) or matches(cac:GoodsItem/cbc:Description,'^(\p{IsBasicLatin}){0,100}$')">
+               <axsl:attribute name="id">BR-IT-258</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-258][FPA 2.1.9.5 - Descrizione Merce] - La lunghezza dell'elemento non può superare i 100 caratteri.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="not(cac:ShipmentStage/cbc:TransportMeansTypeCode) or matches(cac:ShipmentStage/cbc:TransportMeansTypeCode,'^(\p{IsBasicLatin}){0,80}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:ShipmentStage/cbc:TransportMeansTypeCode) or matches(cac:ShipmentStage/cbc:TransportMeansTypeCode,'^(\p{IsBasicLatin}){0,80}$')">
+               <axsl:attribute name="id">BR-IT-259</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-259][FPA 2.1.9.2 - Mezzo di Trasporto] - La lunghezza dell'elemento non può superare gli 80 caratteri.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/cac:DeliveryTerms/cbc:ID" priority="1027" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:DeliveryTerms/cbc:ID"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="matches(.,'^[a-zA-Z0-9]{3,3}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^[a-zA-Z0-9]{3,3}$')">
+               <axsl:attribute name="id">BR-IT-262</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-262][FPA 2.1.9.11 - Tipo Resa Merce] - La lunghezza dell'elemento deve essere di 3 caratteri.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/cac:PaymentMeans" priority="1026" mode="M38">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:PaymentMeans"/>
 
 		<!--ASSERT -->
@@ -18908,7 +19730,53 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AllowanceCharge/cbc:Amount" priority="1022" mode="M38">
+   <axsl:template match="/*/cac:PaymentTerms/cbc:SettlementDiscountAmount" priority="1025" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:PaymentTerms/cbc:SettlementDiscountAmount"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="matches(.,'^[.\d]{4,15}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^[.\d]{4,15}$')">
+               <axsl:attribute name="id">BR-IT-281</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-281][FPA 2.4.2.17 - Sconto Pagamento Anticipato] - La lunghezza dell'elemento deve essere di almeno 4 caratteri e non può superare i 15 caratteri incluso 2 cifre decimali.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/cac:PaymentTerms/cbc:PenaltyAmount" priority="1024" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:PaymentTerms/cbc:PenaltyAmount"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="matches(.,'^[.\d]{4,15}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^[.\d]{4,15}$')">
+               <axsl:attribute name="id">BR-IT-282</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-282][FPA 2.4.2.19 - Penalita Pagamenti Ritardati] - La lunghezza dell'elemento deve essere di almeno 4 caratteri e non può superare i 15 caratteri incluso 2 cifre decimali.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/cac:AllowanceCharge/cbc:Amount" priority="1023" mode="M38">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AllowanceCharge/cbc:Amount"/>
 
 		<!--ASSERT -->
@@ -18922,7 +19790,7 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-290] - BT-92 and BT-99(Document level allowance/charge amounts) maximum length shall be 15, including two fraction digits - La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali.</svrl:text>
+               <svrl:text>[BR-IT-290] - La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -18931,7 +19799,7 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount" priority="1021" mode="M38">
+   <axsl:template match="/*/cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount" priority="1022" mode="M38">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount"/>
 
 		<!--ASSERT -->
@@ -18954,7 +19822,7 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:LegalMonetaryTotal/cbc:PayableRoundingAmount" priority="1020" mode="M38">
+   <axsl:template match="/*/cac:LegalMonetaryTotal/cbc:PayableRoundingAmount" priority="1021" mode="M38">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:LegalMonetaryTotal/cbc:PayableRoundingAmount"/>
 
 		<!--ASSERT -->
@@ -18977,7 +19845,7 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:LegalMonetaryTotal/cbc:PayableAmount" priority="1019" mode="M38">
+   <axsl:template match="/*/cac:LegalMonetaryTotal/cbc:PayableAmount" priority="1020" mode="M38">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:LegalMonetaryTotal/cbc:PayableAmount"/>
 
 		<!--ASSERT -->
@@ -19000,7 +19868,7 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxableAmount" priority="1018" mode="M38">
+   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxableAmount" priority="1019" mode="M38">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxableAmount"/>
 
 		<!--ASSERT -->
@@ -19023,7 +19891,7 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxAmount" priority="1017" mode="M38">
+   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxAmount" priority="1018" mode="M38">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxAmount"/>
 
 		<!--ASSERT -->
@@ -19046,21 +19914,21 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="//cac:TaxCategory/cbc:ID | //cac:ClassifiedTaxCategory/cbc:ID" priority="1016" mode="M38">
+   <axsl:template match="//cac:TaxCategory/cbc:ID | //cac:ClassifiedTaxCategory/cbc:ID" priority="1017" mode="M38">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:TaxCategory/cbc:ID | //cac:ClassifiedTaxCategory/cbc:ID"/>
 
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="contains(' AE B E S G K Z H AA O ', concat(' ',normalize-space(.),' '))"/>
+         <axsl:when test="contains(' AE B E G K Z O ', concat(' ',normalize-space(.),' '))"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="contains(' AE B E S G K Z H AA O ', concat(' ',normalize-space(.),' '))">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="contains(' AE B E G K Z O ', concat(' ',normalize-space(.),' '))">
                <axsl:attribute name="id">BR-IT-350</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-350] - For VAT category code only values AE B E S G K Z H AA O shall be allowed - I valori accettati sono esclusivamente AE B E S G K Z H AA O.</svrl:text>
+               <svrl:text>[BR-IT-350] - For VAT category code only values AE B E G K Z O shall be allowed - I valori accettati sono esclusivamente AE B E G K Z O.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -19069,7 +19937,7 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="//cac:AdditionalDocumentReference[cbc:ID]" priority="1015" mode="M38">
+   <axsl:template match="//cac:AdditionalDocumentReference[cbc:ID]" priority="1016" mode="M38">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:AdditionalDocumentReference[cbc:ID]"/>
 
 		<!--ASSERT -->
@@ -19092,21 +19960,44 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID" priority="1014" mode="M38">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID"/>
+   <axsl:template match="/*/cac:AllowanceCharge" priority="1015" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AllowanceCharge"/>
 
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="matches(.,'^(\p{IsBasicLatin}){0,35}$')"/>
+         <axsl:when test="cbc:AllowanceChargeReason = 'BOLLO' and (not(cbc:AllowanceChargeReasonCode) or cbc:AllowanceChargeReasonCode = 'SAE') and cbc:Amount = 0.00 and cbc:BaseAmount &gt; 0 and count(cac:TaxCategory[cbc:ID = 'E' and cbc:Percent = 0]) = 1 and ../cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount &gt; 77.47 and not(../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'S' or cbc:ID = 'B']) and count(../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'E' and cbc:Percent = 0 and contains(lower-case(cbc:TaxExemptionReason), 'bollo')]) = 1"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^(\p{IsBasicLatin}){0,35}$')">
-               <axsl:attribute name="id">BR-IT-370</axsl:attribute>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cbc:AllowanceChargeReason = 'BOLLO' and (not(cbc:AllowanceChargeReasonCode) or cbc:AllowanceChargeReasonCode = 'SAE') and cbc:Amount = 0.00 and cbc:BaseAmount &gt; 0 and count(cac:TaxCategory[cbc:ID = 'E' and cbc:Percent = 0]) = 1 and ../cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount &gt; 77.47 and not(../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'S' or cbc:ID = 'B']) and count(../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'E' and cbc:Percent = 0 and contains(lower-case(cbc:TaxExemptionReason), 'bollo')]) = 1">
+               <axsl:attribute name="id">BR-IT-480</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-370] - BT-128 (Invoice line object identifier) maximum lenght shall be 35 chars - La lunghezza dell'elemento non può superare i 35 caratteri.</svrl:text>
+               <svrl:text>[BR-IT-480] - Se la fattura è soggetta alla marca da bollo questa non deve contenere IVA, l'importo deve essere superiore a 77.47 EURO e nel riepilogo IVA deve menzionare il motivo dell'esenzione "Bollo assolto ai sensi del decreto MEF 17 giugno 2014 (art. 6)".</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cbc:ID = 'B']" priority="1014" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cbc:ID = 'B']"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="not(/*/cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cbc:ID = 'S']) and /*/cac:PaymentTerms/cbc:Note"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(/*/cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cbc:ID = 'S']) and /*/cac:PaymentTerms/cbc:Note">
+               <axsl:attribute name="id">BR-IT-510</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-510] - Se la fattura è soggetta allo Split Payment questa deve esclusivamente utilizzare il TaxCategory = 'B' e deve indicare nei termini di pagamento "The total is without the VAT amount due to Split payment (ex art.17-ter del DPR 633/1972)".</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -19121,9 +20012,32 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="matches(.,'^\d*\.\d{8}$') and string-length(.) &gt;= 9 and string-length(.) &lt;= 21"/>
+         <axsl:when test="matches(.,'^(\p{IsBasicLatin}){0,100}$')"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^\d*\.\d{8}$') and string-length(.) &gt;= 9 and string-length(.) &lt;= 21">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^(\p{IsBasicLatin}){0,100}$')">
+               <axsl:attribute name="id">BR-IT-370</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-370] - BT-128 (Invoice line object identifier) maximum lenght shall be 100 chars - La lunghezza dell'elemento non può superare i 100 caratteri.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/cac:InvoiceLine/cbc:InvoicedQuantity" priority="1012" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cbc:InvoicedQuantity"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="matches(.,'^\d*\.\d{8}$') and string-length(.) &gt;= 4 and string-length(.) &lt;= 21"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^\d*\.\d{8}$') and string-length(.) &gt;= 4 and string-length(.) &lt;= 21">
                <axsl:attribute name="id">BR-IT-380</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -19138,8 +20052,8 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID" priority="1012" mode="M38">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID"/>
+   <axsl:template match="/*/cac:InvoiceLine/cbc:LineExtensionAmount" priority="1011" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cbc:LineExtensionAmount"/>
 
 		<!--ASSERT -->
 
@@ -19161,8 +20075,8 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID" priority="1011" mode="M38">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID"/>
+   <axsl:template match="/*/cac:InvoiceLine/cac:OrderLineReference/cbc:LineID" priority="1010" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:OrderLineReference/cbc:LineID"/>
 
 		<!--ASSERT -->
 
@@ -19184,8 +20098,100 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID" priority="1010" mode="M38">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID"/>
+   <axsl:template match="/*/cac:InvoiceLine/cac:OrderLineReference/cac:OrderReference/cbc:ID" priority="1009" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:OrderLineReference/cac:OrderReference/cbc:ID"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="matches(.,'^(\p{IsBasicLatin}){0,20}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^(\p{IsBasicLatin}){0,20}$')">
+               <axsl:attribute name="id">BR-IT-401</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-401][FPA 2.1.2.2 - Numero Ordine] - La lunghezza dell'elemento non può superare i 20 caratteri.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/cac:InvoiceLine/cac:DespatchLineReference/cbc:LineID" priority="1008" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:DespatchLineReference/cbc:LineID"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test=".='NA'"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test=".='NA'">
+               <axsl:attribute name="id">BR-IT-402</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-402] - Il riferimento ad una riga DDT dalla riga fattura non supportato da SDI, valorizzarlo sempre con 'NA'.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference/cbc:ID" priority="1007" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference/cbc:ID"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="matches(.,'^(\p{IsBasicLatin}){0,20}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^(\p{IsBasicLatin}){0,20}$')">
+               <axsl:attribute name="id">BR-IT-403</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-403][FPA 2.1.8.1 - Numero DDT] - La lunghezza dell'elemento non può superare i 20 caratteri.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference" priority="1006" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="cbc:IssueDate"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cbc:IssueDate">
+               <axsl:attribute name="id">BR-IT-404</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-404][FPA 2.1.8.2] - La data del documento di trasporto deve essere obbligatoriamente valorizzata.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M38"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/cac:InvoiceLine/cbc:AccountingCost" priority="1005" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cbc:AccountingCost"/>
 
 		<!--ASSERT -->
 
@@ -19207,8 +20213,8 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID" priority="1009" mode="M38">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID"/>
+   <axsl:template match="/*/cac:InvoiceLine/cac:AllowanceCharge/cbc:Amount" priority="1004" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:AllowanceCharge/cbc:Amount"/>
 
 		<!--ASSERT -->
 
@@ -19221,7 +20227,7 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-420] - BT-136 and BT-141 (Invoice line allowance/charge amount) maximum length shall be 15, including two fraction digits - La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali.</svrl:text>
+               <svrl:text>[BR-IT-420][FPA 2.2.1.10.3 - Importo] - La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -19230,8 +20236,8 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID" priority="1008" mode="M38">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID"/>
+   <axsl:template match="/*/cac:InvoiceLine/cac:Price/cbc:PriceAmount" priority="1003" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:Price/cbc:PriceAmount"/>
 
 		<!--ASSERT -->
 
@@ -19253,8 +20259,8 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID" priority="1007" mode="M38">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID"/>
+   <axsl:template match="/*/cac:InvoiceLine/cac:Item/cac:SellersItemIdentification/cbc:ID" priority="1002" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:Item/cac:SellersItemIdentification/cbc:ID"/>
 
 		<!--ASSERT -->
 
@@ -19276,53 +20282,7 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID" priority="1006" mode="M38">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID"/>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
-         <axsl:when test="matches(.,'^(\p{IsBasicLatin}){0,35}$')"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^(\p{IsBasicLatin}){0,35}$')">
-               <axsl:attribute name="id">BR-IT-450</axsl:attribute>
-               <axsl:attribute name="flag">fatal</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </axsl:attribute>
-               <svrl:text>[BR-IT-450] - BT-156 (Item Buyer's identifier) maximum lenght shall be 35 chars - La lunghezza dell'elemento non può superare i 35 caratteri.</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M38"/>
-   </axsl:template>
-
-	<!--RULE -->
-
-   <axsl:template match="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID" priority="1005" mode="M38">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID"/>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
-         <axsl:when test="matches(.,'^(\p{IsBasicLatin}){0,35}$')"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^(\p{IsBasicLatin}){0,35}$')">
-               <axsl:attribute name="id">BR-IT-460</axsl:attribute>
-               <axsl:attribute name="flag">fatal</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </axsl:attribute>
-               <svrl:text>[BR-IT-460] - BT-157 (Item standard identifier) maximum lenght shall be 35 chars - La lunghezza dell'elemento non può superare i 35 caratteri.</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M38"/>
-   </axsl:template>
-
-	<!--RULE -->
-
-   <axsl:template match="/*/cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode" priority="1004" mode="M38">
+   <axsl:template match="/*/cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode" priority="1001" mode="M38">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode"/>
 
 		<!--ASSERT -->
@@ -19345,90 +20305,21 @@ Altrimenti, se il valore dell'elemento BT-29 Seller identifier comincia con "I
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AllowanceCharge" priority="1003" mode="M38">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AllowanceCharge"/>
+   <axsl:template match="/*/cac:InvoiceLine/cac:Item[cbc:Name = 'CASSA']" priority="1000" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:Item[cbc:Name = 'CASSA']"/>
 
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="cbc:AllowanceChargeReason = 'IT:BOLLO' and (not(cbc:AllowanceChargeReasonCode) or cbc:AllowanceChargeReasonCode = 'SAE') and cbc:Amount = 0.00 and cbc:BaseAmount &gt; 0 and count(cac:TaxCategory[cbc:ID = 'E' and cbc:Percent = 0]) = 1 and ../cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount &gt; 77.47 and not(../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'S' or cbc:ID = 'B']) and count(../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'E' and cbc:Percent = 0 and contains(lower-case(cbc:TaxExemptionReason), 'bollo')]) = 1"/>
+         <axsl:when test="sum(for $i in cac:AdditionalItemProperty return if ($i[cbc:Name = 'CASSA:TIPO' or cbc:Name = 'CASSA:ALIQUOTA']) then 1 else 0) = 2"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cbc:AllowanceChargeReason = 'IT:BOLLO' and (not(cbc:AllowanceChargeReasonCode) or cbc:AllowanceChargeReasonCode = 'SAE') and cbc:Amount = 0.00 and cbc:BaseAmount &gt; 0 and count(cac:TaxCategory[cbc:ID = 'E' and cbc:Percent = 0]) = 1 and ../cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount &gt; 77.47 and not(../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'S' or cbc:ID = 'B']) and count(../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'E' and cbc:Percent = 0 and contains(lower-case(cbc:TaxExemptionReason), 'bollo')]) = 1">
-               <axsl:attribute name="id">BR-IT-480</axsl:attribute>
-               <axsl:attribute name="flag">fatal</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </axsl:attribute>
-               <svrl:text>[BR-IT-480] - Se la fattura è soggetta alla marca da bollo questa non deve contenere IVA, l'importo deve essere superiore a 77.47 EURO e nel riepilogo IVA deve menzionare il motivo dell'esenzione "Bollo assolto ai sensi del decreto MEF 17 giugno 2014 (art. 6)".</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M38"/>
-   </axsl:template>
-
-	<!--RULE -->
-
-   <axsl:template match="/*/cac:InvoiceLine/cac:Item[sum(for $i in cac:AdditionalItemProperty return if ($i[starts-with(cbc:Name,'IT:RITENUTA:')]) then 1 else 0) &gt; 0]" priority="1002" mode="M38">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:Item[sum(for $i in cac:AdditionalItemProperty return if ($i[starts-with(cbc:Name,'IT:RITENUTA:')]) then 1 else 0) &gt; 0]"/>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
-         <axsl:when test="sum(for $i in cac:AdditionalItemProperty return if ($i[cbc:Name='IT:RITENUTA:TIPO' or cbc:Name='IT:RITENUTA:ALIQUOTA' or cbc:Name='IT:RITENUTA:CAUSALE']) then 1 else 0) = 3"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="sum(for $i in cac:AdditionalItemProperty return if ($i[cbc:Name='IT:RITENUTA:TIPO' or cbc:Name='IT:RITENUTA:ALIQUOTA' or cbc:Name='IT:RITENUTA:CAUSALE']) then 1 else 0) = 3">
-               <axsl:attribute name="id">BR-IT-490</axsl:attribute>
-               <axsl:attribute name="flag">fatal</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </axsl:attribute>
-               <svrl:text>[BR-IT-490] - La ritenuta d'acconto, se presente, deve specificare almeno il Tipo, l'Aliquota e la Causale.</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M38"/>
-   </axsl:template>
-
-	<!--RULE -->
-
-   <axsl:template match="/*/cac:InvoiceLine/cac:Item[cbc:Name = 'IT:CASSA']" priority="1001" mode="M38">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:Item[cbc:Name = 'IT:CASSA']"/>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
-         <axsl:when test="sum(for $i in cac:AdditionalItemProperty return if ($i[cbc:Name = 'IT:CASSA:TIPO' or cbc:Name = 'IT:CASSA:ALIQUOTA']) then 1 else 0) = 2"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="sum(for $i in cac:AdditionalItemProperty return if ($i[cbc:Name = 'IT:CASSA:TIPO' or cbc:Name = 'IT:CASSA:ALIQUOTA']) then 1 else 0) = 2">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="sum(for $i in cac:AdditionalItemProperty return if ($i[cbc:Name = 'CASSA:TIPO' or cbc:Name = 'CASSA:ALIQUOTA']) then 1 else 0) = 2">
                <axsl:attribute name="id">BR-IT-500</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
                <svrl:text>[BR-IT-500] - La Cassa Previdenziale, se presente, deve contenere almeno il Tipo e l'Aliquota.</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M38"/>
-   </axsl:template>
-
-	<!--RULE -->
-
-   <axsl:template match="/*/cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cbc:ID = 'B']" priority="1000" mode="M38">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cbc:ID = 'B']"/>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
-         <axsl:when test="not(/*/cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cbc:ID = 'S']) and /*/cac:PaymentTerms/cbc:Note"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(/*/cac:TaxTotal[cac:TaxSubtotal/cac:TaxCategory/cbc:ID = 'S']) and /*/cac:PaymentTerms/cbc:Note">
-               <axsl:attribute name="id">BR-IT-510</axsl:attribute>
-               <axsl:attribute name="flag">fatal</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </axsl:attribute>
-               <svrl:text>[BR-IT-510] - Se la fattura è soggetta allo Split Payment questa deve esclusivamente utilizzare il TaxCategory = 'B' e deve indicare nei termini di pagamento "The total is without the VAT amount due to Split payment (ex art.17-ter del DPR 633/1972)".</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>

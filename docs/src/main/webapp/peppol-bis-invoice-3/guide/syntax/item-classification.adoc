@@ -30,6 +30,6 @@ include::{snippet-dir}/item.xml[tags=unspsc]
     <cbc:ItemClassificationCode listID="STO">M0201030202</cbc:ItemClassificationCode> <2> 
 </cac:CommodityClassification>
 ----
-<1> Il listID deve essere fra quelli della codifica UNCL7143 e il codice *ZZZ* indica che questo è una classificazione in base ad accordi bilateali, mentre il listVersionID è opzionale.
-<2> Il listID deve essere fra quelli della codifica UNCL7143 e il codice *STO* indica il codice CND (Classificazione Nazionale dei Dispositivi Medici)
+<1> Il listID deve essere fra quelli della codifica UNCL7143 e il codice *ZZZ* indica che questo è una classificazione in base ad accordi bilaterali, mentre il listVersionID è opzionale.
+<2> Il listID deve essere fra quelli della codifica UNCL7143 e il codice *STO* indica il codice CNDM (Classificazione Nazionale dei Dispositivi Medici)
 

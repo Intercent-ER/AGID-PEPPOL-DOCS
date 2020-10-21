@@ -1,5 +1,5 @@
 
-= #Rivalsa Cassa previdenziale (CIUS)#
+= #Rivalsa Cassa previdenziale# (CIUS)
 
 La Cassa previdenziale viene trattata come maggiorazione a livello di documento utilizzando il *cac:AllowanceCharge* (BG-21 Document level charge). +
 

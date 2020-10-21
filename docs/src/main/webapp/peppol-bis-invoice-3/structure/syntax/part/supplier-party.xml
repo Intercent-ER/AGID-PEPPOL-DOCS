@@ -24,10 +24,10 @@
                     <Name>Seller electronic address identification scheme identifier</Name>
                     <Description>The identification scheme identifier of the Seller electronic address</Description>
                     <Reference type="CODE_LIST">eas</Reference>
-                    <Value type="EXAMPLE">0088</Value>
+                    <Value type="EXAMPLE">9906</Value>
                 </Attribute>
 
-                <Value type="EXAMPLE">7300010000001</Value>
+                <Value type="EXAMPLE">IT01234567890</Value>
             </Element>
 
             <Element cardinality="0..n">
@@ -174,9 +174,9 @@
 
                 <Element>
                     <Term>cbc:CompanyID</Term>
-                    <Name>Seller VAT identifier, Seller tax registration identifier - FPA 1.2.1.2 'CodiceFiscale'</Name>
+                    <Name>Seller VAT identifier, Seller tax registration identifier - FPA 1.2.1.1.1 'IdPaese' e 1.2.1.1.2 'IdCodice'</Name>
                     <Description>The Seller's VAT identifier (also known as Seller VAT identification number) or the local identification (defined by the Seller’s address) of the Seller for tax purposes or a
-                        reference that enables the Seller to state his registered tax status. In order for the buyer to automatically identify a supplier, the Seller identifier (BT-29), the Seller legal registration identifier (BT-30) and/or the Seller VAT identifier (BT-31) shall be present</Description>
+                        reference that enables the Seller to state his registered tax status. In order for the buyer to automatically identify a supplier, the cac:PartyLegalEntity/cbc:CompanyID and/or cac:PartyTaxScheme/cbc:CompanyID shall be present.</Description>
                     <DataType>Identifier</DataType>
                     <Reference type="BUSINESS_TERM">BT-31, BT-32</Reference>
                     <Reference type="RULE">BR-CO-09</Reference>
@@ -216,7 +216,7 @@
                     <Reference type="RULE">SE-R-005</Reference>
                     <Value type="EXAMPLE">NO999888777</Value>
                 </Element>
-				
+
                 <Element cardinality="0..1" agid:custom="extension,rule">
                     <Term>cbc:TaxLevelCode</Term>
                     <Name>Codice Regime Fiscale - FPA 1.2.1.8 'RegimeFiscale'</Name>
@@ -225,7 +225,7 @@
                     <Reference type="RULE">BR-IT-121</Reference>
                     <Value type="EXAMPLE">RF19</Value>
                 </Element>
-				
+
                 <Element>
                     <Term>cac:TaxScheme</Term>
                     <Name>TAX SCHEME</Name>
@@ -321,7 +321,7 @@
                     <Value type="EXAMPLE">test.name@foo.bar</Value>
                 </Element>
             </Element>
-			
+
 			<Include>agid-stabile-organizzazione-cedente-prestatore.xml</Include>
 
 			<Include>agid-terzo-intermediario-soggetto-emittente.xml</Include>

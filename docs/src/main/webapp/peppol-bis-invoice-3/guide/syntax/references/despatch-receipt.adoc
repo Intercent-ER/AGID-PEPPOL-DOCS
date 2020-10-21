@@ -17,7 +17,7 @@ include::../{snippet-dir}/Snippet-refs.xml[tags=desp-rec]
 [source, xml, indent=0]
 ----
 <cac:DespatchLineReference>
-	<cbc:LineID>NA</cbc:LineID>
+    <cbc:LineID>NA</cbc:LineID>
 	<cac:DocumentReference>
 		<cbc:ID>123</cbc:ID>
 		<cbc:IssueDate>2020-10-01</cbc:IssueDate>

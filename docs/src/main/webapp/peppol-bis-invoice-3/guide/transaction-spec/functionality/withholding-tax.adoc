@@ -1,5 +1,5 @@
 
-= #Ritenuta d'acconto (estensione)#
+= #Ritenuta d'acconto# (estensione)
 
 La sezione ritenuta d'acconto serve ad evidenziare: +
 
@@ -7,6 +7,19 @@ La sezione ritenuta d'acconto serve ad evidenziare: +
 * una trattenuta previdenziale che viene effettuata sul totale imponibile della fattura inviata al Cliente da parte del Fornitore che si occuperà del successivo riversamento all'Ente previdenziale di riferimento.
 
 Entrambe le tipologie di ritenuta d'acconto possono essere contenute nella medesima fattura.
+
+Il *tipo di ritenuta* applicata deve essere indicata in testata al documento in una estensione UBL separata. Se non viene indicato alcun tipo di ritenuta ed è stata specificata almeno una ritenuta, il valore predefinito sarà RT01 per le persone fisiche ed RT02 per quelle giuridiche.
+
+Si raccomanda l'uso di questa estensione UBL per specificare esplicitamente il tipo di ritenuta/e ove applicate.
+
+L'ExtensionURI dovrà contenere il prefisso 'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta' e il numero di occorrenza della ritenuta '::n'.
+
+.Esempio UBL dell'uso di una doppia ritenuta d'acconto in testata 
+[source, xml, indent=0]
+----
+include::../{snippet-dir}/agid-extensions.xml[tags=ext_TipoRitenuta]
+----
+
 
 .Esempio UBL di ritenuta d'acconto nella fattura
 Nella Fattura è possibile specificare una o più ritenute nell'elemento WithholdingTaxTotal a livello di testata, come nell'esempio riportato.
@@ -24,16 +37,3 @@ Nella Nota di Credito UBL 2.1 non è presente l'elemento WithholdingTaxTotal per
 include::../{snippet-dir}/agid-extensions.xml[tags=ext_ritenuta-NC]
 ----
 
-== #Tipo Ritenuta (estensione)#
-Il tipo di ritenuta applicata deve essere indicata in testata al documento in una estensione UBL separata. Se non viene indicato alcun tipo di ritenuta ed è stata specificata almeno una ritenuta, il valore predefinito sarà RT01 per le persone fisiche ed RT02 per quelle giuridiche.
-
-Si raccomanda l'uso di questa estensione UBL per specificare esplicitamente il tipo di ritenuta/e ove applicate.
-
-L'ExtensionURI dovrà contenere il prefisso 'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta' e il numero di occorrenza della ritenuta '::n'.
-
-Esempio:  urn:fdc:agid.gov.it:fatturapa:TipoRitenuta::2
-
-[source, xml, indent=0]
-----
-include::../{snippet-dir}/agid-extensions.xml[tags=ext_TipoRitenuta]
-----

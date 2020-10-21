@@ -1,5 +1,5 @@
 
-= #Tipo documento (estensione)#
+= #Tipo documento# (estensione)
 
 In aggiunta al tipo di fattura indicato nell'InvoiceTypeCode (es. 380 - fattura commerciale), il tipo documento indica in modo più preciso la tipologia di fattura, come ad esempio le fatture differite, le autofatture, ecc., secondo la normativa italiana.
 

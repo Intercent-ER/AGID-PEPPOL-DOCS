@@ -35,12 +35,6 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 	 </cac:PartyTaxScheme>
 	 <cac:PartyLegalEntity>
 	 	<cbc:RegistrationName>Azienda fornitore</cbc:RegistrationName>
-	 	<cac:RegistrationAddress>
-	 		<cbc:CityName>Bologna</cbc:CityName>
-	 		<cac:Country>
-            <cbc:IdentificationCode listID="ISO3166-1:Alpha2">IT</cbc:IdentificationCode>
-	 		</cac:Country>
-	 	</cac:RegistrationAddress>
 	 </cac:PartyLegalEntity>
 	 <cac:Contact>
 	 	<cbc:Name>Lucio Grande</cbc:Name>
@@ -53,9 +47,9 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 
 #Se il Fornitore è un’amministrazione pubblica, il campo *EndpointID/@schemeID* deve essere valorizzato con “0201:” seguito dal Codice UFE della PA.#
 
-#Nel caso in cui non si inserisca la Partita IVA nell’EndpointID, la Partita IVA va indicata nel *Seller party identification*.#
+#Nel caso in cui non si inserisca la Partita IVA nell’EndpointID, la Partita IVA va indicata nel *cac:PartyTaxScheme/cbc:CompanyID*.#
 
-#Nel caso in cui si voglia indicare anche il Codice Fiscale, quest’ultimo va indicato nel *Seller legal registration identifier*.#
+#Nel caso in cui si voglia indicare anche il Codice Fiscale, quest’ultimo va indicato nel *cac:PartyLegalEntity/cbc:CompanyID*.#
 
 .Esempio di indicazione della Partita Iva e del Codice Fiscale
 [source, xml, indent=0]
@@ -63,9 +57,6 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 <cac:AccountingSupplierParty>
  <cac:Party>
 	<cbc:EndpointID schemeID="0201">UFY9MH</cbc:EndpointID>
-	<cac:PartyIdentification>
-		<cbc:ID>PIVA:IT01598570354</cbc:ID>
-	</cac:PartyIdentification>
 	<cac:PartyName>
 		<cbc:Name>Azienda USL di Reggio Emilia</cbc:Name>
 	</cac:PartyName>
@@ -78,15 +69,15 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 			<cbc:IdentificationCode listID="ISO3166-1:Alpha2">IT</cbc:IdentificationCode>
 		</cac:Country>
 	</cac:PostalAddress>
+	<cac:PartyTaxScheme>
+	    <cbc:CompanyID>IT01234567890</cbc:CompanyID>
+	    <cac:TaxScheme>
+	        <cbc:ID>VAT</cbc:ID>
+	    </cac:TaxScheme>
+	</cac:PartyTaxScheme>
 	<cac:PartyLegalEntity>
 		<cbc:RegistrationName>Azienda USL di Reggio Emilia</cbc:RegistrationName>
 		<cbc:CompanyID>CF:01598570354</cbc:CompanyID>
-		<cac:RegistrationAddress>
-			<cbc:CityName>Reggio Emilia</cbc:CityName>
-			<cac:Country>
-				<cbc:IdentificationCode listID="ISO3166-1:Alpha2">IT</cbc:IdentificationCode>
-			</cac:Country>
-		</cac:RegistrationAddress>
 	</cac:PartyLegalEntity>
 	<cac:Contact>
 		<cbc:Name>Giovanni Rossi</cbc:Name>
@@ -126,12 +117,6 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 	 </cac:PartyTaxScheme>
 	 <cac:PartyLegalEntity>
 	 	<cbc:RegistrationName>Fornitore Estero</cbc:RegistrationName>
-	 	<cac:RegistrationAddress>
-	 		<cbc:CityName>Bruxelles</cbc:CityName>
-	 		<cac:Country>
-            <cbc:IdentificationCode listID="ISO3166-1:Alpha2">BE</cbc:IdentificationCode>
-	 		</cac:Country>
-	 	</cac:RegistrationAddress>
 	 </cac:PartyLegalEntity>
 	 <cac:Contact>
 	 	<cbc:Name>Lucio Grande</cbc:Name>
@@ -141,6 +126,63 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
     </cac:Party>
 </cac:AccountingSupplierParty>
 ----
+
+Il campo *cac:PartyLegalEntity/cbc:RegistrationName* può essere usato per indicare il dato FPA 1.2.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.2.1.3.2 Nome e 1.2.1.3.3 Cognome preceduti dalla stringa "Nome&Cognome:" e concatenati dal simbolo "#".
+
+
+Le informazioni relative all'Albo vengono fornite nel *cac:PartyIdentification/cbc:ID* concatenando il Nome Albo, il numero e la data iscrizione con il simbolo "#", preceduti dalla stringa "ALBO:".
+
+.Esempio UBL per esprimere informazioni relative all'Albo
+
+[source, xml, indent=0]
+----
+</cac:AccountingSupplierParty>
+    <cac:Party>
+    ...
+	    <cac:PartyIdentification>
+            <cbc:ID>ALBO:NomeAlbo#12345#YYYY-MM-DD</cbc:ID>
+        </cac:PartyIdentification>
+    ...
+    </cac:Party>
+</cac:AccountingSupplierParty>
+----
+
+Nella fatturazione tra privati (B2B), se il cedente/prestatore non residente ha una stabile organizzazione in Italia, si può specificare in fattura come parte dei dati del fornitore nell'elemento AgentParty.
+
+.Esempio UBL per la stabile organizzazione del fornitore
+[source, xml, indent=0]
+----
+include::../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_fornitore]
+----
+
+Il campo *cac:PartylegalEntity/cbc:CompanyID* può essere usato per indicare le informazioni relative a FPA 1.2.4.1 Ufficio e FPA 1.2.4.2 Numero REA  concatenando i due dati con il "#", preceduti dalla stringa "REA:".
+
+.Esempio UBL per esprimere informazioni relative al numero REA
+
+[source, xml, indent=0]
+----
+<cac:PartyLegalEntity>
+    ...
+	<cbc:CompanyID>REA:MI#1713601</cbc:CompanyID>
+	...
+</cac:PartyLegalEntity>
+----
+
+
+Il campo *cac:PartyLegalEntity/cbc:CompanyLegalForm* può essere usato per indicare informazioni legali addizionali quali FPA 1.2.4.3 CapitaleSociale, FPA 1.2.4.4 SocioUnico e FPA  1.2.4.5 StatoLiquidazione, concatenando i campi con il simbolo "#".
+
+.Esempio UBL per indicare il Capitale Sociale
+
+[source, xml, indent=0]
+----
+<cac:PartyLegalEntity>
+    ...
+	<cbc:cbc:CompanyLegalForm>100000##</cbc:cbc:CompanyLegalForm>
+	...
+</cac:PartyLegalEntity>
+----
+
+
 
 
 = Il Cliente (AccountingCustomerParty)
@@ -157,9 +199,9 @@ Le informazioni inerenti al cliente sono obbligatorie e vengono fornite nell'ele
 include::{snippet-dir}/Snippet-full.xml[tags=buyer]
 ----
 <1> L'attributo schemeID è obbligatorio per indirizzi elettronici, es. EndpointID
-<2> L'attributo schemeID è raccomandato per tutti gli identificatori delle parti
-<3> Gli identificatori per il VAT/IVA devono incudere il prefisso del codice paese
-<4> L'attributo schemeID è raccomandato per gli identificatori di registrazione legale delle imprese
+
+<2> Gli identificatori per il VAT/IVA devono incudere il prefisso del codice paese
+<3> Il codice fiscale è preceduto dalla stringa "CF:"
 
 Nel contesto B2C il Cliente può essere un cittadino (una persona fisica). +
 
@@ -185,20 +227,15 @@ Nel contesto B2C il Cliente può essere un cittadino (una persona fisica). +
                         </cac:Country>
                 </cac:PostalAddress>
                 <cac:PartyTaxScheme>
-                    <cbc:CompanyID>RSSMRA68M06F839G</cbc:CompanyID>
+                    <cbc:CompanyID>IT01234567890</cbc:CompanyID>
                     <cac:TaxScheme>
                         <cbc:ID>VAT</cbc:ID>
                     </cac:TaxScheme>
                 </cac:PartyTaxScheme>
-                <cac:Contact><!— PEC opzionale -->
+                <cac:Contact>
                         <cbc:Telephone>06123456</cbc:Telephone>
                         <cbc:ElectronicMail>nome.cognome@pec-domain.it</cbc:ElectronicMail>
                 </cac:Contact>
-                <cac:Person><!— C.F. Persona Fisica -->
-                        <cbc:ID schemeID="9907">RSSMRA68M06F839G</cbc:ID>
-                        <cbc:FirstName>Mario</cbc:FirstName>
-                        <cbc:FamilyName>Rossi</cbc:FamilyName>
-                </cac:Person>
 	</cac:Party>
 </cac:AccountingCustomerParty>
 
@@ -231,6 +268,18 @@ Nel contesto B2B o G2B, in base alla specifica della FatturaPA italiana, il Clie
 </cac:EndPointID>
 
 
+Il campo *cac:PartyLegalEntity/cbc:RegistrationName* può essere usato per indicare il dato FPA 1.2.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.2.1.3.2 Nome e 1.2.1.3.3 Cognome preceduti dalla stringa "Nome&Cognome:" e concatenati dal simbolo "#".
+
+
+Nella fatturazione tra privati (B2B), se il cessionario/committente non residente ha una *stabile organizzazione* in Italia, si può specificare in fattura come parte dei dati del cliente nell'elemento AgentParty.
+
+
+.Esempio UBL per la stabile organizzazione del cliente
+[source, xml, indent=0]
+----
+include::../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_cliente]
+----
+
 
 = Il Beneficiario (PayeeParty)
 
@@ -254,16 +303,20 @@ Per riflettere l'assegnazione di una Fattura ad un factor è necessario:
 ----
 include::{snippet-dir}/Snippet-full.xml[tags=payee]
 ----
-<1> L'attributo schemeID è raccomandato per tutti gli identificatori delle parti
-<2> L'attributo schemeID è raccomandato per gli identificatori di registrazione legale delle imprese
 
 
-= Rappresentante fiscale del fornitore (TaxRepresentativePary)
+#Il campo *cac:PartyIdentification/cbc:ID* può essere inoltreusato per fornire le informazioni anagrafiche del Quietanzante indicando i dati FPA 2.4.2.8 CognomeQuietanzante e  FPA 2.4.2.9 NomeQuietanzante concatenati con il simbolo "&#x0023;".#
+
+
+= Rappresentante fiscale del fornitore (TaxRepresentativeParty)
 
 In alcuni scenari di business, le aziende che commerciano oltre confine sono tenute secondo le autorità fiscali locali a nominare un rappresentante fiscale. 
 Sono comprese le aziende extra-EU che operano in Europa, gli importatori in EU e i commercianti.  
 
 I rappresentanti fiscali sono responsabili per la gestione corretta e la regolarizzazione dell'IVA per conto delle aziende, in linea con le normative locali. Un rappresentante fiscale è considerato come l'agente locale del commerciante.  In molti casi, il rappresentante fiscale è ritenuto responsabile in solido per le tasse del commerciante.
+
+#Il Codice Fiscale può essere espresso all'interno del Party nell'elemento PartyIdentification/ID omettendo l'attributo @schemeID ma includendo il prefisso "CF:" come nell'esempio di seguito.#
+
 
 .Esempio UBL per le informazioni del rappresentante fiscale
 [source, xml, indent=0]
@@ -271,6 +324,8 @@ I rappresentanti fiscali sono responsabili per la gestione corretta e la regolar
 include::{snippet-dir}/Snippet-full.xml[tags=taxrep]
 ----
 <1> Gli identificatori per il VAT/IVA devono incudere il prefisso del codice paese
+
+Il campo *cac:PartyName/cbc:Name* può essere usato per indicare il dato FPA 1.3.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.3.1.3.2 Nome e 1.3.1.3.3 Cognome preceduti dalla stringa "Nome&Cognome:" e concatenati dal simbolo "#".
 
 
 = #Il Rappresentante fiscale del cliente (AccountingCustomerParty/Party/PowerOfAttorney)#
@@ -294,10 +349,21 @@ Nel caso sia un soggetto terzo ad emettere fattura per conto del cedente / prest
 include::{snippet-dir}/agid-extensions.xml[tag=terzo_intermediario]
 ----
 
+Il Codice Fiscale può essere espresso all'interno del Party nell'elemento PartyIdentification/ID omettendo l'attributo @schemeID ma includendo il prefisso "CF:" come nell'esempio di seguito.
+[source, xml, indent=0]
+----
+<cac:PartyIdentification>
+    <cbc:ID>CF:CXXNXX68M06E123H</cbc:ID>
+</cac:PartyIdentification>
+----
+
 
 = #Il Vettore (Delivery/CarrierParty)#
 
 Nei casi di fattura "accompagnatoria", come parte delle informazioni relative al trasporto è possibile specificare i dati fiscali e anagrafici del vettore che trasporta e consegna la merce, nell'elemento CarrierParty.
+
+Il Codice Fiscale può essere espresso all'interno del Party nell'elemento PartyIdentification/ID omettendo l'attributo @schemeID ma includendo il prefisso "CF:" come nell'esempio di seguito.
+
 
 .Esempio UBL per il vettore che effettua il trasporto
 [source, xml, indent=0]

@@ -22,15 +22,15 @@ Questo documento è strutturato come segue:
 
 * *Capitoli 7 - 9*: imposta sul valore aggiunto (IVA), calcoli e arrotondamenti
 
-* *Capitoli 10*: esempi su parti selezionate della fattura
+* *Capitoli 10*: descrizione di parti selezionate della fattura
 
-* *Capitolo 11*: dettagli e link a tutte le codifiche utilizzate
+* *Capitolo 11*: dettagli e link alle codifiche utilizzate
 
 * *Capitolo 12*: informazioni sugli identificatori PEPPOL
 
-* *Capitolo 13*: dettaglio delle principali informazioni della fattura
+* *Capitolo 13*: schemi UBL e spazi dei nomi
 
-* *Capitolo 14 e 15*: validazione e regole di business per le fatture e le note di credito in merito alle estensioni italiane
+* *Capitolo 14 e 15*: regole di business e validazione per la fattura e nota di credito
 
 * *Allegati*: restrizioni secondo la {EN16931} e l'uso della sintassi Cross Industry Invoice (CII) e le regole nazionali e sintattiche.
 

@@ -22,7 +22,7 @@
 		<Term>ubl:Invoice</Term>
 
         <Include>part/agid-ft-ubl-extensions.xml</Include>
-		
+
 		<Element agid:custom="fixed-value">
 			<Term>cbc:CustomizationID</Term>
 			<Name>Specification identifier</Name>
@@ -270,7 +270,7 @@
 					<Value type="EXAMPLE">2017-09-15</Value>
 				</Element>
 			</Element>
-			
+
 			<Element cardinality="0..1" agid:custom="extension">
 				<Term>cac:AdditionalDocumentReference</Term>
 				<Name>Riferimento alla fattura principale</Name>
@@ -306,7 +306,7 @@
 				<Reference type="RULE">BR-IT-060</Reference>
 				<Value type="EXAMPLE">desp98</Value>
 			</Element>
-			
+
 			<Element agid:custom="extension">
 				<Term>cbc:IssueDate</Term>
 				<Name>Data DDT - FPA 2.1.8.2 'DataDDT'</Name>
@@ -509,7 +509,7 @@
 					<Value type="EXAMPLE">2020-10-31</Value>
 				</Element>
 
-			</Element>			
+			</Element>
 
 			<Element cardinality="0..1" agid:custom="extension">
 				<Term>cac:PenaltyPeriod</Term>
@@ -522,7 +522,7 @@
 					<Value type="EXAMPLE">2020-10-01</Value>
 				</Element>
 
-			</Element>			
+			</Element>
 
 		</Element>
 
@@ -645,12 +645,12 @@
 					<Reference type="RULE">TODO</Reference>
 					<Value type="EXAMPLE">3</Value>
 				</Element>
-				
+
 				<Element agid:custom="extension">
 					<Term>cac:OrderReference</Term>
 					<Name>Il riferimento all'ordine che contiene la riga alla quale si fa riferimento - FPA 2.1.2 'DatiOrdineAcquisto'</Name>
 					<Description>A reference to the Order containing the referenced order line.</Description>
-					
+
 					<Element>
 						<Term>cbc:ID</Term>
 						<Name>Numero Ordine - FPA 2.1.2.2 'IdDocumento'</Name>
@@ -664,7 +664,7 @@
 						<DataType>Date</DataType>
 						<Value type="EXAMPLE">2017-11-01</Value>
 					</Element>
-					
+
 				</Element>
 
 			</Element>
@@ -684,7 +684,7 @@
 				<Element>
 					<Term>cac:DocumentReference</Term>
 					<Name>Riferimento a un DDT</Name>
-					
+
 					<Element>
 						<Term>cbc:ID</Term>
 						<Name>Numero DDT - FPA 2.1.8.1 'NumeroDDT'</Name>
@@ -720,7 +720,7 @@
 						Per la fatturazione verso la PA gli schemi per riferimenti più comuni sono i seguenti:
 						* CT = Contract number (Contratto: FPA 2.1.3.2 'IdDocumento')
 						* AEP = Project number (CUP: FPA 2.1.3.6 'CodiceCUP')
-						* GB = Contract party reference number (CIG: FPA 2.1.3.7 'CodiceCIG')
+						* AGB = Contract party reference number (CIG: FPA 2.1.3.7 'CodiceCIG')
 						* AVV = Framework Agreement Number (Convenzione: FPA 2.1.2.5 'CodiceCommessaConvenzione')</Description>
 						<Reference type="CODE_LIST">UNCL1153</Reference>
 						<Value type="EXAMPLE">AVV</Value>

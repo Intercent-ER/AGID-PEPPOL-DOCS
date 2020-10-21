@@ -26,11 +26,6 @@ include::../../syntax/card-payment.adoc[]
 
 == Addebito diretto
 
-[IMPORTANT]
-====
-[lime-background]#Valutare se gestire per PagoPA#
-====
-
 Vedi <<payment-means>> per tutti i codici ammessi. Esempi di codici per l'addebito diretto sono:
 
 * 49 - Addebito diretto
@@ -54,6 +49,7 @@ Vedi <<payment-means>> per tutti i codici ammessi. Esempio di codice per il paga
 
 include::../../syntax/cash-payment.adoc[]
 
+
 //== Pagamento non specificato
 
 Se il venditore non dà indicazioni su come regolarizzare il pagamento della fattura, esiste solitamente un contratto che lo regola.
@@ -61,3 +57,19 @@ Se il venditore non dà indicazioni su come regolarizzare il pagamento della fat
 Indicando il codice 1, l’acquirente non viene informato sulle modalità di pagamento della fattura e può essere indicata solo una data di pagamento.
 
 include::../../syntax/unspecified-payment.adoc[]
+
+
+== #Pagamento mediante PagoPA#
+
+Vedi <<payment-means>> per tutti i codici ammessi. Il codice 09 National or regional clearing viene mappato con MP23 – PagoPA: +
+
+* 09 - PagoPA
+
+.Esempio UBL di modalità pagamento con PagoPA
+[source, xml, indent=0]
+----
+<cac:PaymentMeans>
+    <cbc:PaymentMeansCode name="PagoPA">9</cbc:PaymentMeansCode>
+</cac:PaymentMeans>
+----
+

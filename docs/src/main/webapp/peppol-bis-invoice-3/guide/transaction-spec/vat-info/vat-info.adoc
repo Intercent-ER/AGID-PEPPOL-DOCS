@@ -19,7 +19,7 @@ Ogni sconto o maggiorazione a livello di testata deve avere il codice di categor
 
 == Riepiloghi IVA e natura dell'operazione
 
-Deve essere fornito un solo riepilogo IVA per ogni combinazione distinta di categoria e aliquota IVA sia a livello di riga che negli sconti e maggiorazioni a livello di testata. Per alcune categorie IVA, l'aliquota deve essere posta a zero e quindi non viene utilizzata in questi casi per raggruppare il riepilovo IVA.
+Deve essere fornito un solo riepilogo IVA per ogni combinazione distinta di categoria e aliquota IVA sia a livello di riga che negli sconti e maggiorazioni a livello di testata. Per alcune categorie IVA, l'aliquota deve essere posta a zero e quindi non viene utilizzata in questi casi per raggruppare il riepilogo IVA.
 
 Si consiglia di osservare che per l'aliquota dell'IVA dovrebbero essere considerati solo i decimali significativi, ovvero qualsiasi differenza nei decimali non deve determinare differenti riepiloghi IVA.
 
@@ -67,7 +67,7 @@ image::../transaction-spec/vat-info/image/vatex_table.png[Vatex table, width=100
 <!-- ... -->
 <cac:InvoiceLine>
   <cbc:ID>1</cbc:ID>
-  <cbc:InvoiceQuantity unitCode="C62">1</cbc:InvoiceQuantity>
+  <cbc:InvoicedQuantity unitCode="C62">1</cbc:InvoicedQuantity>
   <cbc:LineExtensionAmount currencyID="EUR">100.00</cbc:LineExtensionAmount>
   <cac:Item>
     <cbc:Description>Inversione contabile</cbc:Description>
@@ -109,7 +109,7 @@ image::../transaction-spec/vat-info/image/vatex_table.png[Vatex table, width=100
 <!-- ... -->
 <cac:InvoiceLine>
   <cbc:ID>1</cbc:ID>
-  <cbc:InvoiceQuantity unitCode="C62">5</cbc:InvoiceQuantity>
+  <cbc:InvoicedQuantity unitCode="C62">5</cbc:InvoicedQuantity>
   <cbc:LineExtensionAmount currencyID="EUR">100.00</cbc:LineExtensionAmount>
   <cac:Item>
     <cbc:Name>Importo degli imballaggi</cbc:Name>

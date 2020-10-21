@@ -44,4 +44,7 @@ include::ext-termini-pagamento.adoc[]
 
 include::ext-arrotondamento-riepilogo-IVA.adoc[]
 
+include::altreregoleitaliane.adoc[]
+
+
 :leveloffset: -1

@@ -1,0 +1,29 @@
+
+= #Altri dati gestionali#
+
+Il campi UBL *cac:AdditionalItemProperty/cbc:Name* e *cac:AdditionalItemProperty/cbc:Value* sono utilizzati per fornire informazioni riguardo il gruppo FPA Altri dati gestionali.
+
+Il *cac:AdditionalItemProperty/cbc:Name* può essere valorizzato con "Testo", "Numero, "Data", "DatiVeicoli", "Ritenuta", "TipoCessionePrestazione" o "Natura".
+
+* Se cbc:Name è valorizzato con "Testo", allora compilare il cbc:Value con il dato FPA 2.2.1.16.2 RiferimentoTesto.
+
+* Se cbc:Name è valorizzato con "Numero", allora compilare il cbc:Value con il dato FPA 2.2.1.16.3 RiferimentoNumero.
+
+* Se cbc:Name è valorizzato con "Data", allora compilare il cbc:Value con il dato FPA 2.2.1.16.4 RiferimentoData.
+
+
+= #Dati veicoli# 
+
+Il campi UBL *cac:AdditionalItemProperty/cbc:Name* e *cac:AdditionalItemProperty/cbc:Value* sono utilizzati per fornire informazioni riguardo il gruppo FPA Dati Veicoli.
+
+* Se cbc:Name è valorizzato con "DatiVeicoli", allora compilare il cbc:Value con i dati FPA 2.3.1 <Data> e FPA 2.3.2 <TotalePercorso> concatenati con il simbolo "#".
+
+
+= #Condizioni pagamento#
+
+Il campo *cac:PaymentTerms/cbc:Note* può essere usato per indicare il dato FPA 2.4.1 CondizioniPagamento e FPA 2.4.2.4 GiorniTerminiPagamento, concatenati con il simbolo "#".
+
+
+
+
+

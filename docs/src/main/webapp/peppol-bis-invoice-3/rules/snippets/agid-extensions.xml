@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+ <?xml version="1.0" encoding="UTF-8"?>
 <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
     xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
 	xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
@@ -136,15 +136,14 @@
     </cac:OrderReference>
 	<!-- tag::rif_fattura_principale[] -->
     <cac:BillingReference>
-		<cac:InvoiceDocumentReference>
-			<cbc:ID>ft123</cbc:ID>
-			<cbc:IssueDate>2020-09-15</cbc:IssueDate>
-		</cac:InvoiceDocumentReference>
-		<!--1-->
-		<cac:AdditionalDocumentReference>
-			<cbc:ID>ft001</cbc:ID>
-			<cbc:IssueDate>2020-09-15</cbc:IssueDate>
-		</cac:AdditionalDocumentReference>
+		    <cac:InvoiceDocumentReference>
+			    <cbc:ID>ft123</cbc:ID>
+			    <cbc:IssueDate>2020-09-15</cbc:IssueDate>
+		    </cac:InvoiceDocumentReference>
+		    <cac:AdditionalDocumentReference>
+			    <cbc:ID>ft001</cbc:ID>
+			    <cbc:IssueDate>2020-09-15</cbc:IssueDate>
+		    </cac:AdditionalDocumentReference>
     </cac:BillingReference>
 	<!-- end::rif_fattura_principale[] -->
     <cac:DespatchDocumentReference>
@@ -208,7 +207,7 @@
 			<!-- tag::regime_fiscale[] -->
             <cac:PartyTaxScheme>
                 <cbc:CompanyID>IT07643520567</cbc:CompanyID>
-				<cbc:TaxLevelCode>RF19</cbc:TaxLevelCode>
+				        <cbc:TaxLevelCode>RF19</cbc:TaxLevelCode>
                 <cac:TaxScheme>
                     <cbc:ID>VAT</cbc:ID>
                 </cac:TaxScheme>
@@ -435,24 +434,24 @@
         </cac:DeliveryParty>
 		<!-- tag::info_ritiro_merce[] -->
         <cac:Despatch>
-            <cbc:Instructions>Vendita</cbc:Instructions>
-			<cbc:RequestedDespatchDate>2020-11-01</cbc:RequestedDespatchDate>
-			<cbc:RequestedDespatchTime>10:00:00</cbc:RequestedDespatchTime>
-			<cbc:ActualDespatchDate>2020-11-01</cbc:ActualDespatchDate>
+          <cbc:Instructions>Vendita</cbc:Instructions>
+			    <cbc:RequestedDespatchDate>2020-11-01</cbc:RequestedDespatchDate>
+			    <cbc:RequestedDespatchTime>10:00:00</cbc:RequestedDespatchTime>
+			    <cbc:ActualDespatchDate>2020-11-01</cbc:ActualDespatchDate>
         </cac:Despatch>
         <!-- end::info_ritiro_merce[] -->
 		<!-- tag::info_spedizione[] -->
         <cac:Shipment>
-            <cbc:ID>NA</cbc:ID>
-			<cbc:GrossWeightMeasure unitCode="KGM">10.0</cbc:GrossWeightMeasure>
-			<cbc:NetWeightMeasure unitCode="KGM">8.0</cbc:NetWeightMeasure>
-			<cbc:TotalTransportHandlingUnitQuantity unitCode="C62">1</cbc:TotalTransportHandlingUnitQuantity>
-			<cac:GoodsItem>
-				<cbc:Description>Medicinali</cbc:Description>
-			</cac:GoodsItem>
-			<cac:ShipmentStage>
-				<cbc:TransportMeansTypeCode>CAMION</cbc:TransportMeansTypeCode>
-			</cac:ShipmentStage>
+          <cbc:ID>NA</cbc:ID>
+			    <cbc:GrossWeightMeasure unitCode="KGM">10.0</cbc:GrossWeightMeasure>
+			    <cbc:NetWeightMeasure unitCode="KGM">8.0</cbc:NetWeightMeasure>
+			    <cbc:TotalTransportHandlingUnitQuantity unitCode="C62">1</cbc:TotalTransportHandlingUnitQuantity>
+			    <cac:GoodsItem>
+				    <cbc:Description>Medicinali</cbc:Description>
+			    </cac:GoodsItem>
+			    <cac:ShipmentStage>
+				    <cbc:TransportMeansTypeCode>CAMION</cbc:TransportMeansTypeCode>
+			    </cac:ShipmentStage>
         </cac:Shipment>
         <!-- end::info_spedizione[] -->
     </cac:Delivery>

@@ -29,6 +29,7 @@
     <!-- tag::desp-rec[] -->
     <cac:DespatchDocumentReference>
         <cbc:ID>despadv-3</cbc:ID><!--1-->
+        <cbc:IssueDate>YYYY-MM-DD</cbc:IssueDate>
     </cac:DespatchDocumentReference>
     <cac:ReceiptDocumentReference>
         <cbc:ID>resadv-1</cbc:ID><!--2-->
@@ -52,8 +53,8 @@
     <!-- end::object[] -->
     <!-- tag::convenzione[] -->
     <cac:AdditionalDocumentReference>
-        <cbc:ID schemeID="AVV">123456</cbc:ID><!--1-->
-        <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode><!--2-->
+        <cbc:ID schemeID="AVV">123456</cbc:ID>
+        <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
     </cac:AdditionalDocumentReference>
     <!-- end::convenzione[] -->
     <!-- tag::impegno[] -->
@@ -307,7 +308,7 @@
         </cac:DocumentReference>
         <!-- tag::CIG_riga[] -->
         <cac:DocumentReference>
-            <cbc:ID schemeID="GB">123456</cbc:ID>
+            <cbc:ID schemeID="AGB">123456</cbc:ID>
             <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
         </cac:DocumentReference>
         <!-- end::CIG_riga[] -->

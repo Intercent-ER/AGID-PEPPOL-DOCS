@@ -159,19 +159,20 @@
     <cac:PayeeParty>
         <cac:PartyIdentification>
             <cbc:ID>PIVA:IT01598570354</cbc:ID>
-            <!--1-->
         </cac:PartyIdentification>
         <cac:PartyName>
             <cbc:Name>Beneficiario e F.lli S.a.s</cbc:Name>
         </cac:PartyName>
-        <!-- <cac:PartyLegalEntity> -->
-            <!--cbc:CompanyID schemeID="0192">NO07663520567</cbc:CompanyID-->
-            <!--2-->
-        <!-- </cac:PartyLegalEntity> -->
+        <cac:PartyLegalEntity>
+            <cbc:ID>CF:CXXNXX68M06E123H</cbc:ID>
+        </cac:PartyLegalEntity>
     </cac:PayeeParty>
     <!-- end::payee[] -->
     <!-- tag::taxrep[] -->
     <cac:TaxRepresentativeParty>
+        <cac:PartyIdentification>
+            <cbc:ID>CF:CXXNXX68M06E123H</cbc:ID>
+        </cac:PartyIdentification>
         <cac:PartyName>
             <cbc:Name>Commercialista Snc</cbc:Name>
         </cac:PartyName>

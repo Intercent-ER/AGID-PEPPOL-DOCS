@@ -9,7 +9,7 @@
     </Description>
     <agid:Extension>
 		<agid:ID>urn:www.agid.gov.it:trns:nota_credito:3.0</agid:ID>
-		<agid:Name>Struttura Nota di Credito Elettronica 3.0 (Estension Italiana della EN16931)</agid:Name>
+		<agid:Name>Struttura Nota di Credito Elettronica 3.0 (Estensione Italiana della EN16931)</agid:Name>
 		<agid:Version>3.0.0</agid:Version>
     </agid:Extension>
 
@@ -275,6 +275,7 @@
 					<Name>Numero Fattura Principale - FPA 2.1.10.1 'NumeroFatturaPrincipale'</Name>
 					<Description>Numero della fattura relativa al trasporto di beni, da indicare sulle fatture emesse dagli autotrasportatori per certificare le operazioni accessorie.</Description>
 					<DataType>Document Reference</DataType>
+					<Reference type="RULE">BR-IT-042</Reference>		 
 					<Value type="EXAMPLE">inv123</Value>
 				</Element>
 				<Element>
@@ -284,6 +285,7 @@
 					<DataType>Date</DataType>
 					<Value type="EXAMPLE">2020-09-15</Value>
 				</Element>
+				<Reference type="RULE">BR-IT-041</Reference>				
 			</Element>
 			
         </Element>
@@ -307,6 +309,7 @@
 				<Name>Data DDT - FPA 2.1.8.2 'DataDDT'</Name>
 				<Description>Data della fattura. Formato = "YYYY-MM-DD".</Description>
 				<DataType>Date</DataType>
+				<Reference type="RULE">BR-IT-061</Reference>				
 				<Value type="EXAMPLE">2020-09-15</Value>
 			</Element>
         </Element>
@@ -561,7 +564,7 @@
 				<Name>Sconto Pagamento Anticipato - FPA 2.4.2.17 'ScontoPagamentoAnticipato'</Name>
 				<Description>Ammontare dello sconto per pagamento anticipato.</Description>
 				<DataType>Amount</DataType>
-
+				<Reference type="RULE">BR-IT-281</Reference>
 				<Attribute>
 					<Term>currencyID</Term>
 					<Description>Mandatory attribute. Use BT-5</Description>
@@ -580,6 +583,7 @@
 				<Name>Importo penalità - FPA 2.4.2.19 'PenalitaPagamentiRitardati'</Name>
 				<Description>Ammontare della penalità dovuta per pagamenti ritardati.</Description>
 				<DataType>Amount</DataType>
+				<Reference type="RULE">BR-IT-282</Reference>	
 
 				<Attribute>
 					<Term>currencyID</Term>
@@ -723,19 +727,42 @@
 
            
 
-            <Element cardinality="0..1">
+            <Element cardinality="0..n" agid:custom="rule,cardinality">
                 <Term>cac:OrderLineReference</Term>
                 <Name>ORDER LINE REFERENCE</Name>
 
                 <Element agid:custom="rule">
                     <Term>cbc:LineID</Term>
-                    <Name>Referenced purchase order line reference</Name>
-                    <Description>An identifier for a referenced line within a purchase order, issued by the Buyer.</Description>
-                    <DataType>Identifier</DataType>
+					<Name>Referenced purchase order line reference - FPA 2.1.2.4 'NumItem'</Name>
+					<Description>Il riferimento ad una riga d'ordine. Se non viene specificato l'ordine al quale si fa riferimento aggiungendo di seguito un cac:OrderReference, la riga d'ordine farà riferimento all'ordine indicato in testata in cac:OrderReference.
+					Indicare 'NA' se ci si riferisce ad un ordine intero aggiungendo di seguito un cac:OrderReference.</Description>
+					<DataType>Identifier</DataType>
                     <Reference type="BUSINESS_TERM">BT-132</Reference>
                     <Reference type="RULE">BR-IT-400</Reference>
                     <Value type="EXAMPLE">3</Value>
                 </Element>
+				
+				<Element cardinality="0..1" agid:custom="extension">
+					<Term>cac:OrderReference</Term>
+					<Name>Il riferimento all'ordine che contiene la riga alla quale si fa riferimento - FPA 2.1.2 'DatiOrdineAcquisto'</Name>
+					<Description>A reference to the Order containing the referenced order line.</Description>
+					
+					<Element>
+						<Term>cbc:ID</Term>
+						<Name>Numero Ordine - FPA 2.1.2.2 'IdDocumento'</Name>
+						<DataType>Identifier</DataType>
+						<Reference type="RULE">BR-IT-401</Reference>
+						<Value type="EXAMPLE">33445566</Value>
+					</Element>
+
+					<Element cardinality="0..1">
+						<Term>cbc:IssueDate</Term>
+						<Name>Data Ordine - FPA 2.1.2.3 'Data'</Name>
+						<DataType>Date</DataType>
+						<Value type="EXAMPLE">2017-11-01</Value>
+					</Element>
+					
+				</Element>
             </Element>
 
 			<Element cardinality="0..n" agid:custom="extension">
@@ -747,7 +774,8 @@
 					<Term>cbc:LineID</Term>
 					<Name>Riferimento ad una riga DDT dalla riga fattura. Non supportato da SDI. Valorizzarlo sempre con 0 (zero).</Name>
 					<DataType>Identifier</DataType>
-					<Value type="FIXED">0</Value>
+					<Reference type="RULE">BR-IT-402</Reference>
+					<Value type="FIXED">NA</Value>
 				</Element>
 
 				<Element>
@@ -758,6 +786,7 @@
 						<Term>cbc:ID</Term>
 						<Name>Numero DDT - FPA 2.1.8.1 'NumeroDDT'</Name>
 						<DataType>Identifier</DataType>
+						<Reference type="RULE">BR-IT-403</Reference>
 						<Value type="EXAMPLE">33445566</Value>
 					</Element>
 
@@ -765,6 +794,7 @@
 						<Term>cbc:IssueDate</Term>
 						<Name>Data DDT - FPA 2.1.8.2 'DataDDT'</Name>
 						<DataType>Date</DataType>
+						<Reference type="RULE">BR-IT-404</Reference>
 						<Value type="EXAMPLE">2017-11-01</Value>
 					</Element>
 				</Element>

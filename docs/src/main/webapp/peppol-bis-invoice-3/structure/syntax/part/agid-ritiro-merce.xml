@@ -9,7 +9,7 @@
 		<Term>cbc:Instructions</Term>
 		<Name>Causale Trasporto - FPA 2.1.9.3 'CausaleTrasporto'</Name>
 		<DataType>Text</DataType>
-
+		<Reference type="RULE">BR-IT-261</Reference>
 		<Value type="EXAMPLE">Vendita</Value>
 
 	</Element>

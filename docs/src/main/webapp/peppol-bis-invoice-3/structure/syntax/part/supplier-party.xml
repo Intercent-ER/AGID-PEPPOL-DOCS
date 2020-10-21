@@ -220,7 +220,7 @@
                 <Element cardinality="0..1" agid:custom="extension,rule">
                     <Term>cbc:TaxLevelCode</Term>
                     <Name>Codice Regime Fiscale - FPA 1.2.1.8 'RegimeFiscale'</Name>
-                    <Description>Il Regime Fiscale secondo la normativa italiana. Se non è specificato il regime è quello ordinario RF01</Description>
+                    <Description>Il Regime Fiscale secondo la normativa italiana. Se non è specificato il regime è quello ordinario RF01.</Description>
                     <DataType>Code</DataType>
                     <Reference type="RULE">BR-IT-121</Reference>
                     <Value type="EXAMPLE">RF19</Value>
@@ -285,6 +285,7 @@
                     <Description>Additional legal information relevant for the Seller.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-33</Reference>
+					<Reference type="RULE">BR-IT-122</Reference>
                     <Value type="EXAMPLE">Share capital</Value>
                 </Element>
             </Element>

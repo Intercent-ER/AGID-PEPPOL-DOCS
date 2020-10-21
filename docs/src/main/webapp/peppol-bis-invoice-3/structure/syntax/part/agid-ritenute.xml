@@ -13,6 +13,7 @@
 			<Description>Mandatory attribute. Use BT-5 or BT-6.</Description>
 			<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
 			<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
+			<Reference type="RULE">BR-IT-E10</Reference>
 			<Reference type="CODE_LIST">ISO4217</Reference>
 			<Value type="EXAMPLE">EUR</Value>
 		</Attribute>
@@ -23,11 +24,13 @@
 	<Element cardinality="1..2">
 		<Term>cac:TaxSubtotal</Term>
 		<Name>Dettaglio Ritenuta - FPA 2.1.1.5 'DatiRitenuta'</Name>
+		<Reference type="RULE">BR-IT-E11</Reference>
 
 		<Element>
 			<Term>cbc:TaxAmount</Term>
 			<Name>Importo Ritenuta - FPA 2.1.1.5.2 'ImportoRitenuta'</Name>
 			<DataType>Amount</DataType>
+			<Reference type="RULE">BR-IT-E12</Reference>
 
 			<Attribute>
 				<Term>currencyID</Term>
@@ -43,6 +46,7 @@
 		<Element>
 			<Term>cac:TaxCategory</Term>
 			<Name>VAT CATEGORY</Name>
+			<Reference type="RULE">BR-IT-E13</Reference>
 
 			<Element>
 				<Term>cbc:ID</Term>

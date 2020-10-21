@@ -5,11 +5,12 @@
 	<Name>Termini di Consegna</Name>
 	<Description>A set of delivery terms associated with this document.</Description>
 
-	<Element cardinality="0..1">
+	<Element>
 		<Term>cbc:ID</Term>
 		<Name>Tipo Resa Merce - FPA 2.1.9.11 'TipoResa'</Name>
 		<Description>An identifier for this description of delivery terms. (e.g. ICC Incoterms 2000)</Description>
 		<DataType>Identifier</DataType>
+		<Reference type="RULE">BR-IT-262</Reference>
 
 		<Attribute usage="Optional">
 			<Term>schemeID</Term>

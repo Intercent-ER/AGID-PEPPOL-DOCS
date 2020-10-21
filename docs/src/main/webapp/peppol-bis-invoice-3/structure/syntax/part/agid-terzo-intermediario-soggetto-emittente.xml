@@ -8,6 +8,7 @@
 	<Element>
 		<Term>cac:Party</Term>
 		<Name>Terzo Intermediario o Soggetto Emittente - FPA 1.5 'TerzoIntermediarioOSoggettoEmittente'</Name>
+		<Reference type="RULE">BR-IT-156</Reference>
 
 		<Element cardinality="0..1">
 			<Term>cac:PartyIdentification</Term>

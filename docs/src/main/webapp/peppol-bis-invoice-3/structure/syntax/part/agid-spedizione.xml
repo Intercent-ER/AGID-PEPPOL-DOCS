@@ -20,7 +20,7 @@
 		<Name>Peso Lordo - FPA 2.1.9.7 'PesoLordo'</Name>
 		<Description>The total gross weight of a shipment; the weight of the goods plus packaging plus transport equipment.</Description>
 		<DataType>Measure</DataType>
-
+		<Reference type="RULE">BR-IT-256</Reference>
 		<Value type="EXAMPLE">10.0</Value>
 
 		<Attribute>
@@ -40,7 +40,7 @@
 		<Name>Peso Netto - FPA 2.1.9.8 'PesoNetto'</Name>
 		<Description>The net weight of this shipment, excluding packaging.</Description>
 		<DataType>Measure</DataType>
-
+		<Reference type="RULE">BR-IT-256</Reference>
 		<Value type="EXAMPLE">8.0</Value>
 
 		<Attribute>
@@ -60,7 +60,7 @@
 		<Name>Numero Colli - FPA 2.1.9.4 'NumeroColli'</Name>
 		<Description>Numero dei colli trasportati</Description>
 		<DataType>Quantity</DataType>
-
+		<Reference type="RULE">BR-IT-257</Reference>
 		<Value type="EXAMPLE">1</Value>
 
 		<Attribute>
@@ -84,7 +84,7 @@
 			<Name>Descrizione Merce - FPA 2.1.9.5 'Descrizione'</Name>
 			<Description>Descrizione (natura, qualità, aspetto …) relativa ai colli trasportati.</Description>
 			<DataType>Text</DataType>
-
+			<Reference type="RULE">BR-IT-258</Reference>
 			<Value type="EXAMPLE">Medicinali</Value>
 
 		</Element>
@@ -99,7 +99,7 @@
 			<Name>Mezzo di Trasporto - FPA 2.1.9.2 'MezzoTrasporto'</Name>
 			<Description>Mezzo utilizzato per il trasporto.</Description>
 			<DataType>Code</DataType>
-
+			<Reference type="RULE">BR-IT-259</Reference>
 			<Value type="EXAMPLE">CAMION</Value>
 
 		</Element>

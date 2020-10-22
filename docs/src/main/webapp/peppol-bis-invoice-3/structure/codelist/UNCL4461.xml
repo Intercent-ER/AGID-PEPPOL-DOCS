@@ -58,9 +58,8 @@
         <Name>National or regional clearing</Name>
         <Description>Indicates that the payment should be made using the national or regional
             clearing.</Description>
-            <LocalId>MP??</LocalId>
-        <LocalDescription>Modalità di pagamento nazionale.</LocalDescription>
-        <LocalUsageNotes>Usare per pagamenti SDI non supportati a livello Europeo (Vedi estensioni nella specifica della Fattura e/o N.C.).</LocalUsageNotes>
+        <LocalId>MP23</LocalId>
+        <LocalDescription>PagoPA.</LocalDescription>
     </Code>
     <Code>
         <Id>10</Id>

@@ -23,7 +23,7 @@
 
 			<Element>
 				<Term>cbc:CompanyID</Term>
-				<Name>Identificativo fiscale (Partita IVA) del Rappresentante Fiscale - FPA 1.4.4.1 'IdFiscaleIVA'</Name>
+				<Name>Identificativo fiscale (Partita IVA) del Rappresentante Fiscale - FPA 1.4.4.1.1 'IdPaese' e 1.4.4.1.2 'IdCodice'</Name>
 				<DataType>Identifier</DataType>
 				<Reference type="BUSINESS_TERM">BT-31, BT-32</Reference>
 				<Reference type="RULE">BR-CO-09</Reference>

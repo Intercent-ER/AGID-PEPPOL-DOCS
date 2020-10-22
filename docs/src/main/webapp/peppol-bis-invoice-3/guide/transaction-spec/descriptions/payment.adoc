@@ -61,9 +61,9 @@ include::../../syntax/unspecified-payment.adoc[]
 
 == #Pagamento mediante PagoPA#
 
-Vedi <<payment-means>> per tutti i codici ammessi. Il codice 09 National or regional clearing viene mappato con MP23 – PagoPA: +
+Il codice 9 (National or regional clearing) viene mappato con MP23 – PagoPA: +
 
-* 09 - PagoPA
+* 9 - PagoPA
 
 .Esempio UBL di modalità pagamento con PagoPA
 [source, xml, indent=0]

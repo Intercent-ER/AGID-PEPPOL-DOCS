@@ -168,7 +168,7 @@
                 </Element>
             </Element>
 
-            <Element cardinality="0..2">
+            <Element cardinality="1..1">
                 <Term>cac:PartyTaxScheme</Term>
                 <Name>PARTY VAT/TAX IDENTIFIERS</Name>
 

@@ -1,6 +1,6 @@
 include::settings.adoc[]
 :doctype: book
-//:forceinclude:
+:forceinclude:
 :icons: font
 :stem:
 :toc: left

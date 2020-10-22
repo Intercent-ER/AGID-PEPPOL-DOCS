@@ -34,6 +34,6 @@ Nella Nota di Credito UBL 2.1 non è presente l'elemento WithholdingTaxTotal per
 
 [source, xml, indent=0]
 ----
-include::../{snippet-dir}/agid-extensions.xml[tags=ext_ritenuta-NC]
+include::../{snippet-dir}/agid-extensions.xml[tags=ext_ritenuta_NC]
 ----
 

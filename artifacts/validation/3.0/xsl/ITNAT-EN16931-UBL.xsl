@@ -18832,15 +18832,15 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'EORI:')) then 1 else 0) &gt; 0]" priority="1050" mode="M38">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'EORI:')) then 1 else 0) &gt; 0]"/>
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]" priority="1050" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]"/>
 
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^EORI:[A-Z0-9]+$') and string-length($i) &gt;= 21 and string-length($i) &lt;= 25) then 1 else 0) &gt; 0"/>
+         <axsl:when test="matches(.,'^EORI:[A-Z0-9]{16,20}$')"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^EORI:[A-Z0-9]+$') and string-length($i) &gt;= 21 and string-length($i) &lt;= 25) then 1 else 0) &gt; 0">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^EORI:[A-Z0-9]{16,20}$')">
                <axsl:attribute name="id">BR-IT-100</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -18855,15 +18855,15 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'ALBO:')) then 1 else 0) &gt; 0]" priority="1049" mode="M38">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'ALBO:')) then 1 else 0) &gt; 0]"/>
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'ALBO:')]" priority="1049" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'ALBO:')]"/>
 
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^ALBO:[a-zA-Z]+:[A-Z0-9]+$') and string-length($i) &gt;= 1 and string-length($i) &lt;= 129) then 1 else 0) &gt; 0"/>
+         <axsl:when test="matches(.,'^ALBO:[a-zA-Z]+:[A-Z0-9]+$') and string-length(.) &gt;= 1 and string-length(.) &lt;= 129"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^ALBO:[a-zA-Z]+:[A-Z0-9]+$') and string-length($i) &gt;= 1 and string-length($i) &lt;= 129) then 1 else 0) &gt; 0">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^ALBO:[a-zA-Z]+:[A-Z0-9]+$') and string-length(.) &gt;= 1 and string-length(.) &lt;= 129">
                <axsl:attribute name="id">BR-IT-100</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -18878,15 +18878,15 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'CF:')) then 1 else 0) &gt; 0]" priority="1048" mode="M38">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'CF:')) then 1 else 0) &gt; 0]"/>
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'CF:')]" priority="1048" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'CF:')]"/>
 
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^CF:[A-Z0-9]{11,16}$')) then 1 else 0) &gt; 0"/>
+         <axsl:when test="matches(.,'^CF:[A-Z0-9]{11,16}$')"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^CF:[A-Z0-9]{11,16}$')) then 1 else 0) &gt; 0">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^CF:[A-Z0-9]{11,16}$')">
                <axsl:attribute name="id">BR-IT-100</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -18901,15 +18901,15 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'REA:')) then 1 else 0) &gt; 0]" priority="1047" mode="M38">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'REA:')) then 1 else 0) &gt; 0]"/>
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'REA:')]" priority="1047" mode="M38">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'REA:')]"/>
 
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^REA:[a-zA-Z0-9]+:[A-Z0-9]+$') and string-length($i) &gt;= 10 and string-length($i) &lt;= 30) then 1 else 0) &gt; 0"/>
+         <axsl:when test="matches(.,'^REA:[a-zA-Z0-9]+:[A-Z0-9]+$') and string-length(.) &gt;= 10 and string-length(.) &lt;= 30"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^REA:[a-zA-Z0-9]+:[A-Z0-9]+$') and string-length($i) &gt;= 10 and string-length($i) &lt;= 30) then 1 else 0) &gt; 0">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^REA:[a-zA-Z0-9]+:[A-Z0-9]+$') and string-length(.) &gt;= 10 and string-length(.) &lt;= 30">
                <axsl:attribute name="id">BR-IT-110</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -18976,9 +18976,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test=""/>
+         <axsl:when test="string-length(.) &lt;= 19"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="string-length(.) &lt;= 19">
                <axsl:attribute name="id">BR-IT-122</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">

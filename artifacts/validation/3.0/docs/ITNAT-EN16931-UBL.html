@@ -1012,23 +1012,23 @@
                            i 20 caratteri.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-IT-100" data-context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'EORI:')) then 1 else 0) &gt; 0]" data-test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^EORI:[A-Z0-9]+$') and string-length($i) &gt;= 21 and string-length($i) <= 25) then 1 else 0) &gt; 0">
+                  <tr id="BR-IT-100" data-context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]" data-test="matches(.,'^EORI:[A-Z0-9]{16,20}$')">
                      <td><a href="#">BR-IT-100</a><br><span class="message">[BR-IT-100] - BT-29 (Seller identifier) Se il valore dell&#8217;elemento BT-40 (Seller country code) &egrave; "IT", se il valore dell'elemento
                            BT-29&nbsp;Seller identifier&nbsp;comincia con "EORI:", la sua lunghezza deve essere compresa fra 21 e 25 caratteri.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-IT-100" data-context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'ALBO:')) then 1 else 0) &gt; 0]" data-test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^ALBO:[a-zA-Z]+:[A-Z0-9]+$') and string-length($i) &gt;= 1 and string-length($i) <= 129) then 1 else 0) &gt; 0">
+                  <tr id="BR-IT-100" data-context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'ALBO:')]" data-test="matches(.,'^ALBO:[a-zA-Z]+:[A-Z0-9]+$') and string-length(.) &gt;= 1 and string-length(.) <= 129">
                      <td><a href="#">BR-IT-100</a><br><span class="message">[BR-IT-100] - BT-29 (Seller identifier) Se il valore dell&#8217;elemento BT-40 (Seller country code) &egrave; "IT", se il valore dell'elemento
                            BT-29&nbsp;Seller identifier&nbsp;comincia con "ALBO:", la sua lunghezza non pu&ograve; superare i 129 caratteri e deve essere indicato come
                            "ALBO:AlboProfessionale:NumeroIscrizioneAlbo".</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-IT-100" data-context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'CF:')) then 1 else 0) &gt; 0]" data-test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^CF:[A-Z0-9]{11,16}$')) then 1 else 0) &gt; 0">
+                  <tr id="BR-IT-100" data-context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'CF:')]" data-test="matches(.,'^CF:[A-Z0-9]{11,16}$')">
                      <td><a href="#">BR-IT-100</a><br><span class="message">[BR-IT-100] - BT-29 (Seller identifier) Se il valore dell&#8217;elemento BT-40 (Seller country code) &egrave; "IT", se il valore dell'elemento
                            BT-29&nbsp;Seller identifier&nbsp;comincia con "CF:",&nbsp;la sua lunghezza deve essere compresa fra 14 e 19 caratteri.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-IT-110" data-context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'REA:')) then 1 else 0) &gt; 0]" data-test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^REA:[a-zA-Z0-9]+:[A-Z0-9]+$') and string-length($i) &gt;= 10 and string-length($i) <= 30) then 1 else 0) &gt; 0">
+                  <tr id="BR-IT-110" data-context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'REA:')]" data-test="matches(.,'^REA:[a-zA-Z0-9]+:[A-Z0-9]+$') and string-length(.) &gt;= 10 and string-length(.) <= 30">
                      <td><a href="#">BR-IT-110</a><br><span class="message">[BR-IT-110] - Se il valore dell&#8217;elemento BT-40 (Seller country code) &egrave; "IT", se il valore dell'elemento BT-30 Seller legal
                            registration identifier comincia con "REA:", la sua lunghezza deve essere compresa fra 10 e 30 caratteri e deve essere indicato
                            come "REA:Ufficio:NumeroREA".</span></td>
@@ -1044,7 +1044,7 @@
                            i valori della relativa codifica, secondo la specifica FatturaPA 1.2.1.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-IT-122" data-context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLegalForm" data-test="">
+                  <tr id="BR-IT-122" data-context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLegalForm" data-test="string-length(.) <= 19">
                      <td><a href="#">BR-IT-122</a><br><span class="message">[BR-IT-122][FPA 1.2.4.3 CapitaleSociale, 1.2.4.4 SocioUnico, 1.2.4.5 StatoLiquidazione] - La lunghezza dell'elemento non pu&ograve;
                            superare i 19 caratteri.</span></td>
                      <td style="width: 5%;">fatal</td>

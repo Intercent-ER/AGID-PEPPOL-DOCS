@@ -92,7 +92,7 @@
 		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-090">[BR-IT-090] - BT-25 (Preceding Invoice number) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
 	</rule>
 
-	<rule context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'EORI:')) then 1 else 0) &gt; 0]" flag="fatal">
+	<!--rule context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'EORI:')) then 1 else 0) &gt; 0]" flag="fatal">
 		<assert test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^EORI:[A-Z0-9]+$') and string-length($i) &gt;= 21 and string-length($i) &lt;= 25) then 1 else 0) &gt; 0" flag="fatal" id="BR-IT-100">[BR-IT-100] - BT-29 (Seller identifier) Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT-29 Seller identifier comincia con "EORI:", la sua lunghezza deve essere compresa fra 21 e 25 caratteri.</assert>
 	</rule>
 	
@@ -106,6 +106,22 @@
 	
 	<rule context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT' and sum(for $i in cac:PartyIdentification/cbc:ID return if (starts-with($i, 'REA:')) then 1 else 0) &gt; 0]" flag="fatal">
 		<assert test="sum(for $i in cac:PartyIdentification/cbc:ID return if (matches($i,'^REA:[a-zA-Z0-9]+:[A-Z0-9]+$') and string-length($i) &gt;= 10 and string-length($i) &lt;= 30) then 1 else 0) &gt; 0" flag="fatal" id="BR-IT-110">[BR-IT-110] - Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT-30 Seller legal registration identifier comincia con "REA:", la sua lunghezza deve essere compresa fra 10 e 30 caratteri e deve essere indicato come "REA:Ufficio:NumeroREA".</assert>
+	</rule-->
+	
+	<rule context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]" flag="fatal">
+		<assert test="matches(.,'^EORI:[A-Z0-9]{16,20}$')" flag="fatal" id="BR-IT-100">[BR-IT-100] - BT-29 (Seller identifier) Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT-29 Seller identifier comincia con "EORI:", la sua lunghezza deve essere compresa fra 21 e 25 caratteri.</assert>
+	</rule>
+	
+	<rule context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'ALBO:')]" flag="fatal">
+		<assert test="matches(.,'^ALBO:[a-zA-Z]+:[A-Z0-9]+$') and string-length(.) &gt;= 1 and string-length(.) &lt;= 129" flag="fatal" id="BR-IT-100">[BR-IT-100] - BT-29 (Seller identifier) Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT-29 Seller identifier comincia con "ALBO:", la sua lunghezza non può superare i 129 caratteri e deve essere indicato come "ALBO:AlboProfessionale:NumeroIscrizioneAlbo".</assert>
+	</rule>
+
+	<rule context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'CF:')]" flag="fatal">
+		<assert test="matches(.,'^CF:[A-Z0-9]{11,16}$')" flag="fatal" id="BR-IT-100">[BR-IT-100] - BT-29 (Seller identifier) Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT-29 Seller identifier comincia con "CF:", la sua lunghezza deve essere compresa fra 14 e 19 caratteri.</assert>
+	</rule>
+	
+	<rule context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'REA:')]" flag="fatal">
+		<assert test="matches(.,'^REA:[a-zA-Z0-9]+:[A-Z0-9]+$') and string-length(.) &gt;= 10 and string-length(.) &lt;= 30" flag="fatal" id="BR-IT-110">[BR-IT-110] - Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT-30 Seller legal registration identifier comincia con "REA:", la sua lunghezza deve essere compresa fra 10 e 30 caratteri e deve essere indicato come "REA:Ufficio:NumeroREA".</assert>
 	</rule>
 
 	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID" flag="fatal">
@@ -117,7 +133,7 @@
 	</rule>
 
 	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLegalForm" flag="fatal">
-		<assert test="" flag="fatal" id="BR-IT-122">[BR-IT-122][FPA 1.2.4.3 CapitaleSociale, 1.2.4.4 SocioUnico, 1.2.4.5 StatoLiquidazione] - La lunghezza dell'elemento non può superare i 19 caratteri.</assert>
+		<assert test="string-length(.) &lt;= 19" flag="fatal" id="BR-IT-122">[BR-IT-122][FPA 1.2.4.3 CapitaleSociale, 1.2.4.4 SocioUnico, 1.2.4.5 StatoLiquidazione] - La lunghezza dell'elemento non può superare i 19 caratteri.</assert>
 	</rule>	
 	
 	<rule context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']" flag="fatal">

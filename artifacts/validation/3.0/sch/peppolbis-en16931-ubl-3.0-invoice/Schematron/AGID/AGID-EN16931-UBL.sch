@@ -19,7 +19,7 @@
 	</rule>
 
 	<rule context="/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI, 'urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento')]/ext:ExtensionContent" flag="fatal">
-		<assert test="matches(cbc:Amount,'^[.\d]{1,15}$')" flag="fatal" id="BR-IT-E05">[BR-IT-E05][FPA 2.2.2.4 - Arrotondamento] - L'estensione deve contenere un elemento cbc:Amount la cui lunghezza non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
+		<assert test="matches(cbc:Amount,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-E05">[BR-IT-E05][FPA 2.2.2.4 - Arrotondamento] - L'estensione deve contenere un elemento cbc:Amount la cui lunghezza non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
 	</rule>
 
 	<rule context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']/ext:ExtensionContent" flag="fatal">
@@ -27,8 +27,8 @@
 	</rule>
 
 	<rule context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']/ext:ExtensionContent/cac:AllowanceCharge" flag="fatal">
-		<assert test="matches(cbc:Amount,'^[.\d]{4,21}$')" flag="fatal" id="BR-IT-E07">[BR-IT-E07][FPA 2.1.1.8 - Sconto Maggiorazione] - L'importo dello sconto o maggiorazione (cbc:Amount) deve contenere da 4 fino a 21 caratteri incluso 2 cifre decimali.</assert>
-		<assert test="not(cbc:MultiplierFactorNumeric) or matches(cbc:MultiplierFactorNumeric,'^[.\d]{4,6}$')" flag="fatal" id="BR-IT-E08">[BR-IT-E08][FPA 2.1.1.8 - Sconto Maggiorazione] - L'importo dello sconto/maggiorazione in percentuale, se presente, (cbc:MultiplierFactorNumeric) deve contenere da 4 fino a 6 caratteri incluso 2 cifre decimali.</assert>
+		<assert test="matches(cbc:Amount,'^[\-]?\d{1,11}\.\d{2,8}$')" flag="fatal" id="BR-IT-E07">[BR-IT-E07][FPA 2.1.1.8 - Sconto Maggiorazione] - L'importo dello sconto o maggiorazione (cbc:Amount) deve contenere da 4 fino a 21 caratteri incluso 2 cifre decimali.</assert>
+		<assert test="not(cbc:MultiplierFactorNumeric) or matches(cbc:MultiplierFactorNumeric,'^\d{1,3}\.\d{2}$')" flag="fatal" id="BR-IT-E08">[BR-IT-E08][FPA 2.1.1.8 - Sconto Maggiorazione] - L'importo dello sconto/maggiorazione in percentuale, se presente, (cbc:MultiplierFactorNumeric) deve contenere da 4 fino a 6 caratteri incluso 2 cifre decimali.</assert>
 	</rule>
 
 	<rule context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Ritenuta']/ext:ExtensionContent" flag="fatal">
@@ -36,20 +36,28 @@
 	</rule>
 
 	<rule context="//cac:WithholdingTaxTotal" flag="fatal">
-		<assert test="matches(cbc:TaxAmount,'^[.\d]{4,15}$')" flag="fatal" id="BR-IT-E10">[BR-IT-E10][FPA 2.1.1.5 - Dati Ritenuta] - L'importo totale delle ritenute (cbc:TaxAmount) deve contenere da 4 fino a 15 caratteri incluso 2 cifre decimali.</assert>
+		<assert test="matches(cbc:TaxAmount,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-E10">[BR-IT-E10][FPA 2.1.1.5 - Dati Ritenuta] - L'importo totale delle ritenute (cbc:TaxAmount) deve contenere da 4 fino a 15 caratteri incluso 2 cifre decimali.</assert>
 		<assert test="count(cac:TaxSubtotal) &gt;= 1 and count(cac:TaxSubtotal) &lt;= 2" flag="fatal" id="BR-IT-E11">[BR-IT-E11][FPA 2.1.1.5 - Dati Ritenuta] - Possono essere incluse da 1 a massimo 2 ritenute (cac:TaxSubtotal).</assert>
 	</rule>
 
 	<rule context="//cac:WithholdingTaxTotal/cac:TaxSubtotal" flag="fatal">
-		<assert test="matches(cbc:TaxAmount,'^[.\d]{4,15}$')" flag="fatal" id="BR-IT-E12">[BR-IT-E12][FPA 2.1.1.5 - Dati Ritenuta] - L'importo di ogni ritenuta (cbc:TaxAmount) deve contenere da 4 fino a 15 caratteri incluso 2 cifre decimali.</assert>
+		<assert test="matches(cbc:TaxAmount,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-E12">[BR-IT-E12][FPA 2.1.1.5 - Dati Ritenuta] - L'importo di ogni ritenuta (cbc:TaxAmount) deve contenere da 4 fino a 15 caratteri incluso 2 cifre decimali.</assert>
 	</rule>
 
 	<rule context="//cac:WithholdingTaxTotal/cac:TaxSubtotal/cac:TaxCategory" flag="fatal">
-		<assert test="cbc:ID = 'S' and matches(cbc:Percent,'^[.\d]{4,6}$') and cac:TaxScheme/cbc:ID = 'SWT'" flag="fatal" id="BR-IT-E13">[BR-IT-E13][FPA 2.1.1.5 - Dati Ritenuta] - Ogni ritenuta deve contenere la categoria della ritenuta (cac:TaxCategory) con identificativo uguale a "S" (cbc:ID), percentuale della ritenuta (cbc:Percent) da 4 fino a 6 caratteri incluso 2 cifre decimali e schema della ritenuta valorizzato con cac:TaxScheme/cbc:ID = 'SWT'.</assert>
+		<assert test="cbc:ID = 'S' and matches(cbc:Percent,'^\d{1,3}\.\d{2}$') and cac:TaxScheme/cbc:ID = 'SWT'" flag="fatal" id="BR-IT-E13">[BR-IT-E13][FPA 2.1.1.5 - Dati Ritenuta] - Ogni ritenuta deve contenere la categoria della ritenuta (cac:TaxCategory) con identificativo uguale a "S" (cbc:ID), percentuale della ritenuta (cbc:Percent) da 4 fino a 6 caratteri incluso 2 cifre decimali e schema della ritenuta valorizzato con cac:TaxScheme/cbc:ID = 'SWT'.</assert>
 	</rule>
 	
 	<!-- Document Level -->
 
+	<rule context="/ubl:Invoice/cbc:CustomizationID[cbc:ProfileID = 'urn:fdc:peppol.eu:2017:poacc:billing:01:1.0']" flag="fatal">
+		<assert test="cbc:CustomizationID = 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:www.agid.gov.it:trns:fattura:3.0'" flag="fatal" id="BR-IT-001">[BR-IT-001] - La Fattura italiana che estende la EN attraverso la customizzazione del CIUS PEPPOL, deve valorizzare il cbc:CustomizationID con "urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:www.agid.gov.it:trns:fattura:3.0".</assert>
+	</rule>
+
+	<rule context="/cn:CreditNote/cbc:CustomizationID[cbc:ProfileID = 'urn:fdc:peppol.eu:2017:poacc:billing:01:1.0']" flag="fatal">
+		<assert test="cbc:CustomizationID = 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:www.agid.gov.it:trns:nota_credito:3.0'" flag="fatal" id="BR-IT-002">[BR-IT-002] - La Nota di Credito italiana che estende la EN attraverso la customizzazione del CIUS PEPPOL, deve valorizzare il cbc:CustomizationID con "urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:www.agid.gov.it:trns:nota_credito:3.0".</assert>
+	</rule>
+	
 	<rule context="/*/cbc:ID" flag="fatal">
 		<assert test="matches(.,'^(\p{IsBasicLatin})*[0-9]+(\p{IsBasicLatin})*$') and string-length(.) &gt;= 1 and string-length(.) &lt;= 20" flag="fatal" id="BR-IT-010">[BR-IT-010] - BT-1 (Invoice number) maximum lenght shall be 20 chars with at least one digit - La lunghezza dell'elemento non può superare i 20 caratteri e deve includere almeno una cifra.</assert>
 	</rule>
@@ -174,11 +182,10 @@
 	</rule>
 		
 	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID" flag="fatal">
-		<assert test="@schemeID='0201' and (matches(.,'^(IPA:)?[a-zA-Z0-9]{6}$') or (matches(.,'^PEC:(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)$') and matches(.,'^.{14,256}$')) or matches(.,'^CODDEST:[a-zA-Z0-9]{7}$'))" flag="fatal" id="BR-IT-200">[BR-IT-200] - Se l'elemento BT-49-1 Buyer electronic address identification scheme identifier contiene il valore "0201", l'elemento BT-49 Buyer electronic address 
-		rappresenta un codice IPA, può iniziare opzionalmente con il prefisso "IPA:" e deve essere seguito da un identificatore con lunghezza pari a 6 caratteri,
-		oppure può iniziare con il prefisso "PEC:" ed essere seguito da un indirizzo PEC di lunghezza compresa fra 7 e 256 caratteri,
-		oppure può iniziare con il prefisso "CODDEST:" ed essere seguito da un identificatore con lunghezza pari a 7 caratteri.</assert>
-		<assert test="@schemeID='0201'" flag="fatal" id="BR-IT-190">[BR-IT-190] - L'elemento BT-49 Buyer electronic address deve contenere la PEC del destinatario della fattura, oppure l’indice IPA oppure il codice destinatario. Di conseguenza per l'elemento BT-49-1 Buyer electronic address identification scheme identifier DEVE indicare lo schema "0201".</assert>
+		<assert test="(@schemeID='0201' and matches(.,'^[a-zA-Z0-9]{6}$')) or (@schemeID='0202' and matches(.,'^(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)$') and matches(.,'^.{7,256}$')) or (@schemeID='0205' and matches(.,'^[a-zA-Z0-9]{7}$'))" flag="fatal" id="BR-IT-200">[BR-IT-200] - Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0201", l'elemento BT-49 (Buyer electronic address) 
+		deve contenere un codice IPA con lunghezza pari a 6 caratteri,
+		se invece l'elemento BT-49-1 contiene il valore "0201", l'elemento BT-49 deve contenere un indirizzo PEC di lunghezza compresa fra 7 e 256 caratteri,
+		se invece l'elemento BT-49-1 contiene il valore "0205", l'elemento BT-49 deve contenere un Codice Destinatario con lunghezza pari a 7 caratteri.</assert>
 	</rule>
 	
 	<rule context="/*/cac:AccountingCustomerParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']" flag="fatal">
@@ -241,42 +248,40 @@
 	</rule>
 	
 	<rule context="/*/cac:PaymentTerms/cbc:SettlementDiscountAmount" flag="fatal">
-		<assert test="matches(.,'^[.\d]{4,15}$')" flag="fatal" id="BR-IT-281">[BR-IT-281][FPA 2.4.2.17 - Sconto Pagamento Anticipato] - La lunghezza dell'elemento deve essere di almeno 4 caratteri e non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
+		<assert test="matches(.,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-281">[BR-IT-281][FPA 2.4.2.17 - Sconto Pagamento Anticipato] - La lunghezza dell'elemento deve essere di almeno 4 caratteri e non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
 	</rule>
 
 	<rule context="/*/cac:PaymentTerms/cbc:PenaltyAmount" flag="fatal">
-		<assert test="matches(.,'^[.\d]{4,15}$')" flag="fatal" id="BR-IT-282">[BR-IT-282][FPA 2.4.2.19 - Penalita Pagamenti Ritardati] - La lunghezza dell'elemento deve essere di almeno 4 caratteri e non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
+		<assert test="matches(.,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-282">[BR-IT-282][FPA 2.4.2.19 - Penalita Pagamenti Ritardati] - La lunghezza dell'elemento deve essere di almeno 4 caratteri e non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
 	</rule>
 	
 	<rule context="/*/cac:AllowanceCharge/cbc:Amount" flag="fatal">
-		<assert test="matches(.,'^[.\d]{1,15}$')" flag="fatal" id="BR-IT-290">[BR-IT-290] - La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
+		<assert test="matches(.,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-290">[BR-IT-290] - La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
 	</rule>
 	
 	<rule context="/*/cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount" flag="fatal">
-		<assert test="matches(.,'^[.\d]{1,15}$')" flag="fatal" id="BR-IT-300">[BR-IT-300] - BT-112 (Invoice total amount with VAT) maximum length shall be 15, including two fraction digits - La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
+		<assert test="matches(.,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-300">[BR-IT-300] - BT-112 (Invoice total amount with VAT) maximum length shall be 15, including two fraction digits - La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
 	</rule>
 	
 	<rule context="/*/cac:LegalMonetaryTotal/cbc:PayableRoundingAmount" flag="fatal">
-		<assert test="matches(.,'^[.\d]{1,15}$')" flag="fatal" id="BR-IT-310">[BR-IT-310] - BT-114 (Rounding amount) maximum length shall be 15, including two fraction digits - La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
+		<assert test="matches(.,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-310">[BR-IT-310] - BT-114 (Rounding amount) maximum length shall be 15, including two fraction digits - La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
 	</rule>
 	
 	<rule context="/*/cac:LegalMonetaryTotal/cbc:PayableAmount" flag="fatal">
-		<assert test="matches(.,'^[.\d]{1,15}$')" flag="fatal" id="BR-IT-320">[BR-IT-320] - BT-115 (Amount due for payment) maximum length shall be 15, including two fraction digits - La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
+		<assert test="matches(.,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-320">[BR-IT-320] - BT-115 (Amount due for payment) maximum length shall be 15, including two fraction digits - La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
 	</rule>
 	
 	<rule context="/*/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxableAmount" flag="fatal">
-		<assert test="matches(.,'^[.\d]{1,15}$')" flag="fatal" id="BR-IT-330">[BR-IT-330] - BT-116 (VAT category taxable amount) maximum length shall be 15, including two fraction digits - La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
+		<assert test="matches(.,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-330">[BR-IT-330] - BT-116 (VAT category taxable amount) maximum length shall be 15, including two fraction digits - La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
 	</rule>
 	
 	<rule context="/*/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxAmount" flag="fatal">
-		<assert test="matches(.,'^[.\d]{1,15}$')" flag="fatal" id="BR-IT-340">[BR-IT-340] - BT-117 (VAT category tax amount) maximum length shall be 15, including two fraction digits - La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
+		<assert test="matches(.,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-340">[BR-IT-340] - BT-117 (VAT category tax amount) maximum length shall be 15, including two fraction digits - La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
 	</rule>
 	
-	<!--rule context="//cac:TaxCategory/cbc:ID | //cac:ClassifiedTaxCategory/cbc:ID" flag="fatal">
-		<assert test="contains(' AE B E S G K Z H AA O ', concat(' ',normalize-space(.),' '))" flag="fatal" id="BR-IT-350">[BR-IT-350] - For VAT category code only values AE B E S G K Z H AA O shall be allowed - I valori accettati sono esclusivamente AE B E S G K Z H AA O.</assert>
-	</rule-->
+	<!-- Added "B" for split payment due to the A deviation -->
 	<rule context="//cac:TaxCategory/cbc:ID | //cac:ClassifiedTaxCategory/cbc:ID" flag="fatal">
-		<assert test="contains(' AE B E G K Z O ', concat(' ',normalize-space(.),' '))" flag="fatal" id="BR-IT-350">[BR-IT-350] - For VAT category code only values AE B E G K Z O shall be allowed - I valori accettati sono esclusivamente AE B E G K Z O.</assert>
+		<assert test="contains(' AE B E S G K Z ', concat(' ',normalize-space(.),' '))" flag="fatal" id="BR-IT-350">[BR-IT-350] - For VAT category code only values AE B E S G K Z shall be allowed - I valori accettati sono esclusivamente AE B E S G K Z secondo il provvedimento AdE n.99370 del 18-apr-2019 e succ.vi.</assert>
 	</rule>
 	
 	<rule context="//cac:AdditionalDocumentReference[cbc:ID]" flag="fatal">
@@ -284,8 +289,8 @@
 	</rule>
 
 	<!-- BOLLO -->
-	<rule context="/*/cac:AllowanceCharge" flag="fatal">
-		<assert test="cbc:AllowanceChargeReason = 'BOLLO' and (not(cbc:AllowanceChargeReasonCode) or cbc:AllowanceChargeReasonCode = 'SAE') and cbc:Amount = 0.00 and cbc:BaseAmount &gt; 0 and count(cac:TaxCategory[cbc:ID = 'E' and cbc:Percent = 0]) = 1 and ../cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount &gt; 77.47 and not(../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'S' or cbc:ID = 'B']) and count(../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'E' and cbc:Percent = 0 and contains(lower-case(cbc:TaxExemptionReason), 'bollo')]) = 1" flag="fatal" id="BR-IT-480">[BR-IT-480] - Se la fattura è soggetta alla marca da bollo questa non deve contenere IVA, l'importo deve essere superiore a 77.47 EURO e nel riepilogo IVA deve menzionare il motivo dell'esenzione "Bollo assolto ai sensi del decreto MEF 17 giugno 2014 (art. 6)".</assert>
+	<rule context="/*/cac:AllowanceCharge[cbc:AllowanceChargeReasonCode = 'SAE']" flag="fatal">
+		<assert test="cbc:ChargeIndicator = true() and cbc:AllowanceChargeReason = 'BOLLO' and cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0] and ../cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount &gt; 77.47 and not(../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'S' or cbc:ID = 'B']) and ((cbc:Amount = 0.00 and not(../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0])) or (cbc:Amount = 2.00 and ../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0]))" flag="fatal" id="BR-IT-480">[BR-IT-480] - Se la fattura è soggetta alla marca da bollo, il motivo della maggiorazione deve essere posto a "BOLLO", la fattura non deve contenere IVA e l'importo deve essere superiore a 77.47 EURO. Se l'importo del bollo viene rifatturato al cliente, il suo valore deve essere posto a 2 EUR come operazione non imponibile IVA (TaxCategory/ID = 'Z') e il relativo riepilogo IVA deve essere presente".</assert>
 	</rule>
 
 	<!-- Esigibilità: Split Payment -->
@@ -300,7 +305,7 @@
 	</rule>
 	
 	<rule context="/*/cac:InvoiceLine/cbc:InvoicedQuantity" flag="fatal">
-		<assert test="matches(.,'^\d*\.\d{8}$') and string-length(.) &gt;= 4 and string-length(.) &lt;= 21" flag="fatal" id="BR-IT-380">[BR-IT-380] - BT-129 (Invoiced quantity) maximum lenght shall be 21 chars and BT allowed fraction digits shall be 8 - La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento dovrà avere 8 cifre decimali.</assert>
+		<assert test="matches(.,'^\d{1,12}\.\d{2,8}$')" flag="fatal" id="BR-IT-380">[BR-IT-380] - BT-129 (Invoiced quantity) maximum lenght shall be 21 chars and BT allowed fraction digits shall be 8 - La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento dovrà avere 8 cifre decimali.</assert>
 	</rule>
 	
 	<rule context="/*/cac:InvoiceLine/cbc:LineExtensionAmount" flag="fatal">
@@ -336,7 +341,7 @@
 	</rule>
 	
 	<rule context="/*/cac:InvoiceLine/cac:Price/cbc:PriceAmount" flag="fatal">
-		<assert test="matches(.,'^\d*\.\d{8}$') and string-length(.) &gt;= 9 and string-length(.) &lt;= 21" flag="fatal" id="BR-IT-430">[BR-IT-430] - BT-146 (Item net price) maximum length shall be 21 chars and BT allowed fraction digits shall be 8 - La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento dovrà avere 8 cifre decimali.</assert>
+		<assert test="matches(.,'^[\-]?\d{1,11}\.\d{2,8}$')" flag="fatal" id="BR-IT-430">[BR-IT-430] - BT-146 (Item net price) maximum length shall be 21 chars and BT allowed fraction digits shall be 8 - La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento dovrà avere 8 cifre decimali.</assert>
 	</rule>
 	
 	<rule context="/*/cac:InvoiceLine/cac:Item/cac:SellersItemIdentification/cbc:ID" flag="fatal">
@@ -355,10 +360,5 @@
 		<assert test="matches(.,'^(\p{IsBasicLatin}){0,35}$')" flag="fatal" id="BR-IT-470">[BR-IT-470] - BT-158 (Item classification identifier) maximum lenght shall be 35 chars - La lunghezza dell'elemento non può superare i 35 caratteri.</assert>
 	</rule>
 	
-	<!-- CASSA -->
-	<rule context="/*/cac:InvoiceLine/cac:Item[cbc:Name = 'CASSA']" flag="fatal">
-		<assert test="sum(for $i in cac:AdditionalItemProperty return if ($i[cbc:Name = 'CASSA:TIPO' or cbc:Name = 'CASSA:ALIQUOTA']) then 1 else 0) = 2" flag="fatal" id="BR-IT-500">[BR-IT-500] - La Cassa Previdenziale, se presente, deve contenere almeno il Tipo e l'Aliquota.</assert>
-	</rule>
-
 </pattern>
 

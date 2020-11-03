@@ -26,6 +26,22 @@
 		<Name>Dettaglio Ritenuta - FPA 2.1.1.5 'DatiRitenuta'</Name>
 		<Reference type="RULE">BR-IT-E11</Reference>
 
+		<Element cardinality="0..1">
+			<Term>cbc:TaxableAmount</Term>
+			<Name>Imponibile Ritenuta</Name>
+			<DataType>Amount</DataType>
+
+			<Attribute>
+				<Term>currencyID</Term>
+				<Description>Mandatory attribute. Use BT-5</Description>
+				<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
+				<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
+				<Reference type="CODE_LIST">ISO4217</Reference>
+				<Value type="EXAMPLE">EUR</Value>
+			</Attribute>
+			<Value type="EXAMPLE">1000.00</Value>
+		</Element>
+		
 		<Element>
 			<Term>cbc:TaxAmount</Term>
 			<Name>Importo Ritenuta - FPA 2.1.1.5.2 'ImportoRitenuta'</Name>

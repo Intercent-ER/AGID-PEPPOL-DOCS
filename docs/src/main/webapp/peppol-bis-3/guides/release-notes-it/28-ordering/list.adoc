@@ -6,6 +6,27 @@
 | Data
 | Cosa è cambiato
 
+| 3.1.0.4(IT)
+a| #XX/XX/2020#
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3.0.5]_. +
+
+
+[red]#*Cambiamenti alla sintassi*# +
+
+*  Corretto l'uso del charge indicator "false vs true" nella tabella del paragrafo 6.9. Calcolo dei totali (AnticipatedMonetaryTotals)
+
+
+[red]#*Cambiamenti alla sintassi*#
+
+*  Aggiunto un nuovo Business Term opzionale a livello di testata: "Shipping label" (tir01-p036 
+* Aggiunto un nuovo Business Term opzionale a livello di riga: "Delivery location ID" (tir01-p037)
+
+[red]#*Cambiamenti alle code lists e ai tool di validazione*#
+
+*  Codifica EAS: aggiunto codice 0209,rimosso codice 9958. Regola Peppol conformemente.
+* Codifica ICD: aggiunto codice 0205, 0206, 0206, 0207, 0208, 0209
+* Codifica ISO 4217: eliminati i codici duplicati
+
 | 3.1.0.3(IT)
 a| 04/06/2020
 a| _Aggiornamento alle http://www.rgs.mef.gov.it/_Documenti/VERSIONE-I/e-GOVERNME1/apir/NSO-Regole-tecniche-IT.pdf[Regole Tecniche NSO v. 4.5]_. +

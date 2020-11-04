@@ -127,10 +127,10 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 </cac:AccountingSupplierParty>
 ----
 
-Il campo *cac:PartyLegalEntity/cbc:RegistrationName* può essere usato per indicare il dato FPA 1.2.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.2.1.3.2 Nome e 1.2.1.3.3 Cognome preceduti dalla stringa "Nome&Cognome:" e concatenati dal simbolo "#".
+#Il campo *cac:PartyLegalEntity/cbc:RegistrationName* può essere usato per indicare il dato FPA 1.2.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.2.1.3.2 Nome e 1.2.1.3.3 Cognome preceduti dalla stringa "Nome&Cognome:" e concatenati dal simbolo ""&#x0023;".#
 
 
-Le informazioni relative all'Albo vengono fornite nel *cac:PartyIdentification/cbc:ID* concatenando il Nome Albo, il numero e la data iscrizione con il simbolo "#", preceduti dalla stringa "ALBO:".
+#Le informazioni relative all'Albo vengono fornite nel *cac:PartyIdentification/cbc:ID* concatenando il Nome Albo, il numero e la data iscrizione con il simbolo "&#x0023;", preceduti dalla stringa "ALBO:".#
 
 .Esempio UBL per esprimere informazioni relative all'Albo
 
@@ -147,7 +147,7 @@ Le informazioni relative all'Albo vengono fornite nel *cac:PartyIdentification/c
 </cac:AccountingSupplierParty>
 ----
 
-Nella fatturazione tra privati (B2B), se il cedente/prestatore non residente ha una stabile organizzazione in Italia, si può specificare in fattura come parte dei dati del fornitore nell'elemento AgentParty.
+#Nella fatturazione tra privati (B2B), se il cedente/prestatore non residente ha una stabile organizzazione in Italia, si può specificare in fattura come parte dei dati del fornitore nell'elemento AgentParty.#
 
 .Esempio UBL per la stabile organizzazione del fornitore
 [source, xml, indent=0]
@@ -155,7 +155,7 @@ Nella fatturazione tra privati (B2B), se il cedente/prestatore non residente ha 
 include::../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_fornitore]
 ----
 
-Il campo *cac:PartylegalEntity/cbc:CompanyID* può essere usato per indicare le informazioni relative a FPA 1.2.4.1 Ufficio e FPA 1.2.4.2 Numero REA  concatenando i due dati con il "#", preceduti dalla stringa "REA:".
+#Il campo *cac:PartylegalEntity/cbc:CompanyID* può essere usato per indicare le informazioni relative a FPA 1.2.4.1 Ufficio e FPA 1.2.4.2 Numero REA  concatenando i due dati con il "&#x0023;", preceduti dalla stringa "REA:".#
 
 .Esempio UBL per esprimere informazioni relative al numero REA
 
@@ -169,7 +169,7 @@ Il campo *cac:PartylegalEntity/cbc:CompanyID* può essere usato per indicare le 
 ----
 
 
-Il campo *cac:PartyLegalEntity/cbc:CompanyLegalForm* può essere usato per indicare informazioni legali addizionali quali FPA 1.2.4.3 CapitaleSociale, FPA 1.2.4.4 SocioUnico e FPA  1.2.4.5 StatoLiquidazione, concatenando i campi con il simbolo "#".
+#Il campo *cac:PartyLegalEntity/cbc:CompanyLegalForm* può essere usato per indicare informazioni legali addizionali quali FPA 1.2.4.3 CapitaleSociale, FPA 1.2.4.4 SocioUnico e FPA  1.2.4.5 StatoLiquidazione, concatenando i campi con il simbolo "&#x0023;".#
 
 .Esempio UBL per indicare il Capitale Sociale
 
@@ -203,7 +203,7 @@ include::{snippet-dir}/Snippet-full.xml[tags=buyer]
 <2> Gli identificatori per il VAT/IVA devono incudere il prefisso del codice paese
 <3> Il codice fiscale è preceduto dalla stringa "CF:"
 
-Nel contesto B2C il Cliente può essere un cittadino (una persona fisica). +
+#Nel contesto B2C il Cliente può essere un cittadino (una persona fisica).#
 
 .Esempio di un soggetto residente in possesso della PEC.
 
@@ -240,7 +240,7 @@ Nel contesto B2C il Cliente può essere un cittadino (una persona fisica). +
 </cac:AccountingCustomerParty>
 
 
-Nel contesto B2B o G2B, in base alla specifica della FatturaPA italiana, il Cliente può essere identificato mediante il *Codice Destinatario*. +
+#Nel contesto B2B o G2B, in base alla specifica della FatturaPA italiana, il Cliente può essere identificato mediante il *Codice Destinatario*. +#
 
 .Esempio di un soggetto (non persona fisica) in possesso del Codice Destinatario accreditato presso l'Agenzia delle Entrate.
 
@@ -268,10 +268,10 @@ Nel contesto B2B o G2B, in base alla specifica della FatturaPA italiana, il Clie
 </cac:EndPointID>
 
 
-Il campo *cac:PartyLegalEntity/cbc:RegistrationName* può essere usato per indicare il dato FPA 1.2.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.2.1.3.2 Nome e 1.2.1.3.3 Cognome preceduti dalla stringa "Nome&Cognome:" e concatenati dal simbolo "#".
+#Il campo *cac:PartyLegalEntity/cbc:RegistrationName* può essere usato per indicare il dato FPA 1.2.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.2.1.3.2 Nome e 1.2.1.3.3 Cognome preceduti dalla stringa "Nome&Cognome:" e concatenati dal simbolo "&#x0023;".#
 
 
-Nella fatturazione tra privati (B2B), se il cessionario/committente non residente ha una *stabile organizzazione* in Italia, si può specificare in fattura come parte dei dati del cliente nell'elemento AgentParty.
+#Nella fatturazione tra privati (B2B), se il cessionario/committente non residente ha una *stabile organizzazione* in Italia, si può specificare in fattura come parte dei dati del cliente nell'elemento AgentParty.#
 
 
 .Esempio UBL per la stabile organizzazione del cliente
@@ -325,7 +325,7 @@ include::{snippet-dir}/Snippet-full.xml[tags=taxrep]
 ----
 <1> Gli identificatori per il VAT/IVA devono incudere il prefisso del codice paese
 
-Il campo *cac:PartyName/cbc:Name* può essere usato per indicare il dato FPA 1.3.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.3.1.3.2 Nome e 1.3.1.3.3 Cognome preceduti dalla stringa "Nome&Cognome:" e concatenati dal simbolo "#".
+#Il campo *cac:PartyName/cbc:Name* può essere usato per indicare il dato FPA 1.3.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.3.1.3.2 Nome e 1.3.1.3.3 Cognome preceduti dalla stringa "Nome&Cognome:" e concatenati dal simbolo "&#x0023;".#
 
 
 = #Il Rappresentante fiscale del cliente (AccountingCustomerParty/Party/PowerOfAttorney)#
@@ -350,6 +350,7 @@ include::{snippet-dir}/agid-extensions.xml[tag=terzo_intermediario]
 ----
 
 Il Codice Fiscale può essere espresso all'interno del Party nell'elemento PartyIdentification/ID omettendo l'attributo @schemeID ma includendo il prefisso "CF:" come nell'esempio di seguito.
+
 [source, xml, indent=0]
 ----
 <cac:PartyIdentification>

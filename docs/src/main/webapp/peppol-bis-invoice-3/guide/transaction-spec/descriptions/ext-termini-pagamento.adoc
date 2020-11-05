@@ -1,5 +1,5 @@
 
-= #Termini di Pagamento# (estensione)
+= #Dettaglio Pagamento# (estensione)
 
 
 == Pagamento Anticipato

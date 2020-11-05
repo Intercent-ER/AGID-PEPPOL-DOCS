@@ -1,0 +1,13 @@
+
+= #Riferimento fase (Dati SAL)#
+
+Per fare riferimento alla fase di un SAL, il codice può essere espresso come segue:
+
+.Esempio UBL per il riferimento ad una convenzione
+[source, xml, indent=0]
+----
+<cac:AdditionalDocumentReference>
+    <cbc:ID schemeID="AOR">001</cbc:ID>
+    <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
+</cac:AdditionalDocumentReference>
+----

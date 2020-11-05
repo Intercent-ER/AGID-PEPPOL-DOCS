@@ -1,6 +1,6 @@
 Ordine
 
-Peppol BIS 3.0.4
+Peppol BIS 3.0.5
 NSO 4.5
 
 Customization ID:

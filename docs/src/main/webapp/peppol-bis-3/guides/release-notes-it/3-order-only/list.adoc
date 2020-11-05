@@ -18,7 +18,7 @@ a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/release
 
 [red]#*Cambiamenti alla sintassi*#
 
-*  Aggiunto un nuovo Business Term opzionale a livello di testata: "Shipping label" (tir01-p036 
+*  Aggiunto un nuovo Business Term opzionale a livello di testata: "Shipping label" (tir01-p036) 
 * Aggiunto un nuovo Business Term opzionale a livello di riga: "Delivery location ID" (tir01-p037)
 
 [red]#*Cambiamenti alle code lists e ai tool di validazione*#

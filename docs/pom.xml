@@ -17,9 +17,9 @@
 	<properties>
 		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<validator.version>2.2.6</validator.version>
-		<converter.version>2.4.0</converter.version>
-		<schematron.version>2.2.6</schematron.version>
+		<validator.version>2.2.7</validator.version>
+		<converter.version>2.4.1</converter.version>
+		<schematron.version>2.2.7</schematron.version>
 	</properties>
 
 	<dependencies>

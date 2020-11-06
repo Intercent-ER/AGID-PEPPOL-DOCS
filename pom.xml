@@ -15,6 +15,11 @@
 		<module>tools/validator/NoTI-ER-PEPPOL-Validator</module>
 		<module>docs</module>
 	</modules>
+
+    <scm>
+        <developerConnection>scm:git:https://github.com/Intercent-ER/AGID-PEPPOL-DOCS</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
 	
 	<pluginRepositories>
         <pluginRepository>

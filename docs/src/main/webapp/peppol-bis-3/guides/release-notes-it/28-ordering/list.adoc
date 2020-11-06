@@ -7,7 +7,7 @@
 | Cosa è cambiato
 
 | 3.2.0.1(IT)
-a| #XX/XX/2020#
+a| 06/11/2020
 a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3.0.5]_. +
 
 
@@ -77,7 +77,7 @@ mlr/snippet-3.xml per renderlo conforme alla sintassi mlr.
 * Modificate le regole PEPPOL-T19-R011 e PEPPOL-T19-R016 per permettere la ripetizione del cac:RequiredItemLocationQuantity.
 * Cambiato il carattere (codice) per le citazioni (“) poichè era in conflitto con alcune implementazioni. Il cambiamento è stato fatto nelle "Rules for transactions" numero T16, T19 and T110.
 * La validazione del cbc:CustomizationID in tutte le BIS è stata cambiata da "l'elemento deve contenere esattamente l'identificatore  della transazione rilevante" a "l'elemento deve iniziare con il valore dell'identificativo della ttransazione rilevante".
-* Le descrizioni e alcuni nomi o codici della UNCL7143 sono state corrette in linea con la code list ufficiale, versione d19a. 
+* Le descrizioni e alcuni nomi o codici della UNCL7143 sono state corrette in linea con la code list ufficiale, versione d19a.
 
 | 3.1.0.1(IT)
 a| 24/02/2020

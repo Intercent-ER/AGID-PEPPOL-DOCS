@@ -18,15 +18,16 @@ a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/release
 
 [red]#*Cambiamenti alla sintassi*#
 
-*  Aggiunto un nuovo Business Term opzionale a livello di testata: "Shipping label" (tir01-p036);
-* Aggiunto un nuovo Business Term opzionale a livello di riga: "Delivery location ID" (tir01-p037).
+*  Aggiunto un nuovo Business Term opzionale _a livello di testata_: "Shipping label" (tir01-p036);
+* Aggiunto un nuovo Business Term opzionale a _livello di riga_: "Delivery location ID" (tir01-p037).
 
 [red]#*Cambiamenti alle code lists e ai tool di validazione*#
 
-* Regola PEPPOL-COMMON-R040: "GLN deve avere un formato valido secondo le regole GS1". Modificata la gravità da "warning" a "fatal". (La regola era stata introdotta nell'autunno del 2019 con gravità “warning” per evitare interruzioni, ma con l'intenzione di essere modificata a gravità "fatal" dopo 6-12 mesi);
-*  Codifica EAS: aggiunto codice 0209,rimosso codice 9958. Regola Peppol conformemente;
-* Codifica ICD: aggiunto codice 0205, 0206, 0206, 0207, 0208, 0209
-* Codifica ISO 4217: eliminati i codici duplicati.
+* Regola PEPPOL-COMMON-R040: "GLN deve avere un formato valido secondo le regole GS1". Modificata la gravità da "warning" a "fatal" (la regola è stata introdotta nella fall release del 2019 con gravità “warning” per evitare interruzioni ma con l'intenzione di modificarla a "fatal" dopo 6-12 mesi);
+* Codifica EAS: aggiunto codice 0209, rimosso codice 9958. Regola Peppol aggiornata conseguentemente;
+* Codifica ICD: aggiunti i codici 0205, 0206, 0206, 0207, 0208, 0209;
+* Codifica Currency codes (ISO 4217): eliminati i codici duplicati.
+
 
 
 | 3.1.0.2(IT)

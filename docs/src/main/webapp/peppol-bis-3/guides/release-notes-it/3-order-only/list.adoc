@@ -6,6 +6,28 @@
 | Data
 | Cosa è cambiato
 
+| 3.2.0.1(IT)
+a| 06/11/2020
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3.0.5]_. +
+
+
+[red]#*Cambiamenti alla sintassi*# +
+
+*  Corretto l'uso del charge indicator "false vs true" nella tabella del paragrafo *6.9. Calcolo dei totali (AnticipatedMonetaryTotals)*
+
+
+[red]#*Cambiamenti alla sintassi*#
+
+*  Aggiunto un nuovo Business Term opzionale a livello di testata: "Shipping label" (tir01-p036)
+* Aggiunto un nuovo Business Term opzionale a livello di riga: "Delivery location ID" (tir01-p037)
+
+[red]#*Cambiamenti alle code lists e ai tool di validazione*#
+
+*  Codifica EAS: aggiunto codice 0209,rimosso codice 9958. Regola Peppol conformemente.
+* Codifica ICD: aggiunto codice 0205, 0206, 0206, 0207, 0208, 0209
+* Codifica ISO 4217: eliminati i codici duplicati
+
+
 | 3.1.0.3(IT)
 a| 04/06/2020
 a| _Aggiornamento alle http://www.rgs.mef.gov.it/_Documenti/VERSIONE-I/e-GOVERNME1/apir/NSO-Regole-tecniche-IT.pdf[Regole Tecniche NSO v. 4.5]_. +
@@ -56,7 +78,7 @@ mlr/snippet-3.xml per renderlo conforme alla sintassi mlr.
 * Modificate le regole PEPPOL-T19-R011 e PEPPOL-T19-R016 per permettere la ripetizione del cac:RequiredItemLocationQuantity.
 * Cambiato il carattere (codice) per le citazioni (“) poichè era in conflitto con alcune implementazioni. Il cambiamento è stato fatto nelle "Rules for transactions" numero T16, T19 and T110.
 * La validazione del cbc:CustomizationID in tutte le BIS è stata cambiata da "l'elemento deve contenere esattamente l'identificatore  della transazione rilevante" a "l'elemento deve iniziare con il valore dell'identificativo della ttransazione rilevante".
-* Le descrizioni e alcuni nomi o codici della UNCL7143 sono state corrette in linea con la code list ufficiale, versione d19a. 
+* Le descrizioni e alcuni nomi o codici della UNCL7143 sono state corrette in linea con la code list ufficiale, versione d19a.
 
 | 3.1.0.1(IT)
 a| 24/02/2020

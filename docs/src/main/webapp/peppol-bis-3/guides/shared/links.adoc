@@ -1,9 +1,9 @@
 //description and subheading text
 :description: La specifica PEPPOL per l'interoperabilità nel Business, d'ora in poi “BIS”, è stata sviluppata da OpenPEPPOL AISBL Post Award Coordinating Community ed è pubblicata come parte delle specifiche PEPPOL.
 :author: OpenPEPPOL AISBL, Post-Award Coordinating Community
-:version: 3.0.4
-:ord_version_it: 3.1.0.3(IT)
-:ddt_version_it: 3.1.0.2(IT)
+:version: 3.0.5
+:ord_version_it: 3.2.0.1(IT)
+:ddt_version_it: 3.1.0.3(IT)
 //PEPPOL
 :peppol: https://peppol.eu/?rel=undefined[PEPPOL]
 :common: https://joinup.ec.europa.eu/svn/peppol/PEPPOL%20BIS%20Common%20text%20and%20introduction%20-%20ver%201%202014-04-14.pdf[PEPPOL BIS common text and introduction]
@@ -65,7 +65,7 @@
 //examples
 :order-UC: https://github.com/OpenPEPPOL/poacc-upgrade-3/tree/master/rules/use-case-examples/order[Use case example files]
 :order-response-UC: https://github.com/OpenPEPPOL/poacc-upgrade-3/tree/master/guides/rules/use-case-examples/order-response[Use case example files]
-:imr-UC: https://github.com/OpenPEPPOL/poacc-upgrade-3/tree/master/examples/use-case-examples/invoice-response[Use case example files]
+:imr-UC: https://docs.peppol.eu/poacc/upgrade-3/files/PEPPOLBIS-Examples.zip[Use case example files]
 :examples-zip: http://test-docs.peppol.eu/poacc/upgrade-3/files/PEPPOLBIS-Examples.zip[Example files (ZIP)]
 
 //internal

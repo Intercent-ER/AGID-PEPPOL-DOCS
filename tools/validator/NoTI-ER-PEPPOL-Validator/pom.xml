@@ -4,11 +4,11 @@
 	<name>NoTI-ER-PEPPOL-Validator</name>
 	<groupId>it.gov.agid</groupId>
 	<artifactId>NoTI-ER-PEPPOL-Validator</artifactId>
-	<version>2.2.7</version>
+	<version>2.2.8-SNAPSHOT</version>
 	<parent>
 		<groupId>it.gov.agid</groupId>
 		<artifactId>NoTI-ER-PEPPOL</artifactId>
-		<version>1.1</version>
+		<version>1.2-SNAPSHOT</version>
 		<relativePath>../../..</relativePath>
 	</parent>
 	<packaging>pom</packaging>

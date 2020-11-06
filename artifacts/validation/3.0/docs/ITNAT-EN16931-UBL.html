@@ -1281,10 +1281,10 @@
                            B E S G K Z secondo il provvedimento AdE n.99370 del 18-apr-2019 e succ.vi.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-IT-360" data-context="//cac:AdditionalDocumentReference[cbc:ID]" data-test="cac:Attachment/cac:ExternalReference/cbc:URI or cac:Attachment/cbc:EmbeddedDocumentBinaryObject">
-                     <td><a href="#">BR-IT-360</a><br><span class="message">[BR-IT-360] - If BT-122 not empty then BT-124 or BT-125 shall be mandatory - Se l'elemento l&#8217;elemento BT-122 (Supporting document
-                           reference) &egrave; valorizzato, &egrave; obbligatorio valorizzare almeno uno degli elementi BT-124 (External document location) e BT-125
-                           (Attached document).</span></td>
+                  <tr id="BR-IT-360" data-context="//cac:AdditionalDocumentReference[cbc:ID and not(cbc:DocumentTypeCode)]" data-test="cac:Attachment/cac:ExternalReference/cbc:URI or cac:Attachment/cbc:EmbeddedDocumentBinaryObject">
+                     <td><a href="#">BR-IT-360</a><br><span class="message">[BR-IT-360] - If BT-122 is not empty and the reference is not an invoice object, then BT-124 or BT-125 shall be mandatory
+                           - Se l'elemento BT-122 (Supporting document reference) &egrave; valorizzato e non &egrave; un riferimento all'oggetto della fattura, &egrave; obbligatorio
+                           valorizzare almeno uno degli elementi BT-124 (External document location) e BT-125 (Attached document).</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="BR-IT-370" data-context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID" data-test="matches(.,'^(\p{IsBasicLatin}){0,100}$')">
@@ -1686,28 +1686,28 @@
                      <td><a href="#">DK-R-016</a><br><span class="message">For Danish Suppliers, a Credit note cannot have a negative total (PayableAmount)</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="GR-R-001-1" data-context="(/ubl-invoice:Invoice | /ubl-creditnote:CreditNote)/cbc:ID[$isGreekSender]" data-test="count($IdSegments) = 6">
+                  <tr id="GR-R-001-1" data-context="/ubl-invoice:Invoice/cbc:ID[$isGreekSender] | /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]" data-test="count($IdSegments) = 6">
                      <td><a href="#">GR-R-001-1</a><br><span class="message"> When the Supplier is Greek, the Invoice Id should consist of 6 segments</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="GR-R-001-2" data-context="(/ubl-invoice:Invoice | /ubl-creditnote:CreditNote)/cbc:ID[$isGreekSender]" data-test="string-length(normalize-space($IdSegments[1])) = 9                                   and u:TinVerification($IdSegments[1])                                  and ($IdSegments[1] = /*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 3, 9)                                  or $IdSegments[1] = /*/cac:TaxRepresentativeParty/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 3, 9) )">
+                  <tr id="GR-R-001-2" data-context="/ubl-invoice:Invoice/cbc:ID[$isGreekSender] | /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]" data-test="string-length(normalize-space($IdSegments[1])) = 9                                   and u:TinVerification($IdSegments[1])                                  and ($IdSegments[1] = /*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 3, 9)                                  or $IdSegments[1] = /*/cac:TaxRepresentativeParty/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 3, 9) )">
                      <td><a href="#">GR-R-001-2</a><br><span class="message">When the Supplier is Greek, the Invoice Id first segment must be a valid TIN Number and match either the Supplier's or the
                            Tax Representative's Tin Number</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="GR-R-001-4" data-context="(/ubl-invoice:Invoice | /ubl-creditnote:CreditNote)/cbc:ID[$isGreekSender]" data-test="string-length(normalize-space($IdSegments[3]))&gt;0 and string(number($IdSegments[3])) != 'NaN' and xs:integer($IdSegments[3]) &gt;= 0">
+                  <tr id="GR-R-001-4" data-context="/ubl-invoice:Invoice/cbc:ID[$isGreekSender] | /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]" data-test="string-length(normalize-space($IdSegments[3]))&gt;0 and string(number($IdSegments[3])) != 'NaN' and xs:integer($IdSegments[3]) &gt;= 0">
                      <td><a href="#">GR-R-001-4</a><br><span class="message">When Supplier is Greek, the Invoice Id third segment must be a positive integer</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="GR-R-001-5" data-context="(/ubl-invoice:Invoice | /ubl-creditnote:CreditNote)/cbc:ID[$isGreekSender]" data-test="string-length(normalize-space($IdSegments[4]))&gt;0 and (some $c in $greekDocumentType satisfies $IdSegments[4] = $c)">
+                  <tr id="GR-R-001-5" data-context="/ubl-invoice:Invoice/cbc:ID[$isGreekSender] | /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]" data-test="string-length(normalize-space($IdSegments[4]))&gt;0 and (some $c in $greekDocumentType satisfies $IdSegments[4] = $c)">
                      <td><a href="#">GR-R-001-5</a><br><span class="message">When Supplier is Greek, the Invoice Id in the fourth segment must be a valid greek document type</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="GR-R-001-6" data-context="(/ubl-invoice:Invoice | /ubl-creditnote:CreditNote)/cbc:ID[$isGreekSender]" data-test="string-length($IdSegments[5]) &gt; 0 ">
+                  <tr id="GR-R-001-6" data-context="/ubl-invoice:Invoice/cbc:ID[$isGreekSender] | /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]" data-test="string-length($IdSegments[5]) &gt; 0 ">
                      <td><a href="#">GR-R-001-6</a><br><span class="message">When Supplier is Greek, the Invoice Id fifth segment must not be empty</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="GR-R-001-7" data-context="(/ubl-invoice:Invoice | /ubl-creditnote:CreditNote)/cbc:ID[$isGreekSender]" data-test="string-length($IdSegments[6]) &gt; 0 ">
+                  <tr id="GR-R-001-7" data-context="/ubl-invoice:Invoice/cbc:ID[$isGreekSender] | /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]" data-test="string-length($IdSegments[6]) &gt; 0 ">
                      <td><a href="#">GR-R-001-7</a><br><span class="message">When Supplier is Greek, the Invoice Id sixth segment must not be empty</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>

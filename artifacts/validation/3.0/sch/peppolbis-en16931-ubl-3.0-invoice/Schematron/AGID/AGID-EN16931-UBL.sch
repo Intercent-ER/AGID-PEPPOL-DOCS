@@ -284,8 +284,8 @@
 		<assert test="contains(' AE B E S G K Z ', concat(' ',normalize-space(.),' '))" flag="fatal" id="BR-IT-350">[BR-IT-350] - For VAT category code only values AE B E S G K Z shall be allowed - I valori accettati sono esclusivamente AE B E S G K Z secondo il provvedimento AdE n.99370 del 18-apr-2019 e succ.vi.</assert>
 	</rule>
 	
-	<rule context="//cac:AdditionalDocumentReference[cbc:ID]" flag="fatal">
-		<assert test="cac:Attachment/cac:ExternalReference/cbc:URI or cac:Attachment/cbc:EmbeddedDocumentBinaryObject" flag="fatal" id="BR-IT-360">[BR-IT-360] - If BT-122 not empty then BT-124 or BT-125 shall be mandatory - Se l'elemento l’elemento BT-122 (Supporting document reference) è valorizzato, è obbligatorio valorizzare almeno uno degli elementi BT-124 (External document location) e BT-125 (Attached document).</assert>
+	<rule context="//cac:AdditionalDocumentReference[cbc:ID and not(cbc:DocumentTypeCode)]" flag="fatal">
+		<assert test="cac:Attachment/cac:ExternalReference/cbc:URI or cac:Attachment/cbc:EmbeddedDocumentBinaryObject" flag="fatal" id="BR-IT-360">[BR-IT-360] - If BT-122 is not empty and the reference is not an invoice object, then BT-124 or BT-125 shall be mandatory - Se l'elemento BT-122 (Supporting document reference) è valorizzato e non è un riferimento all'oggetto della fattura, è obbligatorio valorizzare almeno uno degli elementi BT-124 (External document location) e BT-125 (Attached document).</assert>
 	</rule>
 
 	<!-- BOLLO -->

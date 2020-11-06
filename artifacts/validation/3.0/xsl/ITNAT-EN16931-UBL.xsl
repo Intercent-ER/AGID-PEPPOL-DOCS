@@ -17687,8 +17687,8 @@
 
 	<!--RULE -->
 
-    <axsl:template match="/ubl-invoice:Invoice/cbc:ID[$isGreekSender] | /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]" priority="1008" mode="M42">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="(/ubl-invoice:Invoice | /ubl-creditnote:CreditNote)/cbc:ID[$isGreekSender]"/>
+   <axsl:template match="/ubl-invoice:Invoice/cbc:ID[$isGreekSender] | /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]" priority="1008" mode="M42">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl-invoice:Invoice/cbc:ID[$isGreekSender] | /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]"/>
       <axsl:variable name="IdSegments" select="tokenize(.,'\|')"/>
 
 		<!--ASSERT -->
@@ -20187,8 +20187,8 @@
 
 	<!--RULE -->
 
-   <axsl:template match="//cac:AdditionalDocumentReference[cbc:ID]" priority="1015" mode="M45">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:AdditionalDocumentReference[cbc:ID]"/>
+   <axsl:template match="//cac:AdditionalDocumentReference[cbc:ID and not(cbc:DocumentTypeCode)]" priority="1015" mode="M45">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:AdditionalDocumentReference[cbc:ID and not(cbc:DocumentTypeCode)]"/>
 
 		<!--ASSERT -->
 
@@ -20201,7 +20201,7 @@
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-360] - If BT-122 not empty then BT-124 or BT-125 shall be mandatory - Se l'elemento l’elemento BT-122 (Supporting document reference) è valorizzato, è obbligatorio valorizzare almeno uno degli elementi BT-124 (External document location) e BT-125 (Attached document).</svrl:text>
+               <svrl:text>[BR-IT-360] - If BT-122 is not empty and the reference is not an invoice object, then BT-124 or BT-125 shall be mandatory - Se l'elemento BT-122 (Supporting document reference) è valorizzato e non è un riferimento all'oggetto della fattura, è obbligatorio valorizzare almeno uno degli elementi BT-124 (External document location) e BT-125 (Attached document).</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>

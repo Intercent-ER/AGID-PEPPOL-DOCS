@@ -6,6 +6,14 @@
 | Data
 | Cosa è cambiato
 
+| 3.0.8.1(IT)
+| 04/11/2020
+| Aggiornamento alle specifiche PEPPOL BIS Billing 3.0.8. Revisione regole estensioni.
+
+| 3.0.7.1(IT)
+| 27/10/2020
+| Aggiornamento alle specifiche PEPPOL BIS Billing 3.0.7. Revisione regole estensioni.
+
 | 3.0.6.1(IT)
 | 13/05/2020
 | Aggiornamento alle specifiche PEPPOL BIS Billing 3.0.6.

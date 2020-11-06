@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>it.gov.agid</groupId>
 		<artifactId>NoTI-ER-PEPPOL</artifactId>
-		<version>1.1-SNAPSHOT</version>
+		<version>1.1</version>
 		<relativePath>../</relativePath>
 	</parent>
 	<packaging>war</packaging>

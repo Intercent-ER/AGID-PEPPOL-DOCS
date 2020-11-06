@@ -13,7 +13,7 @@
                 xmlns:ubl="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2"
                 version="2.0"><!--Implementers: please note that overriding process-prolog or process-root is 
     the preferred method for meta-stylesheets to use where possible. -->
-	<!--ITNAT-UBL-T14 V1.7.5 (estende ed include BIS2.0-VA-V3.5.0, supporta FatturaPA 1.2.1-->
+	<!--ITNAT-UBL-T14 V2.2.6 hotfix (estende ed include BIS2.0-VA-V3.5.0, supporta FatturaPA 1.2.1-->
 	<!--Supporta i Tax Category del BIS 3.0 per facilitare la migrazione-->
    <xsl:param name="archiveDirParameter"/>
    <xsl:param name="archiveNameParameter"/>
@@ -3895,8 +3895,8 @@
   
 	<!--RULE -->
 
-   <xsl:template match="//cbc:*" priority="1000" mode="M10">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cbc:*"/>
+   <xsl:template match="//cbc:* | //cr:*" priority="1000" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cbc:* | //cr:*"/>
 
 		<!--ASSERT -->
 

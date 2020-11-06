@@ -13,7 +13,7 @@
                 xmlns:ubl="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
                 version="2.0"><!--Implementers: please note that overriding process-prolog or process-root is 
     the preferred method for meta-stylesheets to use where possible. -->
-	<!--ITNAT-UBL-T10 V1.7.5 (estende ed include BIS2.0-VA-V3.5.0, supporta FatturaPA 1.2.1-->
+	<!--ITNAT-UBL-T10 V2.2.6 hotfix (estende ed include BIS2.0-VA-V3.5.0, supporta FatturaPA 1.2.1-->
 	<!--Supporta i Tax Category del BIS 3.0 per facilitare la migrazione-->
    <xsl:param name="archiveDirParameter"/>
    <xsl:param name="archiveNameParameter"/>
@@ -3659,7 +3659,7 @@
          </xsl:when>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="contains(' TD01 TD02 TD03 TD05 TD06 TD16 TD17 TD18 TD19 TD20 TD21 TD22 TD23 TD24 TD25 TD26 TD27 ', concat(' ',normalize-space(ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_documento']/ext:ExtensionContent/cr:XCode),' '))">
-               <xsl:attribute name="flag">warning</xsl:attribute>
+               <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-get-full-path"/>
                </xsl:attribute>
@@ -4082,8 +4082,8 @@
 
 	<!--RULE -->
 
-   <xsl:template match="//cbc:*" priority="1000" mode="M10">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cbc:*"/>
+   <xsl:template match="//cbc:* | //cr:*" priority="1000" mode="M10">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cbc:* | //cr:*"/>
 
 		<!--ASSERT -->
 

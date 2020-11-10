@@ -3659,7 +3659,7 @@
          </xsl:when>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="contains(' TD01 TD02 TD03 TD05 TD06 TD16 TD17 TD18 TD19 TD20 TD21 TD22 TD23 TD24 TD25 TD26 TD27 ', concat(' ',normalize-space(ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_documento']/ext:ExtensionContent/cr:XCode),' '))">
-               <xsl:attribute name="flag">fatal</xsl:attribute>
+               <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-get-full-path"/>
                </xsl:attribute>

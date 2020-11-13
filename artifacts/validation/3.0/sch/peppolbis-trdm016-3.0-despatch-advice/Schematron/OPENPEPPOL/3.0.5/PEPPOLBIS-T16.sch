@@ -508,6 +508,7 @@
       <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cbc:OutstandingReason"/>
       <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference">
          <assert test="cbc:LineID" flag="fatal" id="PEPPOL-T16-B15401">Element 'cbc:LineID' MUST be provided.</assert>
+         <assert test="cac:OrderReference" flag="fatal" id="PEPPOL-T16-B15402">Element 'cac:OrderReference' MUST be provided.</assert>
       </rule>
       <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference/cbc:LineID"/>
       <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference/cac:OrderReference">
@@ -518,7 +519,7 @@
          <assert test="false()" flag="fatal" id="PEPPOL-T16-B15602">Document MUST NOT contain elements not part of the data model.</assert>
       </rule>
       <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference/*">
-         <assert test="false()" flag="fatal" id="PEPPOL-T16-B15402">Document MUST NOT contain elements not part of the data model.</assert>
+         <assert test="false()" flag="fatal" id="PEPPOL-T16-B15403">Document MUST NOT contain elements not part of the data model.</assert>
       </rule>
       <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item">
          <assert test="cbc:Name" flag="fatal" id="PEPPOL-T16-B15801">Element 'cbc:Name' MUST be provided.</assert>
@@ -663,7 +664,13 @@
                  test="starts-with(normalize-space(.), 'urn:fdc:peppol.eu:poacc:trns:despatch_advice:3')"
                  flag="fatal">Specification identifier SHALL start with the value 'urn:fdc:peppol.eu:poacc:trns:despatch_advice:3'.</assert>
 	     </rule>
-		
+	
+	     <rule context="ubl:DespatchAdvice">
+		       <assert id="PEPPOL-T16-R002"
+                 test="(cac:OrderReference/cbc:ID)"
+                 flag="warning">A despatch advice SHOULD have an order identifier</assert>
+	     </rule>
+	
 	     <rule context="cac:BuyerCustomerParty">
 		       <assert id="PEPPOL-T16-R008"
                  test="(cac:Party/cac:PartyName/cbc:Name) or (cac:Party/cac:PartyIdentification/cbc:ID)"

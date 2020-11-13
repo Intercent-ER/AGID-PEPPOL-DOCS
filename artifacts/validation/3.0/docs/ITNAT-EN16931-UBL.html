@@ -1695,6 +1695,10 @@
                            Tax Representative's Tin Number</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
+                  <tr id="GR-R-001-3" data-context="/ubl-invoice:Invoice/cbc:ID[$isGreekSender] | /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]" data-test="string-length(normalize-space($IdSegments[2]))&gt;0                                   and matches($IdSegments[2],$dateRegExp)                                  and ($tokenizedIdDate[1] = $tokenizedUblIssueDate[3]                                     and $tokenizedIdDate[2] = $tokenizedUblIssueDate[2]                                    and $tokenizedIdDate[3] = $tokenizedUblIssueDate[1])">
+                     <td><a href="#">GR-R-001-3</a><br><span class="message">When the Supplier is Greek, the Invoice Id second segment must be a valid Date that matches the invoice Issue Date</span></td>
+                     <td style="width: 5%;">fatal</td>
+                  </tr>
                   <tr id="GR-R-001-4" data-context="/ubl-invoice:Invoice/cbc:ID[$isGreekSender] | /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]" data-test="string-length(normalize-space($IdSegments[3]))&gt;0 and string(number($IdSegments[3])) != 'NaN' and xs:integer($IdSegments[3]) &gt;= 0">
                      <td><a href="#">GR-R-001-4</a><br><span class="message">When Supplier is Greek, the Invoice Id third segment must be a positive integer</span></td>
                      <td style="width: 5%;">fatal</td>
@@ -1717,7 +1721,7 @@
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="GR-R-003" data-context="cac:AccountingSupplierParty[$isGreekSender]/cac:Party/cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID" data-test="substring(.,1,2) = 'EL' and u:TinVerification(substring(.,3))">
-                     <td><a href="#">GR-R-003</a><br><span class="message">Bad VAT Number for Greek Supplier</span></td>
+                     <td><a href="#">GR-R-003</a><br><span class="message">For the Greek Suppliers, the VAT must start with 'EL' and must be a valid TIN number</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="GR-R-004-1" data-context="/ubl-invoice:Invoice[$isGreekSender] | /ubl-creditnote:CreditNote[$isGreekSender]" data-test="count(cac:AdditionalDocumentReference[cbc:DocumentDescription = '##M.AR.K##'])=1">
@@ -1742,27 +1746,27 @@
                   </tr>
                   <tr id="GR-R-007-2" data-context="cac:TaxRepresentativeParty[$isGreekSender]" data-test="string-length(normalize-space(cac:PartyName/cbc:Name))&gt;0">
                      <td><a href="#">GR-R-007-2</a><br><span class="message">If the Greek Suppliers do not have Greek VAT they must provide the full name of their tax representative in Greece</span></td>
-                     <td style="width: 5%;"></td>
+                     <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="GR-R-007-3" data-context="cac:TaxRepresentativeParty[$isGreekSender]" data-test="count(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID)=1 and     substring(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID,1,2) = 'EL' and     u:TinVerification(substring(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID,3))">
                      <td><a href="#">GR-R-007-3</a><br><span class="message">If the Greek Suppliers do not have Greek VAT, they must provide the VAT number of their tax representative</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="GR-R-008-2" data-context="/ubl-invoice:Invoice[$isGreekSender] | /ubl-creditnote:CreditNote[$isGreekSender]" data-test="(count(cac:AdditionalDocumentReference[cbc:DocumentDescription = '##INVOICE-URL##']) = 0 ) or (count(cac:AdditionalDocumentReference[cbc:DocumentDescription = '##INVOICE-URL##']) = 1 )  ">
+                  <tr id="GR-R-008-2" data-context="/ubl-invoice:Invoice[$isGreekSender] | /ubl-creditnote:CreditNote[$isGreekSender]" data-test="(count(cac:AdditionalDocumentReference[cbc:DocumentDescription = '##INVOICE-URL##']) = 0 ) or (count(cac:AdditionalDocumentReference[cbc:DocumentDescription = '##INVOICE-URL##']) = 1 )">
                      <td><a href="#">GR-R-008-2</a><br><span class="message"> When Supplier is Greek, there should be no more than one invoice url</span></td>
-                     <td style="width: 5%;"></td>
+                     <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="GR-R-008-3" data-context="cac:AdditionalDocumentReference[$isGreekSender and cbc:DocumentDescription = '##INVOICE-URL##']" data-test="string-length(normalize-space(cac:Attachment/cac:ExternalReference/cbc:URI))&gt;0">
                      <td><a href="#">GR-R-008-3</a><br><span class="message">When Supplier is Greek and the INVOICE URL Document reference exists, the External Reference URI should be present</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="GR-R-009" data-context="cac:AccountingSupplierParty[$isGreekSender]/cac:Party/cbc:EndpointID" data-test="./@schemeID='9933'and u:TinVerification(.)">
-                     <td><a href="#">GR-R-009</a><br><span class="message">Greek suppliers that send an invoice through the PEPPOL network must use their TIN number as an electronic address according
+                  <tr id="GR-R-009" data-context="cac:AccountingSupplierParty/cac:Party[$accountingSupplierCountry='GR' or $accountingSupplierCountry='EL']/cbc:EndpointID" data-test="./@schemeID='9933' and u:TinVerification(.)">
+                     <td><a href="#">GR-R-009</a><br><span class="message">Greek suppliers that send an invoice through the PEPPOL network must use a correct TIN number as an electronic address according
                            to PEPPOL Electronic Address Identifier scheme (schemeID 9933).</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="GR-R-010" data-context="cac:AccountingCustomerParty[$isGreekSenderandReceiver]/cac:Party/cbc:EndpointID" data-test="./@schemeID='9933'and u:TinVerification(.)">
-                     <td><a href="#">GR-R-010</a><br><span class="message">Greek Suppliers that send an invoice through the PEPPOL network to a greek buyer must use the buyer's TIN number as an electronic
+                  <tr id="GR-R-010" data-context="cac:AccountingCustomerParty[$isGreekSenderandReceiver]/cac:Party/cbc:EndpointID" data-test="./@schemeID='9933' and u:TinVerification(.)">
+                     <td><a href="#">GR-R-010</a><br><span class="message">Greek Suppliers that send an invoice through the PEPPOL network to a greek buyer must use a correct TIN number as an electronic
                            address according to PEPPOL Electronic Address Identifier scheme (SchemeID 9933)</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>

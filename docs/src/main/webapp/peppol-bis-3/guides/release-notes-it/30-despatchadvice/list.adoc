@@ -6,9 +6,24 @@
 | Data
 | Cosa è cambiato
 
+| 3.1.0.4(IT)
+a| 13/11/2020
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3.0.6 - hotfix]_. +
+
+
+[red]#*Cambiamenti alla sintassi*# +
+
+* Corretta la cardinalità del *cac:DespatchLine/cac:OrderLineReference/cac:OrderLine* a 0..1 (prima 1..1), ora in linea con la BIS (Documentazione). 
+
+[red]#*Cambiamenti alle code lists e ai tool di validazione*#
+
+* Rimossa la regola PEPPOL-T16-R002 che faceva scattare un warning se il cac:OrderReference/cbc:ID fosse assente. 
+
+
+
 | 3.1.0.3(IT)
 a| 06/11/2020
-a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3.0.5]_. +
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3.0.5 - 2020 Fall]_. +
 
 
 [red]#*Cambiamenti alla specifica (Documentazione)*# +

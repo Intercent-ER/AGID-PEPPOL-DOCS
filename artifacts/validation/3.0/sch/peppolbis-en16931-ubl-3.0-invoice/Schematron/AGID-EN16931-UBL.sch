@@ -3,7 +3,7 @@
 
     Licensed under European Union Public Licence (EUPL) version 1.2.
 	
-	Peppol BIS Billing 3.0.8 hotfix (Greece fix)
+	Peppol BIS Billing 3.0.9 hotfix
 -->
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:u="utils" schemaVersion="iso" queryBinding="xslt2">
   <title>EN16931 model bound to UBL</title>

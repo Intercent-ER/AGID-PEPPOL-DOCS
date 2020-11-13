@@ -6,6 +6,10 @@
 | Data
 | Cosa è cambiato
 
+| 3.0.9.1(IT)
+| 13/11/2020
+| Aggiornamento alle specifiche PEPPOL BIS Billing 3.0.9 hotfix. Revisione regole estensioni.
+
 | 3.0.8.1(IT)
 | 04/11/2020
 | Aggiornamento alle specifiche PEPPOL BIS Billing 3.0.8. Revisione regole estensioni.
@@ -26,3 +30,4 @@
 | 21/02/2020
 | Regole di Business aggiornate con ultima EN 3.0.5 hotfix.
 |===
+sudo apt-get autoremove -y

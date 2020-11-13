@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>it.gov.agid</groupId>
 		<artifactId>NoTI-ER-PEPPOL</artifactId>
-		<version>1.2-SNAPSHOT</version>
+		<version>1.2</version>
 		<relativePath>../</relativePath>
 	</parent>
 	<packaging>war</packaging>
@@ -17,9 +17,9 @@
 	<properties>
 		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<validator.version>2.2.7</validator.version>
-		<converter.version>2.4.1</converter.version>
-		<schematron.version>2.2.7</schematron.version>
+		<validator.version>2.2.8</validator.version>
+		<converter.version>2.4.2</converter.version>
+		<schematron.version>2.2.8</schematron.version>
 	</properties>
 
 	<dependencies>

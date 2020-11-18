@@ -1,0 +1,49 @@
+[[Caso-d-uso-1]]
+= Caso d’uso 1 – Risposta all’ordine di fornitura su articoli numerati
+
+Questo caso d’uso è relativo a un ordine composto da voci/articoli numerati con parziale accettazione e sua risposta.
+
+[cols="1s,5",options="header"]
+|====
+|Caso d’uso nr.
+|1
+
+|Nome
+|Ordine con articoli numerati
+
+|Descrizione
+a|
+* Un ordine di articoli numerati. 
+* L’ordine indica al venditore l’indirizzo di consegna. Il venditore consegna solo una parte degli articoli richiesti.
+* Un articolo deve essere sostituito.
+
+
+|Parti coinvolte
+|Acquirente +
+Venditore
+
+|Assunzioni
+|L’acquirente ha a disposizione un catalogo o una lista di prodotti per effettuare l’ordine. +
+Il catalogo contiene gli identificativi degli articoli, nomi e unità di misura.
+
+
+|Il flusso
+a|
+L’acquirente crea l’ordine con 3 diverse righe ed articoli. +
+Il Venditore XXZ riceve l’ordine. +
+
+* Accetta di consegnare un articolo.
+* Respinge un articolo.
+* Sostituisce un articolo.
+
+La risposta all’ordine deve inviare tutte le righe presenti nell’ordine, inserendo per l’ultima riga la sostituzione dell’articolo. L’articolo respinto deve avere la motivazione di rigetto
+
+
+|Risultati
+|L’acquirente e il venditore hanno raggiunto un accordo. +
+L’acquirente ha aggiornato le informazioni dell’ordine in base alla risposta d’ordine. +
+Se la fattura ha un riferimento all’ordine, questa potrà essere riconciliata automaticamente.
+
+|Esempio XML
+|Vedi sezione "Downloads" della https://notier.regione.emilia-romagna.it/docs/[home]
+|====

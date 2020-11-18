@@ -1,0 +1,9 @@
+[[serial-numbers]]
+= Numeri di serie (S/N)
+
+Se ognuno degli articoli consegnati è contrassegnato con un numero di serie individuale, questi numeri possono essere comunicati nel Documento di Trasporto come parte dell’articolo merce (Item) specificando una specifica istanza per ogni numero di serie.
+
+[source, xml, indent=0]
+----
+include::{snippet-dir}/snippet-30-1.xml[tags=serialid]
+----

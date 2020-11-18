@@ -1,0 +1,12 @@
+
+[cols="2,3,3", options="header"]
+|===
+|Termine di Business
+|XPath applicabile
+|Codifica (link or estratto)
+
+| Identificatore standard per l'articolo
+| cac:InvoiceLine/cac:Item/cac:StandardItemIdentification/cbc:ID/@schemeID
+| ICD list from {ISO6523}
+
+|===

@@ -1,0 +1,19 @@
+include::../../shared/links.adoc[]
+= PEPPOL BIS Ordinazione Semplice {ord_version_it}
+Note di Rilascio
+:doctype: book
+:icons: font
+:encoding: utf-8
+:lang: it
+:toc: left
+:toclevels: 2
+:numbered:
+
+
+
+include::list.adoc[]
+
+
+====
+IMPORTANT: La documentazione ufficiale di riferimento è quella pubblicata dal sito MEF della {RGS-NSO}.
+====

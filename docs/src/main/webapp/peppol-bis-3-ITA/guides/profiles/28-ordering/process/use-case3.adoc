@@ -1,0 +1,36 @@
+[[use-case-3-ordering-of-services]]
+= Caso d’uso 3 – Risposta all’ordine di fornitura per i servizi
+
+Questo caso d’uso è relativo a un ordine sui servizi e risposta con rigetto.
+
+[cols="1s,5",options="header"]
+|====
+|Caso d’uso nr.
+|3
+
+|Nome
+|Ordine servizi
+
+|Descrizione
+a|
+* Un ordine per servizi di traduzione.
+* Il luogo di consegna e il periodo sono specificati.
+* Il venditore respinge l’ordine.
+
+|Parti coinvolte
+|Acquirente +
+Venditore
+
+|Assunzioni
+|L’acquirente utilizza un modulo con una serie di proprietà predefinite e concordate per ordinare il servizio.
+
+|Il flusso
+|L’acquirente crea l’ordine di una sola riga richiedendo dei servizi di traduzione dallo Svedese allo Spagnolo. +
+Il venditore rifiuta l’ordine. Nessuna riga deve essere inviata ma deve avere la motivazione del rigetto nella risposta all’ordine.
+
+|Risultati
+|L’acquirente e il venditore non hanno raggiunto un accordo.
+
+|Esempio XML
+|Vedi sezione "Downloads" della https://notier.regione.emilia-romagna.it/docs/[home]
+|====

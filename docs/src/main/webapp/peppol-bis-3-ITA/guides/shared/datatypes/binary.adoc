@@ -1,0 +1,30 @@
+
+= Binary objects
+
+Gli oggetti binari posso essere utilizzati per descrivere file che vengono trasmessi insieme al documento di business.
+Gli allegati devono essere trasmessi insieme al documento di business.
+L'oggetto binaro ha due componenti supplementari: un Mime Code, che specifica il tipo Mime dell'allegato e un Filename che viene fornito dal (o per conto del) mittente del documento di business.
+
+
+[cols="1s,1,1,1", options="header"]
+|===
+|Componente
+|Uso
+|Tipo primitivo
+|Esempio
+
+|Contenuto
+|Obbligatorio
+|Binary
+|QmFzZTY0IGNvbnRlbnQgZXhhbXBsZQ==
+
+|Mime Code
+|Obbligatorio
+|String
+|image/jpeg
+
+|Filename
+|Obbligatorio
+|String
+|drawing5.jpg
+|===

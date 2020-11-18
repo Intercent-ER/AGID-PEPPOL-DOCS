@@ -1,0 +1,45 @@
+[[use-case-2-ordering-of-free-text-articles]]
+= Caso d’uso 2 – Risposta all’ordine di fornitura con articoli e un allegato
+
+Questo caso d’uso è relativo a un ordine composto da articoli e un allegato.
+
+[cols="1s,5",options="header"]
+|====
+|Caso d’uso nr.
+|2
+
+|Nome
+|Ordine con articoli e un allegato
+
+|Descrizione
+a|
+* Un ordine con unità/articoli descritti in modo strutturati. È presente un allegato. +
+* Il venditore risponde con le denominazioni degli articoli appropriate. +
+* Tutte le righe vengono accettate.
+
+|Parti coinvolte
+|Acquirente +
+Venditore +
+Committente
+
+|Assunzioni
+|L’acquirente non ha informazioni strutturate sugli articoli. +
+L’acquirente deve specificare gli articoli in modo da assicurare che il venditore possa identificare gli articoli richiesti in modo appropriato.
+
+|Il flusso
+a|
+L’acquirente crea l’ordine con 2 diverse righe e articoli. +
+Il venditore riceve l’ordine:
+
+* Accetta di consegnare tutti gli articoli.
+
+L’ordine è stato accettato senza modifiche. Nessuna riga deve essere inviata nella risposta all’ordine.
+
+|Risultati
+|L’acquirente e il venditore hanno raggiunto un accordo. +
+L’acquirente ha aggiornato le informazioni dell’ordine in base alla risposta d’ordine. +
+Se la fattura contiene il riferimento all’ordine, questa potrà essere riconciliata automaticamente.
+
+|Esempio XML
+|Vedi sezione "Downloads" della https://notier.regione.emilia-romagna.it/docs/[home]
+|====

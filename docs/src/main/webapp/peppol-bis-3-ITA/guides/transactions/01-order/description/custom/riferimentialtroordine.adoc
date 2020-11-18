@@ -1,0 +1,75 @@
+[[TITOLO]]
+= #Riferimento ad altro ordine#
+
+In caso di cancellazione o modifica di un ordine è necessario riportare gli elementi che lo identificano nel segmento “OrderDocumentReference/ID" valorizzato con la concatenazione dei seguenti campi:
+
+* *ID* dell’ordine;
+
+* IssueDate* valorizzato con la data dell’ordine;
+
+* *EndpointID* dell’elemento BuyerCustomerParty dell’ordine;
+
+* L’operazione che si vuole effettuare (*Cancelled* per la revoca e *Revised* per la modifica).
+
+Per gli ordini precedenti con stato “Revised”, l’ordine rappresenta quindi sempre la nuova versione che sostituisce il precedente.
+
+
+:leveloffset: +1
+
+[[TITOLO]]
+= Esempio di revoca di un ordine precedente
+
+L’Ordine precedente in riferimento viene revocato e il presente Ordine contiene righe vuote (NA) e i segmenti TaxTotal e AnticipatedMonetaryTotal non devono essere presenti.
+
+[source, xml, indent=0]
+----
+<cac:OrderDocumentReference>
+    <cbc:ID>111#2018-01-30#ABCDEF#Cancelled</cbc:ID>
+</cac:OrderDocumentReference>
+            …
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>NA</cbc:ID>
+        <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">0</cbc:Quantity>
+        <cac:Item>
+            <cbc:Name>N/A</cbc:Name>
+        </cac:Item>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+
+:leveloffset: -1
+
+
+:leveloffset: +1
+
+[[TITOLO]]
+= Esempio di modifica di un ordine precedente
+
+L’Ordine precedente in riferimento viene modificato dal presente Ordine che contiene tutte le righe necessarie e che pertanto rappresenta completamente il nuovo ordine.
+
+[source, xml, indent=0]
+----
+<cac:OrderDocumentReference>
+    <cbc:ID>1115#2015-04-30#ABCDEF#Revised</cbc:ID>
+</cac:OrderDocumentReference>
+    …
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>1</cbc:ID>
+        <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">25</cbc:Quantity>
+        <cbc:LineExtensionAmount currencyID="EUR">118.13</cbc:LineExtensionAmount>
+                …
+        <cac:Item>
+            <cbc:Description>128481</cbc:Description>
+            <cbc:Name>CISTO - AID 650036(EX79847-E) </cbc:Name>
+            <cac:SellersItemIdentification>
+                <cbc:ID>79847-E</cbc:ID>
+            </cac:SellersItemIdentification>
+                …
+        </cac:Item>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+
+:leveloffset: -1

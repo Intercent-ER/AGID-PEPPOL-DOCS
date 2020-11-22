@@ -1,31 +1,31 @@
 
 = Identifier
 
-Gli identificatori (IDs) sono chiavi emesse dal mittente o dal destinatario di un documento o da una terza parte.
+Identifiers (IDs) are keys that are issued by the sender or recipient of a document or by a third party.
 
 ====
-IMPORTANT: L’utilizzo degli attributi è specificato per ogni elemento informativo.
+IMPORTANT: The use of the attributes is specified for each information element.
 ====
 
 [cols="1s,1,1,1", options="header"]
 |===
-|Componente
-|Uso
-|Tipo primitivo
-|Esempio
+|Component
+|Use
+|Primitive Type
+|Example
 
-|Contenuto
-|Obbligatorio
+|Content
+|Mandatory
 |String
 |abc:123-DEF
 
 |Scheme identifier
-|Facoltativo
+|Conditional
 |String
 |0088
 
 |Scheme version identifier
-|Facoltativo
+|Conditional
 |String
 |1.0
 |===

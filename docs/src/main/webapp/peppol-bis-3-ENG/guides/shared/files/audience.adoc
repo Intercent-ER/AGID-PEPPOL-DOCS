@@ -1,20 +1,20 @@
 
 [[audience]]
-= A chi si rivolge
+= Audience
 
-Questo documento si rivolge alle organizzazioni che intendono essere abilitate a {peppol} per scambiare documenti di business elettronici, e/o ai loro fornitori ICT.
+The audience for this document is organizations wishing to be {peppol} enabled for exchanging electronic business documents, and/or their ICT-suppliers.
 
-Queste organizzazioni possono essere:
+These organizations may be:
 
-* Fornitori di Servizi
-* Autorità appaltanti
-* Operatori Economici
-* Sviluppatori Software
+* Service providers
+* Contracting Authorities
+* Economic Operators
+* Software Developers
 
-Più specificatamente, i ruoli previsti sono i seguenti:
+More specifically it is addressed towards the following roles:
 
-* Architetti ICT
-* Sviluppatori ICT
-* Esperti di Business
+* ICT Architects
+* ICT Developers
+* Business Experts
 
-Per ulteriori informazioni su PEPPOL/OpenPEPPOL, leggete {common}.
+For further information, please see {common}.

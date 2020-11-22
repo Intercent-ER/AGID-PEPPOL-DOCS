@@ -1,20 +1,20 @@
 = Amount
 
-Un importo indica un valore numerico monetario. La valuta dell’importo è definito come un termine finanziario distinto.
+An amount states a numerical monetary value. The currency of the amount is defined as a separate business term.
 
 ====
-IMPORTANT: L’importo viene espresso come numero con al più due cifre decimali.
+IMPORTANT: Amount is floating up to two fraction digits.
 ====
 
 [cols="1s,1,1,1", options="header"]
 |===
-|Componente
-|Uso
-|Tipo primitivo
-|Esempio
+|Component
+|Use
+|Primitive Type
+|Example
 
-|Contenuto
-|Obbligatorio
+|Content
+|Mandatory
 |Decimal
 |10000.25
 |===

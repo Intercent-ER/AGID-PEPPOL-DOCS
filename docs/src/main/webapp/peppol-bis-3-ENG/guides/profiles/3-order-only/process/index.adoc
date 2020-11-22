@@ -1,19 +1,18 @@
 
-[[processi-e-casi-d-uso-tipici]]
-= Processi e casi d'uso tipici
+[[process-and-typical-use-cases]]
+= Process and typical use cases
 
-Il profilo “Order only” prevede il solo invio dell’Ordine tra l’Acquirente e il Venditore.
+The Order only profile includes the sending of Orders from a Buyer to a Seller.
 
-[[flusso-del-processo]]
-== Flusso del processo
+[[process-flow]]
+== Process flow
 
-Il flusso del processo dell’Ordine può essere descritto come segue:
+The Order process flow can be described as follows:
 
-* Un Acquirente invia un Ordine al Venditore richiedendo la fornitura di merci o servizi.
+* A Buyer submits an Order to the Seller requesting for delivery of goods or services
+* An Order may refer to a framework agreement for its terms and conditions; otherwise the Buyer’s terms and conditions apply.
+* An Order may contain items (goods or services) with item identifiers or items with free text description.
 
-* Un Ordine può fare riferimento ad un accordo quadro per quanto concerne i termini e le condizioni; altrimenti si applicano quelli dell’Acquirente.
-
-* Un Ordine può contenere voci (merce o servizi) espresso mediante identificatori o descrizioni testuali.
 
 [[Requisiti-dei-processi-di-business]]
 == #Requisiti dei processi di business#
@@ -32,7 +31,7 @@ include::../../../shared/bpmn/bpmn-legend.adoc[]
 :leveloffset: -1
 
 
-Il diagramma seguente mostra la coreografia del processo di business implementato da questo profilo d’uso.
+The following diagram shows the choreography of the business process implemented by the BIS.
 
 image::images/bpmn-order.png[align="center", width=600]
 
@@ -46,5 +45,6 @@ include::use-case2.adoc[]
 include::use-case3.adoc[]
 
 include::use-case4.adoc[]
+
 
 :leveloffset: -1

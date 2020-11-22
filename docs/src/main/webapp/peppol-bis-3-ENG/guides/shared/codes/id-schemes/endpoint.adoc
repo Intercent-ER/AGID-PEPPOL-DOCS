@@ -1,17 +1,18 @@
 
 
-= Identificativo dello schema per gli identificatori degli indirizzi elettronici
+= Electronic address identifier scheme identifier
 
-Tutti gli identificatori degli indirizzi elettronici (`cbc:EndpointID/@schemeID`) utilizzano la lista EAS (Electronic Address Scheme) mantenuta dal CEF ({cef-codelists}).
+All electronic address identifiers (`cbc:EndpointID/@schemeID`) use the Electronic Address Scheme code list (EAS),
+maintained by CEF ({cef-codelists}).
 
-I valori permessi si trovano presso: {codelist-EAS}.
+Valid values are found here: {codelist-EAS}.
 
 
-.Esempio di utilizzo in `cbc:EndpointID`
+.Examples of usage in `cbc:EndpointID`
 [source,xml, indent="0"]
 ----
 
 	<cbc:EndpointID schemeID="9906">IT01234567890</cbc:EndpointID> <1>
 
 ----
-<1> L’attributo schemeID è obbligatorio
+<1> schemeID attribute is mandatory

@@ -1,23 +1,22 @@
 
 = Price Amount
 
-Un importo unitario del prezzo indica un valore numerico monetario per gli elementi di dati che contengono i prezzi degli articoli che possono essere moltiplicati per le loro quantità.
-
-La valuta dell’importo è definita come un termine finanziario distinto.
+A price amount states a numerical monetary amount value for data elements that contain item prices that may be multiplied by item quantities.
+The currency of the amount is defined as a separate business term.
 
 ====
-IMPORTANT: L’importo unitario del prezzo non impone restrizioni sul numero di cifre decimali utilizzate, a differenza della tipologia Amount definita precedentemente.
+IMPORTANT: Unit price amount does not set restrictions on number of decimals, as contrast to the Amount type
 ====
 
 [cols="1s,1,1,1", options="header"]
 |===
-|Componente
-|Uso
-|Tipo primitivo
-|Esempio
+|Component
+|Use
+|Primitive Type
+|Example
 
-|Contenuto
-|Obbligatorio
+|Content
+|Mandatory
 |Decimal
 |10000.1234
 |===

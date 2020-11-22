@@ -1,36 +1,36 @@
 [[use-case-2-ordering-of-free-text-articles]]
-= Caso d’uso 2 – Ordine di fornitura con articoli e un allegato
+= Use case 2 – Ordering of free text articles
 
-Questo caso d’uso è relativo a un ordine composto da articoli e un allegato.
+This use case contains an order of free text articles.
 
 [cols="1s,5",options="header"]
 |====
-|Caso d’uso nr.
+|Use Case number
 |2
 
-|Nome
-|Ordine con articoli e un allegato
+|Use Case Name
+|Ordering of free text articles
 
-|Descrizione
-|Un ordine con unità/articoli descritti in modo strutturati. È presente un allegato.
+|Use Case Description
+|An order with item/articles described in free text and attribute/value pairs.
 
-|Ruoli coinvolti
-a|Acquirente +
-Venditore +
-Committente
+|Parties involved
+a|Buyer +
+Seller +
+Originator
 
-|Assunzioni
-|L’acquirente ha informazioni strutturate sugli articoli. +
-L’acquirente deve specificare gli articoli in modo da assicurare che il venditore possa identificare gli articoli richiesti in modo appropriato.
+|Assumptions
+|The buyer does not have structured item information. +
+The buyer must specify the items in a way that ensures that the seller can properly identify the requested items.
 
-|Il flusso
-|L’acquirente crea l’ordine con 2 diverse righe e articoli. +
-Il venditore riceve l’ordine.
+|The flow
+|The buyer creates the order with 2 different lines and items. +
+The seller receives the order.
 
-|Risultati
-|L’acquirente e il venditore hanno raggiunto un accordo. +
-Se la fattura contiene il riferimento all’ordine, questa può essere correlata automaticamente.
+|Result
+|The buyer and the seller has reached an agreement. +
+If the invoice has an order reference, the invoice can be matched automatically.
 
-|Esempio XML
-|Vedi sezione "Downloads" della https://notier.regione.emilia-romagna.it/docs/[home]
-|==== 
+|XML example file
+|{order-UC}
+|====

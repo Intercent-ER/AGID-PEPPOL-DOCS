@@ -1,14 +1,13 @@
 [[codelist]]
-= Codifiche di riferimento
+= Code lists
 
 :leveloffset: +1
 
-= Codifiche di riferimento per elementi codificati
+= Code lists for coded elements
 
-Qualsiasi elemento con tipologia semantica = *code*, può richiedere l’utilizzo di una codifica di riferimento specifica (o un valore fisso).
-Le codifiche applicabili sono disponibili in {link-codelist}. In questa sezione, potete trovare i codici permessi, il loro nome e la descrizione, e i collegamenti ai suoi utilizzi in altre parti della transazione, o in altri documenti PEPPOL BIS v3.
+Any element with the semantic data type = *code*, can mandate the use of a specific code list (or a fixed value). The applicable code lists can be found in the {link-codelist}. In this section, you can find the valid codes, their names and description, and also links to where the same code list is used elsewhere in the transaction, or in other PEPPOL BIS v3. documents.
 
-= Codifiche di riferimento per identificatori
+= Code list for identifiers
 
 :leveloffset: +1
 

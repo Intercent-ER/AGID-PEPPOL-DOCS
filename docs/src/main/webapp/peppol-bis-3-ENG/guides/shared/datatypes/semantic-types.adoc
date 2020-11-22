@@ -1,9 +1,9 @@
 
-= Tipi di dato semantici
+= Semantic data types
 
-I diversi tipi di dato semantici sono descritti nelle tabelle riportate di seguito, dove diverse caratteristiche come attributi, formato e decimali come pure i tipi di dato più semplici sono definiti per ogni tipo di dato semantico. Essi si basano sullo standard {ISO15000}.
+The different semantic data types are described in the tables below, where various features such as attributes, format, and decimals as well as the basic type are defined for each semantic data type. They are based on {ISO15000}.
 
-Quando vengono utilizzati in una fattura, ciascun elemento di dati conterrà i dati. Nelle tabelle di seguito riportate, viene identificato come il “contenuto”. Ogni volta che viene utilizzato un termine di business, esso avrà *sempre* un contenuto e per questo il contenuto è sempre obbligatorio.
+When used in an instance document, each data element will contain data. In the below tables this is identified as the “content”. Whenever a business term is used this term shall *always* have content and therefore the content is always mandatory.
 
 
 :leveloffset: +1

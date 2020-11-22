@@ -2,18 +2,18 @@
 = Boolean
 
 
-Gli indicatori booleani sono usati per specificare i due valori ammessi, _true_ o _false_. Tutti gli elementi di tipo Boolean, devono avere il valore _true_ o _false_.
+Boolean indicators are used to specify the two allowed values, _true_ or _false_. All elements of datatype Boolean, must have either _true_ or _false_ as their value.
 
 
 [cols="1s,1,1,1", options="header"]
 |===
-|Componente
-|Uso
-|Tipo primitivo
-|Esempio
+|Component
+|Use
+|Primitive Type
+|Example
 
-|Contenuto
-|Obbligatorio
+|Content
+|Mandatory
 |String
 |true
 |===

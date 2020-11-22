@@ -1,37 +1,37 @@
 [[use-case-4-complex-ordering]]
-= Caso d’uso 4 – Ordine di fornitura complesso
+= Use case 4 – Complex ordering
 
-Questo caso d’uso è relativo a un ordine contenente quasi tutti gli elementi previsti per il messaggio dell’Ordine PEPPOL.
+This use case contains an order with almost all elements in the order message used.
 
 [cols="1s,5",options="header"]
 |====
-|Caso d’uso nr.
+|Use Case number
 |4
 
-|Nome
-|Ordine complesso
+|Use Case Name
+|Complex ordering
 
-|Descrizione
-|Un ordine di articoli numerati con sconti e maggiorazioni sia a livello di testata che di riga.
+|Use Case Description
+|An order for numbered items with allowance and charges both on order level, line level and price.
 
-|Ruoli coinvolti
-|Acquirente +
-Venditore +
-Committente
+|Parties involved
+|Buyer +
+Seller
+Originator
 
-|Assunzioni
-|L’acquirente ha a disposizione un catalogo o una lista di prodotti per effettuare l’ordine. +
-Il catalogo contiene gli identificativi degli articoli, nomi e unità di misura. +
-L’acquirente ha stretto uno speciale accordo con il venditore relativamente ad uno sconto sull’ordine, le righe d’ordine e sul prezzo.
+|Assumptions
+|The buyer has a catalogue or list of products to order. +
+The catalogue contains the item numbers, names and type of unit of measure. +
+The buyer has reached a special agreement with the seller regarding discounts on the order, order lines and price. +
 
-|Il flusso
-|L’acquirente crea l’ordine con 4 diverse righe e articoli. +
-Il venditore riceve l’ordine.
+|The flow
+|The buyer creates the order with 4 different lines and items. +
+The seller receives the order.
 
-|Risultati
-|L’acquirente e il venditore hanno raggiunto un accordo. +
-Se la fattura contiene il riferimento all’ordine, questa può essere correlata automaticamente.
+|Result
+|The buyer and the seller has reached an agreement. +
+If the invoice has an order reference, the invoice can be matched automatically.
 
-|Esempio XML
-|Vedi sezione "Downloads" della https://notier.regione.emilia-romagna.it/docs/[home]
+|XML example file
+|{order-UC}
 |====

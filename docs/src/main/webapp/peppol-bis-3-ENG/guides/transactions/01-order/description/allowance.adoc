@@ -1,28 +1,31 @@
-[[Sconti-e-maggiorazioni]]
-= Sconti e Maggiorazioni 
 
-Gli elementi per specificare sconti e maggiorazioni si trovano su due livelli.
-
-L’elemento `cac:AllowanceCharge` con il sotto elemento `cac:ChargeIndicator` permette di indicare se si sta specificando una maggiorazione (true) o uno sconto/abbuono (false).
-
-Livello di testata:: _Si applica all’intero ordine ed è incluso nel calcolo dell’importo totale dell’ordine (se specificato)._
-* Possono essere forniti sconti e maggiorazioni
-* Le informazioni sulle imposte relative agli sconti e maggiorazioni (cac:TaxCategory con i suoi sotto elementi) devono essere fornite
-* La somma di tutti gli sconti e maggiorazioni a livello di testata deve essere specificato rispettivamente nel AllowanceTotalAmount e nel ChargeTotalAmount, vedi paragrafo "6.9 Calcolo dei totali (AnticipatedMonetaryTotals)".
-
-Elemento Prezzo a livello di riga:: _Il prezzo indicato deve essere sempre il prezzo netto, cioè l’importo base ridotto da uno sconto._
-* Solamente una occorrenza di sconto è consentita
-* Le informazioni sulle imposte relative agli sconti non devono essere specificate
-* Gli sconti relativi al prezzo sono solo informativi e non sono considerati in qualsiasi altro calcolo
-* Gli sconti relativi al prezzo possono specificare l’importo e l’importo base
+= Allowances and Charges
 
 
+The order transaction has elements for Allowance/charge on 2 levels.
 
-== Sconti e maggiorazioni a livello di testata
+The element `cac:AllowanceCharge` with sub element `cbc:ChargeIndicator` indicates whether the instance is a charge (true) or an allowance (false).
 
-Sconti e maggiorazioni a livello di testata sono costituiti da elementi contenenti informazioni sull’importo base di sconti/maggiorazioni e sulla percentuale di sconti/maggiorazioni.
+The header level:: _Applies to the whole order and is included in the calculation of the order total amount (if specified)._
+* Several allowances and charges may be supplied
+* Specification of TAX for allowances and charges, `cac:TaxCategory` with sub elements, shall be supplied
+* The sum of all allowances and charges on the header level shall be specified in `cbc:AllowanceTotalAmount` and `cbc:ChargeTotalAmount` respectively. See <<totals>>
 
-Se l’importo base è presente, deve essere presente la percentuale, e se la percentuale è presente anche l’importo base deve essere presente. Il calcolo dell’importo è definito nel modo seguente:
+The line level Price element:: _The price itself shall always be the net price, i.e. the base amount reduced with a discount (allowance)._
+* Only one occurrence of allowance (discount) is allowed.
+* Specification of TAX for allowance shall not be specified
+* Allowance related to Price shall not be part of any other calculations.
+* Allowance related to Price may specify amount and the base amount.
+
+
+[allowance-calc]]
+== Calculation of allowance/charge amount
+
+Allowance and charge on document level consists of elements carrying information on the allowance/charge base amount
+and the allowance/charge percentage. These are, if present in the invoice instance, used for calculating the allowance/charge amount.
+
+If base amount is present, the percentage shall also be present, and if percentage is present, the base amount shall also be present,
+and the calculation of the amount shall be:
 
 ====
 stem:["Importo" =  "Importo base" times ("Percentuale" div 100)]
@@ -62,11 +65,11 @@ stem:["Importo" =  "Importo base" times ("Percentuale" div 100)]
 </cac:AllowanceCharge>
 ----
 
-<1> 	ChargeIndicator = TRUE indica la presenza di una maggiorazione
-<2> 	ChargeIndicator = FALSE indica la presenza di uno sconto
-<3> Importo base, deve essere usato con la percentuale per calcolare l’importo
-<4> Percentuale maggiorazione
-<5> stem:["Importo" = "Importo base" times ("Percentuale" div 100)]
+<1> ChargeIndicator = true to indicate a charge
+<2> ChargeIndicator = false to indicate an allowance
+<3> Base amount, to be used with the percentage to calculate the amount
+<4> Charge percentage
+<5> stem:["Amount" = "Base amount" times ("Percentage" div 100)]
 
 
 .Esempio di un UBL con una maggiorazione relativa ai costi di imballaggio
@@ -96,7 +99,7 @@ stem:["Importo" =  "Importo base" times ("Percentuale" div 100)]
 ----
 
 
-== Sconti e maggiorazioni sul prezzo
+== #Sconti e maggiorazioni sul prezzo#
 
 Questo esempio mostra uno sconto di 10 EUR sul prezzo base:
 
@@ -116,9 +119,9 @@ Questo esempio mostra uno sconto di 10 EUR sul prezzo base:
 :leveloffset: +1
 
 [[titolo]]
-= Sconti e maggiorazioni a livello di riga
+= #Sconti e maggiorazioni a livello di riga#
 
-[yellow-background]#Questo esempio mostra uno sconto applicato a tutta la riga d’ordine:#
+Questo esempio mostra uno sconto applicato a tutta la riga d’ordine:
 
 [source, xml, indent=0]
 ----
@@ -147,11 +150,11 @@ Questo esempio mostra uno sconto di 10 EUR sul prezzo base:
 :leveloffset: +1
 
 [[titolo]]
-= Sconto Merce
+= #Sconto Merce#
 
-[yellow-background]#Per cessioni a titolo di sconto, premio o abbuono si inserisce una riga d’ordine separata prestando attenzione ad indicarne la relativa esenzione IVA.#
+Per cessioni a titolo di sconto, premio o abbuono si inserisce una riga d’ordine separata prestando attenzione ad indicarne la relativa esenzione IVA.
 
-[yellow-background]#Infatti ai fini IVA lo sconto merce rientra nelle operazioni Escluse ex Art. 15 D.P.R. 633/72.#
+Infatti ai fini IVA lo sconto merce rientra nelle operazioni Escluse ex Art. 15 D.P.R. 633/72.
 
 [source, xml, indent=0]
 ----
@@ -186,9 +189,9 @@ Questo esempio mostra uno sconto di 10 EUR sul prezzo base:
 :leveloffset: +1
 
 [[titolo]]
-= Omaggi
+= #Omaggi#
 
-[yellow-background]#Per includere nell’ordine degli articoli in omaggio è necessario indicarli in riga separata rispetto a quelli a pagamento e poi si deve indicare sia l’importo di riga che il prezzo con importo a 0 (zero).#
+Per includere nell’ordine degli articoli in omaggio è necessario indicarli in riga separata rispetto a quelli a pagamento e poi si deve indicare sia l’importo di riga che il prezzo con importo a 0 (zero).
 
 .Esempio di una riga d’ordine contenente in omaggio 12 pacchi di striscie per il test del glucosio:
 [source, xml, indent=0]

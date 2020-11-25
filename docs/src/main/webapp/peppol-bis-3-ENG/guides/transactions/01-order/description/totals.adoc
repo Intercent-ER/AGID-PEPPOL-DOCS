@@ -1,122 +1,127 @@
 [[totals]]
-= Calcolo dei totali (AnticipatedMonetaryTotals)
+= Calculation of totals (AnticipatedMonetaryTotals)
 
-I seguenti elementi mostrano gli importi totali presenti nell’ordine:
+The following elements show the anticipated monetary totals for an order:
 [cols="3,3,5", options="header"]
 |===
-| Elemento
-|Descrizione
+| Element
+|Description
 | Formula
 
 | <cbc:LineExtensionAmount>
-| Somma degli importi di riga
+| Sum of line amounts
 | stem:[sum("cac:OrderLine/cac:LineItem/cbc:LineExtensionAmount")]
 
 | <cbc:AllowanceTotalAmount>
-|Sconti/Abbuoni a livello di testata
+|Allowances on document level
 | stem:[sum("cac:AllowanceCharge[ChargeIndicator='false'$$]$$/cbc:Amount")]
 
 | <cbc:ChargeTotalAmount>
-|Maggiorazioni a livello di testata
+|Charges on document level
 | stem:[sum("cac:AllowanceCharge[ChargeIndicator='true'$$]$$/cbc:Amount")]
 
 | <cbc:TaxExclusiveAmount>
-| Importo totale dell’Ordine escluse le imposte
+| Order total amount without TAX
 | stem:[\ \ \ \ "cac:LegalMonetaryTotal/cbc:LineExtensionAmount"] +
 stem:[– \ "cac:LegalMonetaryTotal/cbc:AllowanceTotalAmount"] +
 stem:[+ \ "cac:LegalMonetaryTotal/cbc:ChargeTotalAmount"]
 
 | <cbc:TaxInclusiveAmount>
-| Importo totale dell’Ordine incluse le imposte
+| Order total amount included TAX
 | stem:[\ \ \ \ "cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount"] +
 stem:[+ \ "cac:TaxTotal/cbc:TaxAmount"]
 
 | <cbc:PrepaidAmount>
-|Eventuale importo pagato in anticipo
+|Any amounts that have been paid a-priory
 | _Not applicable_
 
 | <cbc:PayableRoundingAmount>
-| Arrotondamento applicato al totale dell’Ordine
+| Rounding of Order total
 | _Not applicable_
 
 | <cbc:PayableAmount>
-| L’importo previsto per il pagamento
+| The amount that is expected to be paid
 | stem:[\ \ \ \ "cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount"] +
 stem:[- \ "cac:LegalMonetaryTotal/cbc:PrepaidAmount"] +
 stem:[+ \ "cac:LegalMonetaryTotal/cbc:PayableRoundingAmount"]
 |===
 
 
-* Gli importi DEVONO essere forniti con una precisione di due decimali ad eccezione del prezzo dove il numero massimo di decimali può essere cinque come da normativa italiana;
 
-* Il totale dovuto previsto NON DEVE essere negativo;
-
-* Il totale degli importi di riga previsto NON DEVE essere negativo.
+* Amounts MUST be given to a precision of two decimals except for Price where maximum number of decimals are four.
+* Expected total payable amount MUST NOT be negative.
+* Expected total sum of line amounts MUST NOT be negative.
 
 ****
 [NOTE]
-E’ importante notare che la classe AnticipatedMonetaryTotals è opzionale. Se la classe viene inclusa nel messaggio, gli unici elementi obbligatori sono LineExtensionAmount e PayableAmount. Tutti gli altri sono opzionali. Quando gli elementi opzionali vengono usati, il loro contenuto DEVE seguire le regole sotto riportate.
+Note that the AnticipatedMonetaryTotals class is optional.
+If the class is included in the message, the only mandatory elements are the `cbc:LineExtensionAmount` and the `cbc:PayableAmount` elements.
+All other elements are optional.
+When optional elements are used, the content MUST be according to the formulas in the table above.*
 ****
 
 [[element-for-rounding-amount-the-payableroundingamount]]
-== Arrotondamento del PayableRoundingAmount
+== Element for rounding amount, the PayableRoundingAmount
 
-E’ possibile arrotondare l’importo dovuto previsto. La regola per attuarlo è quella di arrotondamento standard, es. Maggiore o uguale a 0.5 viene arrotondato per eccesso, tutti gli altri valori vengono arrotondati per difetto.
+It is possible to round the expected payable amount.
+The rule for this is according to the standard rule regarding rounding, ie.
+greater than or equal to 0.5 is rounded up, all other values are rounded down.
 
-L’elemento AnticipatedMonetaryTotal/PayableRoundingAmount viene usato allo scopo ed è specificato a livello di testata. Questo valore deve essere aggiunto al valore indicato in AnticipatedMonetaryTotal/TaxInclusiveAmount.
+The element `cac:AnticipatedMonetaryTotal/cbc:PayableRoundingAmount` is used for this purpose and is specified on the header level.
 
-Esempio: *Importo 999.81 arrotondato a 1000.00 PayableRoundingAmount = 0.19.*
+Example: Amount 999.81 rounded to 1000.
+PayableRounding Amount = 0.19.
 
 [[example-of-calculations]]
-== Esempi di calcoli
+== Example of calculations:
 
 [cols="2,1,2",options="header"]
 |====
-|Descrizione
-|Elemento
-|Importo
+|Description
+|Element
+|Sample amounts
 
 
-|Somma degli importi di riga
+|Sum of line amounts
 |`cbc:LineExtensionAmount`
 |700
 
-|Sconti/Abbuoni a livello di testata
+|Allowance on document level
 |`cbc:AllowanceTotalAmount`
 |100.00
 
-|Maggiorazioni a livello di testata
+|Charges on document level
 |`cbc:ChargeTotalAmount`
 |200.00
 
-|Importo totale dell’Ordine escluse le imposte
+|Order total amount without TAX
 |`cbc:TaxExclusiveAmount`
 |800
 
-|Importo totale delle imposte
+|TAX total amount
 |`cac:TaxTotal/cbc:TaxAmount`
 |85.63
 
-|Arrotondamento applicato al totale dell’Ordine
+|Rounding of Order total
 |`cbc:PayableRoundingAmount`
 |0.37
 
-|Importo totale dell’Ordine incluse le imposte
+|Order total with TAX (value of purchase)
 |`cbc:TaxInclusiveAmount`
 |885.63
 
-|Importo pagato in anticipo
+|Paid amounts
 |`cbc:PrepaidAmount`
 | 135.00
 
-|L’importo previsto per il pagamento
+|Amount expected to be paid
 |`cbc:PayableAmount`
 |751.00
 
 |====
 
 
-.L'esempio di cui sopra viene espresso nell'ordine nel seguente modo:
+.The above example is presented in the order in the following way:
 [source, xml, indent=0]
 ----
 <cac:AnticipatedlMonetaryTotal>
@@ -130,3 +135,4 @@ Esempio: *Importo 999.81 arrotondato a 1000.00 PayableRoundingAmount = 0.19.*
     <cbc:PayableAmount currencyID="EUR">921.00</cbc:PayableAmount>
 </cac:AnticipatedMonetaryTotal>
 ----
+

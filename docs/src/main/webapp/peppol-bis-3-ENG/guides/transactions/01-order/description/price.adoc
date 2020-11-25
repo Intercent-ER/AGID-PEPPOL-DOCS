@@ -1,20 +1,16 @@
 [[prices]]
-= Prezzi
+= Prices
 
-Nel processo dell’ordine i prezzi possono essere scambiati sia per prodotti specificati con il nome che mediante identificatori. Questo permette al fornitore di cambiare il prezzo nella risposta d’Ordine.
+Prices may be exchanged in the order both for products with or without item identifiers and free text orders.
 
-Se i prezzi non vengono forniti con l’Ordine la prassi è quella di verificare il prezzo durante il processo di fatturazione comparando i prezzi in Fattura con quelli del Catalogo.
+If prices are not sent in the order the normal process is to do price matching during the billing process comparing prices in the Invoice to prices in the Catalogue.
 
-Il Prezzo viene specificato per gli articoli o servizi indicati nell’ordine.
+Price sent is related to the articles or services within this order.
 
-In particolare i prezzi dovrebbero includere abbuoni/sconti e/o maggiorazioni ma al netto delle imposte (es. IVA, GST o Sales tax).
+* Prices should include allowances and/or charges but exclude TAX amounts (e.g. VAT, GST or sales tax)
 
-
-.Esempio di prezzo per un articolo merce:
+.Example of price information in an Order message:
 [source, xml, indent=0]
 ----
-<cac:Price>
- 	<cbc:PriceAmount currencyID="EUR">50.00000</cbc:PriceAmount>
- 	<cbc:BaseQuantity unitCode="LTR" unitCodeListID=”UNECERec20”>1</cbc:BaseQuantity>
-</cac:Price>
+include::{snippet-dir}/snippet-01.xml[tags=price]
 ----

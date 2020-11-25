@@ -1,14 +1,13 @@
 [[product-name-and-description]]
-= Nome prodotto e descrizione
+= Product name and description
 
-Il nome del Prodotto deve essere fornito nell’elemento Item/Name a livello di riga. La sua descrizione può essere fornita in `cac:Item/cbc:Description`.
+The Product name shall be sent in tag `cac:Item/cbc:Name` on line level.
+Description of a product can be sent in `cac:Item/cbc:Description`.
 
-.Esempio di ordine con descrizione e nome:
+The Product name is often sent in the order from buyer to seller.
+
+.Example in an PEPPOL BIS Order message:
 [source, xml, indent=0]
 ----
-<cac:Item>
-    <cbc:Description> Descrizione </cbc:Description>
-    <cbc:Name>Salviette per bambini</cbc:Name>
- 	 …
-</cac:Item>
+include::{snippet-dir}/snippet-01.xml[tags=name]
 ----

@@ -1,45 +1,41 @@
 [[use-case-2-ordering-of-free-text-articles]]
-= Caso d’uso 2 – Risposta all’ordine di fornitura con articoli e un allegato
+= Use case 2 – Ordering of free text articles
 
-Questo caso d’uso è relativo a un ordine composto da articoli e un allegato.
+This use case contains an order of free text articles.
 
 [cols="1s,5",options="header"]
 |====
-|Caso d’uso nr.
+|Use Case number
 |2
 
-|Nome
-|Ordine con articoli e un allegato
+|Use Case Name
+|Ordering of free text articles
 
-|Descrizione
-a|
-* Un ordine con unità/articoli descritti in modo strutturati. È presente un allegato. +
-* Il venditore risponde con le denominazioni degli articoli appropriate. +
-* Tutte le righe vengono accettate.
+|Use Case Description
+|An order with item/articles described in free text and attribute/value pairs. +
+The seller responds with the proper item names. +
+All lines are accepted.
 
-|Parti coinvolte
-|Acquirente +
-Venditore +
-Committente
+|Parties involved
+|Buyer +
+Seller +
+Originator
 
-|Assunzioni
-|L’acquirente non ha informazioni strutturate sugli articoli. +
-L’acquirente deve specificare gli articoli in modo da assicurare che il venditore possa identificare gli articoli richiesti in modo appropriato.
+|Assumptions
+|The buyer does not have structured item information. +
+The buyer must specify the items in a way that ensures that the seller can properly identify the requested items.
+|The flow
+a|The buyer creates the order with 2 different lines and items. +
+The seller:
 
-|Il flusso
-a|
-L’acquirente crea l’ordine con 2 diverse righe e articoli. +
-Il venditore riceve l’ordine:
+* Accepts to deliver all items
+* Full item information is returned in the response.
 
-* Accetta di consegnare tutti gli articoli.
+|Result
+|The buyer and the seller has reached an agreement. +
+The buyer has updated the order information based on the response.+
+If the invoice has an order reference, the invoice can be matched automatically. +
 
-L’ordine è stato accettato senza modifiche. Nessuna riga deve essere inviata nella risposta all’ordine.
-
-|Risultati
-|L’acquirente e il venditore hanno raggiunto un accordo. +
-L’acquirente ha aggiornato le informazioni dell’ordine in base alla risposta d’ordine. +
-Se la fattura contiene il riferimento all’ordine, questa potrà essere riconciliata automaticamente.
-
-|Esempio XML
-|Vedi sezione "Downloads" della https://notier.regione.emilia-romagna.it/docs/[home]
+|XML example file
+|{order-response-UC}
 |====

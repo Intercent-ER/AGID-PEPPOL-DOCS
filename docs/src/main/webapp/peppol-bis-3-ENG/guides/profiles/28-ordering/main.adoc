@@ -17,7 +17,7 @@ include::../../shared/links.adoc[]
 
 image:../../shared/images/peppol.png[float="right"]
 
-= [black]#BIS Ordinazione Completa 3.2#
+= [black]#BIS Ordering 3.2#
 
 {author}
 v{ord_version_it}

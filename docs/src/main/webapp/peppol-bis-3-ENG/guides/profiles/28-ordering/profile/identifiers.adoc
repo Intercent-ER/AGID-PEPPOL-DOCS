@@ -1,5 +1,5 @@
-[[namespace]]
-= Namespace
+[[namespaces]]
+= Namespaces
 
 include::../{order}/technical/namespace.adoc[]
 

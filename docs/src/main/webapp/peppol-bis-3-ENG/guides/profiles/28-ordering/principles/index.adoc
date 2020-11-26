@@ -1,8 +1,9 @@
-[[principi-e-prequisiti]]
-= Principi e prerequisiti
+[[principles-and-prerequisites]]
+= Principles and prerequisites
 
-Questo capitolo descrive i principi e le assunzioni sottostanti l'utilizzo di questo profilo. 
-La documentazione si basa su BII-order.
+This chapter describes the principles and assumptions that underlie the use of PEPPOL Ordering.
+It is based on the {bii-ordering}
+
 
 :leveloffset: +1
 

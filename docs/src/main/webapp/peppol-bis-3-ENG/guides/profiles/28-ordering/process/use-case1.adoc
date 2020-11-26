@@ -1,49 +1,42 @@
-[[Caso-d-uso-1]]
-= Caso d’uso 1 – Risposta all’ordine di fornitura su articoli numerati
+[[use-case-1-ordering-of-numbered-itemsarticles]]
+= Use case 1 – Ordering of numbered items/articles
 
-Questo caso d’uso è relativo a un ordine composto da voci/articoli numerati con parziale accettazione e sua risposta.
+This use case contains an order of numbered items/articles.
 
 [cols="1s,5",options="header"]
 |====
-|Caso d’uso nr.
+|Use Case number
 |1
 
-|Nome
-|Ordine con articoli numerati
+|Use Case Name
+|Ordering of numbered items/articles
 
-|Descrizione
+|Use Case Description
 a|
-* Un ordine di articoli numerati. 
-* L’ordine indica al venditore l’indirizzo di consegna. Il venditore consegna solo una parte degli articoli richiesti.
-* Un articolo deve essere sostituito.
+* An order of numbered articles.
+* The order instructs the seller of the delivery address. The seller can deliver some of the items but not all.
+* One item needs to be replaced.
+|Parties involved
+|Buyer +
+Seller
 
+|Assumptions
+|The buyer has a catalogue or list of products to order. +
+The catalogue contains the item numbers, names and type of unit of measure.
 
-|Parti coinvolte
-|Acquirente +
-Venditore
+|The flow
+a|The buyer creates the order with 3 different lines and items. +
+The seller receives the order.
 
-|Assunzioni
-|L’acquirente ha a disposizione un catalogo o una lista di prodotti per effettuare l’ordine. +
-Il catalogo contiene gli identificativi degli articoli, nomi e unità di misura.
+* Accepts to deliver one item.
+* Rejects one item.
+* Replaces one item.
 
+|Result
+|The buyer and the seller has reached an agreement. +
+The buyer has updated the order information based on the response. +
+If the invoice has an order reference, the invoice can be matched automatically.
 
-|Il flusso
-a|
-L’acquirente crea l’ordine con 3 diverse righe ed articoli. +
-Il Venditore XXZ riceve l’ordine. +
-
-* Accetta di consegnare un articolo.
-* Respinge un articolo.
-* Sostituisce un articolo.
-
-La risposta all’ordine deve inviare tutte le righe presenti nell’ordine, inserendo per l’ultima riga la sostituzione dell’articolo. L’articolo respinto deve avere la motivazione di rigetto
-
-
-|Risultati
-|L’acquirente e il venditore hanno raggiunto un accordo. +
-L’acquirente ha aggiornato le informazioni dell’ordine in base alla risposta d’ordine. +
-Se la fattura ha un riferimento all’ordine, questa potrà essere riconciliata automaticamente.
-
-|Esempio XML
-|Vedi sezione "Downloads" della https://notier.regione.emilia-romagna.it/docs/[home]
+|XML example file
+|{order-response-UC}
 |====

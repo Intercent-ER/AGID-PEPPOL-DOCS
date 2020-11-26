@@ -1,5 +1,5 @@
 [[campi-strutturati]]
-= #Uso di informazioni concatenate in campi strutturati#
+= #Use of concatenated information in structured fields#
 
 The use of concatenated information in structured fields is permitted, where possible; this means XML elements that contain tuples of values, divided among themselves by the symbol "#" and without using spaces, as shown in the following example:
 

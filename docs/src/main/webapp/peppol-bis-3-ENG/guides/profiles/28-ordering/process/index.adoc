@@ -1,33 +1,28 @@
 
-[[Processi-e-casi-d-uso-tipici]]
-= Processi e casi d’uso tipici
+[[process-and-typical-use-cases]]
+= Process and typical use cases
 
-Il profilo del processo dell’ordine di fornitura include l’invio di ordini tra la parte Acquirente e il Venditore e la risposta del Venditore.
+The Ordering process includes the sending of Orders from a Buyer to a Seller and the response of the Seller.
 
-[[Flusso-del-processo]]
-== Flusso del processo
+[[process-flow]]
+== Process flow
 
-Il flusso del processo dell’Ordine di fornitura e della risposta può essere descritto come segue:
+The Ordering process flow can be described as follows:
 
-* Un Acquirente invia l’Ordine al Venditore richiedendo la consegna di merce o servizi
+* A Buyer submits an Order to the Seller requesting for delivery of goods or services
+* An Order may refer to a framework agreement for its terms and conditions; otherwise the Buyer’s terms and conditions apply.
+* An Order may contain items (goods or services) with item identifiers or items with free text description.
+* The Seller may acknowledge that the order is received.
+* The Seller may accept the Order, committing himself to the conditions stated therein by means of an Order Response transaction.
+* Alternatively, the Seller may reject the Order by means of the Order Response transaction.
+* An order rejection may contain reasons for rejection.
+* If contractually agreed, the Seller also may respond to the order, changing details that are acceptable by the Buyer.
+** If an order is accepted with change, the buyer and seller need to have an agreement between them regarding the processing of the changed order,
+ i.e when is a contract concluded and when can the items be shipped.
+* If the order was accepted a contract is concluded.
+If the order was rejected, no contract and no residual obligations exist.
+* After the receipt of an Order Response that rejects the order, the Buyer may start a new ordering process, taking into account the reasons for the rejection by the Seller.
 
-* Un Ordine può fare riferimento ad un accordo quadro per quanto concerne i termini e le condizioni (altrimenti si applicano quelli dell’Acquirente);
-
-* Un Ordine può contenere voci (merce o servizi) espresso mediante identificatori o descrizioni testuali;
-
-* Il venditore può confermare che l’ordine è stato ricevuto;
-
-* Il Venditore può accettare l’Ordine, impegnandosi alle condizioni indicate mediante la transazione della Risposta d’Ordine.
-
-* Alternativamente, il Venditore può respingere l’Ordine attraverso la transazione della Risposta d’Ordine.
-
-* Il rigetto di un Ordine può contenere le ragioni del rigetto.
-
-* Se pattuito contrattualmente, il Venditore può inoltre rispondere all’ordine, modificando dettagli che siano accettabili dall’Acquirente.
-
-* Se l’Ordine è sttao accettato o accettato con modifiche, un contratto è concluso. Se l’Ordine è stato respinto, nessun contratto e nessuna obbligazione residuale avrà luogo.
-
-*   Dopo la ricezione della Risposta d’Ordine che respinge l’Ordine, l’Acquirente può iniziare un nuovo processo di ordine, tenendo conto dei motivi del rigetto da parte del Venditore.
 
 [[Requisiti-dei-processi-di-business]]
 == Requisiti dei processi di business
@@ -51,6 +46,7 @@ riferimento.# +
 #La Risposta a un Ordine revocato non ha effetti per il Cliente.#
 
 
+
 :leveloffset: +1
 
 include::../../../shared/bpmn/bpmn-legend.adoc[]
@@ -58,7 +54,7 @@ include::../../../shared/bpmn/bpmn-legend.adoc[]
 :leveloffset: -1
 
 
-Il diagramma seguente mostra la coreografia del processo di business implementato da questo profilo d’uso.
+The following diagram shows the choreography of the business process implemented by the BIS.
 
 image::images/bpmn-ordering.png[width=1000]
 

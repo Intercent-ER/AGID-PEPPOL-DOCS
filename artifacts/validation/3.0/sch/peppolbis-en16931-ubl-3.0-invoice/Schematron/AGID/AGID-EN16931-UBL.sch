@@ -184,7 +184,7 @@
 	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID" flag="fatal">
 		<assert test="(@schemeID='0201' and matches(.,'^[a-zA-Z0-9]{6}$')) or (@schemeID='0202' and matches(.,'^(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)$') and matches(.,'^.{7,256}$')) or (@schemeID='0205' and matches(.,'^[a-zA-Z0-9]{7}$'))" flag="fatal" id="BR-IT-200">[BR-IT-200] - Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0201", l'elemento BT-49 (Buyer electronic address) 
 		deve contenere un codice IPA con lunghezza pari a 6 caratteri,
-		se invece l'elemento BT-49-1 contiene il valore "0201", l'elemento BT-49 deve contenere un indirizzo PEC di lunghezza compresa fra 7 e 256 caratteri,
+		se invece l'elemento BT-49-1 contiene il valore "0202", l'elemento BT-49 deve contenere un indirizzo PEC di lunghezza compresa fra 7 e 256 caratteri,
 		se invece l'elemento BT-49-1 contiene il valore "0205", l'elemento BT-49 deve contenere un Codice Destinatario con lunghezza pari a 7 caratteri.</assert>
 	</rule>
 	

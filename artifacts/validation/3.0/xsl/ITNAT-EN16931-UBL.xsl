@@ -19497,7 +19497,7 @@
                </axsl:attribute>
                <svrl:text>[BR-IT-200] - Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0201", l'elemento BT-49 (Buyer electronic address) 
 		deve contenere un codice IPA con lunghezza pari a 6 caratteri,
-		se invece l'elemento BT-49-1 contiene il valore "0201", l'elemento BT-49 deve contenere un indirizzo PEC di lunghezza compresa fra 7 e 256 caratteri,
+		se invece l'elemento BT-49-1 contiene il valore "0202", l'elemento BT-49 deve contenere un indirizzo PEC di lunghezza compresa fra 7 e 256 caratteri,
 		se invece l'elemento BT-49-1 contiene il valore "0205", l'elemento BT-49 deve contenere un Codice Destinatario con lunghezza pari a 7 caratteri.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>

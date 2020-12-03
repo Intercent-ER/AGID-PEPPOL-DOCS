@@ -20236,15 +20236,15 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="cbc:ChargeIndicator = true() and cbc:AllowanceChargeReason = 'BOLLO' and cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0] and ../cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount &gt; 77.47 and not(../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'S' or cbc:ID = 'B']) and ((cbc:Amount = 0.00 and not(../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0])) or (cbc:Amount = 2.00 and ../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0]))"/>
+         <axsl:when test="cbc:ChargeIndicator = true() and cbc:AllowanceChargeReason = 'BOLLO' and cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0] and ../cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount &gt; 77.47 and not(../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'S' or cbc:ID = 'B']) and ((cbc:Amount = 0.00 and ../cac:TaxTotal/cac:TaxSubtotal[cbc:TaxableAmount = 0.00]/cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0]) or (cbc:Amount = 2.00 and ../cac:TaxTotal/cac:TaxSubtotal[cbc:TaxableAmount = 2.00]/cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0]))"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cbc:ChargeIndicator = true() and cbc:AllowanceChargeReason = 'BOLLO' and cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0] and ../cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount &gt; 77.47 and not(../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'S' or cbc:ID = 'B']) and ((cbc:Amount = 0.00 and not(../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0])) or (cbc:Amount = 2.00 and ../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0]))">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cbc:ChargeIndicator = true() and cbc:AllowanceChargeReason = 'BOLLO' and cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0] and ../cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount &gt; 77.47 and not(../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'S' or cbc:ID = 'B']) and ((cbc:Amount = 0.00 and ../cac:TaxTotal/cac:TaxSubtotal[cbc:TaxableAmount = 0.00]/cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0]) or (cbc:Amount = 2.00 and ../cac:TaxTotal/cac:TaxSubtotal[cbc:TaxableAmount = 2.00]/cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0]))">
                <axsl:attribute name="id">BR-IT-480</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-480] - Se la fattura è soggetta alla marca da bollo, il motivo della maggiorazione deve essere posto a "BOLLO", la fattura non deve contenere IVA e l'importo deve essere superiore a 77.47 EURO. Se l'importo del bollo viene rifatturato al cliente, il suo valore deve essere posto a 2 EUR come operazione non imponibile IVA (TaxCategory/ID = 'Z') e il relativo riepilogo IVA deve essere presente".</svrl:text>
+               <svrl:text>[BR-IT-480] - Se la fattura è soggetta alla marca da bollo, il motivo della maggiorazione deve essere posto a "BOLLO", la fattura non deve contenere IVA e l'importo deve essere superiore a 77.47 EURO. Se l'importo del bollo viene rifatturato al cliente, il suo valore deve essere posto a 2.00 EUR come operazione non imponibile IVA (TaxCategory/ID = 'Z') e il relativo riepilogo IVA deve riportare un imponibile di 2.00 EUR".</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>

@@ -1347,11 +1347,11 @@
                            superare i 35 caratteri.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-IT-480" data-context="/*/cac:AllowanceCharge[cbc:AllowanceChargeReasonCode = 'SAE']" data-test="cbc:ChargeIndicator = true() and cbc:AllowanceChargeReason = 'BOLLO' and cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0] and ../cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount &gt; 77.47 and not(../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'S' or cbc:ID = 'B']) and ((cbc:Amount = 0.00 and not(../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0])) or (cbc:Amount = 2.00 and ../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0]))">
+                  <tr id="BR-IT-480" data-context="/*/cac:AllowanceCharge[cbc:AllowanceChargeReasonCode = 'SAE']" data-test="cbc:ChargeIndicator = true() and cbc:AllowanceChargeReason = 'BOLLO' and cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0] and ../cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount &gt; 77.47 and not(../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'S' or cbc:ID = 'B']) and ((cbc:Amount = 0.00 and ../cac:TaxTotal/cac:TaxSubtotal[cbc:TaxableAmount = 0.00]/cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0]) or (cbc:Amount = 2.00 and ../cac:TaxTotal/cac:TaxSubtotal[cbc:TaxableAmount = 2.00]/cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0]))">
                      <td><a href="#">BR-IT-480</a><br><span class="message">[BR-IT-480] - Se la fattura &egrave; soggetta alla marca da bollo, il motivo della maggiorazione deve essere posto a "BOLLO", la
                            fattura non deve contenere IVA e l'importo deve essere superiore a 77.47 EURO. Se l'importo del bollo viene rifatturato al
-                           cliente, il suo valore deve essere posto a 2 EUR come operazione non imponibile IVA (TaxCategory/ID = 'Z') e il relativo riepilogo
-                           IVA deve essere presente".</span></td>
+                           cliente, il suo valore deve essere posto a 2.00 EUR come operazione non imponibile IVA (TaxCategory/ID = 'Z') e il relativo
+                           riepilogo IVA deve riportare un imponibile di 2.00 EUR".</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="BR-IT-510" data-context="/*/cac:AccountingCustomerParty/cac:Party" data-test="cac:PartyTaxScheme/cbc:CompanyID or (cac:PartyLegalEntity/cbc:CompanyID and matches(cac:PartyLegalEntity/cbc:CompanyID,'^CF:[A-Z0-9]{11,16}$'))">

@@ -12,19 +12,19 @@ To all quantities there must be a valid Unit according to the Code list "Recomma
 |Element name / (Tag name)
 |Description
 
-|Price Quantity +
+|Price Quantity +come regola generale
 (`cbc:BaseQuantity`)
 |Quantity related to Price.
 
 |Order Quantity +
 (`cbc:Quantity`)
-|Quantity that is ordered, e.g. number of pieces or volume in litre .
+|Quantity that is ordered, e.g. number of pieces or volume in litre .si tenga presente che
 |====
 
 
 [IMPORTANT]
 ====
-#Come regola generale, si tenga presente che, quando la descrizione corrispondente alla codifica del prodotto (es. il codice articolo del Fornitore), che già include l’unità minima di vendita o l’unità di confezionamento, per evitare fraintendimenti tra le parti, è consigliabile adoperare l’unità di quantità “C62”.#
+#As a general rule, please note that when the description related to the product's codelist (e.g. Seller's item identification) already contains the minimum sale unit or the packaging unit, it's advisable to use the unit quantity code *“C62”* to prevent any misunderstandig between the Parties.#
 ====
 
 .Esempio di una riga d’ordine con quantità di prodotto a unità :

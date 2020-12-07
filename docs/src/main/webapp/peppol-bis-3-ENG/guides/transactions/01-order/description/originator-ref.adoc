@@ -1,21 +1,23 @@
 = CIG (Originator document reference)
 
-[yellow-background]#Nel procurement pubblico possono essere diversi i riferimenti necessari a identificare una fornitura. Per fornire gli estremi di un documento a cui ci si riferisce dalla testata o dalle righe d’ordine è necessario specificarne l’identificativo. Le seguenti tipologie di documento possono essere utilizzate sia in testata che dalle righe d’ordine. Altre tipologie possono essere utilizzate liberamente, purché non siano in contrasto con altre informazioni per le quali esiste già una precisa posizione nel documento#
+#In public procurement there may be different referenced document needed for identifying a provision of good and services; to provide the details at the document or line level it is necessary to specify the identifier of the document.#
 
-[yellow-background]#Nei documenti di tipo ordine iniziale e sostitutivo è obbligatorio indicare il Codice identificativo di gara (CIG o Smart CIG), censito nella Banca dati Nazionale dei contratti pubblici (BDNCP), a cui le prestazioni contenute nel Documento si riferiscono.#
+#The following typology of document can be referred at document or line level; also other references can be done, as long as there is no conflict with the information for which there is already a specific position established  in the document.#
+
+#In documents such as "ordine iniziale" and "ordine sostitutivo" it is mandatory to indicate the Codice identificativo di gara (CIG or Smart CIG), in english Tender Identification Code, recorded in the Banca dati Nazionale dei contratti pubblici (BDNCP), to which the provisions object of the document are related.#
 
 [cols="1,2,5", options="header"]
 |====
-s|Riferimento
-s|Descrizione
-s|Dove usarlo
+s|Reference
+s|Description
+s|Where to use it
 
 |*CIG*
 |Codice Identificativo Gara
-|In testata si usa +
+|At document level +
 `cac:OriginatorDocumentReference` (0..1) +
 
-A livello di riga +
+At line level +
 `cac:OrderLine/cac:LineItem/cac:Item/cac:ItemSpecificationDocumentReference/ID` (0..n)
 
 |====
@@ -29,7 +31,7 @@ A livello di riga +
 </cac:OriginatorDocumentReference>
 ----
 
-[yellow-background]#Nei casi di esclusione previsti dalle norme vigenti, in luogo del valore del CIG deve essere utilizzato uno dei codici presenti nella codelist *"Esclusioni CIG (IT)"*, disponibile nella sezione CODIFICHE. Il motivo di esclusione va indicato inserendo l'apposito codice.#
+#In the exclusion cases, according to the current legislation, in the place of CIG value it needs to be utilised one of the codes present in the coelist *"Esclusioni CIG (IT)"*, available in the section CODELIST. The reason of the exclusion is indicated by inserting the specific code.#
 
 .L’esempio seguente indica un ordine con il motivo di esclusione ES12 “AFFIDAMENTI_IN_HOUSE”.
 [source, xml, indent=0]

@@ -8,7 +8,7 @@ The attachment can either be sent as a binary object encoded in Base64 embedded 
 NOTE: It is recommended to send attachments as embedded, binary objects and not as external references.
 
 
-[yellow-background]#I codici validi (*MIMECode IT*) vengono denotati tra le  https://notier.regione.emilia-romagna.it/docs/[Codifiche e Identificatori] evidenziati, compatibili con NSO.#
+#Valid values (i.e. compatible with con NSO) are listed and highlighted in the codelist *Mime code (IANA Subset)*.#
 
 
 .Example of attachment as an embedded, binary object

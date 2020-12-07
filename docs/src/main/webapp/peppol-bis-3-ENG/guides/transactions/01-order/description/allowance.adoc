@@ -99,9 +99,9 @@ stem:["Importo" =  "Importo base" times ("Percentuale" div 100)]
 ----
 
 
-== #Sconti e maggiorazioni sul prezzo#
+== #Allowance and charges on price#
 
-Questo esempio mostra uno sconto di 10 EUR sul prezzo base:
+The following example shows an allowance of 10 EUR applied to the base amount price:
 
 [source, xml, indent=0]
 ----
@@ -119,9 +119,9 @@ Questo esempio mostra uno sconto di 10 EUR sul prezzo base:
 :leveloffset: +1
 
 [[titolo]]
-= #Sconti e maggiorazioni a livello di riga#
+= #Allowance and charges on line level#
 
-Questo esempio mostra uno sconto applicato a tutta la riga d’ordine:
+The following example shows an allowance applied to the whole order line:
 
 [source, xml, indent=0]
 ----

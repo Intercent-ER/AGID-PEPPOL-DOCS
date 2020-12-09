@@ -1,15 +1,17 @@
 [[Confezionamento]]
 = #Confezionamento#
 
-Per fornire informazioni sul confezionamento è possibile usare due diverse modalità a seconda di come viene effettuato l’ordine, e quindi se l’articolo corrisponde alla singola unità "C62" o alla confezione "XPK". Se l’articolo ordinato è una confezione è importante indicarne l’unità di misura corretta. +
+In order to provide information about the packaging, it is possibile to use two differents ways depending on how the order is carried out, meaning if the item corresponds with the unit quantity "C62" or the packaging unit "XPK". +
 
-Nella tabella seguente si forniscono chiarimenti per aggiungere informazioni sulle singole unità all’interno della confezione e viceversa, quando l’articolo coincide con l’unità base, per fornire informazioni sul confezionamento.
+If the ordered article is a package, it is important to indicate the correct unit of measure. +
+
+The following table provides clarification on how to add information about single units within the package and viceversa, meaning when the article coincides with the unit base, to provide information about the packaging.
 
 
 [cols="1,3",options="header"]
 |====
-s|Tipo di informazione
-s|Descrizione
+s|Type of information
+s|Descriprion
 
 |PackSizeNumeric
 |Indica il numero di articoli contenuti in un confezionamento primario (ad esempio, quante pasticche o unità “C62” una confezione “XPK”)
@@ -19,14 +21,14 @@ s|Descrizione
 
 |====
 
-Seguono due esempi significativi.
+Two meaningful examples are below. 
 
 :leveloffset: +1
 
-= Caso 1: Articolo ordinato per singola unità
+= Case 1: Ordered item by single unit
 
 
-Esempio in cui l’articolo viene ordinato per singola unità e non a confezione, ed indicazione del numero di pezzi per confezione primaria:
+This is an example of an item ordered as single unit and not as package, and so the indication of number of pieces into the primary package:
 
 [source, xml, indent=0]
 ----
@@ -60,10 +62,10 @@ Esempio in cui l’articolo viene ordinato per singola unità e non a confezione
 
 :leveloffset: +1
 
-=  Caso 2: Articolo ordinato a confezione
+=  Case 2: Ordered item by package
 
 
-Esempio in cui l’articolo viene ordinato a confezione:
+This is an example in which the item is ordered by package:
 
 [source, xml, indent=0]
 ----

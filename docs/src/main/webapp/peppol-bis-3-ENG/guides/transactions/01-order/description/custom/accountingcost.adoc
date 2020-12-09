@@ -1,9 +1,9 @@
 [[Accounting-Cost]]
 = #Accounting Cost#
 
-Per indicare la classificazione contabile a livello di testata, occorre valorizzare l’elemento “AccountingCost”.
+The accounting classification can be indicated at the document level valorizing the element “AccountingCost”.
 
-Ad esempio, dato il conto di costo “BA0040 – Medicinali con AIC”:
+For instance, given the cost account “BA0040 – Medicinali con AIC”:
 
 
 [source, xml, indent=0]
@@ -11,7 +11,9 @@ Ad esempio, dato il conto di costo “BA0040 – Medicinali con AIC”:
 <cbc:AccountingCost>BA0040</cbc:AccountingCost>
 ----
 
-Per indicare la classificazione contabile a livello di linea d’ordine, occorre valorizzare il campo “AccountingCost” dell’elemento “OrderLine/LineItem". Ad esempio, dato il conto di costo “BA0350 – Supporti informatici e cancelleria”:
+To indicate the accounting classification at the line level it is necessary to valorize the element "AccountingCost” within the segment “OrderLine/LineItem". +
+
+For istance, given the cost account “BA0350 – Supporti informatici e cancelleria”:
 
 
 [source, xml, indent=0]
@@ -23,15 +25,20 @@ Per indicare la classificazione contabile a livello di linea d’ordine, occorre
 </cac:OrderLine>
 ----
 
-Con riguardo agli ordini di dispositivi medici si segnala che l’elemento “AccountingCost” deve essere necessariamente valorizzato per fornire l’informazione circa la voce di Stato Patrimoniale/Conto Economico, che deve essere poi riportata in fattura dal Fornitore nel campo “RiferimentoAmministrazione” secondo le previsioni della Circolare MEF-MDS del 17 marzo 2020 “Fatture elettroniche riguardanti dispositivi medici - Individuazione delle fatture di interesse per l'applicazione delle disposizioni previste dall'articolo 9-ter del decreto-legge 19 giugno 2015 n. 78, come modificato dalla Legge 30 dicembre 2018, n. 145, art. 1, comma 557”. +
+With reference to the medical devices, the element  “AccountingCost” must be always valorized to provide information about the entry of the Balance Sheet/Income Statement, which needs to be reported later in the Invoice by the Seller into the element of FatturaPA “RiferimentoAmministrazione”, according to the instruction of Ministerial Circular MEF-MDS of 17 March 2020 “Fatture elettroniche riguardanti dispositivi medici - Individuazione delle fatture di interesse per l'applicazione delle disposizioni previste dall'articolo 9-ter del decreto-legge 19 giugno 2015 n. 78, come modificato dalla Legge 30 dicembre 2018, n. 145, art. 1, comma 557”. +
 
 [NOTE]
 ====
-L’elemento “AccountingCost” deve essere utilizzato anche per evidenziare le spese riferibili al centro di costo “COV20” previsto dall’articolo 18 del decreto-legge 17 marzo 2020, n. 18. 
+The element “AccountingCost” shall be used also to highlight the expenses associated to the cost account “COV20” #previsto dall’articolo 18 del decreto-legge 17 marzo 2020, n. 18.# 
 ====
 
-Negli altri casi, l’elemento “AccountingCost” può essere valorizzato nel modo che si ritiene più adeguato, ad esempio con il conto di costo, con il centro di costo, con entrambi o con qualsivoglia altra classificazione contabile. +
+In all the remaining cases, the element “AccountingCost” can be valorized as the most appropriate way, for example with a cost account, center account, both, or any other accounting classification. +
 
-Le informazioni devono essere separate con il carattere “#.
+The information must be separated by the character "#".
+
+
+
+
+
 
 

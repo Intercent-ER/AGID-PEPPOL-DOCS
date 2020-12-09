@@ -1,25 +1,25 @@
 [[TITOLO]]
-= #Riferimento ad altro ordine#
+= #Reference to another order#
 
-In caso di cancellazione o modifica di un ordine è necessario riportare gli elementi che lo identificano nel segmento “OrderDocumentReference/ID" valorizzato con la concatenazione dei seguenti campi:
+In the case of *revocation* or *modification* of orderds it is necessary to report the elements that identify it in the segment “OrderDocumentReference/ID", valorised with the concatenation of the following details:
 
-* *ID* dell’ordine;
+* *ID* of the order;
 
-* IssueDate* valorizzato con la data dell’ordine;
+* *IssueDate* valorized with the date of the order;
 
-* *EndpointID* dell’elemento BuyerCustomerParty dell’ordine;
+* *EndpointID* of the orderd's element BuyerCustomerParty;
 
-* L’operazione che si vuole effettuare (*Cancelled* per la revoca e *Revised* per la modifica).
+* The transaction to be done (*Cancelled* for revocation and *Revised* for modification).
 
-Per gli ordini precedenti con stato “Revised”, l’ordine rappresenta quindi sempre la nuova versione che sostituisce il precedente.
+In the case of previous orders with “Revised” status, the order represents the new version that replaces the previous one.
 
 
 :leveloffset: +1
 
 [[TITOLO]]
-= Esempio di revoca di un ordine precedente
+= Example of revocation of previous order
 
-L’Ordine precedente in riferimento viene revocato e il presente Ordine contiene righe vuote (NA) e i segmenti TaxTotal e AnticipatedMonetaryTotal non devono essere presenti.
+The previous order is revoked and the actual one has empty lines (NA) and the segments "TaxTotal" and "AnticipatedMonetaryTotal" must not be present.
 
 [source, xml, indent=0]
 ----
@@ -44,9 +44,9 @@ L’Ordine precedente in riferimento viene revocato e il presente Ordine contien
 :leveloffset: +1
 
 [[TITOLO]]
-= Esempio di modifica di un ordine precedente
+= Example of modification of previous order
 
-L’Ordine precedente in riferimento viene modificato dal presente Ordine che contiene tutte le righe necessarie e che pertanto rappresenta completamente il nuovo ordine.
+The previous order is amended by the present order, wich contains all the needed lines and consequently represents completely the new order.
 
 [source, xml, indent=0]
 ----

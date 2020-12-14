@@ -28,3 +28,10 @@ NOTE: Si raccomanda di inviare allegati in modo incorporato, oggetti binari e no
 
 
 IMPORTANT: Gli allegati possono essere utilizzati come informazioni aggiuntive ma non come copie dell’ordine.
+
+
+#Nel caso di ordini di beni o servizi che per essere evasi richiedono obbligatoriamente la presenza di documenti (es. Scheda Paziente), è necessario che tali documenti siano trasmessi tramite NSO come allegato PDF all’ordine elettronico.#
+
+#Ove le informazioni contenute negli allegati possano comportare problemi legati alla privacy, i medesimi allegati possono essere in formato cifrato oppure è possibile ricorrere all’uso di riferimenti esterni (elemento *cac:ExternalReference*), il cui accesso può essere limitato utlizzando idonea profilatura.#
+
+

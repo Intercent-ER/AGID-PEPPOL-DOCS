@@ -25,13 +25,28 @@ Per indicare la classificazione contabile a livello di linea d’ordine, occorre
 
 Con riguardo agli ordini di dispositivi medici si segnala che l’elemento “AccountingCost” deve essere necessariamente valorizzato per fornire l’informazione circa la voce di Stato Patrimoniale/Conto Economico, che deve essere poi riportata in fattura dal Fornitore nel campo “RiferimentoAmministrazione” secondo le previsioni della Circolare MEF-MDS del 17 marzo 2020 “Fatture elettroniche riguardanti dispositivi medici - Individuazione delle fatture di interesse per l'applicazione delle disposizioni previste dall'articolo 9-ter del decreto-legge 19 giugno 2015 n. 78, come modificato dalla Legge 30 dicembre 2018, n. 145, art. 1, comma 557”. +
 
-[NOTE]
-====
-L’elemento “AccountingCost” deve essere utilizzato anche per evidenziare le spese riferibili al centro di costo “COV20” previsto dall’articolo 18 del decreto-legge 17 marzo 2020, n. 18. 
-====
-
 Negli altri casi, l’elemento “AccountingCost” può essere valorizzato nel modo che si ritiene più adeguato, ad esempio con il conto di costo, con il centro di costo, con entrambi o con qualsivoglia altra classificazione contabile. +
 
-Le informazioni devono essere separate con il carattere “#.
+Le informazioni devono essere separate con il carattere *“#"*.
+
+Considerate le disposizioni normative vigenti, la collocazione delle informazoni nel campo vanno riportate rispettando il seguente ordine di priorità:
+
+* se necessaria, l’indicazione “COV-20”;
+* se necessaria, l’indicazione del RiferimentoAmministrazione del dispositivo medico;
+* ulTeriori indicazioni.
 
 
+:leveloffset: +1
+
+= Emergenza epidemiologica da Covid-19
+
+L’articolo 18 del decreto-legge 17 marzo 2020, n. 18 prescrive l'apertura di un centro di costo dedicato contrassegnato dal codice univoco *"COV 20"*, al fine di garantire una tenuta distinta degli accadimenti contabili legati alla gestione dell’emergenza epidemiologica da COVID-19.
+
+*L’elemento appropriato* da utilizzare è il campo `cbc:AccountingCost` (presente sia a livello di testata del Documento, sia a livello di linee d’ordine), con l’indicazione del testo "COV20".
+
+Poiché nella sezione `cac:AdditionalDocumetReference` è anche possibile riportare informazioni su eventuali provvedimenti cui far riferimento, come delibere, impegni, ecc. (v. Paragrafo 6.14), per facilitare la distinzione degli acquisti legati  alla  gestione dell’emergenza epidemiologica da COVID-19, si suggerisce di emettere ordini specifici a tale fine.
+
+Se si adotta questa soluzione, in alternativa o in aggiunta a quanto indicato nel precedentemente, è possibile inserire il testo "COV20” all’interno dell’*identificativo dell’Ordine* (campo `cbc:ID`). 
+
+
+:leveloffset: -1

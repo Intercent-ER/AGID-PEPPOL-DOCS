@@ -1,13 +1,11 @@
-[[Consegna-Delivery]]
-= #Consegna (Delivery)#
+[[Delivery]]
+= #Delivery#
 
-Le informazioni di consegna sono necessarie qualora l’indirizzo differisca da quello della parte che emette l’ordine e permette di fornire indicazioni più precise sulla resa della merce (DeliveryTerms). Si ricorda che l’orario di apertura del magazzino dovrà essere inserita nel campo AddressLine/Line del segmento Address.
+Information about the delivery are necessary if the address differ from the one of the Party that send the order and if allows to provide more precise indications about the returns of goods (DeliveryTerms). The warehouse opening time needs to be inserted in the elements "AddressLine/Line" of segment "Address".
 
-Il luogo di esecuzione della fornitura è la sede in cui deve avvenire la cessione dei beni e/o la prestazione dei servizi.
+The delivery location is the location in which the provision of goods or services needs to happen. It is represented by the elements “Delivery/DeliveryLocation”.
 
-È rappresentato nell’Ordine, dall’elemento “Delivery/DeliveryLocation”.
-
-Se il luogo di consegna è un indirizzo istituzionale del Cliente a cui è stato associato un identificativo univoco reso disponibile al Fornitore, indicare anche tale identificativo, come mostrato nel seguente esempio:
+If the delivery address is the Client's institutional address to which a unique identifier has been associated, made available by the Seller, it is necessary to provide also this identifier, as shown by the followign example:
 
 [source, xml, indent=0]
 ----
@@ -51,9 +49,9 @@ Se il luogo di consegna è un indirizzo istituzionale del Cliente a cui è stato
 </cac:DeliveryTerms>
 ----
 
-Se, invece, la consegna dei beni e/o la prestazione dei servizi deve avvenire presso un luogo non istituzionale o in un luogo istituzionale non codificato (anche temporaneamente), vanno indicate con precisione tutte le parti del sotto-elemento “Address”,  come mostrato nel seguente esempio:
+Instead, if the provision of goods and services  must take place in a non-institutional location or institutional location not coded (even temporarily), it is necessary to indicate precisely all the elements and sub-information inside de segment “Address”, as shown by the following example:
 
-.Esempio
+.Example
 [source, xml, indent=0]
 ----
 <cac:Delivery>
@@ -76,10 +74,10 @@ Se, invece, la consegna dei beni e/o la prestazione dei servizi deve avvenire pr
 </cac:Delivery>
 ----
 
-Se trattasi di consegna domiciliare (ad esempio, all’indirizzo di un paziente), questa circostanza va specificata valorizzando il campo “ID” con il testo “Consegna domiciliare” e indicando con precisione nel campo “AddressLine/Line” l’indirizzo esatto di consegna (ad esempio, includendo il numero di interno), come mostrato nel seguente esempio:
+In the case of *home delivery* (for example, delivery to the address of a patient) this circumstance needs to be specified valorizing the field “ID” with the text “Consegna domiciliare” and indicating accurately in the element “AddressLine/Line” the exact delivery address (for instance, including the #numero di interno#), as shown by the following example:
 
 
-.Esempio
+.Example
 [source, xml, indent=0]
 ----
 <cac:Delivery>

@@ -29,7 +29,7 @@ With reference to the medical devices, the element  “AccountingCost” must be
 
 [NOTE]
 ====
-The element “AccountingCost” shall be used also to highlight the expenses associated to the cost account “COV20” #previsto dall’articolo 18 del decreto-legge 17 marzo 2020, n. 18.# 
+The element “AccountingCost” shall be used also to highlight the expenses associated to the cost account “COV20” provided for in Article 18 of Decree-Law 17 March 2020, no. 18. 
 ====
 
 In all the remaining cases, the element “AccountingCost” can be valorized as the most appropriate way, for example with a cost account, center account, both, or any other accounting classification. +

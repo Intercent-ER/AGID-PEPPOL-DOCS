@@ -1,63 +1,62 @@
 [[altri-riferimenti]]
 = #Altri riferimenti#
 
-Per fornire gli estremi di CUP, DDT, IMPEGNO, DELIBERA, CONTRATTO e CONVENZIONE vedasi tabella.
-
+To provide the details of CUP, DDT, IMPEGNO, DELIBERA, CONTRATTO and CONVENZIONE see the table below.
 
 [cols="1,2,7", options="header"]
 |====
-s|Riferimento
-s|Descrizione
-s|Dove usarlo
+s|Reference
+s|Description
+s|When to use it
 
 |*CUP*
 |Codice Unico Progetto
-|In testata si usa +
+|At document level use +
 `cac:AdditionalDocumentReference` (0.n) +
 
-A livello di riga +
+At line level use +
 `cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n)
 
 |*DDT*
 |Documento di Trasporto +
 (usare solo per riferirsi a DDT precedentemente ricevuti nel corso di un conto deposito merce)
-|In testata si usa +
+|At document level use +
 `cac:AdditionalDocumentReference` (0.n) +
 
-A livello di riga +
+At line level use +
 `cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n)
 
 
 |*IMPEGNO*
 |Estremi Impegno
-|In testata si usa +
+|At document level use +
 `cac:AdditionalDocumentReference` (0.n) +
 
-A livello di riga +
+At line level use +
 `cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n)
 
 |*DELIBERA*
 |Estremi Delibera
-|In testata si usa +
+|At document level use +
 `cac:AdditionalDocumentReference` (0.n) +
 
-A livello di riga +
+At line level use +
 `cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n)
 
 |*CONTRATTO*
 |Estremi Contratto
-|In testata si usa +
+|At document level use +
 `cac:Contract` (0.1) +
 
-A livello di riga +
+At line level use +
 `cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n)
 
 |*CONVENZIONE*
 |Estremi Convenzione
-|In testata si usa +
+|At document level use +
 `cac:AdditionalDocumentReference` (0.n) +
 
-A livello di riga +
+At line level use +
 `cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n)
 
 |====

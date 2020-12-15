@@ -28,7 +28,7 @@ If base amount is present, the percentage shall also be present, and if percenta
 and the calculation of the amount shall be:
 
 ====
-stem:["Importo" =  "Importo base" times ("Percentuale" div 100)]
+stem:["Amount" = "Base amount" times ("Percentage" div 100)]
 ====
 
 

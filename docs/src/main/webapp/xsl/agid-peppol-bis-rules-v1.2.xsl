@@ -22,17 +22,17 @@
                 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-                <link rel="stylesheet" href="css/bootstrap.css"/>
-                <link rel="stylesheet" href="css/structure.css"/>
+                <link rel="stylesheet" href="../../../../css/bootstrap.css"/>
+                <link rel="stylesheet" href="../../../../css/structure.css"/>
                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"/>
-                <link rel="stylesheet" href="css/agid-custom.css?v=1.3"/>
+                <link rel="stylesheet" href="../../../../css/agid-custom.css?v=1.3"/>
 
                 <!--[if lt IE 9]>
                         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
                         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
                 <![endif]-->
-                <script src="js/jquery.js"/>
-                <script src="js/bootstrap.js"/>
+                <script src="../../../../js/jquery.js"/>
+                <script src="../../../../js/bootstrap.js"/>
                 <script type="text/javascript">
                     //<![CDATA[
                     debugger;//@ sourceURL=agid.js

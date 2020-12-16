@@ -20,7 +20,7 @@
 
 	</head>
 	<body>
-		<%@include file="inc/header_other.jsp" %>
+		<%@include file="inc/header_fatt.jsp" %>
 
 			<div id="main" class="container" style="display: block;">
 

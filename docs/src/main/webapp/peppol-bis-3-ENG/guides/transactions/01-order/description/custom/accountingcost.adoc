@@ -3,7 +3,7 @@
 
 The accounting classification can be indicated at the document level valorizing the element “AccountingCost”.
 
-For instance, given the cost account “BA0040 – Medicinali con AIC”:
+For instance, given the cost account “BA0040 – Medicinal products with AIC”:
 
 
 [source, xml, indent=0]
@@ -13,7 +13,7 @@ For instance, given the cost account “BA0040 – Medicinali con AIC”:
 
 To indicate the accounting classification at the line level it is necessary to valorize the element "AccountingCost” within the segment “OrderLine/LineItem". +
 
-For istance, given the cost account “BA0350 – Supporti informatici e cancelleria”:
+For istance, given the cost account “BA0350 – Informatic support and stationary”:
 
 
 [source, xml, indent=0]

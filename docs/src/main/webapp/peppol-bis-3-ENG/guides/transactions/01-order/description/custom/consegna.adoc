@@ -74,7 +74,7 @@ Instead, if the provision of goods and services  must take place in a non-instit
 </cac:Delivery>
 ----
 
-In the case of *home delivery* (for example, delivery to the address of a patient) this circumstance needs to be specified valorizing the field “ID” with the text “Consegna domiciliare” and indicating accurately in the element “AddressLine/Line” the exact delivery address (for instance, including the #numero di interno#), as shown by the following example:
+In the case of *home delivery* (for example, delivery to the address of a patient) this circumstance needs to be specified valorizing the field “ID” with the text “Consegna domiciliare” and indicating accurately in the element “AddressLine/Line” the exact delivery address (for instance, including the flat number), as shown by the following example:
 
 
 .Example

@@ -9,6 +9,7 @@ Il luogo di consegna può essere indicato anche a livello di linea d’ordine
 utlizzando il campo "Delivery/ID" dell’elemento "OrderLine/LineItem". Si tratta, tuttavia,
 di una pratica sconsigliata se non preventivamente concordata tra Cliente e Fornitore. +
 
+.Esempio dell'indicazione del Delivery/ID sulle linee d'ordine
 [source, xml, indent=0]
 ----
 <cac:OrderLine>

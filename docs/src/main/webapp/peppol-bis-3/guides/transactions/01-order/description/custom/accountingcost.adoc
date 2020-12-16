@@ -31,9 +31,9 @@ Le informazioni devono essere separate con il carattere *“#"*.
 
 Considerate le disposizioni normative vigenti, la collocazione delle informazoni nel campo vanno riportate rispettando il seguente ordine di priorità:
 
-* se necessaria, l’indicazione “COV-20”;
+* se necessaria, l’indicazione “COV-20” (vedi sotto);
 * se necessaria, l’indicazione del RiferimentoAmministrazione del dispositivo medico;
-* ulTeriori indicazioni.
+* ulteriori indicazioni.
 
 
 :leveloffset: +1

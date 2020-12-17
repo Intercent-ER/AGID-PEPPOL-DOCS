@@ -1,34 +1,36 @@
 [[Descrizione-di-parti-selezionate-del-messaggio-di-risposta-ordine]]
 = Descrizione di parti selezionate del messaggio di risposta d’ordine
 
-Il messaggio di risposta d’ordine viene inviato dal venditore all’acquirente attestando la capacità del venditore di evadere l’ordine. Le seguenti regole si applicano al PEPPOL BIS Order Response:
+The order response message is sent by the Seller to the Buyer certifying the capacity of the Seller to fulfil an order. +
 
-* La risposta d’ordine deve essere riferita ad un ordine.
+The following rules are apllied to PEPPOL BIS Order Response:
 
-* Il venditore può accettare o respingere l’intero ordine.
+* The order response must be related to an order.
 
-* La risposta d’ordine in caso di rigetto deve specificarne il motivo.
+* The Seller can accept or reject the entire order.
 
-* Il venditore può accettare o respingere le singole righe d’ordine.
+* In case of refusal, the order response must specify the reason.
 
-* Se il venditore accetta o respinge le righe d’ordine, tutte le righe d’ordine devono essere inviate nella risposta d’ordine.
+*  The Seller can accept or reject the single order lines.
 
-* Le righe nella risposta d’ordine devono essere riferite alle righe corrispondenti nell’ordine, 1 a 1.
+* If the Seller refuse or accept the order lines, all the lines must be sent in the order response.
 
-* Le informazioni seguenti possono essere modificate nella risposta d’ordine:
+* The order lines in the order response must be related to the corresponding order line, 1 to 1.
 
-** Quantità;
+* The following information can be modified in the order response:
 
-** Periodo di consegna;
+** Quantity;
 
-** Articolo in sostituzione;
+** Delivery period;
 
-** Prezzo. +
+** Replacement item;
+
+** Price. +
 
 
-* #Se l’ordine è respinto o modificato, la risposta d’ordine deve includere in testata le informazioni di contatto del venditore nel# `cbc:Note`.
+* #If the order is rejected or modified, the order response must include at the document level the Seller's contact information in the element *cbc:Note*#.
 
-* #La risposta d’ordine deve riportare univocamente l’identificativo del Fornitore.#
+* #The order response must contain univocally the Buyer's identifier.#
 
 
 :leveloffset: +1

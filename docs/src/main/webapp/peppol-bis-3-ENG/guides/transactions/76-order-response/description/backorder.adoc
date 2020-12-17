@@ -1,12 +1,12 @@
 [[ordine-con-rinvio]]
 = Ordine con rinvio
 
-Un risposta d’ordine potrebbe fornire informazioni riferite ad una consegna parziale di una riga d’ordine con informazioni aggiuntive riferite al numero massimo di articoli che verranno consegnati in una data successiva, quest’ultima non ancora nota.
+An order response could provide information related to a partial delivery of an order line with additional information referring to the maximum item numbers that will be delivered in a later date, the latter not yet known.
 
-NOTE: Se la quantità rimanente non verrà consegnata, utilizzare `cbc:MaximumBackorderQuantity`= 0 .
+NOTE: If the remaning quantity will not be delivered, use `cbc:MaximumBackorderQuantity`= 0 .
 
 
-.Esempio che mostra una risposta ad un ordine di 6 articoli di cui 2 ricevono conferma sulle date di consegna e 3 sono messi in ordine rinviato per essere in consegna successivamente, per una consegna totale fino a 5 articoli
+.Example that shows an order response of 6 item of which 2 receive a confirmation about the delivery dates and 3 are put in a "postponed order" to be in delivery at a later time, for a final total delivery up to 5 articles
 [source, xml, indent=0]
 ----
 <cac:OrderLine>

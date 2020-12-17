@@ -1,9 +1,11 @@
 [[Ordine-con-sostituzione-articolie-consegna-fuori-tempo]]
 = Ordine con sostituzione articoli e consegna fuori tempo
 
-Una risposta d’ordine può sostituire gli articoli in due modalità. Se viene sostituita la quantità totale di un articolo, tale informazione può essere fornita utilizzando l’elemento che identifica il nuovo venditore (`cac:SellerSubstitutedLineItem`) nella risposta di fatturazione, come illustrato nell’esempio seguente.
+An order response can replace the items in two ways. +
 
-.Esempio di articolo sostituito in un messaggio di risposta d’ordine
+If the total quantity of an order is replaced, this information can be provided by using the element that identifies the new Seller (`cac:SellerSubstitutedLineItem`) into the invoice response, as shown in the example below.
+
+.Example of article replaced in a order response message
 [source, xml, indent=0]
 ----
 <cac:OrderLine>
@@ -43,11 +45,11 @@ Una risposta d’ordine può sostituire gli articoli in due modalità. Se viene 
 
 <1> Le informazioni sull’articolo sostituito vengono inviate `cac:SellerSubstitutedLineItem`
 
-Se il venditore sostituisce una parte della quantità d’ordine o consegna la quantità d’ordine in date diverse, potrebbe dover aggiungere righe e/o contrassegnare le righe ordinate come consegnate, come illustrato nell’esempio seguente. +
+If the seller replaces a part of the order quantity or delivers the quantity at different times, may have to add order lines and/or to mark order lines ad delivered, as shown in the following example. +
 
-Nell’esempio un venditore conferma la prima riga d’ordine, fornisce due date di consegna per la riga del secondo ordine di 3 pezzi (Prodotto B) aggiungendo una nuova riga e quindi conferma che la riga d’ordine 3 è già stata consegnata.
+In the example, the Seller confirms the first order line, provides two dates for the second order's line of 3 items by adding a new order line (Product B), and so confirming that the order line no. 3 has already been delivered.
 
-.Esempio di righe aggiuntive e consegna fuori tempo
+.Example of additional lines and delivery out of time
 [source, xml, indent=0]
 ----
 <cac:OrderLine>

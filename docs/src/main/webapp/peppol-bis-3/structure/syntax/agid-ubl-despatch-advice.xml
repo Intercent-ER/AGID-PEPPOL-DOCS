@@ -66,11 +66,12 @@
             <Term>cac:OrderReference</Term>
             <Name>Order reference - Riferimento all'Ordine</Name>
       			<Element agid:custom="rule">
-      				<Term>cbc:ID</Term>
-      				<Name>Order document reference - Riferimento all'ordine di riferimento </Name>
-      				<Description>Contiene gli estremi dell’Ordine, precedentemente emesso, a cui fa riferimento la Risposta e il suo nuovo stato (c.d. Tripletta).</Description>
+      				  <Term>cbc:ID</Term>
+      				  <Name>Order document reference - Riferimento all'ordine di riferimento </Name>
+      			    <Description>Contiene gli estremi dell’Ordine precedentemente emesso (c.d. Tripletta).</Description>
                 <DataType>Identifier</DataType>
                 <Reference type="BUSINESS_TERM">tir16-006</Reference>
+                <Value type="EXAMPLE">4321#2013-01-30#ABCDEF</Value>
             </Element>
             <Element cardinality="0..1" agid:custom="extension">
                 <Term>cbc:CustomerReference</Term>
@@ -122,9 +123,9 @@
                         <Name>Scheme identifier</Name>
             						<Description>Schema identificativo dell'indirizzo elettronico.</Description>
                         <Reference type="CODE_LIST">eas</Reference>
-                        <Value type="EXAMPLE">0088</Value>
+                        <Value type="EXAMPLE">9906</Value>
                     </Attribute>
-                    <Value type="EXAMPLE">7300010000001</Value>
+                    <Value type="EXAMPLE">IT01234567890</Value>
                 </Element>
                 <Element cardinality="0..1">
                     <Term>cac:PartyIdentification</Term>
@@ -141,9 +142,9 @@
               							<Description>Scheme identifier dell'identificativo del Cliente</Description>
                             <Reference type="CODE_LIST">ICD</Reference>
                             <Reference type="RULE">IT-T16-R002</Reference>
-                            <Value type="EXAMPLE">0184</Value>
+                            <Value type="EXAMPLE">0202</Value>
                         </Attribute>
-                        <Value type="EXAMPLE">IT:VAT:IT01245267890</Value>
+                        <Value type="EXAMPLE">nome.cognome@pec.it</Value>
                     </Element>
                 </Element>
                 <Element agid:custom="cardinality">
@@ -275,9 +276,9 @@
                         <Name>Scheme identifier</Name>
             						<Description>Schema identificativo dell'indirizzo elettronico.</Description>
                         <Reference type="CODE_LIST">eas</Reference>
-                        <Value type="EXAMPLE">0088</Value>
+                        <Value type="EXAMPLE">0201</Value>
                     </Attribute>
-                    <Value type="EXAMPLE">7300010000001</Value>
+                    <Value type="EXAMPLE">ABCDEF</Value>
                 </Element>
                 <Element cardinality="0..1">
                     <Term>cac:PartyIdentification</Term>
@@ -293,9 +294,9 @@
                             <Name>Scheme identifier</Name>
               							<Description>Scheme identifier dell'identificativo del Consegnatario</Description>
                             <Reference type="CODE_LIST">ICD</Reference>
-                            <Value type="EXAMPLE">0184</Value>
+                            <Value type="EXAMPLE">0201</Value>
                         </Attribute>
-                        <Value type="EXAMPLE">IT:VAT:IT01245267890</Value>
+                        <Value type="EXAMPLE">ABCDEF</Value>
                     </Element>
                 </Element>
                 <Element agid:custom="cardinality">
@@ -430,9 +431,9 @@
                             <Name>Scheme identifier</Name>
               							<Description>Indica lo scheme identifier dell'identificativo dell'Acquirente.</Description>
                             <Reference type="CODE_LIST">ICD</Reference>
-                            <Value type="EXAMPLE">0184</Value>
+                            <Value type="EXAMPLE">0201</Value>
                         </Attribute>
-                        <Value type="EXAMPLE">IT:VAT:IT01245267890</Value>
+                        <Value type="EXAMPLE">PIVA:IT01234567890</Value>
                     </Element>
                 </Element>
                 <Element agid:custom="cardinality">
@@ -539,9 +540,9 @@
                             <Name>Scheme identifier</Name>
               							<Description>Indica lo scheme identifier dell'identificativo del Venditore.</Description>
                             <Reference type="CODE_LIST">ICD</Reference>
-                            <Value type="EXAMPLE">0184</Value>
+                            <Value type="EXAMPLE">0202</Value>
                         </Attribute>
-                        <Value type="EXAMPLE">IT:VAT:IT01245267890</Value>
+                        <Value type="EXAMPLE">nome.cognome@pec.it</Value>
                     </Element>
                 </Element>
                 <Element agid:custom="cardinality">
@@ -647,9 +648,9 @@
                             <Name>Scheme identifier</Name>
               							<Description>Indica lo scheme identifier dell'identificativo del Committente.</Description>
                             <Reference type="CODE_LIST">ICD</Reference>
-                            <Value type="EXAMPLE">0184</Value>
+                            <Value type="EXAMPLE">0201</Value>
                         </Attribute>
-                        <Value type="EXAMPLE">IT:VAT:IT01245267890</Value>
+                        <Value type="EXAMPLE">PIVA:IT01234567890</Value>
                     </Element>
                 </Element>
                 <Element agid:custom="cardinality">
@@ -814,7 +815,7 @@
                                 <Reference type="CODE_LIST">ICD</Reference>
                                 <Value type="EXAMPLE">0184</Value>
                             </Attribute>
-                            <Value type="EXAMPLE">IT:VAT:IT01245267890</Value>
+                            <Value type="EXAMPLE">PIVA:IT01245267890</Value>
                         </Element>
                     </Element>
                     <Element agid:custom="cardinality">
@@ -1021,8 +1022,8 @@
                             </Element>
                         </Element>
                         <Element cardinality="0..1">
-                            <Term>cac:Country - Nazione</Term>
-                            <Name>Country</Name>
+                            <Term>cac:Country</Term>
+                            <Name>Country - Nazione</Name>
                             <Element>
                                 <Term>cbc:IdentificationCode</Term>
                                 <Name>Country code - Codice nazione</Name>
@@ -1052,7 +1053,7 @@
                 <Description>Riporta informazioni in testo libero (non strutturate) che, perciò, non sono elaborabili con sistemi automatizzati.</Description>
                 <Reference type="BUSINESS_TERM">tir16-047</Reference>
             </Element>
-            <Element cardinality="0..1">
+            <Element cardinality="1..1">
                 <Term>cbc:DeliveredQuantity</Term>
                 <Name>Delivererd quantity - Quantità consegnata</Name>
                 <Description>Indica la quantità consegnata nella riga.</Description>
@@ -1100,7 +1101,7 @@
                     <Description>Indica il numero della riga d’ordine a cui si riferisce la riga del DDT.</Description>
                     <Reference type="BUSINESS_TERM">tir16-051</Reference>
                 </Element>
-                <Element>
+                <Element cardinality="0..1">
                     <Term>cac:OrderReference</Term>
                     <Name>Order reference - Riferimento all'ordine</Name>
                     <Element>
@@ -1109,6 +1110,7 @@
                         <Description>Identifica l'ordine al quale la riga d'ordine si riferisce. Contiene gli estremi dell'ordine (c.d. Tripletta).</Description>
                         <Reference type="BUSINESS_TERM">tir16-p010</Reference>
                         <Reference type="RULE">PEPPOL-T16-R002</Reference>
+                        <Value type="EXAMPLE">4321#2013-01-30#ABCDEF</Value>
                     </Element>
                 </Element>
             </Element>
@@ -1391,7 +1393,7 @@
                             <Reference type="CODE_LIST">UNCL6313-T16</Reference>
                             <Value type="EXAMPLE">Consigliata</Value>
                         </Element>
-                        <Element cardinality="0..1">
+                        <Element cardinality="1..1">
                             <Term>cbc:Measure</Term>
                             <Name>Temperatura</Name>
                             <Description>Comunemente la temperatura viene espressa in gradi Celsius “CEL” o Fahrenheit “FAH”.</Description>
@@ -1415,7 +1417,7 @@
                             <Description>Qualificatore temperatura.</Description>
                             <Reference type="CODE_LIST">UNCL6313-T16</Reference>
                         </Element>
-                        <Element cardinality="0..1">
+                        <Element cardinality="1..1">
                             <Term>cbc:Measure</Term>
                             <Name>Temperatura</Name>
                             <Description>Comunemente la temperatura viene espressa in gradi Celsius “CEL” o Fahrenheit “FAH”.</Description>
@@ -1439,7 +1441,7 @@
                             <Description>Qualificatore temperatura</Description>
                             <Reference type="CODE_LIST">UNCL6313-T16</Reference>
                         </Element>
-                        <Element cardinality="0..1">
+                        <Element cardinality="1..1">
                             <Term>cbc:Measure</Term>
                             <Name>Temperatura</Name>
                             <Description>Comunemente la temperatura viene espressa in gradi Celsius “CEL” o Fahrenheit “FAH”.</Description>
@@ -1464,8 +1466,8 @@
                         <Reference type="BUSINESS_TERM">tir16-061</Reference>
                     </Element>
                     <Element cardinality="0..1">
-                        <Term>cbc:TransportHandlingUnitTypeCode - Tipo di unità logistica</Term>
-                        <Name>Handling unit type</Name>
+                        <Term>cbc:TransportHandlingUnitTypeCode</Term>
+                        <Name>Handling unit type - Tipo di unità logistica</Name>
                         <Description>Indica il tipo di unità logistica, utilizzando la codifica UN/ECE Rec 21.</Description>
                         <Reference type="BUSINESS_TERM">tir16-085</Reference>
                         <Reference type="CODE_LIST">UNECERec21</Reference>

@@ -4,10 +4,11 @@
 	<name>NoTI-ER-PEPPOL-Schematron</name>
 	<groupId>it.gov.agid</groupId>
 	<artifactId>NoTI-ER-PEPPOL-Schematron</artifactId>
+	<version>2.2.8</version>
 	<parent>
 		<groupId>it.gov.agid</groupId>
 		<artifactId>NoTI-ER-PEPPOL</artifactId>
-		<version>1.0-SNAPSHOT</version>
+		<version>1.2</version>
 		<relativePath>../../..</relativePath>
 	</parent>
 	<packaging>pom</packaging>

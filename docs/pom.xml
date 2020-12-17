@@ -9,7 +9,7 @@
 	<parent>
 		<groupId>it.gov.agid</groupId>
 		<artifactId>NoTI-ER-PEPPOL</artifactId>
-		<version>1.0-SNAPSHOT</version>
+		<version>1.2</version>
 		<relativePath>../</relativePath>
 	</parent>
 	<packaging>war</packaging>
@@ -19,6 +19,9 @@
 	<properties>
 		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<validator.version>2.2.8</validator.version>
+		<converter.version>2.4.2</converter.version>
+		<schematron.version>2.2.8</schematron.version>
 	</properties>
 
 	<!--<dependencies>
@@ -286,11 +289,15 @@
 					<replacements>
 						<replacement>
 							<token>(#link_to_schematron#)</token>
-							<value>NoTI-ER-PEPPOL-Schematron-${project.parent.version}.zip</value>
+							<value>NoTI-ER-PEPPOL-Schematron-${schematron.version}.zip</value>
 						</replacement>
 						<replacement>
 							<token>(#link_to_validator#)</token>
-							<value>NoTI-ER-PEPPOL-Validator-${project.parent.version}.zip</value>
+							<value>NoTI-ER-PEPPOL-Validator-${validator.version}.zip</value>
+						</replacement>
+						<replacement>
+							<token>(#link_to_converter#)</token>
+							<value>NoTI-ER-PEPPOL-Converter-${converter.version}.zip</value>
 						</replacement>
 					</replacements>
 				</configuration>
@@ -354,7 +361,27 @@
 								<artifactItem>
 									<groupId>it.gov.agid</groupId>
 									<artifactId>NoTI-ER-PEPPOL-Schematron</artifactId>
-									<version>${project.parent.version}</version>
+									<version>${schematron.version}</version>
+									<type>zip</type>
+									<overWrite>true</overWrite>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${project.build.directory}/${project.build.finalName}/attachments</outputDirectory>
+						</configuration>            
+					</execution>
+					<execution>
+						<id>copy-converter-zip</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>it.gov.agid</groupId>
+									<artifactId>NoTI-ER-PEPPOL-Converter</artifactId>
+									<version>${converter.version}</version>
 									<type>zip</type>
 									<overWrite>true</overWrite>
 								</artifactItem>
@@ -374,7 +401,7 @@
 								<artifactItem>
 									<groupId>it.gov.agid</groupId>
 									<artifactId>NoTI-ER-PEPPOL-Validator</artifactId>
-									<version>${project.parent.version}</version>
+									<version>${validator.version}</version>
 									<type>zip</type>
 									<overWrite>true</overWrite>
 								</artifactItem>

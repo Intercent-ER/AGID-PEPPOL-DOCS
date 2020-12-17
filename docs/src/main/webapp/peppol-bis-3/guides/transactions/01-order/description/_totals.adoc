@@ -14,11 +14,11 @@ I seguenti elementi mostrano gli importi totali presenti nell’ordine:
 
 | <cbc:AllowanceTotalAmount>
 |Sconti/Abbuoni a livello di testata
-| stem:[sum("cac:AllowanceCharge[ChargeIndicator='true'$$]$$/cbc:Amount")]
+| stem:[sum("cac:AllowanceCharge[ChargeIndicator='false'$$]$$/cbc:Amount")]
 
 | <cbc:ChargeTotalAmount>
 |Maggiorazioni a livello di testata
-| stem:[sum("cac:AllowanceCharge[ChargeIndicator='false'$$]$$/cbc:Amount")]
+| stem:[sum("cac:AllowanceCharge[ChargeIndicator='true'$$]$$/cbc:Amount")]
 
 | <cbc:TaxExclusiveAmount>
 | Importo totale dell’Ordine escluse le imposte

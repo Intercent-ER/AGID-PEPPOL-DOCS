@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-	Peppol BIS 3.0.4
+	Peppol BIS 3.0.5
 	NSO 4.5
-
+	
 	NOTE:
 	Controllo del CIG elaborato a partire dalla regola pubblicata dal MIN SAL cfr http://www.salute.gov.it/imgs/C_17_pagineAree_3849_listaFile_itemName_3_file.pdf
 -->
@@ -14,7 +14,7 @@
         queryBinding="xslt2">
 
     <title>Regole per la transazione della Risposta d'Ordine PEPPOL, versione 3.0</title>
-
+    
     <ns uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
        prefix="cbc"/>
     <ns uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
@@ -23,10 +23,10 @@
        prefix="ubl"/>
     <ns uri="http://www.w3.org/2001/XMLSchema" prefix="xs"/>
     <ns uri="utils" prefix="u"/>
-
+    
     <xsl:key name="k_lineId" match="cac:LineItem" use="cbc:ID"/>
-
-
+    
+    
 
     <function xmlns="http://www.w3.org/1999/XSL/Transform"
              name="u:gln"
@@ -51,14 +51,14 @@
       <value-of select="number($val) &gt; 0 and (11 - ($weightedSum mod 11)) mod 11 = number(substring($val, $length + 1, 1))"/>
    </function>
 
-
+    
 
     <pattern>
-
+ 
 		    <rule context="//*[not(*) and not(normalize-space())]">
 			      <assert id="PEPPOL-COMMON-R001" test="false()" flag="fatal">Document MUST not contain empty elements.</assert>
-		    </rule>
-
+		    </rule> 
+   
    </pattern>
     <pattern>
 
@@ -75,11 +75,11 @@
                  flag="fatal">A date must be formatted YYYY-MM-DD.</assert>
       </rule>
 
-
+    
       <rule context="cbc:EndpointID[@schemeID = '0088'] | cac:PartyIdentification/cbc:ID[@schemeID = '0088'] | cbc:CompanyID[@schemeID = '0088']">
         <assert id="PEPPOL-COMMON-R040"
                  test="matches(normalize-space(), '^[0-9]+$') and u:gln(normalize-space())"
-                 flag="warning">GLN must have a valid format according to GS1 rules.</assert>
+                 flag="fatal">GLN must have a valid format according to GS1 rules.</assert>
       </rule>
       <rule context="cbc:EndpointID[@schemeID = '0192'] | cac:PartyIdentification/cbc:ID[@schemeID = '0192'] | cbc:CompanyID[@schemeID = '0192']">
         <assert id="PEPPOL-COMMON-R041"
@@ -90,9 +90,9 @@
    </pattern>
     <pattern xmlns:ns2="http://www.schematron-quickfix.com/validator/process">
       <let name="cleas"
-           value="tokenize('0002 0007 0009 0037 0060 0088 0096 0097 0106 0130 0135 0142 0151 0183 0184 0190 0191 0192 0193 0195 0196 0198 0199 0200 0201 0202 0204 9901 9906 9907 9910 9913 9914 9915 9918 9919 9920 9922 9923 9924 9925 9926 9927 9928 9929 9930 9931 9932 9933 9934 9935 9936 9937 9938 9939 9940 9941 9942 9943 9944 9945 9946 9947 9948 9949 9950 9951 9952 9953 9955 9956 9957 9958', '\s')"/>
+           value="tokenize('0002 0007 0009 0037 0060 0088 0096 0097 0106 0130 0135 0142 0151 0183 0184 0190 0191 0192 0193 0195 0196 0198 0199 0200 0201 0202 0204 0208 0209 9901 9906 9907 9910 9913 9914 9915 9918 9919 9920 9922 9923 9924 9925 9926 9927 9928 9929 9930 9931 9932 9933 9934 9935 9936 9937 9938 9939 9940 9941 9942 9943 9944 9945 9946 9947 9948 9949 9950 9951 9952 9953 9955 9956 9957', '\s')"/>
       <let name="clISO4217"
-           value="tokenize('AED AFN ALL AMD ANG ANG AOA ARS AUD AUD AUD AUD AUD AUD AUD AUD AWG AZN BAM BBD BDT BGN BHD BIF BMD BND BOB BOV BRL BSD BTN BWP BYN BZD CAD CDF CHE CHF CHF CHW CLF CLP CNY COP COU CRC CUC CUP CVE CZK DJF DKK DKK DKK DOP DZD EGP ERN ETB EUR EUR EUR EUR EUR EUR EUR EUR EUR EUR EUR EUR EUR EUR EUR EUR EUR EUR EUR EUR EUR EUR EUR EUR EUR EUR EUR EUR EUR EUR EUR EUR EUR EUR EUR FJD FKP GBP GBP GBP GBP GEL GHS GIP GMD GNF GTQ GYD HKD HNL HRK HTG HUF IDR ILS INR INR IQD IRR ISK JMD JOD JPY KES KGS KHR KMF KPW KRW KWD KYD KZT LAK LBP LKR LRD LSL LYD MAD MAD MDL MGA MKD MMK MNT MOP MRU MUR MVR MWK MXN MXV MYR MZN NAD NGN NIO NOK NOK NOK NPR NZD NZD NZD NZD NZD OMR PAB PEN PGK PHP PKR PLN PYG QAR RON RSD RUB RWF SAR SBD SCR SDG SEK SGD SHP SLL SOS SRD SSP STN SVC SYP SZL THB TJS TMT TND TOP TRY TTD TWD TZS UAH UGX USD USD USD USD USD USD USD USD USD USD USD USD USD USD USD USD USD USD USD USN UYI UYU UZS VEF VND VUV WST XAF XAF XAF XAF XAF XAF XAG XAU XBA XBB XBC XBD XCD XCD XCD XCD XCD XCD XCD XCD XDR XOF XOF XOF XOF XOF XOF XOF XOF XPD XPF XPF XPF XPT XSU XTS XUA YER ZAR ZAR ZAR ZMW ZWL', '\s')"/>
+           value="tokenize('AED AFN ALL AMD ANG AOA ARS AUD AWG AZN BAM BBD BDT BGN BHD BIF BMD BND BOB BOV BRL BSD BTN BWP BYN BZD CAD CDF CHE CHF CHW CLF CLP CNY COP COU CRC CUC CUP CVE CZK DJF DKK DOP DZD EGP ERN ETB EUR FJD FKP GBP GEL GHS GIP GMD GNF GTQ GYD HKD HNL HRK HTG HUF IDR ILS INR IQD IRR ISK JMD JOD JPY KES KGS KHR KMF KPW KRW KWD KYD KZT LAK LBP LKR LRD LSL LYD MAD MDL MGA MKD MMK MNT MOP MRU MUR MVR MWK MXN MXV MYR MZN NAD NGN NIO NOK NPR NZD OMR PAB PEN PGK PHP PKR PLN PYG QAR RON RSD RUB RWF SAR SBD SCR SDG SEK SGD SHP SLL SOS SRD SSP STN SVC SYP SZL THB TJS TMT TND TOP TRY TTD TWD TZS UAH UGX USD USN UYI UYU UZS VEF VND VUV WST XAF XAG XAU XBA XBB XBC XBD XCD XDR XOF XPD XPF XPT XSU XTS XUA YER ZAR ZMW ZWL', '\s')"/>
       <let name="clUNCL5305" value="tokenize('AE E S Z G O K L M', '\s')"/>
       <let name="clUNCL7143"
            value="tokenize('AA AB AC AD AE AF AG AH AI AJ AK AL AM AN AO AP AQ AR AS AT AU AV AW AX AY AZ BA BB BC BD BE BF BG BH BI BJ BK BL BM BN BO BP BQ BR BS BT BU BV BW BX BY BZ CC CG CL CR CV DR DW EC EF EN FS GB GN GS HS IB IN IS IT IZ MA MF MN MP NB ON PD PL PO PV QS RC RN RU RY SA SG SK SN SRS SRT SRU SRV SRW SRX SRY SRZ SS SSA SSB SSC SSD SSE SSF SSG SSH SSI SSJ SSK SSL SSM SSN SSO SSP SSQ SSR SSS SST SSU SSV SSW SSX SSY SSZ ST STA STB STC STD STE STF STG STH STI STJ STK STL STM STN STO STP STQ STR STS STT STU STV STW STX STY STZ SUA SUB SUC SUD SUE SUF SUG SUH SUI SUJ SUK SUL SUM TG TSN TSO TSP TSP TSQ TSR TSS TST UA UP VN VP VS VX ZZZ', '\s')"/>
@@ -101,7 +101,7 @@
       <let name="clUNCL4343-T76" value="tokenize('AB AP RE CA', '\s')"/>
       <let name="clUNCL1229" value="tokenize('1 3 5 7 42', '\s')"/>
       <let name="clICD"
-           value="tokenize('0002 0003 0004 0005 0006 0007 0008 0009 0010 0011 0012 0013 0014 0015 0016 0017 0018 0019 0020 0021 0022 0023 0024 0025 0026 0027 0028 0029 0030 0031 0032 0033 0034 0035 0036 0037 0038 0039 0040 0041 0042 0043 0044 0045 0046 0047 0048 0049 0050 0051 0052 0053 0054 0055 0056 0057 0058 0059 0060 0061 0062 0063 0064 0065 0066 0067 0068 0069 0070 0071 0072 0073 0074 0075 0076 0077 0078 0079 0080 0081 0082 0083 0084 0085 0086 0087 0088 0089 0090 0091 0093 0094 0095 0096 0097 0098 0099 0100 0101 0102 0104 0105 0106 0107 0108 0109 0110 0111 0112 0113 0114 0115 0116 0117 0118 0119 0120 0121 0122 0123 0124 0125 0126 0127 0128 0129 0130 0131 0132 0133 0134 0135 0136 0137 0138 0139 0140 0141 0142 0143 0144 0145 0146 0147 0148 0149 0150 0151 0152 0153 0154 0155 0156 0157 0158 0159 0160 0161 0162 0163 0164 0165 0166 0167 0168 0169 0170 0171 0172 0173 0174 0175 0176 0177 0178 0179 0180 0183 0184 0185 0186 0187 0188 0189 0190 0191 0192 0193 0194 0195 0196 0197 0198 0199 0200 0201 0202 0203 0204', '\s')"/>
+           value="tokenize('0002 0003 0004 0005 0006 0007 0008 0009 0010 0011 0012 0013 0014 0015 0016 0017 0018 0019 0020 0021 0022 0023 0024 0025 0026 0027 0028 0029 0030 0031 0032 0033 0034 0035 0036 0037 0038 0039 0040 0041 0042 0043 0044 0045 0046 0047 0048 0049 0050 0051 0052 0053 0054 0055 0056 0057 0058 0059 0060 0061 0062 0063 0064 0065 0066 0067 0068 0069 0070 0071 0072 0073 0074 0075 0076 0077 0078 0079 0080 0081 0082 0083 0084 0085 0086 0087 0088 0089 0090 0091 0093 0094 0095 0096 0097 0098 0099 0100 0101 0102 0104 0105 0106 0107 0108 0109 0110 0111 0112 0113 0114 0115 0116 0117 0118 0119 0120 0121 0122 0123 0124 0125 0126 0127 0128 0129 0130 0131 0132 0133 0134 0135 0136 0137 0138 0139 0140 0141 0142 0143 0144 0145 0146 0147 0148 0149 0150 0151 0152 0153 0154 0155 0156 0157 0158 0159 0160 0161 0162 0163 0164 0165 0166 0167 0168 0169 0170 0171 0172 0173 0174 0175 0176 0177 0178 0179 0180 0183 0184 0185 0186 0187 0188 0189 0190 0191 0192 0193 0194 0195 0196 0197 0198 0199 0200 0201 0202 0203 0204 0205 0206 0207 0208 0209', '\s')"/>
       <rule context="/ubl:OrderResponse">
          <assert test="cbc:CustomizationID" flag="fatal" id="PEPPOL-T76-B00101">Element 'cbc:CustomizationID' MUST be provided.</assert>
          <assert test="cbc:ProfileID" flag="fatal" id="PEPPOL-T76-B00102">Element 'cbc:ProfileID' MUST be provided.</assert>
@@ -408,127 +408,127 @@
       </rule>
    </pattern>
     <pattern>
-
+    
       <let name="documentCurrencyCode"
            value="/ubl:OrderResponse/cbc:DocumentCurrencyCode"/>
-
-
+    
+    
       <rule context="cbc:CustomizationID">
 			      <assert id="PEPPOL-T76-R006"
                  test="starts-with(normalize-space(.), 'urn:fdc:peppol.eu:poacc:trns:order_response:3')"
                  flag="fatal">Specification identifier SHALL start with the value 'urn:fdc:peppol.eu:poacc:trns:order_response:3'.</assert>
       </rule>
-
+    
       <rule context="cbc:PriceAmount">
         <assert id="PEPPOL-T76-R005"
                  test="@currencyID = $documentCurrencyCode"
                  flag="fatal">An order response SHALL be stated in a single currency</assert>
-
+       
       </rule>
-
-
+    
+    
       <rule context="cac:BuyerCustomerParty/cac:Party">
         <assert id="PEPPOL-T76-R001"
                  test="cac:PartyLegalEntity/cbc:RegistrationName or cac:PartyIdentification/cbc:ID"
                  flag="fatal">An order response SHALL have the buyer party official name or a buyer party identifier</assert>
       </rule>
 
-
+    
       <rule context="cac:SellerSupplierParty/cac:Party">
         <assert id="PEPPOL-T76-R002"
                  test="cac:PartyLegalEntity/cbc:RegistrationName or cac:PartyIdentification/cbc:ID"
                  flag="fatal">An order response SHALL have the seller party official name or a seller party identifier</assert>
       </rule>
 
-
+    
       <rule context="cac:PromisedDeliveryPeriod | cac:OrderLine/cac:LineItem/cac:PromisedDeliveryPeriod">
         <assert id="PEPPOL-T76-R004"
                  test="(exists(cbc:EndDate) and exists(cbc:StartDate) and (cbc:EndDate) &gt;= (cbc:StartDate)) or not(exists(cbc:StartDate)) or not(exists(cbc:EndDate)) "
                  flag="fatal">If both delivery period start date and delivery period end date are given then the end date SHALL be later or equal to the start date.</assert>
       </rule>
 
-
+    
       <rule context="cac:OrderLine/cac:LineItem">
         <assert id="PEPPOL-T76-R003"
                  test="count(key('k_lineId',cbc:ID)) = 1"
                  flag="fatal">Each order response line SHALL have a document line identifier that is unique within the order.</assert>
       </rule>
 
-
+ 
    </pattern>
-
+   
 	<!-- MEF NSO rules -->
 	<!-- ======================== -->
     <!-- DEFINIZIONE FUNZIONI -->
-
+   
     <!-- La funzione estrae la stringa posizionale in un takenize di # -->
    	<function xmlns="http://www.w3.org/1999/XSL/Transform"
-             name="u:getPartTokenizeID" as="xs:string">
+             name="u:getPartTokenizeID" as="xs:string">		 
 		<param name="reference" as="xs:string"/>
 		<param name="arg" as="xs:integer"/>
-
-		<variable name="listToken" select="tokenize($reference, '#')" />
+	  
+		<variable name="listToken" select="tokenize($reference, '#')" /> 
 
 		<sequence select="$listToken[$arg]"/>
-
+	 		
 	</function>
-
+	
 	<!-- La funzione estrae il numero di stringhe in un takenize di # -->
 	<function xmlns="http://www.w3.org/1999/XSL/Transform"
-             name="u:countDelitited" as="xs:integer">
+             name="u:countDelitited" as="xs:integer">		 
       <param name="reference" as="xs:string"/>
 	  <variable name="stringList" select="tokenize($reference, '#')"/>
-
+	  
 	  <sequence select="count($stringList) - 1"/>
-
+		
 	</function>
-
+   
 	<!-- Controllo se la data è valida -->
 	<function name="u:validationDate" as="xs:boolean"
               xmlns="http://www.w3.org/1999/XSL/Transform">
-
+		
 		<param name="arg" as="xs:string?"/>
 
 		<sequence select="string(normalize-space($arg)) castable as xs:date"/>
 
 	</function>
-
+	
 	<!-- Controllo della PIVA secondo le regole https://databularium.com/it/2015/08/21/come-controllare-la-correttezza-della-partita-iva/ -->
     <function name="u:checkPIVA" as="xs:integer"
 			  xmlns="http://www.w3.org/1999/XSL/Transform">
 
         <param name="arg" as="xs:string?"/>
-
+		
 		<sequence select="
-				if (not($arg castable as xsd:integer))
+				if (not($arg castable as xsd:integer)) 
 					then 1
 					else ( u:addPIVA($arg,xs:integer(0)) mod 10 )" />
-
+		
     </function>
-
+	
 	<!-- Funzione di utilità per il controllo della PIVA -->
-	<function name="u:addPIVA" as="xs:integer"
+	<function name="u:addPIVA" as="xs:integer" 
 			  xmlns="http://www.w3.org/1999/XSL/Transform">
-
+		
 		<param name="arg" as="xs:string"/>
 		<param name="pari" as="xs:integer"/>
 
 		<variable name="tappo" select="if (not($arg castable as xsd:integer)) then 0 else 1"/>
-
-		<variable name="mapper" select="if ($tappo = 0) then 0 else
-																		( if ($pari = 1)
-																			then ( xs:integer(substring('0246813579', ( xs:integer(substring($arg,1,1)) +1 ) ,1)) )
+		
+		<variable name="mapper" select="if ($tappo = 0) then 0 else 
+																		( if ($pari = 1) 
+																			then ( xs:integer(substring('0246813579', ( xs:integer(substring($arg,1,1)) +1 ) ,1)) ) 
 																			else ( xs:integer(substring($arg,1,1) ) )
 																		)"/>
-
+			
 		<sequence select="if ($tappo = 0) then $mapper else ( xs:integer($mapper) + u:addPIVA(substring(xs:string($arg),2), (if($pari=0) then 1 else 0) ) )"/>
-
+		
 	</function>
 
 	<!-- Funzione di utilità per il controllo del EndpointID -->
-	<function name="u:checkPIVAseIT" as="xs:boolean"
+	<function name="u:checkPIVAseIT" as="xs:boolean" 
 			  xmlns="http://www.w3.org/1999/XSL/Transform">
-
+		
 		<param name="arg" as="xs:string"/>
 
 		<variable name="paese" select="substring($arg,1,2)"/>
@@ -540,7 +540,7 @@
 			then
 			(
 				if ( ( string-length($codice) = 11 ) and ( if (u:checkPIVA($codice)!=0) then false() else true() ))
-				then
+				then 
 				(
 					true()
 				)
@@ -555,23 +555,23 @@
 			)
 
 		"/>
-
+			
 	</function>
-
+	
 	<!-- Controllo Codice Fiscale-->
     <function name="u:checkCF" as="xs:boolean"
 			  xmlns="http://www.w3.org/1999/XSL/Transform">
 
         <param name="arg" as="xs:string?"/>
-
+		
 		<sequence select="
-			if ( (string-length($arg) = 16) or (string-length($arg) = 11) )
-			then
+			if ( (string-length($arg) = 16) or (string-length($arg) = 11) ) 		
+			then 
 			(
-				if ((string-length($arg) = 16))
+				if ((string-length($arg) = 16)) 
 				then
 				(
-					if (u:checkCF16($arg))
+					if (u:checkCF16($arg)) 
 					then
 					(
 						true()
@@ -584,7 +584,7 @@
 				else
 				(
 					if(($arg castable as xsd:integer)) then true() else false()
-
+	
 				)
 			)
 			else
@@ -592,104 +592,104 @@
 				false()
 			)
 			"/>
-
-    </function>
+		
+    </function>	
 
 	<!-- Controllo Codice Fiscale 16 -->
     <function name="u:checkCF16" as="xs:boolean"
 			  xmlns="http://www.w3.org/1999/XSL/Transform">
 
         <param name="arg" as="xs:string?"/>
-
+		
 		<variable name="allowed-characters">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz</variable>
-
+		
 		<sequence select="
-					if ( 	(string-length(translate(substring($arg,1,6), $allowed-characters, '')) = 0) and
-					        (substring($arg,7,2) castable as xsd:integer) and
-							(string-length(translate(substring($arg,9,1), $allowed-characters, '')) = 0) and
-							(substring($arg,10,2) castable as xsd:integer) and
-							(substring($arg,12,3) castable as xsd:string) and
-							(substring($arg,15,1) castable as xsd:integer) and
+					if ( 	(string-length(translate(substring($arg,1,6), $allowed-characters, '')) = 0) and  
+					        (substring($arg,7,2) castable as xsd:integer) and 
+							(string-length(translate(substring($arg,9,1), $allowed-characters, '')) = 0) and 
+							(substring($arg,10,2) castable as xsd:integer) and  
+							(substring($arg,12,3) castable as xsd:string) and 
+							(substring($arg,15,1) castable as xsd:integer) and  
 							(string-length(translate(substring($arg,16,1), $allowed-characters, '')) = 0)
-						)
+						) 
 					then true()
 					else false()
 					" />
-
+					
     </function>
-
+	
 	<!-- Controllo Codice Fiscale 11 -->
     <function name="u:checkCF11" as="xs:boolean"
 			  xmlns="http://www.w3.org/1999/XSL/Transform">
 
         <param name="arg" as="xs:string?"/>
-
+		
 		<sequence select="
-					if ( ($arg castable as xsd:integer) and (string-length($arg) = 11) )
+					if ( ($arg castable as xsd:integer) and (string-length($arg) = 11) ) 
 					then true()
 					else false()
 					" />
-
-    </function>
-
+					
+    </function>	
+	
 	<!-- Controllo Codice IPA -->
     <function name="u:checkCodiceIPA" as="xs:boolean"
 			  xmlns="http://www.w3.org/1999/XSL/Transform">
 
         <param name="arg" as="xs:string?"/>
-
+		
 		<variable name="allowed-characters">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</variable>
 
 		<sequence select="if ( (string-length(translate($arg, $allowed-characters, '')) = 0) and (string-length($arg) = 6) ) then true() else false()"/>
-
+		
     </function>
-
+	
     <!-- DEFINIZIONE PHASE -->
     <phase id="underConstruction">
 	   <active pattern="verificaOrderReferenceID"/>
-	   <active pattern="verificaPIVA"/>
-	   <active pattern="verificaLinee"/>
+	   <active pattern="verificaPIVA"/>	   	   
+	   <active pattern="verificaLinee"/>	
 	   <active pattern="verificaCodiceIPA"/>
 	   <active pattern="verificaBuyer"/>
-	   <active pattern="verificaCF"/>
+	   <active pattern="verificaCF"/>  	   
     </phase>
 
-    <!-- DEFINIZIONE ABSTRACT ROLE PATTERN -->
+    <!-- DEFINIZIONE ABSTRACT ROLE PATTERN -->	
 	<pattern id="Abstract">
-
-		<rule abstract="true" id="verifica_codice_ipa">
-
-			<assert id="NSO_110"
+		
+		<rule abstract="true" id="verifica_codice_ipa">	
+			
+			<assert id="NSO_110" 
 				test="if(@schemeID='0201') then u:checkCodiceIPA(.) else true()" flag="fatal">NSO_110 - Il Codice IPA indicato nell’elemento non è valido. - The IPA Code specified in the element is invalid.
 			</assert>
 
 		</rule>
-
+		
 	</pattern>
 
     <!-- DEFINIZIONE PATTERN NELLA PHASE verificaOrderReferenceID -->
     <pattern id="verificaOrderReferenceID">
 
-		<!-- Verifica cac:OrderReference sia presente una sola volta -->
+		<!-- Verifica cac:OrderReference sia presente una sola volta -->	
 		<rule context="ubl:OrderResponse">
-
+								
 			<assert id="NSO_145" test="count(/ubl:OrderResponse/cac:OrderReference) = 1" flag="fatal">
-				NSO_145 - Il Documento contiene più di un elemento "cac:OrderReference". - The Document contains more than one "cac:OrderReference" element.
+				NSO_145 - Il Documento contiene più di un elemento "cac:OrderReference". - The Document contains more than one "cac:OrderReference" element. 
 			</assert>
 
 		</rule>
-
-		<!-- Verifica struttura cac:OrderReference/cbc:ID -->
+		
+		<!-- Verifica struttura cac:OrderReference/cbc:ID -->	
 		<rule context="ubl:OrderResponse/cac:OrderReference/cbc:ID">
-
-
+					
+			
 			<assert id="NSO_140" test="(u:countDelitited(.) = 2)" flag="fatal">
-				NSO_140 - Il formato dell’elemento "cac:OrderReference/cbc:ID" non è valido (esempio di formato corretto: "110#2018-01-30#QLHCFC "). - The format of the element "cac:OrderReference/cbc:ID" is invalid (correct format example:"110#2018-01-30#QLHCFC").
+				NSO_140 - Il formato dell’elemento "cac:OrderReference/cbc:ID" non è valido (esempio di formato corretto: "110#2018-01-30#QLHCFC "). - The format of the element "cac:OrderReference/cbc:ID" is invalid (correct format example:"110#2018-01-30#QLHCFC"). 
 			</assert>
 
 			<assert id="NSO_141" test="(if (u:countDelitited(.) != 2) then false() else u:getPartTokenizeID(.,1)!='')" flag="fatal">
 				NSO_141 - L'ID presente nell’elemento non è valorizzato. - The ID in the element is not set.
-			</assert>
+			</assert>			
 
 			<assert id="NSO_142" test="(if (u:countDelitited(.) != 2) then false() else u:validationDate(u:getPartTokenizeID(.,2)))" flag="fatal">
 				NSO_142 - Il formato della data presente nell’elemento non è corretto (esempio corretto: "2020-01-31"). - The format of the date in the element is incorrect (correct format example: "2020-01-31").
@@ -702,7 +702,7 @@
 		</rule>
 
 	</pattern>
-
+	
    <pattern id="verificaPIVA">
 
 		<!-- Controllo della PIVA secondo le regole https://databularium.com/it/2015/08/21/come-controllare-la-correttezza-della-partita-iva/ -->
@@ -713,80 +713,80 @@
                  test="if(@schemeID='9906') then ( if(u:checkPIVA(substring(.,3,13))!=0) then false() else true() ) else true()" flag="fatal">
 					NSO_130 - La partita IVA indicata nell’elemento non è valida. - The VAT number specified in the element is invalid.
 			</assert>
-
+			
 		</rule>
-
-	</pattern>
+		
+	</pattern>	
 
    <pattern id="verificaLinee">
 
 		<rule context="ubl:OrderResponse">
 
-			<!-- le rige ordine sono permesse sono nel caso di modifica CA -->
+			<!-- le rige ordine sono permesse sono nel caso di modifica CA -->			
 			<assert id="NSO_150" test="( if (/ubl:OrderResponse/cbc:OrderResponseCode = 'CA') then ( if (count(/ubl:OrderResponse/cac:OrderLine)=0) then false() else true() ) else ( if (count(/ubl:OrderResponse/cac:OrderLine)=0) then true() else false() ) )" flag="fatal">
 				NSO_150 - Il Documento contiene uno o più elementi "cac:OrderLine". - The Document contains one or more "cac:OrderLine" elements.
 			</assert>
-
+			
 		</rule>
+				
+	</pattern>	
 
-	</pattern>
-
-   <!-- DEFINIZIONE PATTERN NELLA PHASE verificaCodiceIPA -->
+   <!-- DEFINIZIONE PATTERN NELLA PHASE verificaCodiceIPA -->	
 	<pattern id="verificaCodiceIPA">
 
 		<rule context="/ubl:OrderResponse/cac:SellerSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID">
 			<extends rule="verifica_codice_ipa"/>
-		</rule>
-
+		</rule>	
+		
 		<rule context="/ubl:OrderResponse/cac:BuyerCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID">
 			<extends rule="verifica_codice_ipa"/>
-		</rule>
-
+		</rule>	
+		
 		<rule context="/ubl:OrderResponse/cac:OrderLine/cac:LineItem/cac:Item/cac:StandardItemIdentification/cbc:ID">
 			<extends rule="verifica_codice_ipa"/>
-		</rule>
-
+		</rule>	
+		
 		<rule context="/ubl:OrderResponse/cac:OrderLine/cac:SellerSubstitutedLineItem/cac:Item/cac:StandardItemIdentification/cbc:ID">
 			<extends rule="verifica_codice_ipa"/>
-		</rule>
-
+		</rule>	
+		
 		<rule context="/ubl:OrderResponse/cac:SellerSupplierParty/cac:Party/cbc:EndpointID">
 			<extends rule="verifica_codice_ipa"/>
-		</rule>
-
+		</rule>	
+		
 		<rule context="/ubl:OrderResponse/cac:BuyerCustomerParty/cac:Party/cbc:EndpointID">
 			<extends rule="verifica_codice_ipa"/>
-		</rule>
-
+		</rule>	
+		
 		<rule context="/ubl:OrderResponse/cac:OriginatorCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID">
 			<extends rule="verifica_codice_ipa"/>
-		</rule>
-
+		</rule>	
+		
 		<rule context="/ubl:OrderResponse/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID">
 			<extends rule="verifica_codice_ipa"/>
-		</rule>
-
+		</rule>	
+		
 		<rule context="/ubl:OrderResponse/cac:Delivery/cac:DeliveryParty/cac:PartyIdentification/cbc:ID">
 			<extends rule="verifica_codice_ipa"/>
 		</rule>
-
+		
 	</pattern>
-
-	<!-- Verifica Buyer: schemaID dell'Endopoint deve essere sempre 0201 -->
+	
+	<!-- Verifica Buyer: schemaID dell'Endopoint deve essere sempre 0201 -->	
 	<pattern id="verificaBuyer">
-
+		
 		<rule context="/ubl:OrderResponse/cac:BuyerCustomerParty/cac:Party/cbc:EndpointID">
 			<assert id="NSO_111"
                  test="if(@schemeID='0201') then true() else false()"
                  flag="fatal">NSO_111 - Il valore dell’attributo schemeID dell’elemento è errato (il valore corretto è "0201"). - The value of schemeID attribute of the element is incorrect (the correct value is "0201").
 			</assert>
 		</rule>
-
+		
 	</pattern>
 
-    <!--  CF da 16 (verificare solo struttura, no controlli di merito) o CF da 11  (11 numeri senza IT);  -->
+    <!--  CF da 16 (verificare solo struttura, no controlli di merito) o CF da 11  (11 numeri senza IT);  -->	
 	<pattern id="verificaCF">
-
+		
 		<rule context="/ubl:OrderResponse/cac:SellerSupplierParty/cac:Party/cbc:EndpointID">
 			<assert id="NSO_120"
                  test="if(@schemeID='9907') then u:checkCF(.) else true()"
@@ -800,11 +800,11 @@
                  flag="fatal">NSO_120 - Il Codice Fiscale indicato nell’elemento non è valido. - The Tax Code specified in the element is invalid.
 			</assert>
 		</rule>-->
-
-	</pattern>
-
+		
+	</pattern>	
+	
 	<!-- AGID rules -->
 	<!-- ======================== -->
 	<include href="AGID/AGID-PEPPOL-T76.sch"/>
-
+	
 </schema>

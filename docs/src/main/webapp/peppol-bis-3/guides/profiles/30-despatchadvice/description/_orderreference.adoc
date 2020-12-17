@@ -1,14 +1,15 @@
 [[order-reference]]
 = Riferimento all’Ordine
 
-Usato per fornire riferimento all’ordine d’acquisto sul quale il Documento di Trasporto si basa e per favorirne la riconciliazione automatica.
-Ci possono essere molteplici documenti di trasporto a fronte di un ordine d’acquisto.
-Ogni Documento di Trasporto si può riferire ad uno o più ordini.
+Usato per fornire riferimento all’ordine d’acquisto sul quale il Documento di Trasporto si basa.
+Ci potrebbero essere molteplici documenti di trasporto a fronte di un ordine d’acquisto. +
 
-A seconda dei casi è possibile indicare il riferimento all’ordine in testata o dalle righe del Documento di Trasporto. I paragrafi seguenti indicano con precisione i casi possibili.
+Quando tutte le righe del Documento di Trasporto sono relative allo stesso ordine di acquisto, il riferimento dell'ordine è indicato solo in testata. +
+Quando le righe del Documento di Trasporto sono relative a diversi ordini di acquisto, i riferimenti all'ordine devono essere indicati nelle a livello di riga. +
 
-Inoltre, la sintassi UBL richiede di indicare obbligatoriamente nell’elemento <cbc:LineID> il numero della riga d’ordine cui si riferisce la riga del DDT.
-Per supportare scenari dove è sufficiente riferirsi all’ordine in generale si deve usare il valore **NA**.
+
+Inoltre, la sintassi UBL richiede di indicare obbligatoriamente nell’elemento *cbc:LineID* il numero della riga d’ordine cui si riferisce la riga del DDT.
+Per soddisfare gli scenari in cui non esiste alcun riferimento alla riga dell'ordine, è necessario applicare un valore fittizio. Il valore fittizio deve essere costituito dai caratteri *NA*.
 
 #Per riferirsi a un ordine è necessario riportare gli elementi che lo identificano mediante la concatenazione dei seguenti campi:#
 
@@ -37,7 +38,7 @@ include::{snippet-dir}/snippet-30-2.xml[tags=ref-orderlinena]
 E' inoltre possibile riferirsi a più di un ordine in un singolo documento di trasporto.
 In questo caso non ci deve essere un riferimento all'ordine a livello di testata.
 
-Per riferirsi a più ordini sarà quindi possibile indicare uno o più numeri d’ordine su ogni riga del DDT. 
+#Per riferirsi a più ordini sarà quindi possibile indicare uno o più numeri d’ordine su ogni riga del DDT.#
 
 .Esempio 3 a livello di riga con riferimento a più ordini
 [source, xml, indent=0]

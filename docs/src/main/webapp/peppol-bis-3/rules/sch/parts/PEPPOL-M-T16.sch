@@ -2,17 +2,11 @@
 <pattern xmlns="http://purl.oclc.org/dsdl/schematron">
 
 	<rule context="cbc:CustomizationID">
-                <assert id="PEPPOL-T16-R011" 
-                                test="starts-with(normalize-space(.), 'urn:fdc:peppol.eu:poacc:trns:despatch_advice:3')"
-                                flag="fatal">Specification identifier SHALL start with the value 'urn:fdc:peppol.eu:poacc:trns:despatch_advice:3'.</assert>
+			<assert id="PEPPOL-T16-R011" 
+					test="starts-with(normalize-space(.), 'urn:fdc:peppol.eu:poacc:trns:despatch_advice:3')"
+					flag="fatal">Specification identifier SHALL start with the value 'urn:fdc:peppol.eu:poacc:trns:despatch_advice:3'.</assert>
 	</rule>
-	
-	<rule context="ubl:DespatchAdvice">
-		<assert id="PEPPOL-T16-R002"
-				test="(cac:OrderReference/cbc:ID)"
-				flag="warning">A despatch advice SHOULD have an order identifier</assert>
-	</rule>
-	
+		
 	<rule context="cac:BuyerCustomerParty">
 		<assert id="PEPPOL-T16-R008"
 			test="(cac:Party/cac:PartyName/cbc:Name) or (cac:Party/cac:PartyIdentification/cbc:ID)"

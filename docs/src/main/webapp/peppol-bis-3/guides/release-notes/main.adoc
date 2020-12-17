@@ -1,4 +1,4 @@
-= Release notes for PEPPOL BIS 3.0 documents, other than PEPPOL BIS B_illing 3.0
+= Release notes for PEPPOL BIS 3.0 documents, other than PEPPOL BIS Billing 3.0
 openPEPPOL AISBL <http://www.peppol.eu/>
 :icons: font
 :source-highlighter: coderay
@@ -14,13 +14,17 @@ IMPORTANT: Changes in code lists are also reflected by changes in the validation
 
 :leveloffset: +1
 
-include::_v3.0.4.adoc[]
+include::v3.0.6-hotfix.adoc[]
 
-include::_v3.0.3.adoc[]
+include::v3.0.5.adoc[]
 
-include::_v3.0.2-hotfix.adoc[]
+include::v3.0.4.adoc[]
 
-include::_v3.0.1.adoc[]
+include::v3.0.3.adoc[]
+
+include::v3.0.2-hotfix.adoc[]
+
+include::v3.0.1.adoc[]
 
 include::3-0-0/main.adoc[]
 

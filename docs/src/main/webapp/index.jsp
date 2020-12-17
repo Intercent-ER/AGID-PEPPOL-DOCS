@@ -23,7 +23,7 @@
         <script>
             //<![CDATA[
             $(function () {
-                const VER = "52";    // Math.random()*1000000
+                const VER = "55";    // Math.random()*1000000
                 var $body = $("body"), $main = $("#main"), $guide = $("#guide").hide(), $adoc = $("#adoc-viewer"), $loader = $("#loader");
                 var defBis = "peppol-bis-3";
 
@@ -37,6 +37,7 @@
                     $("#stylesheet-menu").load(bisRef + '/menu/stylesheet-menu.html?v=' + VER + ' .dropdown-menu > li');
                     $("#codelist-menu").load(bisRef + '/menu/codelist-menu.html?v=' + VER + ' .dropdown-menu > li');
                     // Home List
+					$("#jumbo-list").load(bisRef + '/menu/jumbo-list.html?v=' + VER + ' .list-group > a');
                     $("#intro-list").load(bisRef + '/menu/intro-list.html?v=' + VER + ' .list-group > a');
                     $("#bis-list").load(bisRef + '/menu/bis-list.html?v=' + VER + ' .list-group > a');
                     $("#syntax-list").load(bisRef + '/menu/syntax-list.html?v=' + VER + ' .list-group > a');
@@ -311,7 +312,12 @@
             </div>
 
             <dl class="dl-horizontal">
-
+                <dd>
+                    <div class="list-group" id="jumbo-list">
+                    </div>
+                </dd>
+			
+			
                 <dt>Note di Rilascio</dt>
                 <dd>
                     <div class="list-group" id="intro-list">

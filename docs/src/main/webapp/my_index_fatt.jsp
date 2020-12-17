@@ -41,6 +41,10 @@
 					<dd>
 						<%@include file="../peppol-bis-invoice-3/menu/bis-list.html" %>
 					</dd>
+					<dt>Sintassi</dt>
+					<dd>
+						<%@include file="../peppol-bis-invoice-3/menu/syntax-list.html" %>
+					</dd>
 					<dt>Regole</dt>
 					<dd>
 						<%@include file="../peppol-bis-invoice-3/menu/rule-list.html" %>

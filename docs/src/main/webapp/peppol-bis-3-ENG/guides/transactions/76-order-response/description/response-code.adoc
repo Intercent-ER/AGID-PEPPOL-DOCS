@@ -1,59 +1,54 @@
 [[response-code]]
-= Codice di Risposta
+= Response code
 
-Il Codice di Risposta indica la capacità del venditore di soddisfare l’ordine e deve essere inviato sia a livello di testata sia a livello di riga se le righe vengono inviate.
+The Response code states the Sellers ability to fulfil the order and must be sent on both header level and line level if lines are sent.
 
 
 [IMPORTANT]
 ====
-* Il Codice di Risposta *deve* essere inviato a livello di testata.
-* Il Codice di Risposta di riga *deve* essere inviato a livello di riga se le righe sono inviate.
-* Il Codice di Risposta può avere 4 valori: AB, RE, AP e CA (sottoinsieme della codifica di riferimento UNCL 4343)
-* Il Codice di Risposta di riga può avere 5 valori: 1, 3, 5, 7 e 42. Sono valori estratti, come sottoinsieme, dalla codifica di riferimento UNCL 1229.
+* Response code *_must_* be sent on header level.
+* Line response code *_must_* be sent on line level if lines are sent.
+* Response code may have 4 values: AB, RE, AP and CA (subset of UNCL 4343 code list)
+* Line response code may have 5 values: 1, 3, 5, 7 and 42. #Sono valori estratti, come sottoinsieme, dalla codifica di riferimento UNCL 1229.#
 ====
 
-== Codice di Risposta a livello di Testata
+== Response code on Header level
 
-[cols="2,8",options="header"]
+[cols="1,11",options="header"]
 |====
-|Codice di Risposta
-|Azione
+|Response code
+|Action
 
 |AB
 a|
-L’ordine è stato ricevuto +
-
-L’ordine non è ancora stato processato +
-
-*Nessuna riga* deve essere inviata
+* The Order has been received.
+* The Order has not yet been processed.
+* No lines should be sent.
 
 |RE
 a|
-L’ordine è respinto +
-
-*Nessuna riga* deve essere inviata
+* The Order is rejected.
+* No lines should be sent.
 
 |AP
 a|
-L’ordine è accettato senza modifiche +
-
-*Nessuna riga* deve essere inviata
+* The Order is accepted without amendment.
+* No lines should be sent.
 
 |CA
 a|
-L’ordine è accettato con modifica a livello di riga +
-
-*Tutte le righe* devono essere inviate
+* The Order is accepted with amendment on line level.
+* All lines must be sent.
 |====
 
 
-.Esempio UBL di Codice di Risposta a livello di testata in un messaggio di risposta d’ordine
+.UBL example of Response code on Header level in an Order Response message
 [source, xml, indent=0]
 ----
 <cbc:OrderResponseCode listID="UNCL4343">CA</cbc:OrderResponseCode>
 ----
 
-.Esempio UBL di una risposta d’ordine che utilizza il codice risposta "AB" (ordine ricevuto)
+.UBL example of an order response using response code "AB" (order is received)
 [source, xml, indent=0]
 ----
 <?xml version="1.0" encoding="UTF-8"?>
@@ -106,39 +101,38 @@ L’ordine è accettato con modifica a livello di riga +
     </cac:Delivery> <2> 
 </OrderResponse>
 ----
-<1> Il codice di risposta AB indica solamente che l’ordine è stato ricevuto, ma non è ancora stato processato.
-Nessuna riga d’ordine è stata inviata in questa risposta.
+<1> Response code AB indicates only that the order has been received, but is not yet processed. #Nessuna riga d’ordine è stata inviata in questa risposta.#
+<2> No order lines are sent in this response
 
-<2> Nessuna riga d’ordine è stata inviata in questa risposta.
 
-== Codice di Risposta a livello di riga
+== Line response code on Line level
 
-Quando l’ordine viene accettato con modifiche a livello di riga, tutte le righe d’ordine devono essere inviate nella risposta includendo il relativo codice.
+#Quando l’ordine viene accettato con modifiche a livello di riga, tutte le righe d’ordine devono essere inviate nella risposta includendo il relativo codice.#
 
-[cols="2,11",options="header"]
+[cols="1,11",options="header"]
 |====
-|Codice di risposta
-|Azione
+|Response line code
+|Action
 
 |1
-|La riga d’ordine è stata aggiunta
+|The Order line is Added.
 
 |3
-|La riga d’ordine è stata cambiata
+|The Order line is Changed.
 
 |5
-|La riga d’ordine è stata accettata senza modifiche
+|The Order line is Accepted without amendment.
 
 |7
-|La riga d’ordine non è stata accettata
+|The Order line is Not accepted.
 
 |42
-|La riga d’ordine è già stata consegnata
+|The Order line is Already delivered.
 
 |====
 
 
-.Esempio di Codice di Risposta a livello di riga in un messaggio di risposta d’ordine:
+.Example of Response code on Line level in an Order Response message:
 [source, xml, indent=0]
 ----
 	…

@@ -1,5 +1,5 @@
-[[Ordine-con-sostituzione-articolie-consegna-fuori-tempo]]
-= Ordine con sostituzione articoli e consegna fuori tempo
+[[order-response-with-changes-adding-delivering]]
+= Order response replacing items and delivering over time.
 
 An order response can replace the items in two ways. +
 

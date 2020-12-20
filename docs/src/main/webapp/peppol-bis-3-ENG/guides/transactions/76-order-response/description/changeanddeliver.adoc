@@ -43,7 +43,7 @@ If the total quantity of an order is replaced, this information can be provided 
 </cac:OrderLine>
 ----
 
-<1> Le informazioni sull’articolo sostituito vengono inviate `cac:SellerSubstitutedLineItem`
+<1> 	Information on the replacement item is sent in  `cac:SellerSubstitutedLineItem`
 
 If the seller replaces a part of the order quantity or delivers the quantity at different times, may have to add order lines and/or to mark order lines ad delivered, as shown in the following example. +
 

@@ -9,7 +9,7 @@ The Response code states the Sellers ability to fulfil the order and must be sen
 * Response code *_must_* be sent on header level.
 * Line response code *_must_* be sent on line level if lines are sent.
 * Response code may have 4 values: AB, RE, AP and CA (subset of UNCL 4343 code list)
-* Line response code may have 5 values: 1, 3, 5, 7 and 42. #Sono valori estratti, come sottoinsieme, dalla codifica di riferimento UNCL 1229.#
+* Line response code may have 5 values: 1, 3, 5, 7 and 42. These values are extracted, as a subset, from the reference codelist UNCL 1229.
 ====
 
 == Response code on Header level
@@ -101,13 +101,13 @@ a|
     </cac:Delivery> <2> 
 </OrderResponse>
 ----
-<1> Response code AB indicates only that the order has been received, but is not yet processed. #Nessuna riga d’ordine è stata inviata in questa risposta.#
+<1> Response code AB indicates only that the order has been received, but is not yet processed. 
 <2> No order lines are sent in this response
 
 
 == Line response code on Line level
 
-#Quando l’ordine viene accettato con modifiche a livello di riga, tutte le righe d’ordine devono essere inviate nella risposta includendo il relativo codice.#
+When the order is accepted without amendment (at line level), all the order lines must be sent including the respective code.
 
 [cols="1,11",options="header"]
 |====

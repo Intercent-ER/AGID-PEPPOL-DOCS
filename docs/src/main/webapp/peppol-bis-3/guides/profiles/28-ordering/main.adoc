@@ -51,6 +51,8 @@ include::custom/campistrutturati.adoc[]
 
 include::custom/tipologiaordine.adoc[]
 
+include::custom/tipologiadocumento.adoc[]
+
 :leveloffset: -1
 
 include::../../shared/codes/index.adoc[]

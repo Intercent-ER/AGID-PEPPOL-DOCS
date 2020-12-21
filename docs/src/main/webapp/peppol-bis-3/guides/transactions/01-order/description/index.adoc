@@ -35,10 +35,12 @@ include::custom/classificazioneprodotto.adoc[]
 
 include::custom/consegna.adoc[]
 
-include::custom/confezionamento.adoc[]
+include::custom/ulteriori-informazioni.adoc[]
 
 include::custom/usonote.adoc[]
 
 include::custom/accountingcost.adoc[]
+
+include::custom/istruzioni-noleggiobeni.adoc[]
 
 :leveloffset: -1

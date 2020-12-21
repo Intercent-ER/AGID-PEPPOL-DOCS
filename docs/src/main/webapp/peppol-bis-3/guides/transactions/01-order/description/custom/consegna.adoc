@@ -1,6 +1,10 @@
 [[Consegna-Delivery]]
 = #Consegna (Delivery)#
 
+:leveloffset: +1
+
+= Luogo di consegna (DeliveryLocation)
+
 Le informazioni di consegna sono necessarie qualora l’indirizzo differisca da quello della parte che emette l’ordine e permette di fornire indicazioni più precise sulla resa della merce (DeliveryTerms). Si ricorda che l’orario di apertura del magazzino dovrà essere inserita nel campo AddressLine/Line del segmento Address.
 
 Il luogo di esecuzione della fornitura è la sede in cui deve avvenire la cessione dei beni e/o la prestazione dei servizi. È rappresentato, a livello di testata documento, dall’elemento “Delivery/DeliveryLocation”. +
@@ -119,3 +123,24 @@ Se trattasi di consegna domiciliare (ad esempio, all’indirizzo di un paziente)
     </cac:DeliveryLocation>
 </cac:Delivery>
 ----
+
+:leveloffset: -1
+
+:leveloffset: +1
+
+= Etichette imballaggio (ShippingMarks)
+
+Se necessario, il Cliente può richiedere al Fornitore di stampare un testo sull’etichetta di imballaggio, valorizzando in modo appropriato il campo “TransportHandlingUnit/ShippingMarks” dell’elemento “Shipment”, come mostrato nel seguente esempio:
+
+[source, xml, indent=0]
+----
+<cac:Delivery>
+ <cac:Shipment>
+  <cac:TransportHandlingUnit>
+   <cbc:ShippingMarks>aaaaaaaaaa</cbc:ShippingMarks>
+  </cac:TransportHandlingUnit>
+ </cac:Shipment>
+</cac:Delivery>
+---- 
+
+:leveloffset: -1

@@ -25,6 +25,22 @@ Nella tabella seguente sono elencati i sotto- tipi e le varianti per l'Ordine, d
 |===
 
 
+*[red]#Ordine di riscontro#*
+
+L’Ordine di riscontro è un sotto-tipo particolare di Ordine con cui il Cliente (Mittente) conferma, declina o sostituisce un Ordine pre-concordato oppure una Risposta inviati dal Fornitore (Destinatario).
+
+Con l’Ordine di riscontro assume le seguenti varianti: +
+
+*  l’Ordine di riscontro per conferma è un Ordine che contiene l’indicazione che si tratta di una “conferma” (“Accepted”) e il  riferimento alla Risposta che si intende confermare, inoltre ha una sola linea d’ordine vuota;
+* l’Ordine di riscontro per diniego è un Ordine che contiene l’indicazione che si tratta di un “rifiuto” (“Cancelled”) e il riferimento alla Risposta che si intende rifiutare, inoltre ha una sola linea d’ordine priva di contenuto;
+* l’Ordine di riscontro sostitutivo è un nuovo Ordine, completo di tutte le linee d’ordine, che contiene l’indicazione che si tratta di una “Sostituzione” (“Revised”) e il riferimento alla Risposta che si intende sostituire. +
+
+
+[NOTE]
+Gli Ordini di riscontro sostitutivi e gli Ordini di riscontro per diniego, rispettivamente, rimpiazzano e annullano la Risposta ivi indicata, sia tutte le altre Sostituzioni e Revoche, già trasmesse, riferite al relativo Ordine iniziale.
+
+
+
 *[red]#Ordine collegato#*
 
 In alcune circostanze può essere utile evidenziare che un Ordine, seppur indipendente, è genericamente relazionato a un altro Documento. 

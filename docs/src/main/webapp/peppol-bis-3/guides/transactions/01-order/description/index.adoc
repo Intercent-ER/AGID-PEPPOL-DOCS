@@ -41,6 +41,6 @@ include::custom/usonote.adoc[]
 
 include::custom/accountingcost.adoc[]
 
-include::custom/istruzioni-noleggiobeni.adoc[]
+include::custom/ribaltamento.adoc[]
 
 :leveloffset: -1

@@ -4,7 +4,10 @@
 
 I Documenti, che costituiscono il Corpo del messaggio, contengono le istruzioni che Clienti e Fornitori si scambiano per regolare la fornitura dei beni e dei servizi.
 
-Nella tabella seguente sono elencati i sotto- tipi e le varianti per l'Ordine, descritti nei Paragrafi che seguono:
+Nella tabella seguente sono elencati i sotto- tipi e le varianti per l'Ordine, descritti nei Paragrafi che seguono.
+
+Per le regole di compilazione, vedi paragrafo 6.12.
+
 
 [width="100%", cols="2,3,3", options="header"]
 |===
@@ -59,6 +62,8 @@ In alcune circostanze, però, può essere necessario modificare le informazioni 
 
 [NOTE]
 In questi casi l’Ordine sostitutivo deve riportare l’indicazione del sotto-tipo di Ordinazione “OR”, (c.d. “Ordine sostitutivo di regolazione“, vedi paragrafo 4.4).
+
+
 
 
 

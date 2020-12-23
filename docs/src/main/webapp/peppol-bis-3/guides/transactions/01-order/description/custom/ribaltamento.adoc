@@ -9,5 +9,5 @@ Tale esigenza può essere soddisfatta con:
 
 * l’emissione, nell’esercizio che sta terminando, di un Ordine di revoca o di un Ordine sostitutivo con indicazione del sotto-tipo di Ordinazione “OR” (v. Paragrafo 4.5) che “chiude” l’Ordine totalmente o parzialmente inevaso;
 
-* con l’emissione, nell’esercizio successivo, un Ordine collegato a quello dell’esercizio precedente (v. Paragrafo 6.12).
+* con l’emissione, nell’esercizio successivo, un Ordine collegato a quello dell’esercizio precedente (v. Paragrafo 4.4).
 

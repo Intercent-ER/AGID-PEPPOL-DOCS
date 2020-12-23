@@ -4,7 +4,10 @@
 
 I Documenti, che costituiscono il Corpo del messaggio, contengono le istruzioni che Clienti e Fornitori si scambiano per regolare la fornitura dei beni e dei servizi.
 
-Nella tabella seguente sono elencati i sotto- tipi e le varianti per l'Ordine, descritti nei Paragrafi che seguono:
+Nella tabella seguente sono elencati i sotto- tipi e le varianti per l'Ordine e per la Risposta, descritti nei Paragrafi che seguono.
+
+Per le regole di compilazione, vedi i paragrafi 6.12 e 7.2.
+
 
 [width="100%", cols="2,3,3", options="header"]
 |===
@@ -22,7 +25,33 @@ Nella tabella seguente sono elencati i sotto- tipi e le varianti per l'Ordine, d
 | Ordine di convalida | - 
 
 
+.8+^.^|*Risposta* 
+| Risposta di ricezione | -
+| Risposta di accettazione | -  
+| Risposta di diniego | -
+| Risposta di diniego | - 
+
+
 |===
+
+
+*[red]#Ordine di revoca#*
+
+In alcune circostanze può essere utile revocare un Ordine precedentemente emesso (Ordine di revoca). +
+
+L’Ordine di revoca è un Ordine che contiene il riferimento all’Ordine che si intende revocare e l’indicazione che si tratta di una “revoca” (“Cancelled”), inoltre ha una sola linea d’ordine priva di contenuto.
+
+
+*[red]#Ordine sostitutivo#*
+
+Ove occorra, le istruzioni contenute in un Ordine possono essere modificate mediante l’emissione di un *Ordine sostitutivo*. Tuttavia, salvo che non sia previsto diversamente da norme, usi commerciali o accordi tra le parti, il Fornitore è tenuto a considerare efficaci solo le sostituzioni di ordini pervenute prima che abbia dato luogo all’esecuzione della fornitura. 
+
+L’Ordine sostitutivo è un nuovo Ordine, completo di tutte le linee di ordine, che contiene il riferimento all’Ordine che si intende sostituire e l’indicazione che si tratta di una “sostituzione” (“Revised”).
+
+In alcune circostanze, però, può essere necessario modificare le informazioni contenute in un Ordine precedente anche dopo la conclusione del processo di fornitura o, perfino, successivamente all’emissione della relativa fattura (quando il Documento è emesso al solo fine regolare aspetti di dettaglio di un processo già concluso).
+
+[NOTE]
+In questi casi l’Ordine sostitutivo deve riportare l’indicazione del sotto-tipo di Ordinazione “OR”, (c.d. “Ordine sostitutivo di regolazione“, vedi paragrafo 4.4).
 
 
 *[red]#Ordine di riscontro#*
@@ -38,7 +67,6 @@ Con l’Ordine di riscontro assume le seguenti varianti: +
 
 [NOTE]
 Gli Ordini di riscontro sostitutivi e gli Ordini di riscontro per diniego, rispettivamente, rimpiazzano e annullano la Risposta ivi indicata, sia tutte le altre Sostituzioni e Revoche, già trasmesse, riferite al relativo Ordine iniziale.
-
 
 
 *[red]#Ordine collegato#*
@@ -64,19 +92,4 @@ L’Ordine di convalida può essere utilizzato esclusivamente: +
 
 [NOTE]
 L’Ordine di convalida non deve mai essere usato al posto degli altri strumenti (Ordine di revoca, Ordine sostitutivo e Ordine di riscontro) appositamente realizzati per revocare, sostituire, confermare o rifiutare un altro Documento.
-
-
-
-*[red]#Ordine sostitutivo#*
-
-Ove occorra, le istruzioni contenute in un Ordine possono essere modificate mediante l’emissione di un *Ordine sostitutivo*. Tuttavia, salvo che non sia previsto diversamente da norme, usi commerciali o accordi tra le parti, il Fornitore è tenuto a considerare efficaci solo le sostituzioni di ordini pervenute prima che abbia dato luogo all’esecuzione della fornitura. 
-
-In alcune circostanze, però, può essere necessario modificare le informazioni contenute in un Ordine precedente anche dopo la conclusione del processo di fornitura o, perfino, successivamente all’emissione della relativa fattura (quando il Documento è emesso al solo fine regolare aspetti di dettaglio di un processo già concluso).
-
-[NOTE]
-In questi casi l’Ordine sostitutivo deve riportare l’indicazione del sotto-tipo di Ordinazione “OR”, (c.d. “Ordine sostitutivo di regolazione“, vedi paragrafo 4.4).
-
-
-
-
 

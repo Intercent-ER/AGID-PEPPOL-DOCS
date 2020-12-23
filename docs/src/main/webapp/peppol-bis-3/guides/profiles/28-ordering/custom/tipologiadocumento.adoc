@@ -6,7 +6,7 @@ I Documenti, che costituiscono il Corpo del messaggio, contengono le istruzioni 
 
 Nella tabella seguente sono elencati i sotto- tipi e le varianti per l'Ordine e per la Risposta, descritti nei Paragrafi che seguono.
 
-Per le regole di compilazione, vedi i paragrafi 6.12 e 7.2.
+Per le regole di compilazione, vedi i paragrafi 6.12 e 7.1.
 
 
 [width="100%", cols="2,3,3", options="header"]
@@ -29,7 +29,7 @@ Per le regole di compilazione, vedi i paragrafi 6.12 e 7.2.
 | Risposta di ricezione | -
 | Risposta di accettazione | -  
 | Risposta di diniego | -
-| Risposta di diniego | - 
+| Risposta con modifiche | - 
 
 
 |===

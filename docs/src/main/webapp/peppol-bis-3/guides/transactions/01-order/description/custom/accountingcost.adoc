@@ -27,7 +27,7 @@ Con riguardo agli ordini di dispositivi medici si segnala che l’elemento “Ac
 
 Negli altri casi, l’elemento “AccountingCost” può essere valorizzato nel modo che si ritiene più adeguato, ad esempio con il conto di costo, con il centro di costo, con entrambi o con qualsivoglia altra classificazione contabile. +
 
-Le informazioni devono essere separate con il carattere *“#"*.
+Le informazioni devono essere separate con il carattere “#”.
 
 Considerate le disposizioni normative vigenti, la collocazione delle informazoni nel campo vanno riportate rispettando il seguente ordine di priorità:
 

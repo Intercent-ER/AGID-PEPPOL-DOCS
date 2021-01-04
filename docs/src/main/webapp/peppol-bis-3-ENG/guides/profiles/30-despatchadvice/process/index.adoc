@@ -1,15 +1,15 @@
 [[process-and-typical-scenarios]]
-= Processi e scenari tipici
+= Process and typical scenarios
 
 [[legend-for-bpmn-diagrams]]
-== Legenda per i diagrammi BPMN
+== Legend for BPMN diagrams
 
-I diagrammi sono espressi nella notazione BPMN.
-Il diagramma sottostante serve come spiegazione dei diagrammi utilizzati successivamente nella descrizione del processo.
+The diagrams are expressed in the BPMN notation.
+The diagram below serves as an explanation for the diagrams used in the process descriptions.
 
 image:images/image4.png[image,width=618,height=386]
 
-La sezione seguente e i diagrammi mostrano la coreografia del processo di business che coinvolge varie parti. 
+The following section and diagrams show the choreography of the business process involving various parties.
 
 :leveloffset: +1
 
@@ -20,7 +20,7 @@ include::advancedprocess.adoc[]
 :leveloffset: -1
 
 [[typical-use-cases]]
-== Casi d’uso tipici
+== Typical use cases
 
 :leveloffset: +1
 

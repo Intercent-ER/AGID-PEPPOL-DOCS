@@ -1,7 +1,7 @@
 [[more-advanced-process-use-of-despatch-party]]
-= Processo più avanzato – uso del Trasportatore
+= More advanced process – use of Despatch party
 
-Il processo più avanzato si basa su quello più semplice descritto precedentemente con l’aggiunta del Trasportatore che è responsabile per la preparazione fisica della merce per la consegna.
-Questa situazione avviene tipicamente quando il fornitore ha dato in outsourcing la funzione logistica ad un’altra azienda.
+The more advanced process is based on the simple process above with the addition of the Despatch party who is responsible for the physical preparation of the goods for delivery.
+This situation will typically occur when the supplier has outsourced the logistics function to another company.
 
 image:images/bpmn-adv.png[image,width=662,height=428]

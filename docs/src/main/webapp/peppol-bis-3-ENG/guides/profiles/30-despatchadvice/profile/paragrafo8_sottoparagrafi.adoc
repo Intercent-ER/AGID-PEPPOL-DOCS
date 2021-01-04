@@ -1,18 +1,21 @@
 [[EndpointID]]
 = #Endpoint ID - Identificativo di instradamento sulla rete PEPPOL#
 
-Quando si specifica un Endpoint ID nel documento si vuole mantenere l’informazione dell’indirizzo elettronico del mittente o destinatario utilizzati per l’instradamento dei messaggi (delivery) sul circuito PEPPOL. L’Endpoint ID specificato nel documento DEVE coincidere con quello utilizzato dal protocollo di trasmissione adottato (es. AS2). L’Endpoint ID non è obbligatorio nel documento ma è consigliato perché mantiene il legame fra il documento, la parte di business e l’access point/circuito utilizzato.
+The *Endpoint ID* is specified in the document to maintain information about the electronic address of the sender or the receiver and it is used for channeling the documents (delivery) on the Peppol network. +
 
-Le tipologie di identificativi italiani riconosciuti da PEPPOL e consigliati sono:
+The Endpoint ID *MUST* coincide with the one used by the transmission protocol adopted (eg. AS2). +
 
-* *9906* per IT:VAT (partite IVA)
+The Endpoint ID it is not mandatory but *recommended* beacuse maintains the connection between the document, the Business Partner and the Access Point/network used.
 
-* *9907* per IT:CF (codice fiscale persona fisica o giuridica)
+The types of identifier used in Italy and recognized by Peppol are:
+
+* *9906* per IT:VAT (for VAT number)
+
+* *9907* per IT:CF (Fiscal code, legal person or entity)
 
 * *0201* per IT:IPA (Indice Pubbliche Amministrazioni) +
 
-In Italia si raccomanda l’uso del codice IPA per registrare le pubbliche amministrazioni sulla rete PEPPOL, tuttavia non è obbligatorio e in sua assenza si consiglia l’uso del codice fiscale.
-
+In Italy IPA code is suggested to register register public administrations over the Peppol delivery network, however it is not compulsory and if not available it is recommended the use of the fiscal code. +
 
 .Esempio di Endpoint di un’Amministrazione registrata in PEPPOL con l’IPA:
 [source, xml, indent=0]
@@ -37,4 +40,3 @@ In Italia si raccomanda l’uso del codice IPA per registrare le pubbliche ammin
 ----
     ​<cbc:EndpointID schemeID="0088">5790000435968</cbc:EndpointID
 ----
-

@@ -1,43 +1,43 @@
 [[shipment]]
-= Spedizione
+= Shipment
 
-Descrizione della spedizione effettiva che contiene la merce che è stata spedita.
+Description of the actual shipment that contains the goods that are being despatched.
 
 [[shipment-id]]
-== ID Spedizione, Vettore, informazioni di trasporto, consegna ed evasione 
+== Shipment ID, Carrier party, shimpment information, delivery and despatch
 
-In alcuni usi del Documento di Trasporto, non c’è un unico identificatore assegnato alla spedizione.
+In some uses of the Despath Advice, there is no unique identifier assigned to the shipment.
+However, the UBL syntax requires the Shipment ID. +
 
-Comunque, la sintassi UBL richiede che lo Shipment ID sia specificato.
+Consequently, to be able to use elements such as GrossWeightMeasure or CarrierParty, the Shipment/ID must be filled in.
+To cater for scenarios where no ID exist a dummy value must be applied.
+The dummy value must consist of the characters **NA**.
 
-Conseguentemente, per poter utilizzare elementi come GrossWeightMeasure o CarrierParty, lo Shipment/ID deve essere valorizzato.
+#As part of the shipping information (Shipment), the following are provided: weight, volume, packages (transport handling units), Carrier Party, estimated delivery period and actual despatch.#
 
-Per supportare scenari dove non è disponibile o non è utilizzato l’ID della spedizione si deve usare il valore **NA**.
+[NOTE]
+#Measures such as weight and volume are mandatory sono obbligatoriamente espresse secondo la codifica {UNRec20} e non è richiesto qualificarle con ulteriori attributi.#
 
-Come parte delle informazioni di spedizione (Shipment) vengono forniti: peso, volume, colli, vettore, tempi di consegna stimati e di effettiva evasione.
-
-NOTA: #Le misure (***Measure) come peso e volume sono obbligatoriamente espresse secondo la codifica {UNRec20} e non è richiesto qualificarle con ulteriori attributi.#
-
-.Esempio:
+.Example:
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/snippet-30-3.xml[tags=shipment]
 ----
-<1> Peso lordo
-<2> Volume lordo
-<3> Nr. Colli, espresso come numero intero (vedi regola IT-T16-R005)
-<4> Identificativo assegnato a questa consegna
-<5> Identificativo Fiscale Vettore
-<6> Ragione Sociale o denominazione del Vettore
-<7> Indirizzo
-<8> Tempi di consegna promessi/stimati
-<9> Data/ora effettiva di evasione
+<1> Gross weight
+<2> Gross volume
+<3> Nr. Transport handling unit, expressed as whole number (see rule IT-T16-R005)
+<4> Identifier assigned to this delivery
+<5> Tax ID Carrier
+<6> Company name or Carrier's name
+<7> Address
+<8> Estimated/promised delivery period 
+<9> Date/time actual despatch
 
 
-Se trattasi di consegna domiciliare (ad esempio, all’indirizzo di un paziente), questa circostanza va specificata valorizzando il campo “ID” con il testo “Consegna domiciliare” e indicando con precisione nel campo “AddressLine/Line” l’indirizzo esatto di consegna (ad esempio, includendo il numero di interno), come mostrato nel seguente esempio:
+In the case of *home delivery* (for example, delivery to the address of a patient) this circumstance needs to be specified valorizing the field “ID” with the text “Consegna domiciliare” and indicating accurately in the element “AddressLine/Line” the exact delivery address (for instance, including the flat number), as shown by the following example:
 
 
-.Esempio di consegna domiciliare:
+.Example 
 [source, xml, indent=0]
 ----
 <cac:Delivery>

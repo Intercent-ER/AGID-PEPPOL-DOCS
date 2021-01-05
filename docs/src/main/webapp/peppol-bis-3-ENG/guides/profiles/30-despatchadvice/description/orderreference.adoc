@@ -1,57 +1,56 @@
 [[order-reference]]
-= Riferimento all’Ordine
+= Order reference
 
-Usato per fornire riferimento all’ordine d’acquisto sul quale il Documento di Trasporto si basa.
-Ci potrebbero essere molteplici documenti di trasporto a fronte di un ordine d’acquisto. +
+Used to provide a reference to the purchase order on which the Despatch Advice is based. 
+There may be multiple Despatch Advices to cover one purchase order. +
 
-Quando tutte le righe del Documento di Trasporto sono relative allo stesso ordine di acquisto, il riferimento dell'ordine è indicato solo in testata. +
-Quando le righe del Documento di Trasporto sono relative a diversi ordini di acquisto, i riferimenti all'ordine devono essere indicati nelle a livello di riga. +
+When all the lines of the Despatch Advice relate to the same purchase order, the order reference is indicated only in the header. +
+When the lines of the Despatch Advice relate to different purchase orders, the order references must be indicated in the lines. +
 
+The reference to *Order Line-ID* (element "cbc:LineID") is required in the UBL syntax. To cater for scenarios where no order line reference exist a dummy value must be applied. The dummy value must consist of the characters **NA**.
 
-Inoltre, la sintassi UBL richiede di indicare obbligatoriamente nell’elemento *cbc:LineID* il numero della riga d’ordine cui si riferisce la riga del DDT.
-Per soddisfare gli scenari in cui non esiste alcun riferimento alla riga dell'ordine, è necessario applicare un valore fittizio. Il valore fittizio deve essere costituito dai caratteri *NA*.
+#Reference to the related order must be done indicating the "identification triplet" (so-called Tripletta di identificazione) of the Order through the concatenation of the following values:#
 
-#Per riferirsi a un ordine è necessario riportare gli elementi che lo identificano mediante la concatenazione dei seguenti campi:#
+* #*Order ID*;#
+* #*IssueDate* valorized with the date of the order;#
+* #*EndpointID* of the element BuyerCustomerParty in the order;#
 
-* #ID dell’ordine;#
-* #IssueDate valorizzato con la data dell’ordine;#
-* #EndpointID dell’elemento BuyerCustomerParty dell’ordine;#
-
-.Esempio a livello di testata
+.Example on header level
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/snippet-30-2.xml[tags=ref-order]
 ----
 
-.Esempio 1 a livello di riga
+.Example 1 on line level
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/snippet-30-2.xml[tags=ref-orderline]
 ----
 
-.Esempio 2 a livello di riga
+.Example 2 on line level
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/snippet-30-2.xml[tags=ref-orderlinena]
 ----
 
-E' inoltre possibile riferirsi a più di un ordine in un singolo documento di trasporto.
-In questo caso non ci deve essere un riferimento all'ordine a livello di testata.
+It is also possible to refer to more than one order in one single despatch advice.
+In this case there must not be an order reference on header level.
 
 #Per riferirsi a più ordini sarà quindi possibile indicare uno o più numeri d’ordine su ogni riga del DDT.#
 
-.Esempio 3 a livello di riga con riferimento a più ordini
+.Example 1 on line level with reference to many orders
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/snippet-30-3.xml[tags=ref-orderlinemulti]
 ----
 
-== Riferimento supplementare all’Ordine
-#Quando il documento di trasporto si riferisce ad un singolo ordine dalla testata, con l'elemento cbc:CustomerReference è possibile fornire un ulteriore riferimento del cliente.#
+== Additional reference to the Order
 
-#Questo ulteriore riferimento si presta ad essere utilizzato come riferimento emesso dal cliente per identificare l'oggetto della spedizione, come ad esempio il destinatario finale di farmaci (ID Paziente) in una consegna domiciliare (vedi §. 6.3.1)#
+#When the Documento di trasporto refers to a single Order on the header level, with the element cbc:CustomerReference is possible to provide a further reference of the Client.#
 
-.Esempio di riferimento del cliente in una consegna domiciliare:
+#This information is utilized as reference issued by the Client to identify the object of the shimpent, such as the final receiver of  pharmaceutical products (Patient ID) in the case of home delivery (see §. 6.3.1)#
+
+.Example of reference to a client in the case of home delivery:
 [source, xml, indent=0]
 ----
 <cac:OrderReference>

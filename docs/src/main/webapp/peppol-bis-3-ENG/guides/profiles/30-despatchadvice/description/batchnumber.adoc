@@ -1,20 +1,20 @@
 [[batchlot-numbers-expiry-date-and-best-before-date]]
-= Numeri di lotto merce, Data di Scadenza e Da consumarsi preferibilmente entro il (BestBeforeDate)
+= Batch/Lot numbers, Expiry Date and Best Before Date
 
-Il LotNumberID (numero di Lotto) si applica a tutti gli articoli nella riga di spedizione.
+The Batch number (Lot number) applies to all items in the despatch line.
 
-ExpiryDate (data di scadenza) è utilizzata ad esempio per i farmaci.
+Expiry date is used for medical drugs.
 
-BestBeforeDate (da consumarsi preferibilmente entro il) è spesso usato per gli alimenti.
+Best before date is often used for food.
 
-.Esempio 1:
+.Example 1:
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/snippet-30-1.xml[tags=lotid]
 ----
 
 
-.Esempio 2:
+.Example 2:
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/snippet-30-2.xml[tags=bestbefore]

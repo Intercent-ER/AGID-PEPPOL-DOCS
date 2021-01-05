@@ -1,5 +1,5 @@
 [[description-of-selected-parts-of-the-despatch-advice-message]]
-= Descrizione di parti selezionate del Documento di Trasporto (DDT)
+= Description of selected parts of the despatch advice message
 
 :leveloffset: +1
 
@@ -14,9 +14,9 @@ include::shipment.adoc[]
 :leveloffset: -1
 
 [[despatch-line]]
-= Riga DDT
+= Despatch line
 
-Descrizione degli articoli che vengono consegnati.
+Description of items that are being despatched.
 
 :leveloffset: +1
 

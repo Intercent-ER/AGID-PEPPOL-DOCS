@@ -1,7 +1,7 @@
 [[serial-numbers]]
-= Numeri di serie (S/N)
+= Serial numbers
 
-Se ognuno degli articoli consegnati è contrassegnato con un numero di serie individuale, questi numeri possono essere comunicati nel Documento di Trasporto come parte dell’articolo merce (Item) specificando una specifica istanza per ogni numero di serie.
+If each of the delivered items is marked with an individual serial number, these numbers may be sent in the Despatch Advice on Item level specifying one specific instance for each serial number. 
 
 [source, xml, indent=0]
 ----

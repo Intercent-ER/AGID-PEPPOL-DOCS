@@ -36,7 +36,7 @@ include::{snippet-dir}/snippet-30-2.xml[tags=ref-orderlinena]
 It is also possible to refer to more than one order in one single despatch advice.
 In this case there must not be an order reference on header level.
 
-#Per riferirsi a più ordini sarà quindi possibile indicare uno o più numeri d’ordine su ogni riga del DDT.#
+#In order to refer to more orders it is possible to indicate one or more Order numbers on each despatch line.#
 
 .Example 1 on line level with reference to many orders
 [source, xml, indent=0]

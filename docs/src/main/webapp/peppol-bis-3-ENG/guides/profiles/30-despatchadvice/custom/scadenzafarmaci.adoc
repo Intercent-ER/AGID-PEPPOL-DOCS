@@ -1,5 +1,5 @@
 [[scadenza-farmaci]]
-== Nota AIFA
+== AIFA Note (Italian Medicine Agency)
 
 #Quando la scadenza di un medicinale è indicata con il mese e con l’anno la validità si deve intendere fino all’ultimo giorno del mese.#
 

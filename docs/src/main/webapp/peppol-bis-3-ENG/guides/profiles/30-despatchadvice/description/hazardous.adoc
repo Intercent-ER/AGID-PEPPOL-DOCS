@@ -1,42 +1,44 @@
 [[hazardous-item]]
-= Informazioni sulla merce pericolosa
+= Hazardous item
 
-Il Documento di Trasporto PEPPOL contiene anche la possibilità di informare il Consegnatario riguardo agli articoli pericolosi (indicati anche come HAZMAT, Hazard Material o Dangerous Goods).
+The PEPPOL Despatch Advice also contains the possibility to inform the Consignee about Hazardous Items (also referred to as HAZMAT, Hazard Material o Dangerous Goods). +
 
-Questo viene fatto fornendo nell’elemento HazardousItem il codice di pericolosità in base al regolamento adottato, per esempio ADR (trasporto su gomma), IMDG (trasporto via mare) or RID (trasporto ferroviario).
+This is done by informing the dangerous regulation code for example ADR (Road transport), IMDG (transport by sea) or RID (railroad transport).  +
 
-Quando si dichiarano delle merci pericolose si raccomanda l’uso del codice UNDG per informare in base a quale convenzione l’articolo viene dichiarato pericoloso (es. ADR).
+When declaring hazardous items it is recommended to use the UNDG code to inform about the convention the item is declared hazardous under. +
 
-Quando il codice UNDG viene dichiarato viene fornita anche la classe di pericolosità.
+When the UNDG code has been declared the Hazard class is declared. +
 
-La classe di pericolosità è relativa a quella dell’articolo, per esempio la classe 2.3 che indica il Gas Poison.
+The Hazard class corresponds to the hazardous class of the item for example class 2.3 which indicates Poisonous Gas.
 
-.Esempio UBL per dichiarare articoli pericolosi.
+.UBL example of declaring hazardous items.
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/snippet-30-1.xml[tags=hazardous]
 ----
 
-In certi settori può essere necessario identificare la merce pericolosa in modo più preciso, fornendo le seguenti informazioni:
+In certain sectors may be necessary to identify the hazardous items in a more precise way, by providing the following information:
 
-.Informazioni estese sulla merce pericolosa
+.Extended information about the hazardous items
 [width="100%", cols="2h,3m,1m"]
 |===
-| *Informazione estesa*
-| *Descrizione*
-| *Sintassi UBL*
+| *Extended information*
+| *Description*
+| *UBL syntax*
 
-| #Identificativo sostanza pericolosa#
-| identificativo UN assegnato (UN Number)
+| #Hazardous item identifier#
+| Assigned UN identifier (UN Number)
 | cbc:ID
 
-| #Denominazione tecnica sostanza#
-| Denominazione tecnica UN
+| #Hazardous item technical name#
+| UN technical name
 | cbc:TechnicalName
 
-| #Categoria sostanza pericolosa#
-| Denominazione del tipo di pericolo per un materiale o sostanza
+| #Hazardous item category#
+| Name of the type of hazard for a material or substance
 | cbc:CategoryName
 |===
 
-Nel paragrafo successivo si fornisce un esempio avanzato che utilizza tutte le informazioni estese sopra descritte.
+In the next paragraph provides an advanced example that utilizes all the extended information described above.
+
+

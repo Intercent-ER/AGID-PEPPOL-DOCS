@@ -2,7 +2,7 @@
 = Item properties
 
 If additional item information such as properties and identifier are needed they can be added by using "Name" to identify the
-type of information and "Value" for the information of the element cac:AdditionalItemProperty.
+type of information and "Value" for the information of the element *cac:AdditionalItemProperty.*
 
 .UBL example of item properties
 [source, xml, indent=0]

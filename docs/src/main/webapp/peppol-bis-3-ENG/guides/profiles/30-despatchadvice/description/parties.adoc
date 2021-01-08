@@ -20,7 +20,7 @@ Example:
 include::{snippet-dir}/snippet-30-1.xml[tags=despatchsupplier]
 ----
 
-<1> la Partita IVA viene specificata con il prefisso PIVA: e senza l'attributo @schemeID in quanto al momento la codifica ICD non include il codice per le partite IVA italiane
+<1> the VAT number must be specified with the prefix "PIVA:" and without the attribute "@schemeID",  because the ICD codelist does not include italian's VAT number codes at the moment.
 
 
 [[consignee-deliverycustomerparty]]
@@ -37,7 +37,7 @@ Example:
 include::{snippet-dir}/snippet-30-1.xml[tags=deliverycustomer]
 ----
 
-<1> il Codice Fiscale viene specificato con il prefisso CF: e senza l'attributo @schemeID in quanto al momento la codifica ICD non include il codice per i codici fiscali italiani
+<1> the Fiscal Code must be specified with the prefix "CF:" and without the attribute "@schemeID",  because the ICD codelist does not include italian's fiscal codes at the moment.
 
 
 [[buyer-buyercustomerparty]]

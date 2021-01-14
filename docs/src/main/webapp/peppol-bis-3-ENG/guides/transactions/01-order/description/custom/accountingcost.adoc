@@ -1,0 +1,44 @@
+[[Accounting-Cost]]
+= #Accounting Cost#
+
+The accounting classification can be indicated at the document level valorizing the element “AccountingCost”.
+
+For instance, given the cost account “BA0040 – Medicinal products with AIC”:
+
+
+[source, xml, indent=0]
+----
+<cbc:AccountingCost>BA0040</cbc:AccountingCost>
+----
+
+To indicate the accounting classification at the line level it is necessary to valorize the element "AccountingCost” within the segment “OrderLine/LineItem". +
+
+For istance, given the cost account “BA0350 – Informatic support and stationary”:
+
+
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:AccountingCost>BA0350</cbc:AccountingCost>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+
+With reference to the medical devices, the element  “AccountingCost” must be always valorized to provide information about the entry of the Balance Sheet/Income Statement, which needs to be reported later in the Invoice by the Seller into the element of FatturaPA “RiferimentoAmministrazione”, according to the instruction of Ministerial Circular MEF-MDS of 17 March 2020 “Fatture elettroniche riguardanti dispositivi medici - Individuazione delle fatture di interesse per l'applicazione delle disposizioni previste dall'articolo 9-ter del decreto-legge 19 giugno 2015 n. 78, come modificato dalla Legge 30 dicembre 2018, n. 145, art. 1, comma 557”. +
+
+[NOTE]
+====
+The element “AccountingCost” shall be used also to highlight the expenses associated to the cost account “COV20” provided for in Article 18 of Decree-Law 17 March 2020, no. 18. 
+====
+
+In all the remaining cases, the element “AccountingCost” can be valorized as the most appropriate way, for example with a cost account, center account, both, or any other accounting classification. +
+
+The information must be separated by the character "#".
+
+
+
+
+
+
+

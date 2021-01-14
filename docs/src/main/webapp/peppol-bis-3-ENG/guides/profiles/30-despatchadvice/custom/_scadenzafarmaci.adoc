@@ -1,0 +1,14 @@
+[[scadenza-farmaci]]
+== AIFA Note (Italian Medicine Agency)
+
+#Quando la scadenza di un medicinale è indicata con il mese e con l’anno la validità si deve intendere fino all’ultimo giorno del mese.#
+
+#Questo è indicato nel Quality review of documents human product information annotated template, documento che l’Agenzia Europea dei Medicinali rende disponibile sul proprio portale e che indica quali informazioni devono essere riportate negli stampati dei medicinali (Riassunto delle Caratteristiche del Prodotto, Foglio Illustrativo ed Etichetta).#
+
+#In particolare, il punto 8 dell’Annex III chiarisce: “The expiry date printed on medicinal product stating only month and year should be taken to mean the last day of that month”.#
+
+Il documento può essere reperito al link seguente:
+
+{link-nota-aifa}
+
+

@@ -1,0 +1,46 @@
+
+= Imposta sul valore aggiunto (IVA)
+
+I capitoli seguenti descrivono le diverse informazioni in materia dell'IVA che possono essere fornite in una fattura o in una nota di credito {peppol}.
+
+Si consiglia di consultare anche i <<VAT category codes>> per dettagli sulla codifica delle categorie IVA e il <<Calculation of VAT>> per una rappresentazione più dettagliata ed esempi su come eseguire i calcoli nel riepilogo IVA.
+
+== Informazioni IVA su riga
+
+Ogni riga della fattura deve avere il codice della categoria IVA riferita alla voce fatturata (BT-151) e per tutte le categorie IVA, eccetto "Non soggetto ad IVA" (O), deve essere fornita l'aliquota IVA.
+
+== Sconti e maggiorazioni a livello di testata
+
+Ogni sconto o maggiorazione a livello di testata deve avere il codice di categoria IVA (BT-95 e BT-102). Per tutte le categorie IVA, eccetto "Non soggetto ad IVA" (O), deve essere fornita l'aliquota IVA.
+
+== Riepilogo IVA
+
+Deve essere fornito un solo riepilogo IVA per ogni combinazione distinta di categoria e aliquota IVA sia a livello di riga che negli sconti e maggiorazioni a livello di testata. Per alcune categorie IVA, l'aliquota deve essere posta a zero e quindi non viene utilizzata in questi casi per raggruppare il riepilovo IVA.
+
+Si consiglia di osservare che per l'aliquota dell'IVA dovrebbero essere considerati solo i decimali significativi, es. qualsiasi differenza in termini di cifre decimali non deve determinare differenti valori dell'IVA.
+
+.Example
+====
+Riga 1 della fattura ha categoria IVA = S e aliquota IVA = *25* +
+Riga 2 della fattura ha categoria IVA = S e aliquota IVA = *25.00* +
+Questo dovrebbe originare un singolo riepilogo IVA.
+====
+
+Ci sono 4 principali categorie IVA per una fattura:
+
+**1.**	**Fuori campo IVA** se la fattura non rientra nella legislazione IVA, non vi sono informazioni da indicare in fattura.
+
+**2.**	**Non imponibili IVA**
+se la fattura ha degli articoli con aliquota IVA a zero è necessario indicare nella categoria di imposta (CategoryID) il valore ‘Z’. 
+
+**3.**	**Esente IVA**
+se la fattura ha degli articoli che sono esenti IVA è necessario indicare il valore ‘E’ nel CategoryID di questi articoli. In aggiunta dovrebbe essere fornita la ragione per l’esenzione.
+
+**4.**	**IVA normale**
+per merce o servizi relativi ad una categoria VAT normale è possibile specificare se si tratta di un aliquota standard, superiore o inferiore.
+
+Per tutti i casi di fatture esenti o fuori del campo di applicazione IVA, la categoria IVA deve essere fornita a livello di riga come pure per ogni sconto e maggiorazione a livello di testata.
+
+== Totale IVA della fattura
+
+Il totale IVA della fattura (BT-110) è la somma di tutti gli importi delle categorie IVA (BT-117)

@@ -31,35 +31,35 @@
 
 				<dl class="dl-horizontal">
 					<dd>
-						<%@include file="../peppol-bis-invoice-3/menu/jumbo-list.html" %>
+						<%@include file="../peppol-bis-invoice-3-ITA/menu/jumbo-list.html" %>
 					</dd>
 					<dt>Note di Rilascio</dt>
 					<dd>
-						<%@include file="../peppol-bis-invoice-3/menu/intro-list.html" %>
+						<%@include file="../peppol-bis-invoice-3-ITA/menu/intro-list.html" %>
 					</dd>
 					<dt>Documentazione</dt>
 					<dd>
-						<%@include file="../peppol-bis-invoice-3/menu/bis-list.html" %>
+						<%@include file="../peppol-bis-invoice-3-ITA/menu/bis-list.html" %>
 					</dd>
 					<dt>Sintassi</dt>
 					<dd>
-						<%@include file="../peppol-bis-invoice-3/menu/syntax-list.html" %>
+						<%@include file="../peppol-bis-invoice-3-ITA/menu/syntax-list.html" %>
 					</dd>
 					<dt>Regole</dt>
 					<dd>
-						<%@include file="../peppol-bis-invoice-3/menu/rule-list.html" %>
+						<%@include file="../peppol-bis-invoice-3-ITA/menu/rule-list.html" %>
 					</dd>
 					<dt>Codifiche</dt>
 					<dd>
-						<%@include file="../peppol-bis-invoice-3/menu/codelist-list.html" %>
+						<%@include file="../peppol-bis-invoice-3-ITA/menu/codelist-list.html" %>
 					</dd>
 					<dt>Fogli di stile</dt>
 					<dd>
-						<%@include file="../peppol-bis-invoice-3/menu/stylesheet-list.html" %>
+						<%@include file="../peppol-bis-invoice-3-ITA/menu/stylesheet-list.html" %>
 					</dd>
 					<dt>Downloads</dt>
 					<dd>
-						<%@include file="../peppol-bis-invoice-3/menu/download-list.html" %>
+						<%@include file="../peppol-bis-invoice-3-ITA/menu/download-list.html" %>
 					</dd>
 				</dl>
 			</div>

@@ -1,0 +1,60 @@
+= CIG (Originator document reference)
+
+#In public procurement there may be different referenced document needed for identifying a provision of good and services; to provide the details at the document or line level it is necessary to specify the identifier of the document.#
+
+#The following typology of document can be referred at document or line level; also other references can be done, as long as there is no conflict with the information for which there is already a specific position established  in the document.#
+
+#In documents such as "ordine iniziale" and "ordine sostitutivo" it is mandatory to indicate the Codice identificativo di gara (CIG or Smart CIG), in english Tender Identification Code, recorded in the Banca dati Nazionale dei contratti pubblici (BDNCP), to which the provisions object of the document are related.#
+
+[cols="1,2,5", options="header"]
+|====
+s|Reference
+s|Description
+s|Where to use it
+
+|*CIG*
+|Codice Identificativo Gara
+|At document level +
+`cac:OriginatorDocumentReference` (0..1) +
+
+At line level +
+`cac:OrderLine/cac:LineItem/cac:Item/cac:ItemSpecificationDocumentReference/ID` (0..n)
+
+|====
+
+
+.Esempio di un ordine con CIG a livello di testata.
+[source, xml, indent=0]
+----
+<cac:OriginatorDocumentReference>
+    <cbc:ID>1Z1A3EE456</cbc:ID>
+</cac:OriginatorDocumentReference>
+----
+
+#In the exclusion cases, according to the current legislation, in the place of CIG value it needs to be utilised one of the codes present in the coelist *"Esclusioni CIG (IT)"*, available in the section CODELIST. The reason of the exclusion is indicated by inserting the specific code.#
+
+.L’esempio seguente indica un ordine con il motivo di esclusione ES12 “AFFIDAMENTI_IN_HOUSE”.
+[source, xml, indent=0]
+----
+ <cac:OriginatorDocumentReference>
+<cbc:ID>ES12</cbc:ID>
+</cac:OriginatorDocumentReference>
+----
+
+.Esempio di riferimento ad un CIG a livello di riga:
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+        <cac:Item>
+		...
+            <cac:ItemSpecificationDocumentReference>
+                <cbc:Id>CIG:1Z1A3EE456</cbc:Id>
+            </cac:ItemSpecificationDocumentReference>
+		...
+        </cac:Item>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+
+

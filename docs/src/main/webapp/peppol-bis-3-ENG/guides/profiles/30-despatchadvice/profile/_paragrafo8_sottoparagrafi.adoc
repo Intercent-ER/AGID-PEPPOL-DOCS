@@ -1,0 +1,42 @@
+[[EndpointID]]
+= #Endpoint ID - Identificativo di instradamento sulla rete PEPPOL#
+
+The *Endpoint ID* is specified in the document to maintain information about the electronic address of the sender or the receiver and it is used for channeling the documents (delivery) on the Peppol network. +
+
+The Endpoint ID *MUST* coincide with the one used by the transmission protocol adopted (eg. AS2). +
+
+The Endpoint ID it is not mandatory but *recommended* beacuse maintains the connection between the document, the Business Partner and the Access Point/network used.
+
+The types of identifier used in Italy and recognized by Peppol are:
+
+* *9906* per IT:VAT (for VAT number)
+
+* *9907* per IT:CF (Fiscal code, legal person or entity)
+
+* *0201* per IT:IPA (Indice Pubbliche Amministrazioni) +
+
+In Italy IPA code is suggested to register register public administrations over the Peppol delivery network, however it is not compulsory and if not available it is recommended the use of the fiscal code. +
+
+.Esempio di Endpoint di un’Amministrazione registrata in PEPPOL con l’IPA:
+[source, xml, indent=0]
+----
+    <cbc:EndpointID schemeID="0201">ABCDEF</cbc:EndpointID>
+----
+
+.Esempio di Endpoint di un’Amministrazione registrata in PEPPOL con il CF:
+[source, xml, indent=0]
+----
+    <cbc:EndpointID schemeID="9907">07643520567</cbc:EndpointID>
+----
+
+.Esempio di Endpoint di Fornitore registrato in PEPPOL con la P.IVA:
+[source, xml, indent=0]
+----
+    <cbc:EndpointID schemeID="9906">IT07643520567</cbc:EndpointID>
+----
+
+.Esempio di Endpoint di fornitore registrato in PEPPOL con un GLN (Global Location Number) secondo gli standard GS1:
+[source, xml, indent=0]
+----
+    ​<cbc:EndpointID schemeID="0088">5790000435968</cbc:EndpointID
+----

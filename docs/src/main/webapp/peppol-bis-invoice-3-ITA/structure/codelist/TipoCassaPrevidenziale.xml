@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeList xmlns="urn:fdc:difi.no:2017:vefa:structure:CodeList-1">
+
+    <Title>Province Italiane</Title>
+    <Identifier>ProvinceItaliane</Identifier>
+    <Version>1.0</Version>
+    <Agency>AGID</Agency>
+
+    <Code>
+        <Id>TC01</Id>
+        <Name>Cassa nazionale previdenza e assistenza avvocati e procuratori legali</Name>
+    </Code>
+    <Code>
+        <Id>TC02</Id>
+        <Name>﻿Cassa previdenza dottori commercialisti</Name>
+    </Code>
+    <Code>
+        <Id>TC03</Id>
+        <Name>Cassa previdenza e assistenza geometri</Name>
+    </Code>
+    <Code>
+        <Id>TC04</Id>
+        <Name>Cassa nazionale previdenza e assistenza ingegneri e architetti liberi professionisti</Name>
+    </Code>
+    <Code>
+        <Id>TC05</Id>
+        <Name>Cassa nazionale del notariato</Name>
+    </Code>
+    <Code>
+        <Id>TC06</Id>
+        <Name>Cassa nazionale previdenza e assistenza ragionieri e periti commerciali</Name>
+    </Code>
+    <Code>
+        <Id>TC07</Id>
+        <Name>Ente nazionale assistenza agenti e rappresentanti di commercio (ENASARCO)</Name>
+    </Code>
+    <Code>
+        <Id>TC08</Id>
+        <Name>Ente nazionale previdenza e assistenza consulenti del lavoro (ENPACL)</Name>
+    </Code>
+    <Code>
+        <Id>TC09</Id>
+        <Name>Ente nazionale previdenza e assistenza medici (ENPAM)</Name>
+    </Code>
+    <Code>
+        <Id>TC10</Id>
+        <Name>Ente nazionale previdenza e assistenza farmacisti (ENPAF)</Name>
+    </Code>
+    <Code>
+        <Id>TC11</Id>
+        <Name>Ente nazionale previdenza e assistenza veterinari (ENPAV)</Name>
+    </Code>
+    <Code>
+        <Id>TC12</Id>
+        <Name>Ente nazionale previdenza e assistenza impiegati dell'agricoltura (ENPAIA)</Name>
+    </Code>
+    <Code>
+        <Id>TC13</Id>
+        <Name>Fondo previdenza impiegati imprese di spedizione e agenzie marittime</Name>
+    </Code>
+    <Code>
+        <Id>TC14</Id>
+        <Name>Istituto nazionale previdenza giornalisti italiani (INPGI)</Name>
+    </Code>
+    <Code>
+        <Id>TC15</Id>
+        <Name>Opera nazionale assistenza orfani sanitari italiani (ONAOSI)</Name>
+    </Code>
+    <Code>
+        <Id>TC16</Id>
+        <Name>Cassa autonoma assistenza integrativa giornalisti italiani (CASAGIT)</Name>
+    </Code>
+    <Code>
+        <Id>TC17</Id>
+        <Name>Ente previdenza periti industriali e periti industriali laureati (EPPI)</Name>
+    </Code>
+    <Code>
+        <Id>TC18</Id>
+        <Name>Ente previdenza e assistenza pluricategoriale (EPAP)</Name>
+    </Code>
+    <Code>
+        <Id>TC19</Id>
+        <Name>Ente nazionale previdenza e assistenza biologi (ENPAB)</Name>
+    </Code>
+    <Code>
+        <Id>TC20</Id>
+        <Name>Ente nazionale previdenza e assistenza professione infermieristica (ENPAPI)</Name>
+    </Code>
+    <Code>
+        <Id>TC21</Id>
+        <Name>Ente nazionale previdenza e assistenza psicologi (ENPAP)</Name>
+    </Code>
+    <Code>
+        <Id>TC22</Id>
+        <Name>INPS</Name>
+    </Code>
+
+</CodeList>

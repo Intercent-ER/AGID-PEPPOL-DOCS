@@ -23,37 +23,6 @@
 		<converter.version>2.4.2</converter.version>
 		<schematron.version>2.2.8</schematron.version>
 	</properties>
-
-	<!--<dependencies>
-		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-web-api</artifactId>
-			<version>7.0</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.asciidoctor</groupId>
-			<artifactId>asciidoctorj</artifactId>
-			<version>2.2.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.xmlgraphics</groupId>
-			<artifactId>fop</artifactId>
-			<version>2.4</version>
-		</dependency>
-		<dependency>
-			<groupId>net.sf.saxon</groupId>
-			<artifactId>Saxon-B</artifactId>
-			<version>9.0</version>
-		</dependency>
-		<dependency>
-			<groupId>xml-resolver</groupId>
-			<artifactId>xml-resolver</artifactId>
-			<version>1.1</version>
-			<optional>true</optional>
-		</dependency>
-	</dependencies>-->
-
 	<build>
 		<plugins>
 			<plugin>
@@ -72,8 +41,10 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>xml-maven-plugin</artifactId>
 				<executions>
+				
+					<!-- ITA -->
 					<execution>
-						<id>apply-xslt-others</id>
+						<id>apply-xslt-others-ITA</id>
 						<phase>generate-resources</phase>
 						<goals>
 							<goal>transform</goal>
@@ -81,9 +52,9 @@
 						<configuration>
 							<transformationSets>
 								<transformationSet>
-									<dir>${basedir}/src/main/webapp/peppol-bis-3/structure/syntax/</dir>
+									<dir>${basedir}/src/main/webapp/peppol-bis-3-ITA/structure/syntax/</dir>
 									<stylesheet>${basedir}/src/main/webapp/xsl/agid-peppol-bis-structure-v1.5.3.xsl</stylesheet>
-									<outputDir>${project.build.directory}/${project.build.finalName}/xml/peppol-bis-3/</outputDir>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ITA/peppol-bis-3/</outputDir>
 									<fileMappers>
 										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
 											<targetExtension>.html</targetExtension>
@@ -94,7 +65,7 @@
 						</configuration>
 					</execution>
 					<execution>
-						<id>apply-xslt-invoice</id>
+						<id>apply-xslt-invoice-ITA</id>
 						<phase>generate-resources</phase>
 						<goals>
 							<goal>transform</goal>
@@ -102,9 +73,9 @@
 						<configuration>
 							<transformationSets>
 								<transformationSet>
-									<dir>${basedir}/src/main/webapp/peppol-bis-invoice-3/structure/syntax/</dir>
+									<dir>${basedir}/src/main/webapp/peppol-bis-invoice-3-ITA/structure/syntax/</dir>
 									<stylesheet>${basedir}/src/main/webapp/xsl/agid-peppol-bis-structure-v1.5.3.xsl</stylesheet>
-									<outputDir>${project.build.directory}/${project.build.finalName}/xml/peppol-bis-invoice-3/</outputDir>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ITA/peppol-bis-invoice-3/</outputDir>
 									<fileMappers>
 										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
 											<targetExtension>.html</targetExtension>
@@ -115,7 +86,7 @@
 						</configuration>
 					</execution>
 					<execution>
-						<id>apply-xslt-codelist-others</id>
+						<id>apply-xslt-codelist-others-ITA</id>
 						<phase>generate-resources</phase>
 						<goals>
 							<goal>transform</goal>
@@ -123,13 +94,13 @@
 						<configuration>
 							<transformationSets>
 								<transformationSet>
-									<dir>${basedir}/src/main/webapp/peppol-bis-3/structure/codelist/</dir>
+									<dir>${basedir}/src/main/webapp/peppol-bis-3-ITA/structure/codelist/</dir>
 									<includes>
 										<include>**/*.xml</include>
 										<include>*.xml</include>
 									</includes>
 									<stylesheet>${basedir}/src/main/webapp/xsl/agid-peppol-bis-codelist-v1.2.xsl</stylesheet>
-									<outputDir>${project.build.directory}/${project.build.finalName}/xml/peppol-bis-3/codelist/</outputDir>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ITA/peppol-bis-3/codelist/</outputDir>
 									<fileMappers>
 										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
 											<targetExtension>.html</targetExtension>
@@ -140,7 +111,7 @@
 						</configuration>
 					</execution>
 					<execution>
-						<id>apply-xslt-codelist-invoice</id>
+						<id>apply-xslt-codelist-invoice-ITA</id>
 						<phase>generate-resources</phase>
 						<goals>
 							<goal>transform</goal>
@@ -148,13 +119,13 @@
 						<configuration>
 							<transformationSets>
 								<transformationSet>
-									<dir>${basedir}/src/main/webapp/peppol-bis-invoice-3/structure/codelist/</dir>
+									<dir>${basedir}/src/main/webapp/peppol-bis-invoice-3-ITA/structure/codelist/</dir>
 									<includes>
 										<include>**/*.xml</include>
 										<include>*.xml</include>
 									</includes>
 									<stylesheet>${basedir}/src/main/webapp/xsl/agid-peppol-bis-codelist-v1.2.xsl</stylesheet>
-									<outputDir>${project.build.directory}/${project.build.finalName}/xml/peppol-bis-invoice-3/codelist/</outputDir>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ITA/peppol-bis-invoice-3/codelist/</outputDir>
 									<fileMappers>
 										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
 											<targetExtension>.html</targetExtension>
@@ -164,6 +135,102 @@
 							</transformationSets>
 						</configuration>
 					</execution>
+					
+					<!-- ENG -->
+					<execution>
+						<id>apply-xslt-others-ENG</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${basedir}/src/main/webapp/peppol-bis-3-ENG/structure/syntax/</dir>
+									<stylesheet>${basedir}/src/main/webapp/xsl/agid-peppol-bis-structure-v1.5.3.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ENG/peppol-bis-3/</outputDir>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.html</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+					<execution>
+						<id>apply-xslt-invoice-ENG</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${basedir}/src/main/webapp/peppol-bis-invoice-3-ENG/structure/syntax/</dir>
+									<stylesheet>${basedir}/src/main/webapp/xsl/agid-peppol-bis-structure-v1.5.3.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ENG/peppol-bis-invoice-3/</outputDir>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.html</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+					<execution>
+						<id>apply-xslt-codelist-others-ENG</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${basedir}/src/main/webapp/peppol-bis-3-ENG/structure/codelist/</dir>
+									<includes>
+										<include>**/*.xml</include>
+										<include>*.xml</include>
+									</includes>
+									<stylesheet>${basedir}/src/main/webapp/xsl/agid-peppol-bis-codelist-v1.2.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ENG/peppol-bis-3/codelist/</outputDir>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.html</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+					<execution>
+						<id>apply-xslt-codelist-invoice-ENG</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${basedir}/src/main/webapp/peppol-bis-invoice-3-ENG/structure/codelist/</dir>
+									<includes>
+										<include>**/*.xml</include>
+										<include>*.xml</include>
+									</includes>
+									<stylesheet>${basedir}/src/main/webapp/xsl/agid-peppol-bis-codelist-v1.2.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ENG/peppol-bis-invoice-3/codelist/</outputDir>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.html</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+					
+					<!-- SCHEMATRON -->
 					<execution>
 						<id>apply-xslt-sch</id>
 						<phase>package</phase>
@@ -208,34 +275,67 @@
 				<artifactId>asciidoctor-maven-plugin</artifactId>
 				<version>1.5.6</version>
 				<executions>
+				
+					<!-- ITA -->
 					<execution>
-						<id>output-html-others</id>
+						<id>output-html-others-ITA</id>
 						<phase>generate-resources</phase>
 						<goals>
 							<goal>process-asciidoc</goal>
 						</goals>
 						<configuration>
 							<backend>html5</backend>
-							<sourceDirectory>${basedir}/src/main/webapp/peppol-bis-3/</sourceDirectory>
-							<outputDirectory>${project.build.directory}/generated-docs/others</outputDirectory>
+							<sourceDirectory>${basedir}/src/main/webapp/peppol-bis-3-ITA/</sourceDirectory>
+							<outputDirectory>${project.build.directory}/generated-docs/ITA/others</outputDirectory>
 							<relativeBaseDir>true</relativeBaseDir>
 							<preserveDirectories>true</preserveDirectories>
 						</configuration>
 					</execution>
 					<execution>
-						<id>output-html-billing</id>
+						<id>output-html-billing-ITA</id>
 						<phase>generate-resources</phase>
 						<goals>
 							<goal>process-asciidoc</goal>
 						</goals>
 						<configuration>
 							<backend>html5</backend>
-							<sourceDirectory>${basedir}/src/main/webapp/peppol-bis-invoice-3/</sourceDirectory>
-							<outputDirectory>${project.build.directory}/generated-docs/invoice</outputDirectory>
+							<sourceDirectory>${basedir}/src/main/webapp/peppol-bis-invoice-3-ITA/</sourceDirectory>
+							<outputDirectory>${project.build.directory}/generated-docs/ITA/invoice</outputDirectory>
 							<relativeBaseDir>true</relativeBaseDir>
 							<preserveDirectories>true</preserveDirectories>
 						</configuration>
 					</execution>
+					
+					<!-- ENG -->
+					<execution>
+						<id>output-html-others-ENG</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<backend>html5</backend>
+							<sourceDirectory>${basedir}/src/main/webapp/peppol-bis-3-ENG/</sourceDirectory>
+							<outputDirectory>${project.build.directory}/generated-docs/ENG/others</outputDirectory>
+							<relativeBaseDir>true</relativeBaseDir>
+							<preserveDirectories>true</preserveDirectories>
+						</configuration>
+					</execution>
+					<execution>
+						<id>output-html-billing-ENG</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<backend>html5</backend>
+							<sourceDirectory>${basedir}/src/main/webapp/peppol-bis-invoice-3-ENG/</sourceDirectory>
+							<outputDirectory>${project.build.directory}/generated-docs/ENG/invoice</outputDirectory>
+							<relativeBaseDir>true</relativeBaseDir>
+							<preserveDirectories>true</preserveDirectories>
+						</configuration>
+					</execution>
+					
 
 				</executions>
 			</plugin>

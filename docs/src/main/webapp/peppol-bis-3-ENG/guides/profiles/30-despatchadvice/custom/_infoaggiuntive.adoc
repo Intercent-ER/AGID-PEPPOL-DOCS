@@ -1,9 +1,9 @@
 [[infoaggiuntive]]
-= #Informazioni Aggiuntive (Omaggio o Sconto Merce)#
+= #Additiona information (Homage or discount)#
 
-Per fornire informazioni aggiuntive come gli omaggi e gli sconti nelle righe del documento di trasporto è possibile utilizzare l'elemento cbc:AdditionalInformation come negli esempi di seguito riportati.
+It is possibile to utilize the element *cbc:AdditionalInformation* to provide additional information about homages or discounts on the line level, as shown in the example below:
 
-.Esempio di articoli in OMAGGIO:
+.Example of a free article
 [source, xml, indent=0]
 ----
 <cbc:DespatchLine>
@@ -20,7 +20,7 @@ Per fornire informazioni aggiuntive come gli omaggi e gli sconti nelle righe del
 ----
 
 
-.Esempio di articoli consegnati a titolo di sconto (SCONTO MERCE):
+.Example of a discounted article
 [source, xml, indent=0]
 ----
 <cbc:DespatchLine>

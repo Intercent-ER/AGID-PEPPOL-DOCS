@@ -1,19 +1,22 @@
-
 [[antiblastici]]
-== Esempio avanzato nel settore Health: gli antiblastici
+== #Advances example in the Health sector: anablastics drugs#
 
-Nel caso sia necessario identificare più precisamente la merce pericolosa è possibile fornire ulteriori informazioni come l’#identificativo della sostanza pericolosa# secondo la convenzione dichiarata nell’UNDGCode, la #denominazione tecnica# e la #categoria sostanza pericolosa#.
+In case it is necessary to identify in a more precise way the hazardous items, it is possibile to provide further information i la merce pericolosa è possibile fornire ulteriori informazioni, such as:
+
+* Hazardous item identifier, according to the NDGCode convention;
+* Hazardous item technical name;
+* Hazardous item category.
 
 Per il trasporto di medicinali pericolosi (antiblastici) su gomma viene usata la convenzione ADR che definisce le classi di pericolosità (Hazard class) e identifica ogni sostanza con un UN Number.
 
-Si forniscono a titolo di esempio gli identificativi e le relative classi di pericolosità più utilizzate nel trasporto degli antiblastici:
+In the table below, the most used identifiers and the related hazard classes for anablastics transportation are provided:
 
-.Classi di pericolosità
+.Hazard classes
 [width="100%", cols="2h,3m,1m"]
 |===
-| *Numero UN*
-| *Denominazione UN*
-| *Classe di pericolosità*
+| *UN number*
+| *UN denomination*
+| *Hazard class*
 
 | UN 1851
 | Medicine, liquid, toxic, n.o.s
@@ -28,23 +31,23 @@ Si forniscono a titolo di esempio gli identificativi e le relative classi di per
 | 6.1
 |===
 
-Di seguito un esempio significativo:
+For further clarifications, see the example below.
 
-.Esempio Antiblastici:
+.Example of anablastics drugs
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/snippet-30-3.xml[tags=antiblastici]
 ----
 
-L’esempio avanzato sopra riportato denota l’uso di:
+The example above denotes the use of:
 
-<1> L’identificativo UN (UN Number) assegnato alla sostanza: 3249
-<2> La convenzione: ADR (European agreement on the international carriage of dangerous goods on road) secondo la codifica UNCL8273 (Dangerous goods regulations code)
-<3> La denominazione tecnica del medicinale: Medicine, solid, toxic, n.o.s
-<4> La categoria del medicinale: ANTIBLASTICI
-<5> La classe di pericolosità
+<1> UN identifier (UN Number) assigned to the substance: 3249
+<2> The convention: ADR (European agreement on the international carriage of dangerous goods on road) according to the codelist UNCL8273 (Dangerous goods regulations code)
+<3> Technical name of the medicinal: Medicine, solid, toxic, n.o.s
+<4> Category of the medicinal: ANTIBLASTICI
+<5> Hazard class
 
-Per ricercare gli UN Number disponibili è disponbile il seguente tool:
+UN Numbers are available in the following tool:
 
 {link-hazmattool}
  

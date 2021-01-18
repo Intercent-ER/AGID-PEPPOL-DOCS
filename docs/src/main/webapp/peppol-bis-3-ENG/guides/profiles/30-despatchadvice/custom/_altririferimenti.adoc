@@ -1,20 +1,20 @@
 
-= Altri Riferimenti
+= Other references
 
-Nel procurement pubblico possono essere diversi i riferimenti necessari a identificare una fornitura.
+In public procurement there may be different necessary references to identify a delivery.
 
-Per fornire gli estremi di un documento di gara al quale si vuol fare riferimento è necessario specificarne la tipologia secondo i valori definiti nella tabella seguente.
+To provide the details of a tendering procedure it is necessary to specify the typology using the values defined in the table below.
 
-L’elemento <cac:DocumentType> tuttavia è di tipo testuale è può essere quindi utilizzato per esprimere altre tipologie di documento non essendo soggetto a validazione semantica.
+The element *cac:DocumentType* is a test field, not subject to semantic valvalidation, so can be utilize to express vary documents' references.
 
-È importante assicurarsi che le tipologie di documento siano conformi alla seguente specifica per garantire l’interopeabilità.
+It is important to ensure that the document typology is compliant whit this Documentation to guarantee the interoperability.
 
-.Tipologie di riferimento
+.Tipology of documents
 [width="100%", cols="1h,2m,3m"]
 |===
 | *DocumentType*
-| *Descrizione*
-| *Dove usarlo*
+| *Description*
+| *Where to use it*
 
 | CIG
 | Codice Identificativo Gara
@@ -33,7 +33,7 @@ cac:DespatchLine/cac:DocumentReference (0..n)
 |===
 
 
-== Riferimento aggiuntivo a livello di testata
+== Additionat reference at header level
 
 .Esempio di riferimento a un CIG
 [source, xml, indent=0]
@@ -45,7 +45,7 @@ cac:DespatchLine/cac:DocumentReference (0..n)
 ----
 
 
-== Riferimento aggiuntivo a livello di riga
+== Additionat reference at line level
 
 .Esempio di riferimento a un CIG
 [source, xml, indent=0]

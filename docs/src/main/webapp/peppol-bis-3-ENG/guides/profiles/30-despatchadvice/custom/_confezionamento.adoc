@@ -1,25 +1,26 @@
 [[confezionamento]]
 = #Confezionamento#
 
-Per fornire informazioni sul confezionamento è possibile usare due diverse modalità a seconda di come è stato effettuato l’ordine, e quindi se l’articolo corrisponde alla singola unità "C62" o alla confezione "XPK". +
+In order to provide information about the packaging, it is possibile to use two differents ways depending on how the order is carried out, meaning if the item corresponds with the unit quantity "C62" or the packaging unit "XPK". +
 
-Se l’articolo ordinato è una confezione è importante indicarne l’unità di misura corretta.
+If the ordered article is a package, it is important to indicate the correct unit of measure. +
 
-Nella tabella seguente si forniscono chiarimenti per aggiungere informazioni sulle singole unità all’interno della confezione e viceversa, quando l’articolo coincide con l’unità base, per fornire informazioni sul confezionamento.
+The following table provides clarification on how to add information about single units within the package and viceversa, meaning when the article coincides with the unit base, to provide information about the packaging.
 
 
 |===
-|**Tipo di informazione** | **Descrizione** 
+|**Type of information** | **Description** 
 |PackSizeNumeric |	Indica il numero di articoli contenuti in un confezionamento primario (ad esempio, quante pasticche o unità “C62” una confezione “XPK”)|PackQuantity
 |Indica il numero di sotto-unità contenute in un confezionamento secondario (ad esempio, quante scatole o confezioni “XPK” sono presenti in un imballaggio “XBX”) |	Indica il numero di sotto-unità contenute in un confezionamento secondario (ad esempio, quante scatole o confezioni “XPK” sono presenti in un imballaggio “XBX”)
 |===
 
 
-Seguono due esempi significativi.
+Two meaningful examples are below. 
 
-== Caso 1: Articolo ordinato per singola unità
+= Case 1: Ordered item by single unit
 
-Esempio in cui l’articolo viene ordinato per singola unità e non a confezione, ed indicazione del numero di pezzi per confezione primaria:
+
+This is an example of an item ordered as single unit and not as package, and so the indication of number of pieces into the primary package:
 
 [source, xml]
 
@@ -46,10 +47,11 @@ Esempio in cui l’articolo viene ordinato per singola unità e non a confezione
 </cac:DespatchLine>
 
 
+=  Case 2: Ordered item by package
 
-== Caso 2: Articolo ordinato a confezione
 
-Esempio in cui l’articolo viene ordinato a confezione:
+This is an example in which the item is ordered by package:
+
 
 [source, xml]
 

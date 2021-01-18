@@ -1,15 +1,16 @@
 [[Specifiche-Partita-Merce]]
-= #Specifiche Partita Merce#
+= #Specifications on the Consigment#
 
-Per fornire ulteriori informazioni sulla partita merce è possibile utilizzare l'aggregato informativo cac:Shipment/cac:GoodsItem a livello di riga, come parte delle informazioni sulla spedizione.
+To provide further details about a Consignment it is possible to utilize the segment *cac:Shipment/cac:GoodsItem* on the line level, as part of information about the shipment.
 
-In particolare è possibile specificare le temperature impostate e raccomandate col descritto nel paragrafo seguente.
+In particular, it is possible to specify information about the temperature recommended and allowable as described below.
 
 [[temperatura]]
-== Temperatura
-Per indicare la temperatura impostata e raccomandata per talune merci o la temperatura minima/massima tollerata è possibile specificarlo sempre nel dettaglio della spedizione come nell’esempio seguente:
+== Temperature
 
-.Esempio settaggi temperatura:
+To indicate the recommended and allowable temperature for some goods or the minimum/maximum tolerated temperature, it is possible to specify it always in the detail of the shipment as shown in the following example:
+
+.Example of temperature settingsmperatura:
 [source, xml, indent=0]
 ----
 <cac:DespatchLine>
@@ -32,7 +33,8 @@ Per indicare la temperatura impostata e raccomandata per talune merci o la tempe
 </cac:DespatchLine>
 ----
 
-L’esempio denota l’uso delle unità di misura Celsius (CEL) e Fahrenheit (FAH). L’elemento AttributeID è obbligatorio ma può essere ignorato valorizzandolo con NA, tuttavia in alcuni casi può migliorare la comprensione della misura fornita (es. Recommended, Allowable, Alert).
+The example denotes the use of unit of measures Celsius (CEL) and Fahrenheit (FAH). The element *cbc:AttributeID* is mandatory but can be ignored valorizing it as NA. However in some cases can improve the understanding of the temperature provided (es. Recommended, Allowable, Alert).
 
-NOTA: Le misure (***Measure) sono obbligatoriamente espresse secondo la codifica {UNRec20} e non è richiesto qualificarle con ulteriori attributi.
+[NOTE]
+Measures are necesseraly expressed according to the codelists {UNRec20} and it is not required to qualify them with further attributes.
 

@@ -1,6 +1,6 @@
 <html lang="en">
 	<head>
-		<title>Specifiche PEPPOL 3</title>
+		<title>PEPPOL BIS 3</title>
 		<meta charset="utf-8"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -25,7 +25,7 @@
 			<div id="main" class="container" style="display: block;">
 
 				<div class="page-header">
-					<h1>Indice : <span id="home-title">PEPPOL BIS 3 (altri processi)</span>
+					<h1>Index : <span id="home-title">PEPPOL BIS 3 Billing</span>
 					</h1>
 				</div>
 
@@ -33,27 +33,27 @@
 					<dd>
 						<%@include file="../peppol-bis-invoice-3-ENG/menu/jumbo-list.html" %>
 					</dd>
-					<dt>Note di Rilascio</dt>
+					<dt>Release Notes</dt>
 					<dd>
 						<%@include file="../peppol-bis-invoice-3-ENG/menu/intro-list.html" %>
 					</dd>
-					<dt>Documentazione</dt>
+					<dt>Documentation</dt>
 					<dd>
 						<%@include file="../peppol-bis-invoice-3-ENG/menu/bis-list.html" %>
 					</dd>
-					<dt>Sintassi</dt>
+					<dt>Syntax</dt>
 					<dd>
 						<%@include file="../peppol-bis-invoice-3-ENG/menu/syntax-list.html" %>
 					</dd>
-					<dt>Regole</dt>
+					<dt>Rules</dt>
 					<dd>
 						<%@include file="../peppol-bis-invoice-3-ENG/menu/rule-list.html" %>
 					</dd>
-					<dt>Codifiche</dt>
+					<dt>Codelists</dt>
 					<dd>
 						<%@include file="../peppol-bis-invoice-3-ENG/menu/codelist-list.html" %>
 					</dd>
-					<dt>Fogli di stile</dt>
+					<dt>Stylesheet</dt>
 					<dd>
 						<%@include file="../peppol-bis-invoice-3-ENG/menu/stylesheet-list.html" %>
 					</dd>

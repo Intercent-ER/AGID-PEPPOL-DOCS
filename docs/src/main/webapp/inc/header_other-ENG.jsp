@@ -18,48 +18,48 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li class="btn-group" id="peppol-bis">
-							<button type="button" class="btn btn-primary btn-agid" style="margin-top: 8px;">PEPPOL BIS 3 (altri processi)</button>
+							<button type="button" class="btn btn-primary btn-agid" style="margin-top: 8px;">PEPPOL BIS 3 (other processes)</button>
 							<button type="button" class="btn btn-primary dropdown-toggle btn-agid" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 8px;">
 								<span class="caret"/>
 								<span class="sr-only">Toggle Dropdown</span>
 							</button>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="<%=request.getContextPath()%>/my_index_fatt-ENG.jsp">PEPPOL BIS Fatturazione 3</a>
+									<a href="<%=request.getContextPath()%>/my_index_fatt-ENG.jsp">PEPPOL BIS Billing 3</a>
 									</li>
 									<li>
-										<a href="<%=request.getContextPath()%>/my_index-ENG.jsp">PEPPOL BIS 3 (altri processi)</a>
+										<a href="<%=request.getContextPath()%>/my_index-ENG.jsp">PEPPOL BIS 3 (other processes)</a>
 										</li>
 									</ul>
 								</li>
 
 								<li class="dropdown">
-									<a href="#" class="dropdown-toggle link-agid" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sintassi <span class="caret"/>
+									<a href="#" class="dropdown-toggle link-agid" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Syntax <span class="caret"/>
 									</a>
 									<%@include file="../peppol-bis-3-ENG/menu/syntax-menu.html" %>
 								</li>
 
 								<li class="dropdown">
-									<a href="#" class="dropdown-toggle link-agid" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Regole <span class="caret"/>
+									<a href="#" class="dropdown-toggle link-agid" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rules <span class="caret"/>
 									</a>
 									<%@include file="../peppol-bis-3-ENG/menu/rule-menu.html" %>
 								</li>
 
 								<li class="dropdown">
-									<a href="#" class="dropdown-toggle link-agid" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Codifiche <span class="caret"/>
+									<a href="#" class="dropdown-toggle link-agid" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Codelists <span class="caret"/>
 									</a>
 									<%@include file="../peppol-bis-3-ENG/menu/codelist-menu.html" %>
 									
 								</li>
 
 								<li class="dropdown dropdown-agid">
-									<a href="#" class="dropdown-toggle link-agid" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fogli di stile <span class="caret"/>
+									<a href="#" class="dropdown-toggle link-agid" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Stylesheet <span class="caret"/>
 									</a>
 									<%@include file="../peppol-bis-3-ENG/menu/stylesheet-menu.html" %>
 								</li>
 								
 								<li class="dropdown dropdown-agid">
-									<a href="#" class="dropdown-toggle link-agid" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">EN<span class="caret"/>
+									<a href="#" class="dropdown-toggle link-agid" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin-left: 150px">EN<span class="caret"/>
 									</a>
 									<ul class="dropdown-menu">
 										<li><a href="<%=request.getContextPath()%>/my_index.jsp">IT</a></li>

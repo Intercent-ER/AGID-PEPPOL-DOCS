@@ -33,7 +33,7 @@ c.  At the same time.
 3.  The Seller delivers the complete order as accepted.
 4.  The items are in four separate transport handling units.
 
-image:images/image9.png[image,width=150,height=94]
+image:../images/image9.png
 
 |*The flow* a|
 1.  The Seller collects the ordered items

@@ -38,7 +38,7 @@ Questo caso d’uso dimostra anche diversi utilizzi di: +
 . Gli articoli nella prima e seconda riga sono nella stessa unità logistica.
 . Gli articoli nelle righe tre e quattro sono in unità logistiche separate.
 
-image:images/image10.png[image,width=143,height=94]
+image:../images/image10.png
 
 |*Il flusso* a|
 . Il Venditore preleva gli articoli ordinati

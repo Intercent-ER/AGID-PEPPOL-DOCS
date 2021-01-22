@@ -7,7 +7,7 @@
 I diagrammi sono espressi nella notazione BPMN.
 Il diagramma sottostante serve come spiegazione dei diagrammi utilizzati successivamente nella descrizione del processo.
 
-image:images/image4.png[image,width=618,height=386]
+image:../images/image4.png[image,width=618,height=386]
 
 La sezione seguente e i diagrammi mostrano la coreografia del processo di business che coinvolge varie parti. 
 

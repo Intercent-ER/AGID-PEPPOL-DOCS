@@ -42,7 +42,7 @@ The remaining 4 items will be delivered in another despatch.
 .  The items in the first and second line are in the same transport handling unit
 .  The items in line three and four are in two separate transport handling units
 
-image:images/image10.png[image,width=143,height=94]
+image:../images/image10.png
 
 |*The flow* a|
 .  The Seller collects the ordered items

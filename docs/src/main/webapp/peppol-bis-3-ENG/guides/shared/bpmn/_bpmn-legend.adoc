@@ -9,4 +9,4 @@ I diagrammi sono espressi nella notazione BPMN.
 Il diagramma sottostante serve come spiegazione dei diagrammi utilizzati successivamente nella descrizione del processo.
 
 .legenda BPMN
-image::../../shared/images/bpmn-legend.png[]
+image::../../../shared/images/bpmn-legend.png[]

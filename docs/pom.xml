@@ -364,6 +364,7 @@
 							<goal>war</goal>
 						</goals>
 						<configuration>
+							<packagingIncludes>attachments/**, css/**, docs/**, fonts/**, images/**, inc/**, js/**, META-INF/**, peppol-bis-3-ENG/menu/**, peppol-bis-3-ITA/menu/**, peppol-bis-invoice-3-ENG/menu/**, peppol-bis-invoice-3-ITA/menu/**, sch/**, WEB-INF/**, xml/**, xsd/**, *.jsp </packagingIncludes>
 							<warSourceDirectory>${project.build.directory}/${project.build.finalName}</warSourceDirectory>
 						</configuration>
 					</execution>

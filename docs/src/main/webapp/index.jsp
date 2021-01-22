@@ -23,7 +23,7 @@
         <script>
             //<![CDATA[
             $(function () {
-                const VER = "55";    // Math.random()*1000000
+                const VER = "56";    // Math.random()*1000000
                 var $body = $("body"), $main = $("#main"), $guide = $("#guide").hide(), $adoc = $("#adoc-viewer"), $loader = $("#loader");
                 var defBis = "peppol-bis-3";
 
@@ -316,8 +316,8 @@
                     <div class="list-group" id="jumbo-list">
                     </div>
                 </dd>
-			
-			
+
+
                 <dt>Note di Rilascio</dt>
                 <dd>
                     <div class="list-group" id="intro-list">

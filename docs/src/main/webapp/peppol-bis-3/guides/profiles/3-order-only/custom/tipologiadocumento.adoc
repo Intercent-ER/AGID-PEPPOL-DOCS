@@ -6,8 +6,6 @@ I Documenti, che costituiscono il Corpo del messaggio, contengono le istruzioni 
 
 Nella tabella seguente sono elencati i sotto- tipi e le varianti per l'Ordine, descritti nei Paragrafi che seguono.
 
-Per le regole di compilazione, vedi paragrafo 6.12.
-
 
 [width="100%", cols="2,3,3", options="header"]
 |===
@@ -32,6 +30,8 @@ In alcune circostanze può essere utile revocare un Ordine precedentemente emess
 
 L’Ordine di revoca è un Ordine che contiene il riferimento all’Ordine che si intende revocare e l’indicazione che si tratta di una “revoca” (“Cancelled”), inoltre ha una sola linea d’ordine priva di contenuto.
 
+Per le regole di compilazione, vedi paragrafo 6.12.
+
 
 *[red]#Ordine sostitutivo#*
 
@@ -44,6 +44,8 @@ In alcune circostanze, però, può essere necessario modificare le informazioni 
 [NOTE]
 In questi casi l’Ordine sostitutivo deve riportare l’indicazione del sotto-tipo di Ordinazione “OR”, (c.d. “Ordine sostitutivo di regolazione“, vedi paragrafo 4.4).
 
+Per le regole di compilazione, vedi paragrafo 6.12.
+
 
 *[red]#Ordine collegato#*
 
@@ -55,6 +57,7 @@ In questi casi è possibile evidenziare tale generica relazione con l’uso dell
 [NOTE]
 L’Ordine collegato può essere utilizzato esclusivamente per tenere memoria che il nuovo processo che si intende avviare è collegato ad un processo precedente e non deve mai essere usato al posto degli altri strumenti (Ordine di revoca, Ordine sostitutivo e Ordine di riscontro) appositamente realizzati per revocare, sostituire (o integrare), confermare o rifiutare un altro Documento.
 
+Per le regole di compilazione, vedi paragrafo 6.12.
 
 
 *[red]#Ordine di convalida#*
@@ -68,6 +71,26 @@ L’Ordine di convalida può essere utilizzato esclusivamente: +
 
 [NOTE]
 L’Ordine di convalida non deve mai essere usato al posto degli altri strumenti (Ordine di revoca, Ordine sostitutivo e Ordine di riscontro) appositamente realizzati per revocare, sostituire, confermare o rifiutare un altro Documento.
+
+.Regole di compilazione 
+
+In caso di *Ordine di convalida*, bisogna riportare gli estremi della fattura da regolarizzare nell’elemento “OrderDocumentReference/ID”, valorizzandolo con i valori e l'ordine di successione riportato:
+
+* il *numero* della fattura che si intende convalidare:
+
+* la *data di emissione* della fattura che si intende convalidare;
+
+* l’*identificativo fiscale* del soggetto che ha emesso la fattura che si intende convalidare;
+
+* il testo *“Invoice”* per indicare che si tratta di un Ordine di convalida di una fattura (o di una richiesta di pagamento equivalente).
+
+.Esempio
+[source, xml, indent=0]
+----
+<cac:OrderDocumentReference>
+    <cbc:ID>57#2018-01-30# ITccccccccccc#Invoice</cbc:ID>
+</cac:OrderDocumentReference >
+----
 
 
 

@@ -49,7 +49,7 @@ If the delivery address is the Client's institutional address to which a unique 
 </cac:DeliveryTerms>
 ----
 
-Instead, if the provision of goods and services  must take place in a non-institutional location or institutional location not coded (even temporarily), it is necessary to indicate precisely all the elements and sub-information inside de segment “Address”, as shown by the following example:
+On the other hand, if the provision of goods and services  must take place in a non-institutional location or institutional location not coded (even temporarily), it is necessary to indicate precisely all the elements and sub-information inside de segment “Address”, as shown by the following example:
 
 .Example
 [source, xml, indent=0]

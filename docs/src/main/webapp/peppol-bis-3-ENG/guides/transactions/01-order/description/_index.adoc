@@ -1,5 +1,5 @@
 [[description-of-selected-parts-of-the-order-message]]
-= Descrizione di parti selezionate dell'ordine
+= Description of selected parts of the order message
 
 :leveloffset: +1
 

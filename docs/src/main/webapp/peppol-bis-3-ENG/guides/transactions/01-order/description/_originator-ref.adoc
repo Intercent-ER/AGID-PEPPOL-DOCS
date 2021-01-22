@@ -23,7 +23,7 @@ At line level +
 |====
 
 
-.Esempio di un ordine con CIG a livello di testata.
+.Example of an order with the CIG code on the header level:
 [source, xml, indent=0]
 ----
 <cac:OriginatorDocumentReference>
@@ -33,7 +33,7 @@ At line level +
 
 #In the exclusion cases, according to the current legislation, in the place of CIG value it needs to be utilised one of the codes present in the coelist *"Esclusioni CIG (IT)"*, available in the section CODELIST. The reason of the exclusion is indicated by inserting the specific code.#
 
-.L’esempio seguente indica un ordine con il motivo di esclusione ES12 “AFFIDAMENTI_IN_HOUSE”.
+.Example with an exclusion reason code of ES12 (“AFFIDAMENTI_IN_HOUSE”)
 [source, xml, indent=0]
 ----
  <cac:OriginatorDocumentReference>
@@ -41,7 +41,7 @@ At line level +
 </cac:OriginatorDocumentReference>
 ----
 
-.Esempio di riferimento ad un CIG a livello di riga:
+.Example of an order with the CIG code on the line level:
 [source, xml, indent=0]
 ----
 <cac:OrderLine>

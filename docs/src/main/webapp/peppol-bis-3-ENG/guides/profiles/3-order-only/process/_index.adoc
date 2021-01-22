@@ -15,12 +15,13 @@ The Order process flow can be described as follows:
 
 
 [[Requisiti-dei-processi-di-business]]
-== #Requisiti dei processi di business#
+== #Business processes requirements#
 
-Salvo che non sia previsto diversamente da norme, usi commerciali o accordi tra le parti,
-il Fornitore non è tenuto a trasmettere la Risposta, pertanto l’assenza di Risposta equivale ad accettazione dell’Ordine.  +
+The Seller is not obliged to transmit the Response, unless otherwise provided for by regulations, commercial practice or the agreement between the parties.
 
-In caso di utilizzo della risposta, si veda il profilo Ordinazione Completa. +
+Therefore, the absence of the Response is equivalent to the Order acceptance. +
+
+In the case of use the Response, see Ordering profile. +
 
 
 

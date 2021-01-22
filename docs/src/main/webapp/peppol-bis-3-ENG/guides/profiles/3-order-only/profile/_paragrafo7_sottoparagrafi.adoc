@@ -17,25 +17,25 @@ The types of identifier used in Italy and recognized by Peppol are:
 
 In Italy IPA code is suggested to register register public administrations over the Peppol delivery network, however it is not compulsory and if not available it is recommended the use of the fiscal code. +
 
-.Esempio di Endpoint di un’Amministrazione registrata in PEPPOL con l’IPA:
+.Example for an Endpoint of a Public Administration registered on Peppol with IPA:
 [source, xml, indent=0]
 ----
     <cbc:EndpointID schemeID="0201">ABCDEF</cbc:EndpointID>
 ----
 
-.Esempio di Endpoint di un’Amministrazione registrata in PEPPOL con il CF:
+.Example for an Endpoint of a Public Administration registered on Peppol with the fiscal code:
 [source, xml, indent=0]
 ----
     <cbc:EndpointID schemeID="9907">07643520567</cbc:EndpointID>
 ----
 
-.Esempio di Endpoint di Fornitore registrato in PEPPOL con la P.IVA:
+.Example for an Endpoint of a Public Administration registered on Peppol with the VAT number:
 [source, xml, indent=0]
 ----
     <cbc:EndpointID schemeID="9906">IT07643520567</cbc:EndpointID>
 ----
 
-.Esempio di Endpoint di fornitore registrato in PEPPOL con un GLN (Global Location Number) secondo gli standard GS1:
+.Example for an Endpoint of a Public Administration registered on Peppol with the GLN (Global Location Number), according to GS1 standard:
 [source, xml, indent=0]
 ----
     ​<cbc:EndpointID schemeID="0088">5790000435968</cbc:EndpointID

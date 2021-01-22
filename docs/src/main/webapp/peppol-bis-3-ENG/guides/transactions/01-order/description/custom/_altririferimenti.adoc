@@ -1,5 +1,5 @@
 [[altri-riferimenti]]
-= #Altri riferimenti#
+= #Other references#
 
 To provide the details of CUP, DDT, IMPEGNO, DELIBERA, CONTRATTO and CONVENZIONE see the table below.
 
@@ -61,7 +61,7 @@ At line level use +
 
 |====
 
-.Esempio di riferimento ad un CUP a livello di testata.
+.Example of a reference to the CUP code on the header level
 [source, xml, indent=0]
 ----
 <cac:AdditionalDocumentReference>
@@ -69,7 +69,7 @@ At line level use +
 <cbc:DocumentType>CUP</cbc:DocumentType>
 </cac:AdditionalDocumentReference>
 ----
-.Esempio di riferimento ad un IMPEGNO e a un DDT a livello di riga.
+.Example of a reference to IMPEGNO and Despatch Advice on the line level
 [source, xml, indent=0]
 ----
 <cac:OrderLine>

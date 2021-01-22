@@ -11,7 +11,7 @@
                 doctype-system="about:legacy-compat"
                 encoding="UTF-8"
                 indent="yes" />
-    <xs:import namespace="urn:fdc:difi.no:2017:vefa:structure-1" schemaLocation="../../xsd/structure-1.xsd"/>
+    <xs:import namespace="urn:fdc:difi.no:2017:vefa:structure-1" schemaLocation="../../../xsd/structure-1.xsd"/>
     <xsl:variable name="codelist" select="/cl:CodeList/cl:Title/text()"/>
 
     <xsl:template match="/cl:CodeList">
@@ -22,10 +22,10 @@
                 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-                <link rel="stylesheet" href="../../../css/bootstrap.css"/>
-                <link rel="stylesheet" href="../../../css/structure.css"/>
+                <link rel="stylesheet" href="../../../../css/bootstrap.css"/>
+                <link rel="stylesheet" href="../../../../css/structure.css"/>
                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"/>
-                <link rel="stylesheet" href="../../../css/agid-custom.css?v=1.3"/>
+                <link rel="stylesheet" href="../../../../css/agid-custom.css?v=1.3"/>
 
                 <!--[if lt IE 9]>
                         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -108,8 +108,8 @@
                     </div>
 
                     <div class="page-header" style="margin-top:0;padding-top:10px">
-                        <img style="width: 255px; height: 68px;margin-left:5%;" alt="AGID" src="../../../images/logo_AgID.jpg"/>
-                        <img style="width: 225px; height: 103px;margin-left:40%;" alt="Intercent-ER" src="../../../images/logo_INTERCENT-ER.jpg"/>
+                        <img style="width: 255px; height: 68px;margin-left:5%;" alt="AGID" src="../../../../images/logo_AgID.jpg"/>
+                        <img style="width: 225px; height: 103px;margin-left:40%;" alt="Intercent-ER" src="../../../../images/logo_INTERCENT-ER.jpg"/>
                     </div>																	
 
                     <dl class="dl-horizontal">

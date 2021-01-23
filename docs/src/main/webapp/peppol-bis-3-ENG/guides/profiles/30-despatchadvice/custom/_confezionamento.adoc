@@ -1,5 +1,5 @@
 [[confezionamento]]
-= #Confezionamento#
+= #Packaging#
 
 In order to provide information about the packaging, it is possibile to use two differents ways depending on how the order is carried out, meaning if the item corresponds with the unit quantity "C62" or the packaging unit "XPK". +
 

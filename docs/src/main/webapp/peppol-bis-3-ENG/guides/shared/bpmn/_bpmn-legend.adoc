@@ -1,12 +1,12 @@
 
 [[business-process-diagram]]
-= Diagramma del processo di business
+= Business process Diagram
 
 [[legend-for-bpmn-diagrams]]
-== Legenda per i diagrammi BPMN
+== Legend for BPMN diagrams
 
-I diagrammi sono espressi nella notazione BPMN.
-Il diagramma sottostante serve come spiegazione dei diagrammi utilizzati successivamente nella descrizione del processo.
+The diagrams are expressed in the BPMN notation.
+The diagram below serves as an explanation for the diagrams used in the process descriptions.
 
-.legenda BPMN
+.BPMN legend
 image::../../../shared/images/bpmn-legend.png[]

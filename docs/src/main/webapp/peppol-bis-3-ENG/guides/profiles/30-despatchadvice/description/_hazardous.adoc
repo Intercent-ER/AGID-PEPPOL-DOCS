@@ -26,15 +26,15 @@ In certain sectors may be necessary to identify the hazardous items in a more pr
 | *Description*
 | *UBL syntax*
 
-| #Hazardous item identifier#
+| Hazardous item identifier 
 | Assigned UN identifier (UN Number)
 | cbc:ID
 
-| #Hazardous item technical name#
+| Hazardous item technical name
 | UN technical name
 | cbc:TechnicalName
 
-| #Hazardous item category#
+| Hazardous item category
 | Name of the type of hazard for a material or substance
 | cbc:CategoryName
 |===

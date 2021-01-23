@@ -25,25 +25,20 @@ If the order was rejected, no contract and no residual obligations exist.
 
 
 [[Requisiti-dei-processi-di-business]]
-== Requisiti dei processi di business
+== #Business processes requirements#
 
-#A fronte della ricezione dell’Ordine, il Fornitore trasmette una Risposta , che deve contenere l’indicazione
-dell’Ordine precedentemente inviato a cui si risponde, con la quale comunica al
-Cliente, alternativamente, che intende:# +
+As a result of the reception of an order, the Seller that must contain the indication of the Order previously sent, by which intends to communicate, alternatively, the following: +
 
-* #comunicare di aver ricevuto l’Ordine (Risposta di ricezione);#
-* #accettare l’Ordine ricevuto (Risposta di accettazione);#
-* #declinare l’Ordine ricevuto (Risposta di diniego);#
-* #apportare modifiche all’Ordine ricevuto (Risposta con modifiche).#
+* the Order has been received (Risposta di ricezione);
+* the Order is accepted without amendment (Risposta di accettazione);
+* the Order is rejected (Risposta di diniego);
+* the Order is accepted with amendment (Risposta con modifiche).
 
 
-#La Risposta con modifiche deve
-contenere tutte le linee d’ordine, sia quelle che si intente mantenere sia quelle che si
-intende modificare, in quanto integra l’Ordine precedentemente trasmesso a cui fa
-riferimento.# +
+The Response with changes must contain all the Order lines, both those that are to be modified and maintained, since it is intended to supplement the related Order previously sent. +
 
 
-#La Risposta a un Ordine revocato non ha effetti per il Cliente.#
+The Response to a revoked Order has no effect for the Buyer.
 
 
 

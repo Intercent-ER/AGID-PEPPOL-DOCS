@@ -1,5 +1,5 @@
 [[infoaggiuntive]]
-= #Additiona information (homage or discount)#
+= #Additional information (homage or discount)#
 
 It is possibile to utilize the element *cbc:AdditionalInformation* to provide additional information about homages or discounts on the line level, as shown in the example below:
 

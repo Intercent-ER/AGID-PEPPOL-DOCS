@@ -77,10 +77,7 @@
 
                     <ol id="path" class="breadcrumb">
                         <li>
-                            <a href="#" id="bis-index">Indice</a>
-                        </li>
-                        <li>
-                            <a href="rule-home" id="bis-section">Regole</a>
+                            <a href="../../../../my_index.jsp" id="bis-index">Indice</a>
                         </li>
                         <li class="active">
                             <xsl:value-of select="$rules"/>

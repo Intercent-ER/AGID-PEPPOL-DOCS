@@ -29,7 +29,7 @@ c. Allo stesso tempo.
 3. Il Venditore consegna l’ordine completo come accettato. 
 4. Gli articoli sono suddivisi in quattro unità logistiche diverse.
 
-image:../images/image9.png
+image::../images/image9.png[]
 
 |*Il flusso* a|
 1. Il Venditore preleva gli articoli ordinati 

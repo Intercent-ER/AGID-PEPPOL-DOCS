@@ -26,7 +26,7 @@ In caso di utilizzo della risposta, si veda il profilo Ordinazione Completa. +
 
 :leveloffset: +1
 
-include::../../../shared/bpmn/bpmn-legend.adoc[]
+include::../../../shared/bpmn/_bpmn-legend.adoc[]
 
 :leveloffset: -1
 

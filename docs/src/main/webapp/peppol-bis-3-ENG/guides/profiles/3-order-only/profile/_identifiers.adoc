@@ -1,4 +1,4 @@
 [[namespaces]]
 = Namespaces
 
-include::../{transaction-path}/technical/_namespace.adoc[]
+include::../{order}/technical/_namespace.adoc[]

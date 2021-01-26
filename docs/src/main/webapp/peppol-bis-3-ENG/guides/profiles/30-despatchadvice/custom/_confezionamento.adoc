@@ -8,14 +8,22 @@ If the ordered article is a package, it is important to indicate the correct uni
 The following table provides clarification on how to add information about single units within the package and viceversa, meaning when the article coincides with the unit base, to provide information about the packaging.
 
 
-|===
-|**Type of information** | **Description** 
-|PackSizeNumeric |	Indica il numero di articoli contenuti in un confezionamento primario (ad esempio, quante pasticche o unità “C62” una confezione “XPK”)|PackQuantity
-|Indica il numero di sotto-unità contenute in un confezionamento secondario (ad esempio, quante scatole o confezioni “XPK” sono presenti in un imballaggio “XBX”) |	Indica il numero di sotto-unità contenute in un confezionamento secondario (ad esempio, quante scatole o confezioni “XPK” sono presenti in un imballaggio “XBX”)
-|===
+[cols="1,3",options="header"]
+|====
+s|Type of information
+s|Descriprion
 
+|PackSizeNumeric
+|It indicates the number of articles contained in a primary packaging (for example, how many pills or unit “C62” in a package “XPK”)
+
+|PackQuantity
+|It indicates the number of sub-units contained in a secondary packaging (for example, how many boxes or packages “XPK” there are in a box “XBX”)
+
+|====
 
 Two meaningful examples are below. 
+
+:leveloffset: +1
 
 = Case 1: Ordered item by single unit
 
@@ -46,6 +54,9 @@ This is an example of an item ordered as single unit and not as package, and so 
     </cac:Item>
 </cac:DespatchLine>
 
+:leveloffset: -1
+
+:leveloffset: +1
 
 =  Case 2: Ordered item by package
 
@@ -77,3 +88,4 @@ This is an example in which the item is ordered by package:
     </cac:Item>
 </cac:DespatchLine>
 
+:leveloffset: -1

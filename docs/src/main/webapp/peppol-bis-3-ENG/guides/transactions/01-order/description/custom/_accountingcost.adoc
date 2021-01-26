@@ -31,11 +31,11 @@ In all the remaining cases, the element “AccountingCost” can be valorized as
 
 The information must be separated by the character "#".
 
-Considerate le disposizioni normative vigenti, la collocazione delle informazoni nel campo vanno riportate rispettando il seguente ordine di priorità:
+Given the provisions of regulation in force, the placelement of information in the fiels "AccountingCost" must comply with the following order of priority:
 
-* se necessaria, l’indicazione “COV-20” (vedi sotto);
-* se necessaria, l’indicazione del RiferimentoAmministrazione del dispositivo medico;
-* ulteriori indicazioni.
+* if necessary, the indication “COV-20” (see below);
+* if necessary, the indication about RiferimentoAmministrazione of a medical device;
+* further indications.
 
 
 :leveloffset: +1

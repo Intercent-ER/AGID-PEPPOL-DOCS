@@ -10,11 +10,9 @@ Information about the delivery are necessary if the address differ from the one 
 
 The delivery location is the location in which the provision of goods or services needs to happen. It is represented by the elements “Delivery/DeliveryLocation”.
 
-Il luogo di consegna può essere indicato anche a livello di linea d’ordine
-utlizzando il campo "Delivery/ID" dell’elemento "OrderLine/LineItem". Si tratta, tuttavia,
-di una pratica sconsigliata se non preventivamente concordata tra Cliente e Fornitore. +
+The delivery location can be indicated also on the line level by using the field "Delivery/ID" of the element "OrderLine/LineItem". However, this practice is not recommended unless previously agreed between Seller and Buyer. +
 
-.Esempio dell'indicazione del Delivery/ID sulle linee d'ordine
+.Example of indication of Delivery/ID on the line level
 [source, xml, indent=0]
 ----
 <cac:OrderLine>
@@ -129,9 +127,9 @@ In the case of *home delivery* (for example, delivery to the address of a patien
 
 :leveloffset: +1
 
-= Etichette imballaggio (ShippingMarks)
+= Shipping Marks
 
-Se necessario, il Cliente può richiedere al Fornitore di stampare un testo sull’etichetta di imballaggio, valorizzando in modo appropriato il campo “TransportHandlingUnit/ShippingMarks” dell’elemento “Shipment”, come mostrato nel seguente esempio:
+The Buyer can require to the Seller, if needed, to print a text over the shipping label by properly valorizing the field “TransportHandlingUnit/ShippingMarks” of the element “Shipment”, as shown below:
 
 [source, xml, indent=0]
 ----

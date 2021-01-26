@@ -1,7 +1,7 @@
 [[Specifiche-Partita-Merce]]
-= #Specifications on the Consigment#
+= #Specifications on the consigment#
 
-To provide further details about a Consignment it is possible to utilize the segment *cac:Shipment/cac:GoodsItem* on the line level, as part of information about the shipment.
+To provide further details about a consignment it is possible to utilize the segment *cac:Shipment/cac:GoodsItem* on the line level, as part of information about the shipment.
 
 In particular, it is possible to specify information about the temperature recommended and allowable as described below.
 

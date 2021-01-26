@@ -1,6 +1,6 @@
 
-* Il Namespace dell’Ordine 
-http://docs.oasis-open.org/ubl/UBL-2.1.html[UBL 2.1] è: +
+* The target namespace for the
+http://docs.oasis-open.org/ubl/UBL-2.1.html[UBL 2.1] Order is: +
 
 [source, xml, indent=0]
 ----

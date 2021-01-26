@@ -12,15 +12,14 @@ To all quantities there must be a valid Unit according to the Code list "Recomma
 |Element name / (Tag name)
 |Description
 
-|Price Quantity +come regola generale
+|Price Quantity +
 (`cbc:BaseQuantity`)
 |Quantity related to Price.
 
 |Order Quantity +
 (`cbc:Quantity`)
-|Quantity that is ordered, e.g. number of pieces or volume in litre .si tenga presente che
+|Quantity that is ordered, e.g. number of pieces or volume in litre .
 |====
-
 
 [IMPORTANT]
 ====

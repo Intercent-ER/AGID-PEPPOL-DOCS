@@ -150,7 +150,7 @@ The following example shows an allowance applied to the whole order line:
 :leveloffset: +1
 
 [[titolo]]
-= #Sconto Merce#
+= #Discounts#
 
 Per cessioni a titolo di sconto, premio o abbuono si inserisce una riga d’ordine separata prestando attenzione ad indicarne la relativa esenzione IVA.
 
@@ -189,11 +189,11 @@ Infatti ai fini IVA lo sconto merce rientra nelle operazioni Escluse ex Art. 15 
 :leveloffset: +1
 
 [[titolo]]
-= #Omaggi#
+= #Free items#
 
-Per includere nell’ordine degli articoli in omaggio è necessario indicarli in riga separata rispetto a quelli a pagamento e poi si deve indicare sia l’importo di riga che il prezzo con importo a 0 (zero).
+To include free items in the order it is necessary to indicate them on a different line than paid items and also to indicate both the line amount and the price equal to 0 (zero).
 
-.Esempio di una riga d’ordine contenente in omaggio 12 pacchi di striscie per il test del glucosio:
+.Example of an order line with 12 free packages of glucose test strips:
 [source, xml, indent=0]
 ----
 <cac:orderline>

@@ -1,9 +1,9 @@
 [[namespaces]]
 = Namespace
 
-Il modello dei dati del Documento di Trasporto è basato su {ubl} secondo il tipo documento {ubl-despatch-advice}. +
+The despatch advice data model is bound to  {ubl} of the document type {ubl-despatch-advice}. +
 
-Lo spazio dei nomi (namespace) per il Documento di Trasporto UBL 2.1 è:
+The target namespace for the UBL2.1 Despatch Advice is:
 
 [source, xml, indent=0]
 ----

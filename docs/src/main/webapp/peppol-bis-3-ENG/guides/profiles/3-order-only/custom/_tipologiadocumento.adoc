@@ -1,5 +1,5 @@
 [[tipologia-documento]]
-= #Tipologia di Documento#
+= #Type of Document#
 
 
 I Documenti, che costituiscono il Corpo del messaggio, contengono le istruzioni che Clienti e Fornitori si scambiano per regolare la fornitura dei beni e dei servizi.

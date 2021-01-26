@@ -1,7 +1,7 @@
 [[infoaggiuntive]]
-= #Additional information (homage or discount)#
+= #Additional information (free items or discounts)#
 
-It is possibile to utilize the element *cbc:AdditionalInformation* to provide additional information about homages or discounts on the line level, as shown in the example below:
+It is possibile to utilize the element *cbc:AdditionalInformation* to provide additional information about free items or discounts on the line level, as shown in the example below:
 
 .Example of a free article
 [source, xml, indent=0]

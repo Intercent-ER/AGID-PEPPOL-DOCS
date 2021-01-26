@@ -23,7 +23,7 @@ include::{snippet-dir}/snippet-01.xml[tags=attachment]
 IMPORTANT: Attachments should be used for additional information and not as order copies.
 
 
-#Nel caso di ordini di beni o servizi che per essere evasi richiedono obbligatoriamente la presenza di documenti (es. Scheda Paziente), è necessario che tali documenti siano trasmessi tramite NSO come allegato PDF all’ordine elettronico.#
+#In the event of goods and services orders that to be processed require necessarily the presence of certain documents (ex. Patient Cars), it is necessary that these documents need to be trasmitted through NSO as an attached PDF to the electronic order.#
 
-#Ove le informazioni contenute negli allegati possano comportare problemi legati alla privacy, i medesimi allegati possono essere in formato cifrato oppure è possibile ricorrere all’uso di riferimenti esterni (elemento *cac:ExternalReference*), il cui accesso può essere limitato utlizzando idonea profilatura.#
+#Where the information contained in the attachments may involve privacy issues, these attachments can be in encrypted form or it is possible to use the element *cac:ExternalReference*, which access can be limited to appropriate profiling.#
 

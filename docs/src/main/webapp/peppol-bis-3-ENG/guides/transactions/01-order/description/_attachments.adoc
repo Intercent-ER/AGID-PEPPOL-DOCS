@@ -21,3 +21,9 @@ include::{snippet-dir}/snippet-01.xml[tags=attachment]
 
 
 IMPORTANT: Attachments should be used for additional information and not as order copies.
+
+
+#Nel caso di ordini di beni o servizi che per essere evasi richiedono obbligatoriamente la presenza di documenti (es. Scheda Paziente), è necessario che tali documenti siano trasmessi tramite NSO come allegato PDF all’ordine elettronico.#
+
+#Ove le informazioni contenute negli allegati possano comportare problemi legati alla privacy, i medesimi allegati possono essere in formato cifrato oppure è possibile ricorrere all’uso di riferimenti esterni (elemento *cac:ExternalReference*), il cui accesso può essere limitato utlizzando idonea profilatura.#
+

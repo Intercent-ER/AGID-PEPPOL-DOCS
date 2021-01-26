@@ -35,7 +35,7 @@ include::custom/_classificazioneprodotto.adoc[]
 
 include::custom/_consegna.adoc[]
 
-include::custom/_confezionamento.adoc[]
+include::custom/_additionalitemproperty.adoc[]
 
 include::custom/_usonote.adoc[]
 

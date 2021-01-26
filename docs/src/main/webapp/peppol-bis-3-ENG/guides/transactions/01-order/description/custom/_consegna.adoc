@@ -1,9 +1,33 @@
-[[Delivery]]
+[[Consegna-Delivery]]
 = #Delivery#
+
+:leveloffset: +1
+
+= Delivery Location
+
 
 Information about the delivery are necessary if the address differ from the one of the Party that send the order and if allows to provide more precise indications about the returns of goods (DeliveryTerms). The warehouse opening time needs to be inserted in the elements "AddressLine/Line" of segment "Address".
 
 The delivery location is the location in which the provision of goods or services needs to happen. It is represented by the elements “Delivery/DeliveryLocation”.
+
+Il luogo di consegna può essere indicato anche a livello di linea d’ordine
+utlizzando il campo "Delivery/ID" dell’elemento "OrderLine/LineItem". Si tratta, tuttavia,
+di una pratica sconsigliata se non preventivamente concordata tra Cliente e Fornitore. +
+
+.Esempio dell'indicazione del Delivery/ID sulle linee d'ordine
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+        ...
+        <cac:Delivery>
+            <cbc:ID>123456788901-acdg45</cbc:ID>
+            ...
+        </cac:Delivery>
+        ...
+    <cac:LineItem>
+</cac:OrderLine>
+----
 
 If the delivery address is the Client's institutional address to which a unique identifier has been associated, made available by the Seller, it is necessary to provide also this identifier, as shown by the followign example:
 
@@ -100,3 +124,24 @@ In the case of *home delivery* (for example, delivery to the address of a patien
     </cac:DeliveryLocation>
 </cac:Delivery>
 ----
+
+:leveloffset: -1
+
+:leveloffset: +1
+
+= Etichette imballaggio (ShippingMarks)
+
+Se necessario, il Cliente può richiedere al Fornitore di stampare un testo sull’etichetta di imballaggio, valorizzando in modo appropriato il campo “TransportHandlingUnit/ShippingMarks” dell’elemento “Shipment”, come mostrato nel seguente esempio:
+
+[source, xml, indent=0]
+----
+<cac:Delivery>
+ <cac:Shipment>
+  <cac:TransportHandlingUnit>
+   <cbc:ShippingMarks>aaaaaaaaaa</cbc:ShippingMarks>
+  </cac:TransportHandlingUnit>
+ </cac:Shipment>
+</cac:Delivery>
+---- 
+
+:leveloffset: -1

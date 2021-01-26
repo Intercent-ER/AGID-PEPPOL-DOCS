@@ -33,7 +33,7 @@ Il Documento di Trasporto è inviato dallo Speditore al Consegnatario quando la 
 +
 _Relazione tra il GTIN e le chiavi  SSCC_
 +
-image:../images/gtin-scss.png
+image::../images/gtin-scss.png[]
 
 |*Il flusso* a|
 Il Venditore ha accettato l’ordine senza modifiche.
@@ -182,4 +182,4 @@ a|
 
 _Assemblaggio delle chiavi:_
 
-image:../images/image8.png
+image::../images/image8.png[]

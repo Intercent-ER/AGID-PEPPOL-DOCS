@@ -27,7 +27,7 @@ In the case of use the Response, see Ordering profile. +
 
 :leveloffset: +1
 
-include::../../../shared/bpmn/bpmn-legend.adoc[]
+include::../../../shared/bpmn/_bpmn-legend.adoc[]
 
 :leveloffset: -1
 

@@ -93,7 +93,7 @@
 
                     <ol id="path" class="breadcrumb">
                         <li>
-                            <a href="#" id="bis-index">Indice</a>
+                            <a href="../../../my_index.jsp" id="bis-index">Indice</a>
                         </li>
                         <li class="active">
                             <xsl:value-of select="$transaction"/>

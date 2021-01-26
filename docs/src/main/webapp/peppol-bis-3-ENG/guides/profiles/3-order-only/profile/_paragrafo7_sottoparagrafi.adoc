@@ -1,5 +1,5 @@
 [[EndpointID]]
-= #Endpoint ID - Identificativo di instradamento sulla rete PEPPOL#
+= #Endpoint ID#
 
 The *Endpoint ID* is specified in the document to maintain information about the electronic address of the sender or the receiver and it is used for channeling the documents (delivery) on the Peppol network. +
 

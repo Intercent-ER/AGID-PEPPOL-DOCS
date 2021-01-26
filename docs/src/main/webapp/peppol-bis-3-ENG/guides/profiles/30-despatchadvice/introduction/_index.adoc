@@ -8,7 +8,7 @@ The document is concerned with clarifying requirements for ensuring interoperabi
 
 This PEPPOL BIS is based on the CEN WS/BII2 Profile “Profile BII30 Dispatch Only”. A conformance statement is included in this BIS, see annex B.
 
-#In questo documento le regole d'uso ed i paragrafi derivanti dal modello italiano di e-procurement sono evidenziate in giallo.#
+#In this document, italian usage rules and paragraphs deriving from the italian e-procurement model are highlighted in yellow.#
 
 .Relationship between BII profiles and PEPPOL BIS
 image::../../../shared/images/BII_relationship.png[align="center", width=600]

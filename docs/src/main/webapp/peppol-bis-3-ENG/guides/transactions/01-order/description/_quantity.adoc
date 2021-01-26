@@ -27,7 +27,7 @@ To all quantities there must be a valid Unit according to the Code list "Recomma
 #As a general rule, please note that when the description related to the product's codelist (e.g. Seller's item identification) already contains the minimum sale unit or the packaging unit, it's advisable to use the unit quantity code *“C62”* to prevent any misunderstandig between the Parties.#
 ====
 
-.Esempio di una riga d’ordine con quantità di prodotto a unità :
+.Example of an order line with the quantity of a product per unit:
 [source, xml, indent=0]
 ----
 <cac:OrderLine>
@@ -37,7 +37,7 @@ To all quantities there must be a valid Unit according to the Code list "Recomma
 </cac:OrderLine>
 ----
 
-.Esempio di una riga d’ordine con una quantità di 120 litri (cbc:Quantity) e il prezzo al litro:
+.Example of an order line of 120 litres (cbc:Quantity) and the price per liter:
 [source, xml, indent=0]
 ----
 <cac:OrderLine>

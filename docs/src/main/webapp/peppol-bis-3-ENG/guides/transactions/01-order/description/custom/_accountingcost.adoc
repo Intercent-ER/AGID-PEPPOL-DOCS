@@ -40,15 +40,15 @@ Given the provisions of regulation in force, the placelement of information in t
 
 :leveloffset: +1
 
-= Emergenza epidemiologica da Covid-19
+= Covid-19 epidemiological emergency
 
-L’articolo 18 del decreto-legge 17 marzo 2020, n. 18 prescrive l'apertura di un centro di costo dedicato contrassegnato dal codice univoco *"COV 20"*, al fine di garantire una tenuta distinta degli accadimenti contabili legati alla gestione dell’emergenza epidemiologica da COVID-19.
+The Article 18 of Decree Law of 17 March 2020 prescribes the opening of a dedicated cost-center and marked with the unique code *"COV 20"*, in order to guarantee a distinction of the accounting eventi related to the management of Covid-19 epidemiological emergency.
 
-*L’elemento appropriato* da utilizzare è il campo `cbc:AccountingCost` (presente sia a livello di testata del Documento, sia a livello di linee d’ordine), con l’indicazione del testo "COV20".
+*The appropriate element* to be used is the field `cbc:AccountingCost` (available both on the header and the line level), with the indication of the string "COV20".
 
-Poiché nella sezione `cac:AdditionalDocumetReference` è anche possibile riportare informazioni su eventuali provvedimenti cui far riferimento, come delibere, impegni, ecc. (v. Paragrafo 6.14), per facilitare la distinzione degli acquisti legati  alla  gestione dell’emergenza epidemiologica da COVID-19, si suggerisce di emettere ordini specifici a tale fine.
+Since in the section `cac:AdditionalDocumetReference` it is also possible to report information about possible measures for reference, such as #delibere, impegni#, etc. (see paragraph 6.14), in order to facilitate the dinstiction of order strictly and uniquely related to COVID-1' emergency management, it is recommended to issue specific order for this purpose.
 
-Se si adotta questa soluzione, in alternativa o in aggiunta a quanto indicato nel precedentemente, è possibile inserire il testo "COV20” all’interno dell’*identificativo dell’Ordine* (campo `cbc:ID`). 
+If this criterion is adopted, alternatively or in addition to what aforementioned, it is possible also to insert the string "COV20” inside the element for *Order identification* (`cbc:ID`). 
 
 
 :leveloffset: -1

@@ -10,7 +10,7 @@ s|Description
 s|When to use it
 
 |*CUP*
-|Codice Unico Progetto
+|Unique Code of Project
 |At document level use +
 `cac:AdditionalDocumentReference` (0.n) +
 
@@ -18,7 +18,7 @@ At line level use +
 `cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n)
 
 |*DDT*
-|Documento di Trasporto +
+|Despatch Advice +
 (usare solo per riferirsi a DDT precedentemente ricevuti nel corso di un conto deposito merce)
 |At document level use +
 `cac:AdditionalDocumentReference` (0.n) +
@@ -28,7 +28,7 @@ At line level use +
 
 
 |*IMPEGNO*
-|Estremi Impegno
+|Details of Impegno
 |At document level use +
 `cac:AdditionalDocumentReference` (0.n) +
 
@@ -36,7 +36,7 @@ At line level use +
 `cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n)
 
 |*DELIBERA*
-|Estremi Delibera
+|Details of  Delibera
 |At document level use +
 `cac:AdditionalDocumentReference` (0.n) +
 
@@ -44,7 +44,7 @@ At line level use +
 `cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n)
 
 |*CONTRATTO*
-|Estremi Contratto
+|Details of Contract
 |At document level use +
 `cac:Contract` (0.1) +
 
@@ -52,7 +52,7 @@ At line level use +
 `cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n)
 
 |*CONVENZIONE*
-|Estremi Convenzione
+|Details of Convention
 |At document level use +
 `cac:AdditionalDocumentReference` (0.n) +
 

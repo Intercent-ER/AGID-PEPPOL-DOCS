@@ -6,19 +6,19 @@ In order to facilitate the interpretation of the following instructions, it is r
 * An Order can be iniziale, di revoca, sostitutivo, collegato o di convalida;
 * The subect that issue the Order is always the Buyer.
 
-In the case of *Connected Order*, *Ordine di revoca* o un *Ordine sostitutivo*, it is necessary to report the so-called "Triplet of identification" (in italian Tripletta di identificazione) of the related document or of the order that needs to be revoked or replaced, in the elemement “OrderDocumentReference/ID”, which is a structured field, by concatenating the values and by respecting the order of priority that follows:
+In the case of a *Connected Order*, *Cancelled Order* or *Revised Order*, it is necessary to report the so-called "Identification triple"(in italian Tripletta di identificazione) of the related document or the order that needs to be revoked or replaced, in the elemement `cac:OrderDocumentReference/cbc:ID`, which is a structured field, by concatenating the values and by respecting the order of priority that follows:
 
-* *ID* of the order;
+* *ID*, the identifier of the Order which this Order refers;
 
-* *IssueDate* valorized with the date of the order;
+* *IssueDate*, valorized with the date of the Order which this Order refers;
 
-* *EndpointID* of the orderd's element BuyerCustomerParty;
+* *EndpointID*, the identifier of the subject that issued the Order which this Order refers (corresponds to the Order's element BuyerCustomerParty);
 
 * the *status* to be assigned to the Order, which can be: +
 
 ** “Connected”, for connection;
-** “Cancelled” for the revocation;
-** “Revised” for the replacement.
+** “Cancelled”, for the revocation;
+** “Revised”, for the replacement.
 
 .Example
 [source, xml, indent=0]
@@ -33,7 +33,9 @@ In the case of *Connected Order*, *Ordine di revoca* o un *Ordine sostitutivo*, 
 [[TITOLO]]
 =  Example of Connected Order
 
-Per iniziare un processo di Ordinazione collegando il processo attuale con un processo di Ordinazione precedente (ad esempio, in questo caso, a seguito di un Ordine iniziale a budget), viene emesso un Ordine collegato di regolazione al ricevimento della prima parcella pro-forma per € 7.000, relativa all’espletamento delle attività preparatorie dell’incarico di patrocinio legale per la vertenza “xxx”. 
+The Connected Order is used to start a process by connecting the actual process with a previous Order. +
+
+For example, after an Inital Budget Order, a Connected Regulation Order is issued as soon as the Buyer receives the first pro forma parcel of € 7.000 related to the performance of some preparatory activities made following a legal assistance mandate concerning the dispute “xxx”. 
 
 [source, xml, indent=0]
 ----

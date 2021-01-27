@@ -18,7 +18,7 @@ To all quantities there must be a valid Unit according to the Code list "Recomma
 
 |Order Quantity +
 (`cbc:Quantity`)
-|Quantity that is ordered, e.g. number of pieces or volume in litre .
+|Quantity that is ordered, e.g. number of pieces or volume in litre.
 |====
 
 [IMPORTANT]

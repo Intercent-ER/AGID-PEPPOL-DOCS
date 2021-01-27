@@ -13,7 +13,7 @@ s|Description
 s|Where to use it
 
 |*CIG*
-|Codice Identificativo Gara
+|Tender identification code
 |At document level +
 `cac:OriginatorDocumentReference` (0..1) +
 

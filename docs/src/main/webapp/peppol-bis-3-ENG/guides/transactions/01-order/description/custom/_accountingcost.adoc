@@ -46,7 +46,7 @@ The Article 18 of Decree Law of 17 March 2020 prescribes the opening of a dedica
 
 *The appropriate element* to be used is the field `cbc:AccountingCost` (available both on the header and the line level), with the indication of the string "COV20".
 
-Since in the section `cac:AdditionalDocumetReference` it is also possible to report information about possible measures for reference, such as #delibere, impegni#, etc. (see paragraph 6.14), in order to facilitate the dinstiction of order strictly and uniquely related to COVID-1' emergency management, it is recommended to issue specific order for this purpose.
+Since in the section `cac:AdditionalDocumetReference` it is also possible to report information about possible measures for reference, such as expenditure deliberation (delibera), expenditure commitment (impegno), etc. (see paragraph 6.14), in order to facilitate the dinstiction of order strictly and uniquely related to COVID-1' emergency management, it is recommended to issue specific order for this purpose.
 
 If this criterion is adopted, alternatively or in addition to what aforementioned, it is possible also to insert the string "COV20” inside the element for *Order identification* (`cbc:ID`). 
 

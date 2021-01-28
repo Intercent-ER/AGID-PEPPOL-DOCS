@@ -1,30 +1,29 @@
 [[tipologia-documento]]
 = #Type of Document#
 
+The Documents, which constitute the body of the message, contain the instructions that Buyers and Sellers exchange to settle the provision of goods and services.
 
-I Documenti, che costituiscono il Corpo del messaggio, contengono le istruzioni che Clienti e Fornitori si scambiano per regolare la fornitura dei beni e dei servizi.
-
-Nella tabella seguente sono elencati i sotto- tipi e le varianti per l'Ordine, descritti nei Paragrafi che seguono.
+The following table lists documents documents sub-types and variants of the Order and described in the paragraphs that follows:
 
 
-[width="100%", cols="2,3,3", options="header"]
+[width="100%", cols="2,3,2", options="header"]
 |===
-^.^|*Tipo Documento* 
-^.^|*Sotto-tipo*
-^.^|*Variante* 
+^.^|*Type of Document* 
+^.^|*Sub-types*
+^.^|*Variants* 
 
 
-.5+^.^|*Ordine* 
-| Ordine inziale | -
-| Ordine di revoca | -  
-| Ordine sostitutivo | -
-| Ordine collegato | - 
-| Ordine di convalida | - 
+.5+^.^|*Ordine (Order)* 
+| Ordine inziale (Initial Order)| -
+| Ordine di revoca (Order Revocation)| -  
+| Ordine sostitutivo (Order Replacement)| -
+| Ordine collegato (Order Connection) | - 
+| Ordine di convalida (Order Validation)| - 
 
 
 |===
 
-*[red]#Ordine di revoca#*
+*[red]#Order Revocation#*
 
 In alcune circostanze può essere utile revocare un Ordine precedentemente emesso (Ordine di revoca). +
 
@@ -33,7 +32,7 @@ L’Ordine di revoca è un Ordine che contiene il riferimento all’Ordine che s
 Per le regole di compilazione, vedi paragrafo 6.12.
 
 
-*[red]#Ordine sostitutivo#*
+*[red]#Order Replacement#*
 
 Ove occorra, le istruzioni contenute in un Ordine possono essere modificate mediante l’emissione di un *Ordine sostitutivo*. Tuttavia, salvo che non sia previsto diversamente da norme, usi commerciali o accordi tra le parti, il Fornitore è tenuto a considerare efficaci solo le sostituzioni di ordini pervenute prima che abbia dato luogo all’esecuzione della fornitura. 
 
@@ -47,7 +46,7 @@ In questi casi l’Ordine sostitutivo deve riportare l’indicazione del sotto-t
 Per le regole di compilazione, vedi paragrafo 6.12.
 
 
-*[red]#Ordine collegato#*
+*[red]#Order Connection#*
 
 In alcune circostanze può essere utile evidenziare che un Ordine, seppur indipendente, è genericamente relazionato a un altro Documento. 
 
@@ -60,7 +59,7 @@ L’Ordine collegato può essere utilizzato esclusivamente per tenere memoria ch
 Per le regole di compilazione, vedi paragrafo 6.12.
 
 
-*[red]#Ordine di convalida#*
+*[red]#Ordine Convalidation#*
 
 L’*Ordine di convalida* è un Ordine in cui è presente il riferimento alla fattura da regolarizzare e l’indicazione che si tratta della convalida di fattura (“Invoice”). 
 

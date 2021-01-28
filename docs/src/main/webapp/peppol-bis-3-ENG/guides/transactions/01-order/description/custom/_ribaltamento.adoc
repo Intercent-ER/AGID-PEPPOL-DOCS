@@ -1,11 +1,11 @@
 [[Ribaltamento]]
-= #Ribaltamento a esercizio successivo#
+= #Financial year shifting#
 
 In some circumstances, for puproses of accounting nature, is isual to "close" the totally or partially unfilled Orders at the end of a financial year and re-opening them in the following one.
 
 In these cases, it may be useful that the new order maintain a connection with the previous one. This need can be met by:
 
-* the issuing, in the financial year now ending, of an Cancelled Order or Revised Order with the indication of the order sub-type “OR” (see paragraph 4.5) which "closes" the totally or partially unfilled Order;
+* the issuing, in the financial year now ending, of an Order Cancellation or Order Replacement with the indication of the order sub-type “OR” (see paragraph 4.5) which "closes" the totally or partially unfilled Order;
 
-* the issuing, in the following financial year, of a Connected Order related to the one in the previous financial year (see paragraph 4.4).
+* the issuing, in the following financial year, of an Order Cancellation related to the one in the previous financial year (see paragraph 4.4).
 

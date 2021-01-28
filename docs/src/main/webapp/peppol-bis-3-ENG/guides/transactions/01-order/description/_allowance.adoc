@@ -32,7 +32,7 @@ stem:["Amount" = "Base amount" times ("Percentage" div 100)]
 ====
 
 
-.Esempio di UBL di sconti e maggiorazioni a livello di testata, per l'IVA
+.Example of allowance and charges on the header level di UBL
 [source, xml, indent=0]
 ----
 <cac:AllowanceCharge>
@@ -72,7 +72,7 @@ stem:["Amount" = "Base amount" times ("Percentage" div 100)]
 <5> stem:["Amount" = "Base amount" times ("Percentage" div 100)]
 
 
-.Esempio di un UBL con una maggiorazione relativa ai costi di imballaggio
+.Example of a charge for packing costs
 [source, xml, indent=0]
 ----
 <cac:AllowanceCharge>
@@ -85,7 +85,7 @@ stem:["Amount" = "Base amount" times ("Percentage" div 100)]
 </cac:AllowanceCharge>
 ----
 
-.Esempio di UBL che mostra uno sconto per l’intero ordine
+.Example of a discount for the whole order
 [source, xml, indent=0]
 ----
 <cac:AllowanceCharge>
@@ -152,9 +152,9 @@ The following example shows an allowance applied to the whole order line:
 [[titolo]]
 = #Discounts#
 
-Per cessioni a titolo di sconto, premio o abbuono si inserisce una riga d’ordine separata prestando attenzione ad indicarne la relativa esenzione IVA.
+For sale in the form of discounts, awards or allowance it is necessary to insert a separated order line, paying attention to indicate the relative VAT exemption.
 
-Infatti ai fini IVA lo sconto merce rientra nelle operazioni Escluse ex Art. 15 D.P.R. 633/72.
+Indeed, for VAT purposes the discounts falls under the VAT-exempt operations ex Art. 15 D.P.R. 633/72.
 
 [source, xml, indent=0]
 ----

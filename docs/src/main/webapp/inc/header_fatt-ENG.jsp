@@ -19,8 +19,8 @@
 					<ul class="nav navbar-nav">
 						<li class="btn-group" id="peppol-bis">
 							<button type="button" class="btn btn-primary btn-agid" style="margin-top: 8px;">PEPPOL BIS Billing 3</button>
-							<button type="button" class="btn btn-primary dropdown-toggle btn-agid" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 8px;">
-								<span class="caret"></span>
+							<button type="button" class="btn btn-primary dropdown-toggle btn-agid dropdown-alignment" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 8px;">
+								<span class="caret"/>
 								<span class="sr-only">Toggle Dropdown</span>
 							</button>
 							<ul class="dropdown-menu">
@@ -49,7 +49,7 @@
 									<a href="#" class="dropdown-toggle link-agid" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Codelists <span class="caret"></span>
 									</a>
 									<%@include file="../peppol-bis-invoice-3-ENG/menu/codelist-menu.html" %>
-									
+
 								</li>
 
 								<li class="dropdown dropdown-agid">
@@ -57,7 +57,7 @@
 									</a>
 									<%@include file="../peppol-bis-invoice-3-ENG/menu/stylesheet-menu.html" %>
 								</li>
-								
+
 								<li class="dropdown dropdown-agid">
 									<a href="#" class="dropdown-toggle link-agid" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin-left: 150px">EN<span class="caret"></span>
 									</a>

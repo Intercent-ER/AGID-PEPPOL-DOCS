@@ -1,12 +1,12 @@
-<xsl:stylesheet version="1.0"
+<xsl:stylesheet version="2.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:stx="urn:fdc:difi.no:2017:vefa:structure-1"
                 xmlns:cus="urn:fdc:agid.gov.it:peppol:customization"
-                exclude-result-prefixes="stx cus xsd">
+                exclude-result-prefixes="stx cus">
     <!--
             Author: JAVEST by Roberto Cisternino
-            Version 1.2
+            Version 1.5.3
     -->
     <xsl:output method="html"
                     doctype-system="about:legacy-compat"
@@ -19,23 +19,22 @@
     <xsl:template match="/">
         <html data-transaction="{$transaction}">
             <head>
-                <title>
-                    <xsl:value-of select="$transaction"/> | Struttura</title>
+                <title>PEPPOL BIS Billing 3.0 | Struttura</title>
                 <meta charset="utf-8"/>
                 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-                <link rel="stylesheet" href="/css/bootstrap.css"/>
-                <link rel="stylesheet" href="/css/structure.css"/>
+                <link rel="stylesheet" href="../../../css/bootstrap.css"/>
+                <link rel="stylesheet" href="../../../css/structure.css"/>
                 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"/>
-                <link rel="stylesheet" href="/css/agid-custom.css?v=1.3"/>
+                <link rel="stylesheet" href="../../../css/agid-custom.css?v=1.3"/>
 
                 <!--[if lt IE 9]>
                         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
                         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
                 <![endif]-->
-                <script src="/js/jquery.js"/>
-                <script src="/js/bootstrap.js"/>
+                <script src="../../../js/jquery.js"/>
+                <script src="../../../js/bootstrap.js"/>
                 <script type="text/javascript">
                     //<![CDATA[
 					//debugger;//@ sourceURL=agid.js
@@ -95,7 +94,9 @@
                 <div id="main" class="container">
 
                     <ol id="path" class="breadcrumb">
-                        <!--li><a href="#">Home</a></li-->
+                        <li>
+                            <a href="../../../my_index-ENG.jsp" id="bis-index">Indice</a>
+                        </li>
                         <li class="active">
                             <xsl:value-of select="$transaction"/>
                         </li>
@@ -108,18 +109,19 @@
                     </div>
 
                     <div class="page-header" style="margin-top:0;padding-top:10px">
-                        <img style="width: 255px; height: 68px;margin-left:5%;" alt="AGID" src="/images/logo_AgID.jpg"/>
-                        <img style="width: 225px; height: 103px;margin-left:40%;" alt="Intercent-ER" src="/images/logo_INTERCENT-ER.jpg"/>
+                        <img style="width: 255px; height: 68px;margin-left:5%;" alt="AGID" src="../../../images/logo_AgID.jpg"/>
+                        <img style="width: 225px; height: 103px;margin-left:40%;" alt="Intercent-ER" src="../../../images/logo_INTERCENT-ER.jpg"/>
                     </div>																	
 
                     <div class="table-responsive">
-                        <table class="table table-striped">
+                        <table class="table table-striped" style="table-layout: fixed">
                             <thead>
                                 <tr>
-                                    <th style="width: 5%">Cardinalità</th>
-                                    <th style="width: 35%">Nome</th>
-                                    <th style="width: 55%">Descrizione</th>
-                                    <th style="width: 5%">Stato</th>
+                                    <th style="width: 7%; font-size: smaller">Cardinalità</th>
+                                    <th style="width: 10%">ID</th>
+                                    <th style="width: 28%">Nome</th>
+                                    <th style="width: 48%">Descrizione</th>
+                                    <th style="width: 7%">Stato</th>
                                 </tr>
                             </thead>
                             <tbody id="syntax">
@@ -180,13 +182,22 @@
 	
     <xsl:template match="stx:Include" priority="1">
         <xsl:param name="level" select="0"/>
+        <xsl:param name="parentId" select="''"/>
+        <xsl:param name="rowClass" select="''"/>
+        <xsl:variable name="rowId" select="if (string-length($parentId) &gt; 0) then concat($parentId, '.', position()) else string(position())"/>
         <xsl:apply-templates select="document(.)/stx:Element">
             <xsl:with-param name="level" select="$level"/>
+            <xsl:with-param name="parentId" select="$parentId"/>
+            <xsl:with-param name="rowId" select="$rowId"/>
+            <xsl:with-param name="rowClass" select="$rowClass"/>
         </xsl:apply-templates>
     </xsl:template>
 	
     <xsl:template match="stx:Document | stx:Element" priority="1">
         <xsl:param name="level" select="0"/>
+        <xsl:param name="parentId" select="''"/>
+        <xsl:param name="rowId" select="if (string-length($parentId) &gt; 0) then concat($parentId, '.', position()) else if ($level = 0) then '' else string(position())"/>
+        <xsl:param name="rowClass" select="''"/>
         <xsl:variable name="card">
             <xsl:choose>
                 <xsl:when test="@cardinality">
@@ -209,14 +220,31 @@
         <xsl:variable name="references" select="stx:Reference[@type='BUSINESS_TERM']"/>
         <xsl:variable name="rules" select="stx:Reference[@type='RULE']"/>
         <xsl:variable name="codelists" select="stx:Reference[@type='CODE_LIST']"/>
+        <!--xsl:variable name="rowId" select="if (string-length($parentId) &gt; 0) then concat($parentId, '.', position()) else if ($level = 0) then '' else string(position())"/-->
+        <xsl:variable name="customClass" select="replace(@cus:custom, ',', ' ')"/>
+        <xsl:variable name="newRowClass">
+            <xsl:choose>
+                <xsl:when test="$extension or $restriction">
+                    <xsl:value-of select="$customClass"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="$rowClass"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+		<xsl:message><xsl:value-of select="$parentId"/> <xsl:value-of select="stx:Term"/></xsl:message>
         <tr id="{translate(translate(substring-after($location,'/'),':','-'),'/','_')}" data-level="{$level}">
             <xsl:if test="$extension or $restriction or $fixedValue">
                 <xsl:attribute name="class">
-                    <xsl:value-of select="@cus:custom"/>
+                    <xsl:value-of select="$customClass"/>
                 </xsl:attribute>
             </xsl:if>
-
-            <td style="width: 5%;">
+            <xsl:if test="string-length($newRowClass) &gt; 0">
+                <xsl:attribute name="class">
+                    <xsl:value-of select="$newRowClass"/>
+                </xsl:attribute>
+            </xsl:if>
+            <td>
                 <xsl:if test="$customCardinality">
                     <xsl:attribute name="class">cardinality</xsl:attribute>
                 </xsl:if>
@@ -224,7 +252,12 @@
                     <xsl:value-of select="$card"/>
                 </span>
             </td>
-            <td style="width: 35%;">
+            <td>
+                <code class="rowid">
+                    <xsl:value-of select="$rowId"/>
+                </code>
+            </td>
+            <td>
                 <xsl:call-template name="dots">
                     <xsl:with-param name="count" select="$level"/>
                 </xsl:call-template>
@@ -232,12 +265,12 @@
                     <xsl:value-of select="stx:Term"/>
                 </a>
             </td>
-            <td style="width: 55%;">
+            <td>
                 <p>
                     <strong>
                         <xsl:value-of select="stx:Name"/>
                     </strong>
-                    <br/>
+                    <br></br>
                     <em>
                         <xsl:value-of select="stx:Description"/>
                     </em>
@@ -262,15 +295,15 @@
                     </p>
                 </xsl:if>
             </td>
-            <td style="width: 5%;">
+            <td>
                 <xsl:if test="$mandatory">
                     <i class="fa fa-exclamation fa-fw" title="Elemento diventato obbligatorio"/>
                 </xsl:if>
                 <xsl:if test="$extension">
-                    <span>Estensione</span>
+                    <small>Estensione</small>
                 </xsl:if>
                 <xsl:if test="$restriction">
-                    <span>Restrizione</span>
+                    <small>Restrizione</small>
                 </xsl:if>
                 <xsl:if test="$rule">
                     <i class="fa fa-check fa-fw" title="Regola/e italiane"/>
@@ -282,15 +315,19 @@
         </tr>
         <xsl:apply-templates select="stx:Element | stx:Attribute | stx:Include">
             <xsl:with-param name="level" select="$level + 1"/>
+            <xsl:with-param name="parentId" select="$rowId"/>
+            <xsl:with-param name="rowClass" select="$newRowClass"/>
         </xsl:apply-templates>
     </xsl:template>
 
     <xsl:template match="stx:Attribute" priority="0">
         <xsl:param name="level" select="0"/>
+        <xsl:param name="parentId" select="''"/>
+        <xsl:param name="rowClass" select="''"/>
         <xsl:variable name="card">
             <xsl:choose>
-                <xsl:when test="@cardinality">
-                    <xsl:value-of select="@cardinality"/>
+                <xsl:when test="lower-case(@usage)='optional'">
+                    <xsl:text>O</xsl:text>
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:text>M</xsl:text>
@@ -312,11 +349,15 @@
         <tr id="{translate(translate(substring-after($location,'/'),':','-'),'/','_')}" data-level="{$level}">
             <xsl:if test="$extension or $restriction or $fixedValue">
                 <xsl:attribute name="class">
-                    <xsl:value-of select="@cus:custom"/>
+                    <xsl:value-of select="replace(@cus:custom, ',', ' ')"/>
                 </xsl:attribute>
             </xsl:if>
-
-            <td style="width: 5%;">
+            <xsl:if test="string-length($rowClass) &gt; 0">
+                <xsl:attribute name="class">
+                    <xsl:value-of select="$rowClass"/>
+                </xsl:attribute>
+            </xsl:if>
+            <td>
                 <xsl:if test="$customCardinality">
                     <xsl:attribute name="class">cardinality</xsl:attribute>
                 </xsl:if>
@@ -324,7 +365,12 @@
                     <xsl:value-of select="$card"/>
                 </span>
             </td>
-            <td style="width: 35%;">
+            <td>
+                <code class="rowid">
+                    <xsl:value-of select="concat($parentId, '.', position())"/>
+                </code>
+            </td>
+            <td>
                 <xsl:call-template name="dots">
                     <xsl:with-param name="count" select="$level"/>
                 </xsl:call-template>
@@ -332,12 +378,12 @@
                     <xsl:value-of select="concat('@',stx:Term)"/>
                 </a>
             </td>
-            <td style="width: 55%;">
+            <td>
                 <p>
                     <strong>
                         <xsl:value-of select="stx:Name"/>
                     </strong>
-                    <br/>
+                    <br></br>
                     <em>
                         <xsl:value-of select="stx:Description"/>
                     </em>
@@ -362,15 +408,15 @@
                     </p>
                 </xsl:if>
             </td>
-            <td style="width: 5%;">
+            <td>
                 <xsl:if test="$mandatory">
                     <i class="fa fa-exclamation fa-fw" title="Attributo diventato obbligatorio"/>
                 </xsl:if>
                 <xsl:if test="$extension">
-                    <span>Estensione</span>
+                    <small>Estensione</small>
                 </xsl:if>
                 <xsl:if test="$restriction">
-                    <span>Restrizione</span>
+                    <small>Restrizione</small>
                 </xsl:if>
                 <xsl:if test="$rule">
                     <i class="fa fa-check fa-fw" title="Regola/e italiane"/>

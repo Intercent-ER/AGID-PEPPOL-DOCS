@@ -9,7 +9,7 @@
 	<parent>
 		<groupId>it.gov.agid</groupId>
 		<artifactId>NoTI-ER-PEPPOL</artifactId>
-		<version>1.2</version>
+		<version>1.3</version>
 		<relativePath>../</relativePath>
 	</parent>
 	<packaging>war</packaging>
@@ -53,7 +53,7 @@
 							<transformationSets>
 								<transformationSet>
 									<dir>${basedir}/src/main/webapp/peppol-bis-3-ITA/structure/syntax/</dir>
-									<stylesheet>${basedir}/src/main/webapp/xsl/agid-peppol-bis-structure-v1.5.3.xsl</stylesheet>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-structure-v1.5.3.xsl</stylesheet>
 									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ITA/peppol-bis-3/</outputDir>
 									<fileMappers>
 										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
@@ -74,7 +74,7 @@
 							<transformationSets>
 								<transformationSet>
 									<dir>${basedir}/src/main/webapp/peppol-bis-invoice-3-ITA/structure/syntax/</dir>
-									<stylesheet>${basedir}/src/main/webapp/xsl/agid-peppol-bis-structure-v1.5.3.xsl</stylesheet>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-structure-v1.5.3.xsl</stylesheet>
 									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ITA/peppol-bis-invoice-3/</outputDir>
 									<fileMappers>
 										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
@@ -99,7 +99,7 @@
 										<include>**/*.xml</include>
 										<include>*.xml</include>
 									</includes>
-									<stylesheet>${basedir}/src/main/webapp/xsl/agid-peppol-bis-codelist-v1.2.xsl</stylesheet>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-codelist-v1.2.xsl</stylesheet>
 									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ITA/peppol-bis-3/codelist/</outputDir>
 									<fileMappers>
 										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
@@ -124,7 +124,7 @@
 										<include>**/*.xml</include>
 										<include>*.xml</include>
 									</includes>
-									<stylesheet>${basedir}/src/main/webapp/xsl/agid-peppol-bis-codelist-v1.2.xsl</stylesheet>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-codelist-v1.2.xsl</stylesheet>
 									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ITA/peppol-bis-invoice-3/codelist/</outputDir>
 									<fileMappers>
 										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
@@ -147,7 +147,7 @@
 							<transformationSets>
 								<transformationSet>
 									<dir>${basedir}/src/main/webapp/peppol-bis-3-ENG/structure/syntax/</dir>
-									<stylesheet>${basedir}/src/main/webapp/xsl/agid-peppol-bis-structure-v1.5.3.xsl</stylesheet>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ENG/agid-peppol-bis-structure-v1.5.3.xsl</stylesheet>
 									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ENG/peppol-bis-3/</outputDir>
 									<fileMappers>
 										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
@@ -168,7 +168,7 @@
 							<transformationSets>
 								<transformationSet>
 									<dir>${basedir}/src/main/webapp/peppol-bis-invoice-3-ENG/structure/syntax/</dir>
-									<stylesheet>${basedir}/src/main/webapp/xsl/agid-peppol-bis-structure-v1.5.3.xsl</stylesheet>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ENG/agid-peppol-bis-structure-v1.5.3.xsl</stylesheet>
 									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ENG/peppol-bis-invoice-3/</outputDir>
 									<fileMappers>
 										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
@@ -193,7 +193,7 @@
 										<include>**/*.xml</include>
 										<include>*.xml</include>
 									</includes>
-									<stylesheet>${basedir}/src/main/webapp/xsl/agid-peppol-bis-codelist-v1.2.xsl</stylesheet>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ENG/agid-peppol-bis-codelist-v1.2.xsl</stylesheet>
 									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ENG/peppol-bis-3/codelist/</outputDir>
 									<fileMappers>
 										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
@@ -218,7 +218,7 @@
 										<include>**/*.xml</include>
 										<include>*.xml</include>
 									</includes>
-									<stylesheet>${basedir}/src/main/webapp/xsl/agid-peppol-bis-codelist-v1.2.xsl</stylesheet>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ENG/agid-peppol-bis-codelist-v1.2.xsl</stylesheet>
 									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ENG/peppol-bis-invoice-3/codelist/</outputDir>
 									<fileMappers>
 										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
@@ -244,7 +244,7 @@
 									<includes>
 										<include>**/**/**.sch</include>
 									</includes>
-									<stylesheet>${basedir}/src/main/webapp/xsl/agid-peppol-bis-rules-v1.2.xsl</stylesheet>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-rules-v1.2.xsl</stylesheet>
 									<outputDir>${project.build.directory}/${project.build.finalName}/xml/sch</outputDir>
 									<fileMappers>
 										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
@@ -364,7 +364,7 @@
 							<goal>war</goal>
 						</goals>
 						<configuration>
-							<packagingIncludes>attachments/**, css/**, docs/**, fonts/**, images/**, inc/**, js/**, META-INF/**, peppol-bis-3-ENG/menu/**, peppol-bis-3-ITA/menu/**, peppol-bis-invoice-3-ENG/menu/**, peppol-bis-invoice-3-ITA/menu/**, sch/**, WEB-INF/**, xml/**, xsd/**, *.jsp </packagingIncludes>
+							<packagingIncludes>attachments/**, css/**, docs/**, fonts/**, images/**, inc/**, js/**, META-INF/**, peppol-bis-3-ENG/menu/**, peppol-bis-3-ITA/menu/**, peppol-bis-invoice-3-ENG/menu/**, peppol-bis-invoice-3-ITA/menu/**, peppol-bis-3-ENG/structure/codelist/*.xml, peppol-bis-3-ITA/structure/codelist/*.xml, peppol-bis-invoice-3-ENG/structure/codelist/*.xml, peppol-bis-invoice-3-ITA/structure/codelist/*.xml, sch/**, WEB-INF/**, xml/**, xsd/**, *.jsp </packagingIncludes>
 							<warSourceDirectory>${project.build.directory}/${project.build.finalName}</warSourceDirectory>
 						</configuration>
 					</execution>

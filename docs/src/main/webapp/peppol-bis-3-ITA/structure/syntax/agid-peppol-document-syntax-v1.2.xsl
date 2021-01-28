@@ -72,15 +72,17 @@
 								
 								var parent = branch, pid;
 								$("#path").empty();
+								let pathBack = "../";
 								for (i = level; i >= 0; i--) {
 									if (i < level) {
 										parent = parent.prevAll("tr[data-level='"+i+"']").first();
 									}
 									pid = parent.attr("id");
 									$("#path").prepend('<li class="subcontext"><a href="'+pid+'">'+parent.find("> td > a").text()+'</a></li>');
+									pathBack += "../";
 								}
-								// <li><a href="../../../">Home</a></li>
 								$("#path").prepend('<li><a href="'+source+'">'+transaction+'</a></li>');
+								$("#path").prepend('<li><a href="' + pathBack + '" id="bis-index">Indice</a></li>');
 								var activeNode = $("#path").find("li").last();
 								activeNode.html(activeNode.find("a").text()).addClass("active");
 								$("#context").text(activeNode.text());

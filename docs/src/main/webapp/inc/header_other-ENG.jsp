@@ -19,7 +19,7 @@
 					<ul class="nav navbar-nav">
 						<li class="btn-group" id="peppol-bis">
 							<button type="button" class="btn btn-primary btn-agid" style="margin-top: 8px;">PEPPOL BIS 3 (other processes)</button>
-							<button type="button" class="btn btn-primary dropdown-toggle btn-agid" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 8px;">
+							<button type="button" class="btn btn-primary dropdown-toggle btn-agid dropdown-alignment" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 8px;">
 								<span class="caret"/>
 								<span class="sr-only">Toggle Dropdown</span>
 							</button>

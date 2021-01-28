@@ -20,7 +20,7 @@
 						<li class="btn-group" id="peppol-bis">
 							<button type="button" class="btn btn-primary btn-agid" style="margin-top: 8px;">PEPPOL BIS Billing 3</button>
 							<button type="button" class="btn btn-primary dropdown-toggle btn-agid dropdown-alignment" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 8px;">
-								<span class="caret"/>
+								<span class="caret"></span>
 								<span class="sr-only">Toggle Dropdown</span>
 							</button>
 							<ul class="dropdown-menu">

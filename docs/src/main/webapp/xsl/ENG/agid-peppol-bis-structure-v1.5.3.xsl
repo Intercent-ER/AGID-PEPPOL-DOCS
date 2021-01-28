@@ -95,7 +95,7 @@
 
                     <ol id="path" class="breadcrumb">
                         <li>
-                            <a href="../../../my_index-ENG.jsp" id="bis-index">Indice</a>
+                            <a href="../../../my_index-ENG.jsp" id="bis-index">Index</a>
                         </li>
                         <li class="active">
                             <xsl:value-of select="$transaction"/>
@@ -117,11 +117,11 @@
                         <table class="table table-striped" style="table-layout: fixed">
                             <thead>
                                 <tr>
-                                    <th style="width: 7%; font-size: smaller">Cardinalità</th>
+                                    <th style="width: 7%; font-size: smaller">Card</th>
                                     <th style="width: 10%">ID</th>
-                                    <th style="width: 28%">Nome</th>
-                                    <th style="width: 48%">Descrizione</th>
-                                    <th style="width: 7%">Stato</th>
+                                    <th style="width: 28%">Name</th>
+                                    <th style="width: 48%">Description</th>
+                                    <th style="width: 7%">Status</th>
                                 </tr>
                             </thead>
                             <tbody id="syntax">
@@ -152,10 +152,10 @@
         <p>
             <xsl:choose>
                 <xsl:when test="@type='FIXED'">
-                    <xsl:text>Valore fisso:</xsl:text>
+                    <xsl:text>Fixed value:</xsl:text>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:text>Valore di esempio:</xsl:text>
+                    <xsl:text>Example value:</xsl:text>
                 </xsl:otherwise>
             </xsl:choose>
             <code>
@@ -278,19 +278,19 @@
                 <xsl:apply-templates select="stx:Value"/>
                 <xsl:if test="$references">
                     <p class="references">
-                        <xsl:text>Termine di business:</xsl:text>
+                        <xsl:text>Business Term:</xsl:text>
                         <xsl:apply-templates select="$references"/>
                     </p>
                 </xsl:if>
                 <xsl:if test="$rules">
                     <p class="references">
-                        <xsl:text>Regole:</xsl:text>
+                        <xsl:text>Rules:</xsl:text>
                         <xsl:apply-templates select="$rules"/>
                     </p>
                 </xsl:if>
                 <xsl:if test="$codelists">
                     <p class="references">
-                        <xsl:text>Codifiche:</xsl:text>
+                        <xsl:text>Codelists:</xsl:text>
                         <xsl:apply-templates select="$codelists"/>
                     </p>
                 </xsl:if>
@@ -300,10 +300,10 @@
                     <i class="fa fa-exclamation fa-fw" title="Elemento diventato obbligatorio"/>
                 </xsl:if>
                 <xsl:if test="$extension">
-                    <small>Estensione</small>
+                    <small>Estension</small>
                 </xsl:if>
                 <xsl:if test="$restriction">
-                    <small>Restrizione</small>
+                    <small>Restriction</small>
                 </xsl:if>
                 <xsl:if test="$rule">
                     <i class="fa fa-check fa-fw" title="Regola/e italiane"/>
@@ -391,19 +391,19 @@
                 <xsl:apply-templates select="stx:Value"/>
                 <xsl:if test="$references">
                     <p class="references">
-                        <xsl:text>Termine di business:</xsl:text>
+                        <xsl:text>Business Term:</xsl:text>
                         <xsl:apply-templates select="$references"/>
                     </p>
                 </xsl:if>
                 <xsl:if test="$rules">
                     <p class="references">
-                        <xsl:text>Regole:</xsl:text>
+                        <xsl:text>Rules:</xsl:text>
                         <xsl:apply-templates select="$rules"/>
                     </p>
                 </xsl:if>
                 <xsl:if test="$codelists">
                     <p class="references">
-                        <xsl:text>Codifiche:</xsl:text>
+                        <xsl:text>Codelists:</xsl:text>
                         <xsl:apply-templates select="$codelists"/>
                     </p>
                 </xsl:if>
@@ -413,10 +413,10 @@
                     <i class="fa fa-exclamation fa-fw" title="Attributo diventato obbligatorio"/>
                 </xsl:if>
                 <xsl:if test="$extension">
-                    <small>Estensione</small>
+                    <small>Extension</small>
                 </xsl:if>
                 <xsl:if test="$restriction">
-                    <small>Restrizione</small>
+                    <small>Restriction</small>
                 </xsl:if>
                 <xsl:if test="$rule">
                     <i class="fa fa-check fa-fw" title="Regola/e italiane"/>

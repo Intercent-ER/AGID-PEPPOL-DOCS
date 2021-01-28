@@ -245,7 +245,32 @@
 										<include>**/**/**.sch</include>
 									</includes>
 									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-rules-v1.2.xsl</stylesheet>
-									<outputDir>${project.build.directory}/${project.build.finalName}/xml/sch</outputDir>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ITA/sch</outputDir>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.html</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+					
+					<execution>
+						<id>apply-xslt-sch-ENG</id>
+						<phase>package</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${project.build.directory}/${project.build.finalName}/sch/</dir>
+									<includes>
+										<include>**/**/**.sch</include>
+									</includes>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ENG/agid-peppol-bis-rules-v1.2.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ENG/sch</outputDir>
 									<fileMappers>
 										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
 											<targetExtension>.html</targetExtension>

@@ -91,7 +91,7 @@
 
                     <ol id="path" class="breadcrumb">
                         <li>
-                            <a href="../../../../my_index-ENG.jsp" id="bis-index">Indice</a>
+                            <a href="../../../../my_index-ENG.jsp" id="bis-index">Index</a>
                         </li>
                         <li class="active">
                             <xsl:value-of select="$codelist"/>
@@ -110,15 +110,15 @@
                     </div>																	
 
                     <dl class="dl-horizontal">
-                        <dt>Identificatore</dt>
+                        <dt>Identifier</dt>
                         <dd><xsl:value-of select="cl:Identifier"/></dd>
-                        <dt>Agenzia</dt>
+                        <dt>Agency</dt>
                         <dd><xsl:value-of select="cl:Agency"/></dd>
-                        <dt>Versione</dt>
+                        <dt>Version</dt>
                         <dd><xsl:value-of select="cl:Version"/></dd>
-                        <dt>Utilizzo</dt>
+                        <dt>Usage</dt>
                         <dd></dd>
-                        <dt>Codifica</dt>
+                        <dt>Codes</dt>
                         <dd id="codelist">
                             <xsl:apply-templates select="//cl:Code"/>
                         </dd>
@@ -143,7 +143,7 @@
             </p>
             <xsl:if test="cl:LocalId">
             <code class="locale indent">
-                Correlato a [<xsl:value-of select="cl:LocalId"/>]
+                Related to [<xsl:value-of select="cl:LocalId"/>]
             </code>
             </xsl:if>
             <xsl:if test="cl:LocalName">

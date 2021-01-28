@@ -3,10 +3,10 @@
 
 In order to facilitate the interpretation of the following instructions, it is recalled that:
 
-* An Order can be iniziale, di revoca, sostitutivo, collegato o di convalida;
+* An Order can be Initial, for Revocation, for Replacement, for Connection or Convalidation;
 * The subect that issue the Order is always the Buyer.
 
-In the case of a *Connected Order*, *Cancelled Order* or *Revised Order*, it is necessary to report the so-called "Identification triple"(in italian Tripletta di identificazione) of the related document or the order that needs to be revoked or replaced, in the elemement `cac:OrderDocumentReference/cbc:ID`, which is a structured field, by concatenating the values and by respecting the order of priority that follows:
+In the case of *Order Connection*, *Order Cancellation* or *Order Replacement*, it is necessary to report the so-called "Identification triple"(in italian Tripletta di identificazione) of the related Order, that for example needs to be revoked or replaced, in the elemement `cac:OrderDocumentReference/cbc:ID`, which is a structured field, by concatenating the values and by respecting the order of priority that follows:
 
 * *ID*, the identifier of the Order which this Order refers;
 
@@ -31,9 +31,9 @@ In the case of a *Connected Order*, *Cancelled Order* or *Revised Order*, it is 
 :leveloffset: +1
 
 [[TITOLO]]
-=  Example of Connected Order
+=  Example of Order Connection
 
-The Connected Order is used to start a process by connecting the actual process with a previous Order. +
+The Order Connection is used to start a process by connecting the actual process with a previous Order. +
 
 For example, after an Inital Budget Order, a Connected Regulation Order is issued as soon as the Buyer receives the first pro forma parcel of € 7.000 related to the performance of some preparatory activities made following a legal assistance mandate concerning the dispute “xxx”. 
 
@@ -82,7 +82,7 @@ For example, after an Inital Budget Order, a Connected Regulation Order is issue
 :leveloffset: +1
 
 [[TITOLO]]
-=  Example of Cancelled Order
+=  Example of Order Cancellation
 
 The previous order is revoked and the actual one has empty lines (NA) and the segments "TaxTotal" and "AnticipatedMonetaryTotal" must not be present.
 
@@ -109,7 +109,7 @@ The previous order is revoked and the actual one has empty lines (NA) and the se
 :leveloffset: +1
 
 [[TITOLO]]
-= Example of Revised Order
+= Example of Order Replacement
 
 The previous order is amended by the present order, wich contains all the needed lines and consequently represents completely the new order.
 

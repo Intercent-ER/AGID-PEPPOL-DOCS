@@ -25,8 +25,8 @@
 							</button>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="<%=request.getContextPath()%>/my_index_fatt-ENG.jsp">PEPPOL BIS Billing 3</a>
-									</li>
+									<!--<a href="<%=request.getContextPath()%>/my_index_fatt-ENG.jsp">PEPPOL BIS Billing 3</a>
+									</li>-->
 									<li>
 										<a href="<%=request.getContextPath()%>/my_index-ENG.jsp">PEPPOL BIS 3 (other processes)</a>
 										</li>

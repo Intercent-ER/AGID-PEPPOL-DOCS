@@ -63,7 +63,7 @@
 									</a>
 									<ul class="dropdown-menu">
 										<li><a href="<%=request.getContextPath()%>/my_index_fatt.jsp">IT</a></li>
-										<li><a href="<%=request.getContextPath()%>/my_index_fatt-ENG.jsp">EN</a></li>
+										<!--<li><a href="<%=request.getContextPath()%>/my_index_fatt-ENG.jsp">EN</a></li>-->
 									</ul>
 								</li>
 

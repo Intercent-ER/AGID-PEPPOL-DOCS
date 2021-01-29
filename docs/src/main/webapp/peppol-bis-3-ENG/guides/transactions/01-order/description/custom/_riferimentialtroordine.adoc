@@ -6,7 +6,7 @@ In order to facilitate the interpretation of the following instructions, it is r
 * An Order can be Initial, for Revocation, for Replacement, for Connection or Convalidation;
 * The subect that issue the Order is always the Buyer.
 
-In the case of *Order Connection*, *Order Cancellation* or *Order Replacement*, it is necessary to report the so-called "Identification triple"(in italian Tripletta di identificazione) of the related Order, that for example needs to be revoked or replaced, in the elemement `cac:OrderDocumentReference/cbc:ID`, which is a structured field, by concatenating the values and by respecting the order of priority that follows:
+In the case of *Order Connection*, *Order Revocation* or *Order Replacement*, it is necessary to report the so-called "Identification triple"(in italian Tripletta di identificazione) of the related Order, that for example needs to be revoked or replaced, in the elemement `cac:OrderDocumentReference/cbc:ID`, which is a structured field, by concatenating the values and by respecting the order of priority that follows:
 
 * *ID*, the identifier of the Order which this Order refers;
 
@@ -82,7 +82,7 @@ For example, after an Inital Budget Order, a Connected Regulation Order is issue
 :leveloffset: +1
 
 [[TITOLO]]
-=  Example of Order Cancellation
+=  Example of Order Revocation
 
 The previous order is revoked and the actual one has empty lines (NA) and the segments "TaxTotal" and "AnticipatedMonetaryTotal" must not be present.
 

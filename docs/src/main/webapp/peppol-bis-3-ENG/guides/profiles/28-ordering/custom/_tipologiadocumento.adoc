@@ -1,96 +1,127 @@
 [[tipologia-documento]]
-= #Type of Document#
+= #Tipologia di Documento#
 
 
-I Documenti, che costituiscono il Corpo del messaggio, contengono le istruzioni che Clienti e Fornitori si scambiano per regolare la fornitura dei beni e dei servizi.
+The Documents, which constitute the body of the message, contain the instructions that Buyers and Sellers exchange to settle the provision of goods and services.
 
-Nella tabella seguente sono elencati i sotto- tipi e le varianti per l'Ordine, descritti nei Paragrafi che seguono.
+The following table lists documents documents sub-types and variants of the Order and described in the paragraphs that follows.
+
+See paragraph 6.12 and 7.1 for compilation rules.
 
 
 [width="100%", cols="2,3,3", options="header"]
 |===
-^.^|*Tipo Documento* 
-^.^|*Sotto-tipo*
-^.^|*Variante* 
+
+^.^|*Type of Document* 
+^.^|*Sub-types*
+^.^|*Variants* 
 
 
-.5+^.^|*Ordine* 
-| Ordine inziale | -
-| Ordine di revoca | -  
-| Ordine sostitutivo | -
-| Ordine collegato | - 
-| Ordine di convalida | - 
+.8+^.^|*Ordine (Order)* 
+| Ordine inziale (Initial Order)| -
+| Ordine di revoca (Order Revocation)| -  
+| Ordine sostitutivo (Order Replacement)| -
+.3+.^| Ordine di riscontro (Order Confirmation) | Order Confirmation to approve | Order Confirmation to reject | Order Confirmation to substitute 
+| Ordine collegato (Order Connection) | - 
+| Ordine di convalida (Order Validation)| - 
 
+
+.8+^.^|*Risposta (Response)* 
+| Risposta di ricezione (Response of receipt) | -
+| Risposta di accettazione (Response of acceptance) | -  
+| Risposta di diniego (Response of denial)| -
+| Risposta con modifiche (Response with amendment) | - 
 
 |===
 
-*[red]#Ordine di revoca#*
-
-In alcune circostanze può essere utile revocare un Ordine precedentemente emesso (Ordine di revoca). +
-
-L’Ordine di revoca è un Ordine che contiene il riferimento all’Ordine che si intende revocare e l’indicazione che si tratta di una “revoca” (“Cancelled”), inoltre ha una sola linea d’ordine priva di contenuto.
-
-Per le regole di compilazione, vedi paragrafo 6.12.
 
 
-*[red]#Ordine sostitutivo#*
+*[red]#Order Revocation#*
 
-Ove occorra, le istruzioni contenute in un Ordine possono essere modificate mediante l’emissione di un *Ordine sostitutivo*. Tuttavia, salvo che non sia previsto diversamente da norme, usi commerciali o accordi tra le parti, il Fornitore è tenuto a considerare efficaci solo le sostituzioni di ordini pervenute prima che abbia dato luogo all’esecuzione della fornitura. 
+For some circumstances, the revocation of a previosly issued Order may be useful. +
 
-L’Ordine sostitutivo è un nuovo Ordine, completo di tutte le linee di ordine, che contiene il riferimento all’Ordine che si intende sostituire e l’indicazione che si tratta di una “sostituzione” (“Revised”).
+The Order Revocation is an Order that contains the reference to the Order that is intended to revoke and the indication that convey this information (“Cancelled”), also it has only one order line empty.
 
-In alcune circostanze, però, può essere necessario modificare le informazioni contenute in un Ordine precedente anche dopo la conclusione del processo di fornitura o, perfino, successivamente all’emissione della relativa fattura (quando il Documento è emesso al solo fine regolare aspetti di dettaglio di un processo già concluso).
-
-[NOTE]
-In questi casi l’Ordine sostitutivo deve riportare l’indicazione del sotto-tipo di Ordinazione “OR”, (c.d. “Ordine sostitutivo di regolazione“, vedi paragrafo 4.4).
-
-Per le regole di compilazione, vedi paragrafo 6.12.
+See paragraph 6.12 for compilation rules.
 
 
-*[red]#Ordine collegato#*
+*[red]#Order Replacement#*
 
-In alcune circostanze può essere utile evidenziare che un Ordine, seppur indipendente, è genericamente relazionato a un altro Documento. 
+Where appropriate, the instructions contain into an Order can be modified through the issuance of a *Order Replacement*. However, unless otherwise prescribed by regulations, commercial use or agreement between the parties, the Seller is required to consider as effective only the replacement of Orders received before the execution of the supply. 
 
-In questi casi è possibile evidenziare tale generica relazione con l’uso dell’*Ordine collegato*, un Ordine in cui è presente il riferimento al Documento collegato e l’indicazione che si tratta di un mero collegamento (“Connected”).
+The Order Replacement is a new Order, complete with all the order lines and contains the reference to the Order that is intended to be replaced with the indication that it's a "substitution" (“Revised”).
 
+In some cases, however, it may be necessary to modify the information contained in a previous Order, even after the conclusion of the supply process, or even after the issuance of the related Invoice (when the Document is only issued in order to regulate some details of a process already closed)
 
 [NOTE]
-L’Ordine collegato può essere utilizzato esclusivamente per tenere memoria che il nuovo processo che si intende avviare è collegato ad un processo precedente e non deve mai essere usato al posto degli altri strumenti (Ordine di revoca, Ordine sostitutivo e Ordine di riscontro) appositamente realizzati per revocare, sostituire (o integrare), confermare o rifiutare un altro Documento.
-
-Per le regole di compilazione, vedi paragrafo 6.12.
+In this cases the Order Replacement must report the indication of the Order sub-type “OR”, (so-called “Regulating Order Replacement", see paragraph 4.4).
 
 
-*[red]#Ordine di convalida#*
+See paragraph 6.12 for compilation rules.
 
-L’*Ordine di convalida* è un Ordine in cui è presente il riferimento alla fattura da regolarizzare e l’indicazione che si tratta della convalida di fattura (“Invoice”). 
 
-L’Ordine di convalida può essere utilizzato esclusivamente: +
 
-* per convalidare una fattura emessa in assenza della relativa ordinazione della fornitura tramite NSO;
-* se necessario, per convalidare una fattura emessa a fronte di una Ordinazione già effettuata da un soggetto diverso dal Cliente (ad esempio, da una centrale d’acquisto o da un altro ente che è stato successivamente incorporato, ceduto o diviso).
+*[red]#Order Confirmation#*
+
+The Order Confirmation is a particular Order Document sub-type with which the Buyer (sender) approve, reject or susbtitute and Order Agreement or a Response sent by the Seller (receiver).
+
+The Order Confirmation takes on the following variants: +
+
+*  The _Order Confirmation to approve_ is an Order contains the indication that it's a confirmation (“Accepted”) and the reference to the Response that is intended to be confirmed. In addition, this Order ha only one order line, empty.
+* The _Order Confirmation to reject_ is an Order contains the indication that it's a refusal (“Accepted”) and the reference to the Response that is intended to be rejected. In addition, this Order ha only one order line, empty.
+* The _Order Confirmation to substitute_ it is a new Order, complete of al the order lines and contains the indication that it's a substitution (“Revised”) and the reference to the Response that is intended to be replaced. +
+
 
 [NOTE]
-L’Ordine di convalida non deve mai essere usato al posto degli altri strumenti (Ordine di revoca, Ordine sostitutivo e Ordine di riscontro) appositamente realizzati per revocare, sostituire, confermare o rifiutare un altro Documento.
+Order Confirmation to substitute and to reject, respectively, replace and cancel the Response specified therein, and all the other substitutions and revocation already transmitted, related to the Initial Order.
 
-.Regole di compilazione 
 
-In caso di *Ordine di convalida*, bisogna riportare gli estremi della fattura da regolarizzare nell’elemento “OrderDocumentReference/ID”, valorizzandolo con i valori e l'ordine di successione riportato:
 
-* il *numero* della fattura che si intende convalidare:
+*[red]#Order Connection#*
 
-* la *data di emissione* della fattura che si intende convalidare;
+For some circumstances, it may be useful to highlight that an Order, even though is indipendent, it is generically related to another Document.
 
-* l’*identificativo fiscale* del soggetto che ha emesso la fattura che si intende convalidare;
+In this cases the *Order Connection* is used, where it is present a reference to the linked Order and the indication “Connected”.
 
-* il testo *“Invoice”* per indicare che si tratta di un Ordine di convalida di una fattura (o di una richiesta di pagamento equivalente).
 
-.Esempio
+[NOTE]
+The Order Connection can be used exclusively to keep memory that the new process that is intended to begin it's connected to another one. This Order must never be used in place of the others (i.e. Order Revocation, Order Replacement, Order Confirmation) specifically realized to revoke, substitute (or integrate), confirm or refuse another Document.
+
+See paragraph 6.12 for compilation rules.
+
+
+*[red]#Ordine Validation#*
+
+The *Order Validation* is an Order in which there is a reference to an Invoice to be regularised and the indication that it's a validation (“Invoice”). 
+
+This Order can be exclusively used: +
+
+* to validate an Invoice issued in absence of the relative provision order through NSO;
+* if necessary, to validate an Invoice of an Order already sent by a subject different than the Client (for example, sent by a Contracting authority or an entity later bought, sold or divided).
+
+[NOTE]
+The Order Validation must never be used in place of the others (i.e. Order Revocation, Order Replacement, Order Confirmation) specifically realized to revoke, substitute (or integrate), confirm or refuse another Document.
+
+.Compilation rules 
+
+In the case of *Order Validation* it is necessary to report the details of the Invoice to be validated in the element *OrderDocumentReference/ID*, valorizing it with the values and by respecting the order of priority that follows:
+
+* the *number* of the Invoice that is intended to be validated;
+
+* the *issuing date* of the Invoice that is intended to be validated;
+
+* the *VAT number* of the subject who issued the Invoice   that is intended to be validated;
+
+* the text *“Invoice”* to indicate that it's an Order for validating an Invoice (or an equivalent request for payment).
+
+.Example
 [source, xml, indent=0]
 ----
 <cac:OrderDocumentReference>
     <cbc:ID>57#2018-01-30# ITccccccccccc#Invoice</cbc:ID>
 </cac:OrderDocumentReference >
 ----
+
 
 
 

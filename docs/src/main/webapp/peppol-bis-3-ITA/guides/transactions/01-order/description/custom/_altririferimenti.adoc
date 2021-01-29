@@ -91,4 +91,4 @@ A livello di riga +
 
 
 [NOTE]
-I campi “AdditionalDocumentReference/ID” e “ItemSpecificationDocumentReference/ID” sono campi strutturati.
+I campi "AdditionalDocumentReference/ID" e "ItemSpecificationDocumentReference/ID" sono campi strutturati.

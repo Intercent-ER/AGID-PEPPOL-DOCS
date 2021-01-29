@@ -574,12 +574,8 @@
                      <td><a href="#">PEPPOL-T16-B15401</a><br><span class="message">Element 'cbc:LineID' MUST be provided.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="PEPPOL-T16-B15402" data-context="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference" data-test="cac:OrderReference">
-                     <td><a href="#">PEPPOL-T16-B15402</a><br><span class="message">Element 'cac:OrderReference' MUST be provided.</span></td>
-                     <td style="width: 5%;">fatal</td>
-                  </tr>
-                  <tr id="PEPPOL-T16-B15403" data-context="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference/*" data-test="false()">
-                     <td><a href="#">PEPPOL-T16-B15403</a><br><span class="message">Document MUST NOT contain elements not part of the data model.</span></td>
+                  <tr id="PEPPOL-T16-B15402" data-context="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference/*" data-test="false()">
+                     <td><a href="#">PEPPOL-T16-B15402</a><br><span class="message">Document MUST NOT contain elements not part of the data model.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="PEPPOL-T16-B15601" data-context="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference/cac:OrderReference" data-test="cbc:ID">
@@ -721,10 +717,6 @@
                   <tr id="PEPPOL-T16-B20001" data-context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:TransportHandlingUnit/cac:Package/cbc:PackagingTypeCode" data-test="(some $code in $clUNECERec21 satisfies $code = normalize-space(text()))">
                      <td><a href="#">PEPPOL-T16-B20001</a><br><span class="message">Value MUST be part of code list 'Recommandation 21 (UN/ECE)'.</span></td>
                      <td style="width: 5%;">fatal</td>
-                  </tr>
-                  <tr id="PEPPOL-T16-R002" data-context="ubl:DespatchAdvice" data-test="(cac:OrderReference/cbc:ID)">
-                     <td><a href="#">PEPPOL-T16-R002</a><br><span class="message">A despatch advice SHOULD have an order identifier</span></td>
-                     <td style="width: 5%;">warning</td>
                   </tr>
                   <tr id="PEPPOL-T16-R003" data-context="cac:DespatchLine" data-test="(cac:Item/cac:StandardItemIdentification/cbc:ID) or  (cac:Item/cac:SellersItemIdentification/cbc:ID)">
                      <td><a href="#">PEPPOL-T16-R003</a><br><span class="message">Each item in a Despatch Advice line SHALL be identifiable by either "item sellers identifier" or "item standard identifier"</span></td>

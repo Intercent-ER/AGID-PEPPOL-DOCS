@@ -1,5 +1,5 @@
 [[tipologia-documento]]
-= #Tipologia di Documento#
+= #Type of Document#
 
 
 The Documents, which constitute the body of the message, contain the instructions that Buyers and Sellers exchange to settle the provision of goods and services.

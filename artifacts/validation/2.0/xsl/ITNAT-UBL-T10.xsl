@@ -13,8 +13,12 @@
                 xmlns:ubl="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
                 version="2.0"><!--Implementers: please note that overriding process-prolog or process-root is 
     the preferred method for meta-stylesheets to use where possible. -->
-	<!--ITNAT-UBL-T10 V2.2.6 hotfix (estende ed include BIS2.0-VA-V3.5.0, supporta FatturaPA 1.2.1-->
-	<!--Supporta i Tax Category del BIS 3.0 per facilitare la migrazione-->
+	<!--
+	ITNAT-UBL-T10 V2.2.8 (revisione descrizione regola INT-T10-R029)
+	Estende ed include BIS2.0-VA-V3.5.0
+	Supporta FatturaPA 1.2.1
+	Supporta i Tax Category del BIS 3.0 per facilitare la migrazione
+	-->
    <xsl:param name="archiveDirParameter"/>
    <xsl:param name="archiveNameParameter"/>
    <xsl:param name="fileNameParameter"/>
@@ -3540,15 +3544,15 @@
 	  
 		    <!--ASSERT -->
       <xsl:choose>
-         <xsl:when test="(@schemeID='IT:CF' and matches(.,'^[0-9]{11}$|^[A-Z]{6}\d{2}[ABCDEHLMPRST]{1}\d{2}[A-Z]{1}\d{3}[A-Z]{1}$')) or @schemeID!='IT:CF'"/>
+         <xsl:when test="(@schemeID='IT:CF' and matches(.,'^[0-9]{11}$|^[A-Z]{6}[\dLMNPQRSTUV]{2}[ABCDEHLMPRST]{1}[\dLMNPQRSTUV]{2}[A-Z]{1}[\dLMNPQRSTUV]{3}[A-Z]{1}$')) or @schemeID!='IT:CF'"/>
          <xsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(@schemeID='IT:CF' and matches(.,'^[0-9]{11}$|^[A-Z]{6}\d{2}[ABCDEHLMPRST]{1}\d{2}[A-Z]{1}\d{3}[A-Z]{1}$')) or @schemeID!='IT:CF'">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(@schemeID='IT:CF' and matches(.,'^[0-9]{11}$|^[A-Z]{6}[\dLMNPQRSTUV]{2}[ABCDEHLMPRST]{1}[\dLMNPQRSTUV]{2}[A-Z]{1}[\dLMNPQRSTUV]{3}[A-Z]{1}$')) or @schemeID!='IT:CF'">
                <xsl:attribute name="id">INT-T10-R028</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
                </xsl:attribute>
-               <svrl:text>[INT-T10-R028] - Se l'identificatore di endpoint si basa sullo schema di identificatori IT:CF, questo dovrà seguire la sintassi [0-9]{11} per le persone giuridiche e la sintassi [A-Z]{6}\d{2}[ABCDEHLMPRST]{1}\d{2}[A-Z]{1}\d{3}[A-Z]{1} per quelle fisiche.</svrl:text>
+               <svrl:text>[INT-T10-R028] - Se l'identificatore di endpoint si basa sullo schema di identificatori IT:CF, questo dovrà seguire la sintassi [0-9]{11} per le persone giuridiche e la sintassi [A-Z]{6}[\dLMNPQRSTUV]{2}[ABCDEHLMPRST]{1}[\dLMNPQRSTUV]{2}[A-Z]{1}[\dLMNPQRSTUV]{3}[A-Z]{1} per quelle fisiche.</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
@@ -3664,7 +3668,7 @@
                   <xsl:apply-templates select="." mode="schematron-get-full-path"/>
                </xsl:attribute>
                <svrl:text>[INT-T10-R029] - Insieme al Tipo Fattura (cbc:InvoiceTypeCode) è obbligatorio fornire una UBLExtension per indicare il Tipo Documento corrispondente secondo la specifica FatturaPA 1.2.x con ExtensionURI pari a 
-'urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_documento' (vedi specifica delle codifiche).</svrl:text>
+'urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_documento' (vedi specifica delle codifiche). Qualora non venga fornita una UBLExtension viente restituito un messaggio di warning e si assume il valore di default 'TD01'.</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>

@@ -1,11 +1,32 @@
 [[Consegna-Delivery]]
 = #Consegna (Delivery)#
 
+:leveloffset: +1
+
+= Luogo di consegna (DeliveryLocation)
+
 Le informazioni di consegna sono necessarie qualora l’indirizzo differisca da quello della parte che emette l’ordine e permette di fornire indicazioni più precise sulla resa della merce (DeliveryTerms). Si ricorda che l’orario di apertura del magazzino dovrà essere inserita nel campo AddressLine/Line del segmento Address.
 
-Il luogo di esecuzione della fornitura è la sede in cui deve avvenire la cessione dei beni e/o la prestazione dei servizi.
+Il luogo di esecuzione della fornitura è la sede in cui deve avvenire la cessione dei beni e/o la prestazione dei servizi. È rappresentato, a livello di testata documento, dall’elemento “Delivery/DeliveryLocation”. +
 
-È rappresentato nell’Ordine, dall’elemento “Delivery/DeliveryLocation”.
+Il luogo di consegna può essere indicato anche a livello di linea d’ordine
+utlizzando il campo "Delivery/ID" dell’elemento "OrderLine/LineItem". Si tratta, tuttavia,
+di una pratica sconsigliata se non preventivamente concordata tra Cliente e Fornitore. +
+
+.Esempio dell'indicazione del Delivery/ID sulle linee d'ordine
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+        ...
+        <cac:Delivery>
+            <cbc:ID>123456788901-acdg45</cbc:ID>
+            ...
+        </cac:Delivery>
+        ...
+    <cac:LineItem>
+</cac:OrderLine>
+----
 
 Se il luogo di consegna è un indirizzo istituzionale del Cliente a cui è stato associato un identificativo univoco reso disponibile al Fornitore, indicare anche tale identificativo, come mostrato nel seguente esempio:
 
@@ -102,3 +123,24 @@ Se trattasi di consegna domiciliare (ad esempio, all’indirizzo di un paziente)
     </cac:DeliveryLocation>
 </cac:Delivery>
 ----
+
+:leveloffset: -1
+
+:leveloffset: +1
+
+= Etichette imballaggio (ShippingMarks)
+
+Se necessario, il Cliente può richiedere al Fornitore di stampare un testo sull’etichetta di imballaggio, valorizzando in modo appropriato il campo “TransportHandlingUnit/ShippingMarks” dell’elemento “Shipment”, come mostrato nel seguente esempio:
+
+[source, xml, indent=0]
+----
+<cac:Delivery>
+ <cac:Shipment>
+  <cac:TransportHandlingUnit>
+   <cbc:ShippingMarks>aaaaaaaaaa</cbc:ShippingMarks>
+  </cac:TransportHandlingUnit>
+ </cac:Shipment>
+</cac:Delivery>
+---- 
+
+:leveloffset: -1

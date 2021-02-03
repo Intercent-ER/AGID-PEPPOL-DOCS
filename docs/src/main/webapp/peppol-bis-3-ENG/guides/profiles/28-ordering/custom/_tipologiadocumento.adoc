@@ -19,8 +19,8 @@ See paragraph 6.12 and 7.1 for compilation rules.
 
 .8+^.^|*Ordine (Order)* 
 | Ordine inziale (Initial Order)| -
-| Ordine di revoca (Order Revocation)| -  
-| Ordine sostitutivo (Order Replacement)| -
+| Ordine di revoca (Revocation Order)| -  
+| Ordine sostitutivo (Replacement Order)| -
 .3+.^| Ordine di riscontro (Confirmation Order) | Confirmation Order to approve| Confirmation Order to reject | Order Confirmation to substitute 
 | Ordine collegato (Connected Order) | - 
 | Ordine di convalida (Validation Order)| - 
@@ -40,7 +40,7 @@ See paragraph 6.12 and 7.1 for compilation rules.
 
 For some circumstances, the revocation of a previosly issued Order may be useful. +
 
-The Revocation Order is an Order that contains the reference to the Order that is intended to revoke and the indication that convey this information (“Cancelled”), also it has only one order line empty.
+The *Revocation Order* is an Order that contains the reference to the Order that is intended to revoke and the indication that convey this information (“Cancelled”), also it has only one order line empty.
 
 See paragraph 6.12 for compilation rules.
 
@@ -63,7 +63,7 @@ See paragraph 6.12 for compilation rules.
 
 *[red]#Confirmation Order#*
 
-The Confirmation Order is a particular Order Document sub-type with which the Buyer (sender) approve, reject or susbtitute a Response sent by the Seller (receiver).
+The *Confirmation Order* is a particular Order Document sub-type with which the Buyer (sender) approve, reject or susbtitute a Response sent by the Seller (receiver).
 
 The Confirmation Order takes on the following variants: +
 
@@ -90,7 +90,7 @@ The Connected Order can be used exclusively to keep memory that the new process 
 See paragraph 6.12 for compilation rules.
 
 
-*[red]#Validation Ordine#*
+*[red]#Validation Order#*
 
 The *Validation Order* is an Order in which there is a reference to an Invoice to be regularised and the indication that it's a validation (“Invoice”). 
 

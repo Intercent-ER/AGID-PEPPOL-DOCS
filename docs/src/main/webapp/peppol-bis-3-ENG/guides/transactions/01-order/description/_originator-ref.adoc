@@ -2,15 +2,13 @@
 
 #In public procurement there may be different referenced document needed for identifying a provision of good and services; to provide the details at the document or line level it is necessary to specify the identifier of the document.#
 
-#The following typology of document can be referred at document or line level; also other references can be done, as long as there is no conflict with the information for which there is already a specific position established  in the document.#
-
-#In documents such as "ordine iniziale" and "ordine sostitutivo" it is mandatory to indicate the Codice identificativo di gara (CIG or Smart CIG), in english Tender Identification Code, recorded in the Banca dati Nazionale dei contratti pubblici (BDNCP), to which the provisions object of the document are related.#
+#In "Initial Order" and "Replacement Order" the CIG (Codice Identificativo Gara) must be indicated.#
 
 [cols="1,2,5", options="header"]
 |====
 s|Reference
 s|Description
-s|Where to use it
+s|Use
 
 |*CIG*
 |Tender identification code

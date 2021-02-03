@@ -30,7 +30,7 @@ The following table lists documents documents sub-types and variants of the Orde
 
 For some circumstances, the revocation of a previosly issued Order may be useful. +
 
-The Revocation Order is an Order that contains the reference to the Order that is intended to revoke and the indication that convey this information (“Cancelled”), also it has only one order line empty.
+The *Revocation Order *is an Order that contains the reference to the Order that is intended to revoke and the indication that convey this information (“Cancelled”), also it has only one order line empty.
 
 See paragraph 6.12 for compilation rules.
 
@@ -63,7 +63,7 @@ The Connected Order can be used exclusively to keep memory that the new process 
 See paragraph 6.12 for compilation rules.
 
 
-*[red]#Validation Ordine#*
+*[red]#Validation Order#*
 
 The *Validation Order* is an Order in which there is a reference to an Invoice to be regularised and the indication that it's a validation (“Invoice”). 
 

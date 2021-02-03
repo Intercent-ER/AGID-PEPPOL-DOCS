@@ -18,7 +18,6 @@ The line level Price element:: _The price itself shall always be the net price, 
 * Allowance related to Price may specify amount and the base amount.
 
 
-[allowance-calc]]
 == Calculation of allowance/charge amount
 
 Allowance and charge on document level consists of elements carrying information on the allowance/charge base amount
@@ -105,15 +104,22 @@ The following example shows an allowance of 10 EUR applied to the base amount pr
 
 [source, xml, indent=0]
 ----
-<cac:Price>
-    <cbc:PriceAmount currencyID="EUR">90.00</cbc:PriceAmount>
-        <cac:AllowanceCharge>
-		    <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-            <cbc:AllowanceChargeReason>Sconto</cbc:AllowanceChargeReason>
-		    <cbc:Amount currencyID="EUR">10.00</cbc:Amount>
-            <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
-        </cac:AllowanceCharge>
-</cac:Price>
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>1</cbc:ID>
+        <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">20</cbc:Quantity>
+        <cbc:LineExtensionAmount currencyID="EUR">1800.00</cbc:LineExtensionAmount>
+        ...
+        <cac:Price>
+            <cbc:PriceAmount currencyID="EUR">90.00</cbc:PriceAmount>
+            <cac:AllowanceCharge>
+                <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+                <cbc:Amount currencyID="EUR">10.00</cbc:Amount>
+                <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
+            </cac:AllowanceCharge>
+        </cac:Price>
+    </cac:LineItem>
+</cac:OrderLine>
 ----
 
 :leveloffset: +1
@@ -152,9 +158,9 @@ The following example shows an allowance applied to the whole order line:
 [[titolo]]
 = #Discounts#
 
-For sale in the form of discounts, awards or allowance it is necessary to insert a separated order line, paying attention to indicate the relative VAT exemption.
+For sale in the form of discounts, awards or allowance it is necessary to insert a distinct order line, paying attention to indicate the relative VAT exemption code.
 
-Indeed, for VAT purposes the discounts falls under the VAT-exempt operations ex Art. 15 D.P.R. 633/72.
+In these cases, the discounts are out of scope VAT based on Art. 15 D.P.R. 633/72.
 
 [source, xml, indent=0]
 ----

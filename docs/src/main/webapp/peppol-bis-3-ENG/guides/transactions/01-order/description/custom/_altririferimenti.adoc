@@ -7,7 +7,7 @@ To provide the ID of CUP, Despatch Advice, Expenditure Commitment, Expenditure D
 |====
 s|Reference
 s|Description
-s|When to use it
+s|Use
 
 |*CUP*
 |Unique Project Reference (Codice Unico di Progetto)

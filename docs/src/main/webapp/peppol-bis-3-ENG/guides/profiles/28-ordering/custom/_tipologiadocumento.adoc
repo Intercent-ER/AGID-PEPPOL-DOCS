@@ -21,90 +21,90 @@ See paragraph 6.12 and 7.1 for compilation rules.
 | Ordine inziale (Initial Order)| -
 | Ordine di revoca (Order Revocation)| -  
 | Ordine sostitutivo (Order Replacement)| -
-.3+.^| Ordine di riscontro (Order Confirmation) | Order Confirmation to approve | Order Confirmation to reject | Order Confirmation to substitute 
-| Ordine collegato (Order Connection) | - 
-| Ordine di convalida (Order Validation)| - 
+.3+.^| Ordine di riscontro (Confirmation Order) | Confirmation Order to approve| Confirmation Order to reject | Order Confirmation to substitute 
+| Ordine collegato (Connected Order) | - 
+| Ordine di convalida (Validation Order)| - 
 
 
 .8+^.^|*Risposta (Response)* 
 | Risposta di ricezione (Response of receipt) | -
 | Risposta di accettazione (Response of acceptance) | -  
 | Risposta di diniego (Response of denial)| -
-| Risposta con modifiche (Response with amendment) | - 
+| Risposta con modifiche (Response with changes) | - 
 
 |===
 
 
 
-*[red]#Order Revocation#*
+*[red]#Revocation Order#*
 
 For some circumstances, the revocation of a previosly issued Order may be useful. +
 
-The Order Revocation is an Order that contains the reference to the Order that is intended to revoke and the indication that convey this information (“Cancelled”), also it has only one order line empty.
+The Revocation Order is an Order that contains the reference to the Order that is intended to revoke and the indication that convey this information (“Cancelled”), also it has only one order line empty.
 
 See paragraph 6.12 for compilation rules.
 
 
-*[red]#Order Replacement#*
+*[red]#Replacement Order#*
 
-Where appropriate, the instructions contain into an Order can be modified through the issuance of a *Order Replacement*. However, unless otherwise prescribed by regulations, commercial use or agreement between the parties, the Seller is required to consider as effective only the replacement of Orders received before the execution of the supply. 
+Where appropriate, the instructions contain into an Order can be modified through the issuance of a *Replacement Order*. However, unless otherwise prescribed by regulations, commercial use or agreement between the parties, the Seller is required to consider as effective only the replacement of Orders received before the execution of the supply. 
 
-The Order Replacement is a new Order, complete with all the order lines and contains the reference to the Order that is intended to be replaced with the indication that it's a "substitution" (“Revised”).
+The Replacement Order is a new Order, complete with all the order lines and contains the reference to the Order that is intended to be replaced with the indication that it's a "substitution" (“Revised”).
 
 In some cases, however, it may be necessary to modify the information contained in a previous Order, even after the conclusion of the supply process, or even after the issuance of the related Invoice (when the Document is only issued in order to regulate some details of a process already closed)
 
 [NOTE]
-In this cases the Order Replacement must report the indication of the Order sub-type “OR”, (so-called “Regulating Order Replacement", see paragraph 4.4).
+In this cases the Replacement Order must report the indication of the Order sub-type “OR”, (so-called “Regulating Order Replacement", see paragraph 4.4).
 
 
 See paragraph 6.12 for compilation rules.
 
 
 
-*[red]#Order Confirmation#*
+*[red]#Confirmation Order#*
 
-The Order Confirmation is a particular Order Document sub-type with which the Buyer (sender) approve, reject or susbtitute and Order Agreement or a Response sent by the Seller (receiver).
+The Confirmation Order is a particular Order Document sub-type with which the Buyer (sender) approve, reject or susbtitute a Response sent by the Seller (receiver).
 
-The Order Confirmation takes on the following variants: +
+The Confirmation Order takes on the following variants: +
 
-*  The _Order Confirmation to approve_ is an Order contains the indication that it's a confirmation (“Accepted”) and the reference to the Response that is intended to be confirmed. In addition, this Order ha only one order line, empty.
-* The _Order Confirmation to reject_ is an Order contains the indication that it's a refusal (“Accepted”) and the reference to the Response that is intended to be rejected. In addition, this Order ha only one order line, empty.
-* The _Order Confirmation to substitute_ it is a new Order, complete of al the order lines and contains the indication that it's a substitution (“Revised”) and the reference to the Response that is intended to be replaced. +
+*  The _Confirmation Order to approve_ is an Order containing the indication that it is a confirmation (“Accepted”) and the reference to the Response that is intended to be confirmed. This Order contains only one empty order line.
+* The _Confirmation Order to reject_ is an Order containing the indication that it is a refusal (“Cancelled”) and the reference to the Response that is intended to be rejected. This Order contains only one empty order line.
+* The _Confirmation Order to substitute_ is a new Order, complete of all the order lines and contains the indication that it's a substitution (“Revised”) and the reference to the Response that is intended to be replaced. +
 
 
 [NOTE]
-Order Confirmation to substitute and to reject, respectively, replace and cancel the Response specified therein, and all the other substitutions and revocation already transmitted, related to the Initial Order.
+_Confirmation Order to substitute_ and _Confirmation Order to reject_, respectively, replaces and cancels the Response specified therein and all the other Replacement Order/s and Revocation Order/s already transmitted, related to the Initial Order.
 
 
 
-*[red]#Order Connection#*
+*[red]#Connected Order#*
 
 For some circumstances, it may be useful to highlight that an Order, even though is indipendent, it is generically related to another Document.
 
-In this cases the *Order Connection* is used, where it is present a reference to the linked Order and the indication “Connected”.
+In this cases the *Connected Order* is used, where it is present a reference to the linked Order and the indication “Connected”.
 
 
 [NOTE]
-The Order Connection can be used exclusively to keep memory that the new process that is intended to begin it's connected to another one. This Order must never be used in place of the others (i.e. Order Revocation, Order Replacement, Order Confirmation) specifically realized to revoke, substitute (or integrate), confirm or refuse another Document.
+The Connected Order can be used exclusively to keep memory that the new process that is intended to begin it's connected to another one. This Order must never be used in place of the others (i.e. Revocation Order, Replacement Order, Confirmation Order) specifically realized to revoke, substitute (or integrate), confirm or refuse another Document.
 
 See paragraph 6.12 for compilation rules.
 
 
-*[red]#Ordine Validation#*
+*[red]#Validation Ordine#*
 
-The *Order Validation* is an Order in which there is a reference to an Invoice to be regularised and the indication that it's a validation (“Invoice”). 
+The *Validation Order* is an Order in which there is a reference to an Invoice to be regularised and the indication that it's a validation (“Invoice”). 
 
 This Order can be exclusively used: +
 
 * to validate an Invoice issued in absence of the relative provision order through NSO;
-* if necessary, to validate an Invoice of an Order already sent by a subject different than the Client (for example, sent by a Contracting authority or an entity later bought, sold or divided).
+* if necessary, to validate an Invoice referred to an Order when the Invoicee is different from the initial Buyer (e.g. sent by a Contracting authority or in case the initial Buyer has been bought, sold or divided).
 
 [NOTE]
-The Order Validation must never be used in place of the others (i.e. Order Revocation, Order Replacement, Order Confirmation) specifically realized to revoke, substitute (or integrate), confirm or refuse another Document.
+The Validation Order must never be used in place of the others (i.e. Revocation Order, Replacement Order, Confirmation Order) specifically realized to revoke, substitute (or integrate), confirm or refuse another Document.
 
 .Compilation rules 
 
-In the case of *Order Validation* it is necessary to report the details of the Invoice to be validated in the element *OrderDocumentReference/ID*, valorizing it with the values and by respecting the order of priority that follows:
+In the case of *Validation Order* it is necessary to report the details of the Invoice to be validated in the element *OrderDocumentReference/ID*, filling it with the values and by respecting the order of priority that follows:
 
 * the *number* of the Invoice that is intended to be validated;
 

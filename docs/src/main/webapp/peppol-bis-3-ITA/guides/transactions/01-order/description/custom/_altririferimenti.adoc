@@ -20,13 +20,13 @@ A livello di riga +
 
 |*DDT*
 |Documento di Trasporto +
-(usare solo per riferirsi a DDT precedentemente ricevuti nel corso di un conto deposito merce)
 |In testata si usa +
 `cac:AdditionalDocumentReference` (0.n) +
 
 A livello di riga +
-`cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n)
+`cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n) +
 
+Usare solo per riferirsi a DDT precedentemente ricevuti nel corso di un conto deposito merce
 
 |*IMPEGNO*
 |Estremi Impegno

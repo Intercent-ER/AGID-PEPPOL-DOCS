@@ -1,12 +1,7 @@
 [[TITOLO]]
 = #Reference to another order#
 
-In order to facilitate the interpretation of the following instructions, it is recalled that:
-
-* An Order can be Initial, for Revocation, for Replacement, for Connection or Convalidation;
-* The subect that issue the Order is always the Buyer.
-
-In the case of *Connected Order*, *Revocation Order* or *Replacement Order*, it is necessary to report the so-called "Identification triple"(in italian Tripletta di identificazione) of the related Order, that for example needs to be revoked or replaced, in the elemement `cac:OrderDocumentReference/cbc:ID`, which is a structured field, by concatenating the values and by respecting the order of priority that follows:
+In the case of *Connected Order*, *Revocation Order* or *Replacement Order*, it is necessary to indicate the so-called "Identification triple"(in italian Tripletta di identificazione) of the related Order in the elemement `cac:OrderDocumentReference/cbc:ID`, which is a structured field, by concatenating the following information in the order that follows:
 
 * *ID*, the identifier of the Order which this Order refers;
 

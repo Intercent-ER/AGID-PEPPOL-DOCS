@@ -172,8 +172,9 @@ In these cases, the discounts are out of scope VAT based on Art. 15 D.P.R. 633/7
         <cac:AllowanceCharge>
 	        <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
 	        <cbc:AllowanceChargeReason>Sconto Merce</cbc:AllowanceChargeReason>
-		    <cbc:MultiplierFactorNumeric>10</cbc:MultiplierFactorNumeric>
+		    <cbc:MultiplierFactorNumeric>100</cbc:MultiplierFactorNumeric>
 	        <cbc:Amount currencyID="EUR">90.00</cbc:Amount>
+	        <cbc:BaseAmount currencyID="EUR">90.00</cbc:Amount>
         </cac:AllowanceCharge>
         <cac:Price>
             <cbc:PriceAmount currencyID="EUR">9.00000</cbc:PriceAmount>

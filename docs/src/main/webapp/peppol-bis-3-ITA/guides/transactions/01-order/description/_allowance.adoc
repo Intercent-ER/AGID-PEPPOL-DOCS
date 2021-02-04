@@ -170,8 +170,9 @@ Infatti ai fini IVA lo sconto merce rientra nelle operazioni Escluse ex Art. 15 
         <cac:AllowanceCharge>
 	        <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
 	        <cbc:AllowanceChargeReason>Sconto Merce</cbc:AllowanceChargeReason>
-		    <cbc:MultiplierFactorNumeric>10</cbc:MultiplierFactorNumeric>
+		    <cbc:MultiplierFactorNumeric>100</cbc:MultiplierFactorNumeric>
 	        <cbc:Amount currencyID="EUR">90.00</cbc:Amount>
+	        <cbc:BaseAmount currencyID="EUR">90.00</cbc:Amount>
         </cac:AllowanceCharge>
         <cac:Price>
             <cbc:PriceAmount currencyID="EUR">9.00000</cbc:PriceAmount>

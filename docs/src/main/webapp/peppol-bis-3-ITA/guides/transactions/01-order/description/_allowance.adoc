@@ -73,12 +73,12 @@ stem:["Importo" =  "Importo base" times ("Percentuale" div 100)]
 [source, xml, indent=0]
 ----
 <cac:AllowanceCharge>
-	  <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
-	    <cbc:AllowanceChargeReasonCode>ABL</cbc:AllowanceChargeReasonCode>
-	        <cbc:AllowanceChargeReason>Costi di imballaggio</cbc:AllowanceChargeReason>
-	            <cbc:MultiplierFactorNumeric>20</cbc:MultiplierFactorNumeric>
-	        <cbc:Amount currencyID="EUR">10.00</cbc:Amount>
-	    <cbc:BaseAmount currencyID="EUR">50.00</cbc:BaseAmount>
+    <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+    <cbc:AllowanceChargeReasonCode>ABL</cbc:AllowanceChargeReasonCode>
+    <cbc:AllowanceChargeReason>Costi diimballaggio</cbc:AllowanceChargeReason>
+    <cbc:MultiplierFactorNumeric>20</cbc:MultiplierFactorNumeric>
+    <cbc:Amount currencyID="EUR">10.00</cbc:Amount>
+    <cbc:BaseAmount currencyID="EUR">50.00</cbc:BaseAmount>
 </cac:AllowanceCharge>
 ----
 
@@ -86,12 +86,12 @@ stem:["Importo" =  "Importo base" times ("Percentuale" div 100)]
 [source, xml, indent=0]
 ----
 <cac:AllowanceCharge>
-	<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-	    <cbc:AllowanceChargeReasonCode>41</cbc:AllowanceChargeReasonCode>
-            <cbc:AllowanceChargeReason>Sconto</cbc:AllowanceChargeReason>
-                <cbc:MultiplierFactorNumeric>2</cbc:MultiplierFactorNumeric>
-	        <cbc:Amount currencyID="EUR">2.00</cbc:Amount>
-	    <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
+    <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+	<cbc:AllowanceChargeReasonCode>41</cbc:AllowanceChargeReasonCode>
+    <cbc:AllowanceChargeReason>Sconto</cbc:AllowanceChargeReason>
+    <cbc:MultiplierFactorNumeric>2</cbc:MultiplierFactorNumeric>
+	<cbc:Amount currencyID="EUR">2.00</cbc:Amount>
+	<cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
 </cac:AllowanceCharge>
 ----
 
@@ -140,7 +140,7 @@ Questo esempio mostra uno sconto applicato a tutta la riga d’ordine:
 			<cbc:MultiplierFactorNumeric>10</cbc:MultiplierFactorNumeric>
 			<cbc:Amount currencyID="EUR">10.00</cbc:Amount>
 			<cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
-		</cac:AllowanceCharge>
+        </cac:AllowanceCharge>
         <cac:Price>
             <cbc:PriceAmount currencyID="EUR">10.00000</cbc:PriceAmount><!-- Opzionale -->
         </cac:Price>
@@ -168,11 +168,11 @@ Infatti ai fini IVA lo sconto merce rientra nelle operazioni Escluse ex Art. 15 
         <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">10</cbc:Quantity>
         <cbc:LineExtensionAmount currencyID="EUR">0.00</cbc:LineExtensionAmount>
         <cac:AllowanceCharge>
-	        <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-	        <cbc:AllowanceChargeReason>Sconto Merce</cbc:AllowanceChargeReason>
-		    <cbc:MultiplierFactorNumeric>100</cbc:MultiplierFactorNumeric>
-	        <cbc:Amount currencyID="EUR">90.00</cbc:Amount>
-	        <cbc:BaseAmount currencyID="EUR">90.00</cbc:Amount>
+            <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+            <cbc:AllowanceChargeReason>Sconto Merce</cbc:AllowanceChargeReason>
+            <cbc:MultiplierFactorNumeric>100</cbc:MultiplierFactorNumeric>
+            <cbc:Amount currencyID="EUR">90.00</cbc:Amount>
+            <cbc:BaseAmount currencyID="EUR">90.00</cbc:Amount>
         </cac:AllowanceCharge>
         <cac:Price>
             <cbc:PriceAmount currencyID="EUR">9.00000</cbc:PriceAmount>
@@ -184,7 +184,7 @@ Infatti ai fini IVA lo sconto merce rientra nelle operazioni Escluse ex Art. 15 
                 <cbc:ID>O</cbc:ID>
             </cac:ClassifiedTaxCategory>
         </cac:Item>
-  	</cac:LineItem>
+    </cac:LineItem>
 </cac:OrderLine>
 ----
 
@@ -208,12 +208,12 @@ Per includere nell’ordine degli articoli in omaggio è necessario indicarli in
         <cbc:LineExtensionAmount currencyID="EUR">0</cbc:LineExtensionAmount>
         <cac:Price>
             <cbc:PriceAmount currencyID="EUR">0</cbc:PriceAmount>
-        <cbc:BaseQuantity unitCode="C62" unitCodeListID=”UNECERec20”>1</cbc:BaseQuantity>
-        <cac:AllowanceCharge>
-		    <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-		    <cbc:Amount currencyID="EUR">5.00</cbc:Amount>
-            <cbc:BaseAmount currencyID="EUR">5.00</cbc:BaseAmount>
-        </cac:AllowanceCharge>
+            <cbc:BaseQuantity unitCode="C62" unitCodeListID=”UNECERec20”>1</cbc:BaseQuantity>
+            <cac:AllowanceCharge>
+                <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+                <cbc:Amount currencyID="EUR">5.00</cbc:Amount>
+                <cbc:BaseAmount currencyID="EUR">5.00</cbc:BaseAmount>
+            </cac:AllowanceCharge>
         </cac:Price>
         <cac:Item>
             <cbc:Description>1x12 pacchi</cbc:Description>

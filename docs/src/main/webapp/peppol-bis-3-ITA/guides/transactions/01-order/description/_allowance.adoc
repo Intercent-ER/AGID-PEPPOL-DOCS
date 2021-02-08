@@ -73,12 +73,12 @@ stem:["Importo" =  "Importo base" times ("Percentuale" div 100)]
 [source, xml, indent=0]
 ----
 <cac:AllowanceCharge>
-	  <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
-	    <cbc:AllowanceChargeReasonCode>ABL</cbc:AllowanceChargeReasonCode>
-	        <cbc:AllowanceChargeReason>Costi di imballaggio</cbc:AllowanceChargeReason>
-	            <cbc:MultiplierFactorNumeric>20</cbc:MultiplierFactorNumeric>
-	        <cbc:Amount currencyID="EUR">10.00</cbc:Amount>
-	    <cbc:BaseAmount currencyID="EUR">50.00</cbc:BaseAmount>
+    <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+    <cbc:AllowanceChargeReasonCode>ABL</cbc:AllowanceChargeReasonCode>
+    <cbc:AllowanceChargeReason>Costi diimballaggio</cbc:AllowanceChargeReason>
+    <cbc:MultiplierFactorNumeric>20</cbc:MultiplierFactorNumeric>
+    <cbc:Amount currencyID="EUR">10.00</cbc:Amount>
+    <cbc:BaseAmount currencyID="EUR">50.00</cbc:BaseAmount>
 </cac:AllowanceCharge>
 ----
 
@@ -86,39 +86,46 @@ stem:["Importo" =  "Importo base" times ("Percentuale" div 100)]
 [source, xml, indent=0]
 ----
 <cac:AllowanceCharge>
-	<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-	    <cbc:AllowanceChargeReasonCode>41</cbc:AllowanceChargeReasonCode>
-            <cbc:AllowanceChargeReason>Sconto</cbc:AllowanceChargeReason>
-                <cbc:MultiplierFactorNumeric>2</cbc:MultiplierFactorNumeric>
-	        <cbc:Amount currencyID="EUR">2.00</cbc:Amount>
-	    <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
+    <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+    <cbc:AllowanceChargeReasonCode>41</cbc:AllowanceChargeReasonCode>
+    <cbc:AllowanceChargeReason>Sconto</cbc:AllowanceChargeReason>
+    <cbc:MultiplierFactorNumeric>2</cbc:MultiplierFactorNumeric>
+    <cbc:Amount currencyID="EUR">2.00</cbc:Amount>
+    <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
 </cac:AllowanceCharge>
 ----
 
 
-== Sconti e maggiorazioni sul prezzo
+== #Sconti e maggiorazioni sul prezzo#
 
 Questo esempio mostra uno sconto di 10 EUR sul prezzo base:
 
 [source, xml, indent=0]
 ----
-<cac:Price>
-    <cbc:PriceAmount currencyID="EUR">90.00</cbc:PriceAmount>
-        <cac:AllowanceCharge>
-		    <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-            <cbc:AllowanceChargeReason>Sconto</cbc:AllowanceChargeReason>
-		    <cbc:Amount currencyID="EUR">10.00</cbc:Amount>
-            <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
-        </cac:AllowanceCharge>
-</cac:Price>
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>1</cbc:ID>
+        <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">20</cbc:Quantity>
+        <cbc:LineExtensionAmount currencyID="EUR">1800.00</cbc:LineExtensionAmount>
+        ...
+        <cac:Price>
+            <cbc:PriceAmount currencyID="EUR">90.00</cbc:PriceAmount>
+            <cac:AllowanceCharge>
+                <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+                <cbc:Amount currencyID="EUR">10.00</cbc:Amount>
+                <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
+            </cac:AllowanceCharge>
+        </cac:Price>
+    </cac:LineItem>
+</cac:OrderLine>
 ----
 
 :leveloffset: +1
 
 [[titolo]]
-= Sconti e maggiorazioni a livello di riga
+= #Sconti e maggiorazioni a livello di riga#
 
-[yellow-background]#Questo esempio mostra uno sconto applicato a tutta la riga d’ordine:#
+Questo esempio mostra uno sconto applicato a tutta la riga d’ordine:
 
 [source, xml, indent=0]
 ----
@@ -128,12 +135,12 @@ Questo esempio mostra uno sconto di 10 EUR sul prezzo base:
         <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">10</cbc:Quantity>
         <cbc:LineExtensionAmount currencyID="EUR">90.00</cbc:LineExtensionAmount>
         <cac:AllowanceCharge>
-			<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-			<cbc:AllowanceChargeReason>Sconto sulla riga</cbc:AllowanceChargeReason>
-			<cbc:MultiplierFactorNumeric>10</cbc:MultiplierFactorNumeric>
-			<cbc:Amount currencyID="EUR">10.00</cbc:Amount>
-			<cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
-		</cac:AllowanceCharge>
+          <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+          <cbc:AllowanceChargeReason>Sconto sulla riga</cbc:AllowanceChargeReason>
+          <cbc:MultiplierFactorNumeric>10</cbc:MultiplierFactorNumeric>
+          <cbc:Amount currencyID="EUR">10.00</cbc:Amount>
+          <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
+        </cac:AllowanceCharge>
         <cac:Price>
             <cbc:PriceAmount currencyID="EUR">10.00000</cbc:PriceAmount><!-- Opzionale -->
         </cac:Price>
@@ -147,11 +154,11 @@ Questo esempio mostra uno sconto di 10 EUR sul prezzo base:
 :leveloffset: +1
 
 [[titolo]]
-= Sconto Merce
+= #Sconto Merce#
 
-[yellow-background]#Per cessioni a titolo di sconto, premio o abbuono si inserisce una riga d’ordine separata prestando attenzione ad indicarne la relativa esenzione IVA.#
+Per cessioni a titolo di sconto, premio o abbuono si inserisce una riga d’ordine separata prestando attenzione ad indicarne la relativa esenzione IVA.
 
-[yellow-background]#Infatti ai fini IVA lo sconto merce rientra nelle operazioni Escluse ex Art. 15 D.P.R. 633/72.#
+Infatti ai fini IVA lo sconto merce rientra nelle operazioni Escluse ex Art. 15 D.P.R. 633/72.
 
 [source, xml, indent=0]
 ----
@@ -161,10 +168,11 @@ Questo esempio mostra uno sconto di 10 EUR sul prezzo base:
         <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">10</cbc:Quantity>
         <cbc:LineExtensionAmount currencyID="EUR">0.00</cbc:LineExtensionAmount>
         <cac:AllowanceCharge>
-	        <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-	        <cbc:AllowanceChargeReason>Sconto Merce</cbc:AllowanceChargeReason>
-		    <cbc:MultiplierFactorNumeric>10</cbc:MultiplierFactorNumeric>
-	        <cbc:Amount currencyID="EUR">90.00</cbc:Amount>
+            <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+            <cbc:AllowanceChargeReason>Sconto Merce</cbc:AllowanceChargeReason>
+            <cbc:MultiplierFactorNumeric>100</cbc:MultiplierFactorNumeric>
+            <cbc:Amount currencyID="EUR">90.00</cbc:Amount>
+            <cbc:BaseAmount currencyID="EUR">90.00</cbc:Amount>
         </cac:AllowanceCharge>
         <cac:Price>
             <cbc:PriceAmount currencyID="EUR">9.00000</cbc:PriceAmount>
@@ -176,7 +184,7 @@ Questo esempio mostra uno sconto di 10 EUR sul prezzo base:
                 <cbc:ID>O</cbc:ID>
             </cac:ClassifiedTaxCategory>
         </cac:Item>
-  	</cac:LineItem>
+    </cac:LineItem>
 </cac:OrderLine>
 ----
 
@@ -186,9 +194,9 @@ Questo esempio mostra uno sconto di 10 EUR sul prezzo base:
 :leveloffset: +1
 
 [[titolo]]
-= Omaggi
+= #Omaggi#
 
-[yellow-background]#Per includere nell’ordine degli articoli in omaggio è necessario indicarli in riga separata rispetto a quelli a pagamento e poi si deve indicare sia l’importo di riga che il prezzo con importo a 0 (zero).#
+Per includere nell’ordine degli articoli in omaggio è necessario indicarli in riga separata rispetto a quelli a pagamento e poi si deve indicare sia l’importo di riga che il prezzo con importo a 0 (zero).
 
 .Esempio di una riga d’ordine contenente in omaggio 12 pacchi di striscie per il test del glucosio:
 [source, xml, indent=0]
@@ -200,12 +208,12 @@ Questo esempio mostra uno sconto di 10 EUR sul prezzo base:
         <cbc:LineExtensionAmount currencyID="EUR">0</cbc:LineExtensionAmount>
         <cac:Price>
             <cbc:PriceAmount currencyID="EUR">0</cbc:PriceAmount>
-        <cbc:BaseQuantity unitCode="C62" unitCodeListID=”UNECERec20”>1</cbc:BaseQuantity>
-        <cac:AllowanceCharge>
-		    <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-		    <cbc:Amount currencyID="EUR">5.00</cbc:Amount>
-            <cbc:BaseAmount currencyID="EUR">5.00</cbc:BaseAmount>
-        </cac:AllowanceCharge>
+            <cbc:BaseQuantity unitCode="C62" unitCodeListID=”UNECERec20”>1</cbc:BaseQuantity>
+            <cac:AllowanceCharge>
+                <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+                <cbc:Amount currencyID="EUR">5.00</cbc:Amount>
+                <cbc:BaseAmount currencyID="EUR">5.00</cbc:BaseAmount>
+            </cac:AllowanceCharge>
         </cac:Price>
         <cac:Item>
             <cbc:Description>1x12 pacchi</cbc:Description>

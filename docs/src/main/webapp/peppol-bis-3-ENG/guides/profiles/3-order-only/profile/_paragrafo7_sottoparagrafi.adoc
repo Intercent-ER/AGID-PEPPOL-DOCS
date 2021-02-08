@@ -9,15 +9,15 @@ The Endpoint ID it is not mandatory but *recommended* beacuse maintains the conn
 
 The types of identifier used in Italy and recognized by Peppol are:
 
-* *9906* per IT:VAT (for VAT number)
+* *9906* for the VAT number;
 
-* *9907* per IT:CF (Fiscal code, legal person or entity)
+* *9907* for the Fiscal code (of legal person or entity);
 
-* *0201* per IT:IPA (Indice Pubbliche Amministrazioni) +
+* *0201* for the Codice Univoco Ufficio (so-called "iPA code", from Indice delle Pubbliche Amministrazioni). +
 
 In Italy IPA code is suggested to register register public administrations over the Peppol delivery network, however it is not compulsory and if not available it is recommended the use of the fiscal code. +
 
-.Example for an Endpoint of a Public Administration registered on Peppol with IPA:
+.Example for an Endpoint of a Public Administration registered on Peppol with the Codice Univoco Ufficio:
 [source, xml, indent=0]
 ----
     <cbc:EndpointID schemeID="0201">ABCDEF</cbc:EndpointID>

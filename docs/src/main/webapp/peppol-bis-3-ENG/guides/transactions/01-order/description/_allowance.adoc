@@ -18,7 +18,6 @@ The line level Price element:: _The price itself shall always be the net price, 
 * Allowance related to Price may specify amount and the base amount.
 
 
-[allowance-calc]]
 == Calculation of allowance/charge amount
 
 Allowance and charge on document level consists of elements carrying information on the allowance/charge base amount
@@ -76,12 +75,12 @@ stem:["Amount" = "Base amount" times ("Percentage" div 100)]
 [source, xml, indent=0]
 ----
 <cac:AllowanceCharge>
-	  <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
-	    <cbc:AllowanceChargeReasonCode>ABL</cbc:AllowanceChargeReasonCode>
-	        <cbc:AllowanceChargeReason>Costi di imballaggio</cbc:AllowanceChargeReason>
-	            <cbc:MultiplierFactorNumeric>20</cbc:MultiplierFactorNumeric>
-	        <cbc:Amount currencyID="EUR">10.00</cbc:Amount>
-	    <cbc:BaseAmount currencyID="EUR">50.00</cbc:BaseAmount>
+    <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+    <cbc:AllowanceChargeReasonCode>ABL</cbc:AllowanceChargeReasonCode>
+    <cbc:AllowanceChargeReason>Costi diimballaggio</cbc:AllowanceChargeReason>
+    <cbc:MultiplierFactorNumeric>20</cbc:MultiplierFactorNumeric>
+    <cbc:Amount currencyID="EUR">10.00</cbc:Amount>
+    <cbc:BaseAmount currencyID="EUR">50.00</cbc:BaseAmount>
 </cac:AllowanceCharge>
 ----
 
@@ -89,12 +88,12 @@ stem:["Amount" = "Base amount" times ("Percentage" div 100)]
 [source, xml, indent=0]
 ----
 <cac:AllowanceCharge>
-	<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-	    <cbc:AllowanceChargeReasonCode>41</cbc:AllowanceChargeReasonCode>
-            <cbc:AllowanceChargeReason>Sconto</cbc:AllowanceChargeReason>
-                <cbc:MultiplierFactorNumeric>2</cbc:MultiplierFactorNumeric>
-	        <cbc:Amount currencyID="EUR">2.00</cbc:Amount>
-	    <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
+    <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+    <cbc:AllowanceChargeReasonCode>41</cbc:AllowanceChargeReasonCode>
+    <cbc:AllowanceChargeReason>Sconto</cbc:AllowanceChargeReason>
+    <cbc:MultiplierFactorNumeric>2</cbc:MultiplierFactorNumeric>
+    <cbc:Amount currencyID="EUR">2.00</cbc:Amount>
+    <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
 </cac:AllowanceCharge>
 ----
 
@@ -105,15 +104,22 @@ The following example shows an allowance of 10 EUR applied to the base amount pr
 
 [source, xml, indent=0]
 ----
-<cac:Price>
-    <cbc:PriceAmount currencyID="EUR">90.00</cbc:PriceAmount>
-        <cac:AllowanceCharge>
-		    <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-            <cbc:AllowanceChargeReason>Sconto</cbc:AllowanceChargeReason>
-		    <cbc:Amount currencyID="EUR">10.00</cbc:Amount>
-            <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
-        </cac:AllowanceCharge>
-</cac:Price>
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>1</cbc:ID>
+        <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">20</cbc:Quantity>
+        <cbc:LineExtensionAmount currencyID="EUR">1800.00</cbc:LineExtensionAmount>
+        ...
+        <cac:Price>
+            <cbc:PriceAmount currencyID="EUR">90.00</cbc:PriceAmount>
+            <cac:AllowanceCharge>
+                <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+                <cbc:Amount currencyID="EUR">10.00</cbc:Amount>
+                <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
+            </cac:AllowanceCharge>
+        </cac:Price>
+    </cac:LineItem>
+</cac:OrderLine>
 ----
 
 :leveloffset: +1
@@ -131,12 +137,12 @@ The following example shows an allowance applied to the whole order line:
         <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">10</cbc:Quantity>
         <cbc:LineExtensionAmount currencyID="EUR">90.00</cbc:LineExtensionAmount>
         <cac:AllowanceCharge>
-			<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-			<cbc:AllowanceChargeReason>Sconto sulla riga</cbc:AllowanceChargeReason>
-			<cbc:MultiplierFactorNumeric>10</cbc:MultiplierFactorNumeric>
-			<cbc:Amount currencyID="EUR">10.00</cbc:Amount>
-			<cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
-		</cac:AllowanceCharge>
+          <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+          <cbc:AllowanceChargeReason>Sconto sulla riga</cbc:AllowanceChargeReason>
+          <cbc:MultiplierFactorNumeric>10</cbc:MultiplierFactorNumeric>
+          <cbc:Amount currencyID="EUR">10.00</cbc:Amount>
+          <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
+        </cac:AllowanceCharge>
         <cac:Price>
             <cbc:PriceAmount currencyID="EUR">10.00000</cbc:PriceAmount><!-- Opzionale -->
         </cac:Price>
@@ -152,9 +158,9 @@ The following example shows an allowance applied to the whole order line:
 [[titolo]]
 = #Discounts#
 
-For sale in the form of discounts, awards or allowance it is necessary to insert a separated order line, paying attention to indicate the relative VAT exemption.
+For sale in the form of discounts, awards or allowance it is necessary to insert a distinct order line, paying attention to indicate the relative VAT exemption code.
 
-Indeed, for VAT purposes the discounts falls under the VAT-exempt operations ex Art. 15 D.P.R. 633/72.
+In these cases, the discounts are out of scope VAT based on Art. 15 D.P.R. 633/72.
 
 [source, xml, indent=0]
 ----
@@ -164,10 +170,11 @@ Indeed, for VAT purposes the discounts falls under the VAT-exempt operations ex 
         <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">10</cbc:Quantity>
         <cbc:LineExtensionAmount currencyID="EUR">0.00</cbc:LineExtensionAmount>
         <cac:AllowanceCharge>
-	        <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-	        <cbc:AllowanceChargeReason>Sconto Merce</cbc:AllowanceChargeReason>
-		    <cbc:MultiplierFactorNumeric>10</cbc:MultiplierFactorNumeric>
-	        <cbc:Amount currencyID="EUR">90.00</cbc:Amount>
+            <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+            <cbc:AllowanceChargeReason>Sconto Merce</cbc:AllowanceChargeReason>
+            <cbc:MultiplierFactorNumeric>100</cbc:MultiplierFactorNumeric>
+            <cbc:Amount currencyID="EUR">90.00</cbc:Amount>
+            <cbc:BaseAmount currencyID="EUR">90.00</cbc:Amount>
         </cac:AllowanceCharge>
         <cac:Price>
             <cbc:PriceAmount currencyID="EUR">9.00000</cbc:PriceAmount>
@@ -179,7 +186,7 @@ Indeed, for VAT purposes the discounts falls under the VAT-exempt operations ex 
                 <cbc:ID>O</cbc:ID>
             </cac:ClassifiedTaxCategory>
         </cac:Item>
-  	</cac:LineItem>
+    </cac:LineItem>
 </cac:OrderLine>
 ----
 
@@ -203,12 +210,12 @@ To include free items in the order it is necessary to indicate them on a differe
         <cbc:LineExtensionAmount currencyID="EUR">0</cbc:LineExtensionAmount>
         <cac:Price>
             <cbc:PriceAmount currencyID="EUR">0</cbc:PriceAmount>
-        <cbc:BaseQuantity unitCode="C62" unitCodeListID=”UNECERec20”>1</cbc:BaseQuantity>
-        <cac:AllowanceCharge>
-		    <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-		    <cbc:Amount currencyID="EUR">5.00</cbc:Amount>
-            <cbc:BaseAmount currencyID="EUR">5.00</cbc:BaseAmount>
-        </cac:AllowanceCharge>
+            <cbc:BaseQuantity unitCode="C62" unitCodeListID=”UNECERec20”>1</cbc:BaseQuantity>
+            <cac:AllowanceCharge>
+                <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+                <cbc:Amount currencyID="EUR">5.00</cbc:Amount>
+                <cbc:BaseAmount currencyID="EUR">5.00</cbc:BaseAmount>
+            </cac:AllowanceCharge>
         </cac:Price>
         <cac:Item>
             <cbc:Description>1x12 pacchi</cbc:Description>

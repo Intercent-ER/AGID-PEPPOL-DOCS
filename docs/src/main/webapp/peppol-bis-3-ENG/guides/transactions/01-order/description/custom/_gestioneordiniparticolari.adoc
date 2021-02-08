@@ -5,9 +5,9 @@
 :leveloffset: +1
 
 [[titolo]]
-= Ordini in Conto Visione and Ordini di fatturazione e reintegro
+= Order for Evaluation and Order for Billing products already consumed and Restoration
 
-Orders with typology 227 for "beni in conto visione" (CV) and orders with typology 220 of "di fatturazione e reintegro" (OFR) provide that the order issuing takes after the delivery and the use of the goods provided.+
+Orders with typology 227 for "Order for Evaluation" (CV) and orders with typology 220 of "Order for Billing products already consumed and Restoration" (OFR) provide that the issuance of the order takes place after the delivery and the use of the goods provided.+
 
 Therefore, in this orders it is mandatory to specify the references to Lot, Serial number and DDT number of the delivery concerning the item used. +
 

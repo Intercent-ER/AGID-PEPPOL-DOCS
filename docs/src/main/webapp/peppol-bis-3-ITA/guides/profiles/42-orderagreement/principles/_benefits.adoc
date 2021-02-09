@@ -1,7 +1,9 @@
 [[benefits]]
-= Benefits
+= Benefici
 
-* The ability to use existing order-invoice-matching processes even if order is not issued from a procurement system.
-* Capture ordering actions that happen in other processes such as web shops, phone or by requisition at warehouse/store and so forth.
-* Visibility of whole spending analysis in the ordering module by importing orders that are not sent directly from the ordering module.
-* Support for ordering processes where products/services are not necessarily described as standardized catalogue items.
+I benefici attesi dall’utilizzo di questo profilo  sono i seguenti:
+
+*	Acquisire, in formato strutturato, i dati degli ordini effettuati dall’acquirente attraverso altri canali (quali negozi web, telefono, e-mail o tramite richiesta diretta verso il magazzino/negozio del fornitore);
+*	Supportare il processo di acquisizione di beni e servizi  quando essi non sono descritti come elementi di catalogo standardizzato;
+*	Permettere all’acquirente di  ricevere un ordine generato direttamente nel negozio web del venditore garantendosi  un’elevata qualità dei dati in esso contenuti;
+*	Consentire al venditore di dettagliare i beni e/o i servizi resi quando l’acquirente non è in grado di emettere un ordine attraverso il consueto Sistema di acquisto.

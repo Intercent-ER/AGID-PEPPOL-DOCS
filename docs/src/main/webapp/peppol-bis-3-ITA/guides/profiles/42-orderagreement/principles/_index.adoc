@@ -2,13 +2,13 @@
 [[principles]]
 = Principles and prerequisites
 
-This chapter describes the principles and assumptions that underlie the use of PEPPOL Order Agreement.
-It is based on the {bii} 42 Order Agreement.
+Questo capitolo descrive i principi e le assunzioni che stanno alla base dell’uso degli Ordini pre-concordati Peppol. Esso si basa sul profilo http://www.cenbii.eu[CEN WS/BII] 42 Order Agreement.
 
-This profile identifies, explains and justifies the business requirements for the Order agreement process.
-It provides syntax bindings to {ubl} (Universal Business Language). It also includes a syntax implementation guide.
+Questo profilo identifica, spiega e giustifica i requisiti di business del processo dell’Ordinazione pre-concordata. Fornisce i collegamenti alla sintassi http://docs.oasis-open.org/ubl/UBL-2.1.html[UBL 2.1] (Universal Business Language) ed include anche una guida all'implementazione della sintassi.
 
-The order agreement profile describes processes where the buyer, after purchasing items/services, receives a message with information documenting the purchase.
+Il profilo dell'ordine pre-concordato descrive i processi in cui l'acquirente, dopo aver acquistato beni e servizi, riceve un messaggio strutturato con informazioni che ne documentano l'acquisto.
+
+
 
 :leveloffset: +1
 
@@ -22,6 +22,6 @@ include::_parties.adoc[]
 
 include::_benefits.adoc[]
 
-include::_interoperability.adoc[]
+include::../../../shared/files/_interoperability.adoc[]
 
 :leveloffset: -1

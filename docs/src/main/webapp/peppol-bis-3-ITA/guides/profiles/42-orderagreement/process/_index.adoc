@@ -1,7 +1,8 @@
 
 [[process-and-typical-use-cases]]
-= Process and typical use cases
+= Processi e casi d’uso tipici
 
+[[anchor-1]]
 The order agreement BIS includes the sending of information on agreed products/services from a Seller to a Buyer.
 
 == Process flow

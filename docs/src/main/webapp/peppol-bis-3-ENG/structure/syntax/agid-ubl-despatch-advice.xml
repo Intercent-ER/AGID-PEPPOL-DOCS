@@ -15,8 +15,9 @@
         <Term>ubl:DespatchAdvice</Term>
         <Element agid:custom="fixed-value">
             <Term>cbc:CustomizationID</Term>
-            <Name>Specification identification - Tipo documento</Name>
-            <Description>Indica il tipo di Documento.</Description>
+            <Name>Specification identification</Name>
+            <Description>Identifies the specification of content and rules that apply to the
+				transaction.</Description>
             <DataType>Identifier</DataType>
             <Reference type="BUSINESS_TERM">tir16-002</Reference>
             <Reference type="RULE">IT-T16-R004</Reference>
@@ -24,8 +25,9 @@
         </Element>
         <Element>
             <Term>cbc:ProfileID</Term>
-            <Name>Business process type identifier - Tipo processo</Name>
-      			<Description>Indica il tipo di processo adottato.</Description>
+            <Name>Business process type identifier</Name>
+      			<Description>Identifies the BII profile or business process context in which the
+				transaction appears.</Description>
             <DataType>Identifier</DataType>
             <Reference type="BUSINESS_TERM">tir16-001</Reference>
             <Reference type="RULE">IT-T16-R004</Reference>
@@ -33,50 +35,55 @@
         </Element>
         <Element>
             <Term>cbc:ID</Term>
-            <Name>Document identifier - Identificativo documento</Name>
-            <Description>Indica il numero (o la combinazione di caratteri) assegnato al documento per identificarlo univocamente.</Description>
+            <Name>Document identifier</Name>
+            <Description>An transaction instance must contain an identifier. The identifier enables
+				positive referencing the document instance for various purposes including
+				referencing between transactions that are part of the same process.</Description>
             <DataType>Identifier</DataType>
             <Reference type="BUSINESS_TERM">tir16-003</Reference>
             <Value type="EXAMPLE">123</Value>
         </Element>
         <Element>
             <Term>cbc:IssueDate</Term>
-            <Name>Dispatch advice issue date - Data di emissione del documento</Name>
-      			<Description>Indica la data di emissione apposta sul documento, nel formato aaaa-mm-gg.</Description>
+            <Name>Dispatch advice issue date</Name>
+      			<Description>The date when the despatch advice is issued. Format =
+				"YYYY-MM-DD"</Description>
             <DataType>Date</DataType>
             <Reference type="BUSINESS_TERM">tir16-004</Reference>
             <Value type="EXAMPLE">2018-05-25</Value>
         </Element>
         <Element cardinality="0..1">
             <Term>cbc:IssueTime</Term>
-            <Name>Dispatch advice issue time - Ora di emissione del Documento</Name>
-      			<Description>Indica l’orario di emissione apposta sul documento, nel formato hh:mm:ss.</Description>
+            <Name>Dispatch advice issue time</Name>
+      			<Description>The time when the despatch advice is issued. Format =
+				"hh:mm:ss"</Description>
             <DataType>Time</DataType>
             <Reference type="BUSINESS_TERM">tir16-005</Reference>
             <Value type="EXAMPLE">11:34:56</Value>
         </Element>
         <Element cardinality="0..1">
             <Term>cbc:Note</Term>
-            <Name>Dispatch note - Note al Documento</Name>
-      			<Description>Riporta informazioni in testo libero (non strutturate) che, perciò, non sono elaborabili con sistemi automatizzati.</Description>
+            <Name>Dispatch note</Name>
+      			<Description>A textual note for the dispatch as whole.</Description>
             <DataType>Text</DataType>
             <Reference type="BUSINESS_TERM">tir16-088</Reference>
         </Element>
         <Element cardinality="0..n">
             <Term>cac:OrderReference</Term>
-            <Name>Order reference - Riferimento all'Ordine</Name>
+            <Name>Order reference</Name>
       			<Element agid:custom="rule">
       				  <Term>cbc:ID</Term>
-      				  <Name>Order document reference - Riferimento all'ordine di riferimento </Name>
-      			    <Description>Contiene gli estremi dell’Ordine precedentemente emesso (c.d. Tripletta).</Description>
+      				  <Name>Order document reference </Name>
+      			    <Description>Used to provide a reference to the order on which the despatch is
+					based.</Description>
                 <DataType>Identifier</DataType>
                 <Reference type="BUSINESS_TERM">tir16-006</Reference>
                 <Value type="EXAMPLE">4321#2013-01-30#ABCDEF</Value>
             </Element>
             <Element cardinality="0..1" agid:custom="extension">
                 <Term>cbc:CustomerReference</Term>
-                <Name>Riferimento supplementare all’Ordine</Name>
-                <Description>Riferimento supplementare all’Ordine (es. ID Paziente).</Description>
+                <Name>Additional reference to the Order</Name>
+                <Description>An Order supplementary reference (e.g. patient ID).</Description>
                 <DataType>Text</DataType>
             </Element>
         </Element>
@@ -105,14 +112,15 @@
         <Element>
             <Term>cac:DespatchSupplierParty</Term>
             <Name>Speditore</Name>
-            <Description>Lo Speditore è la persona o organizzazione che spedisce la merce o eroga i servizi. Questo ruolo viene ricoperto dal fornitore o per suo conto. (Lo Speditore è anche detto Mittente).</Description>
+            <Description>The e-mail address for the contact person. If the person has a
+							direct e-mail this is that email.</Description>
             <Element>
                 <Term>cac:Party</Term>
-                	<Name>Party information - Informazioni della parte</Name>
+                	<Name>Party information</Name>
                 <Element>
                     <Term>cbc:EndpointID</Term>
-                    <Name>Despatching party electronic address - Endpoint dello Speditore</Name>
-                  <Description>Indica l’identificativo elettronico univoco dell’Ufficio ordinante.</Description>
+                    <Name>Despatching party electronic address</Name>
+                  <Description>Identifies the despatch party's electronic address</Description>
                     <DataType>Identifier</DataType>
                     <Reference type="BUSINESS_TERM">tir16-071</Reference>
                     <Reference type="RULE">IT-T16-R026</Reference>
@@ -121,7 +129,7 @@
                     <Attribute>
                         <Term>schemeID</Term>
                         <Name>Scheme identifier</Name>
-            						<Description>Schema identificativo dell'indirizzo elettronico.</Description>
+            						<Description>Scheme identifier for electronic address</Description>
                         <Reference type="CODE_LIST">eas</Reference>
                         <Value type="EXAMPLE">9906</Value>
                     </Attribute>
@@ -129,17 +137,17 @@
                 </Element>
                 <Element cardinality="0..1">
                     <Term>cac:PartyIdentification</Term>
-                  	<Name>Party identification - Ulteriori indicazioni sullo Speditore</Name>
+                  	<Name>Party identification</Name>
                     <Element>
                         <Term>cbc:ID</Term>
-                        <Name>Despatching party identification - Identificativo dello Speditore</Name>
-            						<Description>Ulteriore identificativo relativo allo Speditore.</Description>
+                        <Name>Despatching party identifier</Name>
+            						<Description>The identifier of the despatching party</Description>
                         <DataType>Identifier</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p001</Reference>
                         <Attribute usage="optional">
                             <Term>schemeID</Term>
                             <Name>Scheme identifier</Name>
-              							<Description>Scheme identifier dell'identificativo del Cliente</Description>
+              							<Description>Scheme identifier for party identification</Description>
                             <Reference type="CODE_LIST">ICD</Reference>
                             <Reference type="RULE">IT-T16-R002</Reference>
                             <Value type="EXAMPLE">0202</Value>
@@ -149,54 +157,62 @@
                 </Element>
                 <Element agid:custom="cardinality">
                     <Term>cac:PostalAddress</Term>
-                    <Name>Postal address - Indirizzo dello Speditore</Name>
-                    <Description>Contiene informazioni relative all’indirizzo dello Speditore.</Description>
+                    <Name>Postal address</Name>
+                    <Description>Postal address of the depatching party</Description>
                     <Element agid:custom="cardinality">
                         <Term>cbc:StreetName</Term>
-                        <Name>Address line 1 - Indirizzo</Name>
-                      		<Description>Strada, via, piazza ecc. e numero civico</Description>
+                        <Name>Address line 1</Name>
+                      		<Description>The main address line in a postal address usually the street
+							name and number.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p012</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
                     </Element>
                     <Element cardinality="0..1">
                         <Term>cbc:AdditionalStreetName</Term>
-                        <Name>Address line 2 - Informazioni addizionali indirizzo</Name>
-            						<Description>Informazioni addizionali indirizzo.</Description>
+                        <Name>Address line 2</Name>
+            						<Description>An additional address line in a postal address that can be used
+							to give further details supplementing the main line. Common use are
+							secondary house number in a complex or in a building.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p013</Reference>
                     </Element>
                     <Element agid:custom="cardinality">
                         <Term>cbc:CityName</Term>
-                        <Name>City - Città</Name>
-                        <Description>Nome città.</Description>
+                        <Name>City</Name>
+                        <Description>The common name of the city where the postal address is. The
+							name is written in full rather than as a code.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p014</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
                     </Element>
                     <Element agid:custom="cardinality">
                         <Term>cbc:PostalZone</Term>
-                        <Name>Post code - CAP</Name>
-            						<Description>Codice Postale</Description>
+                        <Name>Post code</Name>
+            						<Description>The identifier for an addressable group of properties according
+							to the relevant national postal service, such as a ZIP code or Post
+							Code.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p015</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
                     </Element>
                     <Element agid:custom="cardinality">
                         <Term>cbc:CountrySubentity</Term>
-                        <Name>Country subdivision - Provincia</Name>
-                        <Description>Provincia.</Description>
+                        <Name>Country subdivision</Name>
+                        <Description>For specifying a region, county, state, province etc. within a
+							country by using text.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p016</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
                     </Element>
                     <Element cardinality="0..1">
                         <Term>cac:AddressLine</Term>
-                        <Name>Address Line - Ulteriori informazioni indirizzo</Name>
+                        <Name>Address Line</Name>
                         <Element cardinality="0..1">
                             <Term>cbc:Line</Term>
-                            <Name>Address line 3 - Ulteriori informazioni indirizzo</Name>
-                          	<Description>Ulteriori informazioni indirizzo</Description>
+                            <Name>Address line 3</Name>
+                          	<Description>An additional address line in an address that can be used
+								to give further details supplementing the main line.</Description>
                             <DataType>Text</DataType>
                             <Reference type="BUSINESS_TERM">tir16-p017</Reference>
                             <Value type="EXAMPLE">Ingresso 34</Value>
@@ -204,11 +220,15 @@
                     </Element>
                     <Element>
                         <Term>cac:Country</Term>
-                        <Name>Country - Nazione</Name>
+                        <Name>Country</Name>
                         <Element>
                             <Term>cbc:IdentificationCode</Term>
-                            <Name>Country code - Codice nazione</Name>
-                            <Description>Codice identificativo nazione.</Description>
+                            <Name>Country code</Name>
+                            <Description>A code that identifies the country.The lists of valid
+								countries are registered with the ISO 3166-1 Maintenance agency,
+								"Codes for the representation of names of countries and their
+								subdivisions". Codes must be according to the alpha-2
+								representation</Description>
                             <DataType>Code</DataType>
                             <Reference type="BUSINESS_TERM">tir16-p045</Reference>
                             <Reference type="CODE_LIST">ISO3166</Reference>
@@ -218,11 +238,11 @@
                 </Element>
                 <Element>
                     <Term>cac:PartyLegalEntity</Term>
-                    <Name>Dispatching party legal information - Informazioni legali del Cliente</Name>
+                    <Name>Dispatching party legal information</Name>
                     <Element>
                         <Term>cbc:RegistrationName</Term>
-                        <Name>Dispatching party name- Denominazione legale dello Speditore.</Name>
-            						<Description>Indica la denominazione legale dello Speditore.</Description>
+                        <Name>Dispatching party name</Name>
+            						<Description>The name of the dispatching party</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-007</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
@@ -230,25 +250,27 @@
                 </Element>
                 <Element cardinality="0..1">
                     <Term>cac:Contact</Term>
-                    <Name>Contact information - Contatto</Name>
+                    <Name>Contact information</Name>
                     <Element cardinality="0..1">
                         <Term>cbc:Name</Term>
-                        <Name>Contact person name - Nome contatto</Name>
-                        <Description>The name of the contact person - Nome della persona da contattare.</Description>
+                        <Name>Contact person name</Name>
+                        <Description>The name of the contact person.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-008</Reference>
                     </Element>
                     <Element cardinality="0..1">
                         <Term>cbc:Telephone</Term>
-                        <Name>Contact telephone number - Telefono contatto</Name>
-                        <Description>Telefono persona da contattare.</Description>
+                        <Name>Contact telephone number</Name>
+                        <Description>A phone number for the contact person. If the person has a
+							direct number, this is that number.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-012</Reference>
                     </Element>
                     <Element cardinality="0..1">
                         <Term>cbc:ElectronicMail</Term>
-                        <Name>Contact email address - Email contatto</Name>
-                        <Description>Email persona da contattare.</Description>
+                        <Name>Contact email address</Name>
+                        <Description>The e-mail address for the contact person. If the person has a
+							direct e-mail this is that email.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-013</Reference>
                     </Element>
@@ -258,14 +280,14 @@
         <Element>
             <Term>cac:DeliveryCustomerParty</Term>
             <Name>Consegnatario</Name>
-            <Description>Il consegnatario è la persona o organizzazione alla quale i prodotti saranno spediti e che ne prenderà il possesso. Questo ruolo viene ricoperto dal cliente o per suo conto. (Il Consegnatario è anche detto Destinatario).</Description>
+            <Description>The consignee is the person or organization to which the products will be shipped and who is taking possession. The role is carried out by the customer or on behalf of the customer.</Description>
             <Element>
                 <Term>cac:Party</Term>
-                <Name>Party information - Informazioni della parte</Name>
+                <Name>Party information</Name>
                 <Element>
                     <Term>cbc:EndpointID</Term>
-                    <Name>Consignee party electronic address - Endpoint del Consegnatario</Name>
-          					<Description>Indica l’identificativo elettronico univoco del Consegnatario.</Description>
+                    <Name>Consignee party electronic address</Name>
+          					<Description>Identifies the consignee party's electronic address.</Description>
                     <DataType>Identifier</DataType>
                     <Reference type="BUSINESS_TERM">tir16-016</Reference>
                     <Reference type="RULE">IT-T16-R026</Reference>
@@ -274,7 +296,7 @@
                     <Attribute>
                         <Term>schemeID</Term>
                         <Name>Scheme identifier</Name>
-            						<Description>Schema identificativo dell'indirizzo elettronico.</Description>
+            						<Description>Scheme identifier for electronic address</Description>
                         <Reference type="CODE_LIST">eas</Reference>
                         <Value type="EXAMPLE">0201</Value>
                     </Attribute>
@@ -282,17 +304,17 @@
                 </Element>
                 <Element cardinality="0..1">
                     <Term>cac:PartyIdentification</Term>
-                    <Name>Party identification - Ulteriori indicazioni sul Cliente</Name>
+                    <Name>Party identification</Name>
                     <Element>
                         <Term>cbc:ID</Term>
-                        <Name>Consignee party identifier - Identificativo del Consegnatario</Name>
-            						<Description>Ulteriore identificativo relativo al Consegnatario.</Description>
+                        <Name>Consignee party identifier</Name>
+            						<Description>The receiving party identifier.</Description>
                         <DataType>Identifier</DataType>
                         <Reference type="BUSINESS_TERM">tir16-015</Reference>
                         <Attribute usage="optional">
                             <Term>schemeID</Term>
                             <Name>Scheme identifier</Name>
-              							<Description>Scheme identifier dell'identificativo del Consegnatario</Description>
+              							<Description>Scheme identifier for party identification</Description>
                             <Reference type="CODE_LIST">ICD</Reference>
                             <Value type="EXAMPLE">0201</Value>
                         </Attribute>
@@ -301,53 +323,59 @@
                 </Element>
                 <Element agid:custom="cardinality">
                     <Term>cac:PostalAddress</Term>
-                    <Name>Postal address - Indirizzo del Consegnatario</Name>
-          					<Description>Contiene informazioni relative all’indirizzo del Consegnatario.</Description>
+                    <Name>Postal address</Name>
+          					<Description>Postal address of the consignee</Description>
                     <Element agid:custom="cardinality">
                         <Term>cbc:StreetName</Term>
-                        <Name>Address line 1 - Indirizzo</Name>
-            						<Description>Strada, via, piazza ecc. e numero civico</Description>
+                        <Name>Address line 1</Name>
+            						<Description>The main address line in a postal address usually the street
+							name and number.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-018</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
                     </Element>
                     <Element cardinality="0..1">
                         <Term>cbc:AdditionalStreetName</Term>
-                        <Name>Address line 2 - Informazioni addizionali indirizzo</Name>
-                        <Description>Informazioni addizionali indirizzo.</Description>
+                        <Name>Address line 2</Name>
+                        <Description>An additional address line in a postal address that can be used
+							to give further details supplementing the main line. Common use are
+							secondary house number in a complex or in a building.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-019</Reference>
                     </Element>
                     <Element agid:custom="cardinality">
                         <Term>cbc:CityName</Term>
-                        <Name>City - Città</Name>
-            						<Description>Nome della città.</Description>
+                        <Name>City</Name>
+            						<Description>The common name of the city where the postal address is. The
+							name is written in full rather than as a code.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-020</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
                     </Element>
                     <Element agid:custom="cardinality">
                         <Term>cbc:PostalZone</Term>
-            						<Name>Post code - CAP</Name>
+            						<Name>Post code</Name>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-021</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
                     </Element>
                     <Element agid:custom="cardinality">
                         <Term>cbc:CountrySubentity</Term>
-                        <Name>Country subdivision - Provincia</Name>
-            						<Description>Provincia</Description>
+                        <Name>Country subdivision</Name>
+            						<Description>For specifying a region, county, state, province etc. within a
+							country by using text.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-022</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
                     </Element>
                     <Element cardinality="0..1">
                         <Term>cac:AddressLine</Term>
-                        <Name>Address line - Ulteriori informazioni indirizzo</Name>
+                        <Name>Address line</Name>
                         <Element cardinality="0..1">
                           <Term>cbc:Line</Term>
-                          <Name>Address line 3 - Ulteriori informazioni indirizzo</Name>
-                          <Description>Ulteriori informazioni indirizzo</Description>
+                          <Name>Address line 3</Name>
+                          <Description>An additional address line in an address that can be used
+								to give further details supplementing the main line.</Description>
                           <DataType>Text</DataType>
                           <Reference type="BUSINESS_TERM">tir01-p003</Reference>
                           <Value type="EXAMPLE">Ingresso 34</Value>
@@ -355,11 +383,15 @@
                     </Element>
                     <Element>
                         <Term>cac:Country</Term>
-                        <Name>Country - Nazione</Name>
+                        <Name>Country</Name>
                         <Element>
                             <Term>cbc:IdentificationCode</Term>
-                            <Name>Country code - Codice nazione</Name>
-              							<Description>Codice identificativo della nazione.</Description>
+                            <Name>Country code</Name>
+              							<Description>A code that identifies the country.The lists of valid
+								countries are registered with the ISO 3166-1 Maintenance agency,
+								"Codes for the representation of names of countries and their
+								subdivisions". Codes must be according to the alpha-2
+								representation.</Description>
                             <DataType>Code</DataType>
                             <Reference type="BUSINESS_TERM">tir16-023</Reference>
                             <Reference type="CODE_LIST">ISO3166</Reference>
@@ -369,11 +401,11 @@
                 </Element>
                 <Element>
                     <Term>cac:PartyLegalEntity</Term>
-                    <Name>Consignee party legal information - Informazioni legali Consegnatario</Name>
+                    <Name>Consignee party legal information</Name>
                     <Element>
                         <Term>cbc:RegistrationName</Term>
-                        <Name>Consignee party name - Denominazione legale del Consegnatario</Name>
-            						<Description>Indica la denominazione legale del Consegnatario.</Description>
+                        <Name>Consignee party name</Name>
+            						<Description>The name of the receiving party.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-014</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
@@ -383,27 +415,29 @@
             </Element>
             <Element cardinality="0..1">
                 <Term>cac:DeliveryContact</Term>
-                <Name>Contact information - Contatto</Name>
+                <Name>Contact information</Name>
                 <Element cardinality="0..1">
                     <Term>cbc:Name</Term>
-                    <Name>Contact person name - Nome contatto</Name>
-        						<Description>Nome della persona da contattare.</Description>
+                    <Name>Contact person name</Name>
+        						<Description>The name of the contact person.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">tir16-024</Reference>
                     <Value type="EXAMPLE">Mario Rossi</Value>
                 </Element>
                 <Element cardinality="0..1">
                     <Term>cbc:Telephone</Term>
-                    <Name>Contact telephone number - Telefono contatto</Name>
-        						<Description>Telefono della persona da contattare.</Description>
+                    <Name>Contact telephone number</Name>
+        						<Description>A phone number for the contact person. If the person has a direct
+						number, this is that number.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">tir16-027</Reference>
                     <Value type="EXAMPLE">983724934</Value>
                 </Element>
                 <Element cardinality="0..1">
                     <Term>cbc:ElectronicMail</Term>
-                    <Name>Contact email address - Email contatto</Name>
-        						<Description>Email della persona da contattare.</Description>
+                    <Name>Contact email address</Name>
+        						<Description>The e-mail address for the contact person. If the person has a
+						direct e-mail this is that email.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">tir16-028</Reference>
                     <Value type="EXAMPLE">foo@bar.com</Value>
@@ -413,23 +447,25 @@
         <Element cardinality="0..1">
             <Term>cac:BuyerCustomerParty</Term>
             <Name>Acquirente</Name>
-            <Description>L’acquirente è la persona giuridica che acquista la merce o i servizi. Questo ruolo viene ricoperto dal Cliente o per suo conto.</Description>
+            <Description>The buyer is the legal person or organization who buys or purchases the
+				goods or services. The role is carried out by the customer or on behalf of the
+				customer</Description>
             <Element>
                 <Term>cac:Party</Term>
-                <Name>Party information - Informazioni della parte</Name>
+                <Name>Party information</Name>
                 <Element cardinality="0..1">
                     <Term>cac:PartyIdentification</Term>
-                    <Name>Party identification - Identificativo parte</Name>
+                    <Name>Party identification</Name>
                     <Element>
                         <Term>cbc:ID</Term>
-                        <Name>Buying party - Identificativo Acquirente</Name>
-              					<Description>Informazioni sull'identificativo dell'Acquirente.</Description>
+                        <Name>Buying party</Name>
+              					<Description>The buying party identifier</Description>
                         <DataType>Identifier</DataType>
                         <Reference type="BUSINESS_TERM">tir16-030</Reference>
                         <Attribute usage="optional">
                             <Term>schemeID</Term>
                             <Name>Scheme identifier</Name>
-              							<Description>Indica lo scheme identifier dell'identificativo dell'Acquirente.</Description>
+              							<Description>Scheme identifier for party identification.</Description>
                             <Reference type="CODE_LIST">ICD</Reference>
                             <Value type="EXAMPLE">0201</Value>
                         </Attribute>
@@ -438,11 +474,11 @@
                 </Element>
                 <Element agid:custom="cardinality">
                     <Term>cac:PartyName</Term>
-                    <Name>Party name - Denominazione parte</Name>
+                    <Name>Party name</Name>
                     <Element>
                         <Term>cbc:Name</Term>
-                        <Name>Buying party name - Denominazione parte</Name>
-              					<Description>Denominazione parte</Description>
+                        <Name>Buying party name</Name>
+              					<Description>The name of the buying party</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-029</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
@@ -450,34 +486,38 @@
                 </Element>
                 <Element agid:custom="cardinality">
                     <Term>cac:PostalAddress</Term>
-                    <Name>Postal address - Indirizzo dell'Acquirente</Name>
-          					<Description>Contiene informazioni relative all’indirizzo dell'Acquirente.</Description>
+                    <Name>Postal address</Name>
+          					<Description>Postal address of the customer</Description>
                     <Element agid:custom="cardinality">
                         <Term>cbc:StreetName</Term>
-                        <Name>Address line 1 - Indirizzo</Name>
-            						<Description>Strada, via, piazza ecc. e numero civico</Description>
+                        <Name>Address line 1</Name>
+            						<Description>The main address line in a postal address usually the street
+							name and number.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p025</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
                     </Element>
                     <Element cardinality="0..1">
                         <Term>cbc:AdditionalStreetName</Term>
-                        <Name>Address line 2 - Informazioni addizionali indirizzo</Name>
-            						<Description>Informazioni addizionali indirizzo.</Description>
+                        <Name>Address line 2</Name>
+            						<Description>An additional address line in a postal address that can be used
+							to give further details supplementing the main line. Common use are
+							secondary house number in a complex or in a building.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p026</Reference>
                     </Element>
                     <Element agid:custom="cardinality">
                         <Term>cbc:CityName</Term>
-                        <Name>City - Città</Name>
-            						<Description>Nome della città.</Description>
+                        <Name>City</Name>
+            						<Description>The common name of the city where the postal address is. The
+							name is written in full rather than as a code.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p027</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
                     </Element>
                     <Element agid:custom="cardinality">
                         <Term>cbc:PostalZone</Term>
-                        <Name>Post code - CAP</Name>
+                        <Name>Post code</Name>
             						<Description>Codice Postale</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p028</Reference>
@@ -485,19 +525,21 @@
                     </Element>
                     <Element agid:custom="cardinality">
                         <Term>cbc:CountrySubentity</Term>
-                        <Name>Country subdivision - Provincia</Name>
-            						<Description>Provincia</Description>
+                        <Name>Country subdivision</Name>
+            						<Description>For specifying a region, county, state, province etc. within a
+							country by using text.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p029</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
                     </Element>
                     <Element cardinality="0..1">
                         <Term>cac:AddressLine</Term>
-                        <Name>Address line - Ulteriori informazioni indirizzo</Name>
+                        <Name>Address line</Name>
             						<Element cardinality="0..1">
             							<Term>cbc:Line</Term>
-            							<Name>Address line 3 - Ulteriori informazioni indirizzo</Name>
-            							<Description>Ulteriori informazioni indirizzo.</Description>
+            							<Name>Address line 3</Name>
+            							<Description>An additional address line in an address that can be used
+								to give further details supplementing the main line.</Description>
                             <DataType>Text</DataType>
                             <Reference type="BUSINESS_TERM">tir16-p030</Reference>
                             <Value type="EXAMPLE">Ingresso 34</Value>
@@ -505,11 +547,15 @@
                     </Element>
                     <Element>
                         <Term>cac:Country</Term>
-                        <Name>Country - Nazione</Name>
+                        <Name>Country</Name>
                         <Element>
                             <Term>cbc:IdentificationCode</Term>
-                            <Name>Country code - Codice nazione</Name>
-              							<Description>Codice identificativo della nazione.</Description>
+                            <Name>Country code</Name>
+              							<Description>A code that identifies the country.The lists of valid
+								countries are registered with the ISO 3166-1 Maintenance agency,
+								"Codes for the representation of names of countries and their
+								subdivisions". Codes must be according to the alpha-2
+								representation.</Description>
                             <DataType>Code</DataType>
                             <Reference type="BUSINESS_TERM">tir16-p031</Reference>
                             <Reference type="CODE_LIST">ISO3166</Reference>
@@ -522,23 +568,25 @@
         <Element cardinality="0..1">
             <Term>cac:SellerSupplierParty</Term>
             <Name>Venditore</Name>
-            <Description>Il Venditore è la persona giuridica che vende la merce o i servizi al cliente. Questo ruolo viene ricoperto dal Fornitore o per suo conto.</Description>
+            <Description>The seller is the legal person or organization who sells goods or services
+				to the customer. The role is carried out by the supplier or on behalf of the
+				supplier.</Description>
             <Element>
                 <Term>cac:Party</Term>
-                <Name>Party information - Informazioni della parte</Name>
+                <Name>Party information</Name>
                 <Element cardinality="0..1">
                     <Term>cac:PartyIdentification</Term>
-                    <Name>Party identification - Identificativo parte</Name>
+                    <Name>Party identification</Name>
                     <Element>
                         <Term>cbc:ID</Term>
-                        <Name>Selling party identifier - Identificativo del Venditore</Name>
-              					<Description>Informazioni sull'identificativo del Venditore.</Description>
+                        <Name>Selling party identifier</Name>
+              					<Description>An identifier for the seller party.</Description>
                         <DataType>Identifier</DataType>
                         <Reference type="BUSINESS_TERM">tir16-066</Reference>
                         <Attribute usage="optional">
                             <Term>schemeID</Term>
                             <Name>Scheme identifier</Name>
-              							<Description>Indica lo scheme identifier dell'identificativo del Venditore.</Description>
+              							<Description>Scheme identifier for party identification</Description>
                             <Reference type="CODE_LIST">ICD</Reference>
                             <Value type="EXAMPLE">0202</Value>
                         </Attribute>
@@ -547,11 +595,11 @@
                 </Element>
                 <Element agid:custom="cardinality">
                     <Term>cac:PartyName</Term>
-                    <Name>Party name - Denominazione parte</Name>
+                    <Name>Party name</Name>
                     <Element>
                         <Term>cbc:Name</Term>
-                        <Name>Selling party name - Denominazione Venditore</Name>
-            						<Description>Indica la denominazione del Venditore.</Description>
+                        <Name>Selling party name</Name>
+            						<Description>The seller party name.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-065</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
@@ -559,34 +607,38 @@
                 </Element>
                 <Element agid:custom="cardinality">
                     <Term>cac:PostalAddress</Term>
-                    <Name>Postal address - Indirizzo</Name>
-                    <Description>Contiene informazioni relative all’indirizzo del Venditore.</Description>
+                    <Name>Postal address</Name>
+                    <Description>Postal address of the supplier</Description>
                     <Element agid:custom="cardinality">
                         <Term>cbc:StreetName</Term>
-                        <Name>Address line 1 - Indirizzo</Name>
-            						<Description>Strada, via, piazza ecc. e numero civico</Description>
+                        <Name>Address line 1</Name>
+            						<Description>The main address line in a postal address usually the street
+							name and number.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p018</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
                     </Element>
                     <Element cardinality="0..1">
                         <Term>cbc:AdditionalStreetName</Term>
-                        <Name>Address line 2 - Informazioni addizionali indirizzo</Name>
-            						<Description>Informazioni addizionali indirizzo.</Description>
+                        <Name>Address line 2</Name>
+            						<Description>An additional address line in a postal address that can be used
+							to give further details supplementing the main line. Common use are
+							secondary house number in a complex or in a building.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p019</Reference>
                     </Element>
                     <Element agid:custom="cardinality">
                         <Term>cbc:CityName</Term>
-                        <Name>City - Città</Name>
-            						<Description>Nome della città.</Description>
+                        <Name>City</Name>
+            						<Description>The common name of the city where the postal address is. The
+							name is written in full rather than as a code.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p020</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
                     </Element>
                     <Element agid:custom="cardinality">
                         <Term>cbc:PostalZone</Term>
-                        <Name>Post code - CAP</Name>
+                        <Name>Post code</Name>
             						<Description>Codice Postale</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p021</Reference>
@@ -594,19 +646,21 @@
                     </Element>
                     <Element agid:custom="cardinality">
                         <Term>cbc:CountrySubentity</Term>
-                        <Name>Country subdivision - Provincia</Name>
-            						<Description>Provincia</Description>
+                        <Name>Country subdivision</Name>
+            						<Description>For specifying a region, county, state, province etc. within a
+							country by using text.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p022</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
                     </Element>
                     <Element cardinality="0..1">
                         <Term>cac:AddressLine</Term>
-                        <Name>Address Line - Ulteriori informazioni indirizzo</Name>
+                        <Name>Address Line</Name>
                         <Element cardinality="0..1">
                             <Term>cbc:Line</Term>
-                            <Name>Address line 3 - Ulteriori informazioni indirizzo</Name>
-              							<Description>Ulteriori informazioni indirizzo.</Description>
+                            <Name>Address line 3</Name>
+              							<Description>An additional address line in an address that can be used
+								to give further details supplementing the main line.</Description>
                             <DataType>Text</DataType>
                             <Reference type="BUSINESS_TERM">tir16-p023</Reference>
                             <Value type="EXAMPLE">Ingress 34</Value>
@@ -614,11 +668,15 @@
                     </Element>
                     <Element>
                         <Term>cac:Country</Term>
-                        <Name>Country - Nazione</Name>
+                        <Name>Country</Name>
                         <Element>
                             <Term>cbc:IdentificationCode</Term>
-                            <Name>Country code - Codice nazione</Name>
-              							<Description>Codice identificativo della nazione.</Description>
+                            <Name>Country code</Name>
+              							<Description>A code that identifies the country.The lists of valid
+								countries are registered with the ISO 3166-1 Maintenance agency,
+								"Codes for the representation of names of countries and their
+								subdivisions". Codes must be according to the alpha-2
+								representation.</Description>
                             <DataType>Code</DataType>
                             <Reference type="BUSINESS_TERM">tir16-p024</Reference>
                             <Reference type="CODE_LIST">ISO3166</Reference>
@@ -631,22 +689,22 @@
         <Element cardinality="0..1">
             <Term>cac:OriginatorCustomerParty</Term>
             <Name>Committente</Name>
-            <Description>La parte che eventualmente riceve o consuma la merce e per la quale la parte acquirente fa l’acquisto.</Description>
+            <Description>The party who will eventually receive and consume the goods and on whose behalf the buyer makes the purchase.</Description>
             <Element>
                 <Term>cac:Party</Term>
-                <Name>Party information - Informazioni della parte</Name>
+                <Name>Party information</Name>
                 <Element cardinality="0..1">
                     <Term>cac:PartyIdentification</Term>
-                    <Name>Party identification - Identificativo della parte</Name>
+                    <Name>Party identification</Name>
                     <Element>
                         <Term>cbc:ID</Term>
-                        <Name>Originating party - Identificativo parte</Name>
-              					<Description>Informazioni sull'identificativo del Committente.</Description>
+                        <Name>Originating party</Name>
+              					<Description>The originator party identifier.</Description>
                         <Reference type="BUSINESS_TERM">tir16-032</Reference>
                         <Attribute usage="optional">
                             <Term>schemeID</Term>
                             <Name>Scheme identifier</Name>
-              							<Description>Indica lo scheme identifier dell'identificativo del Committente.</Description>
+              							<Description>Scheme identifier for party identification</Description>
                             <Reference type="CODE_LIST">ICD</Reference>
                             <Value type="EXAMPLE">0201</Value>
                         </Attribute>
@@ -655,60 +713,68 @@
                 </Element>
                 <Element agid:custom="cardinality">
                     <Term>cac:PartyName</Term>
-                    <Name>Party name - Denominazione parte</Name>
+                    <Name>Party name</Name>
                     <Element>
                         <Term>cbc:Name</Term>
-                        <Name>Originating party name - Denominazione Committente</Name>
-            						<Description>Indica la denominazione del soggetto che ha predisposto il Documento.</Description>
+                        <Name>Originating party name</Name>
+            						<Description>The originator party name.</Description>
                         <Reference type="BUSINESS_TERM">tir16-031</Reference>
                     </Element>
                 </Element>
                 <Element cardinality="0..1">
                     <Term>cac:PostalAddress</Term>
-                    <Name>Postal address - Indirizzo del Committente</Name>
-          					<Description>Indica i dati dell’indirizzo del Committente.</Description>
+                    <Name>Postal address</Name>
+          					<Description>Postal address of the originator</Description>
                     <Element cardinality="0..1">
                         <Term>cbc:StreetName</Term>
-                        <Name>Address line 1 - Indirizzo</Name>
-            						<Description>Strada, via, piazza ecc. e numero civico.</Description>
+                        <Name>Address line 1</Name>
+            						<Description>The main address line in a postal address usually the street
+							name and number.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p032</Reference>
                     </Element>
                     <Element cardinality="0..1">
                         <Term>cbc:AdditionalStreetName</Term>
-                        <Name>Address line 2 - Informazioni addizionali indirizzo</Name>
-            						<Description>Informazioni addizionali indirizzo</Description>
+                        <Name>Address line 2</Name>
+            						<Description>An additional address line in a postal address that can be used
+							to give further details supplementing the main line. Common use are
+							secondary house number in a complex or in a building.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p033</Reference>
                     </Element>
                     <Element cardinality="0..1">
                         <Term>cbc:CityName</Term>
-                        <Name>City - Città</Name>
-            						<Description>Nome città.</Description>
+                        <Name>City</Name>
+            						<Description>The common name of the city where the postal address is. The
+							name is written in full rather than as a code.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p034</Reference>
                     </Element>
                     <Element cardinality="0..1">
                         <Term>cbc:PostalZone</Term>
-                        <Name>Post code - Codice postale</Name>
-            						<Description>CAP.</Description>
+                        <Name>Post code</Name>
+            						<Description>The identifier for an addressable group of properties according
+							to the relevant national postal service, such as a ZIP code or Post
+							Code.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p035</Reference>
                     </Element>
                     <Element cardinality="0..1">
                         <Term>cbc:CountrySubentity</Term>
-                        <Name>Country subdivision - Provincia</Name>
-            						<Description>Provincia</Description>
+                        <Name>Country subdivision</Name>
+            						<Description>For specifying a region, county, state, province etc. within a
+							country by using text.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p036</Reference>
                     </Element>
                     <Element cardinality="0..1">
                         <Term>cac:AddressLine</Term>
-                        <Name>Address Line - Ulteriori informazioni indirizzo</Name>
+                        <Name>Address Line</Name>
                         <Element cardinality="0..1">
                             <Term>cbc:Line</Term>
-                            <Name>Address line 3 - Ulteriori informazioni indirizzo</Name>
-              							<Description>Ulteriori informazioni indirizzo.</Description>
+                            <Name>Address line 3</Name>
+              							<Description>An additional address line in an address that can be used
+								to give further details supplementing the main line.</Description>
                             <DataType>Text</DataType>
                             <Reference type="BUSINESS_TERM">tir16-p037</Reference>
                             <Value type="EXAMPLE">Ingresso 34</Value>
@@ -716,11 +782,15 @@
                     </Element>
                     <Element>
                         <Term>cac:Country</Term>
-                        <Name>Country - Nazione</Name>
+                        <Name>Country</Name>
                         <Element>
                             <Term>cbc:IdentificationCode</Term>
                             <Name>Country code - Codice nazione</Name>
-              							<Description>Codice identificativo della nazione.</Description>
+              							<Description>A code that identifies the country.The lists of valid
+								countries are registered with the ISO 3166-1 Maintenance agency,
+								"Codes for the representation of names of countries and their
+								subdivisions". Codes must be according to the alpha-2
+								representation.</Description>
                             <DataType>Code</DataType>
                             <Reference type="BUSINESS_TERM">tir16-p038</Reference>
                             <Reference type="CODE_LIST">ISO3166</Reference>

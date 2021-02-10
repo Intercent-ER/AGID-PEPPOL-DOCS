@@ -242,7 +242,7 @@
 								<transformationSet>
 									<dir>${project.build.directory}/${project.build.finalName}/sch/</dir>
 									<includes>
-										<include>**/**/**.sch</include>
+										<include>**/**/ITA/**.sch</include>
 									</includes>
 									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-rules-v1.2.xsl</stylesheet>
 									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ITA/sch</outputDir>
@@ -267,7 +267,7 @@
 								<transformationSet>
 									<dir>${project.build.directory}/${project.build.finalName}/sch/</dir>
 									<includes>
-										<include>**/**/**.sch</include>
+										<include>**/**/ENG/**.sch</include>
 									</includes>
 									<stylesheet>${basedir}/src/main/webapp/xsl/ENG/agid-peppol-bis-rules-v1.2.xsl</stylesheet>
 									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ENG/sch</outputDir>

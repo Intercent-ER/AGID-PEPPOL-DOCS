@@ -172,7 +172,7 @@
 		<Element>
 			<Term>cac:BuyerCustomerParty</Term>
 			<Name>Buyer information</Name>
-			<Description>Contiene le informazioni relative al soggetto per conto del quale è ordinata la fornitura (riceve la Risposta).</Description>
+			<Description>It contains the information about the subject on behalf of which the provision is ordered (receives the Response).</Description>
 			<Element>
 				<Term>cac:Party</Term>
 				<Name>Party information</Name>

@@ -1,7 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-	Peppol BIS 3.0.6 hotfix
--->
 <schema xmlns="http://purl.oclc.org/dsdl/schematron"
         xmlns:u="utils"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -9,7 +5,7 @@
         schemaVersion="iso"
         queryBinding="xslt2">
 
-    <title>Regole per la transazione del Documento di Trasporto (DDT) PEPPOL, versione 3.1</title>
+    <title>Rules for PEPPOL Despatch Advice transaction 3.0</title>
     
     <ns uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
        prefix="cbc"/>
@@ -50,7 +46,7 @@
     <pattern>
  
 		    <rule context="//*[not(*) and not(normalize-space())]">
-			      <assert id="PEPPOL-COMMON-R001" test="false()" flag="fatal">Document MUST not contain empty elements.</assert>
+			      <assert id="PEPPOL-COMMON-R001" test="false()" flag="fatal">Il documento non DEVE contenere elementi vuoti.</assert>
 		    </rule> 
    
    </pattern>
@@ -124,16 +120,9 @@
          <assert test="cbc:ID" flag="fatal" id="PEPPOL-T16-B00801">Element 'cbc:ID' MUST be provided.</assert>
       </rule>
       <rule context="/ubl:DespatchAdvice/cac:OrderReference/cbc:ID"/>
-	  <!-- Customized (extended) -->
-      <rule context="/ubl:DespatchAdvice/cac:OrderReference/cbc:CustomerReference"/>
       <rule context="/ubl:DespatchAdvice/cac:OrderReference/*">
          <assert test="false()" flag="fatal" id="PEPPOL-T16-B00802">Document MUST NOT contain elements not part of the data model.</assert>
       </rule>
-	  <!-- Customized (extended) -->
-	  <rule context="/ubl:DespatchAdvice/cac:AdditionalDocumentReference"/>
-	  <rule context="/ubl:DespatchAdvice/cac:AdditionalDocumentReference/cbc:ID"/>
-	  <rule context="/ubl:DespatchAdvice/cac:AdditionalDocumentReference/cbc:IssueDate"/>
-	  <rule context="/ubl:DespatchAdvice/cac:AdditionalDocumentReference/cbc:DocumentType"/>
       <rule context="/ubl:DespatchAdvice/cac:DespatchSupplierParty">
          <assert test="cac:Party" flag="fatal" id="PEPPOL-T16-B01001">Element 'cac:Party' MUST be provided.</assert>
       </rule>
@@ -426,24 +415,10 @@
       <rule context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cbc:ID"/>
       <rule context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cbc:Information"/>
       <rule context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty"/>
-	  <!-- Customized (extended) -->
-      <rule context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyIdentification"/>
-      <rule context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyIdentification/cbc:ID"/>
       <rule context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyName">
          <assert test="cbc:Name" flag="fatal" id="PEPPOL-T16-B11901">Element 'cbc:Name' MUST be provided.</assert>
       </rule>
       <rule context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyName/cbc:Name"/>
-	  <!-- Customized (extended) -->
-      <rule context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress"/>
-      <rule context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:StreetName"/>
-      <rule context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:AdditionalStreetName"/>
-      <rule context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:CityName"/>
-      <rule context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:PostalZone"/>
-      <rule context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cbc:CountrySubentity"/>
-      <rule context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cac:AddressLine"/>
-      <rule context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cac:AddressLine/cbc:Line"/>
-      <rule context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cac:Country"/>
-      <rule context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress/cac:Country/cbc:IdentificationCode"/>
       <rule context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:Person">
          <assert test="cac:IdentityDocumentReference"
                  flag="fatal"
@@ -545,21 +520,10 @@
       <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:OrderLineReference/*">
          <assert test="false()" flag="fatal" id="PEPPOL-T16-B15402">Document MUST NOT contain elements not part of the data model.</assert>
       </rule>
-	  <!-- Customized (extended) -->
-      <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:DocumentReference"/>
-      <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:DocumentReference/cbc:ID"/>
-      <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:DocumentReference/cbc:IssueDate"/>
-      <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:DocumentReference/cbc:DocumentType"/>
       <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item">
          <assert test="cbc:Name" flag="fatal" id="PEPPOL-T16-B15801">Element 'cbc:Name' MUST be provided.</assert>
       </rule>
-	  <!-- Customized (extended) -->
-	  <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cbc:PackQuantity"/>
-	  <!-- Customized (extended) -->
-	  <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cbc:PackSizeNumeric"/>
       <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cbc:Name"/>
-	  <!-- Customized (extended) -->
-	  <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cbc:AdditionalInformation"/>
       <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:BuyersItemIdentification">
          <assert test="cbc:ID" flag="fatal" id="PEPPOL-T16-B16001">Element 'cbc:ID' MUST be provided.</assert>
       </rule>
@@ -589,17 +553,11 @@
          <assert test="false()" flag="fatal" id="PEPPOL-T16-B16502">Document MUST NOT contain elements not part of the data model.</assert>
       </rule>
       <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:HazardousItem"/>
-	  <!-- Customized (extended) -->
-	  <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:HazardousItem/cbc:ID"/>
       <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:HazardousItem/cbc:UNDGCode">
          <assert test="(some $code in $clUNCL8273 satisfies $code = normalize-space(text()))"
                  flag="fatal"
                  id="PEPPOL-T16-B17001">Value MUST be part of code list 'Dangerous goods regulations code (UNCL8273)'.</assert>
       </rule>
-	  <!-- Customized (extended) -->
-	  <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:HazardousItem/cbc:TechnicalName"/>
-	  <!-- Customized (extended) -->
-	  <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:HazardousItem/cbc:CategoryName"/>
       <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:HazardousItem/cbc:HazardClassID"/>
       <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:HazardousItem/*">
          <assert test="false()" flag="fatal" id="PEPPOL-T16-B16901">Document MUST NOT contain elements not part of the data model.</assert>
@@ -647,19 +605,6 @@
                  flag="fatal"
                  id="PEPPOL-T16-B18801">Element 'cbc:ID' MUST contain value 'NA'.</assert>
       </rule>
-	  <!-- Customized (extended) -->
-	  <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cbc:HandlingCode"/>
-	  <!-- Customized (extended) -->
-	  <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem"/>
-	  <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:Temperature"/>
-	  <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:Temperature/cbc:AttributeID"/>
-	  <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:Temperature/cbc:Measure"/>
-	  <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:MinimumTemperature"/>
-	  <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:MinimumTemperature/cbc:AttributeID"/>
-	  <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:MinimumTemperature/cbc:Measure"/>
-	  <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:MaximumTemperature"/>
-	  <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:MaximumTemperature/cbc:AttributeID"/>
-	  <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:GoodsItem/cac:MaximumTemperature/cbc:Measure"/>
       <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:TransportHandlingUnit"/>
       <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:TransportHandlingUnit/cbc:ID"/>
       <rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Shipment/cac:TransportHandlingUnit/cbc:TransportHandlingUnitTypeCode">
@@ -718,7 +663,7 @@
                  test="starts-with(normalize-space(.), 'urn:fdc:peppol.eu:poacc:trns:despatch_advice:3')"
                  flag="fatal">Specification identifier SHALL start with the value 'urn:fdc:peppol.eu:poacc:trns:despatch_advice:3'.</assert>
 	     </rule>
-
+		
 	     <rule context="cac:BuyerCustomerParty">
 		       <assert id="PEPPOL-T16-R008"
                  test="(cac:Party/cac:PartyName/cbc:Name) or (cac:Party/cac:PartyIdentification/cbc:ID)"
@@ -752,9 +697,5 @@
 
 
    </pattern>
-   
-	<!-- AGID rules -->
-	<!-- ======================== -->
-	<include href="AGID/AGID-PEPPOL-T16.sch"/>
-	
+
 </schema>

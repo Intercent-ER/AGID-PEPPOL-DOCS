@@ -217,7 +217,7 @@
 		<rule abstract="true" id="verifica_codice_ipa">	
 			
 			<assert id="NSO_110" 
-				test="if(@schemeID=0201) then u:checkCodiceIPA(.) else true()" flag="fatal">NSO_110 - Il Codice IPA indicato nell’elemento non è valido. - The IPA Code specified in the element is invalid.
+				test="if(@schemeID=0201) then u:checkCodiceIPA(.) else true()" flag="fatal">NSO_110 - The IPA Code specified in the element is invalid.
 			</assert>
 
 		</rule>
@@ -231,7 +231,7 @@
 		<rule context="ubl:OrderResponse">
 								
 			<assert id="NSO_145" test="count(/ubl:OrderResponse/cac:OrderReference) = 1" flag="fatal">
-				NSO_145 - Il Documento contiene più di un elemento "cac:OrderReference". - The Document contains more than one "cac:OrderReference" element. 
+				NSO_145 - The Document contains more than one "cac:OrderReference" element.
 			</assert>
 
 		</rule>
@@ -241,19 +241,19 @@
 					
 			
 			<assert id="NSO_140" test="(u:countDelitited(.) = 2)" flag="fatal">
-				NSO_140 - Il formato dell’elemento "cac:OrderReference/cbc:ID" non è valido (esempio di formato corretto: "110#2018-01-30#QLHCFC "). - The format of the element "cac:OrderReference/cbc:ID" is invalid (correct format example:"110#2018-01-30#QLHCFC"). 
+				NSO_140 - The format of the element "cac:OrderReference/cbc:ID" is invalid (correct format example:"110#2018-01-30#QLHCFC").
 			</assert>
 
 			<assert id="NSO_141" test="(if (u:countDelitited(.) != 2) then false() else u:getPartTokenizeID(.,1)!='')" flag="fatal">
-				NSO_141 - L'ID presente nell’elemento non è valorizzato. - The ID in the element is not set.
+				NSO_141 - The ID in the element is not set.
 			</assert>			
 
 			<assert id="NSO_142" test="(if (u:countDelitited(.) != 2) then false() else u:validationDate(u:getPartTokenizeID(.,2)))" flag="fatal">
-				NSO_142 - Il formato della data presente nell’elemento non è corretto (esempio corretto: "2020-01-31"). - The format of the date in the element is incorrect (correct format example: "2020-01-31").
+				NSO_142 - The format of the date in the element is incorrect (correct format example: "2020-01-31").
 			</assert>
 
 			<assert id="NSO_143" test="((( if (u:countDelitited(.) != 2) then false() else string-length(u:getPartTokenizeID(.,3))=6 )))" flag="fatal">
-				NSO_143 - L'EndpointID indicato nell’elemento non è un valore valido (esempio di valore corretto: "QLHCFC"). - The EndpointID specified in the element  is not a valid value (correct value example: "QLHCFC").
+				NSO_143 - The EndpointID specified in the element  is not a valid value (correct value example: "QLHCFC").
 			</assert>
 
 		</rule>
@@ -265,10 +265,10 @@
 		<!-- Controllo della PIVA secondo le regole https://databularium.com/it/2015/08/21/come-controllare-la-correttezza-della-partita-iva/ -->
 		<rule context="ubl:OrderResponse/cac:SellerSupplierParty/cac:Party/cbc:EndpointID">
 
-			<!-- nel caso in cui schemeID = 9906 l'endpointID deve contenere una partita iva formalmente corretta -->
+			<!-- when the schemeID is equal to 9906, the endpointID must contains a formally correct VAT number -->
 			<assert id="NSO_130"
                  test="if(@schemeID=9906) then ( if(u:checkPIVA(substring(.,3,13))!=0) then false() else true() ) else true()" flag="fatal">
-					NSO_130 - La partita IVA indicata nell’elemento non è valida. - The VAT number specified in the element is invalid.
+					NSO_130 - The VAT number specified in the element is invalid.
 			</assert>
 			
 		</rule>
@@ -281,7 +281,7 @@
 
 			<!-- le rige ordine sono permesse sono nel caso di modifica CA -->			
 			<assert id="NSO_150" test="( if (/ubl:OrderResponse/cbc:OrderResponseCode = 'CA') then ( if (count(/ubl:OrderResponse/cac:OrderLine)=0) then false() else true() ) else ( if (count(/ubl:OrderResponse/cac:OrderLine)=0) then true() else false() ) )" flag="fatal">
-				NSO_150 - Il Documento contiene uno o più elementi "cac:OrderLine". - The Document contains one or more "cac:OrderLine" elements.
+				NSO_150 - The Document contains one or more "cac:OrderLine" elements.
 			</assert>
 			
 		</rule>
@@ -335,7 +335,7 @@
 		<rule context="/ubl:OrderResponse/cac:BuyerCustomerParty/cac:Party/cbc:EndpointID">
 			<assert id="NSO_111"
                  test="if(@schemeID=0201) then true() else false()"
-                 flag="fatal">NSO_111 - Il valore dell’attributo schemeID dell’elemento è errato (il valore corretto è "0201"). - The value of schemeID attribute of the element is incorrect (the correct value is "0201").
+                 flag="fatal">NSO_111 - The value of schemeID attribute of the element is incorrect (the correct value is "0201").
 			</assert>
 		</rule>
 		
@@ -347,14 +347,14 @@
 		<rule context="/ubl:OrderResponse/cac:SellerSupplierParty/cac:Party/cbc:EndpointID">
 			<assert id="NSO_120"
                  test="if(@schemeID=9907) then u:checkCF(.) else true()"
-                 flag="fatal">NSO_120 - Il Codice Fiscale indicato nell’elemento non è valido. - The Tax Code specified in the element is invalid.
+                 flag="fatal">NSO_120 - The Tax Code specified in the element is invalid.
 			</assert>
 		</rule>
 
 		<!--<rule context="/ubl:OrderResponse/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID">
 			<assert id="NSO_120"
                  test="if(@schemeID=9907) then u:checkCF(.) else true()"
-                 flag="fatal">NSO_120 - Il Codice Fiscale indicato nell’elemento non è valido. - The Tax Code specified in the element is invalid.
+                 flag="fatal">NSO_120 - The Tax Code specified in the element is invalid.
 			</assert>
 		</rule>-->
 		

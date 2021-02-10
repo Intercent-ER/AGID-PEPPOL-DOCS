@@ -46,7 +46,7 @@
     <pattern>
  
 		    <rule context="//*[not(*) and not(normalize-space())]">
-			      <assert id="PEPPOL-COMMON-R001" test="false()" flag="fatal">Document MUST not contain empty elements.</assert>
+			      <assert id="PEPPOL-COMMON-R001" test="false()" flag="fatal">Il documento non DEVE contenere elementi vuoti.</assert>
 		    </rule> 
    
    </pattern>

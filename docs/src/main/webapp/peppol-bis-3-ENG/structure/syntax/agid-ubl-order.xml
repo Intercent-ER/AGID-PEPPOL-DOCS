@@ -1075,7 +1075,7 @@
 					<Term>cbc:ID</Term>
 					<Name>Delivery location ID</Name>
 					<Description>An identifer for the location to where the ordered items should be
-						delivered.</DataType>
+						delivered.</Description>
 					<Reference type="BUSINESS_TERM">tir01-169</Reference>
                                         <Reference type="RULE">NSO_010</Reference>
 					<Attribute usage="Optional">

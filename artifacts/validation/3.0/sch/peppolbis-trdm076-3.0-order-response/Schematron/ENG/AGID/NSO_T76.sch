@@ -265,7 +265,7 @@
 		<!-- Controllo della PIVA secondo le regole https://databularium.com/it/2015/08/21/come-controllare-la-correttezza-della-partita-iva/ -->
 		<rule context="ubl:OrderResponse/cac:SellerSupplierParty/cac:Party/cbc:EndpointID">
 
-			<!-- nel caso in cui schemeID = 9906 l'endpointID deve contenere una partita iva formalmente corretta -->
+			<!-- when the schemeID is equal to 9906, the endpointID must contains a formally correct VAT number -->
 			<assert id="NSO_130"
                  test="if(@schemeID=9906) then ( if(u:checkPIVA(substring(.,3,13))!=0) then false() else true() ) else true()" flag="fatal">
 					NSO_130 - The VAT number specified in the element is invalid.

@@ -1,6 +1,6 @@
 include::../../shared/_links.adoc[]
-= PEPPOL BIS Documento di Trasporto (DDT) {ddt_version_it}
-Note di Rilascio
+= PEPPOL BIS Despatch Advice {ddt_version_it}
+Release Notes
 :doctype: book
 :icons: font
 :encoding: utf-8

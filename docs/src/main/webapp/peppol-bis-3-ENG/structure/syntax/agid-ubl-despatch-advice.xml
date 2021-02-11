@@ -814,7 +814,7 @@
                 <Name>Shipment description</Name>
                 <Description>Free-form text applying to a shipment. This element may contain notes
 					or any other similar information that is not contained explicitly in another
-					structure./Description>
+					structure.</Description>
                 <Reference type="BUSINESS_TERM">tir16-039</Reference>
             </Element>
             <Element agid:custom="cardinality">

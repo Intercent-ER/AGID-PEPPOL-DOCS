@@ -141,10 +141,12 @@ Quando l’ordine viene accettato con modifiche a livello di riga, tutte le righ
 .Esempio di Codice di Risposta a livello di riga in un messaggio di risposta d’ordine:
 [source, xml, indent=0]
 ----
-	…
 <cac:OrderLine>
-	<cbc: LineStatusCode listID=”UNCL1229”>7</cbc: LineStatusCode >
-	<cbc:Note>Merce terminata</cbc:Note>
-<cac:LineItem>
+    <cac:LineItem>
+	    <cbc:LineStatusCode>7</cbc:LineStatusCode>
+	    <cbc:Note>Merce terminata</cbc:Note>
+	    …
+	</cac:LineItem>
 	…
+</cac:OrderLine>
 ----

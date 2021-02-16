@@ -1,30 +1,44 @@
 [[use-case-3-buyer-visits-the-sellers-physical-store]]
-= Use case 4 – Buyer visits the seller’s physical store.
+= Caso d’uso 3 – L'Acquirente visita il negozio fisico del Venditore
 
-This use case describes a process where the buyer physically enters the sellers store to buy and possibly take delivery of goods.
+Questo caso d’uso descrive il processo dove un cliente/Acquirente entra fisicamente nel negozio del Venditore per comprare e possibilmente  prende in consegna i prodotti.
 
 [cols="1h,5",]
 |====
-|Use Case number |4
-|Use Case Name |User configures product/services
-|Use Case Description |A buyer physically makes a purchase and takes delivery.
-|Parties involved
-a| * Buyer
-* Seller
-|Assumptions |The buyer has an account with the seller with necessary details to send him an order agreement.
-|The flow a|
-The buyer urgently need some items and may wish to discuss this with the seller before buying the items.
+|Caso d’uso nr.
+|4
 
-After selecting the items he needs the buyer gets a receipt for the selected items. He may bring with him all the items when leaving the store or schedule a later delivery.
+|Nome
+|L'utente configura i beni/servizi
 
-The seller registers the order in the ordering system including a reference such as requisition number, person id, project id etc.
+|Descrizione 
+|L'Acquirente fisicamente acquista e prende in consegna.
 
-An order agreement transaction with item information and price of the selected items is sent from the seller to the buyer’s purchasing system. The order agreement is recorded in the buyer’s purchasing system
+|Ruoli coinvolti
+a| * Acquirente
+* Venditore
 
-The buyer then follows the normal procedure to, if needed, complete the order.
+|Assunzioni 
+|L'Acquirente ha un account con il Venditore con i dettagli necessari per inviargli un ordine pre-concordato.
 
-The seller sends an invoice which matches the order and delivery, but this is outside of this BIS.
+|Il flusso
+a|L'Acquirente necessita urgentemente di alcuni prodotti e preferirebbe discuterne direttamente con il Venditore prima di acquistare gli articoli.
 
-|Result |The buyer and the seller has reached an agreement. An order has been placed and the buyer has taken delivery of the products. The buyer has received a structured message with the order details. The invoice has a reference, to match the order.
-|XML example file |See Appendix A for a sample file illustrating Use Case 4.
+Dopo aver selezionato gli articoli, l'Acquirente ottiene una ricevuta le scelte. Potrebbe optare per portare con se tutti i prodotti nel momento della sua uscita oppure schedulare la consegna per un secondo momento.
+
+Il Venditore registra l'ordine nel proprio sistema ordini includendo un riferimento, come il numero della richiesta, l'idendificativo della persona, identificativo del progetto, ecc.
+
+Una transazione di ordine pre-concordato con informazioni sull'articolo e il prezzo degli articoli selezionati viene inviato dal Venditore al sistema di acquisto dell'Acquirente. L’ordine pre-concordato è registrato nel sistema di acquisto del dell'Acquirente. +
+
+L'Acquirente quindi segue la normale procedura e, se necessario, completa l'ordine.
+
+Il Venditore invia una fattura che corrisponde all'ordine ed alla consegna, ma questo è al di fuori di questa specifica. 
+
+
+|Risultati
+|L'Acquirente e il Venditore hanno raggiunto un accordo. Un ordine è stato inserito e l'Acquirente ha preso in consegna i prodotti. L'Acquirente ha ricevuto un messaggio strutturato con i dettagli dell’ordine. La fattura ha un riferimento per  The invoice has a reference, to match the order.
+
+|Esempio XML
+|Vedi sezione "Downloads" della https://notier.regione.emilia-romagna.it/docs/[home]
+
 |====

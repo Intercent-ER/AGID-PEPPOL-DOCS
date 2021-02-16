@@ -1,6 +1,6 @@
 
 [[principles]]
-= Principles and prerequisites
+= Principi e prerequisiti
 
 Questo capitolo descrive i principi e le assunzioni che stanno alla base dell’uso degli Ordini pre-concordati Peppol. Esso si basa sul profilo http://www.cenbii.eu[CEN WS/BII] 42 Order Agreement.
 

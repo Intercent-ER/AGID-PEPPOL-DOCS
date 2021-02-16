@@ -1,38 +1,48 @@
 [[use-case-5-framework-contract]]
-= Use case 5 – Framework contract
+= Use case 5 – Contratto quadro
 
-The buyer has made a framework agreement with the seller for services such as maintenance or consulting. The framework agreement sets limits and terms within which the seller may provide services without individual orders from the buyer.
+L'Acquirente ha concluso un accordo quadro con il Venditore per dei servizi, come manutenzione e consulenza. L'accordo quadro prefissa i limiti ed le condizioni con cui il Venditore può fornire i servizi senza un ordine individuale da parte dell'Acquirente.
 
 [cols="1h,5",]
 |====
-|Use Case number |5
-|Use Case Name |Maintenance based on framework contract
-|Use Case Description
-a|
-A seller who has a framework agreement that contracts him for certain services, items or consulting may react to events as contracted and at the end of a period send an order agreement listing the services that were carried out. +
+|Caso d’uso nr.
+|5
+
+|Nome
+|Manutenzione sulla base di un contratto quadro
+
+|Descrizione
+a|Un Venditore, il quale ha stipuato un contratto quadro che lo incarica rispetto a certi servizi, fornitura di beni o consulenze, potrebbe reagire a seconda di alcuni eventi come da contratti e alla fine del periodo inviare un ordine pre-concordato che elenca tutti i servizi che sono stati effettuati. +
  +
-Examples include:
+Gli esempi includono:
 
-* A maintenance services that monitors a building and, for example, fixes windows, doors and other things that need maintenance as identified.
-* A computer service provider monitors systems and reacts immediately to incidents such as system down time or errors.
-* An accounting services contracted by the buyer handles various filings and reports as required.
-* A seller of supplies has been contracted to monitor the stock levels for certain items and restock as needed to maintain the agreed levels.
+* La manutenzione di servizi che monitorano un palazzo e servono, per esempio, ad aggiustare le finestre, le porte o altri elementi identificati che necessitino manutenzione.
+* Un fornitore di servizi informatici monitora i sistemi e reagisci immediatamente ad incidenti come disservizi ed errori.
+* Servizi di contabilità contratti dall'Acquirente gestistoscono varie pratiche e report come richiesto.
+* Un Venditore è stato incaricato di monitorare il livello dello stock di alcuni prodotti ed eseguire rifornimenti in modo da mantenere i livelli accordati.
 
-In each of these examples the buyer has made a framework contract with the seller allowing the seller to react to defined but not previously known events without receiving an order or request from the buyer for each event.
+In ciascuno di questi esempi l'Acquirente ha concluso un contratto quadro con il Venditore, permetendo al Venditore di reagire ad eventi definiti ma non precedentemente noti, senza ricevere un ordine o una richiesta dall'Acquirente per ciascun evento.
 
-|Parties involved
-a| * Buyer
-* Seller
-|Assumptions |The seller and buyer has a framework contract that define the service to be provided and its limits.
-|The flow|
-The seller of the services or items reacts to events as defined in the contract and carries out the service or delivers the items as contracted.
+|Ruoli coinvolti
+a| * Acquirente
+* Venditore
 
-Periodically, for example monthly, the seller lists all services and items that have been provided during the period. This is listed with order agreement lines and the total of the order agreement represents the total value of the services and items provided during the period which will be invoice by the seller. The seller sends the order agreement to the buyer who records it in his system.
+|Assunzioni 
+|Il Venditore e l'Acquirente hanno stipulato un accordo quadro che degfinisce il servizio che deve essere fornito e i suoi limiti.
 
-The seller proceeds to invoice immediately unless otherwise directed by the framework agreement.
+|Il flusso
+|Il Venditore di un servizio o articoli reagisce agli eventi così come definiti nel contratto ed effettua la prestazione del servizio o la consegna dei beni cosi come da contratto.
 
-The buyer may have internal processes that verify these kind of order agreements differently than those initiated by himself.
+Periodicamente, per esempio ogni mese, il Venditore fa una lista di tutti i servizi e prodotti che sono stati forniti durante il periodo. Questi sono listati nelle linee dell'ordine pre-concordato ed il totale dell'irdine rappresentale il valore totale dei beni e servizi forniti nel periodo e che saranno fatturati dal Venditore. Il Venditore invia l'Ordine pre-concordato all'Acquirente che lo registra nei propri sistemi.
 
-|Result |The buyer has registered a purchase order in his systems that allow him to order to invoice matching when the invoice is received.
-|XML example file |See Appendix A for a sample file illustrating Use Case 5.
+Il Venditore procede a fatturare immediatamente a meno che non sia definito diversamente dall'accordo quadro.
+
+L'Acquirente potrebbe avere processi interni che verifichino questo tipo di ordini pre-concordati, in modo diverso da quelli iniziati da lui stesso.
+
+|Risultati
+|L'Acquirente ha registrato un ordine di acquisto nei suoi sistemi che gli permette di ordinare una fatturazione abbinata quando la fattura è ricevuta.
+
+|Esempio XML
+|Vedi sezione "Downloads" della https://notier.regione.emilia-romagna.it/docs/[home]
+
 |====

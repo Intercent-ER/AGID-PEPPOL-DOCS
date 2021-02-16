@@ -1,39 +1,63 @@
-[[allowance]]
-= Allowances and Charges
+[[Sconti-e-maggiorazioni]]
+= Sconti e Maggiorazioni
 
-The order agreement transaction has Allowance/charge on header level.
+Gli elementi per specificare sconti e maggiorazioni si trovano a livello di documento
 
-The element `cac:AllowanceCharge` with sub element `cbc:ChargeIndicator` indicates whether the instance is a charge (true) or an allowance (false).
+L’elemento `cac:AllowanceCharge` con il sotto elemento `cac:ChargeIndicator` permette di indicare se si sta specificando una maggiorazione (true) o uno sconto/abbuono (false).
 
-_Information on allowance and/or charges applies to the whole order agreement and is included in the calculation of the order agreement total amount._
+_L'informazione relativa a sconti e/o maggiorazioni si applica all'intero ordine pre-concordato ed è inclusa nel calcolo dell'ammontare totale dell'ordine_
+
+* Possono essere forniti più sconti e maggiorazioni
+* Le informazioni sulle imposte relative agli sconti e maggiorazioni (cac:TaxCategory con i suoi sotto elementi) devono essere fornite
+* La somma di tutti gli sconti e maggiorazioni a livello di testata deve essere specificato rispettivamente nel `cbc:AllowanceTotalAmount` e `cbc:ChargeTotalAmount`. Vedi paragrafo <<anchor-1,6.2 Calcolo dei totali>>
 
 
-* Several allowances and charges may be supplied
-* Specification of VAT for allowances and charges, `cac:TaxCategory` with sub elements, shall be supplied
-* The sum of all allowances and charges on the header level shall be specified in `cbc:AllowanceTotalAmount` and `cbc:ChargeTotalAmount` respectively. See <<totals>>
+== Calcolo di sconti e maggiorazioni
 
+Sconti e maggiorazioni a livello di testata sono costituiti da elementi contenenti informazioni sull’importo base di sconti/maggiorazioni e sulla percentuale di sconti/maggiorazioni.
 
-[allowance-calc]]
-== Calculation of allowance/charge amount
-
-Allowance and charge on document level consists of elements carrying information on the allowance/charge base amount
-and the allowance/charge percentage. These are, if present in the invoice instance, used for calculating the allowance/charge amount.
-
-If base amount is present, the percentage shall also be present, and if percentage is present, the base amount shall also be present,
-and the calculation of the amount shall be:
+Se l’importo base è presente, deve essere presente la percentuale, e se la percentuale è presente anche l’importo base deve essere presente. Il calcolo dell’importo è definito nel modo seguente:
 
 ====
-stem:["Amount" =  "Base amount" times ("Percentage" div 100)]
+stem:["Importo" =  "Importo base" times ("Percentuale" div 100)]
 ====
 
 
-.UBL example of Allowances and Charges on the document level
+.Esempio di UBL di sconti e maggiorazioni a livello di testata, per l'IVA
 [source, xml, indent=0]
 ----
-include::{snippet-dir}/snippet-oa.xml[tags=allowance]
+<cac:AllowanceCharge>
+        <cbc:ChargeIndicator>true</cbc:ChargeIndicator> <1>
+        <cbc:AllowanceChargeReasonCode>FC</cbc:AllowanceChargeReasonCode>
+        <cbc:AllowanceChargeReason>Freight service</cbc:AllowanceChargeReason>
+        <cbc:MultiplierFactorNumeric>2</cbc:MultiplierFactorNumeric> <4>
+        <cbc:Amount currencyID="EUR">20</cbc:Amount> <5>
+        <cbc:BaseAmount currencyID="EUR">1000.00</cbc:BaseAmount> <3>
+        <cac:TaxCategory>
+                <cbc:ID>S</cbc:ID>
+                <cbc:Percent>22</cbc:Percent>
+                <cac:TaxScheme>
+                        <cbc:ID>VAT</cbc:ID>
+                </cac:TaxScheme>
+        </cac:TaxCategory>
+</cac:AllowanceCharge>
+<cac:AllowanceCharge>
+        <cbc:ChargeIndicator>false</cbc:ChargeIndicator> <2> 
+        <cbc:AllowanceChargeReasonCode>65</cbc:AllowanceChargeReasonCode>
+        <cbc:AllowanceChargeReason>Production error discount</cbc:AllowanceChargeReason>
+        <cbc:Amount currencyID="EUR">10.00</cbc:Amount>
+        <cac:TaxCategory>
+                <cbc:ID>S</cbc:ID>
+                <cbc:Percent>22</cbc:Percent>
+                <cac:TaxScheme>
+                        <cbc:ID>VAT</cbc:ID>
+                </cac:TaxScheme>
+        </cac:TaxCategory>
+</cac:AllowanceCharge>
 ----
-<1> ChargeIndicator = true to indicate a charge
-<2> ChargeIndicator = false to indicate an allowance
-<3> Base amount, to be used with the percentage to calculate the amount
-<4> Charge percentage
-<5> stem:["Amount" = "Base amount" times ("Percentage" div 100)]
+
+<1> 	ChargeIndicator = TRUE indica la presenza di una maggiorazione
+<2> 	ChargeIndicator = FALSE indica la presenza di uno sconto
+<3> Importo base, deve essere usato con la percentuale per calcolare l’importo
+<4> Percentuale maggiorazione
+<5> stem:["Importo" = "Importo base" times ("Percentuale" div 100)]

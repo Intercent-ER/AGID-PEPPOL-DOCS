@@ -1,7 +1,7 @@
-[[description-of-selected-parts-of-the-order-agreement-message]]
-= Description of selected parts of the order agreement message
+[[description-of-selected-parts-of-the-order-message]]
+= Descrizione di parti selezionate dell'ordine pre-concordato
 
-Following clauses describe the use of individual sections of the order agreement transaction.
+I paragrafi seguenti descrivono l'uso delle singole sezioni della transazione per l'ordine pre-concordato.
 
 :leveloffset: +1
 

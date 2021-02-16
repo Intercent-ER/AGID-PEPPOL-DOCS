@@ -2,12 +2,19 @@
 
 Product identification may be done using the identifiers described below:
 
-* Sellers ID
-* Standard ID, e.g. the GS1 Global Trade Item Number (GTIN)
-* Buyers ID
 
-The order agreement requires that an item has an identifier. This can be either the sellers identifier or a standard identifier. Which identifier to use depends on what is known at the time of the purchase or what is commonly used in the relevant business sector.
+* il codice attribuito dal Fornitore (elemento “SellersItemIdentification/ID”);
 
+* il codice standard, corrispondente all’identificativo assegnato al prodotto da un sistema di identificazione univoca (elemento “StandardItemIdentification/ID”) selezionato tra quelli presenti nell’apposita code list PEPPOL "ISO 6523 ICD list".
+
+* il codice attribuito dal Cliente (elemento “SellersItemIdentification/ID”);
+
+
+The order agreement requires that an item has an identifier. This can be either the sellers identifier or a standard identifier. 
+
+
+
+Quale identificatore deve essere usato dipende dalle informazioni conosciute al momento dell’ordine o da quello comunemente utilizzato nel settore business di riferimento.
 
 .Example of an PEPPOL BIS Order Agreement item using both Sellers ID and Standard ID (GTIN)
 [source, xml, indent=0]
@@ -15,14 +22,15 @@ The order agreement requires that an item has an identifier. This can be either 
 include::{snippet-dir}/OA full.xml[tags=ItemIdentifiers]
 ----
 
-= Product name and description
+[[product-name-and-description]]
+= Nome prodotto e descrizione
 
-The Product name must be sent in the element `cac:Item/cbc:Name` on line level. Description of a product can be sent in `cac:Item/cbc:Description`.
-The Product name is often sent in the order agreement from the buyer to the seller.
+Il nome del Prodotto deve essere fornito nell’elemento `cac:Item/cbc:Name` a livello di riga. La sua descrizione può essere fornita in `cac:Item/cbc:Description`.
+
+Il nome del prodotto è spesso inviato dall'Acquirente al Venditore nell'ordine pre-concordato.
 
 
-
-.Example in an PEPPOL BIS Order Agreement message
+.Esempio di ordine con descrizione e nome:
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/OA full.xml[tags=ItemDescription]

@@ -18,7 +18,7 @@ include::_scope.adoc[]
 
 include::_goals.adoc[]
 
-include::_parties.adoc[]
+include::_partiesandroles.adoc[]
 
 include::_benefits.adoc[]
 

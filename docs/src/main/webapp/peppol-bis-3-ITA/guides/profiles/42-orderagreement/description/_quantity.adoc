@@ -1,17 +1,23 @@
-= Quantities and units
+[[quantities-and-units]]
+= Quantità e unità di misura
 
-Various Quantities and Units can be stated in the PEPPOL BIS Order Agreement. These are both related to the ordering process and the logistics process.
+Nell’Ordine PEPPOL possono essere fornite diverse Quantità e le relative Unità di misura. Esse sono relazionate sia al processo dell’ordine che a quello della logistica. +
 
-The table below lists quantities and units in the format. To all quantities there must be a valid Unit of measure according to the Code list.
+La tabella seguente elenca le quantità e le relative unità di misura previste. Ogni quantità deve avere la sua unità di misura espressa secondo la codelist "Recommandation 20".
 
-[cols="2,4",options="header",]
+[cols="1,3",options="header"]
 |====
-|Element name / (Tag name) |Description
-|Price Quantity / (BaseQuantity) |Quantity related to Price.
-|Order Quantity / (Quantity) |Quantity that is ordered, e.g. number of pieces or volume in litre .
+|Nome elemento / (Tag name)
+|Descrizione
+
+|Price Quantity +
+(`cbc:BaseQuantity`)
+|Quantità relative al Prezzo.
+
+|Order Quantity +
+(`cbc:Quantity`)
+|Quantità ordinate, es. Il numero dei pezzi o il volume in litri.
 |====
-
-
 
 .Example of an order agreement line with a quantity of 120 pieces (cbc:Quantity) and price is given per 12 items. When calculating the line amount the price is applied pr 12 pieces, that is 120/12x50 = €500
 [source, xml, indent=0]

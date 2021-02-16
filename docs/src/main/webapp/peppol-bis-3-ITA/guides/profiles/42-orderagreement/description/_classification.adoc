@@ -1,11 +1,13 @@
 [[classification]]
-= Classification
+= Classificazione
 
-An item may be classified according to UNSPSC being the mandatory public classification schemes in some countries/sectors.
-As there is currently no code for UNSPSC in the used code list UNCL 7143, the code "MP" (Product/service identification number) is used.
-Products can also be classified according to regulatory schemes or classification schemes used in certain business sectors.
+Un artioclo potrebbe essere classificato in accordo alla tassonomia *UNSPSC* (United Nations Standard Products and Services Code), la quale rappresenta la classificazione pubblica obbligatoria degli schemi in alcuni paesi/settori. +
 
-.Example:
+Considerato che non è presente nessun codice per la UNSPSC al momento nella codelist UNCL 7143, si può usare il codice "MP" (Numero di identificazione bene/servizio). +
+
+I prodotti posso essere inoltre classificati secondo gli schemi regolatori o classificatori usati in alcuni settori di business.
+
+.Esempio:
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/OA full.xml[tags=classification]

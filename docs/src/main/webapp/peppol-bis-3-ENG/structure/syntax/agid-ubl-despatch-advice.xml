@@ -74,8 +74,7 @@
       			<Element agid:custom="rule">
       				  <Term>cbc:ID</Term>
       				  <Name>Order document reference </Name>
-      			    <Description>Used to provide a reference to the order on which the despatch is
-					based.</Description>
+      			    <Description>Used to provide a reference to the order on which the despatch is based by indicaing the "identification triplet" (so-called Tripletta di identificazione).</Description>
                 <DataType>Identifier</DataType>
                 <Reference type="BUSINESS_TERM">tir16-006</Reference>
                 <Value type="EXAMPLE">4321#2013-01-30#ABCDEF</Value>
@@ -111,9 +110,8 @@
         </Element-->
         <Element>
             <Term>cac:DespatchSupplierParty</Term>
-            <Name>Speditore</Name>
-            <Description>The e-mail address for the contact person. If the person has a
-							direct e-mail this is that email.</Description>
+            <Name>Despatching party information</Name>
+            <Description>The Despatch Party is the person or organization who provides (despatch) the goods or services. The role is carried out by the supplier or on behalf of the supplier. (Despatch Party is sometimes known as the Consignor).</Description>
             <Element>
                 <Term>cac:Party</Term>
                 	<Name>Party information</Name>
@@ -279,7 +277,7 @@
         </Element>
         <Element>
             <Term>cac:DeliveryCustomerParty</Term>
-            <Name>Consegnatario</Name>
+            <Name>Consignee information</Name>
             <Description>The consignee is the person or organization to which the products will be shipped and who is taking possession. The role is carried out by the customer or on behalf of the customer.</Description>
             <Element>
                 <Term>cac:Party</Term>
@@ -446,7 +444,7 @@
         </Element>
         <Element cardinality="0..1">
             <Term>cac:BuyerCustomerParty</Term>
-            <Name>Acquirente</Name>
+            <Name>Buyer</Name>
             <Description>The buyer is the legal person or organization who buys or purchases the
 				goods or services. The role is carried out by the customer or on behalf of the
 				customer</Description>
@@ -518,7 +516,9 @@
                     <Element agid:custom="cardinality">
                         <Term>cbc:PostalZone</Term>
                         <Name>Post code</Name>
-            						<Description>Codice Postale</Description>
+            						<Description>The identifier for an addressable group of properties according
+							to the relevant national postal service, such as a ZIP code or Post
+							Code.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p028</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
@@ -567,7 +567,7 @@
         </Element>
         <Element cardinality="0..1">
             <Term>cac:SellerSupplierParty</Term>
-            <Name>Venditore</Name>
+            <Name>Seller</Name>
             <Description>The seller is the legal person or organization who sells goods or services
 				to the customer. The role is carried out by the supplier or on behalf of the
 				supplier.</Description>
@@ -639,7 +639,9 @@
                     <Element agid:custom="cardinality">
                         <Term>cbc:PostalZone</Term>
                         <Name>Post code</Name>
-            						<Description>Codice Postale</Description>
+            						<Description>The identifier for an addressable group of properties according
+							to the relevant national postal service, such as a ZIP code or Post
+							Code.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p021</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
@@ -688,7 +690,7 @@
         </Element>
         <Element cardinality="0..1">
             <Term>cac:OriginatorCustomerParty</Term>
-            <Name>Committente</Name>
+            <Name>Originator customer party</Name>
             <Description>The party who will eventually receive and consume the goods and on whose behalf the buyer makes the purchase.</Description>
             <Element>
                 <Term>cac:Party</Term>
@@ -973,7 +975,7 @@
                         </Element>
                         <Element>
                             <Term>cac:Country</Term>
-                            <Name>Country - Nazione</Name>
+                            <Name>Country</Name>
                             <Element>
                                 <Term>cbc:IdentificationCode</Term>
                                 <Name>Country code</Name>

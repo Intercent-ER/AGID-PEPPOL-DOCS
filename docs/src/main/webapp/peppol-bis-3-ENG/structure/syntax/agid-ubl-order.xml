@@ -36,8 +36,7 @@
 			<Term>cbc:ProfileID</Term>
 			<Name>Business process type identifier</Name>
 			<Description>Identifies the BII profile or business process context in which the
-				transaction appears. Values to be used are either urn:fdc:peppol.eu:poacc:bis:order_only:3
-				or urn:fdc:peppol.eu:poacc:bis:ordering:3</Description>
+				transaction appears. Values to be used are either urn:fdc:peppol.eu:poacc:bis:order_only:3 (for Order only) or urn:fdc:peppol.eu:poacc:bis:ordering:3 (for Ordering</Description>
 			<DataType>Identifier</DataType>
 			<Reference type="BUSINESS_TERM">tir01-002</Reference>
 			<Value type="EXAMPLE">urn:fdc:peppol.eu:poacc:bis:order_only:3</Value>
@@ -194,8 +193,8 @@
 			<Name>Additional documents</Name>
 			<Element>
 				<Term>cbc:ID</Term>
-				<Name>Document identifier - Identificativo del documento</Name>
-				<Description>An identifier for the referenced document (e.g the Unique Project Reference (CUP), Despatch Advice ID or the Expenditure Commitment ID).</Description>
+				<Name>Document identifier</Name>
+				<Description>An identifier for the document reference (e.g the Unique Project Reference - i.e CUP, Despatch Advice ID, the Expenditure Commitment ID, etc.).</Description>
 				<Reference type="BUSINESS_TERM">tir01-154</Reference>
 				<Value type="EXAMPLE">doc-34</Value>
 			</Element>
@@ -209,7 +208,7 @@
 			</Element>
 			<Element cardinality="0..1">
 				<Term>cac:Attachment</Term>
-				<Name>Attachment - Allegato</Name>
+				<Name>Attachment</Name>
 				<Element cardinality="0..1">
 					<Term>cbc:EmbeddedDocumentBinaryObject</Term>
 					<Name>Attached document</Name>
@@ -256,8 +255,7 @@
 			<Element>
 				<Term>cbc:ID</Term>
 				<Name>Reference identifier</Name>
-				<Description>Positive identification of the reference such as a unique
-					identifier.</Description>
+				<Description>Indicates the ID of the contract to which the Order refers, if the contract is at the header level.</Description>
 				<DataType>Document reference</DataType>
 				<Reference type="BUSINESS_TERM">tir01-019</Reference>
 			</Element>
@@ -278,7 +276,7 @@
 					<Attribute>
 						<Term>schemeID</Term>
 						<Name>Scheme identifier</Name>
-						<Description>:Scheme identifier for the buyer party's electronic address.</Description>
+						<Description>Scheme identifier for the buyer party's electronic address.</Description>
 						<Reference type="CODE_LIST">eas</Reference>
 						<Value type="EXAMPLE">0201</Value>
 					</Attribute>
@@ -304,11 +302,11 @@
 				</Element>
 				<Element agid:custom="cardinality">
 					<Term>cac:PartyName</Term>
-					<Name>Party name - Denominazione della parte</Name>
+					<Name>Party name</Name>
 					<Element>
 						<Term>cbc:Name</Term>
 						<Name>Buyer name</Name>
-						<Description>Name of buyer The name of the party who orders the listed
+						<Description>Name of buyer. The name of the party who orders the listed
 							items.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir01-023</Reference>
@@ -419,7 +417,7 @@
 				</Element>
 				<Element>
 					<Term>cac:PartyLegalEntity</Term>
-					<Name>Buyer legal information - Informazioni legali del Cliente</Name>
+					<Name>Buyer legal information</Name>
 					<Description>Informazioni legali del Cliente</Description>
 					<Element>
 						<Term>cbc:RegistrationName</Term>
@@ -735,7 +733,7 @@
 		</Element>
 		<Element cardinality="0..1">
 			<Term>cac:OriginatorCustomerParty</Term>
-			<Name>Originator party - Committente</Name>
+			<Name>Originator party</Name>
 			<Description>Information regarding the originator of the order.</Description>
 			<Element>
 				<Term>cac:Party</Term>
@@ -809,7 +807,7 @@
 		</Element>
 		<Element cardinality="0..1">
 			<Term>cac:AccountingCustomerParty</Term>
-			<Name>Invoicee party - Intestatario fattura</Name>
+			<Name>Invoicee party</Name>
 			<Description>Information regarding the receiver of the invoice based on the order
 				(Invoicee)</Description>
 			<Element>
@@ -1067,7 +1065,6 @@
 		<Element cardinality="0..1">
 			<Term>cac:Delivery</Term>
 			<Name>Delivery information</Name>
-			<Description>Informazioni sulla consegna.</Description>
 			<Element cardinality="0..1">
 				<Term>cac:DeliveryLocation</Term>
 				<Name>Delivery location</Name>
@@ -1181,7 +1178,7 @@
 					<Term>cbc:StartDate</Term>
 					<Name>Period start date</Name>
 					<Description>The date on which the period starts. The start dates counts as part
-						of the period.Format ="YYYY-MM-DD"</Description>
+						of the period. Format ="YYYY-MM-DD"</Description>
 					<DataType>Date</DataType>
 					<Reference type="BUSINESS_TERM">tir01-099</Reference>
 				</Element>
@@ -1189,7 +1186,7 @@
 					<Term>cbc:EndDate</Term>
 					<Name>Period end date</Name>
 					<Description>The date on which the period ends. The end date counts as part of
-						the period.Format ="YYYY-MM-DD".</Description>
+						the period. Format ="YYYY-MM-DD".</Description>
 					<DataType>Date</DataType>
 					<Reference type="BUSINESS_TERM">tir01-100</Reference>
 				</Element>
@@ -1210,8 +1207,8 @@
                                                 <Reference type="RULE">NSO_010</Reference>
 						<Attribute usage="Optional">
 							<Term>schemeID</Term>
-							<Name>Deliver party registration identifier identification scheme identifier - Scheme identifier identificativo beneficiario fornitura</Name>
-							<Description>Indica lo scheme identifier dell'identificativo del beneficiario fornitura</Description>
+							<Name>Deliver party registration identifier identification scheme identifier</Name>
+							<Description>The identification scheme identifier of the deliverparty identifier.</Description>
 							<Reference type="CODE_LIST">ICD</Reference>
 							<Value type="EXAMPLE">0002</Value>
 						</Attribute>
@@ -1388,7 +1385,7 @@
 		</Element>
 		<Element cardinality="0..1">
 			<Term>cac:PaymentTerms</Term>
-			<Name>Payment terms - Termini di pagamento</Name>
+			<Name>Payment terms</Name>
 			<Element>
 				<Term>cbc:Note</Term>
 				<Name>Payment terms</Name>
@@ -1400,7 +1397,7 @@
 		<Element cardinality="0..n">
 			<Term>cac:AllowanceCharge</Term>
 			<Name>Allowance and charge information</Name>
-			<Description>Allowances and charges for the order</Description>
+			<Description>Contains the indication about allowances and charges at the document level</Description>
 			<Element>
 				<Term>cbc:ChargeIndicator</Term>
 				<Name>AllowanceChargeIndicator</Name>
@@ -1553,7 +1550,7 @@
 		<Element cardinality="0..1">
 			<Term>cac:AnticipatedMonetaryTotal</Term>
 			<Name>Anticipated monetary total</Name>
-			<Description>stimated total amounts for the order</Description>
+			<Description>Estimated total amounts for the order</Description>
 			<Element>
 				<Term>cbc:LineExtensionAmount</Term>
 				<Name>Sum of line amounts</Name>
@@ -1853,11 +1850,10 @@
 					<Element cardinality="0..1">
 						<Term>cac:PartyIdentification</Term>
 						<Name>Party identification</Name>
-						<Description>Identification of the originator </Description>
 						<Element agid:custom="rule">
 							<Term>cbc:ID</Term>
 							<Name>Order line originator party ID</Name>
-							<Description>The party who originated Order.</Description>
+							<Description>Identification of the originator</Description>
 							<Reference type="BUSINESS_TERM">tir01-121</Reference>
                                                         <Reference type="RULE">NSO_010</Reference>
 							<Attribute usage="optional">
@@ -1873,11 +1869,10 @@
 					<Element cardinality="0..1">
 						<Term>cac:PartyName</Term>
 						<Name>Party name</Name>
-						<Description>Name of the originator</Description>
 						<Element>
 							<Term>cbc:Name</Term>
 							<Name>Order line originator party name</Name>
-							<Description>The party who originated Order.</Description>
+							<Description>Name of the originator</Description>
 							<DataType>Text</DataType>
 							<Reference type="BUSINESS_TERM">tir01-122</Reference>
 							<Value type="EXAMPLE">Mario Rossi</Value>
@@ -1980,10 +1975,7 @@
 						<Term>cbc:PriceAmount</Term>
 						<Name>Item price</Name>
 						<Description>The net price of the item including all allowances, charges and
-							taxes but exluding TAX. Although price is an optional element in an
-							order it recommended as best practice to either state the price or
-							provide reference to an appropriate source from which the price can be
-							identified such as a contract, catalogue or a quote.</Description>
+							taxes but exluding TAX.</Description>
 						<DataType>Price amount</DataType>
 						<Reference type="BUSINESS_TERM">tir01-130</Reference>
 						<Reference type="RULE">PEPPOL-T01-R005</Reference>
@@ -2180,7 +2172,7 @@
 							</Attribute>
 							<Attribute usage="Optional">
 								<Term>name</Term>
-								<Name>Clear text name equivalent of classification code - Descrizione classificazione prodotto</Name>
+								<Name>Clear text name equivalent of classification code</Name>
 								<Description>The textual equivalent of the code value.</Description>
 								<Value type="EXAMPLE">Mobili per ufficio</Value>
 							</Attribute>
@@ -2225,7 +2217,7 @@
 					<Element cardinality="0..n">
 						<Term>cac:AdditionalItemProperty</Term>
 						<Name>Additional item property information</Name>
-						<Description>A group of business terms providing information about properties of the goods and services invoiced.</Description>
+						<Description>A group of business terms providing information about properties of the goods and services invoiced (such as information about the packaging or the calibration date).</Description>
 						<Element>
 							<Term>cbc:Name</Term>
 							<Name>Item property name</Name>

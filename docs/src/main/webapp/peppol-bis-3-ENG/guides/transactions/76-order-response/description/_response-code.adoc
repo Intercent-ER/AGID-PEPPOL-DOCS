@@ -135,10 +135,12 @@ When the order is accepted without amendment (at line level), all the order line
 .Example of Response code on Line level in an Order Response message:
 [source, xml, indent=0]
 ----
-	…
 <cac:OrderLine>
-	<cbc: LineStatusCode listID=”UNCL1229”>7</cbc: LineStatusCode >
-	<cbc:Note>Merce terminata</cbc:Note>
-<cac:LineItem>
+    <cac:LineItem>
+	    <cbc:LineStatusCode>7</cbc:LineStatusCode>
+	    <cbc:Note>Merce terminata</cbc:Note>
+	    …
+	</cac:LineItem>
 	…
+</cac:OrderLine>
 ----

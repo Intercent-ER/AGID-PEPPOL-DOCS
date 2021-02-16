@@ -1,13 +1,13 @@
 [[antiblastici]]
 == #Advances example in the Health sector: anablastics drugs#
 
-In case it is necessary to identify in a more precise way the hazardous items, it is possibile to provide further information i la merce pericolosa è possibile fornire ulteriori informazioni, such as:
+In case it is necessary to identify in a more precise way the hazardous items, it is possibile to provide further information, such as:
 
 * Hazardous item identifier, according to the NDGCode convention;
 * Hazardous item technical name;
 * Hazardous item category.
 
-Per il trasporto di medicinali pericolosi (antiblastici) su gomma viene usata la convenzione ADR che definisce le classi di pericolosità (Hazard class) e identifica ogni sostanza con un UN Number.
+In the case of hazardous item road transport (e.g. anablastics) the convention ADR is used, which defines the Hazard classes and identifies each substance with an UN Number.
 
 In the table below, the most used identifiers and the related hazard classes for anablastics transportation are provided:
 

@@ -204,7 +204,7 @@
 						<Attribute usage="optional">
 							<Term>schemeID</Term>
 							<Name>Scheme identifier</Name>
-							<Description>Scheme identifier dell'identificativo del Cliente</Description>
+							<Description>Scheme identifier for party identification</Description>
 							<Reference type="CODE_LIST">ICD</Reference>
                                                 </Attribute>
 					</Element>
@@ -273,7 +273,7 @@
 				<Element cardinality="0..1">
 					<Term>cbc:Note</Term>
 					<Name>Response clarification</Name>
-					<Description>Clarifacation of the suppliers decision for the line.</Description>
+					<Description>Clarification of the suppliers decision for the line.</Description>
 					<DataType>Text</DataType>
 					<Reference type="BUSINESS_TERM">tir76-204</Reference>
 					<Value type="EXAMPLE">Ufficio chiuso a Luglio, tutti gli ordini ricevuti verranno processati ad Agosto.</Value>
@@ -281,7 +281,7 @@
 				<Element>
 					<Term>cbc:LineStatusCode</Term>
 					<Name>Response code</Name>
-					<Description>A code that indicates the reference to order line, if the line is accepted without amendment (code "5"), already delivered ("45") not accepted (code "7"), changed (code "3") or added (code "1").</Description>
+					<Description>A code that indicates the reference to order line, if the line is accepted without amendment (code "5"), already delivered ("42") not accepted (code "7"), changed (code "3") or added (code "1").</Description>
 					<Reference type="BUSINESS_TERM">tir76-202</Reference>
 					<Reference type="CODE_LIST">UNCL1229</Reference>
 					<Value type="EXAMPLE">3</Value>
@@ -347,7 +347,7 @@
 						<Reference type="BUSINESS_TERM">tir76-130</Reference>
 						<Attribute>
 							<Term>currencyID</Term>
-							<Description>Identificativo valuta.</Description>
+							<Description>Currency identifier, must have the same value as element "Document currency".</Description>
 							<Reference type="CODE_LIST">ISO4217</Reference>
 							<Reference type="RULE">PEPPOL-T76-R004</Reference>
 							<Value type="EXAMPLE">EUR</Value>
@@ -497,7 +497,7 @@
 							<Attribute usage="Optional">
 								<Term>listVersionID</Term>
 								<Name>Item classification identifier version identification scheme identifier</Name>
-								<Description>Versione dello scheme identifier.</Description>
+								<Description>The identification scheme version identifier of the Item classification identifier.</Description>
         							<Value type="EXAMPLE">20.0601</Value>
 							</Attribute>
                                                         <Attribute usage="Optional">
@@ -543,7 +543,7 @@
 					<Element cardinality="0..n">
 						<Term>cac:AdditionalItemProperty</Term>
 						<Name>Additional item property information</Name>
-						<Description>A group of business terms providing information about properties of the goods and services invoiced.</Description>
+						<Description>A group of business terms providing information about properties of the goods and services invoiced (such as information about the packaging or the calibration date).</Description>
 						<Element>
 							<Term>cbc:Name</Term>
 							<Name>Item property name</Name>

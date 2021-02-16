@@ -1,0 +1,13 @@
+
+[cols="1h,1m,4m", options="header"]
+
+|===
+| Versione
+| Data
+| Cosa è cambiato
+
+| 3.0.0.1(IT)
+a| 14/12/2020
+a| 
+
+|===

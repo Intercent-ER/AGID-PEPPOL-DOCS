@@ -1,22 +1,18 @@
-= Product identification
+[[product-identification]]
+= Identificazione prodotto
 
-Product identification may be done using the identifiers described below:
+L’individuazione del prodotto può essere fatta attraverso l'utilizzo di codici identificativi descritti di seguito:
 
+* il codice attribuito dal Fornitore (elemento `cac:SellersItemIdentification/CBC:ID`);
 
-* il codice attribuito dal Fornitore (elemento “SellersItemIdentification/ID”);
+* il codice attribuito dal Cliente (elemento `cac:BuyersItemIdentification/cbc:ID`);
 
-* il codice standard, corrispondente all’identificativo assegnato al prodotto da un sistema di identificazione univoca (elemento “StandardItemIdentification/ID”) selezionato tra quelli presenti nell’apposita code list PEPPOL "ISO 6523 ICD list".
-
-* il codice attribuito dal Cliente (elemento “SellersItemIdentification/ID”);
-
-
-The order agreement requires that an item has an identifier. This can be either the sellers identifier or a standard identifier. 
-
+* il codice standard, corrispondente all’identificativo assegnato al prodotto da un sistema di identificazione univoca (elemento `cac:StandardItemIdentification/cbc:ID`) selezionato tra quelli presenti nell’apposita code list PEPPOL "ISO 6523 ICD list".
 
 
 Quale identificatore deve essere usato dipende dalle informazioni conosciute al momento dell’ordine o da quello comunemente utilizzato nel settore business di riferimento.
 
-.Example of an PEPPOL BIS Order Agreement item using both Sellers ID and Standard ID (GTIN)
+.Esempio di ordine pre-concordato con Seller ID e Standard ID (GTIN):
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/OA full.xml[tags=ItemIdentifiers]

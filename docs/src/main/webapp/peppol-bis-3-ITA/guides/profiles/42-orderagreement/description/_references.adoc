@@ -1,24 +1,24 @@
-= References
+= Riferimenti
 
-When sending the order agreement transaction the seller may include a reference that the buyers gave to him during the purchase. This reference can be of different nature and since it originates from the buyer it is understood by him.
+Durante l'invio di un ordine pre-concordato un Venditore può includere un riferimento chel'Acquirente gli ha fornito durante l'acquisto. Questo riferimento può essere di diversa natura e considerato che è originato dall'Acquirente, è lui il soggetto che lo capisce.
 
-.Example
+.Esempio
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/OA full.xml[tags=CustomerReference]
 ----
 
-The order agreement may refrence a previous order agreement. This may be relevant, as example, when the buyer has changed a previous order.
+L'ordine pre-concordato può riferirsi a un precedente ordine pre-concordato. Questo può essere rilevante, ad esempio, quando l'Acquirente ha modificato un ordine precedente.
 
-.Example
+.Esempio
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/OA full.xml[tags=OrderReference]
 ----
 
-The order agreement may reference a contract that applies to the purchase.
+L'ordine pre-concordato può riferirsi ad un contratto che si applica all'acquisto.
 
-.Example
+.Esempio
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/OA full.xml[tags=contract]

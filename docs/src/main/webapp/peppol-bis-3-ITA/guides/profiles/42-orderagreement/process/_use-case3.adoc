@@ -1,5 +1,5 @@
 [[use-case-3-telephone-and-e-mail-is-used-to-order-items]]
-== Caso d’uso 3 – Utilizzo dei canali telefono/e-mail per ordinare articoli
+= Caso d’uso 3 – Utilizzo dei canali telefono/e-mail per ordinare articoli
 
 Questo caso d’uso descrive il processo dove un cliente/Acquirente ordina prodotti tramite telefono/e-mail.
 

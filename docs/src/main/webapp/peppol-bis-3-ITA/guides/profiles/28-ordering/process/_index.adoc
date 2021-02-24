@@ -30,25 +30,25 @@ Il flusso del processo dell’Ordine di fornitura e della risposta può essere d
 *   Dopo la ricezione della Risposta d’Ordine che respinge l’Ordine, l’Acquirente può iniziare un nuovo processo di ordine, tenendo conto dei motivi del rigetto da parte del Venditore.
 
 [[Requisiti-dei-processi-di-business]]
-== Requisiti dei processi di business
+== #Requisiti dei processi di business#
 
-#A fronte della ricezione dell’Ordine, il Fornitore trasmette una Risposta , che deve contenere l’indicazione
+A fronte della ricezione dell’Ordine, il Fornitore trasmette una Risposta , che deve contenere l’indicazione
 dell’Ordine precedentemente inviato a cui si risponde, con la quale comunica al
 Cliente, alternativamente, che intende:# +
 
-* #comunicare di aver ricevuto l’Ordine (Risposta di ricezione);#
-* #accettare l’Ordine ricevuto (Risposta di accettazione);#
-* #declinare l’Ordine ricevuto (Risposta di diniego);#
-* #apportare modifiche all’Ordine ricevuto (Risposta con modifiche).#
+* comunicare di aver ricevuto l’Ordine (Risposta di ricezione);
+* accettare l’Ordine ricevuto (Risposta di accettazione);
+* declinare l’Ordine ricevuto (Risposta di diniego);
+* apportare modifiche all’Ordine ricevuto (Risposta con modifiche).
 
 
-#La Risposta con modifiche deve
+La Risposta con modifiche deve
 contenere tutte le linee d’ordine, sia quelle che si intente mantenere sia quelle che si
 intende modificare, in quanto integra l’Ordine precedentemente trasmesso a cui fa
-riferimento.# +
+riferimento. +
 
 
-#La Risposta a un Ordine revocato non ha effetti per il Cliente.#
+La Risposta a un Ordine revocato non ha effetti per il Cliente.
 
 
 :leveloffset: +1

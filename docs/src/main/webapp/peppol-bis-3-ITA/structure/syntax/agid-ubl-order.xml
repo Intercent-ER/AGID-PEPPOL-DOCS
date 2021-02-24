@@ -358,7 +358,7 @@
 							<DataType>Code</DataType>
 							<Reference type="BUSINESS_TERM">tir01-033</Reference>
 							<Reference type="CODE_LIST">ISO3166</Reference>
-							<Value type="EXAMPLE">NL</Value>
+							<Value type="EXAMPLE">IT</Value>
 						</Element>
 					</Element>
 				</Element>
@@ -433,7 +433,7 @@
 								<DataType>Code</DataType>
 								<Reference type="BUSINESS_TERM">tir01-046</Reference>
 								<Reference type="CODE_LIST">ISO3166</Reference>
-								<Value type="EXAMPLE">NL</Value>
+								<Value type="EXAMPLE">IT</Value>
 							</Element>
 						</Element>
 					</Element>
@@ -585,7 +585,7 @@
 							<DataType>Code</DataType>
 							<Reference type="BUSINESS_TERM">tir01-069</Reference>
 							<Reference type="CODE_LIST">ISO3166</Reference>
-							<Value type="EXAMPLE">NL</Value>
+							<Value type="EXAMPLE">IT</Value>
 						</Element>
 					</Element>
 				</Element>
@@ -1194,7 +1194,7 @@
 							<Description>Ulteriori informazioni indirizzo.</Description>
 							<DataType>Text</DataType>
 							<Reference type="BUSINESS_TERM">tir01-p034</Reference>
-							<Value type="EXAMPLE">Gate 34</Value>
+							<Value type="EXAMPLE">Ingresso 34</Value>
 						</Element>
 					</Element>
 					<Element>
@@ -1207,7 +1207,7 @@
 							<DataType>Code</DataType>
 							<Reference type="BUSINESS_TERM">tir01-p035</Reference>
 							<Reference type="CODE_LIST">ISO3166</Reference>
-							<Value type="EXAMPLE">NL</Value>
+							<Value type="EXAMPLE">IT</Value>
 						</Element>
 					</Element>
 				</Element>
@@ -1235,7 +1235,7 @@
 			<Element cardinality="0..1">
 				<Term>cbc:ID</Term>
 				<Name>Delivery terms identifier - Identificativo dei termini di trasferimento dei beni</Name>
-				<Description>Indica i l’applicazione di particolari regole per il trasferimento dei beni </Description>
+				<Description>Indica l’applicazione di particolari regole per il trasferimento dei beni </Description>
 				<DataType>Text</DataType>
 				<Reference type="BUSINESS_TERM">tir01-107</Reference>
 				<Value type="EXAMPLE">FOB</Value>
@@ -1340,6 +1340,7 @@
 				<Reference type="BUSINESS_TERM">tir01-p010</Reference>
 				<Attribute>
 					<Term>currencyID</Term>
+					<Name>Currency identifier - Identificativo valuta</Name>
 					<Description>Identificativo valuta</Description>
 					<Reference type="CODE_LIST">ISO4217</Reference>
 					<Reference type="RULE">PEPPOL-T01-R003</Reference>
@@ -1395,6 +1396,7 @@
 				<Reference type="RULE">PEPPOL-T01-R028</Reference>
 				<Attribute>
 					<Term>currencyID</Term>
+					<Name>Currency identifier - Identificativo valuta</Name>
 					<Description>Identificativo valuta.</Description>
 					<Reference type="CODE_LIST">ISO4217</Reference>
 					<Reference type="RULE">PEPPOL-T01-R003</Reference>
@@ -1418,6 +1420,7 @@
 				<Reference type="RULE">PEPPOL-T01-R028</Reference>
 				<Attribute>
 					<Term>currencyID</Term>
+					<Name>Currency identifier - Identificativo valuta</Name>
 					<Description>Identificativo valuta.</Description>
 					<Reference type="CODE_LIST">ISO4217</Reference>
 					<Reference type="RULE">PEPPOL-T01-R003</Reference>
@@ -1435,6 +1438,7 @@
 				<Reference type="RULE">PEPPOL-T01-R028</Reference>
 				<Attribute>
 					<Term>currencyID</Term>
+					<Name>Currency identifier - Identificativo valuta</Name>
 					<Description>Identificativo valuta</Description>
 					<Reference type="CODE_LIST">ISO4217</Reference>
 					<Reference type="RULE">PEPPOL-T01-R003</Reference>
@@ -1452,6 +1456,7 @@
 				<Reference type="RULE">PEPPOL-T01-R028</Reference>
 				<Attribute>
 					<Term>currencyID</Term>
+					<Name>Currency identifier - Identificativo valuta</Name>
 					<Description>Identificativo valuta.</Description>
 					<Reference type="CODE_LIST">ISO4217</Reference>
 					<Reference type="RULE">PEPPOL-T01-R003</Reference>
@@ -1469,6 +1474,7 @@
 				<Reference type="RULE">PEPPOL-T01-R028</Reference>
 				<Attribute>
 					<Term>currencyID</Term>
+					<Name>Currency identifier - Identificativo valuta</Name>
 					<Description>Identificativo valuta.</Description>
 					<Reference type="CODE_LIST">ISO4217</Reference>
 					<Reference type="RULE">PEPPOL-T01-R003</Reference>
@@ -1486,6 +1492,7 @@
 				<Reference type="RULE">PEPPOL-T01-R028</Reference>
 				<Attribute>
 					<Term>currencyID</Term>
+					<Name>Currency identifier - Identificativo valuta</Name>
 					<Description>Identificativo valuta.</Description>
 					<Reference type="CODE_LIST">ISO4217</Reference>
 					<Reference type="RULE">PEPPOL-T01-R003</Reference>
@@ -1501,6 +1508,7 @@
 				<Reference type="RULE">PEPPOL-T01-R028</Reference>
 				<Attribute>
 					<Term>currencyID</Term>
+					<Name>Currency identifier - Identificativo valuta</Name>
 					<Description>Identificativo valuta</Description>
 					<Reference type="CODE_LIST">ISO4217</Reference>
 					<Reference type="RULE">PEPPOL-T01-R003</Reference>
@@ -1517,12 +1525,13 @@
 				<Reference type="RULE">PEPPOL-T01-R028</Reference>
 				<Attribute>
 					<Term>currencyID</Term>
+					<Name>Currency identifier - Identificativo valuta</Name>
 					<Description>Identificativo valuta.</Description>
 					<Reference type="CODE_LIST">ISO4217</Reference>
 					<Reference type="RULE">PEPPOL-T01-R003</Reference>
 					<Value type="EXAMPLE">EUR</Value>
 				</Attribute>
-				<Value type="EXAMPLE">200</Value>
+				<Value type="EXAMPLE">0.13</Value>
 			</Element>
 			<Element>
 				<Term>cbc:PayableAmount</Term>
@@ -1535,6 +1544,7 @@
 				<Reference type="RULE">PEPPOL-T01-R028</Reference>
 				<Attribute>
 					<Term>currencyID</Term>
+					<Name>Currency identifier - Identificativo valuta</Name>
 					<Description>Identificativo valuta.</Description>
 					<Reference type="CODE_LIST">ISO4217</Reference>
 					<Reference type="RULE">PEPPOL-T01-R003</Reference>
@@ -1602,6 +1612,7 @@
 					<Reference type="RULE">PEPPOL-T01-R028</Reference>
 					<Attribute>
 						<Term>currencyID</Term>
+						<Name>Currency identifier - Identificativo valuta</Name>
 						<Description>Identificativo valuta.</Description>
 						<Reference type="CODE_LIST">ISO4217</Reference>
 						<Reference type="RULE">PEPPOL-T01-R003</Reference>
@@ -1643,7 +1654,7 @@
 							<Value type="EXAMPLE">0088</Value>
 						</Attribute>
 						<Value type="EXAMPLE">7300010000001</Value>
-					</Element>				
+					</Element>
 					<Element>
 						<Term>cac:RequestedDeliveryPeriod</Term>
 						<Name>Order line requested delivery period - Periodo di esecuzione della linea d’ordine</Name>
@@ -1753,6 +1764,7 @@
 						<Reference type="BUSINESS_TERM">tir01-p018</Reference>
 						<Attribute>
 							<Term>currencyID</Term>
+							<Name>Currency identifier - Identificativo valuta</Name>
 							<Description>Identificativo valuta</Description>
 							<Reference type="CODE_LIST">ISO4217</Reference>
 							<Reference type="RULE">PEPPOL-T01-R003</Reference>
@@ -1770,6 +1782,7 @@
 						<Reference type="BUSINESS_TERM">tir01-p019</Reference>
 						<Attribute>
 							<Term>currencyID</Term>
+							<Name>Currency identifier - Identificativo valuta</Name>
 							<Description>Identificativo valuta</Description>
 							<Reference type="CODE_LIST">ISO4217</Reference>
 							<Reference type="RULE">PEPPOL-T01-R003</Reference>
@@ -1791,6 +1804,7 @@
 						<Reference type="RULE">PEPPOL-T01-R019</Reference>
 						<Attribute>
 							<Term>currencyID</Term>
+							<Name>Currency identifier - Identificativo valuta</Name>
 							<Description>Identificativo valuta.</Description>
 							<Reference type="CODE_LIST">ISO4217</Reference>
 							<Reference type="RULE">PEPPOL-T01-R003</Reference>
@@ -1834,6 +1848,7 @@
 							<Reference type="BUSINESS_TERM">tir01-p006</Reference>
 							<Attribute>
 								<Term>currencyID</Term>
+								<Name>Currency identifier - Identificativo valuta</Name>
 								<Description>Identificativo valuta</Description>
 								<Reference type="CODE_LIST">ISO4217</Reference>
 								<Reference type="RULE">PEPPOL-T01-R003</Reference>
@@ -1843,13 +1858,14 @@
 						</Element>
 						<Element cardinality="0..1">
 							<Term>cbc:BaseAmount</Term>
-							<Name>Item list price  -Prezzo base</Name>
+							<Name>Item list price - Prezzo base</Name>
 							<Description>Indica il prezzo del bene prima di applicare lo sconto (prezzo di listino).</Description>
 							<DataType>Price amount</DataType>
 							<Reference type="BUSINESS_TERM">tir01-152</Reference>
 							<Reference type="RULE">PEPPOL-T01-R027</Reference>
 							<Attribute>
 								<Term>currencyID</Term>
+								<Name>Currency identifier - Identificativo valuta</Name>
 								<Description>Identificativo valuta.</Description>
 								<Reference type="CODE_LIST">ISO4217</Reference>
 								<Reference type="RULE">PEPPOL-T01-R003</Reference>
@@ -2049,7 +2065,6 @@
 								<Reference type="CODE_LIST">UNECERec20</Reference>
 								<Value type="EXAMPLE">CMT</Value>
 							</Attribute>
-							<Value type="EXAMPLE">10</Value>
 						</Element>
 						<Element cardinality="0..1">
 							<Term>cbc:ValueQualifier</Term>

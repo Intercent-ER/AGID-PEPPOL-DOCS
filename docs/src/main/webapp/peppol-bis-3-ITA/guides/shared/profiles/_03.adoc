@@ -12,6 +12,6 @@ Nella tabella seguente troverai i valori da utilizzare come identificatore della
 
 
 | Order (Trdm01)
-| #urn:fdc:peppol.eu:poacc:trns:order:3 :restrictive:urn:www.agid.gov.it:trns:ordine:3.1#
+| #urn:fdc:peppol.eu:poacc:trns:order:3 :restrictive:urn:www.agid.gov.it:trns:ordine:3.2#
 | urn:fdc:peppol.eu:poacc:bis:order_only:3
 |===

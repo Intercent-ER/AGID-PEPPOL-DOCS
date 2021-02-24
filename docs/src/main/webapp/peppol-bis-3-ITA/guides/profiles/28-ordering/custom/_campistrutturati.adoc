@@ -19,22 +19,20 @@ I campi strutturati ammessi sono, esclusivamente e tassativamente, quelli elenca
 |Ordine
 
 |OrderReference/ID
-|Ordine +
-Ordine Pre-concordato
+|Risposta
 
 |DeliveryTerms/SpecialTerms
-|Ordine +
-Ordine Pre-concordato
+|Ordine 
 
 |AccountingCost
-|Ordine
+|Ordine 
 
 |AdditionalDocumentReference/ID
-|Ordine +
-Ordine Pre-concordato
+|Ordine 
+
 
 |ItemSpecificationDocumentReference/ID
-|Ordine +
-Ordine Pre-concordato
+|Ordine 
+
 
 |===

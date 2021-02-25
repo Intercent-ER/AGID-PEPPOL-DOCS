@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Structure xmlns="urn:fdc:difi.no:2017:vefa:structure-1">
+<Structure xmlns="urn:fdc:difi.no:2017:vefa:structure-1" xmlns:agid="urn:fdc:agid.gov.it:peppol:customization">
 	<Term>OrderAgreement</Term>
+	<agid:Restriction>
+		<agid:ID>urn:www.ubl-italia.org:spec:ordine:ver3.1</agid:ID>
+		<agid:Name>Linee guida per lo schema XML - Ordinazione Pre-Concordata 3.0</agid:Name>
+		<agid:Version>3.1</agid:Version>
+	</agid:Restriction>
 
 	<Property key="sch:prefix">PEPPOL-T110</Property>
 	<Property key="sch:identifier">T110-basic</Property>

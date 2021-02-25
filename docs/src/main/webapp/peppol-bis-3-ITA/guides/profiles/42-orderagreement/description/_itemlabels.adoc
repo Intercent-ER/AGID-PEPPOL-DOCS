@@ -10,7 +10,7 @@ include::{snippet-dir}/OA full.xml[tags=Certificate]
 
 = Prodotti relativi ad un contratto
 
-Se i beni acquistati sono offerdi in accordo ad un contratto esistente, quest'ultimo dovrebbe essere indicato nell'ordine pre-concordato.
+Se i beni acquistati sono offerti in accordo ad un contratto esistente, quest'ultimo deve essere indicato nell'ordine pre-concordato, valorizzando l'elemento `cac:TransactionConditions/cbc:ActionCode` come riportato nell'esempio seguente:
 
 .Esempio
 [source, xml, indent=0]

@@ -1,5 +1,5 @@
 include::../../shared/_links.adoc[]
-= PEPPOL BIS Ordine pre-concordato {ord_agreement_version_it}
+= PEPPOL BIS Ordinazione Pre-Concordata {ord_agreement_version_it}
 Note di Rilascio
 :doctype: book
 :icons: font

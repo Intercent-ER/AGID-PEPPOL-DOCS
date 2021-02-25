@@ -10,7 +10,7 @@
 I campi strutturati ammessi sono, esclusivamente e tassativamente, quelli elencati nella seguente tabella:
 
 [cols="2,5", options="header"]
-|====
+|===
 ^.^|Campo strutturato
 ^.^|Tipo Documento PEPPOL
 

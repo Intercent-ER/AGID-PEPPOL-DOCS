@@ -30,6 +30,20 @@ pre-concordato*
 |===
 
 
+*[red]#Ordine di riscontro#*
+
+L’Ordine di riscontro è un sotto-tipo particolare di Ordine con cui il Cliente (Mittente) conferma, declina o sostituisce un Ordine pre-concordato oppure una Risposta inviati dal Fornitore (Destinatario).
+
+L’Ordine di riscontro assume le seguenti varianti: +
+
+*  l’_Ordine di riscontro per conferma_ è un Ordine che contiene l’indicazione che si tratta di una “conferma” (“Accepted”) e il  riferimento all'Ordine Pre-concordato che si intende confermare, inoltre ha una sola linea d’ordine vuota;
+* l’_Ordine di riscontro per diniego_ è un Ordine che contiene l’indicazione che si tratta di un “rifiuto” (“Cancelled”) e il riferimento all'Ordine Pre-concordato che si intende rifiutare, inoltre ha una sola linea d’ordine priva di contenuto;
+* l’_Ordine di riscontro sostitutivo_ è un nuovo Ordine, completo di tutte le linee d’ordine, che contiene l’indicazione che si tratta di una “Sostituzione” (“Revised”) e il riferimento al'Ordine Pre-concordato che si intende sostituire. +
+
+
+[NOTE]
+Gli Ordini di riscontro sostitutivi e gli Ordini di riscontro per diniego, rispettivamente, rimpiazzano e annullano l'Ordine Pre-concordato ivi indicato, sia tutte le altre Sostituzioni e Revoche, già trasmesse, riferite al relativo Ordine iniziale.
+
 
 *[red]#Ordine pre-concordato  di revoca#*
 
@@ -43,8 +57,7 @@ Per le regole di compilazione, vedi paragrafo 6.12.
 *[red]#Ordine pre-concordato sostitutivo#*
 
 Ove occorra le istruzioni contenute in un Ordine (o in un Ordine pre-concordato)
-possono essere modificate mediante l’emissione di un Ordine sostitutivo (o di un
-Ordine pre-concordato sostitutivo). Tuttavia, salvo che non sia previsto diversamente da norme, usi commerciali o accordi tra le parti, il Fornitore è tenuto a considerare efficaci solo le sostituzioni di ordini pervenute prima che abbia dato luogo all’esecuzione della fornitura. 
+possono essere modificate mediante l’emissione di un Ordine pre-concordato sostitutivo. Tuttavia, salvo che non sia previsto diversamente da norme, usi commerciali o accordi tra le parti, il Fornitore è tenuto a considerare efficaci solo le sostituzioni di ordini pervenute prima che abbia dato luogo all’esecuzione della fornitura. 
 
 L’Ordine pre-concordato sostitutivo è un nuovo Ordine, completo di tutte le linee di ordine, che contiene il riferimento all’Ordine che si intende sostituire e l’indicazione che si tratta di una “sostituzione” (“Revised”).
 
@@ -54,7 +67,7 @@ conclusione del processo di fornitura o, perfino, successivamente all’emission
 relativa fattura (quando il Documento è emesso al solo fine regolare aspetti di dettaglio di un processo già concluso).
 
 [NOTE]
-In questi casi l’Ordine sostitutivo deve riportare l’indicazione del sotto-tipo di Ordinazione “OR”, (c.d. “Ordine sostitutivo di regolazione“, vedi paragrafo 4.4).
+In questi casi l’Ordine pre-concordato sostitutivo deve riportare l’indicazione del sotto-tipo di Ordinazione “OR”, (c.d. “Ordine sostitutivo di regolazione“, vedi paragrafo 4.4).
 
 Per le regole di compilazione, vedi paragrafo 6.12.
 
@@ -82,11 +95,11 @@ L’Ordine pre-concordato di convalida può essere utilizzato esclusivamente: +
 * se necessario, per convalidare una fattura emessa a fronte di una Ordinazione già effettuata da un soggetto diverso dal Cliente (ad esempio, da una centrale d’acquisto o da un altro ente che è stato successivamente incorporato, ceduto o diviso).
 
 [NOTE]
-L’Ordine pre-concordato di convalida non deve mai essere usato al posto degli altri strumenti (Ordine di revoca, Ordine sostitutivo e Ordine di riscontro) appositamente realizzati per revocare, sostituire, confermare o rifiutare un altro Documento.
+L’Ordine pre-concordato di convalida non deve mai essere usato al posto degli altri strumenti (Ordine pre-concordato di revoca, Ordine pre-concordato sostitutivo e Ordine di riscontro) appositamente realizzati per revocare, sostituire, confermare o rifiutare un altro Documento.
 
 .Regole di compilazione 
 
-In caso di *Ordine pre-concordato di convalida*, bisogna riportare gli estremi della fattura da regolarizzare nell’elemento “OrderDocumentReference/ID”, valorizzandolo con i valori e l'ordine di successione riportato:
+In caso di *Ordine pre-concordato di convalida*, bisogna riportare gli estremi della fattura da regolarizzare nell’elemento `cac:OrderReference/cbc:ID`, valorizzandolo con i valori e l'ordine di successione riportato:
 
 * il *numero* della fattura che si intende convalidare:
 
@@ -99,9 +112,9 @@ In caso di *Ordine pre-concordato di convalida*, bisogna riportare gli estremi d
 .Esempio
 [source, xml, indent=0]
 ----
-<cac:OrderDocumentReference>
-    <cbc:ID>57#2018-01-30# ITccccccccccc#Invoice</cbc:ID>
-</cac:OrderDocumentReference >
+<cac:OrderReference>
+    <cbc:ID>57#2018-01-30#ITccccccccccc#Invoice</cbc:ID>
+</cac:OrderReference >
 ----
 
 

@@ -147,8 +147,8 @@
 			<Name>Order reference - Documento di riferimento</Name>
 			<Element agid:custom="rule">
 				<Term>cbc:ID</Term>
-				<Name>Riferimento ad un precedente Ordine</Name>
-				<Description>Contiene gli estremi del Documento, precedentemente emesso, a cui fa riferimento il presente Ordine e il suo nuovo stato (“Collegato”, “Accettato”, “Revocato”, “Rifiutato” o “Sostituito”).</Description>
+				<Name>Riferimento ad un precedente Documento</Name>
+				<Description>Contiene gli estremi del Documento, precedentemente emesso, a cui fa riferimento il presente Ordine ed il suo stato ("Connected", “Revised”, "Invoice", etc.).</Description>
 				<DataType>Document reference</DataType>
 				<Reference type="BUSINESS_TERM">tir01-011</Reference>
                                 <Reference type="RULE">NSO0000</Reference>

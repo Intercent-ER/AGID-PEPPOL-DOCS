@@ -161,7 +161,7 @@
 			<Element agid:custom="rule">
 				<Term>cbc:ID</Term>
 				<Name>Order document reference</Name>
-				<Description>It contains the identifier of the Document previously sent (so-called Tripletta) to which the order is referred and its new status ("Cancelled", “Revised”, “Connected”, “Invoice”).</Description>
+				<Description>It contains the identifier of the Document previously sent (so-called Tripletta) to which the order is referred and its status ("Cancelled", “Revised”, “Connected”, “Invoice”).</Description>
 				<DataType>Document reference</DataType>
 				<Reference type="BUSINESS_TERM">tir01-011</Reference>
                                 <Reference type="RULE">NSO0000</Reference>

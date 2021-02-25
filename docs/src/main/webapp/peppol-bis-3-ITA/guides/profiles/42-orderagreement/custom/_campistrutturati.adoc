@@ -9,30 +9,30 @@
 
 I campi strutturati ammessi sono, esclusivamente e tassativamente, quelli elencati nella seguente tabella:
 
-[cols="2,5", options="header"]
+[cols="3,3", options="header"]
 |===
 ^.^|Campo strutturato
 ^.^|Tipo Documento PEPPOL
 
 |OrderDocumentReference/ID
-|Ordine
+|Ordine Semplice
 
 |OrderReference/ID
-|Ordine +
+|Ordine Semplice +
 Ordine Pre-concordato
 
 |DeliveryTerms/SpecialTerms
-|Ordine +
+|Ordine Semplice +
 Ordine Pre-concordato
 
 |AccountingCost
-|Ordine
+|Ordine Semplice
 
 |AdditionalDocumentReference/ID
-|Ordine +
+|Ordine Semplice +
 Ordine Pre-concordato
 
 |ItemSpecificationDocumentReference/ID
-|Ordine +
+|Ordine Semplice +
 Ordine Pre-concordato
 |===

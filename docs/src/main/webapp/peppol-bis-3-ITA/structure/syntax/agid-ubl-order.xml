@@ -29,7 +29,7 @@
 			<DataType>Identifier</DataType>
 			<Reference type="BUSINESS_TERM">tir01-001</Reference>
 			<Reference type="RULE">PEPPOL-T01-B00201</Reference>
-			<Value type="FIXED">urn:fdc:peppol.eu:poacc:trns:order:3:restrictive:urn:www.agid.gov.it:trns:ordine:3.2</Value>
+			<Value type="FIXED">urn:fdc:peppol.eu:poacc:trns:order:3:restrictive:urn:www.agid.gov.it:trns:ordine:3.1</Value>
 		</Element>
 		<Element>
 			<Term>cbc:ProfileID</Term>
@@ -1643,7 +1643,7 @@
 							<Value type="EXAMPLE">0088</Value>
 						</Attribute>
 						<Value type="EXAMPLE">7300010000001</Value>
-					</Element>
+					</Element>				
 					<Element>
 						<Term>cac:RequestedDeliveryPeriod</Term>
 						<Name>Order line requested delivery period - Periodo di esecuzione della linea d’ordine</Name>

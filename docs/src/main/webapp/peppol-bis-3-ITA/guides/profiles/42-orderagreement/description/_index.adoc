@@ -27,11 +27,11 @@ include::_allowance.adoc[]
 
 include::../../../shared/files/_vat-info.adoc[]
 
-include::custom/_gestioneordiniparticolari.adoc[]
+include::_gestioneordiniparticolari.adoc[]
 
-include::custom/_ulteriori-informazioni.adoc[]
+include::_ulteriori-informazioni.adoc[]
 
-include::custom/_usonote.adoc[]
+include::_usonote.adoc[]
 
 
 :leveloffset: -1

@@ -19,10 +19,18 @@ La tabella seguente elenca le quantità e le relative unità di misura previste.
 |Quantità ordinate, es. Il numero dei pezzi o il volume in litri.
 |====
 
-.Example of an order agreement line with a quantity of 120 pieces (cbc:Quantity) and price is given per 12 items. When calculating the line amount the price is applied pr 12 pieces, that is 120/12x50 = €500
+.Esempio di un ordine pre-concordato con quantità 120 pezzi (cbc:Quantity) ed il prezzo dato è per ogni dozzina. Quandpo si calcola il totale della linea, il prezzo applicato sarà quindi 120/12x50 = €500.
 [source, xml, indent=0]
 ----
-include::{snippet-dir}/OA full.xml[tags=LineItem]
-<!-- code omitted for clarity -->
-include::{snippet-dir}//OA full.xml[tags=price]
+<cac:LineItem>
+    <cbc:ID>1</cbc:ID>
+    <cbc:Note>Line note</cbc:Note>
+    <cbc:Quantity unitCode="C62">120</cbc:Quantity>
+    <cbc:LineExtensionAmount currencyID="EUR">500</cbc:LineExtensionAmount>
+    <!-- code omitted for clarity -->
+    <cac:Price>
+        <cbc:PriceAmount currencyID="EUR">50</cbc:PriceAmount>
+        <cbc:BaseQuantity unitCode="C62">12</cbc:BaseQuantity>
+    </cac:Price>
+</cac:LineItem>
 ----

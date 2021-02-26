@@ -1,5 +1,5 @@
 [[totals]]
-= Calcolo dei totali (AnticipatedMonetaryTotals)
+= Calcolo dei totali (AnticipatedMonetaryTotal)
 
 I seguenti elementi mostrano gli importi totali presenti nell’ordine:
 [cols="3,3,5", options="header"]
@@ -22,13 +22,13 @@ I seguenti elementi mostrano gli importi totali presenti nell’ordine:
 
 | <cbc:TaxExclusiveAmount>
 | Importo totale dell’Ordine escluse le imposte
-| stem:[\ \ \ \ "cac:LegalMonetaryTotal/cbc:LineExtensionAmount"] +
-stem:[– \ "cac:LegalMonetaryTotal/cbc:AllowanceTotalAmount"] +
-stem:[+ \ "cac:LegalMonetaryTotal/cbc:ChargeTotalAmount"]
+| stem:[\ \ \ \ "cac:AnticipatedMonetaryTotal/cbc:LineExtensionAmount"] +
+stem:[– \ "cac:AnticipatedMonetaryTotal/cbc:AllowanceTotalAmount"] +
+stem:[+ \ "cac:AnticipatedMonetaryTotal/cbc:ChargeTotalAmount"]
 
 | <cbc:TaxInclusiveAmount>
 | Importo totale dell’Ordine incluse le imposte
-| stem:[\ \ \ \ "cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount"] +
+| stem:[\ \ \ \ "cac:AnticipatedMonetaryTotal/cbc:TaxExclusiveAmount"] +
 stem:[+ \ "cac:TaxTotal/cbc:TaxAmount"]
 
 | <cbc:PrepaidAmount>
@@ -41,9 +41,9 @@ stem:[+ \ "cac:TaxTotal/cbc:TaxAmount"]
 
 | <cbc:PayableAmount>
 | L’importo previsto per il pagamento
-| stem:[\ \ \ \ "cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount"] +
-stem:[- \ "cac:LegalMonetaryTotal/cbc:PrepaidAmount"] +
-stem:[+ \ "cac:LegalMonetaryTotal/cbc:PayableRoundingAmount"]
+| stem:[\ \ \ \ "cac:AnticipatedMonetaryTotal/cbc:TaxInclusiveAmount"] +
+stem:[- \ "cac:AnticipatedMonetaryTotal/cbc:PrepaidAmount"] +
+stem:[+ \ "cac:AnticipatedMonetaryTotal/cbc:PayableRoundingAmount"]
 |===
 
 

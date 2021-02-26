@@ -9,12 +9,20 @@ Si raccomanda di inviare allegati in modo incorporato, oggetti binari e non come
 IMPORTANT: Gli allegati possono essere utilizzati come informazioni aggiuntive ma non come copie dell’ordine.
 ====
 
+[yellow-background]#I codici validi (*MIMECode IT*) vengono denotati tra le  https://notier.regione.emilia-romagna.it/docs/[Codifiche e Identificatori] evidenziati, compatibili con NSO.#
 
 .Esempio di allegato incorporato, oggetto binario nel messaggio dell’Ordine PEPPOL a livello di documento
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/OA full.xml[tags=AdditionalDocumentReference]
 ----
+
+
+#Nel caso di ordini di beni o servizi che per essere evasi richiedono obbligatoriamente la presenza di documenti (es. Scheda Paziente), è necessario che tali documenti siano trasmessi tramite NSO come allegato PDF all’ordine elettronico.#
+
+#Ove le informazioni contenute negli allegati possano comportare problemi legati alla privacy, i medesimi allegati possono essere in formato cifrato oppure è possibile ricorrere all’uso di riferimenti esterni (elemento *cac:ExternalReference*), il cui accesso può essere limitato utlizzando idonea profilatura.#
+
+
 
 = Allegati e riferimenti a documenti a livello di riga
 

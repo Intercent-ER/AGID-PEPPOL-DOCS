@@ -126,6 +126,51 @@ Se trattasi di consegna domiciliare (ad esempio, all’indirizzo di un paziente)
 
 :leveloffset: -1
 
+
+
+:leveloffset: +1
+
+= Destinatario della consegna o Beneficiario (DeliveryParty)
+
+Se chi deve ricevere la fornitura oggetto dell’Ordine è un soggetto determinato, è necessario indicarlo con precisione, valorizzando in modo appropriato i campi dell’elemento `cac:DeliveryParty`. +
+
+L’indicazione del destinatario della consegna è prevista solo con riferimento all’intero Documento. +
+
+L’esempio seguente si riferisce alla consegna ad una particolare unità organizzativa:
+
+[source, xml, indent=0]
+----
+<cac:Delivery>
+    <cac:DeliveryParty>
+          <cac:PartyIdentification>
+          <cbc:ID>UO07</cbc:ID>
+          <cac:PartyName>
+              <cbc:Name>Centro logistico</cbc:Name>
+     </cac:PartyName>
+     <cac:Contact>
+         <cbc:Name>James Bond</Name
+         <cbc:Telephone>0647611</cbc:Telephone>
+         <cbc:ElectronicMail>james.bond@peo.it</ ElectronicMail>
+        </cac:Contact>
+        </cac:PartyIdentification>
+    </cac:DeliveryParty>
+</cac:Delivery>
+---- 
+
+Qualora si indichi il Beneficiario, l’identificativo (campo “ID”) e la denominazione (campo “Name”) dell’unità organizzativa sono entrambi obbligatori. Se l’identificativo non è noto o non esiste, è sufficiente valorizzare il campo con il testo “UO”, che sta per unità organizzativa. +
+
+Se invece il Beneficiario è una persona fisica è necessario contemperare l’esigenza di
+tutelarne la riservatezza con la necessità di dare indicazioni complete ed esaurienti per
+la consegna. A tal fine: +
+
+* se non è strettamente necessario indicare per esteso il nome del Beneficiario, il
+campo “Name” deve essere valorizzato con “PF”, che sta per persona fisica;
+* se al Beneficiario è stato assegnato un identificativo, questo deve essere indicato
+nel campo “ID”, altrimenti anche questo campo va valorizzato con “PF”.
+
+:leveloffset: -1
+
+
 :leveloffset: +1
 
 = Etichette imballaggio (ShippingMarks)

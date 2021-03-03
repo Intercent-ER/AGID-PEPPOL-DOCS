@@ -1,7 +1,7 @@
 [[quantities-and-units]]
 = Quantità e unità di misura
 
-Nell’Ordine PEPPOL possono essere fornite diverse Quantità e le relative Unità di misura. Esse sono relazionate sia al processo dell’ordine che a quello della logistica. +
+Nell’Ordine pre-concordato possono essere fornite diverse Quantità e le relative Unità di misura. Esse sono relazionate sia al processo dell’ordinazione che a quello della logistica. +
 
 La tabella seguente elenca le quantità e le relative unità di misura previste. Ogni quantità deve avere la sua unità di misura espressa secondo la codelist "Recommandation 20".
 
@@ -19,7 +19,7 @@ La tabella seguente elenca le quantità e le relative unità di misura previste.
 |Quantità ordinate, es. Il numero dei pezzi o il volume in litri.
 |====
 
-.Esempio di un ordine pre-concordato con quantità 120 pezzi (cbc:Quantity) ed il prezzo dato è per ogni dozzina. Quandpo si calcola il totale della linea, il prezzo applicato sarà quindi 120/12x50 = €500.
+.Esempio di un ordine pre-concordato con quantità 120 pezzi (cbc:Quantity) ed il prezzo dato è per ciascuna dozzina. Quando si calcola il totale della linea, il prezzo applicato sarà quindi 120/12x50 = €500.
 [source, xml, indent=0]
 ----
 <cac:LineItem>

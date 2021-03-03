@@ -76,7 +76,7 @@ stem:["Importo" =  "Importo base" times ("Percentuale" div 100)]
 </cac:AllowanceCharge>
 ----
 
-.Esempio di UBL che mostra uno sconto per l’intero ordine
+.Esempio di UBL che mostra uno sconto per l’intero ordine pre-concordato
 [source, xml, indent=0]
 ----
 <cac:AllowanceCharge>
@@ -120,7 +120,7 @@ Questo esempio mostra uno sconto di 10 EUR sul prezzo base:
 [[titolo]]
 = #Omaggi#
 
-Per includere nell’ordine degli articoli in omaggio è necessario indicarli in riga separata rispetto a quelli a pagamento e poi si deve indicare sia l’importo di riga che il prezzo con importo a 0 (zero).
+Per includere nell’ordine pre-concordato degli articoli in omaggio è necessario indicarli in riga separata rispetto a quelli a pagamento e poi si deve indicare sia l’importo di riga che il prezzo con importo a 0 (zero).
 
 .Esempio di una riga d’ordine contenente in omaggio 12 pacchi di striscie per il test del glucosio:
 [source, xml, indent=0]

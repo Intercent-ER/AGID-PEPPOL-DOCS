@@ -10,7 +10,26 @@ Le informazioni di consegna sono elementi opzionali di questo profilo.
 .Esempio
 [source, xml, indent=0]
 ----
-include::{snippet-dir}/OA full.xml[tags=delivery]
+<cac:Delivery>
+    <cac:PromisedDeliveryPeriod>
+        <cbc:StartDate>2016-08-20</cbc:StartDate>
+        <cbc:StartTime>12:00:00</cbc:StartTime>
+        <cbc:EndDate>2016-08-30</cbc:EndDate>
+        <cbc:EndTime>18:00:00</cbc:EndTime>
+    </cac:PromisedDeliveryPeriod>
+    <cac:DeliveryParty>
+        <cac:PartyIdentification>
+            <cbc:ID schemeID="0007">5541277711</cbc:ID>
+        </cac:PartyIdentification>
+        <cac:PartyName>
+            <cbc:Name>Delivery party name</cbc:Name>
+        </cac:PartyName>
+    </cac:DeliveryParty>
+</cac:Delivery>
+<cac:DeliveryTerms>
+    <cbc:ID>1</cbc:ID>
+    <cbc:SpecialTerms>Il cliente ritira la merce</cbc:SpecialTerms>
+</cac:DeliveryTerms>
 ----
 
 :leveloffset: +1

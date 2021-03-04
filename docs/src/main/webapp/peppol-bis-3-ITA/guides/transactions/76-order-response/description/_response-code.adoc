@@ -143,7 +143,7 @@ Quando l’ordine viene accettato con modifiche a livello di riga, tutte le righ
 ----
 	…
 <cac:OrderLine>
-	<cbc: LineStatusCode listID=”UNCL1229”>7</cbc: LineStatusCode >
+	<cbc:LineStatusCode>7</cbc:LineStatusCode>
 	<cbc:Note>Merce terminata</cbc:Note>
 <cac:LineItem>
 	…

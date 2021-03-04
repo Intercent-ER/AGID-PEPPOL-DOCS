@@ -420,7 +420,7 @@
 				<Element>
 					<Term>cac:PartyLegalEntity</Term>
 					<Name>Buyer legal information - Informazioni legali del Cliente</Name>
-					<Description>Informazioni legali del Cliente</Description>
+					<Description>Legal information of the Buyer</Description>
 					<Element>
 						<Term>cbc:RegistrationName</Term>
 						<Name>Buyers legal registration name</Name>

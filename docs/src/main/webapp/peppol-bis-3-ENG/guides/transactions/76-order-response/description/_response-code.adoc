@@ -137,7 +137,7 @@ When the order is accepted without amendment (at line level), all the order line
 ----
 	…
 <cac:OrderLine>
-	<cbc: LineStatusCode listID=”UNCL1229”>7</cbc: LineStatusCode >
+	<cbc: LineStatusCode>7</cbc: LineStatusCode >
 	<cbc:Note>Merce terminata</cbc:Note>
 <cac:LineItem>
 	…

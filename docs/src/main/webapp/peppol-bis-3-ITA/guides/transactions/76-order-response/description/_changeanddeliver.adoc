@@ -9,7 +9,7 @@ Una risposta d’ordine può sostituire gli articoli in due modalità. Se viene 
 <cac:OrderLine>
     <cac:LineItem>
         <cbc:ID>6</cbc:ID>
-        <cbc:LineStatusCode listID="UNCL1229">3</cbc:LineStatusCode>
+        <cbc:LineStatusCode>3</cbc:LineStatusCode>
         <cac:Item>
             <cbc:Name>Salviette umide</cbc:Name>
             <cac:SellersItemIdentification>

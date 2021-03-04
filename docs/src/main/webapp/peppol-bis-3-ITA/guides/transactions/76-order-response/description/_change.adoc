@@ -69,7 +69,7 @@ ubl:OrderResponse
 <cac:OrderLine>
     <cac:LineItem>
         <cbc:ID>4</cbc:ID>
-        <cbc:LineStatusCode listID=”UNCL1229”>3</cbc:LineStatusCode>
+        <cbc:LineStatusCode>3</cbc:LineStatusCode>
         <cbc:Quantity unitCode="C62" unitCodeListID=”UNECERec20”>18</cbc:Quantity>
         <cac:Item>
             <cbc:Name>Salviette umide per bambini</cbc:Name>
@@ -92,7 +92,7 @@ ubl:OrderResponse
 <cac:OrderLine>
     <cac:LineItem>
         <cbc:ID>4</cbc:ID>
-        <cbc:LineStatusCode listID=”UNCL1229”>3</cbc:LineStatusCode>
+        <cbc:LineStatusCode>3</cbc:LineStatusCode>
         <cbc:Quantity unitCode="C62" unitCodeListID=”UNECERec20”>18</cbc:Quantity>
         <cac:Delivery>
             <cac:PromisedDeliveryPeriod>
@@ -125,7 +125,7 @@ ubl:OrderResponse
 <cac:OrderLine>
     <cac:LineItem>
         <cbc:ID>5</cbc:ID>
-        <cbc:LineStatusCode listID=”UNCL1229”>1</cbc:LineStatusCode>
+        <cbc:LineStatusCode>1</cbc:LineStatusCode>
         <cbc:Quantity unitCode="C62" unitCodeListID=”UNECERec20”>12</cbc:Quantity>
         <cac:Delivery>
             <cac:PromisedDeliveryPeriod>
@@ -162,7 +162,7 @@ ubl:OrderResponse
 <cac:OrderLine>
     <cac:LineItem>
         <cbc:ID>4</cbc:ID>
-        <cbc:LineStatusCode listID=”UNCL1229”>3</cbc:LineStatusCode>
+        <cbc:LineStatusCode>3</cbc:LineStatusCode>
         <cac:Item>
             <cbc:Name> Salviette umide per bambini </cbc:Name>
             <cac:SellersItemIdentification>
@@ -211,7 +211,7 @@ ubl:OrderResponse
         <cbc:ID>4</cbc:ID>
         <cbc:Note>Merce Modificata nel Prezzo</cbc:Note>
         <!--Riga accettata con modifica-->
-        <cbc:LineStatusCode listID="UNCL1229">3</cbc:LineStatusCode>
+        <cbc:LineStatusCode>3</cbc:LineStatusCode>
         <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">30</cbc:Quantity>
         <cac:Delivery>
             <cac:PromisedDeliveryPeriod>

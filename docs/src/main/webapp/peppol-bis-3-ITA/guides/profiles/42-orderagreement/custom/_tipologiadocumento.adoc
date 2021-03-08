@@ -44,6 +44,41 @@ L’Ordine di riscontro assume le seguenti varianti: +
 [NOTE]
 Gli Ordini di riscontro sostitutivi e gli Ordini di riscontro per diniego, rispettivamente, rimpiazzano e annullano l'Ordine pre-concordato ivi indicato, sia tutte le altre Sostituzioni e Revoche, già trasmesse, riferite al relativo Ordine pre-concordato iniziale.
 
+.Esempio di ordine di riscontro per diniego
+[source, xml, indent=0]
+----
+<cbc:CustomizationID>urn:fdc:peppol.eu:poacc:trns:order:3<cbc:CustomizationID>
+<cbc:ProfileID>urn:fdc:peppol.eu:poacc:bis:ordering:3</cbc:ProfileID>
+<cbc:ID>460</cbc:ID>
+<cbc:IssueDate>2018-03-15<cbc:IssueDate>
+…
+<cac:OrderDocumentReference>
+    <cbc:ID>380#2018-02-16#ITccccccccccc#Cancelled</cbc:ID>
+</cac:OrderDocumentReference >
+…
+<cac:BuyerCustomerParty>
+    <cac:Party>
+        <cbc:EndpointID schemeID=”0201”>ABCDEF</cbc:EndpointID>
+    </cac:Party>
+</cac:BuyerCustomerParty>
+…
+<cac:SellerSupplierParty>
+    <cac:Party>
+        <cbc:EndpointID schemeID=”9906”>ITddddddddddd</cbc:EndpointID>
+    </cac:Party>
+</cac:SellerSupplierParty>
+…
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>NA</cbc:ID>
+        <cbcQuantity unitCode=”C62”>0</cbc:Quantity>
+        <cac:Item>
+           <cbc:Name>NA</cbc:Name>
+        </cbc:Item>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+
 
 *[red]#Ordine pre-concordato  di revoca#*
 

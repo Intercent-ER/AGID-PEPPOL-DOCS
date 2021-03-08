@@ -5,9 +5,9 @@ Quando si specifica un Endpoint ID nel documento si vuole mantenere l’informaz
 
 Le tipologie di identificativi italiani riconosciuti da PEPPOL e consigliati sono:
 
-* *0211* per le partite IVA (che sostirà il codice temporaneo 9906 a partire dal #XX/XX/XXXX#);
+* *0211* per le partite IVA (che sostituirà obbligatoriamente il codice temporaneo 9906 a partire dal 15/11/2021);
 
-* *0210* per i Codici Fiscali di persona fisica o giuridica (che sostirà il codice temporaneo 9907 a partire dal #XX/XX/XXXX#);
+* *0210* per i Codici Fiscali di persona fisica o giuridica (che sostituirà obbligatoriamente il codice temporaneo 9907 a partire dal 15/11/2021);
 
 * *0201* per il Codice Univoco Ufficio (c.d. Codice iPA, riportato nella rubrica "indicepa" dell'Indice delle Pubbliche Amministrazioni). +
 

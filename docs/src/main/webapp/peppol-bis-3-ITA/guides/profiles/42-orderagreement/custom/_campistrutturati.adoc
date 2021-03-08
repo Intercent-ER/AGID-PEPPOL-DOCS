@@ -18,8 +18,7 @@ I campi strutturati ammessi sono, esclusivamente e tassativamente, quelli elenca
 |Ordine Semplice
 
 |OrderReference/ID
-|Ordine Semplice +
-Ordine Pre-concordato
+|Ordine Pre-concordato +
 
 |DeliveryTerms/SpecialTerms
 |Ordine Semplice +

@@ -1,0 +1,8 @@
+
+[cols="1,4"]
+|===
+h| Percorso nel documento
+| `cbc:*/@unitCode`
+h| Sorgente della codifica
+| link:http://www.unece.org/fileadmin/DAM/cefact/recommendations/rec20/rec20_Rev11e_2015.xls[UN/ECE Recommendation 20, Revision 11 (2015)]
+|===

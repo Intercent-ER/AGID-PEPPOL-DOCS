@@ -1,0 +1,8 @@
+[[Prerequisites]]
+= Prerequisiti
+
+I prerequisiti per l’utilizzo di questo documento sono: +
+
+1. L’acquirente effettua l’acquisto di  beni o servizi utilizzando canali diversi dall’invio di documenti strutturati (PEPPOL);
+2. I destinatari di questo documento sono le organizzazioni che desiderano comunque operare attraverso documenti strutturati (PEPPOL);
+3. Il venditore deve essere identificato nel sistema dell’acquirente che dovrà accogliere l’Ordine pre-concordato.

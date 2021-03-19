@@ -1,0 +1,227 @@
+[[tipologia-ordine]]
+= #Tipologia di Ordine#
+
+La tipologia dell’Ordine può essere espressa utilizzando le seguenti codifiche ufficiali disponibili nel package UBL.
+
+
+Per identificare il tipo di ordine si usa un «subset» della codifica ufficiale UNCL 1001. Si riporta di seguito il subset denominato «OrderTypeCode IT» definito da PEPPOL ed esteso al modello italiano di procurement (vedi, {link-codelist} evidenziati compatibili con NSO). +
+
+Il tipo ordine è un elemento essenziale del processo, ve non precisato si presume il
+codice 220 senza sotto-tipi.
+
+
+[width="100%", cols="1,2,1,2"]
+|===
+2+^.^| *Tipo ordine* +
+`cbc:OrderTypeCode`   2+^.^|**Sotto-tipo ordine** +
+`cbc:SpecialTerms`
+
+|*Codice* | *Descrizione* | *Codice* | *Descrizione* 
+
+.6+|*220* .6+| Ordine di Acquisto | *-*  | Ordine di acquisto in senso stretto | *OF*  | Ordine di fatturazione per prodotti già in possesso del Cliente o già consumati
+|*OFR*  | Ordine di fatturazione e reintegro |*ON*  | Ordine di noleggio | *OR*  | Ordine di regolazione | *OB*  | Ordine a budget 
+
+.5+|*227* .5+| Ordine di consegna |*-*  | Ordinazione generica di consegna | *CD*  | Ordine in conto deposito
+|*CV*  | Ordine in conto visione
+| *CG*  | Ordine in comodato gratuito | *CN*  | Ordine in conto noleggio |
+
+|===
+
+
+*[red]#Ordine di acquisto (220)#*
+
+La tipologia 220 corrisponde a un generico ordine di acquisto che può essere utilizzato sia per beni sia per servizi, con o senza emissione del relativo DDT. Sono inclusi gli ordini per l’acquisto di beni a scorta, gli ordini per l’acquisto di prodotti in transito ovvero prodotti che non vengono stoccati, gli ordini per l’invio di apparecchiature in riparazione e gli ordini di apparecchiature e beni di noleggio con canone. +
+
+In particolare, il codice “220” (Ordinazione di acquisto) indica che l’ordine riguarda una transazione che comporta, di regola, i seguenti effetti:
+
+
+a. il trasferimento dal Fornitore al Cliente sia della proprietà (o di altro diritto reale) sia del possesso dei beni;
+
+b. la prestazione di servizi a titolo oneroso. Si noti che, sebbene alcune prestazioni includano il trasferimento del possesso di beni (ad esempio il noleggio), l’oggetto principale della fornitura non è il trasferimento dei beni ma la fornitura del servizio; 
++
+e, in particolari circostanze: +
++
+c. il trasferimento dal Fornitore al Cliente della proprietà (o di altro diritto reale) ma non del possesso dei beni. In questa fattispecie, il trasferimento del possesso può non essere necessario oppure essere regolato con separato ordine di consegna (v. infra), che può precedere (ad esempio, per i beni in conto deposito) o seguire l’ordine di acquisto.
+
+
+Come regola generale, ciò che caratterizza le ordinazioni di acquisto in senso stretto è il carattere oneroso (almeno nominalmente) della transazione, con conseguente emissione di fattura o documento equivalente. +
+
+[underline]#Può# essere fornito un ulteriore dettaglio dell’ordine di acquisto usando i seguenti sotto-tipi:
+
+
+** *OF (Ordine di fatturazione per prodotti già consumati)*: con l’ordine di fatturazione (OF) non si chiede al Fornitore la consegna di un bene
+o la prestazione di un servizio, ma la sola emissione della fattura (o di un
+documento equivalente) a fronte di un bene già in possesso del Cliente (ad
+esempio, un bene in conto deposito che è stato utilizzato o un bene in conto
+visione che si è deciso di acquistare) o di una prestazione già eseguita. 
++
+Nella gestione dei beni  acquisiti attraverso modalità di conto visione (ad esempio, dispositivi medici impiantabili gestiti direttamente da sala operatoria) l’ordine di fatturazione è utilizzato per autorizzare la fatturazione dei soli beni effettivamente trattenuti e quindi consumati. Inoltre, nell’ambito del conto deposito l’ordine di fatturazione è utilizzato per autorizzare la fatturazione di beni in conto deposito per i quali non si richiede il ripristino contestuale. Al codice 220#OF possono essere ricondotti in generale tutti gli ordini che riguardano la sola fatturazione di beni già consumati, per i quali il fornitore non deve effettuare una nuova consegna. L’ordine di tipo 220#OF riporta i riferimenti (in specifici campi) di Lotto, N. Seriale, Numero e data DDT di consegna dei prodotti utilizzati;
+
+** *OFR (Ordine di fatturazione e reintegro)*: con l’ordine di fatturazione e reintegro (OFR) si chiede al Fornitore la fatturazione
+di un bene, già posseduto in conto deposito, che è stato utilizzato e il contestuale
+reintegro dello stesso bene in conto deposito (si noti che i beni di cui si chiede la
+fattura e i beni che si chiede di reintegrare devono essere i medesimi in termini di
+prodotto, di quantità, di lotto, di causale di consegna nel documento di trasporto,
+ecc.). 
++
+La gestione delle scorte in conto deposito prevede normalmente una quantità di riordino prestabilita per ogni prodotto per mantenere le scorte minime necessarie. Non è a intervalli regolari ma avviene ad ogni utilizzo. Nell’ambito del Conto Deposito non è previsto l’ordine di solo ripristino. L’ordine di tipo 220#OFR è utilizzato anche per tutti i beni acquistati con fatturazione a referto, kit, test o validazione. L’ordine di tipo 220#OFR riporta i riferimenti (in specifici campi) di Lotto, N. Seriale, Numero e data DDT di consegna dei prodotti utilizzati. +
+
+
+.Esempio di utilizzo per Ordine di fatturazione e reintegro
+[source, xml, indent=0]
+----
+<cbc:OrderTypeCode>220</cbc:OrderTypeCode>
+        ...
+<cac:DeliveryTerms>
+    <cbc:SpecialTerms>OFR</SpecialTerms>
+</cac:DeliveryTerms>
+----
+
+* *ON (Ordine di noleggio)*: altre volte, come accennato sopra nella lettera b), nonostante l’oggetto della transazione sia, sotto il profilo formale, la prestazione di un servizio, tale servizio si concretizza con il trasferimento del possesso di uno o più beni.
++
+In sostanza, il noleggio si differenzia dalla “cessione per vendita” per il fatto che il trasferimento (del mero possesso) dei beni è a tempo determinato e si realizza per effetto di una locazione.
++
+Per tali motivi il noleggio può essere gestito, alternativamente:
+
+...	come un’Ordinazione avente ad oggetto un servizio (il noleggio di beni);
+
+...	come un’Ordinazione avente ad oggetto uno o più beni il cui trasferimento è a tempo determinato (i beni noleggiati).
+
+Nel primo caso, poiché l’oggetto dell’Ordine è il servizio di locazione (che incorpora, ma non coincide con il trasferimento dei singoli beni), il prezzo unitario da indicare nel Documento deve riferirsi all’intera durata del rapporto e all’insieme dei beni che compongono ciascuna unità del servizio, così come previsto nel relativo contratto di locazione.
+
+Si forniscono, di seguito, due esempi di Ordini (entrambi gli esempi non includono sconti e/o maggiorazioni).
+
+Per le istruzioni di dettaglio relative ai noleggi ed ulteriori esempi, si veda il parafrago n° 3.3.3.17 delle http://www.rgs.mef.gov.it/_Documenti/VERSIONE-I/e-GOVERNME1/apir/NSO-Regole-tecniche-IT.pdf[Regole Tecniche NSO].
+
+
+.Ordine di noleggio annuale di 10 stampanti, al prezzo unitario di € 1.500. Il contratto prevede che il pagamento avvenga in rate mensili.
+[source, xml, indent=0]
+----
+…
+<cbc:OrderTypeCode>220</cbc:OrderTypeCode>
+…
+<cac:DeliveryTerms>
+    <cbc:SpecialTerms>ON</SpecialTerms>
+</cac:DeliveryTerms>
+…
+<cac:PaymentTerms>
+    <cbc:Note>Pagamento in rate mensili</cbc:Note >
+</cac:PaymentTerms>
+…
+<cac:OrderLine>
+<cac:LineItem>
+    <cbc:ID>Numero della linea d’ordine</ cbc:ID>
+    <cbc:Quantity>10</cbc:Quantity>
+    <cbc:LineExtensionAmount currencyID=EUR>15000</cbc:LineExtensionAmount>
+…
+<cac:Price>
+    <cbc:PriceAmount currencyID=EUR>1500</cbc:PriceAmount>
+</cac:Price>
+<cac:Item>
+    <cbc:Description>Modello della stampante</cbc:Description>
+    <cbc:Name>Modello della stampante</cbc:Name>
+…
+</cac:Item>
+</cac:LineItem>
+</cac:OrderLine>
+----
+
+A fronte di questo ordine saranno emesse 12 fatture di € 1.250 alla scadenza di ciascuna rata mensile (questa informazione è indicata nel campo “PaymentTerms/Note”).
+
+.Ordine di noleggio biennale di 12 postazioni di lavoro (ciascuna composta da un personal computer, due schermi e una stampante), al prezzo unitario di € 3.600. Il contratto prevede che il pagamento avvenga in rate trimestrali. 
+[source, xml, indent=0]
+----
+…
+<cbc:OrderTypeCode>220</cbc:OrderTypeCode>
+…
+<cac:DeliveryTerms>
+    <cbc:SpecialTerms>ON</SpecialTerms>
+</cac:DeliveryTerms>
+…
+<cac:PaymentTerms>
+    <cbc:Note>Pagamento in rate trimestrali</cbc:Note >
+</cac:PaymentTerms>
+…
+<cac:OrderLine>
+<cac:LineItem>
+    <cbc:ID>Numero della linea d’ordine</ cbc:ID>
+    <cbc:Quantity>12</cbc:Quantity>
+    <cbc:LineExtensionAmount currencyID=EUR>43200</cbc:LineExtensionAmount>
+…
+<cac:Price>
+    <cbc:PriceAmount currencyID=EUR>3600</cbc:PriceAmount>
+</cac:Price>
+<cac:Item>
+    <cbc:Description>Postazione di lavoro composta da pc, 2 monitor, stampante</cbc:Description>
+    <cbc:Name>Postazione di lavoro standard</cbc:Name>
+…
+</cac:Item>
+</cac:LineItem>
+</cac:OrderLine>
+----
+
+A fronte di questo ordine saranno emesse 8 fatture (4 per ciascun anno) di € 5.400 alla scadenza di ciascuna rata trimestrale (questa informazione è indicata nel campo “PaymentTerms/Note”).
+
+
+** *OR (Ordine di regolazione)*: in alcune circostanze, può essere necessario modificare o specificare in modo più dettagliato le informazioni contenute in un Ordine precedente riferito ad una fornitura già effettuata. 
++
+In questi casi è necessario emettere un Ordine, che faccia riferimento all’Ordine precedente, specificando che si tratta di un’Ordinazione di regolazione (sotto-tipo “OR”). +
+
+Un Ordine di regolazione, dunque, è un Ordine: +
+
+... con il quale si specificano in modo più dettagliato o si modificano le informazioni contenute in un Ordine precedente;
+...  che non costituisce mai una nuova richiesta di beni e/o servizi, bensì integra le informazioni relative a un processo già concluso.
+
+Un’Ordinazione di regolazione può essere realizzata, alternativamente: +
+
+... mediante un Ordine collegato (Ordine collegato di regolazione), ove occorra specificare le informazioni relative agli oggetti di fornitura, alle quantità e/o ai prezzi (o parte di esse) contenute in un Ordine precedente.
+... mediante un Ordine sostitutivo (Ordine sostitutivo di regolazione), ove occorra modificare le informazioni relative agli oggetti di fornitura, alle quantità e/o ai prezzi contenute in un Ordine precedente.
+
+Per le istruzioni di dettaglio si veda il Paragrafo N° 3.3.3.18 delle http://www.rgs.mef.gov.it/_Documenti/VERSIONE-I/e-GOVERNME1/apir/NSO-Regole-tecniche-IT.pdf[Regole Tecniche NSO].
+
+** *OB (Ordine a budget)*: può verificarsi che il prezzo, la quantità e perfino il dettaglio dei beni e/o dei servizi da ordinare non siano noti con esattezza al momento dell’emissione dell’Ordine. +
++
+In questi casi il tipo “220” può essere associato al sotto-tipo “OB” (Ordinazione a budget), con il quale il Cliente indica che le informazioni relative alle quantità e/o ai prezzi contenute nell’Ordine sono da intendersi come quantità e/o prezzi massimi attesi e che gli stessi beni e/o servizi oggetto della fornitura potrebbero essere descritti in modo sommario. +
+
+Un Ordine a budget, dunque, è un Ordine in cui: +
+
+... le quantità e/o i prezzi indicati devono essere intesi dal Fornitore come limiti massimi da non superare;
+... l’oggetto della fornitura potrebbe essere descritto in modo sommario. 
+
+
+Un Ordine a budget può essere: 
+
+... un Ordine iniziale a budget, ossia un Ordine iniziale in cui sono indicati quantità e/o prezzi stimati.
+... un Ordine sostitutivo a budget, ossia un Ordine sostitutivo, emesso mentre la fornitura è ancora da completare, che modifica le quantità e/o i prezzi stimati di un Ordine iniziale a budget.
+
++
+Per le istruzioni di dettaglio si veda il Paragrafo N° 3.3.3.18 delle http://www.rgs.mef.gov.it/_Documenti/VERSIONE-I/e-GOVERNME1/apir/NSO-Regole-tecniche-IT.pdf[Regole Tecniche NSO].
+
+
+*[red]#Ordine di consegna (227)#*
+
+La tipologia 227 corrisponde all’ordine di materiali che non contempla una fatturazione se non dopo l’utilizzo degli stessi e a seguito di specifico ordine tipo 220. Può essere fornito un ulteriore dettaglio dell’ordine di consegna usando i seguenti sotto-tipi ordine: +
+
+* *CD* (Conto deposito), per la costituzione o l’integrazione di uno stock di beni in conto deposito;
+* *CV* (Conto visione), per la costituzione o l’integrazione di uno stock di beni in conto visione;
+* *CG* (Comodato d’uso gratuito), per la costituzione o l’integrazione di uno stock di beni in comodato;
+* *CN* (Conto noleggio), per la costituzione o l’integrazione di uno stock di beni al fine del successivo noleggio.
+
+Al riguardo, si osservi che l’ordine in conto deposito (CD) va sicuramente emesso alla
+costituzione del conto deposito e ogni qualvolta si intenda variare la quantità dei beni
+in conto deposito. In caso di reintegro di beni consumati, invece, può utilizzarsi l’ordine
+di fatturazione e reintegro (OFR), sopra menzionato. +
+
+Il codice “227” (Ordinazione di consegna), invece, va utilizzato unicamente per
+regolare il trasferimento del possesso di beni dal Fornitore al Cliente, ma non della
+proprietà oppure la prestazione di servizi a titolo gratuito. Ciò può verificarsi, ad
+esempio, nelle fattispecie della concessione di beni in comodato d’uso, in conto
+deposito, in conto visione, eccetera, che non comportano, di per sé, emissione di
+fattura. +
+
+Si noti, tuttavia, che in molti casi il trasferimento del possesso di beni è accessorio di
+una prestazione di servizi (v. precedente lettera b) oppure segue o precede un
+trasferimento di proprietà (v. precedente lettera c), per cui un ordine di consegna può
+essere collegato a uno o più ordini di acquisto.
+
+

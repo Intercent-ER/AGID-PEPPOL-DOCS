@@ -1,0 +1,13 @@
+
+[[id_schemes]]
+= Codifiche per schemi di identificatori
+
+:leveloffset: +1
+
+include::../../transaction-spec/codes/_endpoint.adoc[]
+include::../../transaction-spec/codes/_party-id.adoc[]
+include::../../transaction-spec/codes/_inv-object.adoc[]
+include::../../transaction-spec/codes/_item-id.adoc[]
+include::../../transaction-spec/codes/_item-classification.adoc[]
+
+:leveloffset: -1

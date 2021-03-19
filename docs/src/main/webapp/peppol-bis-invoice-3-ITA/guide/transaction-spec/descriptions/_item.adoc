@@ -1,0 +1,14 @@
+= Informazioni sull'articolo (Item)
+
+== Identificatore dell'articolo
+
+In una riga di fattura possono essere specificati l'identificativo attribuito all'articolo dal venditore (seller item identifier), quello dell'acquirente (buyer item identifier) e l'identificativo standard dell'articolo (standard item identifier). Per gli identificativi attribuiti all'articolo dal venditore o dall'acquirente, non viene usato l'attributo dello schema relativo, mentre è obbligatorio l'uso dello `schemeID`
+per gli identificatori standard dell'articolo, e deve essere fra gli schemi della codifica ISO 6523 ICD.
+
+include::../../syntax/_item-identification.adoc[]
+
+== Classificazione dell'articolo
+
+Sulla riga di fattura possono essere forniti diversi codici di classificazione per l'attributo e questi devono essere fra gli schemi di classificazione della codifica UNCL7143.
+
+include::../../syntax/_item-classification.adoc[]

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeList xmlns="urn:fdc:difi.no:2017:vefa:structure:CodeList-1">
+
+    <Title>Causali Pagamento Mod. 770</Title>
+    <Identifier>AE770CP</Identifier>
+    <Version>1.0</Version>
+    <Agency>Agenzia delle Entrate</Agency>
+  
+    <Code>
+        <Id>A</Id>
+        <Name>Prestazioni di lavoro autonomo rientranti nell’esercizio di arte o professione abituale</Name>
+    </Code>
+    
+    <Code>
+        <Id>B</Id>
+        <Name>Utilizzazione economica, da parte dell’autore o dell’inventore, di opere dell’ingegno, di brevetti industriali e di processi, formule o informazioni relativi ad esperienze acquisite in campo industriale, commerciale o scientifico</Name>
+    </Code>
+    
+    <Code>
+        <Id>C</Id>
+        <Name>Utili derivanti da contratti di associazione in partecipazione e da contratti di cointeressenza, quando l’apporto è costituito esclusivamente dalla prestazione di lavoro</Name>
+    </Code>
+    
+    <Code>
+        <Id>D</Id>
+        <Name>Utili spettanti ai soci promotori ed ai soci fondatori delle società di capitali</Name>
+    </Code>
+    
+    <Code>
+        <Id>E</Id>
+        <Name>Levata di protesti cambiari da parte dei segretari comunali</Name>
+    </Code>
+    
+    <!--Code>
+        <Id>F</Id>
+        <Name>Prestazioni rese dagli sportivi con contratto di lavoro autonomo</Name>
+    </Code-->
+    
+    <Code>
+        <Id>G</Id>
+        <Name>Indennità corrisposte per la cessazione di attività sportiva professionale</Name>
+    </Code>
+    
+    <Code>
+        <Id>H</Id>
+        <Name>Indennità corrisposte per la cessazione dei rapporti di agenzia delle persone fisiche e delle società di persone con esclusione delle somme maturate entro il 31 dicembre 2003, già imputate per competenza e tassate come reddito d’impresa</Name>
+    </Code>
+    
+    <Code>
+        <Id>I</Id>
+        <Name>Indennità corrisposte per la cessazione da funzioni notarili</Name>
+    </Code>
+    
+    <Code>
+        <Id>L</Id>
+        <Name>Utilizzazione economica, da parte di soggetto diverso dall’autore o dall’inventore, di opere dell’ingegno, di brevetti industriali e di processi, formule e informazioni relativi ad esperienze acquisite in campo industriale, commerciale o scientifico</Name>
+    </Code>
+    
+    <Code>
+        <Id>M</Id>
+        <Name>Prestazioni di lavoro autonomo non esercitate abitualmente</Name>
+    </Code>
+    
+    <Code>
+        <Id>N</Id>
+        <Name>Indennità di trasferta, rimborso forfetario di spese, premi e compensi erogati: nell’esercizio diretto di attività sportive dilettantistiche o in relazione a rapporti di collaborazione coordinata e continuativa di carattere amministrativo o gestionale di natura non professionale resi a favore di società e associazioni sportive dilettantistiche e di cori, bande e filodrammatiche da parte del direttore e dei collaboratori tecnici</Name>
+    </Code>
+    
+    <Code>
+        <Id>O</Id>
+        <Name>Prestazioni di lavoro autonomo non esercitate abitualmente, obblighi di fare, di non fare o permettere, per le quali non sussiste l’obbligo di iscrizione alla gestione separata (Circ. Inps 104/2001)</Name>
+    </Code>
+    
+    <Code>
+        <Id>P</Id>
+        <Name>Compensi corrisposti a soggetti non residenti privi di stabile organizzazione per l’uso o la concessione in uso di attrezzature industriali, commerciali o scientifiche che si trovano nel territorio dello Stato</Name>
+    </Code>
+    
+    <Code>
+        <Id>Q</Id>
+        <Name>Provvigioni corrisposte ad agente o rappresentante di commercio monomandatario</Name>
+    </Code>
+    
+    <Code>
+        <Id>R</Id>
+        <Name>Provvigioni corrisposte ad agente o rappresentante di commercio plurimandatario</Name>
+    </Code>
+    
+    <Code>
+        <Id>S</Id>
+        <Name>Provvigioni corrisposte a commissionario</Name>
+    </Code>
+    
+    <Code>
+        <Id>T</Id>
+        <Name>Provvigioni corrisposte a mediatore</Name>
+    </Code>
+    
+    <Code>
+        <Id>U</Id>
+        <Name>Provvigioni corrisposte a procacciatore di affari</Name>
+    </Code>
+    
+    <Code>
+        <Id>V</Id>
+        <Name>Provvigioni corrisposte a incaricato per le vendite a domicilio</Name>
+    </Code>
+    
+    <Code>
+        <Id>W</Id>
+        <Name>Provvigioni corrisposte a incaricato per la vendita porta a porta e per la vendita ambulante di giornali quotidiani e periodici (L. 25 febbraio 1987, n. 67)</Name>
+    </Code>
+    
+    <Code>
+        <Id>X</Id>
+        <Name>Canoni corrisposti nel 2004 da società o enti residenti ovvero da stabili organizzazioni di società estere di cui all’art. 26-quater, comma 1, lett. a) e b) del DPR 600/73, a società o stabili organizzazioni di società, situate in altro stato membro dell’Unione Europea in presenza dei requisiti di cui al citato art. 26-quater, del DPR 600/73, per i quali è stato effettuato il rimborso della ritenuta ai sensi dell’art. 4 del D.Lgs. 30 maggio 2005 n. 143</Name>
+    </Code>
+    
+    <Code>
+        <Id>Y</Id>
+        <Name>Canoni corrisposti dal 1° gennaio 2005 al 26 luglio 2005 da società o enti residenti ovvero da stabili organizzazioni di società estere di cui all’art. 26-quater, comma 1, lett. a) e b) del DPR n° 600 del 1973, a società o stabili organizzazioni di società, situate in altro stato membro dell’Unione Europea in presenza dei requisiti di cui al citato art. 26-quater, del DPR n° 600 del 1973, per i quali è stato effettuato il rimborso della ritenuta ai sensi dell’art. 4 del D.Lgs. 30 maggio 2005 n. 143</Name>
+    </Code>
+    
+    <Code>
+        <Id>Z</Id>
+        <Name>Titolo diverso dai precedenti</Name>
+    </Code>
+    
+    <Code>
+        <Id>L1</Id>
+        <Name>"Redditi derivanti dall’utilizzazione economica di opere dell’ingegno, di brevetti industriali e di processi, formule e
+informazioni relativi a esperienze acquisite in campo industriale, commerciale o scientifico, che sono percepiti da
+soggetti che abbiano acquistato a titolo oneroso i diritti alla loro utilizzazione"</Name>
+    </Code>
+    
+    <Code>
+        <Id>M1</Id>
+        <Name>Redditi derivanti dall’assunzione di obblighi di fare, di non fare o permettere</Name>
+    </Code>
+    
+    <Code>
+        <Id>O1</Id>
+        <Name>"Redditi derivanti dall’assunzione di obblighi di fare, di non fare o permettere, per le quali non sussiste l’obbligo di
+iscrizione alla gestione separata (Circ. INPS n. 104/2001)"</Name>
+    </Code>
+    
+    <Code>
+        <Id>V1</Id>
+        <Name>"Redditi derivanti da attività commerciali non esercitate abitualmente (ad esempio, provvigioni corrisposte per prestazioni occasionali ad agente o rappresentante di commercio, mediatore, procacciatore d’affari o incaricato per
+le vendite a domicilio)"</Name>
+    </Code>
+    
+
+</CodeList>

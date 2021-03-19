@@ -1,0 +1,13 @@
+
+
+include::../../../shared/profiles/_info.adoc[]
+
+:leveloffset: +1
+
+include::../../../shared/profiles/_30.adoc[]
+
+include::_identifiers.adoc[]
+
+include::_paragrafo8_sottoparagrafi.adoc[]
+
+:leveloffset: -1

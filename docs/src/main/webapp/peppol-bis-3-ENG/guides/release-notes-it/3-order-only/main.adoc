@@ -1,0 +1,19 @@
+include::../../shared/_links.adoc[]
+= PEPPOL BIS Order Only {ord_version_it}
+Note di Rilascio
+:doctype: book
+:icons: font
+:encoding: utf-8
+:lang: it
+:toc: left
+:toclevels: 2
+:numbered:
+
+
+
+include::_list.adoc[]
+
+
+====
+IMPORTANT: The official technical documentation is published on the Ministry of Economy and Finance website {RGS-NSO}.
+====

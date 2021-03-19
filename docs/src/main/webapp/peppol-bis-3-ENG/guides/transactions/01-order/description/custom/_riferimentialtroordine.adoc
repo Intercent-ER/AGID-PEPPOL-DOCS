@@ -1,0 +1,135 @@
+[[TITOLO]]
+= #Reference to another order#
+
+In the case of *Connected Order*, *Revocation Order* or *Replacement Order*, it is necessary to indicate the so-called "Identification triple"(in italian Tripletta di identificazione) of the related Order in the elemement `cac:OrderDocumentReference/cbc:ID`, which is a structured field, by concatenating the following information in the order that follows:
+
+* *ID*, the identifier of the Order which this Order refers;
+
+* *IssueDate*, valorized with the date of the Order which this Order refers;
+
+* *EndpointID*, the identifier of the subject that issued the Order which this Order refers (corresponds to the Order's element BuyerCustomerParty);
+
+* the *status* to be assigned to the Order, which can be: +
+
+** “Connected”, for connection;
+** “Cancelled”, for the revocation;
+** “Revised”, for the replacement.
+
+.Example
+[source, xml, indent=0]
+----
+<cac:OrderDocumentReference>
+    <cbc:ID>110#2018-01-30#aaaaaa#Connected</cbc:ID>
+</cac:OrderDocumentReference >
+----
+
+:leveloffset: +1
+
+[[TITOLO]]
+=  Example of Connected Order
+
+The Connected Order is used to start a process by connecting the actual process with a previous Order. +
+
+For example, after an Inital Order for Budgeting, a Connected Order for Regulation is issued as soon as the Buyer receives the first pro forma parcel of € 7.000 related to the performance of some preparatory activities made following a legal assistance mandate concerning the dispute “xxx”. 
+
+[source, xml, indent=0]
+----
+…
+<cbc:ID>301</cbc:ID>
+<cbc:IssueDate>2021-04-30<cbc:IssueDate>
+<cbc:OrderTypeCode>220</cbc:OrderTypeCode>
+…
+<cac:OrderDocumentReference>
+    <cbc:ID>100#2021-01-30#Cliente_A#Connected</cbc:ID>
+</cac:OrderDocumentReference >
+…
+<cac:BuyerCustomerParty>
+    <cac:Party>
+        <cbc:EndpointID schemeID=”0201”>Cliente_A</cbc:EndpointID>
+    </cac:Party>
+</cac:BuyerCustomerParty>
+…
+<cac:DeliveryTerms>
+    <cbc:SpecialTerms>OR</SpecialTerms>
+</cac:DeliveryTerms>
+…
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>1</cbc:ID>
+        <cbc:Quantity unitCode=”C62”>1</cbc:Quantity>
+        <cbc:LineExtensionAmount currencyID=”EUR”>7000.00</cbc:LineExtensionAmount>
+        <cac:price>
+            <cbc:PriceAmount currencyID=”EUR”>7000.00</cbc:PriceAmount>
+        </cac:Price>
+        <cac:Item>
+            <cbc:Description>Ordine di regolazione per attività di predisposizione</cbc:Description>
+            <cbc:Name> Patrocinio legale per la vertenza “xxx”</cbc:Name>
+        </cac:Item>
+    </cac:LineItem>
+</cac:OrderLine>
+…
+----
+
+:leveloffset: -1
+
+
+
+:leveloffset: +1
+
+[[TITOLO]]
+=  Example of Revocation Order
+
+The previous order is revoked and the actual one has empty lines (NA) and the segments "TaxTotal" and "AnticipatedMonetaryTotal" must not be present.
+
+[source, xml, indent=0]
+----
+<cac:OrderDocumentReference>
+    <cbc:ID>111#2018-01-30#ABCDEF#Cancelled</cbc:ID>
+</cac:OrderDocumentReference>
+            …
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>NA</cbc:ID>
+        <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">0</cbc:Quantity>
+        <cac:Item>
+            <cbc:Name>N/A</cbc:Name>
+        </cac:Item>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+
+:leveloffset: -1
+
+
+:leveloffset: +1
+
+[[TITOLO]]
+= Example of Replacement Order
+
+The previous order is amended by the present order, wich contains all the needed lines and consequently represents completely the new order.
+
+[source, xml, indent=0]
+----
+<cac:OrderDocumentReference>
+    <cbc:ID>1115#2015-04-30#ABCDEF#Revised</cbc:ID>
+</cac:OrderDocumentReference>
+    …
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>1</cbc:ID>
+        <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">25</cbc:Quantity>
+        <cbc:LineExtensionAmount currencyID="EUR">118.13</cbc:LineExtensionAmount>
+                …
+        <cac:Item>
+            <cbc:Description>128481</cbc:Description>
+            <cbc:Name>CISTO - AID 650036(EX79847-E) </cbc:Name>
+            <cac:SellersItemIdentification>
+                <cbc:ID>79847-E</cbc:ID>
+            </cac:SellersItemIdentification>
+                …
+        </cac:Item>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+
+:leveloffset: -1

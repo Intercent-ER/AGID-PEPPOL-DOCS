@@ -1,0 +1,28 @@
+[[principles-and-prerequisites]]
+= Principi e prerequisiti
+
+Questo capitolo descrive i principi e le assunzioni che stanno alla base dell’uso del Documento di Trasporto PEPPOL.
+Esso si basa sul profilo CEN BII 30 “Despatch only”.
+
+[[despatch-advice-message-in-general]]
+== Il messaggio del Documento di Trasporto in generale
+
+La transazione elettronica descritta in questa guida implementativa è il messaggio dell’Avviso Spedizione (Despatch Advice) utilizzato in Italia anche come Documento di Trasporto (DDT) introdotto dal DPR 472/96.
+Il messaggio del Documento di Trasporto è utilizzato dal fornitore (cedente) nel processo dell’evasione dell’ordine per notificare il ricevitore (cessionario) circa, la spedizione e il periodo di consegna per i beni inviati, come pure i dettagli relativi per effettuare controlli incrociati con l’ordine, nonchè dichiarare la tipologia di imballaggio.
+
+Le attività principali supportate da questo messaggio sono:
+
+* *Trasporto* Descrizione completa di come la merce è imballata e consegnata.
+Una consegna è intesa come un numero di unità (articoli) che vengono spediti come singola spedizione ad un singolo indirizzo di consegna.
+* *Ordinativo* Indica cosa viene spedito; la quantità della merca spedita e cosa rimane inevaso.
+* *Accettazione della merce* Supporto completo al processo di accettazione della merce in un magazzino, all’inventario, nei negozi o semplicemente al banco di accettazione.
+
+:leveloffset: +1
+
+include::_parties.adoc[]
+
+include::_otherconcepts.adoc[]
+
+//include::_requirements.adoc[]
+
+:leveloffset: -1

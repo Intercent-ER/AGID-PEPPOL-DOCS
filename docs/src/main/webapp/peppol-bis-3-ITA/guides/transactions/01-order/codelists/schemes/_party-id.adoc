@@ -1,0 +1,18 @@
+
+
+= Party identifiers e party legal registration identifier scheme
+
+Tutti gli elementi party identifiers e party legal registration identifier possono avere uno scheme attribute opzionale che se utilizzato deve essere scelto tra quelli della ICD list (ISO6523).
+
+
+[cols="2,3,3", options="header"]
+|===
+|Business Term
+|Applicable XPath
+|Code list 
+
+| Party identifiers 
+| cac:PartyIdentification/cbc:ID/@schemeID
+.3+^.^| ICD list from (ISO6523)
+
+|===

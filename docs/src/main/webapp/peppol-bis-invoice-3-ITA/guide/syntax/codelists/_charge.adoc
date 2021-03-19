@@ -1,0 +1,8 @@
+
+[cols="1,4"]
+|===
+h| Percorso nel documento
+| `cbc:AllowanceChargeReasonCode[cbc:ChargeIndicator=true]`
+h| Sorgente della codifica
+| {UNCL7161}
+|===

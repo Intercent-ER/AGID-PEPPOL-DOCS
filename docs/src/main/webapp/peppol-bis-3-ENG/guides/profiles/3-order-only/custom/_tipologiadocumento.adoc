@@ -1,0 +1,103 @@
+[[tipologia-documento]]
+= #Type of Document#
+
+
+The Documents, which constitute the body of the message, contain the instructions that Buyers and Sellers exchange to settle the provision of goods and services.
+
+The following table lists documents documents sub-types and variants of the Order and described in the paragraphs that follows.
+
+
+[width="100%", cols="2,3,3", options="header"]
+|===
+
+^.^|*Type of Document* 
+^.^|*Sub-types*
+^.^|*Variants* 
+
+
+.5+^.^|*Ordine (Order)* 
+| Ordine inziale (Initial Order)| -
+| Ordine di revoca (Revocation Order)| -  
+| Ordine sostitutivo (Replacement Order)| -
+| Ordine collegato (Connected Order) | - 
+| Ordine di convalida (Validation Order)| - 
+
+|===
+
+
+
+*[red]#Revocation Order#*
+
+For some circumstances, the revocation of a previosly issued Order may be useful. +
+
+The *Revocation Order *is an Order that contains the reference to the Order that is intended to revoke and the indication that convey this information (“Cancelled”), also it has only one order line empty.
+
+See paragraph 6.12 for compilation rules.
+
+
+*[red]#Replacement Order#*
+
+Where appropriate, the instructions contain into an Order can be modified through the issuance of a *Replacement Order*. However, unless otherwise prescribed by regulations, commercial use or agreement between the parties, the Seller is required to consider as effective only the replacement of Orders received before the execution of the supply. 
+
+The Replacement Order is a new Order, complete with all the order lines and contains the reference to the Order that is intended to be replaced with the indication that it's a "substitution" (“Revised”).
+
+In some cases, however, it may be necessary to modify the information contained in a previous Order, even after the conclusion of the supply process, or even after the issuance of the related Invoice (when the Document is only issued in order to regulate some details of a process already closed)
+
+[NOTE]
+In this cases the Replacement Order must report the indication of the Order sub-type “OR”, (so-called “Regulating Order Replacement", see paragraph 4.4).
+
+
+See paragraph 6.12 for compilation rules.
+
+
+*[red]#Connected Order#*
+
+For some circumstances, it may be useful to highlight that an Order, even though is indipendent, it is generically related to another Document.
+
+In this cases the *Connected Order* is used, where it is present a reference to the linked Order and the indication “Connected”.
+
+
+[NOTE]
+The Connected Order can be used exclusively to keep memory that the new process that is intended to begin it's connected to another one. This Order must never be used in place of the others (i.e. Revocation Order, Replacement Order, Confirmation Order) specifically realized to revoke, substitute (or integrate), confirm or refuse another Document.
+
+See paragraph 6.12 for compilation rules.
+
+
+*[red]#Validation Order#*
+
+The *Validation Order* is an Order in which there is a reference to an Invoice to be regularised and the indication that it's a validation (“Invoice”). 
+
+This Order can be exclusively used: +
+
+* to validate an Invoice issued in absence of the relative provision order through NSO;
+* if necessary, to validate an Invoice referred to an Order when the Invoicee is different from the initial Buyer (e.g. sent by a Contracting authority or in case the initial Buyer has been bought, sold or divided).
+
+[NOTE]
+The Validation Order must never be used in place of the others (i.e. Revocation Order, Replacement Order, Confirmation Order) specifically realized to revoke, substitute (or integrate), confirm or refuse another Document.
+
+.Compilation rules 
+
+In the case of *Validation Order* it is necessary to report the details of the Invoice to be validated in the element *OrderDocumentReference/ID*, filling it with the values and by respecting the order of priority that follows:
+
+* the *number* of the Invoice that is intended to be validated;
+
+* the *issuing date* of the Invoice that is intended to be validated;
+
+* the *VAT number* of the subject who issued the Invoice   that is intended to be validated;
+
+* the text *“Invoice”* to indicate that it's an Order for validating an Invoice (or an equivalent request for payment).
+
+.Example
+[source, xml, indent=0]
+----
+<cac:OrderDocumentReference>
+    <cbc:ID>57#2018-01-30# ITccccccccccc#Invoice</cbc:ID>
+</cac:OrderDocumentReference >
+----
+
+
+
+
+
+
+

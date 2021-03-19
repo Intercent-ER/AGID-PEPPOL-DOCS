@@ -1,0 +1,92 @@
+[[altri-riferimenti]]
+= #Other references#
+
+To provide the ID of CUP, Despatch Advice, Expenditure Commitment, Expenditure Deliberation, Contract and Framework Agreement see the table below.
+
+[cols="1,2,7", options="header"]
+|====
+s|Reference
+s|Description
+s|Use
+
+|*CUP*
+|Unique Project Reference (Codice Unico di Progetto)
+|At document level +
+`cac:AdditionalDocumentReference` (0.n) +
+
+At line level +
+`cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n)
+
+|*DDT*
+|Despatch Advice ID (Documento di Trasporto) +
+|At document level +
+`cac:AdditionalDocumentReference` (0.n) +
+
+At line level +
+`cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n)
+
+Use it only to refer to Despatch Advice previously received during a goods deposit account
+
+
+|*IMPEGNO*
+|Expenditure Commitment ID 
+|At document level +
+`cac:AdditionalDocumentReference` (0.n) +
+
+At line level +
+`cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n)
+
+|*DELIBERA*
+|Expenditure Deliberation ID 
+|At document level +
+`cac:AdditionalDocumentReference` (0.n) +
+
+At line level +
+`cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n)
+
+|*CONTRATTO*
+|Contract ID
+|At document level +
+`cac:Contract` (0.1) +
+
+At line level use +
+`cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n)
+
+|*CONVENZIONE*
+|Framework Agreement ID
+|At document level +
+`cac:AdditionalDocumentReference` (0.n) +
+
+At line level +
+`cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n)
+
+|====
+
+.Example of a reference to the CUP code on the header level
+[source, xml, indent=0]
+----
+<cac:AdditionalDocumentReference>
+    <cbc:ID>J31E01000010004</cbc:ID>
+<cbc:DocumentType>CUP</cbc:DocumentType>
+</cac:AdditionalDocumentReference>
+----
+.Example of a reference to Expenditure Commitment ID and Despatch Advice ID on the line level
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+        <cac:Item>
+		...
+            <cac:ItemSpecificationDocumentReference>
+                <cbc:Id>IMPEGNO:123/2019 </cbc:Id>
+            </cac:ItemSpecificationDocumentReference>
+            <cac:ItemSpecificationDocumentReference>
+                <cbc:Id>DDT:00001253/2019</cbc:Id>
+            </cac:ItemSpecificationDocumentReference>
+		...
+        </cac:Item>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+
+

@@ -1,0 +1,48 @@
+[[parti-e-ruoli]]
+= Parti e ruoli
+
+La tabella seguente fornisce le definizioni delle parti e dei ruoli nel processo dell’ordine di fornitura.
+
+[cols="2,5", options="header"]
+|====
+s|Parti di business
+s|Descrizione
+
+|*Cliente (Cessionario)*
+|Il cliente è la persona giuridica o l'organizzazione che richiede un prodotto o servizio.
+
+I ruoli che possono essere ricoperti dal Cliente sono: acquirente, consegnatario/destinatario, #debtor, contracting body#.
+
+
+|*Fornitore (Cedente)*
+|Il fornitore è la persona giuridca o organizzazione che fornisce un prodotto o servizio. 
+
+I ruoli che possono essere ricoperti dal Fornitore sono: venditore, speditore, #creditor, economic operator#.
+|====
+
+
+[cols="2,5", options="header"]
+|====
+s|Ruolo/attore
+s|Descrizione
+
+|*Acquirente* +
+
+`cac:BuyerCustomerParty` +
+
+|L’Acquirente è la persona giuridica o l'organizzazione che acquista la merce o i servizi. Questo ruolo viene ricoperto dal Cliente o per suo conto.
+
+|*Venditore* +
+
+`cac:SellerSupplierParty` +
+
+|Il Venditore è la persona giuridica o l'organizzazione che vende la merce o i servizi al cliente. Questo ruolo viene ricoperto dal Fornitore o per suo conto.
+
+|====
+
+
+
+
+Il diagramma seguente mostra i ruoli nel processo di evasione dell’ordine.
+
+image::../images/42Aparties.png[align="center", width=600,pdfwidth=100%, scaledwidth=100%]

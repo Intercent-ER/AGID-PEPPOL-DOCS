@@ -1,0 +1,75 @@
+
+[cols="1h,1m,4m", options="header"]
+
+|===
+^.^| Version
+^.^| Date
+^.^| What's new
+
+| 3.1.0.4(IT)
+a| 13/11/2020
+a| _Update to https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3.0.6 - 2020 Hotfix]_. +
+
+
+[red]#Changes to syntax# +
+
+* Corrected cardinality of *cac:DespatchLine/cac:OrderLineReference/cac:OrderLine* to 0..1 instead of 1..1 in Despatch Advice in line with BIS specification.[POACC-347]
+
+[red]#Changes to code lists and validation artefacts#
+
+* Removed rule PEPPOL-T16-R002 that triggered a warning when cac:OrderReference/cbc:ID in DespatchAdvice was absent [POACC-347]
+
+
+
+| 3.1.0.3(IT)
+a| 06/11/2020
+a| _Update to https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3.0.6 - 2020 Fall]_. +
+
+
+[red]#Changes to BIS document (Documentation)# +
+
+*  Updated the text of paragraph *6.2 Order Reference*, to clarify the use of referencing to the order.
+
+
+[red]#Changes to code lists and validation artefacts#
+
+* Rule PEPPOL-COMMON-R040: "GLN must have a valid format according to GS1 rules". Changed from severity "warning" to "fatal". (The rule was introduced in fall 2019 with severity "warning" to avoid disruptions but with the intention to be changed to severity "fatal" after 6-12 months). Issue: [POACC-333] and [POACC-341]
+* EAS code list, added code 0209, removed code 9958. Peppol rule updated accordingly.
+* ICD code list, added code 0205, 0206, 0207, 0208, 0209.
+* Duplicate currency codes removed from ISO4217 code list. Issue: [POACC-339]
+
+
+
+| 3.1.0.2(IT)
+a| 22/09/2020
+a| [red]#Changes to syntax# +
+
+Typo corrected in the cardinality of the following elements, now mandatory (1..1): +
+
+* ID 14.3 - cbc:DeliveredQuantity
+* ID 14.8.3.1.2 - cbc:Measure
+* ID 14.8.3.2.2 - cbc:Measure
+* ID 14.8.3.3.2 - cbc:Measure
+
+[red]#Changes to example files# +
+
+Typo correction of the indication about the fiscal code when inserted in the element *cac:Partyidentification*, now must be prefixed with the string "CF:" instead of "IT:CF:".
+
+
+| 3.1.0.1(IT)
+a| 13/05/2020
+a| Update to PEPPOL BIS 3.0.4 version (Despatch Advice 3.1).
+
+| 3.0.3.1(IT)
+a| 20/04/2020
+a| This version now incorporates the amendements decided during the public consultation carried out between 16 and 27 March 2020 (note, the communication was sent the 16th, not on 13th).  +
+The BIS Despatch Advice 3 will become mandatory starting from 30 September 2020.
+
+| 3.0.3.beta02(IT)
+a| 24/02/2020
+a| Official codelists mapped onto italian requirements and meanings 
+
+| 3.0.3.beta01(IT)
+a| 21/02/2020
+a| Syntax updated with extensions. CustomizationID modified to reflect the extension applied.
+|===

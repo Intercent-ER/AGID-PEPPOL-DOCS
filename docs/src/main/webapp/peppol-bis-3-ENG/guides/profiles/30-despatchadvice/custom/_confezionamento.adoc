@@ -1,0 +1,91 @@
+[[confezionamento]]
+= #Packaging#
+
+In order to provide information about the packaging, it is possibile to use two differents ways depending on how the order is carried out, meaning if the item corresponds with the unit quantity "C62" or the packaging unit "XPK". +
+
+If the ordered article is a package, it is important to indicate the correct unit of measure. +
+
+The following table provides clarification on how to add information about single units within the package and viceversa, meaning when the article coincides with the unit base, to provide information about the packaging.
+
+
+[cols="1,3",options="header"]
+|====
+s|Type of information
+s|Descriprion
+
+|PackSizeNumeric
+|It indicates the number of articles contained in a primary packaging (for example, how many pills or unit “C62” in a package “XPK”)
+
+|PackQuantity
+|It indicates the number of sub-units contained in a secondary packaging (for example, how many boxes or packages “XPK” there are in a box “XBX”)
+
+|====
+
+Two meaningful examples are below. 
+
+:leveloffset: +1
+
+= Case 1: Ordered item by single unit
+
+
+This is an example of an item ordered as single unit and not as package, and so the indication of number of pieces into the primary package:
+
+[source, xml]
+
+<cac:DespatchLine>
+    <!-- 5000 guanti -->
+    <cbc:Quantity unitCode="C62">5000</cbc:Quantity>
+    <cac:Item>
+        <cbc:Name>Guanti</cbc:Name>
+        <cac:SellersItemIdentification>
+            <!-- O altro identificativo (es. Standard) -->
+            <cbc:ID>XYZ</cbc:ID>
+        </cac:SellersItemIdentification>
+        <cac:AdditionalItemProperty>
+            <!-- Una confezione contiene 500 pezzi -->
+            <cbc:Name>PackSizeNumeric</cbc:Name>
+            <cbc:Value>500</cbc:Value>
+        <cac:AdditionalItemProperty>
+        <cac:AdditionalItemProperty>
+            <cbc:Name>PackIdentification</cbc:Name>
+            <!-- Codice confezione -->
+            <cbc:Value>XYZ500</cbc:Value>
+        </cac:AdditionalItemProperty>
+    </cac:Item>
+</cac:DespatchLine>
+
+:leveloffset: -1
+
+:leveloffset: +1
+
+=  Case 2: Ordered item by package
+
+
+This is an example in which the item is ordered by package:
+
+
+[source, xml]
+
+<cac:DespatchLine>
+    <!--10 confezioni di guanti -->
+    <cbc:Quantity unitCode="XPK">10</cbc:Quantity>
+    <cac:Item>
+        <cbc:Name>CONFEZIONE GUANTI</cbc:Name>
+        <cac:SellersItemIdentification>
+            <!-- O altro identificativo (es. Standard) -->
+            <cbc:ID>XYZ500</cbc:ID>
+        </cac:SellersItemIdentification>
+        <cac:AdditionalItemProperty>
+            <!-- Una articolo (confezione) contiene 500 pezzi -->
+            <cbc:Name>PackQuantity</cbc:Name>
+            <cbc:Value>500</cbc:Value>
+        <cac:AdditionalItemProperty>
+        <cac:AdditionalItemProperty>
+            <cbc:Name>UnitIdentification</cbc:Name>
+            <!-- Codice unità base -->
+            <cbc:Value>XYZ</cbc:Value>
+        </cac:AdditionalItemProperty>
+    </cac:Item>
+</cac:DespatchLine>
+
+:leveloffset: -1

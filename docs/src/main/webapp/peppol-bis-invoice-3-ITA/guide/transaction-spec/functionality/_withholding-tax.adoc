@@ -1,0 +1,17 @@
+
+= Ritenuta d'acconto
+
+La ritenuta d'acconto è un metodo di riscossione dei tributi previsti dall’ordinamento italiano.
+
+In particolare è una trattenuta Irpef (per i redditi delle persone fisiche) o Ires (per le persone giuridiche: società) che viene effettuata sul totale imponibile della fattura che inviamo al cliente, detto anche sostituto d'imposta.
+
+.Esempio UBL di ritenuta d'acconto
+L'esempio riportato è relativo alla fattura emessa da un professionista con regime dei minimi e soggetto a ritenuta d'acconto.
+[source, xml, indent=0]
+----
+include::../{snippet-dir}/Esempio-Fattura-Professionista-Minimi-con-Cassa-Ritenuta-e-Bollo.xml[tags=ritenuta]
+----
+<1> L'aliquota della ritenuta espressa mediante un 'cac:AdditionalItemProperty/cbc:Name' valorizzato con 'IT:RITENUTA:ALIQUOTA' e l'aliquota in 'cac:AdditionalItemProperty/cbc:Value'.
+<2> Il tipo della ritenuta espresso mediante un 'cac:AdditionalItemProperty/cbc:Name' valorizzato con 'IT:RITENUTA:TIPO' e il codice tipo ritenuta in 'cac:AdditionalItemProperty/cbc:Value' secondo la codifica disponibile nella FatturaPA.
+<3> La causale della ritenuta espressa mediante un 'cac:AdditionalItemProperty/cbc:Name' valorizzato con 'IT:RITENUTA:CAUSALE' e il codice tipo ritenuta in 'cac:AdditionalItemProperty/cbc:Value' secondo la codifica disponibile nella FatturaPA.
+

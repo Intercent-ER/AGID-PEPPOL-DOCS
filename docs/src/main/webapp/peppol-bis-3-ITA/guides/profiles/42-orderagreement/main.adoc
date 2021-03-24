@@ -47,7 +47,7 @@ include::custom/_campistrutturati.adoc[]
 
 include::custom/_tipologiadocumento.adoc[]
 
-include::custom/_tipologiaordine.adoc[]
+include::custom/_tipologiaordinazione.adoc[]
 
 :leveloffset: -1
 

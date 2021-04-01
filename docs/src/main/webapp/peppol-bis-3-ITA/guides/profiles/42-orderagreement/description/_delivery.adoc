@@ -19,7 +19,7 @@ Le informazioni di consegna sono elementi opzionali di questo profilo.
     </cac:PromisedDeliveryPeriod>
     <cac:DeliveryParty>
         <cac:PartyIdentification>
-            <cbc:ID schemeID="0007">5541277711</cbc:ID>
+            <cbc:ID schemeID="PIVA">IT01234567890</cbc:ID>
         </cac:PartyIdentification>
         <cac:PartyName>
             <cbc:Name>Delivery party name</cbc:Name>
@@ -45,9 +45,23 @@ Se il luogo di consegna è un indirizzo istituzionale del Cliente a cui è stato
 [source, xml, indent=0]
 ----
 <cac:Delivery>
+    <cac:PromisedDeliveryPeriod>
+        <cbc:StartDate>2018-05-15</cbc:StartDate>
+        <cbc:EndDate>2018-05-15</cbc:EndDate>
+    </cac:PromisedDeliveryPeriod>
+    <cac:DeliveryParty>
+        <cac:PartyIdentification>
+            <cbc:IDschemeID="0201">AAFF33</cbc:ID>
+        </cac:PartyIdentification>
+        <cac:PartyName>
+            <cbc:Name>Centro Logistico Beni Sanit-Ecom Area 2</cbc:Name>
+        </cac:PartyName>
+    </cac:DeliveryParty>
+</cac:Delivery>
+<cac:DeliveryTerms>
+    <cbc:ID>PORTO FRANCO</cbc:ID>
     <cac:DeliveryLocation>
         <cbc:ID>CF-IdShipTo</cbc:ID>
-        <Name>Magazzino centralizzato</Name>
         <cac:Address>
             <cbc:StreetName>Viale Ercolani, 4</cbc:StreetName>
             <cbc:CityName>Bologna</cbc:CityName>
@@ -57,30 +71,10 @@ Se il luogo di consegna è un indirizzo istituzionale del Cliente a cui è stato
                 <cbc:Line>Orario:Lunedì-Venerdì 8:00-13:00 - Sabato 8:00-12:00</cbc:Line>
             </cac:AddressLine>
             <cac:Country>
-                <cbc:IdentificationCode listID="ISO3166-1:Alpha2">IT</cbc:IdentificationCode>
+                <cbc:IdentificationCode>IT</cbc:IdentificationCode>
             </cac:Country>
         </cac:Address>
     </cac:DeliveryLocation>
-    <cac:RequestedDeliveryPeriod>
-        <cbc:StartDate>2018-05-15</cbc:StartDate>
-        <cbc:EndDate>2018-05-15</cbc:EndDate>
-    </cac:RequestedDeliveryPeriod>
-    <cac:DeliveryParty>
-        <cac:PartyIdentification>
-            <cbc:ID schemeID="0201">AAFF33</cbc:ID>
-        </cac:PartyIdentification>
-        <cac:PartyName>
-            <cbc:Name>Centro Logistico Beni Sanit-Ecom Area 2</cbc:Name>
-        </cac:PartyName>
-        <cac:Contact>
-            <cbc:Name>ResponsabileMagazzino</cbc:Name>
-            <cbc:Telephone>0516361509</cbc:Telephone>
-            <cbc:ElectronicMail>responsabile.magazzino@aziendasanitaria.it</cbc:ElectronicMail>
-        </cac:Contact>
-    </cac:DeliveryParty>
-</cac:Delivery>
-<cac:DeliveryTerms>
-    <cbc:ID>PORTO FRANCO</cbc:ID>
 </cac:DeliveryTerms>
 ----
 
@@ -89,9 +83,9 @@ Se, invece, la consegna dei beni e/o la prestazione dei servizi deve avvenire pr
 .Esempio
 [source, xml, indent=0]
 ----
-<cac:Delivery>
+<cac:DeliveryTerms>
     <cac:DeliveryLocation>
-        <Name>Entrata magazzino merci</Name>
+        <cbc:ID>Entrata magazzino merci</cbc:ID>
         <cac:Address>
             <cbc:StreetName>Via Attanasio Soldati 80</cbc:StreetName>
             <cbc:AdditionalStreetName>Località La Rustica</cbc:AdditionalStreetName>
@@ -106,7 +100,7 @@ Se, invece, la consegna dei beni e/o la prestazione dei servizi deve avvenire pr
             </cac:Country>
         </cac:Address>
     </cac:DeliveryLocation>
-</cac:Delivery>
+</cac:DeliveryTerms>
 ----
 
 Se trattasi di consegna domiciliare (ad esempio, all’indirizzo di un paziente), questa circostanza va specificata valorizzando il campo “ID” con il testo “Consegna domiciliare” e indicando con precisione nel campo “AddressLine/Line” l’indirizzo esatto di consegna (ad esempio, includendo il numero di interno), come mostrato nel seguente esempio:
@@ -117,7 +111,7 @@ Se trattasi di consegna domiciliare (ad esempio, all’indirizzo di un paziente)
 ----
 <cac:Delivery>
     <cac:DeliveryLocation>
-        <cac:ID>Consegna domiciliare</cac:ID>
+        <cbc:ID>Consegna domiciliare</cbc:ID>
         <Name>Entrata lato portineria</Name>
         <cac:Address>
             <cbc:StreetName>Via Attanasio Soldati 80</cbc:StreetName>
@@ -154,17 +148,12 @@ L’esempio seguente si riferisce alla consegna ad una particolare unità organi
 ----
 <cac:Delivery>
     <cac:DeliveryParty>
-          <cac:PartyIdentification>
-          <cbc:ID>UO07</cbc:ID>
-          <cac:PartyName>
-              <cbc:Name>Centro logistico</cbc:Name>
-     </cac:PartyName>
-     <cac:Contact>
-         <cbc:Name>James Bond</Name
-         <cbc:Telephone>0647611</cbc:Telephone>
-         <cbc:ElectronicMail>james.bond@peo.it</ ElectronicMail>
-        </cac:Contact>
+        <cac:PartyIdentification>
+            <cbc:ID>UO07</cbc:ID>
         </cac:PartyIdentification>
+        <cac:PartyName>
+            <cbc:Name>Centro logistico</cbc:Name>
+        </cac:PartyName>
     </cac:DeliveryParty>
 </cac:Delivery>
 ---- 

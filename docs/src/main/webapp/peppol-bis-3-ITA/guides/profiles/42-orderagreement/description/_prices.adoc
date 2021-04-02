@@ -5,7 +5,7 @@ Nel processo dell’ordine pre-concordato i prezzi devono essere scambiati. Il p
 
 Il Prezzo viene specificato per gli articoli o servizi indicati nell’ordine pre-concordato.
 
-In particolare i prezzi dovrebbero includere abbuoni/sconti e/o maggiorazioni ma al netto delle imposte (es. IVA, GST o Sales tax).
+In particolare, i prezzi dovrebbero includere abbuoni/sconti e/o maggiorazioni ma al netto delle imposte (es. IVA, GST o Sales tax).
 
 
 .Esempio di prezzo per un articolo merce:

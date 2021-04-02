@@ -3,7 +3,7 @@
 
 Le informazioni relative alle imposte a livello di riga sono fornite nella classe `cac:ClassifiedTaxCategory`.
 
-Ogni riga deve avere le informazioni delle imposte applicate all'articolo incluso il codice categoria e la percentuale dell'aliquota ad eccezione del caso in cui tutto il documento non sia soggetto all'imposta, in tal caso la percentuale dell'aliquota non dovrà essere fornita a livello di riga.
+Ogni riga deve contenere le informazioni circa le imposte applicate all'articolo, incluso il codice categoria e la percentuale dell'aliquota, ad eccezione del caso in cui tutto il documento non sia soggetto all'imposta, in tal caso la percentuale dell'aliquota non dovrà essere fornita a livello di riga.
 
 .Esempio UBL di categoria di imposta sulla riga, per l'IVA
 [source, xml, indent=0]

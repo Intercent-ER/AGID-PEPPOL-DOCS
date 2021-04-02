@@ -15,9 +15,9 @@ include::../../shared/files/_vat-cat-line.adoc[]
 [[vat-allowance]]
 == Informazioni sulle imposte negli sconti e maggiorazioni
 
-Ogni sconto o maggiorazione a livello di testata viene espresso mediante l'elemento UBL `cac:AllowanceCharge`. Ulteriori dettagli sugli sconti e maggiorazioni si trovano in <<allowance>>.
+Ogni sconto o maggiorazione a livello di testata viene espresso mediante l'elemento UBL `cac:AllowanceCharge`. Ulteriori dettagli sugli sconti e maggiorazioni sono disponibili nel relativo paragrafo ("Sconti e Maggiorazioni").
 
-Ogni sconto o maggiorazione a livello di testata deve avere associato ad un codice di categoria di imposta. Per tutte le categorie di imposta deve essere fornita l'aliquota relativa, ad eccezione del caso in cui tutto il documento non sia soggetto ad imposta  (es. "Non soggetto ad IVA" (O) in Europa).
+Ogni sconto o maggiorazione a livello di testata deve essere associato ad un codice di categoria di imposta. Per tutte le categorie di imposta deve essere fornita l'aliquota relativa, ad eccezione del caso in cui tutto il documento non sia soggetto ad imposta  (es. "Non soggetto ad IVA" (O) in Europa).
 
 .Esempio UBL di maggiorazione con informazioni sulla categoria d'imposta, per l'IVA
 [source, xml, indent=0]

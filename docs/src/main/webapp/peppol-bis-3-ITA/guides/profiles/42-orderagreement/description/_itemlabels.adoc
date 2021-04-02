@@ -1,6 +1,6 @@
 = Etichette prodotti
 
-Informazioni ambientali, sociali, etiche e sulla qualità dei prodotti. La struttura UBL usata per l'etichettatura necessita dell'aggiunta di alcuni elementi a quelli usati da questa BIS. Per soddisfare i requisiti UBL, le informazioni trattate in questo paragrafo sono fornite con l'aggiunta del valore *NA*.
+Informazioni ambientali, sociali, etiche e sulla qualità dei prodotti possono essere fornite attraverso il `cac:Certifcate`. La struttura UBL usata per l'etichettatura necessita dell'aggiunta di alcuni elementi, rispetto a quelli usati da questa BIS. Per soddisfare i requisiti UBL, le informazioni trattate in questo paragrafo sono fornite con l'aggiunta del valore *NA*.
 
 .Esempio
 [source, xml, indent=0]

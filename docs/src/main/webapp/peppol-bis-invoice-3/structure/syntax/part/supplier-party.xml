@@ -42,6 +42,8 @@
                     <DataType>Identifier</DataType>
                     <Reference type="BUSINESS_TERM">BT-29, BT-90</Reference>
                     <Reference type="RULE">BR-CO-26</Reference>
+					<Reference type="RULE">BR-IT-100</Reference>
+					<Reference type="RULE">BR-IT-110</Reference>
 
                     <Attribute usage="Optional">
                         <Term>schemeID</Term>
@@ -131,6 +133,7 @@
                     <Description>The subdivision of a country.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-39</Reference>
+					<Reference type="RULE">BR-IT-150</Reference>
                     <Value type="EXAMPLE">Region A</Value>
                 </Element>
 
@@ -214,6 +217,7 @@
                     <Reference type="RULE">SE-R-001</Reference>
                     <Reference type="RULE">SE-R-002</Reference>
                     <Reference type="RULE">SE-R-005</Reference>
+					<Reference type="RULE">BR-IT-120</Reference>
                     <Value type="EXAMPLE">NO999888777</Value>
                 </Element>
 

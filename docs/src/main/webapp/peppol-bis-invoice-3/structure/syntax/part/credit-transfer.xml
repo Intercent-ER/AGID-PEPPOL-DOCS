@@ -16,6 +16,7 @@
             <Reference type="BUSINESS_TERM">BT-84</Reference>
             <Reference type="RULE">BR-50</Reference>
             <Reference type="RULE">BR-61</Reference>
+			<Reference type="RULE">BR-IT-270</Reference>
             <Value type="EXAMPLE">NO99991122222</Value>
         </Element>
 
@@ -40,6 +41,7 @@
                     Such as a BIC or a national clearing code where required. No identification scheme Identifier to be used.</Description>
                 <DataType>Identifier</DataType>
                 <Reference type="BUSINESS_TERM">BT-86</Reference>
+				<Reference type="RULE">BR-IT-280</Reference>
                 <Value type="EXAMPLE">9999</Value>
             </Element>
         </Element>

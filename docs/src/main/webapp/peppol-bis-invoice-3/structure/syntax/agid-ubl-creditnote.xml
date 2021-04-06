@@ -36,6 +36,7 @@
             <Reference type="BUSINESS_TERM">BT-24</Reference>
             <Reference type="RULE">PEPPOL-EN16931-R004</Reference>
             <Reference type="RULE">BR-01</Reference>
+			<Reference type="RULE">BR-IT-002</Reference>
             <Value type="FIXED">urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:www.agid.gov.it:trns:nota_credito:3.0</Value>
         </Element>
 
@@ -483,6 +484,7 @@
             <Name>PAYMENT INSTRUCTIONS</Name>
             <Description>A group of business terms providing information about the payment.</Description>
             <Reference type="BUSINESS_TERM">BG-16</Reference>
+			<Reference type="RULE">BR-IT-260</Reference>
 
             <Element>
                 <Term>cbc:PaymentMeansCode</Term>

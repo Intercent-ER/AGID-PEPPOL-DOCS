@@ -50,6 +50,7 @@
                 <Description>An identifier, assigned by the Seller, for the item.</Description>
                 <DataType>Identifier</DataType>
                 <Reference type="BUSINESS_TERM">BT-155</Reference>
+				<Reference type="RULE">BR-IT-440</Reference>
                 <Value type="EXAMPLE">9873242</Value>
             </Element>
         </Element>
@@ -106,8 +107,7 @@
                 <DataType>Identifier</DataType>
                 <Reference type="BUSINESS_TERM">BT-158</Reference>
                 <Reference type="RULE">BR-65</Reference>
-
-
+				<Reference type="RULE">BR-IT-470</Reference>
 
                 <Attribute>
                     <Term>listID</Term>
@@ -146,6 +146,7 @@
                 <Reference type="BUSINESS_TERM">BT-151</Reference>
                 <Reference type="RULE">BR-CO-04</Reference>
                 <Reference type="RULE">BR-O-12</Reference>
+				<Reference type="RULE">BR-IT-350</Reference>
                 <Reference type="CODE_LIST">UNCL5305</Reference>
                 <Value type="EXAMPLE">S</Value>
             </Element>

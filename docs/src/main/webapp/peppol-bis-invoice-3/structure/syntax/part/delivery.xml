@@ -56,6 +56,7 @@
                     <Description>The main address line in an address.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-75</Reference>
+					<Reference type="RULE">BR-IT-240</Reference>
                     <Value type="EXAMPLE">Delivery Street 1</Value>
                 </Element>
 
@@ -77,6 +78,7 @@
                     </Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-77</Reference>
+					<Reference type="RULE">BR-IT-240</Reference>
                     <Value type="EXAMPLE">Malmö</Value>
                 </Element>
 
@@ -87,6 +89,7 @@
                     </Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-78</Reference>
+					<Reference type="RULE">BR-IT-240</Reference>
                     <Value type="EXAMPLE">86756</Value>
                 </Element>
 
@@ -96,6 +99,7 @@
                     <Description>The subdivision of a country.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-79</Reference>
+					<Reference type="RULE">BR-IT-250</Reference>
                     <Value type="EXAMPLE">South Region</Value>
                 </Element>
 

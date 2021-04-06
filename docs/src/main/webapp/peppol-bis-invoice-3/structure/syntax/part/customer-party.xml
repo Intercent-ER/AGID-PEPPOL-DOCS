@@ -9,6 +9,7 @@
         <Element>
             <Term>cac:Party</Term>
             <Name>PARTY</Name>
+			<Reference type="RULE">BR-IT-510</Reference>
 
             <Element>
                 <Term>cbc:EndpointID</Term>
@@ -17,7 +18,7 @@
                 <DataType>Identifier</DataType>
                 <Reference type="BUSINESS_TERM">BT-49</Reference>
                 <Reference type="RULE">BR-63</Reference>
-
+				<Reference type="RULE">BR-IT-200</Reference>
 
                 <Attribute>
                     <Term>schemeID</Term>
@@ -41,7 +42,7 @@
                     <Description>An identifier of the Buyer.</Description>
                     <DataType>Identifier</DataType>
                     <Reference type="BUSINESS_TERM">BT-46</Reference>
-
+					<Reference type="RULE">BR-IT-520</Reference>
 
                     <Attribute usage="Optional">
                         <Term>schemeID</Term>
@@ -124,6 +125,7 @@
                     <Description>The subdivision of a country.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-54</Reference>
+					<Reference type="RULE">BR-IT-220</Reference>
                     <Value type="EXAMPLE">Region A</Value>
                 </Element>
 
@@ -181,6 +183,7 @@
                     <Reference type="RULE">BR-O-02</Reference>
                     <Reference type="RULE">BR-O-03</Reference>
                     <Reference type="RULE">BR-O-04</Reference>
+					<Reference type="RULE">BR-IT-180</Reference>
                     <Value type="EXAMPLE">SE8765456787</Value>
                 </Element>
 

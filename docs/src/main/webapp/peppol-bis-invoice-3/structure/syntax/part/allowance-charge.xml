@@ -82,6 +82,7 @@
             <Reference type="RULE">BR-DEC-01</Reference>
             <Reference type="RULE">BR-DEC-05</Reference>
             <Reference type="RULE">UBL-DT-01</Reference>
+			<Reference type="RULE">BR-IT-290</Reference>
 
             <Attribute>
                 <Term>currencyID</Term>
@@ -134,6 +135,7 @@
             <Reference type="RULE">BR-37</Reference>
             <Reference type="RULE">BR-O-13</Reference>
             <Reference type="RULE">BR-O-14</Reference>
+			<Reference type="RULE">BR-IT-350</Reference>
             <Reference type="CODE_LIST">UNCL5305</Reference>
             <Value type="EXAMPLE">S</Value>
 

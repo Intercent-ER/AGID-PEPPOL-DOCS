@@ -8,13 +8,13 @@
 	<Element>
 		<Term>cac:PostalAddress</Term>
 		<Name>Indirizzo Stabile Organizzazione</Name>
-		<Reference type="RULE">BR-IT-221</Reference>
 
 		<Element>
 			<Term>cbc:StreetName</Term>
 			<Name>Indirizzo - FPA 1.4.3.1 'Indirizzo' e 1.4.3.2 'NumeroCivico'</Name>
 			<Description>Indirizzo relativo alla stabile organizzazione in Italia</Description>
 			<DataType>Text</DataType>
+			<Reference type="RULE">BR-IT-221</Reference>
 			<Reference type="RULE">BR-IT-222</Reference>
 		</Element>
 
@@ -23,6 +23,7 @@
 			<Name>Comune - FPA 1.4.3.4 'Comune'</Name>
 			<Description>Comune relativo alla stabile organizzazione in Italia</Description>
 			<DataType>Text</DataType>
+			<Reference type="RULE">BR-IT-221</Reference>
 			<Reference type="RULE">BR-IT-223</Reference>
 			<Value type="EXAMPLE">Milano</Value>
 		</Element>
@@ -31,6 +32,7 @@
 			<Term>cbc:PostalZone</Term>
 			<Name>Codice Avviamento Postale - FPA 1.4.3.3 'CAP'</Name>
 			<DataType>Text</DataType>
+			<Reference type="RULE">BR-IT-221</Reference>
 			<Reference type="RULE">BR-IT-224</Reference>
 			<Value type="EXAMPLE">20100</Value>
 		</Element>
@@ -39,6 +41,7 @@
 			<Term>cbc:CountrySubentity</Term>
 			<Name>Provincia - FPA  1.4.3.5 'Provincia'</Name>
 			<DataType>Text</DataType>
+			<Reference type="RULE">BR-IT-221</Reference>
 			<Reference type="RULE">BR-IT-225</Reference>
 			<Value type="EXAMPLE">MI</Value>
 		</Element>
@@ -53,6 +56,7 @@
 				<DataType>Text</DataType>
 				<Reference type="RULE">BR-09</Reference>
 				<Reference type="RULE">BR-CL-14</Reference>
+				<Reference type="RULE">BR-IT-221</Reference>
 				<Reference type="CODE_LIST">ISO3166</Reference>
 				<Value type="EXAMPLE">IT</Value>
 			</Element>

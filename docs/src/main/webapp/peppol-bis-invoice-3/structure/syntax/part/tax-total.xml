@@ -64,7 +64,7 @@
                 <Reference type="RULE">BR-IP-08</Reference>
                 <Reference type="RULE">BR-DEC-19</Reference>
                 <Reference type="RULE">UBL-DT-01</Reference>
-
+				<Reference type="RULE">BR-IT-330</Reference>
 
                 <Attribute>
                     <Term>currencyID</Term>
@@ -97,7 +97,7 @@
                 <Reference type="RULE">BR-IP-09</Reference>
                 <Reference type="RULE">BR-DEC-20</Reference>
                 <Reference type="RULE">UBL-DT-01</Reference>
-
+				<Reference type="RULE">BR-IT-340</Reference>
 
                 <Attribute>
                     <Term>currencyID</Term>
@@ -131,6 +131,7 @@
                     <Reference type="RULE">BR-O-10</Reference>
                     <Reference type="RULE">BR-IG-01</Reference>
                     <Reference type="RULE">BR-IP-01</Reference>
+					<Reference type="RULE">BR-IT-350</Reference>
                     <Value type="EXAMPLE">S</Value>
                 </Element>
 

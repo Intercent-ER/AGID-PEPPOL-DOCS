@@ -32,7 +32,7 @@ IMPORTANT: Gli allegati possono essere utilizzati come informazioni aggiuntive m
 
 = Allegati e riferimenti a documenti a livello di riga
 
-I documenti non-XML possono essere inviati come allegato all’Ordine pre-concordato Peppol a livello di riga. Questi potrebbero comprendere specifiche del prodotto, disegni o resoconti di ore lavorate o altri documenti rilevanti per l’Ordin pre-concordato. Vedi informazioni sopra relative agli allegati.
+I documenti non-XML possono essere inviati come allegato all’Ordine pre-concordato Peppol a livello di riga. Questi potrebbero comprendere specifiche del prodotto, disegni o resoconti di ore lavorate o altri documenti rilevanti per l’Ordine pre-concordato. Vedi informazioni sopra relative agli allegati.
 
 .Esempio di allegato incorporato, oggetto binario nel messaggio dell’Ordine PEPPOL a livello di riga
 [source, xml, indent=0]

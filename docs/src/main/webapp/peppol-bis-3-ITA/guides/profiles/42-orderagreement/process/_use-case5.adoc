@@ -1,7 +1,7 @@
 [[use-case-5-framework-contract]]
 = Use case 5 – Contratto quadro
 
-L'Acquirente ha concluso un accordo quadro con il Venditore per dei servizi, come manutenzione e consulenza. L'accordo quadro prefissa i limiti ed le condizioni con cui il Venditore può fornire i servizi senza un ordine individuale da parte dell'Acquirente.
+L'Acquirente ha concluso un accordo quadro con il Venditore per dei servizi, ad esempio servizi di manutenzione o relativi ad una consulenza. L'accordo quadro prefissa i limiti ed le condizioni con cui il Venditore può fornire i servizi senza un ordine individuale da parte dell'Acquirente.
 
 [cols="1h,5",]
 |====
@@ -12,35 +12,35 @@ L'Acquirente ha concluso un accordo quadro con il Venditore per dei servizi, com
 |Manutenzione sulla base di un contratto quadro
 
 |Descrizione
-a|Un Venditore, il quale ha stipuato un contratto quadro che lo incarica rispetto a certi servizi, fornitura di beni o consulenze, potrebbe reagire a seconda di alcuni eventi come da contratti e alla fine del periodo inviare un ordine pre-concordato che elenca tutti i servizi che sono stati effettuati. +
+a|Un Venditore, il quale ha stipuato un contratto quadro che lo incarica rispetto a certi servizi, ad una fornitura di beni o consulenze, potrebbe "reagire" rispetto ad alcuni eventi come da contratto ed alla fine del periodo inviare un Ordine pre-concordato che elenchi tutti i servizi che sono stati effettuati. +
  +
-Gli esempi includono:
+Degli esempi possono essere:
 
-* La manutenzione di servizi che monitorano un palazzo e servono, per esempio, ad aggiustare le finestre, le porte o altri elementi identificati che necessitino manutenzione.
-* Un fornitore di servizi informatici monitora i sistemi e reagisci immediatamente ad incidenti come disservizi ed errori.
-* Servizi di contabilità contratti dall'Acquirente gestistoscono varie pratiche e report come richiesto.
+* La manutenzione di servizi che monitorano un palazzo e servono, per esempio, ad aggiustare le finestre, le porte o altri elementi identificati che necessitino di manutenzione;
+* Un fornitore di servizi informatici monitora i sistemi e reagisce immediatamente ad incidenti, come disservizi ed errori.
+* Servizi di contabilità contratti dall'Acquirente che gestistscono varie pratiche e report come richiesto.
 * Un Venditore è stato incaricato di monitorare il livello dello stock di alcuni prodotti ed eseguire rifornimenti in modo da mantenere i livelli accordati.
 
-In ciascuno di questi esempi l'Acquirente ha concluso un contratto quadro con il Venditore, permetendo al Venditore di reagire ad eventi definiti ma non precedentemente noti, senza ricevere un ordine o una richiesta dall'Acquirente per ciascun evento.
+In ciascuno di questi esempi l'Acquirente ha concluso un contratto quadro con il Venditore, permettendo al Venditore di reagire ad eventi definiti ma non precedentemente noti, senza ricevere un ordine o una richiesta dall'Acquirente per ciascun evento.
 
 |Ruoli coinvolti
 a| * Acquirente
 * Venditore
 
 |Assunzioni 
-|Il Venditore e l'Acquirente hanno stipulato un accordo quadro che degfinisce il servizio che deve essere fornito e i suoi limiti.
+|Il Venditore e l'Acquirente hanno stipulato un accordo quadro che definisce il servizio che deve essere fornito e i suoi limiti.
 
 |Il flusso
-|Il Venditore di un servizio o articoli reagisce agli eventi così come definiti nel contratto ed effettua la prestazione del servizio o la consegna dei beni cosi come da contratto.
+|Il Venditore di beni o servizi reagisce agli eventi così come definiti nel contratto ed effettua la prestazione del servizio o la consegna dei beni come da contratto.
 
-Periodicamente, per esempio ogni mese, il Venditore fa una lista di tutti i servizi e prodotti che sono stati forniti durante il periodo. Questi sono listati nelle linee dell'ordine pre-concordato ed il totale dell'irdine rappresentale il valore totale dei beni e servizi forniti nel periodo e che saranno fatturati dal Venditore. Il Venditore invia l'Ordine pre-concordato all'Acquirente che lo registra nei propri sistemi.
+Periodicamente, per esempio ogni mese, il Venditore fa una lista di tutti i servizi e prodotti che sono stati forniti durante il periodo. Questi sono listati nelle linee dell'Ordine pre-concordato ed il totale dell'ordine rappresentale il valore totale dei beni e servizi forniti nel periodo e che saranno fatturati dal Venditore. Il Venditore invia l'Ordine pre-concordato all'Acquirente, che lo registra nei propri sistemi.
 
-Il Venditore procede a fatturare immediatamente a meno che non sia definito diversamente dall'accordo quadro.
+Il Venditore procede a fatturare immediatamente, a meno che non sia definito diversamente dall'accordo quadro.
 
-L'Acquirente potrebbe avere processi interni che verifichino questo tipo di ordini pre-concordati, in modo diverso da quelli iniziati da lui stesso.
+L'Acquirente potrebbe avere processi interni che verifichino questo tipo di Ordini pre-concordati in modo diverso da quelli iniziati da lui stesso.
 
 |Risultati
-|L'Acquirente ha registrato un ordine di acquisto nei suoi sistemi che gli permette di ordinare una fatturazione abbinata quando la fattura è ricevuta.
+|L'Acquirente ha registrato un ordine di acquisto nei propri sistemiche gli permette abbinare la fatture agli ordini quando la fattura è ricevuta.
 
 |Esempio XML
 |Vedi sezione "Downloads" della https://notier.regione.emilia-romagna.it/docs/[home]

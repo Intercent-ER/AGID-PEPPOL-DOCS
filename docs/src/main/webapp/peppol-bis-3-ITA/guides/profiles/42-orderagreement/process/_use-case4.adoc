@@ -1,7 +1,7 @@
-[[use-case-3-buyer-visits-the-sellers-physical-store]]
-= Caso d’uso 3 – L'Acquirente visita il negozio fisico del Venditore
+[[use-case-4-buyer-visits-the-sellers-physical-store]]
+= Caso d’uso 4 – L'Acquirente visita il negozio fisico del Venditore
 
-Questo caso d’uso descrive il processo dove un cliente/Acquirente entra fisicamente nel negozio del Venditore per comprare e possibilmente  prende in consegna i prodotti.
+Questo caso d’uso descrive il processo dove un Cliente/Acquirente entra fisicamente nel negozio del Venditore per comprare e possibilmente  prende in consegna i prodotti.
 
 [cols="1h,5",]
 |====
@@ -24,13 +24,13 @@ a| * Acquirente
 |Il flusso
 a|L'Acquirente necessita urgentemente di alcuni prodotti e preferirebbe discuterne direttamente con il Venditore prima di acquistare gli articoli.
 
-Dopo aver selezionato gli articoli, l'Acquirente ottiene una ricevuta le scelte. Potrebbe optare per portare con se tutti i prodotti nel momento della sua uscita oppure schedulare la consegna per un secondo momento.
+Dopo aver selezionato gli articoli, l'Acquirente ottiene una ricevuta con le scelte. Potrebbe optare per portare con se tutti i prodotti nel momento della sua uscita dal negozio oppure schedulare la consegna per un secondo momento.
 
-Il Venditore registra l'ordine nel proprio sistema ordini includendo un riferimento, come il numero della richiesta, l'idendificativo della persona, identificativo del progetto, ecc.
+Il Venditore registra l'ordine nel proprio sistema ordini includendo un riferimento, come ad esempio il numero della richiesta, l'idendificativo della persona, identificativo del progetto, ecc.
 
-Una transazione di ordine pre-concordato con informazioni sull'articolo e il prezzo degli articoli selezionati viene inviato dal Venditore al sistema di acquisto dell'Acquirente. L’ordine pre-concordato è registrato nel sistema di acquisto del dell'Acquirente. +
+Una transazione di Ordine pre-concordato con informazioni sull'articolo ed il prezzo degli articoli selezionati viene inviata dal Venditore al sistema di acquisto dell'Acquirente. L’Ordine pre-concordato è registrato nel sistema di acquisto dell'Acquirente. +
 
-L'Acquirente quindi segue la normale procedura e, se necessario, completa l'ordine.
+L'Acquirente quindi segue la normale procedura per completare l'ordine (se necessario).
 
 Il Venditore invia una fattura che corrisponde all'ordine ed alla consegna, ma questo è al di fuori di questa specifica. 
 

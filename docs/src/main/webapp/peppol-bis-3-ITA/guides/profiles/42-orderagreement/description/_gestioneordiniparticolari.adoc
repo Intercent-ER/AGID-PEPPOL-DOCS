@@ -4,6 +4,32 @@
 :leveloffset: +1
 
 [[titolo]]
+= Ordini in Conto Visione e Ordini di fatturazione e reintegro
+
+Gli ordini con tipologia 227 di beni in conto visione (CV) e gli ordini con tipologia 220 di fatturazione e reintegro (OFR) prevedono che l’emissione dell’ordine avvenga successivamente alla consegna e all’utilizzo dei beni forniti. Pertanto, in questi ordini è obbligatorio specificare i riferimenti relativi al Documento di Trasporto.
+
+Esempio:
+
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+        <cac:Item>
+                ...
+            <cac:ItemSpecificationDocumentReference>
+                <cbc:Id>DDT:123</cbc:Id>
+            </cac:ItemSpecificationDocumentReference>
+                ...
+        </cac:Item>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+:leveloffset: -1
+
+
+:leveloffset: +1
+
+[[titolo]]
 = Ordini pre-concordati di Kit a componenti predefinite e a componenti variabili (virtuali)
 
 I componenti di un Kit (generalmente si tratta di dispositivi sanitari impiantabili) possono essere predefiniti (definiti a listino dal fornitore e sempre utilizzati congiuntamente) o variabili (nel listino del fornitore vengono indicati i possibili componenti richiedibili). Solitamente esiste un codice articolo del kit e un codice articolo per ciascun componente del kit.

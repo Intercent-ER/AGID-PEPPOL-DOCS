@@ -1,7 +1,7 @@
 [[description-of-selected-parts-of-the-order-message]]
 = Descrizione di parti selezionate dell'ordine pre-concordato
 
-I paragrafi seguenti descrivono l'uso delle singole sezioni della transazione per l'ordine pre-concordato.
+I paragrafi seguenti descrivono l'uso delle singole sezioni di un Ordine pre-concordato.
 
 :leveloffset: +1
 

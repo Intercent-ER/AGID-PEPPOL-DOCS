@@ -28,7 +28,7 @@ Dopo aver selezionato gli articoli, l'Acquirente ottiene una ricevuta con le sce
 
 Il Venditore registra l'ordine nel proprio sistema ordini includendo un riferimento, come ad esempio il numero della richiesta, l'idendificativo della persona, identificativo del progetto, ecc.
 
-Una transazione di Ordine pre-concordato con informazioni sull'articolo ed il prezzo degli articoli selezionati viene inviata dal Venditore al sistema di acquisto dell'Acquirente. L’Ordine pre-concordato è registrato nel sistema di acquisto dell'Acquirente. +
+Un Ordine pre-concordato con informazioni sull'articolo ed il prezzo degli articoli selezionati viene inviato dal Venditore al sistema di acquisto dell'Acquirente. L’Ordine pre-concordato è registrato nel sistema di acquisto dell'Acquirente. +
 
 L'Acquirente quindi segue la normale procedura per completare l'ordine (se necessario).
 

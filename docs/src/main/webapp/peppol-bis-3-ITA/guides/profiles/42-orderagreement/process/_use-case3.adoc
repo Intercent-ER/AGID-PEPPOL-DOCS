@@ -26,7 +26,7 @@ a|L'Acquirente sta utilizzando il sistema acquisti interno ed ha bisogno di stam
 
 L'Acquirente ordina direttamente la stampante durante la telefonata ed informa il Venditore riguardo quale riferimento usare. +
 
-Una transazione di Ordine pre-concordato con informazioni sull'articolo ed il prezzo degli articoli selezionati viene inviata dal Venditore al sistema di acquisto dell'Acquirente. L’Ordine pre-concordato è registrato nel sistema di acquisto del dell'Acquirente. +
+Un Ordine pre-concordato con informazioni sull'articolo ed il prezzo degli articoli selezionati viene inviato dal Venditore al sistema di acquisto dell'Acquirente. L’Ordine pre-concordato è registrato nel sistema di acquisto del dell'Acquirente. +
 
 Dopo la consegna della merce, il Venditore invia una fattura che corrisponde all'ordine
 ed alla consegna, ma questo è al di fuori di questa specifica. 

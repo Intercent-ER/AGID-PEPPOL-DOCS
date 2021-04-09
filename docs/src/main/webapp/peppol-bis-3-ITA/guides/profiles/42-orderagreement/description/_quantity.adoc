@@ -22,15 +22,17 @@ La tabella seguente elenca le quantità e le relative unità di misura previste.
 .Esempio di un ordine pre-concordato con quantità 120 pezzi (cbc:Quantity) ed il prezzo dato è per ciascuna dozzina. Quando si calcola il totale della linea, il prezzo applicato sarà quindi 120/12x50 = €500.
 [source, xml, indent=0]
 ----
-<cac:LineItem>
-    <cbc:ID>1</cbc:ID>
-    <cbc:Note>Line note</cbc:Note>
-    <cbc:Quantity unitCode="C62">120</cbc:Quantity>
-    <cbc:LineExtensionAmount currencyID="EUR">500</cbc:LineExtensionAmount>
-    <!-- code omitted for clarity -->
-    <cac:Price>
-        <cbc:PriceAmount currencyID="EUR">50</cbc:PriceAmount>
-        <cbc:BaseQuantity unitCode="C62">12</cbc:BaseQuantity>
-    </cac:Price>
-</cac:LineItem>
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>1</cbc:ID>
+        <cbc:Note>Line note</cbc:Note>
+        <cbc:Quantity unitCode="C62">120</cbc:Quantity>
+        <cbc:LineExtensionAmount currencyID="EUR">500</cbc:LineExtensionAmount>
+        <cac:Price>
+            <cbc:PriceAmount currencyID="EUR">50</cbc:PriceAmount>
+            <cbc:BaseQuantity unitCode="C62">12</cbc:BaseQuantity>
+        </cac:Price>
+        ...
+    </cac:LineItem>
+</cac:OrderLine>
 ----

@@ -101,7 +101,6 @@ Questo esempio mostra uno sconto di 10 EUR sul prezzo base:
         <cbc:ID>1</cbc:ID>
         <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">20</cbc:Quantity>
         <cbc:LineExtensionAmount currencyID="EUR">1800.00</cbc:LineExtensionAmount>
-        ...
         <cac:Price>
             <cbc:PriceAmount currencyID="EUR">90.00</cbc:PriceAmount>
             <cac:AllowanceCharge>
@@ -110,6 +109,7 @@ Questo esempio mostra uno sconto di 10 EUR sul prezzo base:
                 <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
             </cac:AllowanceCharge>
         </cac:Price>
+        ...
     </cac:LineItem>
 </cac:OrderLine>
 ----
@@ -125,7 +125,7 @@ Per includere nell’ordine pre-concordato degli articoli in omaggio è necessar
 .Esempio di una riga d’ordine contenente in omaggio 12 pacchi di striscie per il test del glucosio:
 [source, xml, indent=0]
 ----
-<cac:orderline>
+<cac:Orderline>
     <cac:LineItem>
         <cbc:ID>1</cbc:ID>
         <cbc:Quantity unitCode="C62" unitCodeListID=”UNECERec20”>20</cbc:Quantity>

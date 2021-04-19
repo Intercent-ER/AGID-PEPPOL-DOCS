@@ -81,7 +81,7 @@
          <div class="labelFont">TARGET</div>
          <div><strong>PEPPOL-BIS-05a-400_UBL-CreditNote-2.1_NoTIER</strong></div>
          <div class="labelFont">VERSION</div>
-         <div><strong>1.8</strong></div>
+         <div><strong>1.8.1</strong></div>
       </div>
       <table id="treegrid"></table>
       <div id="ptreegrid"></div>
@@ -5953,8 +5953,8 @@
             <tr class="leaf" data-level="3" style="border-left: 8px solid gray">
                <td class="leafFont" style="border-left: 8px solid gray"><pre>    @ unitCode</pre></td>
                <td>&nbsp;</td>
-               <td>if (document($xclUnitOfMeasureCode)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xname']/SimpleValue=current()/UnitaMisura][1])
-                  then document($xclUnitOfMeasureCode)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xname']/SimpleValue=current()/UnitaMisura][1]
+               <td>if (document($xclUnitOfMeasureCode)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xname']/SimpleValue/lower-case(.)=lower-case(current()/UnitaMisura)][1])
+                  then document($xclUnitOfMeasureCode)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xname']/SimpleValue/lower-case(.)=lower-case(current()/UnitaMisura)][1]
                   else 'C62'&nbsp;
                </td>
                <td>&nbsp;</td>

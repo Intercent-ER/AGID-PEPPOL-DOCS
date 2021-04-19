@@ -32539,46 +32539,6 @@
             <SimpleValue>X</SimpleValue>
          </Value>
          <Value ColumnRef="code">
-            <SimpleValue>PK</SimpleValue>
-         </Value>
-         <Value ColumnRef="name">
-            <SimpleValue>pack</SimpleValue>
-         </Value>
-         <Value ColumnRef="description">
-            <SimpleValue>Use UN/ECE Recommendation 21 (refer to Note 2 in the spreadsheet introduction, 1st sheet). Synonym: package</SimpleValue>
-         </Value>
-         <Value ColumnRef="levelcategory">
-            <SimpleValue>3.3</SimpleValue>
-         </Value>
-         <Value ColumnRef="xname">
-            <SimpleValue>Confezione</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="status">
-            <SimpleValue>X</SimpleValue>
-         </Value>
-         <Value ColumnRef="code">
-            <SimpleValue>PK</SimpleValue>
-         </Value>
-         <Value ColumnRef="name">
-            <SimpleValue>pack</SimpleValue>
-         </Value>
-         <Value ColumnRef="description">
-            <SimpleValue>Use UN/ECE Recommendation 21 (refer to Note 2 in the spreadsheet introduction, 1st sheet). Synonym: package</SimpleValue>
-         </Value>
-         <Value ColumnRef="levelcategory">
-            <SimpleValue>3.3</SimpleValue>
-         </Value>
-         <Value ColumnRef="xname">
-            <SimpleValue>Confezioni</SimpleValue>
-         </Value>
-      </Row>
-      <Row>
-         <Value ColumnRef="status">
-            <SimpleValue>X</SimpleValue>
-         </Value>
-         <Value ColumnRef="code">
             <SimpleValue>PL</SimpleValue>
          </Value>
          <Value ColumnRef="name">

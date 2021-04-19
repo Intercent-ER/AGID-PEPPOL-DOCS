@@ -1585,7 +1585,7 @@ the root node.
          </xsl:apply-templates>
          <cbc:CreditedQuantity unitCodeListID="UNECERec20">
             <xsl:variable name="variable_d4e458a1050145">
-               <xsl:value-of select="if (document($xclUnitOfMeasureCode)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xname']/SimpleValue=current()/UnitaMisura][1]) then document($xclUnitOfMeasureCode)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xname']/SimpleValue=current()/UnitaMisura][1] else 'C62'"/>
+               <xsl:value-of select="if (document($xclUnitOfMeasureCode)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xname']/SimpleValue/lower-case(.)=lower-case(current()/UnitaMisura)][1]) then document($xclUnitOfMeasureCode)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xname']/SimpleValue/lower-case(.)=lower-case(current()/UnitaMisura)][1] else 'C62'"/>
             </xsl:variable>
             <xsl:if test="string($variable_d4e458a1050145)">
                <xsl:attribute name="unitCode">

@@ -3763,8 +3763,8 @@
                <td>
                   <div class="wrapCol200">&nbsp;</div>
                </td>
-               <td>if (document($xclUnitOfMeasureCode)//Value[@ColumnRef='xname']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/cbc:InvoicedQuantity/@unitCode][1])
-                  then document($xclUnitOfMeasureCode)//Value[@ColumnRef='xname']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/cbc:InvoicedQuantity/@unitCode][1]
+               <td>if ((document($xclUnitOfMeasureCode)//Value[@ColumnRef='xname']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/cbc:InvoicedQuantity/@unitCode])[1])
+                  then (document($xclUnitOfMeasureCode)//Value[@ColumnRef='xname']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/cbc:InvoicedQuantity/@unitCode])[1]
                   else concat('unita', "'")&nbsp;
                </td>
                <td>

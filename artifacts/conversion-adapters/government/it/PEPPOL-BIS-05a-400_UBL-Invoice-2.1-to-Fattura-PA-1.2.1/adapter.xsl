@@ -1102,9 +1102,18 @@ the root node.
             <xsl:value-of select="if (cac:OrderReference) then cac:OrderReference/cbc:ID else /in:Invoice/cac:OrderReference/cbc:ID"/>
          </IdDocumento>
          <xsl:if test="cac:OrderReference/cbc:IssueDate or /in:Invoice/cac:OrderReference/cbc:IssueDate">
-            <Data>
-               <xsl:value-of select="if (cac:OrderReference) then &#x9;substring(string(cac:OrderReference/cbc:IssueDate),1,10) else &#x9;substring(string(/in:Invoice/cac:OrderReference/cbc:IssueDate),1,10)"/>
-            </Data>
+            <xsl:choose>
+               <xsl:when test="cac:OrderReference/cbc:IssueDate">
+                  <Data>
+                     <xsl:value-of select="&#x9;substring(string(cac:OrderReference/cbc:IssueDate),1,10)"/>
+                  </Data>
+               </xsl:when>
+               <xsl:when test="not (cac:OrderReference) and /in:Invoice/cac:OrderReference/cbc:IssueDate">
+                  <Data>
+                     <xsl:value-of select="&#x9;substring(string(/in:Invoice/cac:OrderReference/cbc:IssueDate),1,10)"/>
+                  </Data>
+               </xsl:when>
+            </xsl:choose>
          </xsl:if>
          <xsl:if test="cbc:LineID != '0'">
             <NumItem>
@@ -1259,7 +1268,7 @@ the root node.
    <xsl:template match="cac:OrderReference">
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
-      <xsl:if test="(cbc:ID or cbc:IssueDate) and count(/in:Invoice/cac:InvoiceLine/cac:OrderLineReference) = 0">
+      <xsl:if test="cbc:ID or cbc:IssueDate">
          <DatiOrdineAcquisto>
             <IdDocumento>
                <xsl:value-of select="cbc:ID"/>

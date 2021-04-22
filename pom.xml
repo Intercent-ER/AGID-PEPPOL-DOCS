@@ -4,7 +4,7 @@
     <name>NoTI-ER-PEPPOL</name>
     <groupId>it.gov.agid</groupId>
     <artifactId>NoTI-ER-PEPPOL</artifactId>
-    <version>1.3</version>
+    <version>1.4</version>
     <packaging>pom</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

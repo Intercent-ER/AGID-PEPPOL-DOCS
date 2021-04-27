@@ -2,12 +2,12 @@
 [cols="1h,1m,4m", options="header"]
 
 |===
-| Versione
-| Data
-| Cosa è cambiato
+^.^| Version
+^.^| Date
+^.^| What's new
 
 | 3.0.0.1(IT)
-a| 14/12/2020
-a| 
+a| 03/05/2021
+a| Release first version.
 
 |===

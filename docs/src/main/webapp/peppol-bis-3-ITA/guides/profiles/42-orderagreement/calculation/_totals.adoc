@@ -1,7 +1,7 @@
 [[totals]]
 = Calcolo dei totali (LegalMonetaryTotal)
 
-[[anchor-1]]
+[[anchor-6]]
 
 I seguenti elementi mostrano gli importi totali presenti nell’ordine:
 [cols="3,3,5", options="header"]

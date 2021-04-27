@@ -7,7 +7,7 @@
 | Cosa è cambiato
 
 | 3.0.0.1(IT)
-a| 14/12/2020
-a| 
+a| 03/05/2021
+a| Pubblicazione prima versione.
 
 |===

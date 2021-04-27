@@ -35,4 +35,8 @@ Se la fattura contiene il riferimento all’ordine, questa può essere correlata
 
 |Esempio XML
 |Vedi sezione "Downloads" della https://notier.regione.emilia-romagna.it/docs/[home]
+
+../main.adoc
+
+
 |====

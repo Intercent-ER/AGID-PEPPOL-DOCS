@@ -9,7 +9,7 @@ _L'informazione relativa a sconti e/o maggiorazioni si applica all'intero ordine
 
 * Possono essere forniti più sconti e maggiorazioni
 * Le informazioni sulle imposte relative agli sconti e maggiorazioni (cac:TaxCategory con i suoi sotto elementi) devono essere fornite
-* La somma di tutti gli sconti e maggiorazioni a livello di testata deve essere specificato rispettivamente nel `cbc:AllowanceTotalAmount` e `cbc:ChargeTotalAmount`. Vedi paragrafo <<anchor-1,6.2 Calcolo dei totali>>
+* La somma di tutti gli sconti e maggiorazioni a livello di testata deve essere specificato rispettivamente nel `cbc:AllowanceTotalAmount` e `cbc:ChargeTotalAmount`. Vedi paragrafo <<anchor-6,6.2 Calcolo dei totali>>
 
 
 == Sconti e maggiorazioni a livello di testata

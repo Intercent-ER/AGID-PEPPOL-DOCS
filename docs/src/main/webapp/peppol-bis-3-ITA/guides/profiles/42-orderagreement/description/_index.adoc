@@ -31,7 +31,7 @@ include::_gestioneordiniparticolari.adoc[]
 
 include::_ulteriori-informazioni.adoc[]
 
-// include::_usonote.adoc[]
+include::_usonote.adoc[]
 
 
 :leveloffset: -1

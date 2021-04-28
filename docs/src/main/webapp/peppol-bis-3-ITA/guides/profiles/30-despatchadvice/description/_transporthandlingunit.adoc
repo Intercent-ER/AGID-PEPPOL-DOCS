@@ -28,7 +28,7 @@ Il Serial Shipping Container Code (SSCC) emesso da GS1 può essere usato per ide
 È importante notare che la stessa unità logistica può contenere articoli merce indicati in righe diverse nel Documento di Trasporto.
 Questo si implementa mediante il riferimento allo stesso codice SSCC nell’elemento ID del TransportHandlingUnit su diverse righe di spedizione.
 
-In Italia l’etichetta logistica posta sull’unità logistica, come ad esempio un collo singolo o un pallet con il relativo identificativo SSCC, viene denominata comunemente “segnacollo”.
+#In Italia l’etichetta logistica posta sull’unità logistica, come ad esempio un collo singolo o un pallet con il relativo identificativo SSCC, viene denominata comunemente “segnacollo”.#
 
 Esempio:
 

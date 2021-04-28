@@ -26,15 +26,15 @@ In certi settori può essere necessario identificare la merce pericolosa in modo
 | *Descrizione*
 | *Sintassi UBL*
 
-| #Identificativo sostanza pericolosa#
+| Identificativo sostanza pericolosa
 | identificativo UN assegnato (UN Number)
 | cbc:ID
 
-| #Denominazione tecnica sostanza#
+| Denominazione tecnica sostanza
 | Denominazione tecnica UN
 | cbc:TechnicalName
 
-| #Categoria sostanza pericolosa#
+| Categoria sostanza pericolosa
 | Denominazione del tipo di pericolo per un materiale o sostanza
 | cbc:CategoryName
 |===

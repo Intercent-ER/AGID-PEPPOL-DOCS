@@ -71,7 +71,7 @@
 
 //internal
 :link-codelist: link:peppol-bis-3/menu/codelist-home.html[Codifiche e Identificatori]
-:codelist-ICD: link:peppol-bis-3/structure/codelist/ICD.xml[Codifica ICD]
-:codelist-EAS: link:peppol-bis-3/structure/codelist/eas.xml[Codifica EAS]
-:vat-codes: link:peppol-bis-3/structure/codelist/UNCL5305.xml[Codifica UNCL5305]
-:mime-codes: link:peppol-bis-3/structure/codelist/MimeCode.xml[Codifica Mime]
+:codelist-ICD: link:xml/ITA/peppol-bis-3/codelist/ICD.xml[Codifica ICD]
+:codelist-EAS: link:xml/ITA/peppol-bis-3/codelist/eas.xml[Codifica EAS]
+:vat-codes: link:xml/ITA/peppol-bis-3/codelist/UNCL5305.xml[Codifica UNCL5305]
+:mime-codes: link:xml/ITA/peppol-bis-3/codelist/MimeCode.xml[Codifica Mime]

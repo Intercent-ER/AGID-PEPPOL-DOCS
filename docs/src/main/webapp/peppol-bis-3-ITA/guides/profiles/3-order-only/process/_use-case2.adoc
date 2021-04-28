@@ -1,7 +1,7 @@
 [[use-case-2-ordering-of-free-text-articles]]
-= Caso d’uso 2 – Ordine di fornitura con articoli e un allegato
+= Caso d’uso 2 – Ordine di fornitura di articoli in testo libero
 
-Questo caso d’uso è relativo a un ordine composto da articoli e un allegato.
+Questo caso d’uso è relativo a un ordine composto da articoli descritti in testo libero.
 
 [cols="1s,5",options="header"]
 |====
@@ -9,10 +9,10 @@ Questo caso d’uso è relativo a un ordine composto da articoli e un allegato.
 |2
 
 |Nome
-|Ordine con articoli e un allegato
+|Ordine di articoli in testo libero
 
 |Descrizione
-|Un ordine con unità/articoli descritti in modo strutturati. È presente un allegato.
+|Un ordine con unità/articoli descritti in testo libero. 
 
 |Ruoli coinvolti
 a|Acquirente +

@@ -12,7 +12,7 @@ Questo caso d’uso è relativo a un ordine composto da articoli descritti in te
 |Ordine di articoli in testo libero
 
 |Descrizione
-|Un ordine con unità/articoli descritti in testo libero. 
+|Un ordine con unità/articoli descritti con testo libero e coppie di attributo-valore. 
 
 |Ruoli coinvolti
 a|Acquirente +

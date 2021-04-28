@@ -17,7 +17,7 @@
     <xsl:template match="/sch:schema">
         <html data-rules="{$rules}">
             <head>
-                <title>PEPPOL BIS Billing 3.0 | Regole</title>
+                <title>PEPPOL BIS versione 3 | Regole</title>
                 <meta charset="utf-8"/>
                 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>

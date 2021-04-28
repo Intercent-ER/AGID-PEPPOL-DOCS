@@ -50,7 +50,7 @@ L’ordine è accettato con modifica a livello di riga +
 .Esempio UBL di Codice di Risposta a livello di testata in un messaggio di risposta d’ordine
 [source, xml, indent=0]
 ----
-<cbc:OrderResponseCode listID="UNCL4343">CA</cbc:OrderResponseCode>
+<cbc:OrderResponseCode>CA</cbc:OrderResponseCode>
 ----
 
 .Esempio UBL di una risposta d’ordine che utilizza il codice risposta "AB" (ordine ricevuto)
@@ -68,18 +68,18 @@ L’ordine è accettato con modifica a livello di riga +
     <cbc:IssueDate>2018-12-01</cbc:IssueDate>
     <cbc:IssueTime>14:30:00</cbc:IssueTime>
     <!--Ordine ricevuto ma ancora non processato-->
-    <cbc:OrderResponseCode listID="UNCL4343">AB</cbc:OrderResponseCode>  <1>
+    <cbc:OrderResponseCode>AB</cbc:OrderResponseCode>  <1>
     <cbc:Note>Risposta Ordine Inviato al Cliente</cbc:Note>
-    <cbc:DocumentCurrencyCode listID="ISO4217">EUR</cbc:DocumentCurrencyCode>
+    <cbc:DocumentCurrencyCode>EUR</cbc:DocumentCurrencyCode>
     <cac:OrderReference>
         <cbc:ID>5a-2018#2018-11-25#ABCDEF</cbc:ID>
     </cac:OrderReference>
     <!--Fornitore, Venditore-->
     <cac:SellerSupplierParty>
         <cac:Party>
-            <cbc:EndpointID schemeID="9906">IT05501420900</cbc:EndpointID>
+            <cbc:EndpointID schemeID="0211">IT05501420900</cbc:EndpointID>
             <cac:PartyIdentification>
-                <cbc:ID>PIVA:IT05501420900</cbc:ID>
+                <cbc:ID schemeID="0211">IT05501420900</cbc:ID>
             </cac:PartyIdentification>
             <cac:PartyLegalEntity>
                 <cbc:RegistrationName>Fornitore S.p.A.</cbc:RegistrationName>

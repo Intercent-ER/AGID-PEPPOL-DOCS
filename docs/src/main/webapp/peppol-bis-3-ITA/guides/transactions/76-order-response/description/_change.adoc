@@ -187,8 +187,7 @@ ubl:OrderResponse
                 <cbc:ID schemeID="0160">05704368643453</cbc:ID>
             </cac:StandardItemIdentification>
             <cac:CommodityClassification>
-                <cbc: ItemClassificationCode listID="STI">
-				675634</cbc: ItemClassificationCode >
+                <cbc:ItemClassificationCode listID="STI">675634</cbc:ItemClassificationCode>
             </cac:CommodityClassification>
         </cac:Item>
     </cac:SellerSubstitutedLineItem>

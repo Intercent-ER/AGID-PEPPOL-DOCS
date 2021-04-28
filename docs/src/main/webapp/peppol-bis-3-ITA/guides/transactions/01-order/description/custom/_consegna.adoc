@@ -45,7 +45,7 @@ Se il luogo di consegna è un indirizzo istituzionale del Cliente a cui è stato
                 <cbc:Line>Orario:Lunedì-Venerdì 8:00-13:00 - Sabato 8:00-12:00</cbc:Line>
             </cac:AddressLine>
             <cac:Country>
-                <cbc:IdentificationCode listID="ISO3166-1:Alpha2">IT</cbc:IdentificationCode>
+                <cbc:IdentificationCode>IT</cbc:IdentificationCode>
             </cac:Country>
         </cac:Address>
     </cac:DeliveryLocation>

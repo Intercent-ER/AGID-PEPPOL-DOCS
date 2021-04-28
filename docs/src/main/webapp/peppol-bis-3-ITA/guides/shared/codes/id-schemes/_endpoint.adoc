@@ -11,7 +11,7 @@ I valori permessi si trovano presso: {codelist-EAS}.
 [source,xml, indent="0"]
 ----
 
-	<cbc:EndpointID schemeID="9906">IT01234567890</cbc:EndpointID> <1>
+<cbc:EndpointID schemeID="0211">IT01234567890</cbc:EndpointID> <1>
 
 ----
 <1> L’attributo schemeID è obbligatorio

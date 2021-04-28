@@ -146,7 +146,7 @@ Per includere nell’ordine pre-concordato degli articoli in omaggio è necessar
                <cbc:ID>79847-E</cbc:ID>
             </cac:SellersItemIdentification>
             <cac:ClassifiedTaxCategory>
-                <cbc:ID schemeID="UNCL5305">S</cbc:ID>
+                <cbc:ID>S</cbc:ID>
                 <cbc:Percent>22</cbc:Percent></cac:Item>
                 <cac:TaxScheme>
                      <cbc:ID>VAT</cbc:ID>

@@ -64,7 +64,7 @@ Gli Ordini di riscontro sostitutivi e gli Ordini di riscontro per diniego, rispe
 …
 <cac:SellerSupplierParty>
     <cac:Party>
-        <cbc:EndpointID schemeID=”9906”>ITddddddddddd</cbc:EndpointID>
+        <cbc:EndpointID schemeID=”0211”>ITddddddddddd</cbc:EndpointID>
     </cac:Party>
 </cac:SellerSupplierParty>
 …

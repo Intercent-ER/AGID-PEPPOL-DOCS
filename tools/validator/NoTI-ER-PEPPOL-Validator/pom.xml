@@ -4,7 +4,7 @@
 	<name>NoTI-ER-PEPPOL-Validator</name>
 	<groupId>it.gov.agid</groupId>
 	<artifactId>NoTI-ER-PEPPOL-Validator</artifactId>
-	<version>2.2.9</version>
+	<version>2.3.0</version>
 	<parent>
 		<groupId>it.gov.agid</groupId>
 		<artifactId>NoTI-ER-PEPPOL</artifactId>

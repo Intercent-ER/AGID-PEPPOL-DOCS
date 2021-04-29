@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-	Peppol BIS 3.0.4
+	Peppol BIS 3.0.7
 	NSO 4.5
 	
 	NOTE:

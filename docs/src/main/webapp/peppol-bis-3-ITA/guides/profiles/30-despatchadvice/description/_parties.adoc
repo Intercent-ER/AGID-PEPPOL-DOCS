@@ -17,7 +17,7 @@ Esempio:
 include::{snippet-dir}/snippet-30-1.xml[tags=despatchsupplier]
 ----
 
-<1> la Partita IVA viene specificata con il prefisso PIVA: e senza l'attributo @schemeID in quanto al momento la codifica ICD non include il codice per le partite IVA italiane
+<1> la Partita IVA viene specificata inserendo l'attributo @schemeID valorizzato con il codice "0211"
 
 
 [[consignee-deliverycustomerparty]]

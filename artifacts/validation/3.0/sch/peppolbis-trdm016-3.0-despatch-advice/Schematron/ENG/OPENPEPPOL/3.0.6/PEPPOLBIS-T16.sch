@@ -6,7 +6,7 @@
         queryBinding="xslt2">
 
     <title>Rules for PEPPOL Despatch Advice transaction 3.0</title>
-
+    
     <ns uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
        prefix="cbc"/>
     <ns uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
@@ -15,8 +15,8 @@
        prefix="ubl"/>
     <ns uri="http://www.w3.org/2001/XMLSchema" prefix="xs"/>
     <ns uri="utils" prefix="u"/>
-
-
+    
+    
 
     <function xmlns="http://www.w3.org/1999/XSL/Transform"
              name="u:gln"
@@ -41,14 +41,14 @@
       <value-of select="number($val) &gt; 0 and (11 - ($weightedSum mod 11)) mod 11 = number(substring($val, $length + 1, 1))"/>
    </function>
 
-
+    
 
     <pattern>
-
+ 
 		    <rule context="//*[not(*) and not(normalize-space())]">
-			      <assert id="PEPPOL-COMMON-R001" test="false()" flag="fatal">Il documento non DEVE contenere elementi vuoti.</assert>
-		    </rule>
-
+			      <assert id="PEPPOL-COMMON-R001" test="false()" flag="fatal">Document MUST not contain empty elements.</assert>
+		    </rule> 
+   
    </pattern>
     <pattern>
 
@@ -65,7 +65,7 @@
                  flag="fatal">A date must be formatted YYYY-MM-DD.</assert>
       </rule>
 
-
+    
       <rule context="cbc:EndpointID[@schemeID = '0088'] | cac:PartyIdentification/cbc:ID[@schemeID = '0088'] | cbc:CompanyID[@schemeID = '0088']">
         <assert id="PEPPOL-COMMON-R040"
                  test="matches(normalize-space(), '^[0-9]+$') and u:gln(normalize-space())"
@@ -663,24 +663,24 @@
                  test="starts-with(normalize-space(.), 'urn:fdc:peppol.eu:poacc:trns:despatch_advice:3')"
                  flag="fatal">Specification identifier SHALL start with the value 'urn:fdc:peppol.eu:poacc:trns:despatch_advice:3'.</assert>
 	     </rule>
-
+		
 	     <rule context="cac:BuyerCustomerParty">
 		       <assert id="PEPPOL-T16-R008"
                  test="(cac:Party/cac:PartyName/cbc:Name) or (cac:Party/cac:PartyIdentification/cbc:ID)"
                  flag="fatal">A despatch advice buyer party SHALL contain the name or an identifier</assert>
 	     </rule>
-
+	
 	     <rule context="cac:SellerSupplierParty">
 		       <assert id="PEPPOL-T16-R009"
                  test="(cac:Party/cac:PartyName/cbc:Name) or (cac:Party/cac:PartyIdentification/cbc:ID)"
-                 flag="fatal">A despatch advice seller party SHALL contain the name or an identifier</assert>
+                 flag="fatal">A despatch advice buyer party SHALL contain the name or an identifier</assert>
 	     </rule>
 	     <rule context="cac:OriginatorCustomerParty">
 		       <assert id="PEPPOL-T16-R010"
                  test="(cac:Party/cac:PartyName/cbc:Name) or (cac:Party/cac:PartyIdentification/cbc:ID)"
-                 flag="fatal">A despatch advice originator customer party SHALL contain the name or an identifier</assert>
+                 flag="fatal">A despatch advice buyer party SHALL contain the name or an identifier</assert>
 	     </rule>
-
+	
 	     <rule context="cac:DespatchLine">
 		       <assert id="PEPPOL-T16-R003"
                  test="(cac:Item/cac:StandardItemIdentification/cbc:ID) or  (cac:Item/cac:SellersItemIdentification/cbc:ID)"

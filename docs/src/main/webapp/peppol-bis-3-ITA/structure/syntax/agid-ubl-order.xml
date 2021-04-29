@@ -1121,32 +1121,6 @@
 					</Element>
 				</Element>
 				<Element cardinality="0..1">
-					<Term>cac:Contact</Term>
-					<Name>Contact information - ContattO</Name>
-					<Description>E' possibile indicare il nome, il numero di telefono e l’indirizzo email di una persona da contattare, se necessario.</Description>
-					<Element cardinality="0..1">
-						<Term>cbc:Name</Term>
-						<Name>Contact person name - Nome contatto</Name>
-						<Description>Nome della persona da contattare.</Description>
-						<DataType>Text</DataType>
-						<Reference type="BUSINESS_TERM">tir01-103</Reference>
-					</Element>
-					<Element cardinality="0..1">
-						<Term>cbc:Telephone</Term>
-						<Name>Contact telephone number - Telefono Contatto</Name>
-						<Description>Telefono persona da contattare</Description>
-						<DataType>Text</DataType>
-						<Reference type="BUSINESS_TERM">tir01-104</Reference>
-					</Element>
-					<Element cardinality="0..1">
-						<Term>cbc:ElectronicMail</Term>
-						<Name>Contact email address - Email</Name>
-						<Description>Email della persona da contattare</Description>
-						<DataType>Text</DataType>
-						<Reference type="BUSINESS_TERM">tir01-106</Reference>
-					</Element>
-				</Element>
-				<Element cardinality="0..1">
 					<Term>cac:PostalAddress</Term>
 					<Name>Final Delivery address - Indirizzo del beneficiario della fornitura</Name>
 					<Description>Indica i dati dell’indirizzo del beneficiario della fornitura.</Description>
@@ -1156,15 +1130,15 @@
 						<Description>Strada, via, piazza ecc. e numero civico.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir01-p029</Reference>
-			</Element>
+					</Element>
 					<Element cardinality="0..1">
 						<Term>cbc:AdditionalStreetName</Term>
 						<Name>Address line 2 - Informazioni addizionali indirizzo</Name>
 						<Description>Informazioni addizionali indirizzo</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir01-p030</Reference>
-		</Element>
-		<Element cardinality="0..1">
+					</Element>
+					<Element cardinality="0..1">
 						<Term>cbc:CityName</Term>
 						<Name>City - Città</Name>
 						<Description>Nome città.</Description>
@@ -1211,10 +1185,41 @@
 						</Element>
 					</Element>
 				</Element>
+				<Element cardinality="0..1">
+					<Term>cac:Contact</Term>
+					<Name>Contact information - ContattO</Name>
+					<Description>E' possibile indicare il nome, il numero di telefono e l’indirizzo email di una persona da contattare, se necessario.</Description>
+					<Element cardinality="0..1">
+						<Term>cbc:Name</Term>
+						<Name>Contact person name - Nome contatto</Name>
+						<Description>Nome della persona da contattare.</Description>
+						<DataType>Text</DataType>
+						<Reference type="BUSINESS_TERM">tir01-103</Reference>
+					</Element>
+					<Element cardinality="0..1">
+						<Term>cbc:Telephone</Term>
+						<Name>Contact telephone number - Telefono Contatto</Name>
+						<Description>Telefono persona da contattare</Description>
+						<DataType>Text</DataType>
+						<Reference type="BUSINESS_TERM">tir01-104</Reference>
+					</Element>
+					<Element cardinality="0..1">
+						<Term>cbc:ElectronicMail</Term>
+						<Name>Contact email address - Email</Name>
+						<Description>Email della persona da contattare</Description>
+						<DataType>Text</DataType>
+						<Reference type="BUSINESS_TERM">tir01-106</Reference>
+					</Element>
+				</Element>
 			</Element>
 			<Element cardinality="0..1">
 				<Term>cac:Shipment</Term>
 				<Name>Shipment</Name>
+				<Element>
+					<Term>cbc:ID</Term>
+					<Name>Shipment identifier</Name>
+					<Description>L'elemento è imposto dalla struttura della sintassi. Il valore fisso è 'NA'</Description>
+				</Element>
 				<Element cardinality="0..1">
 					<Term>cac:TransportHandlingUnit</Term>
 					<Name>Transport handling unit</Name>

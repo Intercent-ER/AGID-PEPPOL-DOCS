@@ -979,6 +979,8 @@
                         <Element cardinality="0..1">
                             <Term>cbc:ID</Term>
                             <Name>Identifier - Identificativo</Name>
+                            <Description>Un identificativo per il luogo presso cui le merci ed i servizi vengono spediti.</Description>
+                            <Reference type="BUSINESS_TERM">tir16-p046</Reference>
                         </Element>
                         <Element cardinality="0..1">
                             <Term>cbc:StreetName</Term>

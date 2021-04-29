@@ -884,6 +884,7 @@
 						<Term>cbc:ID</Term>
 						<Description>Elemento obbligatorio (ad esempio "VAT" o "GST")</Description>
 						<DataType>Identifier</DataType>
+						<Reference type="BUSINESS_TERM">tir110-p007</Reference>
 						<Value type="EXAMPLE">VAT o GST</Value>
 					</Element>
 				</Element>
@@ -980,6 +981,7 @@
 							<Term>cbc:ID</Term>
 							<Description>Elemento obbligatorio (ad esempio "VAT" o "GST")</Description>
 							<DataType>Identifier</DataType>
+							<Reference type="BUSINESS_TERM">tir110-p005</Reference>
 							<Value type="EXAMPLE">VAT o GST</Value>
 						</Element>
 					</Element>
@@ -1531,6 +1533,7 @@
 								<Term>cbc:ID</Term>
 								<Description>Elemento obbligatorio (ad esempio "VAT" o "GST")</Description>
 								<DataType>Identifier</DataType>
+								<Reference type="BUSINESS_TERM">tir110-p006</Reference>
 								<Value type="EXAMPLE">VAT o GST</Value>
 							</Element>
 						</Element>

@@ -14,7 +14,7 @@ Questo caso d’uso è relativo a un ordine composto da articoli e descritti in 
 
 |Descrizione
 a|
-* Un ordine con unità/articoli descritti con testo libero. +
+* Un ordine con unità/articoli descritti con testo libero e coppie di attributo-valore. +
 * Il venditore risponde con le denominazioni degli articoli appropriate. +
 * Tutte le righe vengono accettate.
 

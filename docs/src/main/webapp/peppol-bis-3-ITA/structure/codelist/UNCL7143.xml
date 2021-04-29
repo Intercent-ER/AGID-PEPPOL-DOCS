@@ -5,7 +5,7 @@
     <Version>D.19A</Version>
     <Agency>UN/CEFACT</Agency>
 
-    <Code>
+     <Code>
         <Id>AA</Id>
         <Name>Product version number</Name>
         <Description>Number assigned by manufacturer or seller to identify the release of a product.</Description>
@@ -80,7 +80,7 @@
     <Code>
         <Id>AO</Id>
         <Name>State label code</Name>
-        <Description>A code which specifies the codification of the state's labelling requirements.</Description>
+        <Description>A code which specifies the codification of the state's labelling requirements. </Description>
     </Code>
     <Code>
         <Id>AP</Id>
@@ -250,7 +250,7 @@
     <Code>
         <Id>BW</Id>
         <Name>Periodical statement of activities within a bilaterally agreed time period</Name>
-        <Description>Periodical statement listing activities within a bilaterally agreed time period.</Description>
+        <Description>Periodical statement listing activities within a bilaterally agreed time period. </Description>
     </Code>
     <Code>
         <Id>BX</Id>
@@ -265,7 +265,7 @@
     <Code>
         <Id>BZ</Id>
         <Name>Original equipment number</Name>
-        <Description>Original equipment number allocated to spare parts by the manufacturer.</Description>
+        <Description>Original equipment number allocated to spare parts by the manufacturer. </Description>
     </Code>
     <Code>
         <Id>CC</Id>
@@ -342,10 +342,8 @@
     <Code>
         <Id>HS</Id>
         <Name>Harmonised system</Name>
-        <Description>The item number is part of, or is generated in theCoding System (Harmonised
-            System), as developed andmaintained by the World Customs Organization
-            (WCO).</Description>
-            <LocalDescription>Il numero dell'articolo fa parte o è generato nel Sistema di codifica (Sistema armonizzato), come sviluppato e mantenuto dalla World Customs Organization (WCO).</LocalDescription>
+        <Description>The item number is part of, or is generated in the context of the Harmonised Commodity Description and Coding System (Harmonised System), as developed and maintained by the World Customs Organization (WCO).</Description>
+        <LocalDescription>Il numero dell'articolo fa parte o è generato nel Sistema di codifica (Sistema armonizzato), come sviluppato e mantenuto dalla World Customs Organization (WCO).</LocalDescription>
     </Code>
     <Code>
         <Id>IB</Id>
@@ -900,7 +898,11 @@
         <Name>UNSPSC</Name>
         <Description>The UNSPSC commodity classification system.</Description>
     </Code>
-
+    <Code>
+        <Id>TSU</Id>
+        <Name>EU RoHS Directive</Name>
+        <Description>European Union Directive on the restriction of hazardous substances.</Description>
+    </Code>
     <Code>
         <Id>UA</Id>
         <Name>Ultimate customer's article number</Name>
@@ -936,7 +938,7 @@
         <Name>Mutually defined</Name>
         <Description>Item type identification mutually agreed between interchanging parties.</Description>
         <LocalDescription>Identificazione del tipo di oggetto concordata tra le parti. Può essere usato per i dispositivi medici:
-            
+
 * DM0 - Nel caso in cui non sia in grado di identificare il numero di repertorio. Dispositivo medico da applicare secondo le disposizioni previste Art.9-ter comma 8 DL 19 giugno 2015 nr.78. integrazione nota del 19 febbraio 2016;
 * DM1 - Numero di repertorio per il tetto di spesa a livello nazionale e regionale per l'acquisto di dispositivi medici. Dispositivo medico da applicare secondo le disposizioni previste Art.9-ter comma 8 DL 19 giugno 2015 nr.78;
 * DM2 - Numero di repertorio per il tetto di spesa a livello nazionale e regionale per l'acquisto di dispositivi medici. Dispositivo medico da applicare secondo le disposizioni previste Art.9-ter comma 8 DL 19 giugno 2015 nr.78.</LocalDescription>

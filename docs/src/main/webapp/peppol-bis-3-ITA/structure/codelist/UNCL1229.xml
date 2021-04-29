@@ -34,7 +34,7 @@
     <Code>
         <Id>42</Id>
         <Name>Allready delivered</Name>
-        <Description>Delivery has taken place.</Description>
+        <Description>Delivery has taken place</Description>
         <LocalDescription>La consegna ha avuto luogo.</LocalDescription>
     </Code>
 

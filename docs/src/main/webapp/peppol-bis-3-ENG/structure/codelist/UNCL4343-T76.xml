@@ -10,22 +10,18 @@
     <Code>
         <Id>AB</Id>
         <Name>Message acknowledgement</Name>
-        <LocalDescription>Messaggio di conferma</LocalDescription>
     </Code>
     <Code>
         <Id>AP</Id>
         <Name>Accepted</Name>
-        <LocalDescription>Accettato</LocalDescription>
     </Code>
     <Code>
         <Id>RE</Id>
         <Name>Rejected</Name>
-        <LocalDescription>Rifiutato</LocalDescription>
     </Code>
     <Code>
         <Id>CA</Id>
         <Name>Conditionally accepted</Name>
-        <LocalDescription>Accettato condizionatamente</LocalDescription>
     </Code>
 
 </CodeList>

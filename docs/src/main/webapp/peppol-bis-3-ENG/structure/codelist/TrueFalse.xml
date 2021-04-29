@@ -11,13 +11,11 @@
     <Code>
         <Id>true</Id>
         <Name>True</Name>
-        <LocalDescription>Vero</LocalDescription>
     </Code>
 
     <Code>
         <Id>false</Id>
         <Name>False</Name>
-        <LocalDescription>Falso</LocalDescription>
     </Code>
 
 </CodeList>

@@ -2,23 +2,20 @@
 <ul class="dropdown-menu">
 
     <li>
-        <a href="https://notier.regione.emilia-romagna.it/notier/foglioStile.html?tipoDocumento=ORDINE&formato=BIS_3&versione=2.1"
-           target="_blank">Foglio di Stile per l'Ordine PEPPOL 3.2</a>
+        <a href="<%=request.getContextPath()%>/stylesheet/Order_Stylesheet_v1.0.xsl" target="_blank">Foglio di Stile per l'Ordine PEPPOL 3.2</a>
     </li>
     <li>
-        <a href="#">
-            <!-- Manuel Gozzi :: ho rimosso il target _blank, ricordarsi di reinserirlo a valle della messa a disposizione del contenuto -->
+        <a href="<%=request.getContextPath()%>/stylesheet/OrderResponse_Stylesheet_v1.0.xsl" target="_blank">
             Foglio di Stile per la Risposta all'Ordine PEPPOL 3.0
         </a>
     </li>
     <li>
-        <a href="#">
-            <!-- Manuel Gozzi :: ho rimosso il target _blank, ricordarsi di reinserirlo a valle della messa a disposizione del contenuto -->
+        <a href="<%=request.getContextPath()%>/stylesheet/OrderAgreement_Stylesheet_v1.0.xsl" target="_blank">
             Foglio di Stile per l'Ordine Pre-Concordato PEPPOL 3.0
         </a>
     </li>
     <li>
-        <a href="https://notier.regione.emilia-romagna.it/notier/foglioStile.html?tipoDocumento=DOCUMENTO_DI_TRASPORTO&formato=BIS_3&versione=2.1"
+        <a href="<%=request.getContextPath()%>/stylesheet/DespatchAdvice_Stylesheet_v1.3.xsl"
            target="_blank">Foglio di Stile per il Documento di Trasporto PEPPOL 3.1</a>
     </li>
 </ul>

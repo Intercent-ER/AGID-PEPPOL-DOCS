@@ -39,6 +39,6 @@ Il Venditore invia una fattura che corrisponde all'ordine ed alla consegna, ma q
 |L'Acquirente e il Venditore hanno raggiunto un accordo. Un ordine è stato inserito e l'Acquirente ha preso in consegna i prodotti. L'Acquirente ha ricevuto un messaggio strutturato con i dettagli dell’ordine. La fattura ha un riferimento per  The invoice has a reference, to match the order.
 
 |Esempio XML
-|Vedi sezione "Downloads" della https://notier.regione.emilia-romagna.it/docs/[home]
+|Vedi sezione "Downloads" nella link:/peppol-docs/[Homepage]
 
 |====

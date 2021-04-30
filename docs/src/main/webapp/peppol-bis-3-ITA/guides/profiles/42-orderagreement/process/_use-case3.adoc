@@ -36,6 +36,6 @@ ed alla consegna, ma questo è al di fuori di questa specifica.
 e l'Acquirente ha ricevuto un messaggio strutturato con i dettagli dell’ordine. Se la fattura ha un riferimento all’ordine, la fattura può essere abbinata automaticamente.
 
 |Esempio XML
-|Vedi sezione "Downloads" della https://notier.regione.emilia-romagna.it/docs/[home]
+|Vedi sezione "Downloads" nella link:/peppol-docs/[Homepage]
 
 |====

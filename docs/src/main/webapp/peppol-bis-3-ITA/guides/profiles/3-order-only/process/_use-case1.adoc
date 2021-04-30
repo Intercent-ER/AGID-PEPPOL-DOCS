@@ -34,7 +34,7 @@ Il venditore riceve l’ordine.
 Se la fattura contiene il riferimento all’ordine, questa può essere correlata automaticamente.
 
 |Esempio XML
-|Vedi sezione "Downloads" della https://notier.regione.emilia-romagna.it/docs/[home]
+|Vedi sezione "Downloads" nella link:/peppol-docs/[Homepage]
 
 ../main.adoc
 

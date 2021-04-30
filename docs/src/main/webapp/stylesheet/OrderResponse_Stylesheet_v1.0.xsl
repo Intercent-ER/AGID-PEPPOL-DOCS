@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--    Descrizione documento:      Foglio di stile per Risposta all'Ordine italiano UBL 2.1 PEPPOL BIS 3    Versione : 			     	1.0    Prodotto il :               Marzo 2021   Prodotto da :             	Intercent-ER    Ambito:  	                Intercent-ER - Piloti Peppol-->
+<!--    Descrizione documento:      Foglio di stile per Risposta all' Ordine italiano UBL 2.1 PEPPOL BIS 3    Versione : 			     	1.0    Prodotto il :               Marzo 2021   Prodotto da :             	Intercent-ER    Ambito:  	                Intercent-ER - Piloti Peppol-->
 <xsl:stylesheet xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:in="urn:oasis:names:specification:ubl:schema:xsd:OrderResponse-2" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:cr="http://www.ubl-italia.org/ns/CrossReference" version="2.0" exclude-result-prefixes="cac cbc in">
   <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" scope="stylesheet">
     <xd:desc>
@@ -23,9 +23,9 @@
           </head>
           <body class="in-body">
             <div class="page-break">
-              <h1>Risposta all'Ordine</h1>
+              <h1>Risposta all'ordine </h1>
               <!-- CHANGED (24-09-2019, @author "Manuel Gozzi"): togliere "Rappresentazione UBL ver. " e inserire "Rappresentazione UBL ver. PEPPOL BIS 3.0" -->
-              <h2>Rappresentazione UBL PEPPOL BIS 3</h2>
+              <h2>Rappresentazione UBL ver. PEPPOL BIS 3</h2>
               <div class="box-text">
                CustomizationID: <xsl:value-of select="/in:OrderResponse/cbc:CustomizationID"/>
                 <br />
@@ -65,7 +65,7 @@
                       </td>
                     </tr>
                   </table>
-                  <!-- Dove inserire? !-->
+
                   <table class="dati-fattura" summary="dati fattura">
                     <tr>
                       <td class="no-border h100px">
@@ -120,7 +120,7 @@
                   <th scope="col" class="in-cell-filler-background">Informazioni Articolo</th>
                   <th scope="col" class="in-cell-filler-background">Periodo di Consegna</th>
                   <th scope="col" class="in-cell-filler-background">Prezzo Unitario</th>
-                  <th scope="col" class="in-cell-filler-background">Codice di risposta della linea d'ordine</th>
+                  <th scope="col" class="in-cell-filler-background">Codice di risposta della riga d'ordine</th>
                   <th scope="col" class="in-cell-filler-background">Quantità consegnata in ritardo: </th>
                   <th scope="col" class="in-cell-filler-background">Riferimento riga d'ordine originale</th>
                 </tr>
@@ -130,7 +130,7 @@
                   <tr>
                     <!-- Numero linea -->
                     <td class="in-cell-base">
-                      <div class="box-text" align="right">                        Numero Riga: <xsl:value-of select="cac:LineItem/cbc:ID"/>
+                      <div class="box-text" align="left">                        Numero Riga: <xsl:value-of select="cac:LineItem/cbc:ID"/>
                     </div>
                   </td>
                   <!-- Nome/Descrizione/Note -->
@@ -275,7 +275,7 @@
                 <!-- OrderLineReference -->
                 <xsl:if test="cac:OrderLineReference/cbc:LineID">
                   <td class="in-cell-base  in-cell-data-center">
-                    <div class="box-text" align="right"> Numero: <xsl:value-of select="cac:OrderLineReference/cbc:LineID"/>
+                    <div class="box-text" align="left"> Numero: <xsl:value-of select="cac:OrderLineReference/cbc:LineID"/>
                   </div>
                 </td>
               </xsl:if>
@@ -285,18 +285,17 @@
       </tbody>
     </table>
   </xsl:if>
-  <!--decidere posizione-->
 </div>
 <xsl:if test="/in:OrderResponse/cac:OrderLine/cac:SellerSubstitutedLineItem">
   <h1>Righe ordine sostituite</h1>
   <table class="righe-fattura" summary="righe fattura">
     <thead>
       <tr>
-        <th scope="col" class="in-cell-filler-background">Identificativo della linea d'ordine sostitutiva </th>
+        <th scope="col" class="in-cell-filler-background">Identificativo della riga d'ordine sostitutiva </th>
         <th scope="col" class="in-cell-filler-background">Nome/Descrizione</th>
         <th scope="col" class="in-cell-filler-background">Cod. Articolo Fornitore</th>
         <th scope="col" class="in-cell-filler-background">Cod. Articolo Standard</th>
-        <th scope="col" class="in-cell-filler-background">Natura dell'imposta </th>
+        <th scope="col" class="in-cell-filler-background">Categoria imposta </th>
         <th scope="col" class="in-cell-filler-background">IVA %Percentuale</th>
         <th scope="col" class="in-cell-filler-background">Quantità per confezione</th>
         <th scope="col" class="in-cell-filler-background">Informazioni Articolo</th>
@@ -309,7 +308,7 @@
           <tr>
             <!--Numero Riga sostituita-->
             <td class="in-cell-base  in-cell-data-center">
-              <div class="box-text" align="right">  Numero Linea:  <xsl:value-of select="cac:SellerSubstitutedLineItem/cbc:ID"/>
+              <div class="box-text" align="left">  Numero Riga:  <xsl:value-of select="cac:SellerSubstitutedLineItem/cbc:ID"/>
             </div>
           </td>
           <!-- Nome/Descrizione/Note -->
@@ -383,7 +382,7 @@
     <!-- OrderLineReference -->
     <xsl:if test="cac:OrderLineReference/cbc:LineID">
       <td class="in-cell-base  in-cell-data-center">
-        <div class="box-text" align="right"> Numero: <xsl:value-of select="cac:OrderLineReference/cbc:LineID"/>
+        <div class="box-text" align="left"> Numero: <xsl:value-of select="cac:OrderLineReference/cbc:LineID"/>
       </div>
     </td>
   </xsl:if>
@@ -527,34 +526,31 @@
 
     <div class="box-text">
 
-    Identificativo aggiuntivo:
+              Identificativo
 
-      <xsl:if test="$identification/cbc:ID/@schemeID">
+              <xsl:if test="$identification/cbc:ID/@schemeID">
 
-        <xsl:choose>
+                  <xsl:choose>
 
-          <xsl:when test="$identification/cbc:ID/@schemeID = '9906'">P.IVA</xsl:when>
+                      <xsl:when test="$identification/cbc:ID/@schemeID = '9906'">P.IVA</xsl:when>
 
-          <xsl:when test="$identification/cbc:ID/@schemeID = '9907'">CF</xsl:when>
+                      <xsl:when test="$identification/cbc:ID/@schemeID = '9907'">CF</xsl:when>
 
-          <xsl:when test="$identification/cbc:ID/@schemeID = '9921'">IPA</xsl:when>
+                      <xsl:when test="$identification/cbc:ID/@schemeID = '9921'">IPA</xsl:when>
 
-          <xsl:when test="$identification/cbc:ID/@schemeID = '0201'">IPA</xsl:when>
+                      <xsl:when test="$identification/cbc:ID/@schemeID = '0201'">IPA</xsl:when>
 
-          <xsl:otherwise>IT</xsl:otherwise>
-        </xsl:choose>
-        <xsl:text>:</xsl:text>
-      </xsl:if>
-      <!-- NOTE (24-09-2019, @author "Manuel Gozzi"): verificare se, nel caso di 9906:ITxxx occorra di inserire la sigla "IT" sopra -->
+                      <xsl:otherwise>IT</xsl:otherwise>
+                  </xsl:choose>
+                  <xsl:text> (</xsl:text>
+                  <xsl:value-of select="$identification/cbc:ID/@schemeID"/>
+                  <xsl:text>)</xsl:text>
+                  <xsl:text>: </xsl:text>
+              </xsl:if>
+              <!-- NOTE (24-09-2019, @author "Manuel Gozzi"): verificare se, nel caso di 9906:ITxxx occorra di inserire la sigla "IT" sopra -->
 
-      <xsl:value-of select="$identification/cbc:ID"/>
-
-      <xsl:if test="$identification/cbc:ID/@schemeID">
-        <xsl:text> (</xsl:text>
-        <xsl:value-of select="$identification/cbc:ID/@schemeID"/>
-        <xsl:text>)</xsl:text>
-      </xsl:if>
-    </div>
+              <xsl:value-of select="$identification/cbc:ID"/>
+          </div>
   </xsl:if>
 </xsl:template>
     <xsl:template name="party-name">
@@ -629,9 +625,7 @@
   <xsl:param name="party"/>
   <xsl:if test="$party/cbc:EndpointID">
     <div class="box-text">
-        Identificativo endpoint:
-
-      <xsl:value-of select="$party/cbc:EndpointID/@schemeID"/>
+        Identificativo endpoint: <xsl:value-of select="$party/cbc:EndpointID/@schemeID"/>
       <xsl:text>:</xsl:text>
       <xsl:value-of select="$party/cbc:EndpointID"/>
     </div>

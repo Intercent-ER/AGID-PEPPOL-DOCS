@@ -129,7 +129,7 @@
 						<Name>Scheme identifier</Name>
 						<Description>Schema identificativo dell'indirizzo elettronico del Fornitore.</Description>
 						<Reference type="CODE_LIST">eas</Reference>
-						<Value type="EXAMPLE">9906</Value>
+						<Value type="EXAMPLE">0211</Value>
 					</Attribute>
 					<Value type="EXAMPLE">IT07643520567</Value>
 				</Element>
@@ -143,7 +143,7 @@
 						<Description>Ulteriore identificativo relativo al Fornitore.</Description>
 						<DataType>Identifier</DataType>
 						<Reference type="BUSINESS_TERM">tir76-059</Reference>
-						<Value type="EXAMPLE">PIVA:IT07643520567</Value>
+						<Value type="EXAMPLE">IT07643520567</Value>
 						<Attribute usage="optional">
 							<Term>schemeID</Term>
 							<Name>Scheme identifier</Name>

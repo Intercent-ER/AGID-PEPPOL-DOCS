@@ -123,7 +123,7 @@
                         <Name>Scheme identifier</Name>
             						<Description>Schema identificativo dell'indirizzo elettronico.</Description>
                         <Reference type="CODE_LIST">eas</Reference>
-                        <Value type="EXAMPLE">9906</Value>
+                        <Value type="EXAMPLE">0211</Value>
                     </Attribute>
                     <Value type="EXAMPLE">IT01234567890</Value>
                 </Element>
@@ -433,7 +433,7 @@
                             <Reference type="CODE_LIST">ICD</Reference>
                             <Value type="EXAMPLE">0201</Value>
                         </Attribute>
-                        <Value type="EXAMPLE">PIVA:IT01234567890</Value>
+                        <Value type="EXAMPLE">IT01234567890</Value>
                     </Element>
                 </Element>
                 <Element agid:custom="cardinality">

@@ -330,7 +330,6 @@
       <body class="in-body">
         <div class="page-break">
           <h1>Ordine Pre-Concordato</h1>
-          <!-- CHANGED (24-09-2019, @author "Manuel Gozzi"): togliere "Rappresentazione UBL ver. " e inserire "Rappresentazione UBL ver. PEPPOL BIS 3.0" -->
           <h2>Rappresentazione UBL PEPPOL BIS 3</h2>
           <div class="box-text">
             CustomizationID: <xsl:value-of select="/in:OrderResponse/cbc:CustomizationID"/>
@@ -364,7 +363,6 @@
                           <xsl:value-of select="/in:OrderResponse/cbc:IssueDate"/>
                         </xsl:with-param>
                       </xsl:call-template>
-                      <!-- CHANGED (24-09-2019, @author "Manuel Gozzi"): aggiunto "cbc:IssueTime", come parametro opzionale -->
 
                       <xsl:if test="/in:OrderResponse/cbc:IssueTime">
                           ora
@@ -441,7 +439,6 @@
                 <tr>
                   <td class="no-border border-right w-33 h100px">
                     <h2 class="in-box-label">Ordine precedente</h2>
-                    <!-- CHANGED (24-09-2019, @author "Manuel Gozzi"): rimossi stato, tipo, data -->
 
                     <xsl:if test="/in:OrderResponse/cac:OrderReference">
                       <div class="box-text">
@@ -452,13 +449,10 @@
                     </xsl:if>
                   </td>
                   <td class="no-border border-right w-33 h100px">
-                    <!-- CHANGED (24-09-2019, @author "Manuel Gozzi"): rimosso "Documento che ha originato l'ordine", inserito nuovo valore -->
                     <h2 class="in-box-label">Codice identificativo gara (CIG)</h2>
-                    <!-- CHANGED (24-09-2019, @author "Manuel Gozzi"): rimossi tipo, data -->
 
                     <xsl:if test="/in:OrderResponse/cac:OriginatorDocumentReference">
                       <div class="box-text">
-                        <!-- CHANGED (24-09-2019, @author "Manuel Gozzi"): rimosso "Numero" -->
 
                         <xsl:value-of select="/in:OrderResponse/cac:OriginatorDocumentReference/cbc:ID"/>
                       </div>
@@ -473,7 +467,6 @@
 
                         <xsl:value-of select="/in:OrderResponse/cac:Contract/cbc:ID"/>
                       </div>
-                      <!-- CHANGED (24-09-2019, @author "Manuel Gozzi"): rimosso il tipo di contratto -->
                     </xsl:if>
                   </td>
                 </tr>
@@ -497,7 +490,6 @@
                 </div>
               </xsl:if>
             </td>
-            <!-- Da leiminare il templaate del foreach-->
             <td class="no-border" colspan="3">
               <h2 class="in-box-label">Note</h2>
 
@@ -567,9 +559,6 @@
                     </xsl:otherwise>
                   </xsl:choose>
 
-
-                  <!-- CHANGED (24-09-2019, @author "Manuel Gozzi"): rimossa IssueDate -->
-
                   <xsl:if test="cac:Attachment">
                       - contiene allegato
 
@@ -600,13 +589,11 @@
               <th scope="col" class="in-cell-filler-background">Quantità per Confezione</th>
               <th scope="col" class="in-cell-filler-background">Periodo di Consegna</th>
               <th scope="col" class="in-cell-filler-background">Informazioni Articolo</th>
-              <!-- CHANGED (24-09-2019, @author "Manuel Gozzi"): rimossa la dicitura "Contratto" -->
               <th scope="col" class="in-cell-filler-background">Documento</th>
               <th scope="col" class="in-cell-filler-background">Prezzo Unitario</th>
               <th scope="col" class="in-cell-filler-background">Sconti / Maggiorazioni</th>
               <th scope="col" class="in-cell-filler-background">Imponibile</th>
               <th scope="col" class="in-cell-filler-background">IVA %</th>
-              <!-- CHANGED (24-09-2019, @author "Manuel Gozzi"): aggiungere colonna "lotto" -->
               <th scope="col" class="in-cell-filler-background">Certficato</th>
             </tr>
           </thead>
@@ -657,7 +644,6 @@
                   <div class="box-text">
 
                     <xsl:value-of select="cac:LineItem/cac:Item/cac:StandardItemIdentification/cbc:ID"/>
-                    <!-- CHANGED (24-09-2019, @author "Manuel Gozzi"): rimosso "schemaID" -->
                   </div>
                 </td>
 
@@ -671,7 +657,6 @@
                 <!-- UdM -->
                 <td class="in-cell-base  in-cell-data-center">
                   <div class="box-text">
-                    <!-- TODO: verificare l'aggiornamento delle code list su NoTI-ER -->
 
                     <xsl:value-of select="if (document($xclUnitOfMeasureCode)//Value[@ColumnRef='xname']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/cac:LineItem/cbc:Quantity/@unitCode]) then document($xclUnitOfMeasureCode)//Value[@ColumnRef='xname']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/cac:LineItem/cbc:Quantity/@unitCode][1] else cac:LineItem/cbc:Quantity/@unitCode"/>
                   </div>
@@ -740,8 +725,6 @@
                 </td>
 
                 <td class="in-cell-base  in-cell-data-center">
-                  <!-- CHANGED (24-09-2019, @author "Manuel Gozzi"): rimuovere cac:DocumentReference e inserire ItemSpecificationDocumentReference / ID; parsare (?) -->
-                  <!-- CHANGED (24-09-2019, @author "Manuel Gozzi"): lascio commentato il vecchio codice, così da poter verificare il funzionamento -->
 
                   <xsl:if test="cac:LineItem/cac:Item/cac:ItemSpecificationDocumentReference">
                     <div class="box-text" align="left" style="min-width: 100px">
@@ -897,7 +880,6 @@
                   </td>
                   <td class="in-cell-base  in-cell-data-center" style="min-width: 200px">
                     <span class="box-text">
-                      <!-- CHANGED (24-09-2019, @author "Manuel Gozzi"): aggiunto moltiplicatore (%) -->
 
                       <xsl:if test="cbc:ChargeIndicator eq 'false'">
                           Sconto
@@ -1285,7 +1267,6 @@
       <xsl:choose>
 
         <xsl:when test="$del/cac:PromisedDeliveryPeriod/cbc:EndDate and $del/cac:PromisedDeliveryPeriod/cbc:EndTime">
-          <br/>
             Data consegna al:
           <xsl:call-template name="format-date">
             <xsl:with-param name="date">
@@ -1296,7 +1277,6 @@
         </xsl:when>
 
         <xsl:when test="$del/cac:PromisedDeliveryPeriod/cbc:EndDate">
-          <br/>
           Data consegna al:
           <xsl:call-template name="format-date">
             <xsl:with-param name="date">
@@ -1306,7 +1286,6 @@
         </xsl:when>
 
         <xsl:when test="$del/cac:PromisedDeliveryPeriod/cbc:EndTime">
-          <br/>
           Data consegna al: - , ora:
           <xsl:value-of select="$del/cac:PromisedDeliveryPeriod/cbc:EndTime"/>
         </xsl:when>
@@ -1352,22 +1331,20 @@
 <xsl:template name="party-identification">
 
   <xsl:param name="identification"/>
-  <!-- NOTE (24-09-2019, @author "Manuel Gozzi"): discutere del cambiamento da "IT:VAT" -> "9906" ecc... -->
-  <!-- CHANGED (24-09-2019, @author "Manuel Gozzi"): inserito "switch" che controlla il valore dello schemeID e "decide" se è p.iva, c.f. o IPA (non previsto qui) -->
 
   <xsl:if test="$identification/cbc:ID">
 
     <div class="box-text">
 
-    Identificativo aggiuntivo
+    Identificativo:
 
       <xsl:if test="$identification/cbc:ID/@schemeID">
 
         <xsl:choose>
 
-          <xsl:when test="$identification/cbc:ID/@schemeID = '9906'">P.IVA</xsl:when>
+          <xsl:when test="$identification/cbc:ID/@schemeID = '0211'">P.IVA</xsl:when>
 
-          <xsl:when test="$identification/cbc:ID/@schemeID = '9907'">CF</xsl:when>
+          <xsl:when test="$identification/cbc:ID/@schemeID = '0210'">CF</xsl:when>
 
           <xsl:when test="$identification/cbc:ID/@schemeID = '9921'">IPA</xsl:when>
 
@@ -1375,17 +1352,13 @@
 
           <xsl:otherwise>IT</xsl:otherwise>
         </xsl:choose>
-        <xsl:text>:</xsl:text>
-      </xsl:if>
-      <!-- NOTE (24-09-2019, @author "Manuel Gozzi"): verificare se, nel caso di 9906:ITxxx occorra di inserire la sigla "IT" sopra -->
-
-      <xsl:value-of select="$identification/cbc:ID"/>
-
-      <xsl:if test="$identification/cbc:ID/@schemeID">
         <xsl:text> (</xsl:text>
         <xsl:value-of select="$identification/cbc:ID/@schemeID"/>
         <xsl:text>)</xsl:text>
+        <xsl:text>: </xsl:text>
       </xsl:if>
+
+      <xsl:value-of select="$identification/cbc:ID"/>
     </div>
   </xsl:if>
 </xsl:template>
@@ -1412,14 +1385,15 @@
   </xsl:if>
 
   <xsl:if test="$address/cbc:PostalZone">
+    <xsl:if test="$address/cbc:StreetName or $address/cbc:AdditionalStreetName">
+      <xsl:text>- </xsl:text>
+    </xsl:if>
     <xsl:value-of select="concat($address/cbc:PostalZone, ' ')"/>
   </xsl:if>
 
   <xsl:if test="$address/cbc:CityName">
     <xsl:value-of select="concat($address/cbc:CityName, ' ')"/>
   </xsl:if>
-  <!-- CHANGED (24-09-2019 @author Manuel Gozzi): aggiungere cac:AddressLine, tenendo conto di formattarla in modo particolare a seconda del tipo di party (nella consegna in questa sede figura l'orario di consegna) -->
-  <!-- TODO (24-09-2019 @author Manuel Gozzi): distinguere il party in cui in questa sede viene indicato l'orario di consegna -->
 
 
   <xsl:if test="$address/cbc:CountrySubentity">
@@ -1429,28 +1403,19 @@
   </xsl:if>
 
   <xsl:if test="$address/cac:AddressLine/cbc:Line">
+    <br/>
+  Ulteriori informazioni indirizzo:
     <xsl:value-of select="$address/cac:AddressLine/cbc:Line"/>
   </xsl:if>
 
-  <div class="box-text" style="font-size: 100%; margin: 0">
+  <br/>
     Codice Paese:
-    <xsl:value-of select="$address/cac:Country/cbc:IdentificationCode"/>
-  </div>
+  <xsl:value-of select="$address/cac:Country/cbc:IdentificationCode"/>
 
-  
-</xsl:template>
 
-<xsl:template name="party-legal-entity">
-
-  <xsl:param name="legal-entity"/>
-
-  <xsl:if test="$legal-entity/cbc:RegistrationName">
-    <xsl:value-of select="$legal-entity/cbc:RegistrationName"/>
-  </xsl:if>
 </xsl:template>
 
 <xsl:template name="contact">
-  <!-- CHANGED (24-09-2019, @author "Manuel Gozzi"): rimosso id e fax -->
 
   <xsl:param name="contact"/>
 
@@ -1478,7 +1443,6 @@
 </xsl:template>
 
 <xsl:template name="delivery-contact">
-  <!-- CHANGED (24-09-2019, @author "Manuel Gozzi"): rimosso id e fax -->
 
   <xsl:param name="contact"/>
 
@@ -1509,27 +1473,29 @@
 
   <xsl:param name="party"/>
 
-  <xsl:if test="$party/cac:PartyLegalEntity">
-    <div class="box-text">
+  <xsl:choose>
 
-      <xsl:call-template name="party-legal-entity">
-        <xsl:with-param name="legal-entity" select="$party/cac:PartyLegalEntity"/>
-      </xsl:call-template>
-    </div>
-  </xsl:if>
+    <xsl:when test="$party/cac:PartyName">
+      <div class="box-text">
 
-  <xsl:if test="$party/cac:PartyName">
-    <div class="box-text">
+        <xsl:call-template name="party-name">
+          <xsl:with-param name="name" select="$party/cac:PartyName"/>
+        </xsl:call-template>
+      </div>
+    </xsl:when>
 
-      <xsl:call-template name="party-name">
-        <xsl:with-param name="name" select="$party/cac:PartyName"/>
-      </xsl:call-template>
-    </div>
-  </xsl:if>
+    <xsl:when test="not ($party/cac:PartyName)">
+      <div class="box-text">
+        <xsl:value-of select="$party/cac:PartyLegalEntity"/>
+      </div>
+    </xsl:when>
+
+
+  </xsl:choose>
 
   <xsl:if test="$party/cbc:EndpointID">
     <div class="box-text">
-        Identificativo endpoint 
+        Identificativo endpoint: 
 
       <xsl:value-of select="$party/cbc:EndpointID/@schemeID"/>
       <xsl:text>:</xsl:text>
@@ -1548,6 +1514,12 @@
       <xsl:call-template name="postal-address">
         <xsl:with-param name="address" select="$party/cac:PostalAddress"/>
       </xsl:call-template>
+    </div>
+  </xsl:if>
+
+  <xsl:if test="$party/cac:PartyName">
+    <div class="box-text">
+      <xsl:value-of select="$party/cac:PartyLegalEntity"/>
     </div>
   </xsl:if>
 

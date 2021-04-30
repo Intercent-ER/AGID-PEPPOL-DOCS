@@ -519,7 +519,7 @@
 											</xsl:call-template>
 											<xsl:if test="cac:Item/cac:StandardItemIdentification/cbc:ID/@schemeID">
 											(<xsl:value-of select="cac:Item/cac:StandardItemIdentification/cbc:ID/@schemeID"/>)
-										</xsl:if><!-- controllare se esiste attributo schemeID -->
+										</xsl:if>
 									</div>
                                 </td>
 								

@@ -24,7 +24,6 @@
           <body class="in-body">
             <div class="page-break">
               <h1>Risposta all'Ordine</h1>
-              <!-- CHANGED (24-09-2019, @author "Manuel Gozzi"): togliere "Rappresentazione UBL ver. " e inserire "Rappresentazione UBL ver. PEPPOL BIS 3.0" -->
               <h2>Rappresentazione UBL PEPPOL BIS 3</h2>
               <div class="box-text">
                CustomizationID: <xsl:value-of select="/in:OrderResponse/cbc:CustomizationID"/>
@@ -54,7 +53,6 @@
                                 <xsl:value-of select="/in:OrderResponse/cbc:IssueDate"/>
                               </xsl:with-param>
                             </xsl:call-template>
-                            <!-- CHANGED (24-09-2019, @author "Manuel Gozzi"): aggiunto "cbc:IssueTime", come parametro opzionale -->
                             <xsl:if test="/in:OrderResponse/cbc:IssueTime">  ora <xsl:value-of select="/in:OrderResponse/cbc:IssueTime"/>
                           </xsl:if>
                         </span>
@@ -167,7 +165,6 @@
                 <td class="in-cell-base">
                   <div class="box-text">
                     <xsl:value-of select="cac:LineItem/cac:Item/cac:StandardItemIdentification/cbc:ID"/>
-                    <!-- CHANGED (24-09-2019, @author "Manuel Gozzi"): rimosso "schemaID" -->
                   </div>
                 </td>
                 <!-- Quantità -->
@@ -430,7 +427,6 @@
         <xsl:value-of select="/in:OrderResponse/cbc:OrderTypeCode"/>
       </xsl:variable>
       <xsl:value-of select="$orderTypeCodeVar"/>
-      <!-- TODO: aggiungere la valutazione dei sottoinsiemi definiti nella Codelist (tab. OrderTypeCode) -->
       <xsl:for-each select="document($xclOrderTypeCode)//SimpleCodeList/Row">
         <xsl:if test="Value[@ColumnRef='code']/SimpleValue=$orderTypeCodeVar">						- <xsl:value-of select="Value[@ColumnRef='nome']/SimpleValue"/>
       </xsl:if>
@@ -492,7 +488,7 @@
 </xsl:template>
 <xsl:template name="delivery">
   <xsl:param name="del"/>
-  <div class="box-text"> ID:			<!-- CHANGED (24-09-2019, @author "Manuel Gozzi"): rimosso livello "Address" sopra a "ID" -->
+  <div class="box-text"> ID:
     <xsl:value-of select="$del/cac:DeliveryLocation/cbc:ID"/>
   </div>
   <div class="box-text"> Indirizzo:			<xsl:call-template name="postal-address">
@@ -519,8 +515,6 @@
 <xsl:template name="party-identification">
 
   <xsl:param name="identification"/>
-  <!-- NOTE (24-09-2019, @author "Manuel Gozzi"): discutere del cambiamento da "IT:VAT" -> "9906" ecc... -->
-  <!-- CHANGED (24-09-2019, @author "Manuel Gozzi"): inserito "switch" che controlla il valore dello schemeID e "decide" se è p.iva, c.f. o IPA (non previsto qui) -->
 
   <xsl:if test="$identification/cbc:ID">
 
@@ -532,9 +526,9 @@
 
                   <xsl:choose>
 
-                      <xsl:when test="$identification/cbc:ID/@schemeID = '9906'">P.IVA</xsl:when>
+                      <xsl:when test="$identification/cbc:ID/@schemeID = '9906' or $identification/cbc:ID/@schemeID = '0211'">P.IVA</xsl:when>
 
-                      <xsl:when test="$identification/cbc:ID/@schemeID = '9907'">CF</xsl:when>
+                      <xsl:when test="$identification/cbc:ID/@schemeID = '9907' or $identification/cbc:ID/@schemeID = '0210'">CF</xsl:when>
 
                       <xsl:when test="$identification/cbc:ID/@schemeID = '9921'">IPA</xsl:when>
 
@@ -547,7 +541,6 @@
                   <xsl:text>)</xsl:text>
                   <xsl:text>: </xsl:text>
               </xsl:if>
-              <!-- NOTE (24-09-2019, @author "Manuel Gozzi"): verificare se, nel caso di 9906:ITxxx occorra di inserire la sigla "IT" sopra -->
 
               <xsl:value-of select="$identification/cbc:ID"/>
           </div>
@@ -578,8 +571,6 @@
         <xsl:text>, </xsl:text>
         <xsl:value-of select="$address/cbc:CityName"/>
       </xsl:if>
-      <!-- CHANGED (24-09-2019 @author Manuel Gozzi): aggiungere cac:AddressLine, tenendo conto di formattarla in modo particolare            a seconda del tipo di party (nella consegna in questa sede figura l'orario di consegna) -->
-      <!-- TODO (24-09-2019 @author Manuel Gozzi): distinguere il party in cui in questa sede viene            indicato l'orario di consegna -->
       <xsl:if test="$address/cbc:CountrySubentity or $address/cac:Country/cbc:IdentificationCode">
         <xsl:text> (</xsl:text>
         <xsl:value-of select="$address/cbc:CountrySubentity"/>
@@ -592,8 +583,7 @@
     <xsl:template name="party-tax-scheme">
       <xsl:param name="scheme"/>
       <xsl:if test="$scheme/cac:TaxScheme/cbc:ID = 'VAT'">
-        <span style="width:150px;display:inline-block;">
-          <!-- CHANGED: delegato controllo a TaxScheme / ID, rimosso attributo "schemeID", non più presente in BIS 3.0 -->			P. IVA <xsl:value-of select="$scheme/cbc:CompanyID"/>
+        <span style="width:150px;display:inline-block;">			P. IVA <xsl:value-of select="$scheme/cbc:CompanyID"/>
         </span>
       </xsl:if>
     </xsl:template>
@@ -602,11 +592,9 @@
       <xsl:if test="$legal-entity/cbc:RegistrationName">
         <xsl:value-of select="$legal-entity/cbc:RegistrationName"/>
       </xsl:if>
-      <!-- CHANGED (24-09-2019, @author "Manuel Gozzi") -->
       <xsl:if test="$legal-entity/cbc:RegistrationAddress">			(Reg. Imprese di <xsl:value-of select="document($xclProvinceItaliane)//Value[@ColumnRef='name']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=$legal-entity/cac:RegistrationAddress/cbc:CityName]"/> n. <xsl:value-of select="$legal-entity/cbc:CompanyID"/>)		</xsl:if>
     </xsl:template>
     <xsl:template name="contact">
-      <!-- CHANGED (24-09-2019, @author "Manuel Gozzi"): rimosso id e fax -->
       <xsl:param name="contact"/>
       <xsl:if test="$contact/cbc:Name">
         <span style="width:250px;display:inline-block;">				Referente: <xsl:value-of select="$contact/cbc:Name"/>

@@ -484,7 +484,7 @@
 						<Name>Scheme identifier</Name>
 						<Description>Schema identificativo dell'indirizzo elettronico del Fornitore.</Description>
 						<Reference type="CODE_LIST">eas</Reference>
-						<Value type="EXAMPLE">9906</Value>
+						<Value type="EXAMPLE">0211</Value>
 					</Attribute>
 					<Reference type="RULE">NSO_010</Reference>
 					<Reference type="RULE">NSO_020</Reference>
@@ -501,7 +501,7 @@
 						<DataType>Identifier</DataType>
 						<Reference type="BUSINESS_TERM">tir01-059</Reference>
 						<Reference type="RULE">NSO_010</Reference>
-						<Value type="EXAMPLE">PIVA:IT07643520567</Value>
+						<Value type="EXAMPLE">IT07643520567</Value>
 						<Attribute usage="optional">
 							<Term>schemeID</Term>
 							<Name>Scheme identifier</Name>

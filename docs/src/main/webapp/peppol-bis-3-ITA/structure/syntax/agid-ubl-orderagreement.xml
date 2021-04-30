@@ -92,7 +92,7 @@
 			<Element>
 				<Term>cbc:ID</Term>
 				<Name>Previous order agreement identifier - Riferimento ad un Documento precedente</Name>
-				<Description>Contiene gli estremi del Documento, precedentemente emesso, a cui fa riferimento il presente Ordine pre-concordato ed il suo nuovo stato ("Connected", “Revised”, "Invoice", etc.).</Description>
+				<Description>Contiene gli estremi del Documento, precedentemente emesso, a cui fa riferimento il presente Ordine pre-concordato ed il suo nuovo stato ("Connected", “Revised”, "Invoice", etc.). Se nessun identificativo è disponibile, valorizzare con "NA".</Description>
 				<DataType>Document reference</DataType>
 				<Reference type="BUSINESS_TERM">tir110-042</Reference>
 				<Value type="EXAMPLE">110#2018-01-30#aaaaaa#Revised</Value>
@@ -202,7 +202,7 @@
 						<Name>Scheme identifier</Name>
 						<Description>Schema identificativo dell'indirizzo elettronico del Fornitore.</Description>
 						<Reference type="CODE_LIST">eas</Reference>
-						<Value type="EXAMPLE">9906</Value>
+						<Value type="EXAMPLE">0211</Value>
 					</Attribute>
 					<Value type="EXAMPLE">IT07643520567</Value>
 				</Element>
@@ -221,7 +221,7 @@
 							<Description>Scheme identifier dell'identificativo del Fornitore.</Description>
 							<Reference type="CODE_LIST">ICD</Reference>
 						</Attribute>
-						<Value type="EXAMPLE">PIVA:IT07643520567</Value>
+						<Value type="EXAMPLE">IT07643520567</Value>
 					</Element>
 				</Element>
 

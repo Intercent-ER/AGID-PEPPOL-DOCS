@@ -817,21 +817,22 @@ allegati:
     <span class="box-text">
         <xsl:apply-templates mode="line" select="/in:Order/cbc:ID"/>
     </span>
-    <xsl:if test="/in:Order/cbc:OrderTypeCode">
+    <!-- <xsl:if test="/in:Order/cbc:OrderTypeCode">
         <div class="box-text">
             <xsl:variable name="orderTypeCodeVar">
                 <xsl:value-of select="/in:Order/cbc:OrderTypeCode"/>
             </xsl:variable>
-            <xsl:value-of select="$orderTypeCodeVar"/>
-            <!--  TODO: aggiungere la valutazione dei sottoinsiemi definiti nella Codelist (tab. OrderTypeCode)  -->
-            <xsl:for-each select="document($xclOrderTypeCode)//SimpleCodeList/Row">
+            <xsl:value-of select="$orderTypeCodeVar"/> -->
+    <!--  TODO: aggiungere la valutazione dei sottoinsiemi definiti nella Codelist (tab. OrderTypeCode)  -->
+    <!-- <xsl:for-each select="document($xclOrderTypeCode)//SimpleCodeList/Row">
                 <xsl:if test="Value[@ColumnRef='code']/SimpleValue=$orderTypeCodeVar">
 -
                     <xsl:value-of select="Value[@ColumnRef='nome']/SimpleValue"/>
                 </xsl:if>
             </xsl:for-each>
         </div>
-    </xsl:if>
+        </div>
+    </xsl:if> -->
 </xsl:template>
 <xsl:template name="in-currency">
     <span class="box-text">
@@ -940,7 +941,7 @@ Codice IPA
     <xsl:param name="del"/>
     <div class="box-text">
 ID:
-                                                                                                                                                                                                                                                            <!--  CHANGED (24-09-2019, @author "Manuel Gozzi"): rimosso livello "Address" sopra a "ID"  -->
+                                                                                                                                                                                                                                                                                                            <!--  CHANGED (24-09-2019, @author "Manuel Gozzi"): rimosso livello "Address" sopra a "ID"  -->
         <xsl:value-of select="$del/cac:DeliveryLocation/cbc:ID"/>
     </div>
     <div class="box-text">
@@ -960,7 +961,6 @@ Data consegna dal:
                     <xsl:value-of select="$del/cac:RequestedDeliveryPeriod/cbc:StartDate"/>
                 </xsl:with-param>
             </xsl:call-template>
-            <br/>
 Data consegna al:
             <xsl:call-template name="format-date">
                 <xsl:with-param name="date">
@@ -979,7 +979,7 @@ Data consegna al:
 
         <div class="box-text">
 
-    Identificativo aggiuntivo
+            Identificativo
 
             <xsl:if test="$identification/cbc:ID/@schemeID">
 
@@ -995,17 +995,14 @@ Data consegna al:
 
                     <xsl:otherwise>IT</xsl:otherwise>
                 </xsl:choose>
-                <xsl:text>:</xsl:text>
+                <xsl:text> (</xsl:text>
+                <xsl:value-of select="$identification/cbc:ID/@schemeID"/>
+                <xsl:text>)</xsl:text>
+                <xsl:text>: </xsl:text>
             </xsl:if>
             <!-- NOTE (24-09-2019, @author "Manuel Gozzi"): verificare se, nel caso di 9906:ITxxx occorra di inserire la sigla "IT" sopra -->
 
             <xsl:value-of select="$identification/cbc:ID"/>
-
-            <xsl:if test="$identification/cbc:ID/@schemeID">
-                <xsl:text> (</xsl:text>
-                <xsl:value-of select="$identification/cbc:ID/@schemeID"/>
-                <xsl:text>)</xsl:text>
-            </xsl:if>
         </div>
     </xsl:if>
 </xsl:template>
@@ -1024,6 +1021,9 @@ Data consegna al:
         <xsl:value-of select="concat($address/cbc:AdditionalStreetName, ' ')"/>
     </xsl:if>
     <xsl:if test="$address/cbc:PostalZone">
+        <xsl:if test="$address/cbc:StreetName or $address/cbc:AdditionalStreetName">
+            <xsl:text>- </xsl:text>
+        </xsl:if>
         <xsl:value-of select="concat($address/cbc:PostalZone, ' ')"/>
     </xsl:if>
     <xsl:if test="$address/cbc:CityName">
@@ -1040,13 +1040,48 @@ Data consegna al:
         <xsl:text>) </xsl:text>
     </xsl:if>
     <xsl:if test="$address/cac:AddressLine/cbc:Line">
+        <br/>
+        Ulteriori informazioni indirizzo:
         <xsl:value-of select="$address/cac:AddressLine/cbc:Line"/>
     </xsl:if>
-    <div class="box-text" style="font-size: 100%; margin: 0">
+    <br/>
             Codice Paese:
-        <xsl:value-of select="$address/cac:Country/cbc:IdentificationCode"/>
-    </div>
+    <xsl:value-of select="$address/cac:Country/cbc:IdentificationCode"/>
 </xsl:template>
+
+<!-- <xsl:template name="postal-address2">
+    <xsl:param name="address"/>
+
+    <xsl:variable name="set" select="$address/*" />
+    <xsl:variable name="count" select="count($set)" />
+    <xsl:variable name="removeToCount">
+        <xsl:choose>
+            <xsl:when test="$address/cac:AddressLine/cbc:Line">
+                <xsl:value-of select="1" />
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="0" />
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
+
+    <xsl:for-each select="$set">
+        <xsl:if test="position() &lt; ($count - $removeToCount)">
+            <xsl:value-of select="."/>
+        </xsl:if>
+        <xsl:if test="position() &lt; ($count - $removeToCount - 1)">
+            <xsl:text>, </xsl:text>
+        </xsl:if>
+    </xsl:for-each>
+    <xsl:if test="$address/cac:AddressLine/cbc:Line">
+        <br/>
+        Ulteriori informazioni indirizzo:
+        <xsl:value-of select="$address/cac:AddressLine/cbc:Line"/>
+    </xsl:if>
+    <br/>
+            Codice Paese:
+    <xsl:value-of select="$address/cac:Country/cbc:IdentificationCode"/>
+</xsl:template> -->
 <xsl:template name="party-tax-scheme">
     <xsl:param name="scheme"/>
     <xsl:if test="$scheme/cac:TaxScheme/cbc:ID = 'VAT'">
@@ -1059,16 +1094,14 @@ P.IVA:
 </xsl:template>
 <xsl:template name="party-legal-entity">
     <xsl:param name="legal-entity"/>
-    <xsl:if test="$legal-entity/cbc:RegistrationName">
-        <xsl:value-of select="$legal-entity/cbc:RegistrationName"/>
-    </xsl:if>
+    <xsl:value-of select="$legal-entity/cbc:RegistrationName"/>
     <!--  CHANGED (24-09-2019, @author "Manuel Gozzi")  -->
-    <xsl:if test="$legal-entity/cbc:RegistrationAddress">
+    <xsl:if test="$legal-entity/cac:RegistrationAddress">
 (Reg. Imprese di
         <xsl:value-of select="document($xclProvinceItaliane)//Value[@ColumnRef='name']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=$legal-entity/cac:RegistrationAddress/cbc:CityName]"/>
 n.
         <xsl:value-of select="$legal-entity/cbc:CompanyID"/>
-)
+        <xsl:text>)</xsl:text>
     </xsl:if>
 </xsl:template>
 <xsl:template name="contact">
@@ -1097,10 +1130,12 @@ n.
             </div>
         </xsl:when>
 
-        <xsl:when test="not ($party/cac:PartyName) and $party/cac:PartyLegalEntity">
-            <xsl:call-template name="party-legal-entity">
-                <xsl:with-param name="legal-entity" select="$party/cac:PartyLegalEntity"/>
-            </xsl:call-template>
+        <xsl:when test="not ($party/cac:PartyName)">
+            <div class="box-text">
+                <xsl:call-template name="party-legal-entity">
+                    <xsl:with-param name="legal-entity" select="$party/cac:PartyLegalEntity"/>
+                </xsl:call-template>
+            </div>
         </xsl:when>
 
 
@@ -1131,7 +1166,7 @@ Indirizzo:
             </xsl:call-template>
         </div>
     </xsl:if>
-    <xsl:if test="$party/cac:PartyName and $party/cac:PartyLegalEntity">
+    <xsl:if test="$party/cac:PartyName">
         <div class="box-text">
             <xsl:call-template name="party-legal-entity">
                 <xsl:with-param name="legal-entity" select="$party/cac:PartyLegalEntity"/>

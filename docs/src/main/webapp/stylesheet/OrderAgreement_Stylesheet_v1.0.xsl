@@ -1285,7 +1285,6 @@
       <xsl:choose>
 
         <xsl:when test="$del/cac:PromisedDeliveryPeriod/cbc:EndDate and $del/cac:PromisedDeliveryPeriod/cbc:EndTime">
-          <br/>
             Data consegna al:
           <xsl:call-template name="format-date">
             <xsl:with-param name="date">
@@ -1296,7 +1295,6 @@
         </xsl:when>
 
         <xsl:when test="$del/cac:PromisedDeliveryPeriod/cbc:EndDate">
-          <br/>
           Data consegna al:
           <xsl:call-template name="format-date">
             <xsl:with-param name="date">
@@ -1306,7 +1304,6 @@
         </xsl:when>
 
         <xsl:when test="$del/cac:PromisedDeliveryPeriod/cbc:EndTime">
-          <br/>
           Data consegna al: - , ora:
           <xsl:value-of select="$del/cac:PromisedDeliveryPeriod/cbc:EndTime"/>
         </xsl:when>
@@ -1359,7 +1356,7 @@
 
     <div class="box-text">
 
-    Identificativo aggiuntivo
+    Identificativo:
 
       <xsl:if test="$identification/cbc:ID/@schemeID">
 
@@ -1375,17 +1372,14 @@
 
           <xsl:otherwise>IT</xsl:otherwise>
         </xsl:choose>
-        <xsl:text>:</xsl:text>
+        <xsl:text> (</xsl:text>
+        <xsl:value-of select="$identification/cbc:ID/@schemeID"/>
+        <xsl:text>)</xsl:text>
+        <xsl:text>: </xsl:text>
       </xsl:if>
       <!-- NOTE (24-09-2019, @author "Manuel Gozzi"): verificare se, nel caso di 9906:ITxxx occorra di inserire la sigla "IT" sopra -->
 
       <xsl:value-of select="$identification/cbc:ID"/>
-
-      <xsl:if test="$identification/cbc:ID/@schemeID">
-        <xsl:text> (</xsl:text>
-        <xsl:value-of select="$identification/cbc:ID/@schemeID"/>
-        <xsl:text>)</xsl:text>
-      </xsl:if>
     </div>
   </xsl:if>
 </xsl:template>
@@ -1412,6 +1406,9 @@
   </xsl:if>
 
   <xsl:if test="$address/cbc:PostalZone">
+    <xsl:if test="$address/cbc:StreetName or $address/cbc:AdditionalStreetName">
+      <xsl:text>- </xsl:text>
+    </xsl:if>
     <xsl:value-of select="concat($address/cbc:PostalZone, ' ')"/>
   </xsl:if>
 
@@ -1429,24 +1426,16 @@
   </xsl:if>
 
   <xsl:if test="$address/cac:AddressLine/cbc:Line">
+    <br/>
+  Ulteriori informazioni indirizzo:
     <xsl:value-of select="$address/cac:AddressLine/cbc:Line"/>
   </xsl:if>
 
-  <div class="box-text" style="font-size: 100%; margin: 0">
+  <br/>
     Codice Paese:
-    <xsl:value-of select="$address/cac:Country/cbc:IdentificationCode"/>
-  </div>
+  <xsl:value-of select="$address/cac:Country/cbc:IdentificationCode"/>
 
-  
-</xsl:template>
 
-<xsl:template name="party-legal-entity">
-
-  <xsl:param name="legal-entity"/>
-
-  <xsl:if test="$legal-entity/cbc:RegistrationName">
-    <xsl:value-of select="$legal-entity/cbc:RegistrationName"/>
-  </xsl:if>
 </xsl:template>
 
 <xsl:template name="contact">
@@ -1509,27 +1498,29 @@
 
   <xsl:param name="party"/>
 
-  <xsl:if test="$party/cac:PartyLegalEntity">
-    <div class="box-text">
+  <xsl:choose>
 
-      <xsl:call-template name="party-legal-entity">
-        <xsl:with-param name="legal-entity" select="$party/cac:PartyLegalEntity"/>
-      </xsl:call-template>
-    </div>
-  </xsl:if>
+    <xsl:when test="$party/cac:PartyName">
+      <div class="box-text">
 
-  <xsl:if test="$party/cac:PartyName">
-    <div class="box-text">
+        <xsl:call-template name="party-name">
+          <xsl:with-param name="name" select="$party/cac:PartyName"/>
+        </xsl:call-template>
+      </div>
+    </xsl:when>
 
-      <xsl:call-template name="party-name">
-        <xsl:with-param name="name" select="$party/cac:PartyName"/>
-      </xsl:call-template>
-    </div>
-  </xsl:if>
+    <xsl:when test="not ($party/cac:PartyName)">
+      <div class="box-text">
+        <xsl:value-of select="$party/cac:PartyLegalEntity"/>
+      </div>
+    </xsl:when>
+
+
+  </xsl:choose>
 
   <xsl:if test="$party/cbc:EndpointID">
     <div class="box-text">
-        Identificativo endpoint 
+        Identificativo endpoint: 
 
       <xsl:value-of select="$party/cbc:EndpointID/@schemeID"/>
       <xsl:text>:</xsl:text>
@@ -1548,6 +1539,12 @@
       <xsl:call-template name="postal-address">
         <xsl:with-param name="address" select="$party/cac:PostalAddress"/>
       </xsl:call-template>
+    </div>
+  </xsl:if>
+
+  <xsl:if test="$party/cac:PartyName">
+    <div class="box-text">
+      <xsl:value-of select="$party/cac:PartyLegalEntity"/>
     </div>
   </xsl:if>
 

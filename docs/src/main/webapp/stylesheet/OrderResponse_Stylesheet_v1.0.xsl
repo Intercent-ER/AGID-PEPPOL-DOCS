@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--    Descrizione documento:      Foglio di stile per Risposta all' Ordine italiano UBL 2.1 PEPPOL BIS 3    Versione : 			     	1.0    Prodotto il :               Marzo 2021   Prodotto da :             	Intercent-ER    Ambito:  	                Intercent-ER - Piloti Peppol-->
+<!--    Descrizione documento:      Foglio di stile per Risposta all'Ordine italiano UBL 2.1 PEPPOL BIS 3    Versione : 			     	1.0    Prodotto il :               Marzo 2021   Prodotto da :             	Intercent-ER    Ambito:  	                Intercent-ER - Piloti Peppol-->
 <xsl:stylesheet xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:in="urn:oasis:names:specification:ubl:schema:xsd:OrderResponse-2" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:cr="http://www.ubl-italia.org/ns/CrossReference" version="2.0" exclude-result-prefixes="cac cbc in">
   <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" scope="stylesheet">
     <xd:desc>
@@ -23,9 +23,9 @@
           </head>
           <body class="in-body">
             <div class="page-break">
-              <h1>Risposta all'ordine </h1>
+              <h1>Risposta all'Ordine</h1>
               <!-- CHANGED (24-09-2019, @author "Manuel Gozzi"): togliere "Rappresentazione UBL ver. " e inserire "Rappresentazione UBL ver. PEPPOL BIS 3.0" -->
-              <h2>Rappresentazione UBL ver. PEPPOL BIS 3</h2>
+              <h2>Rappresentazione UBL PEPPOL BIS 3</h2>
               <div class="box-text">
                CustomizationID: <xsl:value-of select="/in:OrderResponse/cbc:CustomizationID"/>
                 <br />

@@ -2,6 +2,6 @@
 = #Uso degli elementi "Note"#
 
 
-Eccezionalmente, ove vi sia l’esigenza di fornire indicazioni particolari, è possibile valorizzare con testo libero gli elementi “Note” presenti a vari livelli degli schemi dati dei Documenti. 
+Eccezionalmente, ove vi sia l’esigenza di fornire indicazioni particolari, è possibile valorizzare con testo libero gli elementi “Note” presenti a vari livelli dello schema dati. 
 
 IMPORTANT: Come regola generale, si raccomanda l’utilizzo delle note testuali solo se assolutamente necessario e in mancanza di altri elementi degli schemi dati che possano contenere la medesima informazione.

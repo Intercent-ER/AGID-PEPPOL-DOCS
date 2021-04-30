@@ -932,9 +932,9 @@ Data consegna al:
 
                 <xsl:choose>
 
-                    <xsl:when test="$identification/cbc:ID/@schemeID = '9906' or $identification/cbc:ID/@schemeID = '0211'">P.IVA</xsl:when>
+                    <xsl:when test="$identification/cbc:ID/@schemeID = '0211'">P.IVA</xsl:when>
 
-                    <xsl:when test="$identification/cbc:ID/@schemeID = '9907' or $identification/cbc:ID/@schemeID = '0210'">CF</xsl:when>
+                    <xsl:when test="$identification/cbc:ID/@schemeID = '0210'">CF</xsl:when>
 
                     <xsl:when test="$identification/cbc:ID/@schemeID = '9921'">IPA</xsl:when>
 

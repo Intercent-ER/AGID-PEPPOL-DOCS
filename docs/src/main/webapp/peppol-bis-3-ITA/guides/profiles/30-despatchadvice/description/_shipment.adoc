@@ -16,7 +16,7 @@ Per supportare scenari dove non è disponibile o non è utilizzato l’ID della 
 
 Come parte delle informazioni di spedizione (Shipment) vengono forniti: peso, volume, colli, vettore, tempi di consegna stimati e di effettiva evasione.
 
-NOTA: #Le misure (***Measure) come peso e volume sono obbligatoriamente espresse secondo la codifica {UNRec20} e non è richiesto qualificarle con ulteriori attributi.#
+NOTA: #Le misure (***Measure) come peso e volume sono obbligatoriamente espresse secondo la codifica link:../../../../../../xml/ITA/peppol-bis-3/codelist/UNECERec20-11e.html[UN/ECE Recommendation 20] e non è richiesto qualificarle con ulteriori attributi.#
 
 .Esempio:
 [source, xml, indent=0]

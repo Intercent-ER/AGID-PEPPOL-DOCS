@@ -10,6 +10,6 @@ Ogni riga deve contenere le informazioni circa le imposte applicate all'articolo
 ----
 include::../snippets/snippet-common.xml[tags=vat-line]
 ----
-<1> Categoria dell'imposta secondo la codifica {vat-codes}
+<1> Categoria dell'imposta secondo la link:../../../../../../xml/ITA/peppol-bis-3/codelist/UNCL5305.html[Codifica UNCL5305]
 <2> Percentuale dell'imposta. Secondo la EN, deve essere presente a meno che la categoria dell'imposta sia uguale a O.(Il valore "O" significa "Fuori campo IVA")
 <3> Il valore deve rappresentare il tipo di imposta corretto. Per esempio VAT (nel caso IVA), GST o la Sales tax.

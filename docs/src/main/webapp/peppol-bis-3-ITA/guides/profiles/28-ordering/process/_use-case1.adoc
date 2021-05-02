@@ -45,5 +45,5 @@ L’acquirente ha aggiornato le informazioni dell’ordine in base alla risposta
 Se la fattura ha un riferimento all’ordine, questa potrà essere riconciliata automaticamente.
 
 |Esempio XML
-|Vedi sezione "Downloads" nella link:/peppol-docs/[Homepage]
+|Vedi sezione "Downloads" nella link:../../../../../../[Homepage]
 |====

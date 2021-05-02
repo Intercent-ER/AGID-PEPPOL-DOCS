@@ -150,7 +150,7 @@ In caso di *Ordine di convalida*, bisogna riportare gli estremi della fattura da
 ----
 <cac:OrderDocumentReference>
     <cbc:ID>57#2018-01-30# ITccccccccccc#Invoice</cbc:ID>
-</cac:OrderDocumentReference >
+</cac:OrderDocumentReference>
 ----
 
 

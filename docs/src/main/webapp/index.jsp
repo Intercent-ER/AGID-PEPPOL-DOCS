@@ -308,7 +308,7 @@
         <div id="main" class="container">
 
             <div class="page-header">
-                <h1>Indice : <span id="home-title"></span></h1>
+                <h1>Indice: <span id="home-title"></span></h1>
             </div>
 
             <dl class="dl-horizontal">

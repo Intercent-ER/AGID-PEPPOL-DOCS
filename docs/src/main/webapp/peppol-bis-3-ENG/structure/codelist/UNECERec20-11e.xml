@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeList xmlns="urn:fdc:difi.no:2017:vefa:structure:CodeList-1">
 
-    <Title>Recommandation 20, including Recommondation 21 codes - prefixed with X (UN/ECE)</Title>
+    <Title>Recommendation 20, including Recommendation 21 codes - prefixed with X (UN/ECE)</Title>
     <Identifier>UNECERec20</Identifier>
     <Version>Revision 11e</Version>
     <Agency>UN/ECE</Agency>
 
-	<!-- START of Recommendation 20 -->
+    <!-- START of Recommendation 20 -->
     <Code>
         <Id>10</Id>
         <Name>group</Name>
@@ -391,8 +391,8 @@
     <Code>
         <Id>5J</Id>
         <Name>hydraulic horse power</Name>
-        <Description>A unit of power defining the hydraulic horse power delivered by a fluid pump
-            depending on the viscosity of the fluid.</Description>
+        <Description>A unit of power defining the hydraulic horse power delivered by a fluid pump
+            depending on the viscosity of the fluid.</Description>
     </Code>
     <Code>
         <Id>A10</Id>
@@ -2385,11 +2385,11 @@
             water content of the product.</Description>
     </Code>
     <Code>
-       <Id>DBM</Id>
+        <Id>DBM</Id>
         <Name>Decibel-milliwatts</Name>
     </Code>
     <Code>
-       <Id>DBW</Id>
+        <Id>DBW</Id>
         <Name>Decibel watt</Name>
     </Code>
     <Code>
@@ -2493,7 +2493,7 @@
     <Code>
         <Id>DTN</Id>
         <Name>decitonne</Name>
-        <Description>Synonym: centner, metric 100 kg; quintal, metric 100 kg</Description>
+        <Description>Synonym: centner, metric 100 kg; quintal, metric 100 kg</Description>
     </Code>
     <Code>
         <Id>DWT</Id>
@@ -3567,9 +3567,9 @@
             small flattish fragment).</Description>
     </Code>
     <Code>
-       <Id>FNU</Id>
+        <Id>FNU</Id>
         <Name>Formazin nephelometric unit</Name>
-    </Code>	
+    </Code>
     <Code>
         <Id>FOT</Id>
         <Name>foot</Name>
@@ -4290,7 +4290,7 @@
     <Code>
         <Id>H18</Id>
         <Name>square hectometre</Name>
-        <Description>Synonym: hectare</Description>
+        <Description>Synonym: hectare</Description>
     </Code>
     <Code>
         <Id>H19</Id>
@@ -4589,7 +4589,7 @@
         <Id>H77</Id>
         <Name>module width</Name>
         <Description>A unit of measure used to describe the breadth of electronic assemblies as
-            an installation standard or mounting dimension.</Description>
+            an installation standard or mounting dimension.</Description>
     </Code>
     <Code>
         <Id>H79</Id>
@@ -4707,7 +4707,7 @@
         <Description>A unit of length, typically for yarn.</Description>
     </Code>
     <Code>
-       <Id>HAD</Id>
+        <Id>HAD</Id>
         <Name>Piece Day</Name>
     </Code>
     <Code>
@@ -4772,7 +4772,7 @@
         <Description/>
     </Code>
     <Code>
-       <Id>HMO</Id>
+        <Id>HMO</Id>
         <Name>Piece Month</Name>
     </Code>
     <Code>
@@ -4799,11 +4799,11 @@
         <Id>HUR</Id>
         <Name>hour</Name>
         <Description/>
-     <Code>
-       <Id>HWE</Id>
+    </Code>
+    <Code>
+        <Id>HWE</Id>
         <Name>Piece Week</Name>
     </Code>
-	</Code>
     <Code>
         <Id>IA</Id>
         <Name>inch pound (pound inch)</Name>
@@ -5001,19 +5001,19 @@
     </Code>
     <Code>
         <Id>J40</Id>
-        <Name>British thermal unit (international table) foot per hour square foot degree
+        <Name>British thermal unit (international table) foot per hour square foot degree
             Fahrenheit</Name>
         <Description/>
     </Code>
     <Code>
         <Id>J41</Id>
-        <Name>British thermal unit (international table) inch per hour square foot degree
+        <Name>British thermal unit (international table) inch per hour square foot degree
             Fahrenheit</Name>
         <Description/>
     </Code>
     <Code>
         <Id>J42</Id>
-        <Name>British thermal unit (international table) inch per second square foot degree
+        <Name>British thermal unit (international table) inch per second square foot degree
             Fahrenheit</Name>
         <Description/>
     </Code>
@@ -5034,7 +5034,7 @@
     </Code>
     <Code>
         <Id>J46</Id>
-        <Name>British thermal unit (thermochemical) foot per hour square foot degree
+        <Name>British thermal unit (thermochemical) foot per hour square foot degree
             Fahrenheit</Name>
         <Description/>
     </Code>
@@ -5045,13 +5045,13 @@
     </Code>
     <Code>
         <Id>J48</Id>
-        <Name>British thermal unit (thermochemical) inch per hour square foot degree
+        <Name>British thermal unit (thermochemical) inch per hour square foot degree
             Fahrenheit</Name>
         <Description/>
     </Code>
     <Code>
         <Id>J49</Id>
-        <Name>British thermal unit (thermochemical) inch per second square foot degree
+        <Name>British thermal unit (thermochemical) inch per second square foot degree
             Fahrenheit</Name>
         <Description/>
     </Code>
@@ -5996,7 +5996,7 @@
         <Description/>
     </Code>
     <Code>
-       <Id>KWY</Id>
+        <Id>KWY</Id>
         <Name>kilowatt year</Name>
     </Code>
     <Code>
@@ -7175,15 +7175,15 @@
         <Description>A unit of count defining the number of international units in multiples of 10.</Description>
     </Code>
     <Code>
-       <Id>MKD</Id>
+        <Id>MKD</Id>
         <Name>Square Metre Day</Name>
     </Code>
     <Code>
-       <Id>MKM</Id>
+        <Id>MKM</Id>
         <Name>Square Metre Month</Name>
     </Code>
     <Code>
-       <Id>MKW</Id>
+        <Id>MKW</Id>
         <Name>Square Metre Week</Name>
     </Code>
     <Code>
@@ -7218,7 +7218,7 @@
             water content of the product.</Description>
     </Code>
     <Code>
-       <Id>MNJ</Id>
+        <Id>MNJ</Id>
         <Name>Mega Joule per Normalised cubic Metre</Name>
     </Code>
     <Code>
@@ -7232,7 +7232,7 @@
         <Description/>
     </Code>
     <Code>
-       <Id>MQD</Id>
+        <Id>MQD</Id>
         <Name>Cubic Metre Day</Name>
     </Code>
     <Code>
@@ -7241,7 +7241,7 @@
         <Description/>
     </Code>
     <Code>
-       <Id>MQM</Id>
+        <Id>MQM</Id>
         <Name>Cubic Metre Month</Name>
     </Code>
     <Code>
@@ -7250,19 +7250,19 @@
         <Description/>
     </Code>
     <Code>
-       <Id>MQW</Id>
+        <Id>MQW</Id>
         <Name>Cubic Metre Week</Name>
     </Code>
     <Code>
-       <Id>MRD</Id>
+        <Id>MRD</Id>
         <Name>Metre Day</Name>
     </Code>
     <Code>
-       <Id>MRM</Id>
+        <Id>MRM</Id>
         <Name>Metre Month</Name>
     </Code>
     <Code>
-       <Id>MRW</Id>
+        <Id>MRW</Id>
         <Name>Metre Week</Name>
     </Code>
     <Code>
@@ -7291,7 +7291,7 @@
         <Description/>
     </Code>
     <Code>
-       <Id>MTZ</Id>
+        <Id>MTZ</Id>
         <Name>milihertz</Name>
     </Code>
     <Code>
@@ -7301,7 +7301,7 @@
     </Code>
     <Code>
         <Id>MWH</Id>
-        <Name>megawatt hour (1000 kW.h)</Name>
+        <Name>megawatt hour (1000 kW.h)</Name>
         <Description>A unit of power defining the total amount of bulk energy transferred or
             consumed.</Description>
     </Code>
@@ -7947,10 +7947,10 @@
             Convention on tonnage measurement of Ships.</Description>
     </Code>
     <Code>
-       <Id>NTU</Id>
+        <Id>NTU</Id>
         <Name>Nephelometric turbidity unit</Name>
     </Code>
-	<Code>
+    <Code>
         <Id>NU</Id>
         <Name>newton metre</Name>
         <Description/>
@@ -9252,7 +9252,7 @@
     <Code>
         <Id>X1</Id>
         <Name>Gunter's chain</Name>
-        <Description>A unit of distance used or formerly used by British surveyors.</Description>
+        <Description>A unit of distance used or formerly used by British surveyors.</Description>
     </Code>
     <Code>
         <Id>YDK</Id>
@@ -9275,7 +9275,7 @@
         <Description>A unit of count defining the number of hanging containers.</Description>
     </Code>
     <Code>
-       <Id>Z9</Id>
+        <Id>Z9</Id>
         <Name>nanomole</Name>
     </Code>
     <Code>
@@ -9289,9 +9289,9 @@
         <Description>A unit of measure as agreed in common between two or more
             parties.</Description>
     </Code>
-	<!-- END of Recommendation 20 -->
-	
-	<!-- START of Recommendation 21, prefixed with X -->
+    <!-- END of Recommendation 20 -->
+
+    <!-- START of Recommendation 21, prefixed with X -->
     <Code>
         <Id>X1A</Id>
         <Name>Drum, steel</Name>
@@ -10144,39 +10144,39 @@
         <Name>Net, tube, textile</Name>
     </Code>
     <Code>
-       <Id>XO1</Id>
+        <Id>XO1</Id>
         <Name>Two sided cage on wheels with fixing strap</Name>
     </Code>
     <Code>
-       <Id>XO2</Id>
+        <Id>XO2</Id>
         <Name>Trolley</Name>
     </Code>
     <Code>
-       <Id>XO3</Id>
+        <Id>XO3</Id>
         <Name>Oneway pallet ISO 0 - 1/2 EURO Pallet</Name>
     </Code>
     <Code>
-       <Id>XO4</Id>
+        <Id>XO4</Id>
         <Name>Oneway pallet ISO 1 - 1/1 EURO Pallet</Name>
     </Code>
     <Code>
-       <Id>XO5</Id>
+        <Id>XO5</Id>
         <Name>Oneway pallet ISO 2 - 2/1 EURO Pallet</Name>
     </Code>
     <Code>
-       <Id>XO6</Id>
+        <Id>XO6</Id>
         <Name>Pallet with exceptional dimensions</Name>
     </Code>
     <Code>
-       <Id>XO7</Id>
+        <Id>XO7</Id>
         <Name>Wooden pallet  40 cm x 80 cm</Name>
     </Code>
     <Code>
-       <Id>XO8</Id>
+        <Id>XO8</Id>
         <Name>Plastic pallet SRS 60 cm x 80 cm</Name>
     </Code>
     <Code>
-       <Id>XO9</Id>
+        <Id>XO9</Id>
         <Name>Plastic pallet SRS 80 cm x 120 cm</Name>
     </Code>
     <Code>
@@ -10216,15 +10216,15 @@
             weight.</Description>
     </Code>
     <Code>
-       <Id>XOG</Id>
+        <Id>XOG</Id>
         <Name>Pallet ISO 0 - 1/2 EURO Pallet</Name>
     </Code>
     <Code>
-       <Id>XOH</Id>
+        <Id>XOH</Id>
         <Name>Pallet ISO 1 - 1/1 EURO Pallet</Name>
     </Code>
     <Code>
-       <Id>XOI</Id>
+        <Id>XOI</Id>
         <Name>Pallet ISO 2 – 2/1 EURO Pallet</Name>
     </Code>
     <Code>
@@ -10234,43 +10234,43 @@
             sides.</Description>
     </Code>
     <Code>
-       <Id>XOJ</Id>
+        <Id>XOJ</Id>
         <Name>1/4 EURO Pallet</Name>
     </Code>
     <Code>
-       <Id>XOL</Id>
+        <Id>XOL</Id>
         <Name>1/8 EURO Pallet</Name>
     </Code>
     <Code>
-       <Id>XOM</Id>
+        <Id>XOM</Id>
         <Name>Synthetic pallet ISO 1</Name>
     </Code>
     <Code>
-       <Id>XON</Id>
+        <Id>XON</Id>
         <Name>Synthetic pallet ISO 2</Name>
     </Code>
     <Code>
-       <Id>XOP</Id>
+        <Id>XOP</Id>
         <Name>Wholesaler pallet</Name>
     </Code>
     <Code>
-       <Id>XOQ</Id>
+        <Id>XOQ</Id>
         <Name>Pallet 80 X 100 cm</Name>
     </Code>
     <Code>
-       <Id>XOR</Id>
+        <Id>XOR</Id>
         <Name>Pallet 60 X 100 cm</Name>
     </Code>
     <Code>
-       <Id>XOS</Id>
+        <Id>XOS</Id>
         <Name>Oneway pallet</Name>
     </Code>
     <Code>
-       <Id>XOV</Id>
+        <Id>XOV</Id>
         <Name>Returnable pallet</Name>
     </Code>
     <Code>
-       <Id>XOW</Id>
+        <Id>XOW</Id>
         <Name>Large bag, pallet sized</Name>
     </Code>
     <Code>
@@ -10286,19 +10286,19 @@
             otherwise specified as transport equipment.</Description>
     </Code>
     <Code>
-       <Id>XOX</Id>
+        <Id>XOX</Id>
         <Name>A wheeled pallet with raised rim (81 x 67 x 135)</Name>
     </Code>
     <Code>
-       <Id>XOY</Id>
+        <Id>XOY</Id>
         <Name>A Wheeled pallet with raised rim (81 x 72 x 135)</Name>
     </Code>
     <Code>
-       <Id>XOZ</Id>
+        <Id>XOZ</Id>
         <Name>Wheeled pallet with raised rim ( 81 x 60 x 16)</Name>
     </Code>
     <Code>
-       <Id>XP1</Id>
+        <Id>XP1</Id>
         <Name>CHEP pallet 60 cm x 80 cm </Name>
     </Code>
     <Code>
@@ -10307,11 +10307,11 @@
         <Description>A shallow, wide, open container, usually of metal.</Description>
     </Code>
     <Code>
-       <Id>XP3</Id>
+        <Id>XP3</Id>
         <Name>LPR pallet 60 cm x 80 cm</Name>
     </Code>
     <Code>
-       <Id>XP4</Id>
+        <Id>XP4</Id>
         <Name>LPR pallet 80 cm x 120 cm</Name>
     </Code>
     <Code>
@@ -10592,7 +10592,7 @@
             then shrunk tightly on to the goods.</Description>
     </Code>
     <Code>
-       <Id>XSX</Id>
+        <Id>XSX</Id>
         <Name>Set</Name>
     </Code>
     <Code>
@@ -11057,7 +11057,7 @@
         <Name>Intermediate bulk container, reconstituted wood</Name>
     </Code>
 
-	<!-- END of Recommendation 21 -->
+    <!-- END of Recommendation 21 -->
 
 
 </CodeList>

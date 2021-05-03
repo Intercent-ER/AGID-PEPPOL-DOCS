@@ -92,7 +92,7 @@
 			<Element>
 				<Term>cbc:ID</Term>
 				<Name>Previous order agreement identifier - Riferimento ad un Documento precedente</Name>
-				<Description>Contiene gli estremi del Documento, precedentemente emesso, a cui fa riferimento il presente Ordine pre-concordato ed il suo nuovo stato ("Connected", “Revised”, "Invoice", etc.). Se nessun identificativo è disponibile, valorizzare con "NA".</Description>
+				<Description>Contiene gli estremi del Documento, precedentemente emesso, a cui fa riferimento il presente Ordine pre-concordato ed il suo nuovo stato ("Connected", “Revised”, "Invoice", etc.). Se nessun identificativo è disponibile, valorizzare con "0".</Description>
 				<DataType>Document reference</DataType>
 				<Reference type="BUSINESS_TERM">tir110-042</Reference>
 				<Value type="EXAMPLE">110#2018-01-30#aaaaaa#Revised</Value>

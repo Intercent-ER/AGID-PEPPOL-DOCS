@@ -25,7 +25,7 @@
 			<div id="main" class="container" style="display: block;">
 
 				<div class="page-header">
-					<h1>Index : <span id="home-title">PEPPOL BIS 3 Billing</span>
+					<h1>Index: <span id="home-title">PEPPOL BIS 3 Billing</span>
 					</h1>
 				</div>
 

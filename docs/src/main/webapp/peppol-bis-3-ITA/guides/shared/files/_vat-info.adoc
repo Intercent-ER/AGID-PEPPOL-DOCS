@@ -4,7 +4,7 @@
 I capitoli seguenti descrivono le diverse informazioni relative alle imposte che possono essere fornite in questo BIS.
 Con imposta si intende a seconda del contesto applicativo, l'IVA, GST o la Sales Tax.
 
-Si consiglia di consultare anche i {vat-codes} per dettagli sulla codifica delle categorie delle imposte e il <<vat-calc>> per una rappresentazione più dettagliata ed esempi su come eseguire i calcoli nel riepilogo delle imposte.
+Si consiglia di consultare anche i codici  dellalink:../../../../../../xml/ITA/peppol-bis-3/codelist/UNCL5305.html[UNCL5305] per dettagli sulla codifica delle categorie delle imposte e il <<vat-calc>> per una rappresentazione più dettagliata ed esempi su come eseguire i calcoli nel riepilogo delle imposte.
 
 :leveloffset: +1
 
@@ -25,5 +25,5 @@ Ogni sconto o maggiorazione a livello di testata deve essere associato ad un cod
 include::../snippets/snippet-oa-vat.xml[tags=vat-allowance]
 ----
 <1> La classe `cac:TaxCategory` è utilizzata per informazioni sulla categoria IVA
-<2> Categoria IVA secondo la codifica {vat-codes}
+<2> Categoria IVA secondo la link:../../../../../../xml/ITA/peppol-bis-3/codelist/UNCL5305.html[Codifica UNCL5305]
 <3> Aliquota IVA

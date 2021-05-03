@@ -15,6 +15,6 @@ In particolare i prezzi dovrebbero includere abbuoni/sconti e/o maggiorazioni ma
 ----
 <cac:Price>
  	<cbc:PriceAmount currencyID="EUR">50.00000</cbc:PriceAmount>
- 	<cbc:BaseQuantity unitCode="LTR" unitCodeListID=”UNECERec20”>1</cbc:BaseQuantity>
+ 	<cbc:BaseQuantity unitCode="LTR">1</cbc:BaseQuantity>
 </cac:Price>
 ----

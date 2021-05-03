@@ -17,12 +17,12 @@
 .Esempio di ordine con quantità e periodo di consegna 
 [source, xml, indent=0]
 ----
-ubl:Order
+<ubl:Order>
 ...
 <cac:OrderLine>
     <cac:LineItem>
         <cbc:ID>4</cbc:ID>
-        <cbc:Quantity unitCode="C62" unitCodeListID=”UNECERec20”>30</cbc:Quantity>
+        <cbc:Quantity unitCode="C62">30</cbc:Quantity>
         <cbc:LineExtensionAmount currencyID="EUR">60.00</cbc:LineExtensionAmount>
         <cbc:PartialDeliveryIndicator>true</cbc:PartialDeliveryIndicator>
         <cbc:AccountingCost>ProjectID123</cbc:AccountingCost>
@@ -40,10 +40,10 @@ ubl:Order
         </cac:Delivery>
         <cac:Price>
             <cbc:PriceAmount currencyID="EUR">2.00</cbc:PriceAmount>
-            <cbc:BaseQuantity unitCode="C62" unitCodeListID=”UNECERec20”>1</cbc:BaseQuantity>
+            <cbc:BaseQuantity unitCode="C62">1</cbc:BaseQuantity>
         </cac:Price>
         <cac:Item>
-            <cbc:Description> Descrizione </cbc:Description>
+            <cbc:Description>Descrizione</cbc:Description>
             <cbc:Name>Salviette per bambini</cbc:Name>
             <cac:SellersItemIdentification>
                 <cbc:ID>SItemNo011</cbc:ID>
@@ -64,13 +64,13 @@ ubl:Order
 .Esempio di cambio di quantità in un messaggio di risposta d’ordine
 [source, xml, indent=0]
 ----
-ubl:OrderResponse
+<ubl:OrderResponse>
 ...
 <cac:OrderLine>
     <cac:LineItem>
         <cbc:ID>4</cbc:ID>
         <cbc:LineStatusCode>3</cbc:LineStatusCode>
-        <cbc:Quantity unitCode="C62" unitCodeListID=”UNECERec20”>18</cbc:Quantity>
+        <cbc:Quantity unitCode="C62">18</cbc:Quantity>
         <cac:Item>
             <cbc:Name>Salviette umide per bambini</cbc:Name>
             <cac:SellersItemIdentification>
@@ -87,13 +87,13 @@ ubl:OrderResponse
 .Esempio di modifica della quantità e del periodo di consegna in un messaggio di risposta d’ordine:
 [source, xml, indent=0]
 ----
-ubl:OrderResponse
+<ubl:OrderResponse>
 ...
 <cac:OrderLine>
     <cac:LineItem>
         <cbc:ID>4</cbc:ID>
         <cbc:LineStatusCode>3</cbc:LineStatusCode>
-        <cbc:Quantity unitCode="C62" unitCodeListID=”UNECERec20”>18</cbc:Quantity>
+        <cbc:Quantity unitCode="C62">18</cbc:Quantity>
         <cac:Delivery>
             <cac:PromisedDeliveryPeriod>
                 <cbc:StartDate>2018-07-15</cbc:StartDate>
@@ -101,7 +101,7 @@ ubl:OrderResponse
             </cac:PromisedDeliveryPeriod>
         </cac:Delivery>
         <cac:Item>
-            <cbc:Name> Salviette umide per bambini </cbc:Name>
+            <cbc:Name>Salviette umide per bambini</cbc:Name>
             <cac:SellersItemIdentification>
                 <cbc:ID>SN-35</cbc:ID>
             </cac:SellersItemIdentification>
@@ -120,13 +120,13 @@ Per la stessa riga dell’ordine quindi, aggiungiamo una ulteriore modifica dell
 
 [source, xml, indent=0]
 ----
-ubl:OrderResponse
+<ubl:OrderResponse>
 ...
 <cac:OrderLine>
     <cac:LineItem>
         <cbc:ID>5</cbc:ID>
         <cbc:LineStatusCode>1</cbc:LineStatusCode>
-        <cbc:Quantity unitCode="C62" unitCodeListID=”UNECERec20”>12</cbc:Quantity>
+        <cbc:Quantity unitCode="C62">12</cbc:Quantity>
         <cac:Delivery>
             <cac:PromisedDeliveryPeriod>
                 <cbc:StartDate>2018-08-15</cbc:StartDate>
@@ -134,7 +134,7 @@ ubl:OrderResponse
             </cac:PromisedDeliveryPeriod>
         </cac:Delivery>
         <cac:Item>
-            <cbc:Name> Salviette umide per bambini </cbc:Name>
+            <cbc:Name>Salviette umide per bambini</cbc:Name>
             <cac:SellersItemIdentification>
                 <cbc:ID>SN-35</cbc:ID>
             </cac:SellersItemIdentification>
@@ -157,14 +157,14 @@ L’effetto delle due righe di risposta d’ordine di cui sopra dovrebbe essere 
 .Esempio di articolo sostitutivo in un messaggio di risposta d’ordine
 [source, xml, indent=0]
 ----
-ubl:OrderResponse
+<ubl:OrderResponse>
 ...
 <cac:OrderLine>
     <cac:LineItem>
         <cbc:ID>4</cbc:ID>
         <cbc:LineStatusCode>3</cbc:LineStatusCode>
         <cac:Item>
-            <cbc:Name> Salviette umide per bambini </cbc:Name>
+            <cbc:Name>Salviette umide per bambini</cbc:Name>
             <cac:SellersItemIdentification>
                 <cbc:ID>SItemNo011</cbc:ID>
             </cac:SellersItemIdentification>
@@ -203,7 +203,7 @@ ubl:OrderResponse
 .Esempio di modifica prezzo in un messaggio di risposta d’ordine
 [source, xml, indent=0]
 ----
-ubl:OrderResponse
+<ubl:OrderResponse>
 ...
 <cac:OrderLine>
     <cac:LineItem>
@@ -211,7 +211,7 @@ ubl:OrderResponse
         <cbc:Note>Merce Modificata nel Prezzo</cbc:Note>
         <!--Riga accettata con modifica-->
         <cbc:LineStatusCode>3</cbc:LineStatusCode>
-        <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">30</cbc:Quantity>
+        <cbc:Quantity unitCode="C62">30</cbc:Quantity>
         <cac:Delivery>
             <cac:PromisedDeliveryPeriod>
                 <cbc:StartDate>2018-06-30</cbc:StartDate>
@@ -222,7 +222,7 @@ ubl:OrderResponse
             <cbc:PriceAmount currencyID="EUR">3.00</cbc:PriceAmount>
         </cac:Price>
         <cac:Item>
-            <cbc:Name> Salviette umide per bambini </cbc:Name>
+            <cbc:Name>Salviette umide per bambini</cbc:Name>
             <cac:SellersItemIdentification>
                 <cbc:ID>SItemNo011</cbc:ID>
             </cac:SellersItemIdentification>

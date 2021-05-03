@@ -4,7 +4,7 @@
 I capitoli seguenti descrivono le diverse informazioni relative alle imposte che possono essere fornite in questo BIS.
 Con imposta si intende a seconda del contesto applicativo, l'IVA, GST o la Sales Tax.
 
-Si consiglia di consultare anche i codici  dellalink:../../../../../../xml/ITA/peppol-bis-3/codelist/UNCL5305.html[UNCL5305] per dettagli sulla codifica delle categorie delle imposte e il <<vat-calc>> per una rappresentazione più dettagliata ed esempi su come eseguire i calcoli nel riepilogo delle imposte.
+Si consiglia di consultare anche i codici  della link:../../../../../../xml/ITA/peppol-bis-3/codelist/UNCL5305.html[UNCL5305] per dettagli sulla codifica delle categorie delle imposte e il <<vat-calc>> per una rappresentazione più dettagliata ed esempi su come eseguire i calcoli nel riepilogo delle imposte.
 
 :leveloffset: +1
 

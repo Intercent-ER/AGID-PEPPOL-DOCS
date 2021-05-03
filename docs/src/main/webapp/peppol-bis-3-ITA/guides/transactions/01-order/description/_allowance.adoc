@@ -105,7 +105,7 @@ Questo esempio mostra uno sconto di 10 EUR sul prezzo base:
 <cac:OrderLine>
     <cac:LineItem>
         <cbc:ID>1</cbc:ID>
-        <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">20</cbc:Quantity>
+        <cbc:Quantity unitCode="C62">20</cbc:Quantity>
         <cbc:LineExtensionAmount currencyID="EUR">1800.00</cbc:LineExtensionAmount>
         ...
         <cac:Price>
@@ -132,7 +132,7 @@ Questo esempio mostra uno sconto applicato a tutta la riga d’ordine:
 <cac:OrderLine>
     <cac:LineItem>
         <cbc:ID>1</cbc:ID>
-        <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">10</cbc:Quantity>
+        <cbc:Quantity unitCode="C62">10</cbc:Quantity>
         <cbc:LineExtensionAmount currencyID="EUR">90.00</cbc:LineExtensionAmount>
         <cac:AllowanceCharge>
           <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
@@ -142,7 +142,7 @@ Questo esempio mostra uno sconto applicato a tutta la riga d’ordine:
           <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
         </cac:AllowanceCharge>
         <cac:Price>
-            <cbc:PriceAmount currencyID="EUR">10.00000</cbc:PriceAmount><!-- Opzionale -->
+            <cbc:PriceAmount currencyID="EUR">10.00000</cbc:PriceAmount>
         </cac:Price>
     </cac:LineItem>
 </cac:OrderLine>
@@ -165,7 +165,7 @@ Infatti ai fini IVA lo sconto merce rientra nelle operazioni Escluse ex Art. 15 
 <cac:OrderLine>
     <cac:LineItem>
         <cbc:ID>1</cbc:ID>
-        <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">10</cbc:Quantity>
+        <cbc:Quantity unitCode="C62">10</cbc:Quantity>
         <cbc:LineExtensionAmount currencyID="EUR">0.00</cbc:LineExtensionAmount>
         <cac:AllowanceCharge>
             <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
@@ -204,11 +204,11 @@ Per includere nell’ordine degli articoli in omaggio è necessario indicarli in
 <cac:orderline>
     <cac:LineItem>
         <cbc:ID>1</cbc:ID>
-        <cbc:Quantity unitCode="C62" unitCodeListID=”UNECERec20”>20</cbc:Quantity>
+        <cbc:Quantity unitCode="C62">20</cbc:Quantity>
         <cbc:LineExtensionAmount currencyID="EUR">0</cbc:LineExtensionAmount>
         <cac:Price>
             <cbc:PriceAmount currencyID="EUR">0</cbc:PriceAmount>
-            <cbc:BaseQuantity unitCode="C62" unitCodeListID=”UNECERec20”>1</cbc:BaseQuantity>
+            <cbc:BaseQuantity unitCode="C62">1</cbc:BaseQuantity>
             <cac:AllowanceCharge>
                 <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
                 <cbc:Amount currencyID="EUR">5.00</cbc:Amount>

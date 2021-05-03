@@ -34,8 +34,8 @@ A livello di riga +
 .L’esempio seguente indica un ordine con il motivo di esclusione ES12 “AFFIDAMENTI_IN_HOUSE”.
 [source, xml, indent=0]
 ----
- <cac:OriginatorDocumentReference>
-<cbc:ID>ES12</cbc:ID>
+<cac:OriginatorDocumentReference>
+    <cbc:ID>ES12</cbc:ID>
 </cac:OriginatorDocumentReference>
 ----
 
@@ -47,7 +47,7 @@ A livello di riga +
         <cac:Item>
 		...
             <cac:ItemSpecificationDocumentReference>
-                <cbc:Id>CIG:1Z1A3EE456</cbc:Id>
+                <cbc:ID>CIG:1Z1A3EE456</cbc:ID>
             </cac:ItemSpecificationDocumentReference>
 		...
         </cac:Item>

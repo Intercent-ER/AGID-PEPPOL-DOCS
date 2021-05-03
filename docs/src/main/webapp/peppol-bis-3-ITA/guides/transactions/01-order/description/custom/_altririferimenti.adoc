@@ -67,7 +67,7 @@ A livello di riga +
 ----
 <cac:AdditionalDocumentReference>
     <cbc:ID>J31E01000010004</cbc:ID>
-<cbc:DocumentType>CUP</cbc:DocumentType>
+    <cbc:DocumentType>CUP</cbc:DocumentType>
 </cac:AdditionalDocumentReference>
 ----
 .Esempio di riferimento ad un IMPEGNO e a un DDT a livello di riga.

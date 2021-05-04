@@ -15,5 +15,5 @@ include::_list.adoc[]
 
 
 ====
-IMPORTANT: The official technical documentation is published on the Ministry of Economy and Finance website {RGS-NSO}.
+IMPORTANT: The official technical documentation is published on the Ministry of Economy and Finance website {RGS-NSO}[RGS-NSO].
 ====

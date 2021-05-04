@@ -15,5 +15,5 @@ include::_list.adoc[]
 
 
 ====
-IMPORTANT: La documentazione ufficiale di riferimento è quella pubblicata dal sito MEF della {RGS-NSO}.
+IMPORTANT: La documentazione ufficiale di riferimento è quella pubblicata dal sito MEF della {RGS-NSO}[RGS-NSO].
 ====

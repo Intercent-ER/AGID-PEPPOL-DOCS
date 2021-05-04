@@ -241,7 +241,7 @@
          <assert test="@unitCode" flag="fatal" id="PEPPOL-T76-B04101">L'attributo 'unitCode' DEVE essere presente.</assert>
          <assert test="not(@unitCode) or (some $code in $clUNECERec20 satisfies $code = @unitCode)"
                  flag="fatal"
-                 id="PEPPOL-T76-B04102">Il valore DEVE fare parte della code list 'Recommandation 20, including Recommondation 21 codes - prefixed with X (UN/ECE)'.</assert>
+                 id="PEPPOL-T76-B04102">Il valore DEVE fare parte della code list 'Recommendation 20, including Recommendation 21 codes - prefixed with X (UN/ECE)'.</assert>
       </rule>
       <rule context="/ubl:OrderResponse/cac:OrderLine/cac:LineItem/cbc:MaximumBackorderQuantity"/>
       <rule context="/ubl:OrderResponse/cac:OrderLine/cac:LineItem/cac:Delivery">
@@ -271,7 +271,7 @@
          <assert test="@unitCode" flag="fatal" id="PEPPOL-T76-B05101">L'attributo 'unitCode' DEVE essere presente.</assert>
          <assert test="not(@unitCode) or (some $code in $clUNECERec20 satisfies $code = @unitCode)"
                  flag="fatal"
-                 id="PEPPOL-T76-B05102">Il valore DEVE fare parte della code list 'Recommandation 20, including Recommondation 21 codes - prefixed with X (UN/ECE)'.</assert>
+                 id="PEPPOL-T76-B05102">Il valore DEVE fare parte della code list 'Recommendation 20, including Recommendation 21 codes - prefixed with X (UN/ECE)'.</assert>
       </rule>
       <rule context="/ubl:OrderResponse/cac:OrderLine/cac:LineItem/cac:Price/*">
          <assert test="false()" flag="fatal" id="PEPPOL-T76-B04802">Il documento NON DEVE contenere elementi che non fanno parte del modello di dati.</assert>
@@ -381,7 +381,7 @@
          <assert test="@unitCode" flag="fatal" id="PEPPOL-T76-B08601">L'attributo 'unitCode' DEVE essere presente.</assert>
          <assert test="not(@unitCode) or (some $code in $clUNECERec20 satisfies $code = @unitCode)"
                  flag="fatal"
-                 id="PEPPOL-T76-B08602">Il valore DEVE fare parte della code list 'Recommandation 20, including Recommondation 21 codes - prefixed with X (UN/ECE)'.</assert>
+                 id="PEPPOL-T76-B08602">Il valore DEVE fare parte della code list 'Recommendation 20, including Recommendation 21 codes - prefixed with X (UN/ECE)'.</assert>
       </rule>
       <rule context="/ubl:OrderResponse/cac:OrderLine/cac:SellerSubstitutedLineItem/cac:Item/cac:AdditionalItemProperty/cbc:ValueQualifier"/>
       <rule context="/ubl:OrderResponse/cac:OrderLine/cac:SellerSubstitutedLineItem/cac:Item/cac:AdditionalItemProperty/*">

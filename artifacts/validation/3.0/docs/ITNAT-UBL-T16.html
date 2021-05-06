@@ -90,13 +90,13 @@
                            la sintassi [A-Z0-9]{6,7}.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="IT-T16-R027" data-context="//cbc:EndpointID" data-test="(@schemeID='9906' and matches(.,'^(IT)?[0-9]{11}$')) or @schemeID!='9906'">
-                     <td><a href="#">IT-T16-R027</a><br><span class="message">[IT-T16-R027] - Se l'identificatore di endpoint si basa sullo schema di identificatori IT:VAT (ICD: 9906), questo dovr&agrave; seguire
+                  <tr id="IT-T16-R027" data-context="//cbc:EndpointID" data-test="((@schemeID='9906' or @schemeID='0211') and matches(.,'^(IT)?[0-9]{11}$')) or (@schemeID!='9906' and @schemeID!='0211')">
+                     <td><a href="#">IT-T16-R027</a><br><span class="message">[IT-T16-R027] - Se l'identificatore di endpoint si basa sullo schema di identificatori IT:VAT (ICD: 9906, 0211), questo dovr&agrave; seguire
                            la sintassi (IT)?[0-9]{11}.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="IT-T16-R028" data-context="//cbc:EndpointID" data-test="(@schemeID='9907' and matches(.,'^[0-9]{11}$|^[A-Z]{6}\d{2}[ABCDEHLMPRST]{1}\d{2}[A-Z]{1}\d{3}[A-Z]{1}$')) or @schemeID!='9907'">
-                     <td><a href="#">IT-T16-R028</a><br><span class="message">[IT-T16-R028] - Se l'identificatore di endpoint si basa sullo schema di identificatori IT:CF (ICD: 9907), questo dovr&agrave; seguire
+                  <tr id="IT-T16-R028" data-context="//cbc:EndpointID" data-test="((@schemeID='9907' or @schemeID='0210') and matches(.,'^[0-9]{11}$|^[A-Z]{6}\d{2}[ABCDEHLMPRST]{1}\d{2}[A-Z]{1}\d{3}[A-Z]{1}$')) or (@schemeID!='9907' and @schemeID!='0210')">
+                     <td><a href="#">IT-T16-R028</a><br><span class="message">[IT-T16-R028] - Se l'identificatore di endpoint si basa sullo schema di identificatori IT:CF (ICD: 9907, 0210), questo dovr&agrave; seguire
                            la sintassi [0-9]{11} per le persone giuridiche e la sintassi [A-Z]{6}\d{2}[ABCDEHLMPRST]{1}\d{2}[A-Z]{1}\d{3}[A-Z]{1} per
                            quelle fisiche.</span></td>
                      <td style="width: 5%;">fatal</td>

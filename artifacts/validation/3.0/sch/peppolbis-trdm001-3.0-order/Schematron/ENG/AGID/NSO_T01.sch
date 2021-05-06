@@ -662,9 +662,9 @@
 
 		<rule context="/ubl:Order/cac:SellerSupplierParty/cac:Party/cbc:EndpointID">
 			
-			<!-- nel caso in cui schemeID = 9906 l'endpointID deve contenere una partita iva formalmente corretta --> 
+			<!-- nel caso in cui schemeID = 9906 oppure 0211 l'endpointID deve contenere una partita iva formalmente corretta -->
 			<assert id="NSO_030"
-                 test="if(@schemeID=9906) then u:checkPIVAseIT(.) else true() "
+                 test="if((@schemeID=9906 or @schemeID=0211)) then u:checkPIVAseIT(.) else true() "
                  flag="fatal">NSO_030 - The VAT number specified in the element is invalid  is not valid.
 			</assert>
 			
@@ -683,9 +683,9 @@
 
 		<rule context="/ubl:Order/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID">
 
-			<!-- nel caso in cui schemeID = 9906 l'endpointID deve contenere una partita iva formalmente corretta --> 
+			<!-- nel caso in cui schemeID = 9906 oppure 0211 l'endpointID deve contenere una partita iva formalmente corretta -->
 			<assert id="NSO_030"
-                 test="if(@schemeID=9906) then u:checkPIVAseIT(.) else true() "
+                 test="if((@schemeID=9906 or @schemeID=0211)) then u:checkPIVAseIT(.) else true() "
                  flag="fatal">NSO_030 - The VAT number specified in the element is invalid  is not valid.
 			</assert>
 			
@@ -769,14 +769,14 @@
 		
 		<rule context="/ubl:Order/cac:SellerSupplierParty/cac:Party/cbc:EndpointID">
 			<assert id="NSO_020"
-                 test="if(@schemeID=9907 and not (.=string(9999999999999999))) then u:checkCF(.) else true()"
+                 test="if((@schemeID=9907 or @schemeID=0210) and not (.=string(9999999999999999))) then u:checkCF(.) else true()"
                  flag="fatal">NSO_020 - The Tax Code specified in the element is invalid.
 			</assert>
 		</rule>
 		
 		<rule context="/ubl:Order/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID">
 			<assert id="NSO_020"
-                 test="if(@schemeID=9907) then u:checkCF(.) else true()"
+                 test="if((@schemeID=9907 or @schemeID=0210)) then u:checkCF(.) else true()"
                  flag="fatal">NSO_020 - The Tax Code specified in the element is invalid.
 			</assert>
 		</rule>

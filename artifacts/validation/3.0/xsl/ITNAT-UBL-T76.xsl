@@ -3079,9 +3079,9 @@
       <!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="if(@schemeID='9906') then ( if(u:checkPIVA(substring(.,3,13))!=0) then false() else true() ) else true()"/>
+         <axsl:when test="if((@schemeID='9906' or @schemeID='0211')) then ( if(u:checkPIVA(substring(.,3,13))!=0) then false() else true() ) else true()"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="if(@schemeID='9906') then ( if(u:checkPIVA(substring(.,3,13))!=0) then false() else true() ) else true()">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="if((@schemeID='9906' or @schemeID='0211')) then ( if(u:checkPIVA(substring(.,3,13))!=0) then false() else true() ) else true()">
                <axsl:attribute name="id">NSO_130</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -3397,9 +3397,9 @@
       <!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="if(@schemeID='9907') then u:checkCF(.) else true()"/>
+         <axsl:when test="if((@schemeID='9907' or @schemeID='0210')) then u:checkCF(.) else true()"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="if(@schemeID='9907') then u:checkCF(.) else true()">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="if((@schemeID='9907' or @schemeID='0210')) then u:checkCF(.) else true()">
                <axsl:attribute name="id">NSO_120</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">

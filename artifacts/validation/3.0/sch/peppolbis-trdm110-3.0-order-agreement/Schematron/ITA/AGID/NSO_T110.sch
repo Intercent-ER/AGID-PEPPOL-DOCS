@@ -606,7 +606,7 @@
 		
 		<rule context="/ubl:OrderResponse/cac:SellerSupplierParty/cac:Party/cbc:EndpointID">
 			<assert id="NSO_220"
-                 test="if(@schemeID=9907) then u:checkCF(.) else true()"
+                 test="if((@schemeID=9907 or @schemeID=0210)) then u:checkCF(.) else true()"
                  flag="fatal">NSO_220 - Il Codice Fiscale indicato nell’elemento non è valido. - The Tax Code specified in the element is invalid.
 			</assert>
 		</rule>
@@ -619,7 +619,7 @@
 		<rule context="ubl:OrderResponse/cac:SellerSupplierParty/cac:Party/cbc:EndpointID">
 			
 			<assert id="NSO_230"
-                 test="if(@schemeID=9906) then ( if(u:checkPIVA(substring(.,3,13))!=0) then false() else true() ) else true()" flag="fatal">
+                 test="if((@schemeID=9906 or @schemeID=0211)) then ( if(u:checkPIVA(substring(.,3,13))!=0) then false() else true() ) else true()" flag="fatal">
 					NSO_230 - La partita IVA indicata nell’elemento non è valida. - The VAT number specified in the element is invalid.
 			</assert>
 			

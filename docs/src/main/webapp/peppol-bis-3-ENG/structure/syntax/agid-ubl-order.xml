@@ -526,7 +526,7 @@
 						<Name>Scheme identifier</Name>
 						<Description>Scheme identifier for the Seller party's electronic address</Description>
 						<Reference type="CODE_LIST">eas</Reference>
-						<Value type="EXAMPLE">9906</Value>
+						<Value type="EXAMPLE">0211</Value>
 					</Attribute>
 					<Reference type="RULE">NSO_010</Reference>
 					<Reference type="RULE">NSO_020</Reference>

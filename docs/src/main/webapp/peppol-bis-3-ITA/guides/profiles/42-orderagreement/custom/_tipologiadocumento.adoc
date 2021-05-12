@@ -48,7 +48,7 @@ Gli Ordini di riscontro sostitutivi e gli Ordini di riscontro per diniego, rispe
 [source, xml, indent=0]
 ----
 <cbc:CustomizationID>urn:fdc:peppol.eu:poacc:trns:order:3 :restrictive:urn:www.agid.gov.it:trns:ordine:3.1<cbc:CustomizationID>
-<cbc:ProfileID>urn:fdc:peppol.eu:poacc:bis:order_agreement:3</cbc:ProfileID>
+<cbc:ProfileID>urn:fdc:peppol.eu:poacc:bis:order_only:3</cbc:ProfileID>
 <cbc:ID>460</cbc:ID>
 <cbc:IssueDate>2018-03-15<cbc:IssueDate>
 …
@@ -86,7 +86,7 @@ In alcune circostanze può essere utile revocare un Ordine pre-concordato preced
 
 L’Ordine pre-concordato di revoca contiene il riferimento all’Ordine pre-concordato che si intende revocare e l’indicazione che si tratta di una “revoca” (“Cancelled”), inoltre ha una sola linea d’ordine priva di contenuto.
 
-Per le regole di compilazione, vedi paragrafo 6.12.
+Per le regole di compilazione, vedi paragrafo 7.3.
 
 
 *[red]#Ordine pre-concordato sostitutivo#*
@@ -102,7 +102,7 @@ relativa fattura (quando il Documento è emesso al solo fine regolare aspetti di
 [NOTE]
 In questi casi l’Ordine pre-concordato sostitutivo deve riportare l’indicazione del sotto-tipo di Ordinazione “OR”, (c.d. “Ordine sostitutivo di regolazione“, vedi paragrafo 4.4).
 
-Per le regole di compilazione, vedi paragrafo 6.12.
+Per le regole di compilazione, vedi paragrafo 7.3.
 
 
 *[red]#Ordine pre-concordato collegato#*
@@ -115,7 +115,7 @@ In questi casi è possibile evidenziare tale generica relazione con l’uso dell
 [NOTE]
 L’Ordine pre-concordato collegato può essere utilizzato esclusivamente per tenere memoria che il nuovo processo che si intende avviare è collegato ad un processo precedente e non deve mai essere usato al posto degli altri strumenti (Ordine pre-concordato di revoca, Ordine pre-concordato sostitutivo e Ordine di riscontro) appositamente realizzati per revocare, sostituire (o integrare), confermare o rifiutare un altro Documento.
 
-Per le regole di compilazione, vedi paragrafo 6.12.
+Per le regole di compilazione, vedi paragrafo 7.3.
 
 
 *[red]#Ordine pre-concordato di convalida#*

@@ -75,7 +75,7 @@ Gli Ordini di riscontro sostitutivi e gli Ordini di riscontro per diniego, rispe
 [source, xml, indent=0]
 ----
 <cbc:CustomizationID>urn:fdc:peppol.eu:poacc:trns:order:3 :restrictive:urn:www.agid.gov.it:trns:ordine:3.1<cbc:CustomizationID>
-<cbc:ProfileID>urn:fdc:peppol.eu:poacc:bis:order_agreement:3</cbc:ProfileID>
+<cbc:ProfileID>urn:fdc:peppol.eu:poacc:bis:ordering:3</cbc:ProfileID>
 <cbc:ID>460</cbc:ID>
 <cbc:IssueDate>2018-03-15<cbc:IssueDate>
 …

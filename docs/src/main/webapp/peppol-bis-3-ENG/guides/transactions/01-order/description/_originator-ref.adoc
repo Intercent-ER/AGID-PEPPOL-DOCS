@@ -34,8 +34,8 @@ At line level +
 .Example with an exclusion reason code of ES12 (“AFFIDAMENTI_IN_HOUSE”)
 [source, xml, indent=0]
 ----
- <cac:OriginatorDocumentReference>
-<cbc:ID>ES12</cbc:ID>
+<cac:OriginatorDocumentReference>
+    <cbc:ID>ES12</cbc:ID>
 </cac:OriginatorDocumentReference>
 ----
 

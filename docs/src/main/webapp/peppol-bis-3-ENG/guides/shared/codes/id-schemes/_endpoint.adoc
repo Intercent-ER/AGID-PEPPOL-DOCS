@@ -5,14 +5,14 @@
 All electronic address identifiers (`cbc:EndpointID/@schemeID`) use the Electronic Address Scheme code list (EAS),
 maintained by CEF ({cef-codelists}).
 
-Valid values are found here: {codelist-EAS}.
+Valid values are found in the  link:../../../../../../xml/ITA/peppol-bis-3/codelist/eas.html[Codelist EAS]
 
 
 .Examples of usage in `cbc:EndpointID`
 [source,xml, indent="0"]
 ----
 
-	<cbc:EndpointID schemeID="9906">IT01234567890</cbc:EndpointID> <1>
+<cbc:EndpointID schemeID="0211">IT01234567890</cbc:EndpointID> <1>
 
 ----
 <1> schemeID attribute is mandatory

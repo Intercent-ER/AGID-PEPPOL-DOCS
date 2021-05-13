@@ -26,7 +26,7 @@ Il messaggio di risposta d’ordine viene inviato dal venditore all’acquirente
 ** Prezzo. +
 
 
-* #Se l’ordine è respinto o modificato, la risposta d’ordine deve includere in testata le informazioni di contatto del venditore nel# `cbc:Note`.
+* #Se l’ordine è respinto o modificato, la risposta d’ordine deve includere in testata le informazioni di contatto del venditore nel *cbc:Note*#.
 
 * #La risposta d’ordine deve riportare univocamente l’identificativo del Fornitore.#
 

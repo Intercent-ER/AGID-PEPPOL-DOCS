@@ -67,7 +67,7 @@ At line level +
 ----
 <cac:AdditionalDocumentReference>
     <cbc:ID>J31E01000010004</cbc:ID>
-<cbc:DocumentType>CUP</cbc:DocumentType>
+    <cbc:DocumentType>CUP</cbc:DocumentType>
 </cac:AdditionalDocumentReference>
 ----
 .Example of a reference to Expenditure Commitment ID and Despatch Advice ID on the line level

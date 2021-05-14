@@ -44,11 +44,11 @@ In this case there must not be an order reference on header level.
 include::{snippet-dir}/snippet-30-3.xml[tags=ref-orderlinemulti]
 ----
 
-== Additional reference to the Order
+== #Additional reference to the Order#
 
-#When the Documento di trasporto refers to a single Order on the header level, with the element cbc:CustomerReference is possible to provide a further reference of the Client.#
+When the Documento di trasporto refers to a single Order on the header level, with the element cbc:CustomerReference is possible to provide a further reference of the Client.
 
-#This information is utilized as reference issued by the Client to identify the object of the shimpent, such as the final receiver of  pharmaceutical products (Patient ID) in the case of home delivery (see §. 6.3.1)#
+This information is utilized as reference issued by the Client to identify the object of the shimpent, such as the final receiver of  pharmaceutical products (Patient ID) in the case of home delivery (see §. 6.3.1)
 
 .Example of reference to a client in the case of home delivery:
 [source, xml, indent=0]

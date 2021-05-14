@@ -8,8 +8,8 @@ Le seguenti parti/ruoli possono essere specificate nel messaggio.  Lo stesso att
 
 Lo Speditore è la persona o organizzazione che fornisce (spedisce) merce o servizi.
 Questo ruolo è ricoperto dal Fornitore o per suo conto (Lo Speditore è anche conosciuto come Mittente).
-Lo Speditore è un’informazione obbligatoria.  In particolare sono obbligatori il nome e l’identificativo come da Art. 21, comma 4 del DPR n. 633/1972.
-#Le stesse informazioni sono richieste e verificate dall’Access Point di destinazione ai fini della riconciliazione con l’Ordine.#
+Lo Speditore è un’informazione obbligatoria.  #In particolare sono obbligatori il nome e l’identificativo come da Art. 21, comma 4 del DPR n. 633/1972.
+Le stesse informazioni sono richieste e verificate dall’Access Point di destinazione ai fini della riconciliazione con l’Ordine.#
 
 Esempio:
 [source, xml, indent=0]

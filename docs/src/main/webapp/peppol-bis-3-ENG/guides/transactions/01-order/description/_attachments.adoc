@@ -8,7 +8,7 @@ The attachment can either be sent as a binary object encoded in Base64 embedded 
 NOTE: It is recommended to send attachments as embedded, binary objects and not as external references.
 
 
-#Valid values (i.e. compatible with con NSO) are listed and highlighted in the codelist *Mime code (IANA Subset)*.#
+#Valid values (i.e. compatible with con NSO) are listed and highlighted in the codelist link:../../../../../../xml/ITA/peppol-bis-3/codelist/MimeCode.html[Mime code].#
 
 
 .Example of attachment as an embedded, binary object

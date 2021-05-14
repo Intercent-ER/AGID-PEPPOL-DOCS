@@ -32,5 +32,5 @@ The seller receives the order.
 If the invoice has an order reference, the invoice can be matched automatically.
 
 |XML example file
-|{order-UC}
+|See section "Downloads" on link:../../../../../../[Homepage].
 |====

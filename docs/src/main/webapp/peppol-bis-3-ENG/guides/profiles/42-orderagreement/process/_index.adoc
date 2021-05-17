@@ -17,11 +17,31 @@ The order agreement process flow can be described as follows:
 
 An Order Agreement may refer to a framework agreement for its terms and conditions; otherwise the Buyer’s terms and conditions apply.
 
-== Business process Diagram
 
-=== Legend for BPMN diagrams
 
-The diagrams are expressed in the BPMN notation. The diagram below serves as an explanation for the diagrams used in the process descriptions.
+[[Requisiti-dei-processi-di-business]]
+== #Requisiti dei processi di business#
+
+Questo processo prevede l’uso di due Documenti: +
+
+* l’*Ordine pre-concordato*, emesso dal Fornitore;
+* l’*Ordine di riscontro*, eventualmente emesso dal Cliente.
+
+Il processo inizia con l’invio dell’Ordine pre-concordato da parte del Fornitore, che lo emette in quanto pre-autorizzato dal Cliente. +
+
+A fronte della ricezione dell’Ordine pre-concordato, il Cliente può: +
+
+* terminare il processo senza trasmettere un Ordine di riscontro; +
+
+* trasmettere un Ordine di riscontro, che deve contenere l’indicazione dell’Ordine pre-concordato a cui fa riferimento, con il quale comunica
+al Fornitore, alternativamente, che intende:
+
+** confermare l’Ordine pre-concordato ricevuto (Ordine di riscontro per conferma); +
+
+** declinare l’Ordine pre-concordato ricevuto (Ordine di riscontro per
+diniego);
+** sostituire l’Ordine pre-concordato ricevuto (Ordine di riscontro sostitutivo).
+
 
 :leveloffset: +1
 

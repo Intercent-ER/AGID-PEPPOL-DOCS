@@ -1,0 +1,37 @@
+[[campi-strutturati]]
+= #Uso di informazioni concatenate in campi strutturati#
+
+È previsto, dove possibile, l’uso di informazioni concatenate in campi strutturati, ossia elementi XML che possono (o debbono) contenere delle tuple di valori, tra loro separati dal carattere "#" senza interposizione di spazi, come mostrato nel seguente esempio:
+
+[source, xml]
+
+<Tag>Valore#Valore#Valore</Tag>
+
+I campi strutturati ammessi sono, esclusivamente e tassativamente, quelli elencati nella seguente tabella:
+
+[cols="3,3", options="header"]
+|===
+^.^|Campo strutturato
+^.^|Tipo Documento PEPPOL
+
+|OrderDocumentReference/ID
+|Ordine Semplice
+
+|OrderReference/ID
+|Ordine Pre-concordato +
+
+|DeliveryTerms/SpecialTerms
+|Ordine Semplice +
+Ordine Pre-concordato
+
+|AccountingCost
+|Ordine Semplice
+
+|AdditionalDocumentReference/ID
+|Ordine Semplice +
+Ordine Pre-concordato
+
+|ItemSpecificationDocumentReference/ID
+|Ordine Semplice +
+Ordine Pre-concordato
+|===

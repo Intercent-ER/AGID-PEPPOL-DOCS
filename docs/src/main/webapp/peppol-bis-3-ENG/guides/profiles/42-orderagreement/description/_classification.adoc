@@ -1,6 +1,66 @@
 [[classification]]
 = Classification
 
+#For each product, inside the related order line it is possible to specify one or more classification codes, valorizing the element “ItemClassificationCode/ID” of the segment “CommodityClassification”.#
+
+#It is advisable, however, to use at least one of the classification systems for goods and services shown in the table below, where applicable.#
+
+
+[cols="1,3,2", options="header"]
+|====
+s|Code
+s|Description of the classification standard
+s|Use
+
+|*STI*
+|CPV – Common Procurement Vocabulary
+|Products and services subject to public procurement
+
+|*STL*
+|ATC - Anatomical Therapeutic Chemical classification system
+|Medical drugs
+
+|*STO*
+|Medical Devices National Classification (CND - Classificazione Nazionale dei Dispositivi Medici)
+|Medical devices
+
+|*STH*
+|GPC – Global Product Classification
+|Consumer goods
+
+|*IB*
+|ISBN - International Standard Book Number
+|Books (also in electronic format and other products created to be used as books)
+
+|*ZZZ*
+|System defined mutually between the parties
+|For medical devices it allows to specify the values “DM1”, “DM2” or “DM0” (when the first two are not applicable)
+
+|====
+
+
+[NOTE]
+====
+It is advisable to indicate in detail product with different products' code on separeted order lines.
+====
+
+.Example of an order with the product classification indication
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>1</cbc:ID>
+        <cac:Item>
+            <cac:CommodityClassification>
+                 <cbc:ItemClassificationCodelistID=”STL”>N05BA01</cbc:ItemClassificationCode>
+            </cac:CommodityClassification>
+        </cac:Item>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+
+
+
 An item may be classified according to UNSPSC being the mandatory public classification schemes in some countries/sectors.
 As there is currently no code for UNSPSC in the used code list UNCL 7143, the code "MP" (Product/service identification number) is used.
 Products can also be classified according to regulatory schemes or classification schemes used in certain business sectors.
@@ -8,5 +68,7 @@ Products can also be classified according to regulatory schemes or classificatio
 .Example:
 [source, xml, indent=0]
 ----
-include::{snippet-dir}/OA full.xml[tags=classification]
+<cac:CommodityClassification>
+        <cbc:ItemClassificationCode listID="MP" listVersionID="20.0601">14111511</cbc:ItemClassificationCode>
+</cac:CommodityClassification>
 ----

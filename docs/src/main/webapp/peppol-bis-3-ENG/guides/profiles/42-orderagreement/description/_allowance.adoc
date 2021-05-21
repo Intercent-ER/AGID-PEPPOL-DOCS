@@ -1,6 +1,8 @@
 [[allowance]]
 = Allowances and Charges
 
+[[anchor-8]]
+
 The order agreement transaction has Allowance/charge on header level.
 
 The element `cac:AllowanceCharge` with sub element `cbc:ChargeIndicator` indicates whether the instance is a charge (true) or an allowance (false).
@@ -37,3 +39,75 @@ include::{snippet-dir}/snippet-oa.xml[tags=allowance]
 <3> Base amount, to be used with the percentage to calculate the amount
 <4> Charge percentage
 <5> stem:["Amount" = "Base amount" times ("Percentage" div 100)]
+
+:leveloffset: +1
+
+== #Allowance and charges on price#
+
+The following example shows an allowance of 10 EUR applied to the base amount price:
+
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>1</cbc:ID>
+        <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">20</cbc:Quantity>
+        <cbc:LineExtensionAmount currencyID="EUR">1800.00</cbc:LineExtensionAmount>
+        ...
+        <cac:Price>
+            <cbc:PriceAmount currencyID="EUR">90.00</cbc:PriceAmount>
+            <cac:AllowanceCharge>
+                <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+                <cbc:Amount currencyID="EUR">10.00</cbc:Amount>
+                <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
+            </cac:AllowanceCharge>
+        </cac:Price>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+
+:leveloffset: -1
+
+:leveloffset: +1
+
+[[titolo]]
+= #Free items#
+
+To include free items in the order it is necessary to indicate them on a different line than paid items and also to indicate both the line amount and the price equal to 0 (zero).
+
+.Example of an order line with 12 free packages of glucose test strips:
+[source, xml, indent=0]
+----
+<cac:orderline>
+    <cac:LineItem>
+        <cbc:ID>1</cbc:ID>
+        <cbc:Quantity unitCode="C62" unitCodeListID=”UNECERec20”>20</cbc:Quantity>
+        <cbc:LineExtensionAmount currencyID="EUR">0</cbc:LineExtensionAmount>
+        <cac:Price>
+            <cbc:PriceAmount currencyID="EUR">0</cbc:PriceAmount>
+            <cbc:BaseQuantity unitCode="C62" unitCodeListID=”UNECERec20”>1</cbc:BaseQuantity>
+            <cac:AllowanceCharge>
+                <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+                <cbc:Amount currencyID="EUR">5.00</cbc:Amount>
+                <cbc:BaseAmount currencyID="EUR">5.00</cbc:BaseAmount>
+            </cac:AllowanceCharge>
+        </cac:Price>
+        <cac:Item>
+            <cbc:Description>1x12 pacchi</cbc:Description>
+            <cbc:Name>Striscie per glucosio</cbc:Name>
+            <cac:SellersItemIdentification>
+               <cbc:ID>79847-E</cbc:ID>
+            </cac:SellersItemIdentification>
+            <cac:ClassifiedTaxCategory>
+                <cbc:ID schemeID="UNCL5305">S</cbc:ID>
+                <cbc:Percent>22</cbc:Percent></cac:Item>
+                <cac:TaxScheme>
+                     <cbc:ID>VAT</cbc:ID>
+                </cac:TaxScheme>
+            </cac:ClassifiedTaxCategory>
+        </cac:Item>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+
+:leveloffset: -1

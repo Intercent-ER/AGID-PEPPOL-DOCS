@@ -1,7 +1,8 @@
 = Calcolo delle imposte
 
-[[vat-calc]]
 == Totale imposte
+
+[[anchor-7]]
 
 L'importo totale delle imposte (es. IVA in Italia) può essere specificato senza fornire il riepilogo delle imposte, ma se questo è presente, l'importo totale delle imposte è dato dalla somma di tutte le imposte per ogni categoria.
 

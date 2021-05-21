@@ -1,7 +1,7 @@
-[[uso-degli-elementi-note]]
-= #Uso degli elementi "Note"#
+[[use-of-notes]]
+= #Use of the elements "Note"#
+
+When there is the necessity to provide particular information, it is possible to valorize with free-form text the elementes “Note” present at various points of the Documents data's schemes. +
 
 
-Eccezionalmente, ove vi sia l’esigenza di fornire indicazioni particolari, è possibile valorizzare con testo libero gli elementi “Note” presenti a vari livelli dello schema dati. 
-
-IMPORTANT: Come regola generale, si raccomanda l’utilizzo delle note testuali solo se assolutamente necessario e in mancanza di altri elementi degli schemi dati che possano contenere la medesima informazione.
+IMPORTANT: As a general rule, it is recommended using the textual notes only if absolutely necessary and in absence of other elements that may contain the same information.

@@ -1,14 +1,16 @@
 [[Gestione-ordini-particolari]]
-= #Gestione ordini pre-concordati particolari#
+= #Indications for particular Order Agreement#
 
 :leveloffset: +1
 
 [[titolo]]
-= Ordini in Conto Visione e Ordini di fatturazione e reintegro
+= Order for Evaluation and Order for Billing products already consumed and Restoration
 
-Gli ordini con tipologia 227 di beni in conto visione (CV) e gli ordini con tipologia 220 di fatturazione e reintegro (OFR) prevedono che l’emissione dell’ordine avvenga successivamente alla consegna e all’utilizzo dei beni forniti. Pertanto, in questi ordini è obbligatorio specificare i riferimenti relativi al Documento di Trasporto.
+Order Agreements with typology 227 for "Order for Evaluation" (CV) and Order Agreements with typology 220 of "Order for Billing products already consumed and Restoration" (OFR) provide that the issuance of the order takes place after the delivery and the use of the goods provided.+
 
-Esempio:
+Therefore, in this orders it is mandatory to specify the references to Lot, Serial number and DDT number of the delivery concerning the item used. +
+
+Example:
 
 [source, xml, indent=0]
 ----
@@ -30,21 +32,21 @@ Esempio:
 :leveloffset: +1
 
 [[titolo]]
-= Ordini pre-concordati di Kit a componenti predefinite e a componenti variabili (virtuali)
+= Ordini di Kit a componenti predefinite e a componenti variabili (virtuali)
 
-I componenti di un Kit (generalmente si tratta di dispositivi sanitari impiantabili) possono essere predefiniti (definiti a listino dal fornitore e sempre utilizzati congiuntamente) o variabili (nel listino del fornitore vengono indicati i possibili componenti richiedibili). Solitamente esiste un codice articolo del kit e un codice articolo per ciascun componente del kit.
+The components of a KIT (generally implantable medical devices) can be predefined (defined in the price list by the Seller and always used together) or variables (in the Seller's price list are indicated those that can be requested). Typically there is an item number for the KIT and one for each component of the KIT.
 
-Nell’Ordine pre-concordato l’Item può essere definito nei termini del KIT o del Componente.
+In orders the Item can be "defined" in the terms of KIT or component.
 
-[red]#Esempio di Item definito nei termini del KIT#
+[red]#Example of an Item defined in terms of KIT#
 
-Codice articolo fornitore per il “KIT” (esempio: “KITCARTO9”) Dettaglio dei componenti del KIT usando uno o più AdditionalItemProperty (non obbligatorio, cardinalità 0-n) in questo modo:
+Seller's item number for a "KIT" (e.g. “KITCARTO9”); detail of the compnents of the KIT using one or more  "AdditionalItemProperty" (not mandatory, cardinality 0-n) in this way:
 
-* Name = Componente;
+* Name = Component;
 
-* Value = ID componente Kit (esempio: “34A35M”, “34N01M”, …)
+* Value = ID KIT's component (example: “34A35M”, “34N01M”, …)
 
-E’ possibile usare l’unità di misura che descrive un KIT:
+It is possibile to use the unit of measure that describes a KIT:
 [source, xml, indent=0]
 ----
 <cac:OrderLine>
@@ -75,17 +77,17 @@ E’ possibile usare l’unità di misura che descrive un KIT:
 </cac:OrderLine>
 ----
 
-[red]#Esempio di Item definito nei termini del Componente di un KIT#
+[red]#Example of an item defined in terms of "Component of a KIT"#
 
-Codice articolo fornitore per il “Componente” (esempio: NAVI-STAR 34A35M) Riferimento al KIT di appartenenza usando un AdditionalItemProperty (non obbligatorio, cardinalità 0-n) in questo modo:
+Seller's item number for a "Component" (e.g. NAVI-STAR 34A35M); reference to the KIT to which it belongs using the element "AdditionalItemProperty" (not mandatory, cardinality 0-n) in this way:
 
 * Name = KIT;
 
-* Value = ID Kit (esempio: “KITCARTO9”)
+* Value = ID KIT (example: “KITCARTO9”)
 
-E’ possibile usare l’unità di misura che descrive un componente (parte): C62
+It is possibleto use the unit of measure that describes a component (part): C62
 
-E’ possibile usare l’unità di misura che descrive un KIT:
+It is possibile to use the unit of measure that describes a KIT:
 [source, xml, indent=0]
 ----
 <cac:OrderLine>

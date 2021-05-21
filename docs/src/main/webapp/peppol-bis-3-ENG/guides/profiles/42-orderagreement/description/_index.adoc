@@ -29,7 +29,7 @@ include::../../../shared/files/_vat-info.adoc[]
 
 include::_gestioneordiniparticolari.adoc[]
 
-include::_ulteriori-informazioni.adoc[]
+include::_additionalitemproperty.adoc[]
 
 include::_usonote.adoc[]
 

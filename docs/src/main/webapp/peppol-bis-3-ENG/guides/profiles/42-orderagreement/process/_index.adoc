@@ -20,27 +20,27 @@ An Order Agreement may refer to a framework agreement for its terms and conditio
 
 
 [[Requisiti-dei-processi-di-business]]
-== #Requisiti dei processi di business#
+== #Business processes requirements#
 
-Questo processo prevede l’uso di due Documenti: +
+This process involves the use of two Documents: +
 
-* l’*Ordine pre-concordato*, emesso dal Fornitore;
-* l’*Ordine di riscontro*, eventualmente emesso dal Cliente.
+* an *Order agreement*, issued by the Seller;
+* a *Confirmation Order*, eventually issued by the Client.
 
-Il processo inizia con l’invio dell’Ordine pre-concordato da parte del Fornitore, che lo emette in quanto pre-autorizzato dal Cliente. +
+The process starts with the sending of an order agreement from the Seller, who issue it because he is pre-authorized by the Client. +
 
-A fronte della ricezione dell’Ordine pre-concordato, il Cliente può: +
+Following the reception of the Order Agreement, the Client can: +
 
-* terminare il processo senza trasmettere un Ordine di riscontro; +
+* conclude the process without issuing a Confirmation Order; +
 
-* trasmettere un Ordine di riscontro, che deve contenere l’indicazione dell’Ordine pre-concordato a cui fa riferimento, con il quale comunica
-al Fornitore, alternativamente, che intende:
+* transmit a Confirmation Order, that needs to contain the indication of the Order Agreement to which it is related to, for communicating to the Seller that he intends to: +
 
-** confermare l’Ordine pre-concordato ricevuto (Ordine di riscontro per conferma); +
+** confirm the Order Agreement received (Ordine di riscontro per conferma); +
 
-** declinare l’Ordine pre-concordato ricevuto (Ordine di riscontro per
+** reject the Order Agreement received (Ordine di riscontro per
 diniego);
-** sostituire l’Ordine pre-concordato ricevuto (Ordine di riscontro sostitutivo).
+
+** replace the Order Agreement received (Ordine di riscontro sostitutivo).
 
 
 :leveloffset: +1

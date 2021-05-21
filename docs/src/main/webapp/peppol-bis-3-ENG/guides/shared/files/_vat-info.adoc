@@ -1,10 +1,10 @@
 
-= Informazioni sulle imposte
+= Information about taxes
 
-I capitoli seguenti descrivono le diverse informazioni relative alle imposte che possono essere fornite in questo BIS.
-Con imposta si intende a seconda del contesto applicativo, l'IVA, GST o la Sales Tax.
+The follwing paragrapghs describe several information about taxes that can be provided with this BIS. 
+"Tax" refers to VAT (IVA in Italy), GST or Sales Tax, according to the field of application.
 
-Si consiglia di consultare anche i {vat-codes} per dettagli sulla codifica delle categorie delle imposte e il <<vat-calc>> per una rappresentazione più dettagliata ed esempi su come eseguire i calcoli nel riepilogo delle imposte.
+Please also see link:../../../../../../xml/ITA/peppol-bis-3/codelist/UNCL5305.html[UNCL5305] for details on the TAX category code list, and <<anchor-7,Total TAX amount>> for detailed explanation and example on how to perform the calculations for TAX Breakdown.
 
 :leveloffset: +1
 

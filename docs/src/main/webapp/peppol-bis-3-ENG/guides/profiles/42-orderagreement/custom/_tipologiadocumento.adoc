@@ -1,54 +1,57 @@
 [[tipologia-documento]]
-= #Tipologia di Documento#
+= #Type of Document#
 
 
-I Documenti, che costituiscono il Corpo del messaggio, contengono le istruzioni che Clienti e Fornitori si scambiano per regolare la fornitura dei beni e dei servizi.
+The Documents, which constitute the body of the message, contain the instructions that Buyers and Sellers exchange to settle the provision of goods and services.
 
-Nella tabella seguente sono elencati i sotto- tipi e le varianti per l'Ordine e per l'Ordine Pre-concordato, descritti nei Paragrafi che seguono.
+The following table lists documents documents sub-types and variants of the Order and described in the paragraphs that follows.
+
+See paragraph 6.12 and 7.1 for compilation rules.
 
 
 [width="100%", cols="2,3,3", options="header"]
 |===
 
-^.^|*Tipo Documento* 
-^.^|*Sotto-tipo*
-^.^|*Variante* 
-
-.3+^.^|*Ordine* 
-.3+.^| Ordine di riscontro  | Ordine di riscontro per conferma | Ordine di riscontro per diniego | Ordine di riscontro sostitutivo 
+^.^|*Type of Document* 
+^.^|*Sub-types*
+^.^|*Variants* 
 
 
-.8+^.^|*Ordine
-pre-concordato* 
-| Ordine pre-concordato iniziale | -
-| Ordine pre-concordato di revoca | -  
-| Ordine pre-concordato sostitutivo  | -
-| Ordine pre-concordato collegato  | - 
-| Ordine pre-concordato di convalida | - 
+.3+^.^|*Ordine (Order)* 
+.3+.^| Ordine di riscontro (Confirmation Order) | Confirmation Order to approve| Confirmation Order to reject | Order Confirmation to substitute 
+
+
+.8+^.^|*Ordine Pre-concordato (Order Agreement)* 
+| Ordine Pre-concordato inziale (Initial Order Agreement)| -
+| Ordine Pre-concordato di revoca (Revocation Order Agreement)| -  
+| Ordine Pre-concordato sostitutivo (Replacement Order Agreement)| -
+| Ordine Pre-concordato collegato (Connected Order Agreement) | - 
+| Ordine Pre-concordato di convalida (Validation Order Agreement)| - 
 
 
 |===
 
 
-*[red]#Ordine di riscontro#*
+*[red]#Confirmation Order#*
 
-L’Ordine di riscontro è un sotto-tipo particolare di Ordine con cui il Cliente (Mittente) conferma, declina o sostituisce un Ordine pre-concordato oppure una Risposta inviati dal Fornitore (Destinatario).
+The *Confirmation Order* is a particular Order Document sub-type with which the Buyer (sender) approve, reject or susbtitute a Response sent by the Seller (receiver).
 
-L’Ordine di riscontro assume le seguenti varianti: +
+The Confirmation Order takes on the following variants: +
 
-*  l’_Ordine di riscontro per conferma_ è un Ordine che contiene l’indicazione che si tratta di una “conferma” (“Accepted”) e il  riferimento all'Ordine pre-concordato che si intende confermare, inoltre ha una sola linea d’ordine vuota;
-* l’_Ordine di riscontro per diniego_ è un Ordine che contiene l’indicazione che si tratta di un “rifiuto” (“Cancelled”) e il riferimento all'Ordine pre-concordato che si intende rifiutare, inoltre ha una sola linea d’ordine priva di contenuto;
-* l’_Ordine di riscontro sostitutivo_ è un nuovo Ordine, completo di tutte le linee d’ordine, che contiene l’indicazione che si tratta di una “Sostituzione” (“Revised”) e il riferimento al'Ordine pre-concordato che si intende sostituire. +
+*  The _Confirmation Order to approve_ is an Order containing the indication that it is a confirmation (“Accepted”) and the reference to the Response that is intended to be confirmed. This Order contains only one empty order line.
+* The _Confirmation Order to reject_ is an Order containing the indication that it is a refusal (“Cancelled”) and the reference to the Response that is intended to be rejected. This Order contains only one empty order line.
+* The _Confirmation Order to substitute_ is a new Order, complete of all the order lines and contains the indication that it's a substitution (“Revised”) and the reference to the Response that is intended to be replaced. +
 
 
 [NOTE]
-Gli Ordini di riscontro sostitutivi e gli Ordini di riscontro per diniego, rispettivamente, rimpiazzano e annullano l'Ordine pre-concordato ivi indicato, sia tutte le altre Sostituzioni e Revoche, già trasmesse, riferite al relativo Ordine pre-concordato iniziale.
+_Confirmation Order to substitute_ and _Confirmation Order to reject_, respectively, replaces and cancels the Response specified therein and all the other Replacement Order/s and Revocation Order/s already transmitted, related to the Initial Order.
 
-.Esempio di ordine di riscontro per diniego
+
+.Example of a Confirmation Order to reject
 [source, xml, indent=0]
 ----
 <cbc:CustomizationID>urn:fdc:peppol.eu:poacc:trns:order:3 :restrictive:urn:www.agid.gov.it:trns:ordine:3.1<cbc:CustomizationID>
-<cbc:ProfileID>urn:fdc:peppol.eu:poacc:bis:order_only:3</cbc:ProfileID>
+<cbc:ProfileID>urn:fdc:peppol.eu:poacc:bis:ordering:3</cbc:ProfileID>
 <cbc:ID>460</cbc:ID>
 <cbc:IssueDate>2018-03-15<cbc:IssueDate>
 …
@@ -58,20 +61,20 @@ Gli Ordini di riscontro sostitutivi e gli Ordini di riscontro per diniego, rispe
 …
 <cac:BuyerCustomerParty>
     <cac:Party>
-        <cbc:EndpointID schemeID=”0201”>ABCDEF</cbc:EndpointID>
+        <cbc:EndpointID schemeID="0201”>ABCDEF</cbc:EndpointID>
     </cac:Party>
 </cac:BuyerCustomerParty>
 …
 <cac:SellerSupplierParty>
     <cac:Party>
-        <cbc:EndpointID schemeID=”0211”>ITddddddddddd</cbc:EndpointID>
+        <cbc:EndpointID schemeID="0211">ITddddddddddd</cbc:EndpointID>
     </cac:Party>
 </cac:SellerSupplierParty>
 …
 <cac:OrderLine>
     <cac:LineItem>
         <cbc:ID>NA</cbc:ID>
-        <cbcQuantity unitCode=”C62”>0</cbc:Quantity>
+        <cbcQuantity unitCode="C62">0</cbc:Quantity>
         <cac:Item>
            <cbc:Name>NA</cbc:Name>
         </cbc:Item>
@@ -80,75 +83,77 @@ Gli Ordini di riscontro sostitutivi e gli Ordini di riscontro per diniego, rispe
 ----
 
 
-*[red]#Ordine pre-concordato  di revoca#*
+*[red]#Revocation Order Agreement#*
 
-In alcune circostanze può essere utile revocare un Ordine pre-concordato precedentemente emesso (Ordine pre-concordato di revoca). +
+For some circumstances, the revocation of a previosly issued Order may be useful. +
 
-L’Ordine pre-concordato di revoca contiene il riferimento all’Ordine pre-concordato che si intende revocare e l’indicazione che si tratta di una “revoca” (“Cancelled”), inoltre ha una sola linea d’ordine priva di contenuto.
+The *Revocation Order Agreement* is an Order Agreement that contains the reference another Order Agreement that is intended to revoke and the indication that convey this information (“Cancelled”), also it has only one order line empty.
 
-Per le regole di compilazione, vedi paragrafo 7.3.
+See paragraph 6.12 for compilation rules.
 
 
-*[red]#Ordine pre-concordato sostitutivo#*
+*[red]#Replacement Order Agreement#*
 
-Ove occorra le istruzioni contenute in un Ordine pre-concordato possono essere modificate mediante l’emissione di un Ordine pre-concordato sostitutivo. Tuttavia, salvo che non sia previsto diversamente da norme, usi commerciali o accordi tra le parti, il Fornitore è tenuto a considerare efficaci solo le sostituzioni di ordini pervenute prima che abbia dato luogo all’esecuzione della fornitura. 
+Where appropriate, the instructions contain into an Order Agreement can be modified through the issuance of a *Replacement Order Agreement*. However, unless otherwise prescribed by regulations, commercial use or agreement between the parties, the Seller is required to consider as effective only the replacement of Orders received before the execution of the supply. 
 
-L’Ordine pre-concordato sostitutivo è un nuovo ordine, completo di tutte le linee di ordine, che contiene il riferimento all’Ordine pre-concordato che si intende sostituire e l’indicazione che si tratta di una “sostituzione” (“Revised”).
+The Replacement Order Agreement is a new Order, complete with all the order lines and contains the reference to the Order Agreement that is intended to be replaced with the indication that it's a "substitution" (“Revised”).
 
-In alcune circostanze, però, può essere necessario modificare le informazioni contenute in un Ordine pre-concordato precedente anche dopo la
-conclusione del processo di fornitura o, perfino, successivamente all’emissione della
-relativa fattura (quando il Documento è emesso al solo fine regolare aspetti di dettaglio di un processo già concluso).
+In some cases, however, it may be necessary to modify the information contained in a previous Order Agreement, even after the conclusion of the supply process, or even after the issuance of the related Invoice (when the Document is only issued in order to regulate some details of a process already closed)
 
 [NOTE]
-In questi casi l’Ordine pre-concordato sostitutivo deve riportare l’indicazione del sotto-tipo di Ordinazione “OR”, (c.d. “Ordine sostitutivo di regolazione“, vedi paragrafo 4.4).
-
-Per le regole di compilazione, vedi paragrafo 7.3.
+In this cases the Replacement Order Agreement must report the indication of the Order sub-type “OR”, (so-called “Regulating Replacement Order Agreement", see paragraph 4.4).
 
 
-*[red]#Ordine pre-concordato collegato#*
+See paragraph 6.12 for compilation rules.
 
-In alcune circostanze può essere utile evidenziare che un Ordine pre-concordato, seppur indipendente, è genericamente relazionato a un altro Documento. 
 
-In questi casi è possibile evidenziare tale generica relazione con l’uso dell’*Ordine pre-concordato collegato*, un Ordine in cui è presente il riferimento al Documento collegato e l’indicazione che si tratta di un mero collegamento (“Connected”).
+
+
+*[red]#Connected Order Agreement#*
+
+For some circumstances, it may be useful to highlight that an Order Agreement, even though is indipendent, it is generically related to another Document.
+
+In this cases the *Connected Order Agreement* is used, where it is present a reference to the linked Order and the indication “Connected”.
 
 
 [NOTE]
-L’Ordine pre-concordato collegato può essere utilizzato esclusivamente per tenere memoria che il nuovo processo che si intende avviare è collegato ad un processo precedente e non deve mai essere usato al posto degli altri strumenti (Ordine pre-concordato di revoca, Ordine pre-concordato sostitutivo e Ordine di riscontro) appositamente realizzati per revocare, sostituire (o integrare), confermare o rifiutare un altro Documento.
+The Connected Order Agreement can be used exclusively to keep memory that the new process that is intended to begin it's connected to another one. This Order must never be used in place of the others (i.e. Revocation Order Agreement, Replacement Order Agreement, Confirmation Order Agreement) specifically designed to revoke, substitute (or integrate), confirm or refuse another Document.
 
-Per le regole di compilazione, vedi paragrafo 7.3.
+See paragraph 6.12 for compilation rules.
 
 
-*[red]#Ordine pre-concordato di convalida#*
+*[red]#Validation Order Agreement#*
 
-L’*Ordine pre-concordato di convalida* è un Ordine in cui è presente il riferimento alla fattura da regolarizzare e l’indicazione che si tratta della convalida di fattura (“Invoice”). 
+The *Validation Order Agreement* is an Order Agreementin which there is a reference to an Invoice to be regularised and the indication that it's a validation (“Invoice”). 
 
-L’Ordine pre-concordato di convalida può essere utilizzato esclusivamente: +
+This Order Agreement can be exclusively used: +
 
-* per convalidare una fattura emessa in assenza della relativa ordinazione della fornitura tramite NSO;
-* se necessario, per convalidare una fattura emessa a fronte di una Ordinazione già effettuata da un soggetto diverso dal Cliente (ad esempio, da una centrale d’acquisto o da un altro ente che è stato successivamente incorporato, ceduto o diviso).
+* to validate an Invoice issued in absence of the relative provision order through NSO;
+* if necessary, to validate an Invoice referred to an Order when the Invoicee is different from the initial Buyer (e.g. sent by a Contracting authority or in case the initial Buyer has been bought, sold or divided).
 
 [NOTE]
-L’Ordine pre-concordato di convalida non deve mai essere usato al posto degli altri strumenti (Ordine pre-concordato di revoca, Ordine pre-concordato sostitutivo e Ordine di riscontro) appositamente realizzati per revocare, sostituire, confermare o rifiutare un altro Documento.
+The Validation Order Agreement must never be used in place of the others (i.e. Revocation Order Agreement, Replacement Order Agreement, Confirmation Order Agreement) specifically designed to revoke, substitute (or integrate), confirm or refuse another Document.
 
-.Regole di compilazione 
+.Compilation rules 
 
-In caso di *Ordine pre-concordato di convalida*, bisogna riportare gli estremi della fattura da regolarizzare nell’elemento `cac:OrderReference/cbc:ID`, valorizzandolo con i valori e l'ordine di successione riportato:
+In the case of *Validation Order Agreement* it is necessary to report the details of the Invoice to be validated in the element *OrderDocumentReference/ID*, filling it with the values and by respecting the order of priority that follows:
 
-* il *numero* della fattura che si intende convalidare:
+* the *number* of the Invoice that is intended to be validated;
 
-* la *data di emissione* della fattura che si intende convalidare;
+* the *issuing date* of the Invoice that is intended to be validated;
 
-* l’*identificativo fiscale* del soggetto che ha emesso la fattura che si intende convalidare;
+* the *VAT number* of the subject who issued the Invoice   that is intended to be validated;
 
-* il testo *“Invoice”* per indicare che si tratta di un Ordine di convalida di una fattura (o di una richiesta di pagamento equivalente).
+* the text *“Invoice”* to indicate that it's an Order for validating an Invoice (or an equivalent request for payment).
 
-.Esempio
+.Example
 [source, xml, indent=0]
 ----
-<cac:OrderReference>
+<cac:OrderDocumentReference>
     <cbc:ID>57#2018-01-30#ITccccccccccc#Invoice</cbc:ID>
-</cac:OrderReference>
+</cac:OrderDocumentReference>
 ----
+
 
 
 

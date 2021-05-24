@@ -15,7 +15,13 @@ IMPORTANT: Attachments should be used for additional information and not as orde
 .Example of attachment as an embedded, binary object in an PEPPOL BIS Order Agreement message
 [source, xml, indent=0]
 ----
-include::{snippet-dir}/OA full.xml[tags=AdditionalDocumentReference]
+<cac:AdditionalDocumentReference>
+    <cbc:ID>ID documento</cbc:ID>
+    <cbc:DocumentType>Descrizione documento</cbc:DocumentType>
+    <cac:Attachment>
+        <cbc:EmbeddedDocumentBinaryObject mimeCode="application/pdf" filename="file.pdf">UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</cbc:EmbeddedDocumentBinaryObject>
+    </cac:Attachment>
+</cac:AdditionalDocumentReference>
 ----
 
 
@@ -32,12 +38,26 @@ Non-XML documents can be sent as attachments to the PEPPOL BIS Order Agreement o
 .Example of attachment as an embedded, binary object in an PEPPOL BIS Order Agreement message on line level.
 [source, xml, indent=0]
 ----
-include::{snippet-dir}/OA full.xml[tags=ItemSpecificationDocumentReference]
+<cac:ItemSpecificationDocumentReference>
+    <cbc:ID>ID documento</cbc:ID>
+    <cbc:DocumentType>Descrizione documento</cbc:DocumentType>
+    <cac:Attachment>
+        <cbc:EmbeddedDocumentBinaryObject mimeCode="application/pdf" filename="specs.pdf">UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</cbc:EmbeddedDocumentBinaryObject>
+    </cac:Attachment>
+</cac:ItemSpecificationDocumentReference>
 ----
 
 
 .Example of a Link to a downloadable ticket
 [source, xml, indent=0]
 ----
-include::{snippet-dir}/OA full.xml[tags=ItemSpecificationDocumentReference2]
+<cac:ItemSpecificationDocumentReference>
+    <cbc:ID>ID documento</cbc:ID>
+    <cbc:DocumentType>Descrizione documento</cbc:DocumentType>
+    <cac:Attachment>
+        <cac:ExternalReference>
+            <cbc:URI>https://joinup.ec.europa.eu/svn/peppol/PostAward/Ordering28A/20160310%20-%20PEPPOL_BIS_28a-101.pdf</cbc:URI>
+        </cac:ExternalReference>
+    </cac:Attachment>
+</cac:ItemSpecificationDocumentReference>
 ----

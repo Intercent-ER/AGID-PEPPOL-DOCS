@@ -2,8 +2,8 @@
 
 :leveloffset: +1
 
-include::../../../shared/files/calculation/vat-calc.adoc[]
+include::../../../shared/files/calculation/_vat-calc.adoc[]
 
-include::totals.adoc[]
+include::_totals.adoc[]
 
 :leveloffset: -1

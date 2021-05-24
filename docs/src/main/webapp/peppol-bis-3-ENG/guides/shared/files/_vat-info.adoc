@@ -4,7 +4,7 @@
 The follwing paragrapghs describe several information about taxes that can be provided with this BIS. 
 "Tax" refers to VAT (IVA in Italy), GST or Sales Tax, according to the field of application.
 
-Please also see link:../../../../../../xml/ITA/peppol-bis-3/codelist/UNCL5305.html[UNCL5305] for details on the TAX category code list, and <<anchor-7,Total TAX amount>> for detailed explanation and example on how to perform the calculations for TAX Breakdown.
+Please also see link:../../../../../../xml/ITA/peppol-bis-3/codelist/UNCL5305.html[UNCL5305] for details on the TAX category code list, and <<vat-calc>> for detailed explanation and example on how to perform the calculations for TAX Breakdown.
 
 :leveloffset: +1
 

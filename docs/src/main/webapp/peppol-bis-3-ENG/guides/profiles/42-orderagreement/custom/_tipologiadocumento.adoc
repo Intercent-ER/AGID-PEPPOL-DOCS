@@ -6,7 +6,7 @@ The Documents, which constitute the body of the message, contain the instruction
 
 The following table lists documents documents sub-types and variants of the Order and described in the paragraphs that follows.
 
-See paragraph 6.12 and 7.1 for compilation rules.
+See paragraph 7.3.1 for compilation rules.
 
 
 [width="100%", cols="2,3,3", options="header"]

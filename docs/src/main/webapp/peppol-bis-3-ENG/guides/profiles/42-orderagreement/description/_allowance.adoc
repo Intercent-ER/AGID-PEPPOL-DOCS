@@ -42,7 +42,7 @@ include::{snippet-dir}/snippet-oa.xml[tags=allowance]
 
 :leveloffset: +1
 
-== #Allowance and charges on price#
+= #Allowance and charges on price#
 
 The following example shows an allowance of 10 EUR applied to the base amount price:
 

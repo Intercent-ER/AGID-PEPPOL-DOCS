@@ -2,9 +2,11 @@
 
 Product identification may be done using the identifiers described below:
 
-* Sellers ID
-* Standard ID, e.g. the GS1 Global Trade Item Number (GTIN)
-* Buyers ID
+* the code assigned by the Sellet (`cac:SellersItemIdentification/CBC:ID`);
+
+* the code assigned by the Buyer (`cac:BuyersItemIdentification/cbc:ID`);
+
+* the standard code, corresponding to the identifier assigned to the prduct by a unique identifier system (`cac:StandardItemIdentification/cbc:ID`) selected among them present in the appropriate Peppol codelist "ISO 6523 ICD list".
 
 The order agreement requires that an item has an identifier. This can be either the sellers identifier or a standard identifier. Which identifier to use depends on what is known at the time of the purchase or what is commonly used in the relevant business sector.
 
@@ -14,6 +16,66 @@ The order agreement requires that an item has an identifier. This can be either 
 ----
 include::{snippet-dir}/OA full.xml[tags=ItemIdentifiers]
 ----
+
+
+[[product-identification]]
+= #Details on pharmaceutical products and their identification - AIC code#
+
+For pharmaceutical products provided with the code "Autorizzazione all’Immissione in Commercio" (AIC), released by the Agency "Agenzia Italiana del Farmaco" (AIFA), the element *cac:SellersItemIdentification/cbc:ID* needs to be valued with the AIC code, prefixed by the string "AICFARMACO:".
+
+.Example of an order with the indication of the AIC code
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+        <cac:Item>
+            <cbc:Description>NORVASC*5MG 28CPR</cbc:Description>
+            <cbc:Name>NORVASC</cbc:Name>
+            <cac:SellersItemIdentification>
+                <cbc:ID> AICFARMACO:027428010</cbc:ID>
+            </cac:SellersItemIdentification>
+            <cac:CommodityClassification>
+                <cbc:ItemClassificationCode listID=” STL” listIVersionID=” UNCL7143”> C08CA01 </ID>
+            </cac:CommodityClassification>
+        </cac:Item>
+    </cac:LineItem>
+</cac:OrderLine>
+
+----
+
+[NOTE]
+====
+In particular circumstances, some foreign pharmaceutical products are commercialized in Italy without the authorization released by the AIFA. This products do not fall within the application of the Decree of the Italian Ministry of the Economy 20 December 2017, bearing “Modalità tecniche di indicazione dell'AIC sulla fattura elettronica, nonché modalità di accesso da parte dell'AIFA ai dati ivi contenuti”, and the alphanumeric code associated to them it is not an AIC code exactly, therefore needs to be indicated without the prefix “AICFARMACO:”.
+====
+
+:leveloffset: -1
+
+
+:leveloffset: +1
+
+[[product-identification]]
+= #Details on medical devices products and their identification - UDI code#
+
+For medical devices products provided with the code UDI (Unique Device Identification) released by the Agency "GS1 Italy", the element *cac:SellersItemIdentification/cbc:ID* needs to be valued with the UDI code, prefixed by the string "UDI:".
+
+.Example of an order with the indication of the UDI code
+[source, xml, indent=0]
+----
+<cac:DespatchLine>
+    ...
+        <cac:Item>
+            <cbc:Name>Item's name</cbc:Name>
+            <cac:SellersItemIdentification>
+              <cbc:ID>UDI:(01)47964367965424(11)173434(17)226565(10)A379B3(21)1237</cbc:ID>
+            </cac:SellersItemIdentification>
+        </cac:Item>
+</cac:DespatchLine>
+
+----
+
+
+:leveloffset: -1
+
 
 = Product name and description
 

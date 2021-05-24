@@ -26,5 +26,5 @@ The buyer then follows the normal procedure to, if needed, complete the order.
 The seller sends an invoice which matches the order and delivery, but this is outside of this BIS.
 
 |Result |The buyer and the seller has reached an agreement. An order has been placed and the buyer has taken delivery of the products. The buyer has received a structured message with the order details. The invoice has a reference, to match the order.
-|XML example file |See section "Downloads" on link:../../../../../../[Homepage].
+|XML example file |See section "Downloads" on the link:../../../../../../[Homepage].
 |====

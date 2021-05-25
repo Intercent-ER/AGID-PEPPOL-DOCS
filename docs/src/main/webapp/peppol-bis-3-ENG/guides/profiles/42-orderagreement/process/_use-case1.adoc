@@ -23,5 +23,5 @@ An invoice is sent to the buyer, but this is outside of this BIS.
 If the buyer wishes to change a ticket in accordance with the its rules then he reenters the web store, changes the ticket and receives a new order agreement. The change procedure is a repetition of the initial one.
 
 |Result |The buyer and the seller have reached an agreement. An order has been placed for tickets and the buyer has received a structured message with its details. If the invoice has an order reference, the invoice can be matched automatically.
-|XML example file |See section "Downloads" on the link:../../../../../../[Homepage].
+
 |====

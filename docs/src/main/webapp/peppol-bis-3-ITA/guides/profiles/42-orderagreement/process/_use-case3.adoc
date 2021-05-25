@@ -35,7 +35,5 @@ ed alla consegna, ma questo è al di fuori di questa specifica.
 |L'Acquirente e il Venditore hanno raggiunto un accordo. Un ordine è stato inserito 
 e l'Acquirente ha ricevuto un messaggio strutturato con i dettagli dell’ordine. Se la fattura ha un riferimento all’ordine, la fattura può essere abbinata automaticamente.
 
-|Esempio XML
-|Vedi sezione "Downloads" nella link:../../../../../../[Homepage]
 
 |====

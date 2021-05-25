@@ -20,5 +20,5 @@ An order agreement transaction with item information and price of the selected i
 After the delivery of the goods, the seller sends an invoice which matches the order and the delivery, but this is outside of this BIS.
 
 |Result |The buyer and the seller have reached an agreement. An order has been placed and the buyer has received a structured message with the order details. If the invoice has an order reference, the invoice can be matched automatically.
-|XML example file |See section "Downloads" on the link:../../../../../../[Homepage].
+
 |====

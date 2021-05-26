@@ -18,6 +18,8 @@ include::{snippet-dir}/OA full.xml[tags=ItemIdentifiers]
 ----
 
 
+:leveloffset: +1
+
 [[product-identification]]
 = #Details on pharmaceutical products and their identification - AIC code#
 

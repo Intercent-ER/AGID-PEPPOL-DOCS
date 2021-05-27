@@ -3,8 +3,8 @@
 
 	<rule context="//cbc:EndpointID" flag="fatal">
 		<assert test="(@schemeID='0201' and matches(.,'^[a-zA-Z0-9]{6,7}$')) or @schemeID!='0201'" flag="fatal" id="IT-T16-R026">[IT-T16-R026] - If the endpoint identifier is based on the IT identifier scheme: IPA (ICD: 0201), this should follow the syntax [A-Z0-9]{6,7}.</assert>
-		<assert test="(@schemeID='9906' and matches(.,'^(IT)?[0-9]{11}$')) or @schemeID!='9906'" flag="fatal" id="IT-T16-R027">[IT-T16-R027] - If the endpoint identifier is based on the IT identifier scheme: VAT (ICD: 9906), this should follow the syntax (IT)?[0-9]{11}.</assert>
-		<assert test="(@schemeID='9907' and matches(.,'^[0-9]{11}$|^[A-Z]{6}\d{2}[ABCDEHLMPRST]{1}\d{2}[A-Z]{1}\d{3}[A-Z]{1}$')) or @schemeID!='9907'" flag="fatal" id="IT-T16-R028">[IT-T16-R028] - If the endpoint identifier is based on the IT identifier scheme: CF (ICD: 9907), this should follow the syntax [0-9]{11} for legal entities and syntax [A-Z]{6}\d{2}[ABCDEHLMPRST]{1}\d{2}[A-Z]{1}\d{3}[A-Z]{1} for natural persons.</assert>
+		<assert test="((@schemeID='9906' or @schemeID='0211') and matches(.,'^(IT)?[0-9]{11}$')) or (@schemeID!='9906' and @schemeID!='0211')" flag="fatal" id="IT-T16-R027">[IT-T16-R027] - If the endpoint identifier is based on the IT identifier scheme: VAT (ICD: 9906, 0211), this should follow the syntax (IT)?[0-9]{11}.</assert>
+		<assert test="((@schemeID='9907' or @schemeID='0210') and matches(.,'^[0-9]{11}$|^[A-Z]{6}\d{2}[ABCDEHLMPRST]{1}\d{2}[A-Z]{1}\d{3}[A-Z]{1}$')) or (@schemeID!='9907' and @schemeID!='0210')" flag="fatal" id="IT-T16-R028">[IT-T16-R028] - If the endpoint identifier is based on the IT identifier scheme: CF (ICD: 9907, 0210), this should follow the syntax [0-9]{11} for legal entities and syntax [A-Z]{6}\d{2}[ABCDEHLMPRST]{1}\d{2}[A-Z]{1}\d{3}[A-Z]{1} for natural persons.</assert>
 	</rule>
 
 	<rule context="//cac:DespatchLine" flag="fatal"> 

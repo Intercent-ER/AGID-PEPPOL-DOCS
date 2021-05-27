@@ -81,12 +81,12 @@
                            			</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="NSO_120" data-context="/ubl:OrderResponse/cac:SellerSupplierParty/cac:Party/cbc:EndpointID" data-test="if(@schemeID='9907') then u:checkCF(.) else true()">
+                  <tr id="NSO_120" data-context="/ubl:OrderResponse/cac:SellerSupplierParty/cac:Party/cbc:EndpointID" data-test="if((@schemeID='9907' or @schemeID='0210')) then u:checkCF(.) else true()">
                      <td><a href="#">NSO_120</a><br><span class="message">NSO_120 - Il Codice Fiscale indicato nell&#8217;elemento non &egrave; valido. - The Tax Code specified in the element is invalid.
                            			</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="NSO_130" data-context="ubl:OrderResponse/cac:SellerSupplierParty/cac:Party/cbc:EndpointID" data-test="if(@schemeID='9906') then ( if(u:checkPIVA(substring(.,3,13))!=0) then false() else true() ) else true()">
+                  <tr id="NSO_130" data-context="ubl:OrderResponse/cac:SellerSupplierParty/cac:Party/cbc:EndpointID" data-test="if((@schemeID='9906' or @schemeID='0211')) then ( if(u:checkPIVA(substring(.,3,13))!=0) then false() else true() ) else true()">
                      <td><a href="#">NSO_130</a><br><span class="message">
                            					NSO_130 - La partita IVA indicata nell&#8217;elemento non &egrave; valida. - The VAT number specified in the element is invalid.
                            			</span></td>

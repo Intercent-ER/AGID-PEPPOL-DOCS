@@ -1,24 +1,41 @@
 [[use-case-3-telephone-and-e-mail-is-used-to-order-items]]
-== Use case 3 – Telephone and e-mail is used to order items
+= Caso d’uso 3 – Utilizzo dei canali telefono/e-mail per ordinare articoli
+
+Questo caso d’uso descrive il processo dove un Cliente/Acquirente ordina prodotti tramite telefono/e-mail.
 
 [cols="1h,5",]
 |====
-|Use Case number |3
-|Use Case Name |Telephone or e-mail order
-|Use Case Description |Buyer makes a purchase by calling the seller by telephone or by sending an email.
-|Parties involved
-a| * Buyer
-* Seller
-|Assumptions |The buyer has an account with the seller with necessary details to send him an order agreement.
-|The flow a|
-The buyer is working in his purchasing system, and need to by printers and selects a seller of printers. The seller’s items are not in the purchasing system and the seller doesn't offer a web shop. The buyer calls the seller on the telephone.
+|Caso d’uso nr.
+|3
 
-The buyer orders the printer directly during the phone call, and also informs the seller what reference to use.
+|Nome
+|Ordine effettuato per telefono o per mail
 
-An order agreement transaction with item information and price of the selected items is sent from the seller to the buyer’s purchasing system. The order agreement is recorded in the buyer’s purchasing system
+|Descrizione 
+|L'Acquirente fa un acquisto chiamando il Venditore per telefono o mandando una mail.
 
-After the delivery of the goods, the seller sends an invoice which matches the order and the delivery, but this is outside of this BIS.
+|Ruoli coinvolti
+a| * Acquirente
+* Venditore
 
-|Result |The buyer and the seller have reached an agreement. An order has been placed and the buyer has received a structured message with the order details. If the invoice has an order reference, the invoice can be matched automatically.
-|XML example file |See Appendix A for a sample file illustrating Use Case 3.
+|Assunzioni 
+|L'Acquirente ha un account con il Venditore con i dettagli necessari per inviargli un ordine pre-concordato.
+
+|Il flusso
+a|L'Acquirente sta utilizzando il sistema acquisti interno ed ha bisogno di stampanti; seleziona quindi un Venditore di stampanti. Gli articoli del Venditore non sono nel sistema di acquisto e il Venditore non offre un negozio web. L'Acquirente chiama il Venditore al telefono. +
+
+L'Acquirente ordina direttamente la stampante durante la telefonata ed informa il Venditore riguardo quale riferimento usare. +
+
+Un Ordine pre-concordato con informazioni sull'articolo ed il prezzo degli articoli selezionati viene inviato dal Venditore al sistema di acquisto dell'Acquirente. L’Ordine pre-concordato è registrato nel sistema di acquisto del dell'Acquirente. +
+
+Dopo la consegna della merce, il Venditore invia una fattura che corrisponde all'ordine
+ed alla consegna, ma questo è al di fuori di questa specifica. 
+
+|Risultati
+|L'Acquirente e il Venditore hanno raggiunto un accordo. Un ordine è stato inserito 
+e l'Acquirente ha ricevuto un messaggio strutturato con i dettagli dell’ordine. Se la fattura ha un riferimento all’ordine, la fattura può essere abbinata automaticamente.
+
+|Esempio XML
+|Vedi sezione "Downloads" nella link:../../../../../../[Homepage]
+
 |====

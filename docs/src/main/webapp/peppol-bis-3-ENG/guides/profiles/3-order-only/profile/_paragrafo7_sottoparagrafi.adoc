@@ -3,15 +3,11 @@
 
 The *Endpoint ID* is specified in the document to maintain information about the electronic address of the sender or the receiver and it is used for channeling the documents (delivery) on the Peppol network. +
 
-The Endpoint ID *MUST* coincide with the one used by the transmission protocol adopted (eg. AS2). +
-
-The Endpoint ID it is not mandatory but *recommended* beacuse maintains the connection between the document, the Business Partner and the Access Point/network used.
-
 The types of identifier used in Italy and recognized by Peppol are:
 
-* *9906* for the VAT number;
+* *0211* for the VAT number (that will replace compulsorily the temporary code 9906 starting from 15/11/2021);
 
-* *9907* for the Fiscal code (of legal person or entity);
+* *0210* for the Fiscal code, of legal person or entity (that will replace compulsorily the temporary code 9907 starting from 15/11/2021);
 
 * *0201* for the Codice Univoco Ufficio (so-called "iPA code", from Indice delle Pubbliche Amministrazioni). +
 
@@ -26,13 +22,13 @@ In Italy IPA code is suggested to register register public administrations over 
 .Example for an Endpoint of a Public Administration registered on Peppol with the fiscal code:
 [source, xml, indent=0]
 ----
-    <cbc:EndpointID schemeID="9907">07643520567</cbc:EndpointID>
+    <cbc:EndpointID schemeID="0210">07643520567</cbc:EndpointID>
 ----
 
 .Example for an Endpoint of a Public Administration registered on Peppol with the VAT number:
 [source, xml, indent=0]
 ----
-    <cbc:EndpointID schemeID="9906">IT07643520567</cbc:EndpointID>
+    <cbc:EndpointID schemeID="0211">IT07643520567</cbc:EndpointID>
 ----
 
 .Example for an Endpoint of a Public Administration registered on Peppol with the GLN (Global Location Number), according to GS1 standard:

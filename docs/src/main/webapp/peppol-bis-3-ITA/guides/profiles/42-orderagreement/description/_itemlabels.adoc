@@ -1,18 +1,18 @@
-= Item labelling
+= Etichette prodotti
 
-Information about the items environmental, social, ethical and quality type of labelling. The UBL structure used for item labeling requires certain elements in addition to those used by this BIS. To fulfill the UBL requirements these are included with the dummy value NA.
+Informazioni ambientali, sociali, etiche e sulla qualità dei prodotti possono essere fornite attraverso il `cac:Certifcate`. La struttura UBL usata per l'etichettatura necessita dell'aggiunta di alcuni elementi, rispetto a quelli usati da questa BIS. Per soddisfare i requisiti UBL, le informazioni trattate in questo paragrafo sono fornite con l'aggiunta del valore *NA*.
 
-.Example
+.Esempio
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/OA full.xml[tags=Certificate]
 ----
 
-= Contracted item
+= Prodotti relativi ad un contratto
 
-If the purchased item is offered in accordance to an existing contract, this should be indicated in the order agreement message.
+Se i beni acquistati sono offerti in accordo ad un contratto esistente, quest'ultimo deve essere indicato nell'ordine pre-concordato, valorizzando l'elemento `cac:TransactionConditions/cbc:ActionCode` come riportato nell'esempio seguente:
 
-.Example
+.Esempio
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/OA full.xml[tags=TransactionConditions]

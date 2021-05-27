@@ -11,31 +11,24 @@
         <Id>AE</Id>
         <Name>Vat Reverse Charge</Name>
         <Description>Code specifying that the standard VAT rate is levied from the invoicee.</Description>
-        <LocalId>N6</LocalId>
-        <LocalDescription>Inversione contabile</LocalDescription>
     </Code>
 
     <Code>
         <Id>E</Id>
         <Name>Exempt from Tax</Name>
         <Description>Code specifying that taxes are not applicable.</Description>
-        <LocalId>N4</LocalId>
-        <LocalDescription>Esenti (0%)</LocalDescription>
     </Code>
 
     <Code>
         <Id>S</Id>
         <Name>Standard rate</Name>
         <Description>Code specifying the standard rate.</Description>
-        <LocalDescription>Imposta standard (22%), non ha natura.</LocalDescription>
     </Code>
 
     <Code>
         <Id>Z</Id>
         <Name>Zero rated goods</Name>
         <Description>Code specifying that the goods are at a zero rate.</Description>
-        <LocalId>N3, N7</LocalId>
-        <LocalDescription>N3=Non imponibile, N7=IVA assolta in altro stato UE (vendite a distanza ex art. 40 commi 3 e 4 e art. 41 comma 1 lett. b, DL 331/93; prestazione di servizi di telecomunicazioni, tele-radiodiffusione ed elettronici ex art. 7-sexies lett. f, g, DPR 633/72 e art. 74-sexies, DPR 633/72).</LocalDescription>
     </Code>
 
     <Code>
@@ -43,8 +36,6 @@
         <Name>Free export item, VAT not charged</Name>
         <Description>Code specifying that the item is free export and taxes
             are not charged.</Description>
-        <LocalId>N3</LocalId>
-        <LocalDescription>Non Imponibile</LocalDescription>
     </Code>
 
     <Code>
@@ -52,8 +43,6 @@
         <Name>Services outside scope of tax</Name>
         <Description>Code specifying that taxes are not applicable to the
             services.</Description>
-        <LocalId>N1, N2</LocalId>
-        <LocalDescription>Fuori campo IVA: N1=Escluse ex. art. 15, N2=Non Soggette.</LocalDescription>
     </Code>
     <Code>
         <Id>K</Id>
@@ -62,8 +51,6 @@
         <Description>A tax category code indicating the item is VAT exempt
             due to an intra-community supply in the European
             Economic Area.</Description>
-        <LocalId>N3</LocalId>
-        <LocalDescription>Non Imponibile</LocalDescription>
     </Code>
 
     <Code>

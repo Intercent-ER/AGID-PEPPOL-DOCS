@@ -41,5 +41,5 @@ Questo dovrebbe dare origine ad un solo riepilogo IVA.
 include::../../snippets/snippet-oa-vat.xml[tags=taxtotal]
 ----
 <1> La classe `cac:TaxCategory` è utilizzata per le informazioni sulla categoria d'imposta
-<2> Categoria IVA secondo la codifica {vat-codes}
+<2> Categoria IVA secondo la  link:../../../../../../xml/ITA/peppol-bis-3/codelist/UNCL5305.html[Codifica UNCL5305]
 <3> Aliquota IVA

@@ -4,7 +4,7 @@
     %><!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Specifiche PEPPOL 3</title>
+        <title>PEPPOL BIS versione 3</title>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -308,7 +308,7 @@
         <div id="main" class="container">
 
             <div class="page-header">
-                <h1>Indice : <span id="home-title"></span></h1>
+                <h1>Indice: <span id="home-title"></span></h1>
             </div>
 
             <dl class="dl-horizontal">

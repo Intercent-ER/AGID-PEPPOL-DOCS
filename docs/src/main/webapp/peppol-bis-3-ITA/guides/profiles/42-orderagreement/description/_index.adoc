@@ -1,7 +1,7 @@
-[[description-of-selected-parts-of-the-order-agreement-message]]
-= Description of selected parts of the order agreement message
+[[description-of-selected-parts-of-the-order-message]]
+= Descrizione di parti selezionate dell'ordine pre-concordato
 
-Following clauses describe the use of individual sections of the order agreement transaction.
+I paragrafi seguenti descrivono l'uso delle singole sezioni di un Ordine pre-concordato.
 
 :leveloffset: +1
 
@@ -26,5 +26,12 @@ include::_prices.adoc[]
 include::_allowance.adoc[]
 
 include::../../../shared/files/_vat-info.adoc[]
+
+include::_gestioneordiniparticolari.adoc[]
+
+include::_ulteriori-informazioni.adoc[]
+
+include::_usonote.adoc[]
+
 
 :leveloffset: -1

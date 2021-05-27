@@ -19,7 +19,7 @@
         <LocalName>Ordine di Acquisto</LocalName>
         <LocalDescription>Codice principale che interessano gli ordini di fatturazione. Presente nel OrderTypeCode.</LocalDescription>
         <LocalUsageNotes>Può essere usato in concomitanza dei seguenti codici sottoinsieme ordine da indicare nel DeliveryTerms/SpecialTerms:
-            
+
         * OF - Ordine di fatturazione (per beni già consumati)
         * OFR - Ordine di fatturazione e ripristino</LocalUsageNotes>
     </Code>
@@ -33,7 +33,7 @@
         <LocalName>Ordine di Consegna</LocalName>
         <LocalDescription>Codice principale che interessano gli ordini senza fatturazione. Presente nel OrderTypeCode.</LocalDescription>
         <LocalUsageNotes>Può essere usato in concomitanza dei seguenti codici sottoinsieme ordine da indicare nel DeliveryTerms/SpecialTerms:
-            
+
         * CD - Conto deposito
         * CV - Conto visione
         * CG - Comodato gratuito</LocalUsageNotes>

@@ -31,7 +31,7 @@ To all quantities there must be a valid Unit according to the Code list "Recomma
 ----
 <cac:OrderLine>
     <cac:LineItem>
-    <cbc:Quantity unitCode=”C62”>3</cbc:Quantity>
+        <cbc:Quantity unitCode=”C62”>3</cbc:Quantity>
     </cac:LineItem>
 </cac:OrderLine>
 ----

@@ -125,6 +125,46 @@ In the case of *home delivery* (for example, delivery to the address of a patien
 
 :leveloffset: -1
 
+
+:leveloffset: +1
+
+= Delivery Party
+
+If the delivery party, the party to whom the goods are delivered, is a determined subject, it is necessary to indicate it with precisely by valorizing the fields of the element `cac:DeliveryParty`. +
+
+The indication of the Deliver party is possible only with the reference to the whole Document. +
+
+The following example describes a delivery to a particular organizational unit:
+
+[source, xml, indent=0]
+----
+<cac:Delivery>
+    <cac:DeliveryParty>
+          <cac:PartyIdentification>
+          <cbc:ID>UO07</cbc:ID>
+          <cac:PartyName>
+              <cbc:Name>Centro logistico</cbc:Name>
+     </cac:PartyName>
+     <cac:Contact>
+         <cbc:Name>James Bond</Name
+         <cbc:Telephone>0647611</cbc:Telephone>
+         <cbc:ElectronicMail>james.bond@peo.it</ ElectronicMail>
+        </cac:Contact>
+        </cac:PartyIdentification>
+    </cac:DeliveryParty>
+</cac:Delivery>
+---- 
+
+When the "Beneficiary" needs to be indicated, the identifier (field “ID”) and denomination (field “Name”) of the organizational unit are both mandatory. If the identifier is unknown or does not exist, it is sufficient to fill the element with the text “UO” (abbreviation for organizational unit). +
+
+If the Beneficiary is a natural person, it is necessary to balance the need of protecting their confidentiality with the necessity of giving complete and exhaustive information for the delivery. To this end: +
+
+* if it is not strictly necessary to indicate the extended name of the Beneficiary, the field “Name” must be filled with “PF” (abbreviation for physical person).
+* if an identifier was assigned to the Beneficiary, this must be indicated into the field “ID”,  otherwise even this must be filled with “PF”.
+
+:leveloffset: -1
+
+
 :leveloffset: +1
 
 = Shipping Marks
@@ -134,11 +174,12 @@ The Buyer can require to the Seller, if needed, to print a text over the shippin
 [source, xml, indent=0]
 ----
 <cac:Delivery>
- <cac:Shipment>
-  <cac:TransportHandlingUnit>
-   <cbc:ShippingMarks>aaaaaaaaaa</cbc:ShippingMarks>
-  </cac:TransportHandlingUnit>
- </cac:Shipment>
+    <cbc:ID>NA</cbc:ID> 
+    <cac:Shipment>
+        <cac:TransportHandlingUnit>
+            <cbc:ShippingMarks>aaaaaaaaaa</cbc:ShippingMarks>
+        </cac:TransportHandlingUnit>
+    </cac:Shipment>
 </cac:Delivery>
 ---- 
 

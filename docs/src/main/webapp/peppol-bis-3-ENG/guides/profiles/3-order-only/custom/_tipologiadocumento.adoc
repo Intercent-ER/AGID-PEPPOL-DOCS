@@ -30,7 +30,7 @@ The following table lists documents documents sub-types and variants of the Orde
 
 For some circumstances, the revocation of a previosly issued Order may be useful. +
 
-The *Revocation Order *is an Order that contains the reference to the Order that is intended to revoke and the indication that convey this information (“Cancelled”), also it has only one order line empty.
+The Revocation Order is an Order that contains the reference to the Order that is intended to revoke and the indication that convey this information (“Cancelled”), also it has only one order line empty.
 
 See paragraph 6.12 for compilation rules.
 
@@ -91,8 +91,8 @@ In the case of *Validation Order* it is necessary to report the details of the I
 [source, xml, indent=0]
 ----
 <cac:OrderDocumentReference>
-    <cbc:ID>57#2018-01-30# ITccccccccccc#Invoice</cbc:ID>
-</cac:OrderDocumentReference >
+    <cbc:ID>57#2018-01-30#ITccccccccccc#Invoice</cbc:ID>
+</cac:OrderDocumentReference>
 ----
 
 

@@ -76,6 +76,41 @@ The Confirmation Order takes on the following variants: +
 _Confirmation Order to substitute_ and _Confirmation Order to reject_, respectively, replaces and cancels the Response specified therein and all the other Replacement Order/s and Revocation Order/s already transmitted, related to the Initial Order.
 
 
+.Example of a Confirmation Order to reject
+[source, xml, indent=0]
+----
+<cbc:CustomizationID>urn:fdc:peppol.eu:poacc:trns:order:3 :restrictive:urn:www.agid.gov.it:trns:ordine:3.1<cbc:CustomizationID>
+<cbc:ProfileID>urn:fdc:peppol.eu:poacc:bis:ordering:3</cbc:ProfileID>
+<cbc:ID>460</cbc:ID>
+<cbc:IssueDate>2018-03-15<cbc:IssueDate>
+…
+<cac:OrderDocumentReference>
+    <cbc:ID>380#2018-02-16#ITccccccccccc#Cancelled</cbc:ID>
+</cac:OrderDocumentReference>
+…
+<cac:BuyerCustomerParty>
+    <cac:Party>
+        <cbc:EndpointID schemeID="0201”>ABCDEF</cbc:EndpointID>
+    </cac:Party>
+</cac:BuyerCustomerParty>
+…
+<cac:SellerSupplierParty>
+    <cac:Party>
+        <cbc:EndpointID schemeID="0211">ITddddddddddd</cbc:EndpointID>
+    </cac:Party>
+</cac:SellerSupplierParty>
+…
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>NA</cbc:ID>
+        <cbcQuantity unitCode="C62">0</cbc:Quantity>
+        <cac:Item>
+           <cbc:Name>NA</cbc:Name>
+        </cbc:Item>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+
 
 *[red]#Connected Order#*
 
@@ -118,8 +153,8 @@ In the case of *Validation Order* it is necessary to report the details of the I
 [source, xml, indent=0]
 ----
 <cac:OrderDocumentReference>
-    <cbc:ID>57#2018-01-30# ITccccccccccc#Invoice</cbc:ID>
-</cac:OrderDocumentReference >
+    <cbc:ID>57#2018-01-30#ITccccccccccc#Invoice</cbc:ID>
+</cac:OrderDocumentReference>
 ----
 
 

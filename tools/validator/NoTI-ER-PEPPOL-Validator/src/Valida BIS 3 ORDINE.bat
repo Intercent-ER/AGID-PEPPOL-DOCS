@@ -1,6 +1,6 @@
 @echo off
 cls
-echo PEPPOL BIS 03a/28a v3.0 UBL-Order-2.1 two-phase validation
+echo PEPPOL BIS v3.0 UBL-Order-2.1 two-phase validation
 set "xml="
 call _fc xml
 IF %ERRORLEVEL% EQU 1 GOTO :done

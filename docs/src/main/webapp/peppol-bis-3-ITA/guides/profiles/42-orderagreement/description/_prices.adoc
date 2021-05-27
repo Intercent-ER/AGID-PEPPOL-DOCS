@@ -1,14 +1,18 @@
-= Prices
+[[prices]]
+= Prezzi
 
-Prices must be exchanged in the Order Agreement transaction. The price may be 0 (zero)
+Nel processo dell’ordine pre-concordato i prezzi devono essere scambiati. Il prezzo potrebbe essere 0 (zero).
 
-Price sent is related to the articles or services within this order agreement
+Il Prezzo viene specificato per gli articoli o servizi indicati nell’ordine pre-concordato.
 
-Prices includes allowances and/or charges but exclude VAT amounts
+In particolare, i prezzi dovrebbero includere abbuoni/sconti e/o maggiorazioni ma al netto delle imposte (es. IVA, GST o Sales tax).
 
 
-.Example of price information in an Order Agreement message
+.Esempio di prezzo per un articolo merce:
 [source, xml, indent=0]
 ----
-include::{snippet-dir}/snippet-oa.xml[tags=price]
+<cac:Price>
+ 	<cbc:PriceAmount currencyID="EUR">50</cbc:PriceAmount>
+ 	<cbc:BaseQuantity unitCode="C62">1</cbc:BaseQuantity>
+</cac:Price>
 ----

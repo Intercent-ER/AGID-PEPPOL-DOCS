@@ -1,17 +1,17 @@
 [[EndpointID]]
 = #Endpoint ID - Identificativo di instradamento sulla rete PEPPOL#
 
-Quando si specifica un Endpoint ID nel documento si vuole mantenere l’informazione dell’indirizzo elettronico del mittente o destinatario utilizzati per l’instradamento dei messaggi (delivery) sul circuito PEPPOL. L’Endpoint ID specificato nel documento DEVE coincidere con quello utilizzato dal protocollo di trasmissione adottato (es. AS2). L’Endpoint ID non è obbligatorio nel documento ma è consigliato perché mantiene il legame fra il documento, la parte di business e l’access point/circuito utilizzato.
+Quando si specifica un Endpoint ID nel documento si vuole mantenere l’informazione dell’indirizzo elettronico del mittente o destinatario utilizzati per l’instradamento dei messaggi (delivery) sul circuito Peppol. 
 
 Le tipologie di identificativi italiani riconosciuti da PEPPOL e consigliati sono:
 
-* *9906* per le partite IVA;
+* *0211* per le partite IVA (che sostituirà obbligatoriamente il codice temporaneo 9906 a partire dal 15/11/2021);
 
-* *9907* per i Codici Fiscali di persona fisica o giuridica;
+* *0210* per i Codici Fiscali di persona fisica o giuridica (che sostituirà obbligatoriamente il codice temporaneo 9907 a partire dal 15/11/2021);
 
 * *0201* per il Codice Univoco Ufficio (c.d. Codice iPA, riportato nella rubrica "indicepa" dell'Indice delle Pubbliche Amministrazioni). +
 
-In Italia si raccomanda l’uso del codice IPA per registrare le pubbliche amministrazioni sulla rete PEPPOL, tuttavia non è obbligatorio e in sua assenza si consiglia l’uso del codice fiscale.
+In Italia si raccomanda l’uso del Codice Univoco Ufficio per registrare le pubbliche amministrazioni sulla rete Peppol, tuttavia non è obbligatorio e in sua assenza si consiglia l’uso del codice fiscale.
 
 
 .Esempio di Endpoint di un’Amministrazione registrata in PEPPOL tramite il Codice Univoco Ufficio:
@@ -20,16 +20,16 @@ In Italia si raccomanda l’uso del codice IPA per registrare le pubbliche ammin
     <cbc:EndpointID schemeID="0201">ABCDEF</cbc:EndpointID>
 ----
 
-.Esempio di Endpoint di un’Amministrazione registrata in PEPPOL con il CF:
+.Esempio di Endpoint di un’Amministrazione registrata in PEPPOL con il Codice Fiscale:
 [source, xml, indent=0]
 ----
-    <cbc:EndpointID schemeID="9907">07643520567</cbc:EndpointID>
+    <cbc:EndpointID schemeID="0210">07643520567</cbc:EndpointID>
 ----
 
-.Esempio di Endpoint di Fornitore registrato in PEPPOL con la P.IVA:
+.Esempio di Endpoint di Fornitore registrato in PEPPOL con la Partita IVA:
 [source, xml, indent=0]
 ----
-    <cbc:EndpointID schemeID="9906">IT07643520567</cbc:EndpointID>
+    <cbc:EndpointID schemeID="0211">IT07643520567</cbc:EndpointID>
 ----
 
 .Esempio di Endpoint di fornitore registrato in PEPPOL con un GLN (Global Location Number) secondo gli standard GS1:

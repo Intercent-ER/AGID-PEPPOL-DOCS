@@ -11,13 +11,13 @@ s|Descrizione
 |*Cliente (Cessionario)*
 |Il cliente è la persona giuridica o l'organizzazione che richiede un prodotto o servizio.
 
-I ruoli che possono essere ricoperti dal Cliente sono: acquirente, consegnatario/destinatario, #debtor, contracting body#.
+I ruoli che possono essere ricoperti dal Cliente sono: acquirente, consegnatario/destinatario, debitore, un'amministrazione aggiudicatrice.
 
 
 |*Fornitore (Cedente)*
 |Il fornitore è la persona giuridca o organizzazione che fornisce un prodotto o servizio. 
 
-I ruoli che possono essere ricoperti dal Fornitore sono: venditore, speditore, #creditor, economic operator#.
+I ruoli che possono essere ricoperti dal Fornitore sono: venditore, speditore, creditore, operatore economico.
 |====
 
 

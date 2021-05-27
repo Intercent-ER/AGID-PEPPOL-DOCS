@@ -32,5 +32,5 @@ Il venditore rifiuta l’ordine. Nessuna riga deve essere inviata ma deve avere 
 |L’acquirente e il venditore non hanno raggiunto un accordo.
 
 |Esempio XML
-|Vedi sezione "Downloads" della https://notier.regione.emilia-romagna.it/docs/[home]
+|Vedi sezione "Downloads" nella link:../../../../../../[Homepage]
 |====

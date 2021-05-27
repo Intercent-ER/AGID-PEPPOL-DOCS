@@ -1,10 +1,10 @@
 //description and subheading text
 :description: The PEPPOL Business Interoperability Specification, “BIS” from here on after, has been developed by the OpenPEPPOL AISBL Post Award Coordinating Community and is published as part of the PEPPOL specifications.
-
 :author: OpenPEPPOL AISBL, Post-Award Coordinating Community
 :version: 3.0.7
-:ord_version_it: 3.2.0.2(IT)
-:ddt_version_it: 3.1.0.4(IT)
+:ord_version_it: 3.2.0.3(IT)
+:ddt_version_it: 3.1.0.5(IT)
+:ord_agreement_version_it: 3.0.0.1(IT)
 //PEPPOL
 :peppol: https://peppol.eu/?rel=undefined[PEPPOL]
 :common: https://joinup.ec.europa.eu/svn/peppol/PEPPOL%20BIS%20Common%20text%20and%20introduction%20-%20ver%201%202014-04-14.pdf[PEPPOL BIS common text and introduction]
@@ -42,7 +42,7 @@
 
 //Italians
 :link-nota-aifa: http://www.ema.europa.eu/ema/index.jsp?curl=pages/regulation/document_listing/document_listing_000134.jsp&mid=WC0b01ac0580022c59
-:RGS-NSO: http://www.rgs.mef.gov.it/VERSIONE-I/e_government/amministrazioni_pubbliche/acquisti_pubblici_in_rete_apir/nodo_di_smistamento_degli_ordini_di_acquisto_delle_amministrazioni_pubbliche_nso/[RGS - NSO^, role="ext-link"]
+:RGS-NSO: http://www.rgs.mef.gov.it/VERSIONE-I/e_government/amministrazioni_pubbliche/acquisti_pubblici_in_rete_apir/nodo_di_smistamento_degli_ordini_di_acquisto_delle_amministrazioni_pubbliche_nso
 
 //codelists
 :ISO4217: https://www.iso.org/iso-4217-currency-codes.html[ISO 4217:2015]

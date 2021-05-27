@@ -10,6 +10,6 @@ Each line shall have the item TAX information including category code and percen
 ----
 include::../snippets/snippet-common.xml[tags=vat-line]
 ----
-<1> TAX category according to codelist {vat-codes}
+<1> TAX category according to  link:../../../../../../xml/ITA/peppol-bis-3/codelist/UNCL5305.html[Codelist UNCL5305]
 <2> TAX percentage. For EN must be present unless TAX category code is O (the value "O" means "Out of scope for TAX").
 <3> Value must identify the correct tax type. For example VAT, GST or sales tax.

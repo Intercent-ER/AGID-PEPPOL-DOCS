@@ -6,7 +6,7 @@
 = Codifiche di riferimento per elementi codificati
 
 Qualsiasi elemento con tipologia semantica = *code*, può richiedere l’utilizzo di una codifica di riferimento specifica (o un valore fisso).
-Le codifiche applicabili sono disponibili in {link-codelist}. In questa sezione, potete trovare i codici permessi, il loro nome e la descrizione, e i collegamenti ai suoi utilizzi in altre parti della transazione, o in altri documenti PEPPOL BIS v3.
+Le codifiche applicabili sono disponibili nella sezione "Codifiche" nella link:../../../../../../[Homepage]. In questa sezione, potete trovare i codici permessi, il loro nome e la descrizione, e i collegamenti ai suoi utilizzi in altre parti della transazione, o in altri documenti PEPPOL BIS v3.
 
 = Codifiche di riferimento per identificatori
 

@@ -3,7 +3,7 @@
 La tipologia dell’Ordine può essere espressa utilizzando le seguenti codifiche ufficiali disponibili nel package UBL.
 
 
-Per identificare il tipo di ordine si usa un «subset» della codifica ufficiale UNCL 1001. Si riporta di seguito il subset denominato «OrderTypeCode IT» definito da PEPPOL ed esteso al modello italiano di procurement (vedi, {link-codelist} evidenziati compatibili con NSO).
+Per identificare il tipo di ordine si usa un «subset» della codifica ufficiale UNCL 1001. Si riporta di seguito il subset denominato «OrderTypeCode IT» (vedi sezione "Codifiche" nella nella link:[Homepage]) definito da PEPPOL ed esteso al modello italiano di procurement (compatibili con NSO).
 
 
 [width="100%", cols="1,2,1,2"]

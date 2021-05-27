@@ -137,10 +137,10 @@ When the order is accepted without amendment (at line level), all the order line
 ----
 <cac:OrderLine>
     <cac:LineItem>
-	    <cbc:LineStatusCode>7</cbc:LineStatusCode>
-	    <cbc:Note>Merce terminata</cbc:Note>
-	    …
-	</cac:LineItem>
-	…
+        <cbc:ID>1</cbc:ID>
+        <cbc:Note>Merce terminata</cbc:Note>
+        <cbc:LineStatusCode>7</cbc:LineStatusCode>
+        ...
+    </cac:LineItem>
 </cac:OrderLine>
 ----

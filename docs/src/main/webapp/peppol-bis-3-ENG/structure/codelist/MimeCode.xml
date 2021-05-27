@@ -12,25 +12,21 @@
     <Code>
         <Id>application/pdf</Id>
         <Name>application/pdf</Name>
-        <LocalDescription>Allegato formato pdf</LocalDescription>
     </Code>
 
     <Code>
         <Id>image/png</Id>
         <Name>image/png</Name>
-        <LocalDescription>Allegato formato png</LocalDescription>
     </Code>
 
     <Code>
         <Id>image/jpeg</Id>
         <Name>image/jpeg</Name>
-        <LocalDescription>Allegato formato jpeg</LocalDescription>
     </Code>
 
     <Code>
         <Id>image/tiff</Id>
         <Name>image/tiff</Name>
-        <LocalDescription>Allegato formato tiff</LocalDescription>
     </Code>
 
     <Code>

@@ -36,7 +36,7 @@ Example:
 :leveloffset: +1
 
 [[titolo]]
-= Ordini di Kit a componenti predefinite e a componenti variabili (virtuali)
+= Orders of Kit with predefined or variables components
 
 The components of a KIT (generally implantable medical devices) can be predefined (defined in the price list by the Seller and always used together) or variables (in the Seller's price list are indicated those that can be requested). Typically there is an item number for the KIT and one for each component of the KIT.
 

@@ -21,7 +21,7 @@ include::{snippet-dir}/OA full.xml[tags=delivery]
 
 :leveloffset: +1
 
-= Delivery Location
+= #Delivery Location#
 
 
 Information about the delivery are necessary if the address differ from the one of the Party that send the order and if allows to provide more precise indications about the returns of goods (DeliveryTerms). The warehouse opening time needs to be inserted in the elements "AddressLine/Line" of segment "Address".
@@ -129,7 +129,7 @@ In the case of *home delivery* (for example, delivery to the address of a patien
 
 :leveloffset: +1
 
-= Delivery Party
+= #Delivery Party#
 
 If the delivery party, the party to whom the goods are delivered, is a determined subject, it is necessary to indicate it with precisely by valorizing the fields of the element `cac:DeliveryParty`. +
 

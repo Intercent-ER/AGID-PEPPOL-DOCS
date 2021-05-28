@@ -41,11 +41,11 @@ For example, after an Inital Order for Budgeting, a Connected Order for Regulati
 …
 <cac:OrderDocumentReference>
     <cbc:ID>100#2021-01-30#Cliente_A#Connected</cbc:ID>
-</cac:OrderDocumentReference >
+</cac:OrderDocumentReference>
 …
 <cac:BuyerCustomerParty>
     <cac:Party>
-        <cbc:EndpointID schemeID=”0201”>Cliente_A</cbc:EndpointID>
+        <cbc:EndpointID schemeID="0201">Cliente_A</cbc:EndpointID>
     </cac:Party>
 </cac:BuyerCustomerParty>
 …
@@ -56,10 +56,10 @@ For example, after an Inital Order for Budgeting, a Connected Order for Regulati
 <cac:OrderLine>
     <cac:LineItem>
         <cbc:ID>1</cbc:ID>
-        <cbc:Quantity unitCode=”C62”>1</cbc:Quantity>
-        <cbc:LineExtensionAmount currencyID=”EUR”>7000.00</cbc:LineExtensionAmount>
+        <cbc:Quantity unitCode="C62">1</cbc:Quantity>
+        <cbc:LineExtensionAmount currencyID="EUR">7000.00</cbc:LineExtensionAmount>
         <cac:price>
-            <cbc:PriceAmount currencyID=”EUR”>7000.00</cbc:PriceAmount>
+            <cbc:PriceAmount currencyID="EUR">7000.00</cbc:PriceAmount>
         </cac:Price>
         <cac:Item>
             <cbc:Description>Ordine di regolazione per attività di predisposizione</cbc:Description>
@@ -90,7 +90,7 @@ The previous order is revoked and the actual one has empty lines (NA) and the se
 <cac:OrderLine>
     <cac:LineItem>
         <cbc:ID>NA</cbc:ID>
-        <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">0</cbc:Quantity>
+        <cbc:Quantity unitCode="C62">0</cbc:Quantity>
         <cac:Item>
             <cbc:Name>N/A</cbc:Name>
         </cac:Item>
@@ -117,12 +117,12 @@ The previous order is amended by the present order, wich contains all the needed
 <cac:OrderLine>
     <cac:LineItem>
         <cbc:ID>1</cbc:ID>
-        <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">25</cbc:Quantity>
+        <cbc:Quantity unitCode="C62">25</cbc:Quantity>
         <cbc:LineExtensionAmount currencyID="EUR">118.13</cbc:LineExtensionAmount>
                 …
         <cac:Item>
             <cbc:Description>128481</cbc:Description>
-            <cbc:Name>CISTO - AID 650036(EX79847-E) </cbc:Name>
+            <cbc:Name>CISTO - AID 650036(EX79847-E)</cbc:Name>
             <cac:SellersItemIdentification>
                 <cbc:ID>79847-E</cbc:ID>
             </cac:SellersItemIdentification>

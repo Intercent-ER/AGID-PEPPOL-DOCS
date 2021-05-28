@@ -42,13 +42,13 @@ To all quantities there must be a valid Unit according to the Code list "Recomma
 <cac:OrderLine>
     <cac:LineItem>
         <cbc:ID>1</cbc:ID>
-        <cbc:Quantity unitCode="LTR" unitCodeListID=”UNECERec20”>120</cbc:Quantity>
+        <cbc:Quantity unitCode="LTR">120</cbc:Quantity>
         <cbc:LineExtensionAmount currencyID="EUR">6000.00</cbc:LineExtensionAmount>
         <cbc:PartialDeliveryIndicator>false</cbc:PartialDeliveryIndicator>
         <cbc:AccountingCost>ProjectID123</cbc:AccountingCost>
         <cac:Price>
             <cbc:PriceAmount currencyID="EUR">50.00000</cbc:PriceAmount>
-            <cbc:BaseQuantity unitCode="LTR" unitCodeListID=”UNECERec20”>1</cbc:BaseQuantity>
+            <cbc:BaseQuantity unitCode="LTR">1</cbc:BaseQuantity>
         </cac:Price>
     </cac:LineItem>
 </cac:OrderLine>

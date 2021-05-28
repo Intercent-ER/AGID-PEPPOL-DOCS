@@ -40,6 +40,35 @@ include::{snippet-dir}/snippet-oa.xml[tags=allowance]
 <4> Charge percentage
 <5> stem:["Amount" = "Base amount" times ("Percentage" div 100)]
 
+
+.Example of a charge for packing costs
+[source, xml, indent=0]
+----
+<cac:AllowanceCharge>
+    <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+    <cbc:AllowanceChargeReasonCode>ABL</cbc:AllowanceChargeReasonCode>
+    <cbc:AllowanceChargeReason>Costi diimballaggio</cbc:AllowanceChargeReason>
+    <cbc:MultiplierFactorNumeric>20</cbc:MultiplierFactorNumeric>
+    <cbc:Amount currencyID="EUR">10.00</cbc:Amount>
+    <cbc:BaseAmount currencyID="EUR">50.00</cbc:BaseAmount>
+</cac:AllowanceCharge>
+----
+
+.Example of a discount for the whole order agreement
+[source, xml, indent=0]
+----
+<cac:AllowanceCharge>
+    <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+    <cbc:AllowanceChargeReasonCode>41</cbc:AllowanceChargeReasonCode>
+    <cbc:AllowanceChargeReason>Sconto</cbc:AllowanceChargeReason>
+    <cbc:MultiplierFactorNumeric>2</cbc:MultiplierFactorNumeric>
+    <cbc:Amount currencyID="EUR">2.00</cbc:Amount>
+    <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
+</cac:AllowanceCharge>
+----
+
+
+
 :leveloffset: +1
 
 = #Allowance and charges on price#
@@ -53,7 +82,6 @@ The following example shows an allowance of 10 EUR applied to the base amount pr
         <cbc:ID>1</cbc:ID>
         <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">20</cbc:Quantity>
         <cbc:LineExtensionAmount currencyID="EUR">1800.00</cbc:LineExtensionAmount>
-        ...
         <cac:Price>
             <cbc:PriceAmount currencyID="EUR">90.00</cbc:PriceAmount>
             <cac:AllowanceCharge>
@@ -62,6 +90,7 @@ The following example shows an allowance of 10 EUR applied to the base amount pr
                 <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
             </cac:AllowanceCharge>
         </cac:Price>
+        ...
     </cac:LineItem>
 </cac:OrderLine>
 ----
@@ -78,7 +107,7 @@ To include free items in the order it is necessary to indicate them on a differe
 .Example of an order line with 12 free packages of glucose test strips:
 [source, xml, indent=0]
 ----
-<cac:orderline>
+<cac:Orderline>
     <cac:LineItem>
         <cbc:ID>1</cbc:ID>
         <cbc:Quantity unitCode="C62" unitCodeListID=”UNECERec20”>20</cbc:Quantity>
@@ -99,7 +128,7 @@ To include free items in the order it is necessary to indicate them on a differe
                <cbc:ID>79847-E</cbc:ID>
             </cac:SellersItemIdentification>
             <cac:ClassifiedTaxCategory>
-                <cbc:ID schemeID="UNCL5305">S</cbc:ID>
+                <cbc:ID>S</cbc:ID>
                 <cbc:Percent>22</cbc:Percent></cac:Item>
                 <cac:TaxScheme>
                      <cbc:ID>VAT</cbc:ID>

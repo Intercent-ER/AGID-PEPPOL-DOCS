@@ -16,7 +16,26 @@ The delivery information is optional in the PEPPOL BIS Order Agreement message.
 .Example
 [source, xml, indent=0]
 ----
-include::{snippet-dir}/OA full.xml[tags=delivery]
+<cac:Delivery>
+    <cac:PromisedDeliveryPeriod>
+        <cbc:StartDate>2016-08-20</cbc:StartDate>
+        <cbc:StartTime>12:00:00</cbc:StartTime>
+        <cbc:EndDate>2016-08-30</cbc:EndDate>
+        <cbc:EndTime>18:00:00</cbc:EndTime>
+    </cac:PromisedDeliveryPeriod>
+    <cac:DeliveryParty>
+        <cac:PartyIdentification>
+            <cbc:ID schemeID="0211">IT01234567890</cbc:ID>
+        </cac:PartyIdentification>
+        <cac:PartyName>
+            <cbc:Name>Delivery party name</cbc:Name>
+        </cac:PartyName>
+    </cac:DeliveryParty>
+</cac:Delivery>
+<cac:DeliveryTerms>
+    <cbc:ID>1</cbc:ID>
+    <cbc:SpecialTerms>Il cliente ritira la merce</cbc:SpecialTerms>
+</cac:DeliveryTerms>
 ----
 
 :leveloffset: +1
@@ -33,9 +52,23 @@ If the delivery address is the Client's institutional address to which a unique 
 [source, xml, indent=0]
 ----
 <cac:Delivery>
+    <cac:PromisedDeliveryPeriod>
+        <cbc:StartDate>2018-05-15</cbc:StartDate>
+        <cbc:EndDate>2018-05-15</cbc:EndDate>
+    </cac:PromisedDeliveryPeriod>
+    <cac:DeliveryParty>
+        <cac:PartyIdentification>
+            <cbc:IDschemeID="0201">AAFF33</cbc:ID>
+        </cac:PartyIdentification>
+        <cac:PartyName>
+            <cbc:Name>Centro Logistico Beni Sanit-Ecom Area 2</cbc:Name>
+        </cac:PartyName>
+    </cac:DeliveryParty>
+</cac:Delivery>
+<cac:DeliveryTerms>
+    <cbc:ID>PORTO FRANCO</cbc:ID>
     <cac:DeliveryLocation>
         <cbc:ID>CF-IdShipTo</cbc:ID>
-        <Name>Magazzino centralizzato</Name>
         <cac:Address>
             <cbc:StreetName>Viale Ercolani, 4</cbc:StreetName>
             <cbc:CityName>Bologna</cbc:CityName>
@@ -45,30 +78,10 @@ If the delivery address is the Client's institutional address to which a unique 
                 <cbc:Line>Orario:Lunedì-Venerdì 8:00-13:00 - Sabato 8:00-12:00</cbc:Line>
             </cac:AddressLine>
             <cac:Country>
-                <cbc:IdentificationCode listID="ISO3166-1:Alpha2">IT</cbc:IdentificationCode>
+                <cbc:IdentificationCode>IT</cbc:IdentificationCode>
             </cac:Country>
         </cac:Address>
     </cac:DeliveryLocation>
-    <cac:RequestedDeliveryPeriod>
-        <cbc:StartDate>2018-05-15</cbc:StartDate>
-        <cbc:EndDate>2018-05-15</cbc:EndDate>
-    </cac:RequestedDeliveryPeriod>
-    <cac:DeliveryParty>
-        <cac:PartyIdentification>
-            <cbc:ID schemeID="0201">AAFF33</cbc:ID>
-        </cac:PartyIdentification>
-        <cac:PartyName>
-            <cbc:Name>Centro Logistico Beni Sanit-Ecom Area 2</cbc:Name>
-        </cac:PartyName>
-        <cac:Contact>
-            <cbc:Name>ResponsabileMagazzino</cbc:Name>
-            <cbc:Telephone>0516361509</cbc:Telephone>
-            <cbc:ElectronicMail>responsabile.magazzino@aziendasanitaria.it</cbc:ElectronicMail>
-        </cac:Contact>
-    </cac:DeliveryParty>
-</cac:Delivery>
-<cac:DeliveryTerms>
-    <cbc:ID>PORTO FRANCO</cbc:ID>
 </cac:DeliveryTerms>
 ----
 
@@ -77,9 +90,9 @@ On the other hand, if the provision of goods and services  must take place in a 
 .Example
 [source, xml, indent=0]
 ----
-<cac:Delivery>
+<cac:DeliveryTerms>
     <cac:DeliveryLocation>
-        <Name>Entrata magazzino merci</Name>
+        <cbc:ID>Entrata magazzino merci</cbc:ID>
         <cac:Address>
             <cbc:StreetName>Via Attanasio Soldati 80</cbc:StreetName>
             <cbc:AdditionalStreetName>Località La Rustica</cbc:AdditionalStreetName>
@@ -94,7 +107,7 @@ On the other hand, if the provision of goods and services  must take place in a 
             </cac:Country>
         </cac:Address>
     </cac:DeliveryLocation>
-</cac:Delivery>
+</cac:DeliveryTerms>
 ----
 
 In the case of *home delivery* (for example, delivery to the address of a patient) this circumstance needs to be specified valorizing the field “ID” with the text “Consegna domiciliare” and indicating accurately in the element “AddressLine/Line” the exact delivery address (for instance, including the flat number), as shown by the following example:
@@ -105,7 +118,7 @@ In the case of *home delivery* (for example, delivery to the address of a patien
 ----
 <cac:Delivery>
     <cac:DeliveryLocation>
-        <cac:ID>Consegna domiciliare</cac:ID>
+        <cbc:ID>Consegna domiciliare</cbc:ID>
         <Name>Entrata lato portineria</Name>
         <cac:Address>
             <cbc:StreetName>Via Attanasio Soldati 80</cbc:StreetName>
@@ -141,17 +154,12 @@ The following example describes a delivery to a particular organizational unit:
 ----
 <cac:Delivery>
     <cac:DeliveryParty>
-          <cac:PartyIdentification>
-          <cbc:ID>UO07</cbc:ID>
-          <cac:PartyName>
-              <cbc:Name>Centro logistico</cbc:Name>
-     </cac:PartyName>
-     <cac:Contact>
-         <cbc:Name>James Bond</Name
-         <cbc:Telephone>0647611</cbc:Telephone>
-         <cbc:ElectronicMail>james.bond@peo.it</ ElectronicMail>
-        </cac:Contact>
+        <cac:PartyIdentification>
+            <cbc:ID>UO07</cbc:ID>
         </cac:PartyIdentification>
+        <cac:PartyName>
+            <cbc:Name>Centro logistico</cbc:Name>
+        </cac:PartyName>
     </cac:DeliveryParty>
 </cac:Delivery>
 ---- 

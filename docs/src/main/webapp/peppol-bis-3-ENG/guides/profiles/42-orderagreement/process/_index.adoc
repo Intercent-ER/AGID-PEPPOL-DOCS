@@ -27,7 +27,7 @@ This process involves the use of two Documents: +
 * an *Order agreement*, issued by the Seller;
 * a *Confirmation Order*, eventually issued by the Client.
 
-The process starts with the sending of an order agreement from the Seller, who issue it because he is pre-authorized by the Client. +
+The process starts with the sending of an Order Agreement from the Seller, who issues it because he is pre-authorized by the Client. +
 
 Following the reception of the Order Agreement, the Client can: +
 

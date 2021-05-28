@@ -30,6 +30,7 @@ For pharmaceutical products provided with the code "Autorizzazione all’Immissi
 ----
 <cac:OrderLine>
     <cac:LineItem>
+    ...
         <cac:Item>
             <cbc:Description>NORVASC*5MG 28CPR</cbc:Description>
             <cbc:Name>NORVASC</cbc:Name>
@@ -63,17 +64,50 @@ For medical devices products provided with the code UDI (Unique Device Identific
 .Example of an order with the indication of the UDI code
 [source, xml, indent=0]
 ----
-<cac:DespatchLine>
+<cac:OrderLine>
+    <cac:LineItem>
     ...
         <cac:Item>
-            <cbc:Name>Item's name</cbc:Name>
+            <cbc:Name>Nome articolo</cbc:Name>
             <cac:SellersItemIdentification>
               <cbc:ID>UDI:(01)47964367965424(11)173434(17)226565(10)A379B3(21)1237</cbc:ID>
             </cac:SellersItemIdentification>
         </cac:Item>
-</cac:DespatchLine>
-
+</cac:OrderLine>
 ----
+
+
+:leveloffset: +1
+
+[[type-of-fuel]]
+= #Type of fuel#
+
+The type of fuel through the use the element *cac:SellersItemIdentification/cbc:ID* in which is entered the value of the reference table for energetic products TA13, published on the Agenzia delle Dogane's website, prefixed by the string “CARB:”.
+
+.Example of an Order Agreement with the indication of the type of fuel:
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+    ...
+        <cac:Item>
+            <cbc:Name>Benzina senza piombo, ottani>=98</cbc:Name>
+	        <cac:SellersItemIdentification>
+		        <cbc:ID>CARB:27101249</cbc:ID>
+	        </cac:SellersItemIdentification>
+	        <cac:ClassifiedTaxCategory>
+	            <cbc:ID>S</cbc:ID>
+		        <cbc:Percent>22</cbc:Percent>
+		        <cac:TaxScheme>
+			        <cbc:ID>VAT</cbc:ID>
+			    </cac:TaxScheme>
+	        </cac:ClassifiedTaxCategory>
+        </cac:Item>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+
+:leveloffset: -1
 
 
 :leveloffset: -1
@@ -89,5 +123,9 @@ The Product name is often sent in the order agreement from the buyer to the sell
 .Example in an PEPPOL BIS Order Agreement message
 [source, xml, indent=0]
 ----
-include::{snippet-dir}/OA full.xml[tags=ItemDescription]
+<cac:Item>
+    <cbc:Description>Descrizione</cbc:Description>
+    <cbc:Name>Salviette per bambini</cbc:Name>
+          …
+</cac:Item>
 ----

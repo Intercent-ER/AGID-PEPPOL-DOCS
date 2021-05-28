@@ -9,7 +9,7 @@ include::{snippet-dir}/OA full.xml[tags=CustomerReference]
 ----
 :leveloffset: +1
 
-= #Reference to another order#
+= #Reference to another Order Agreement#
 
 In the case of *Connected Order Agreement*, *Revocation Order Agreement* or *Replacement Order Agreement*, it is necessary to indicate the so-called "Identification triple"(in italian Tripletta di identificazione) of the related Order Agreement in the elemement `cac:OrderReference/cbc:ID`, which is a structured field, by concatenating the following information in the order that follows:
 

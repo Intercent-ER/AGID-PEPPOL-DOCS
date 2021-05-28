@@ -12,5 +12,8 @@ Price sent is related to the articles or services within this order.
 .Example of price information in an Order message:
 [source, xml, indent=0]
 ----
-include::{snippet-dir}/snippet-01.xml[tags=price]
+<cac:Price>
+ 	<cbc:PriceAmount currencyID="EUR">50.00000</cbc:PriceAmount>
+ 	<cbc:BaseQuantity unitCode="LTR">1</cbc:BaseQuantity>
+</cac:Price>
 ----

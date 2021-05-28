@@ -32,8 +32,9 @@ For pharmaceutical products provided with the code "Autorizzazione all’Immissi
 .Example of an order with the indication of the AIC code
 [source, xml, indent=0]
 ----
-<cac:OrderLine>
+<<cac:OrderLine>
     <cac:LineItem>
+    ...
         <cac:Item>
             <cbc:Description>NORVASC*5MG 28CPR</cbc:Description>
             <cbc:Name>NORVASC</cbc:Name>
@@ -67,16 +68,16 @@ For medical devices products provided with the code UDI (Unique Device Identific
 .Example of an order with the indication of the UDI code
 [source, xml, indent=0]
 ----
-<cac:DespatchLine>
+<cac:OrderLine>
+    <cac:LineItem>
     ...
         <cac:Item>
-            <cbc:Name>Item's name</cbc:Name>
+            <cbc:Name>Nome articolo</cbc:Name>
             <cac:SellersItemIdentification>
               <cbc:ID>UDI:(01)47964367965424(11)173434(17)226565(10)A379B3(21)1237</cbc:ID>
             </cac:SellersItemIdentification>
         </cac:Item>
-</cac:DespatchLine>
-
+</cac:OrderLine>
 ----
 
 

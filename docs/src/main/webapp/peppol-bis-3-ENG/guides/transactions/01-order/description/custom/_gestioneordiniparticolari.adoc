@@ -16,7 +16,7 @@ Example:
 [source, xml, indent=0]
 ----
 <cac:ItemSpecificationDocumentReference>
-    <cbc:Id>DDT123</cbc:Id>
+    <cbc:ID>DDT123</cbc:ID>
 </cac:ItemSpecificationDocumentReference>
         ...
     <cac:ItemInstance>
@@ -56,7 +56,7 @@ It is possibile to use the unit of measure that describes a KIT:
 <cac:OrderLine>
     <cac:LineItem>
          <cbc:ID>1</cbc:ID>
-         <cbc:Quantity unitCode="KT" unitCodeListID="UNECERec20">10</cbc:Quantity>
+         <cbc:Quantity unitCode="KT">10</cbc:Quantity>
         <cbc:LineExtensionAmount currencyID="EUR">1000.00</cbc:LineExtensionAmount>
         <cac:Price>
             <cbc:PriceAmount currencyID="EUR">100.00000</cbc:PriceAmount>
@@ -66,7 +66,7 @@ It is possibile to use the unit of measure that describes a KIT:
             <cbc:Name>KIT</cbc:Name>
             <cac:SellersItemIdentification>
                 <cbc:ID>KITCARTO9</cbc:ID>
-                <!—ID KIT-->
+                <!--ID KIT-->
             </cac:SellersItemIdentification>
             <cac:AdditionalItemProperty>
                 <cbc:Name>Componente</cbc:Name>
@@ -96,7 +96,7 @@ It is possibile to use the unit of measure that describes a KIT:
 ----
 <cac:OrderLine>
     <cac:LineItem>
-        <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">10</cbc:Quantity>
+        <cbc:Quantity unitCode="C62">10</cbc:Quantity>
         <cbc:LineExtensionAmount currencyID="EUR">100.00</cbc:LineExtensionAmount>
         <cac:Price>
             <cbc:PriceAmount currencyID="EUR">10.00000</cbc:PriceAmount>
@@ -106,7 +106,7 @@ It is possibile to use the unit of measure that describes a KIT:
             <cbc:Name>Articolo Componente</cbc:Name>
             <cac:SellersItemIdentification>
                 <cbc:ID>NAVI-STAR 34A35M</cbc:ID>
-                <!—ID Componente-->
+                <!--ID Componente-->
             </cac:SellersItemIdentification>
             <cac:AdditionalItemProperty>
                 <cbc:Name>KIT</cbc:Name>

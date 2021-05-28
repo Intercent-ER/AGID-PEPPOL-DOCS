@@ -22,20 +22,15 @@ For pharmaceutical products provided with the code "Autorizzazione all’Immissi
 .Example of an order with the indication of the AIC code
 [source, xml, indent=0]
 ----
-<cac:OrderLine>
-    <cac:LineItem>
+<cac:DespatchLine>
+    ...
         <cac:Item>
-            <cbc:Description>NORVASC*5MG 28CPR</cbc:Description>
             <cbc:Name>NORVASC</cbc:Name>
             <cac:SellersItemIdentification>
                 <cbc:ID>AICFARMACO:027428010</cbc:ID>
             </cac:SellersItemIdentification>
-            <cac:CommodityClassification>
-                <cbc:ItemClassificationCode listID="STL" listIVersionID="UNCL7143">C08CA01</cbc:ItemClassificationCode>
-            </cac:CommodityClassification>
         </cac:Item>
-    </cac:LineItem>
-</cac:OrderLine>
+</cac:DespatchLine>
 
 ----
 

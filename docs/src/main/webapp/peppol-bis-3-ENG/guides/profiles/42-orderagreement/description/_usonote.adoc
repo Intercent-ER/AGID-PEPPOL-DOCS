@@ -1,0 +1,7 @@
+[[use-of-notes]]
+= #Use of the elements "Note"#
+
+When there is the necessity to provide particular information, it is possible to valorize with free-form text the elementes “Note” present at various points of the Documents data's schemes. +
+
+
+IMPORTANT: As a general rule, it is recommended using the textual notes only if absolutely necessary and in absence of other elements that may contain the same information.

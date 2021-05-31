@@ -34,5 +34,5 @@ The seller proceeds to invoice immediately unless otherwise directed by the fram
 The buyer may have internal processes that verify these kind of order agreements differently than those initiated by himself.
 
 |Result |The buyer has registered a purchase order in his systems that allow him to order to invoice matching when the invoice is received.
-|XML example file |See section "Downloads" on link:../../../../../../[Homepage].
+
 |====

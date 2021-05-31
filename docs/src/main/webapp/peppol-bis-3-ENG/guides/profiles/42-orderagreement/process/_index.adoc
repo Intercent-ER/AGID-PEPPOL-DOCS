@@ -17,11 +17,30 @@ The order agreement process flow can be described as follows:
 
 An Order Agreement may refer to a framework agreement for its terms and conditions; otherwise the Buyer’s terms and conditions apply.
 
-== Business process Diagram
 
-=== Legend for BPMN diagrams
 
-The diagrams are expressed in the BPMN notation. The diagram below serves as an explanation for the diagrams used in the process descriptions.
+[[Requisiti-dei-processi-di-business]]
+== #Business processes requirements#
+
+This process involves the use of two Documents: +
+
+* an *Order agreement*, issued by the Seller;
+* a *Confirmation Order*, eventually issued by the Client.
+
+The process starts with the sending of an Order Agreement from the Seller, who issues it because he is pre-authorized by the Client. +
+
+Following the reception of the Order Agreement, the Client can: +
+
+* conclude the process without issuing a Confirmation Order; +
+
+* transmit a Confirmation Order, that needs to contain the indication of the Order Agreement to which it is related to, for communicating to the Seller that he intends to: +
+
+** confirm the Order Agreement received (Confirmation Order to approve); +
+
+** reject the Order Agreement received (Confirmation Order to reject);
+
+** replace the Order Agreement received (Confirmation Order to substitute).
+
 
 :leveloffset: +1
 

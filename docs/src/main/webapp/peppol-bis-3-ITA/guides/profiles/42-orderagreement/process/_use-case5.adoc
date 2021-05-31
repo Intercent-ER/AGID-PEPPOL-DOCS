@@ -42,7 +42,5 @@ L'Acquirente potrebbe avere processi interni che verifichino questo tipo di Ordi
 |Risultati
 |L'Acquirente ha registrato un ordine di acquisto nei propri sistemiche gli permette abbinare la fatture agli ordini quando la fattura è ricevuta.
 
-|Esempio XML
-|Vedi sezione "Downloads" nella link:../../../../../../[Homepage]
 
 |====

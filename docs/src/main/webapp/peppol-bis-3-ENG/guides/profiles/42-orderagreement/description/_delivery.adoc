@@ -16,5 +16,160 @@ The delivery information is optional in the PEPPOL BIS Order Agreement message.
 .Example
 [source, xml, indent=0]
 ----
-include::{snippet-dir}/OA full.xml[tags=delivery]
+<cac:Delivery>
+    <cac:PromisedDeliveryPeriod>
+        <cbc:StartDate>2016-08-20</cbc:StartDate>
+        <cbc:StartTime>12:00:00</cbc:StartTime>
+        <cbc:EndDate>2016-08-30</cbc:EndDate>
+        <cbc:EndTime>18:00:00</cbc:EndTime>
+    </cac:PromisedDeliveryPeriod>
+    <cac:DeliveryParty>
+        <cac:PartyIdentification>
+            <cbc:ID schemeID="0211">IT01234567890</cbc:ID>
+        </cac:PartyIdentification>
+        <cac:PartyName>
+            <cbc:Name>Delivery party name</cbc:Name>
+        </cac:PartyName>
+    </cac:DeliveryParty>
+</cac:Delivery>
+<cac:DeliveryTerms>
+    <cbc:ID>1</cbc:ID>
+    <cbc:SpecialTerms>Il cliente ritira la merce</cbc:SpecialTerms>
+</cac:DeliveryTerms>
 ----
+
+:leveloffset: +1
+
+= #Delivery Location#
+
+
+Information about the delivery are necessary if the address differ from the one of the Party that send the order and if allows to provide more precise indications about the returns of goods (DeliveryTerms). The warehouse opening time needs to be inserted in the elements "AddressLine/Line" of segment "Address".
+
+The delivery location is the location in which the provision of goods or services needs to happen. It is represented by the elements “Delivery/DeliveryLocation”.
+
+If the delivery address is the Client's institutional address to which a unique identifier has been associated, made available by the Seller, it is necessary to provide also this identifier, as shown by the followign example:
+
+[source, xml, indent=0]
+----
+<cac:Delivery>
+    <cac:PromisedDeliveryPeriod>
+        <cbc:StartDate>2018-05-15</cbc:StartDate>
+        <cbc:EndDate>2018-05-15</cbc:EndDate>
+    </cac:PromisedDeliveryPeriod>
+    <cac:DeliveryParty>
+        <cac:PartyIdentification>
+            <cbc:IDschemeID="0201">AAFF33</cbc:ID>
+        </cac:PartyIdentification>
+        <cac:PartyName>
+            <cbc:Name>Centro Logistico Beni Sanit-Ecom Area 2</cbc:Name>
+        </cac:PartyName>
+    </cac:DeliveryParty>
+</cac:Delivery>
+<cac:DeliveryTerms>
+    <cbc:ID>PORTO FRANCO</cbc:ID>
+    <cac:DeliveryLocation>
+        <cbc:ID>CF-IdShipTo</cbc:ID>
+        <cac:Address>
+            <cbc:StreetName>Viale Ercolani, 4</cbc:StreetName>
+            <cbc:CityName>Bologna</cbc:CityName>
+            <cbc:PostalZone>40138</cbc:PostalZone>
+            <cbc:CountrySubentity>BO</cbc:CountrySubentity>
+            <cac:AddressLine>
+                <cbc:Line>Orario:Lunedì-Venerdì 8:00-13:00 - Sabato 8:00-12:00</cbc:Line>
+            </cac:AddressLine>
+            <cac:Country>
+                <cbc:IdentificationCode>IT</cbc:IdentificationCode>
+            </cac:Country>
+        </cac:Address>
+    </cac:DeliveryLocation>
+</cac:DeliveryTerms>
+----
+
+On the other hand, if the provision of goods and services  must take place in a non-institutional location or institutional location not coded (even temporarily), it is necessary to indicate precisely all the elements and sub-information inside de segment “Address”, as shown by the following example:
+
+.Example
+[source, xml, indent=0]
+----
+<cac:DeliveryTerms>
+    <cac:DeliveryLocation>
+        <cbc:ID>Entrata magazzino merci</cbc:ID>
+        <cac:Address>
+            <cbc:StreetName>Via Attanasio Soldati 80</cbc:StreetName>
+            <cbc:AdditionalStreetName>Località La Rustica</cbc:AdditionalStreetName>
+            <cbc:CityName>Roma</cbc:CityName>
+            <cbc:PostalZone>00155</cbc:PostalZone>
+            <cbc:CountrySbentity>Lazio</cbc:CountrySubentity>
+            <cac:AddressLine>
+                <cbc:Line>Edificio C, Quarto piano, Stanza 01</cbc:Line>
+            </cac:AddressLine>
+            <cac:Country>
+                <cbc:IdentificationCode>IT</cbc:IdentificationCode>
+            </cac:Country>
+        </cac:Address>
+    </cac:DeliveryLocation>
+</cac:DeliveryTerms>
+----
+
+In the case of *home delivery* (for example, delivery to the address of a patient) this circumstance needs to be specified valorizing the field “ID” with the text “Consegna domiciliare” and indicating accurately in the element “AddressLine/Line” the exact delivery address (for instance, including the flat number), as shown by the following example:
+
+
+.Example
+[source, xml, indent=0]
+----
+<cac:Delivery>
+    <cac:DeliveryLocation>
+        <cbc:ID>Consegna domiciliare</cbc:ID>
+        <Name>Entrata lato portineria</Name>
+        <cac:Address>
+            <cbc:StreetName>Via Attanasio Soldati 80</cbc:StreetName>
+            <cbc:AdditionalStreetName>Località La Rustica</cbc:AdditionalStreetName>
+            <cbc:CityName>Roma</cbc:CityName>
+            <cbc:PostalZone>00155</cbc:PostalZone>
+            <cbc:CountrySbentity>Lazio</cbc:CountrySubentity>
+            <cac:AddressLine>
+                <cbc:Line>Edificio C, Quarto piano, Stanza 01</cbc:Line>
+            </cac:AddressLine>
+            <cac:Country>
+                <cbc:IdentificationCode>IT</cbc:IdentificationCode>
+            </cac:Country>
+        </cac:Address>
+    </cac:DeliveryLocation>
+</cac:Delivery>
+----
+
+:leveloffset: -1
+
+
+:leveloffset: +1
+
+= #Delivery Party#
+
+If the delivery party, the party to whom the goods are delivered, is a determined subject, it is necessary to indicate it with precisely by valorizing the fields of the element `cac:DeliveryParty`. +
+
+The indication of the Deliver party is possible only with the reference to the whole Document. +
+
+The following example describes a delivery to a particular organizational unit:
+
+[source, xml, indent=0]
+----
+<cac:Delivery>
+    <cac:DeliveryParty>
+        <cac:PartyIdentification>
+            <cbc:ID>UO07</cbc:ID>
+        </cac:PartyIdentification>
+        <cac:PartyName>
+            <cbc:Name>Centro logistico</cbc:Name>
+        </cac:PartyName>
+    </cac:DeliveryParty>
+</cac:Delivery>
+---- 
+
+When the "Beneficiary" needs to be indicated, the identifier (field “ID”) and denomination (field “Name”) of the organizational unit are both mandatory. If the identifier is unknown or does not exist, it is sufficient to fill the element with the text “UO” (abbreviation for organizational unit). +
+
+If the Beneficiary is a natural person, it is necessary to balance the need of protecting their confidentiality with the necessity of giving complete and exhaustive information for the delivery. To this end: +
+
+* if it is not strictly necessary to indicate the extended name of the Beneficiary, the field “Name” must be filled with “PF” (abbreviation for physical person).
+* if an identifier was assigned to the Beneficiary, this must be indicated into the field “ID”,  otherwise even this must be filled with “PF”.
+
+:leveloffset: -1
+

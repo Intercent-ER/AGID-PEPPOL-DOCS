@@ -107,7 +107,7 @@ The following example shows an allowance of 10 EUR applied to the base amount pr
 <cac:OrderLine>
     <cac:LineItem>
         <cbc:ID>1</cbc:ID>
-        <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">20</cbc:Quantity>
+        <cbc:Quantity unitCode="C62">20</cbc:Quantity>
         <cbc:LineExtensionAmount currencyID="EUR">1800.00</cbc:LineExtensionAmount>
         ...
         <cac:Price>
@@ -134,7 +134,7 @@ The following example shows an allowance applied to the whole order line:
 <cac:OrderLine>
     <cac:LineItem>
         <cbc:ID>1</cbc:ID>
-        <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">10</cbc:Quantity>
+        <cbc:Quantity unitCode="C62">10</cbc:Quantity>
         <cbc:LineExtensionAmount currencyID="EUR">90.00</cbc:LineExtensionAmount>
         <cac:AllowanceCharge>
           <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
@@ -144,7 +144,7 @@ The following example shows an allowance applied to the whole order line:
           <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
         </cac:AllowanceCharge>
         <cac:Price>
-            <cbc:PriceAmount currencyID="EUR">10.00000</cbc:PriceAmount><!-- Opzionale -->
+            <cbc:PriceAmount currencyID="EUR">10.00000</cbc:PriceAmount>
         </cac:Price>
     </cac:LineItem>
 </cac:OrderLine>
@@ -167,7 +167,7 @@ In these cases, the discounts are out of scope VAT based on Art. 15 D.P.R. 633/7
 <cac:OrderLine>
     <cac:LineItem>
         <cbc:ID>1</cbc:ID>
-        <cbc:Quantity unitCode="C62" unitCodeListID="UNECERec20">10</cbc:Quantity>
+        <cbc:Quantity unitCode="C62">10</cbc:Quantity>
         <cbc:LineExtensionAmount currencyID="EUR">0.00</cbc:LineExtensionAmount>
         <cac:AllowanceCharge>
             <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
@@ -206,11 +206,11 @@ To include free items in the order it is necessary to indicate them on a differe
 <cac:orderline>
     <cac:LineItem>
         <cbc:ID>1</cbc:ID>
-        <cbc:Quantity unitCode="C62" unitCodeListID=”UNECERec20”>20</cbc:Quantity>
+        <cbc:Quantity unitCode="C62">20</cbc:Quantity>
         <cbc:LineExtensionAmount currencyID="EUR">0</cbc:LineExtensionAmount>
         <cac:Price>
             <cbc:PriceAmount currencyID="EUR">0</cbc:PriceAmount>
-            <cbc:BaseQuantity unitCode="C62" unitCodeListID=”UNECERec20”>1</cbc:BaseQuantity>
+            <cbc:BaseQuantity unitCode="C62">1</cbc:BaseQuantity>
             <cac:AllowanceCharge>
                 <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
                 <cbc:Amount currencyID="EUR">5.00</cbc:Amount>
@@ -224,7 +224,7 @@ To include free items in the order it is necessary to indicate them on a differe
                <cbc:ID>79847-E</cbc:ID>
             </cac:SellersItemIdentification>
             <cac:ClassifiedTaxCategory>
-                <cbc:ID schemeID="UNCL5305">S</cbc:ID>
+                <cbc:ID>S</cbc:ID>
                 <cbc:Percent>22</cbc:Percent></cac:Item>
                 <cac:TaxScheme>
                      <cbc:ID>VAT</cbc:ID>

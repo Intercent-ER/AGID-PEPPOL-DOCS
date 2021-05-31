@@ -1,14 +1,14 @@
 
 [[prof-42]]
-= Identificatori per la customizzazione e profilo
+= Customization and Profile identifiers
 
-Nella tabella seguente troverai i valori da utilizzare come identificatore della specifica e il tipo di processo di business per questo profilo
+In the table below you will find the values to be used as the specification identifier and the business process type for this profile
 
 [cols="2s,5a,5a", options="header"]
 |===
-| Tipo
-| Elemento `cbc:CustomizationID`
-| Elemento `cbc:ProfileID`
+| Type
+| Element `cbc:CustomizationID`
+| Element `cbc:ProfileID`
 
 | Order Agreement (Trdm110)
 | #urn:fdc:peppol.eu:poacc:trns:order_agreement:3 :restrictive:urn:www.agid.gov.it:trns:ordine_preconcordato:3.0#

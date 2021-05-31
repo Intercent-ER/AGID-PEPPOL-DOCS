@@ -1,10 +1,10 @@
 
-= Informazioni sulle imposte
+= Information about taxes
 
-I capitoli seguenti descrivono le diverse informazioni relative alle imposte che possono essere fornite in questo BIS.
-Con imposta si intende a seconda del contesto applicativo, l'IVA, GST o la Sales Tax.
+The follwing paragrapghs describe several information about taxes that can be provided with this BIS. 
+"Tax" refers to VAT (IVA in Italy), GST or Sales Tax, according to the field of application.
 
-Si consiglia di consultare anche i {vat-codes} per dettagli sulla codifica delle categorie delle imposte e il <<vat-calc>> per una rappresentazione più dettagliata ed esempi su come eseguire i calcoli nel riepilogo delle imposte.
+Please also see link:../../../../../../xml/ITA/peppol-bis-3/codelist/UNCL5305.html[UNCL5305] for details on the TAX category code list, and <<vat-calc>> for detailed explanation and example on how to perform the calculations for TAX Breakdown.
 
 :leveloffset: +1
 
@@ -12,18 +12,17 @@ include::../../shared/files/_vat-cat-line.adoc[]
 
 :leveloffset: -1
 
-[[vat-allowance]]
-== Informazioni sulle imposte negli sconti e maggiorazioni
+== TAX info for allowance or charge
 
-Ogni sconto o maggiorazione a livello di testata viene espresso mediante l'elemento UBL `cac:AllowanceCharge`. Ulteriori dettagli sugli sconti e maggiorazioni si trovano in <<allowance>>.
+Document level allowance/charge is stated using the UBL element `cac:AllowanceCharge`. Further details on allowance and charge can be found in <<anchor-8,Allowances and Charges.>>
 
-Ogni sconto o maggiorazione a livello di testata deve avere associato ad un codice di categoria di imposta. Per tutte le categorie di imposta deve essere fornita l'aliquota relativa, ad eccezione del caso in cui tutto il documento non sia soggetto ad imposta  (es. "Non soggetto ad IVA" (O) in Europa).
+Each document level charge or allowance must have the Document level allowance or charge TAX category code, and for all TAX categories except when tax category indicates that the invoice is not subject to TAX (e.g. (O) in EU), then the TAX rate shall be provided.
 
-.Esempio UBL di maggiorazione con informazioni sulla categoria d'imposta, per l'IVA
+.UBL Example of a charge with tax category information, when the TAX is VAT.
 [source, xml, indent=0]
 ----
 include::../snippets/snippet-oa-vat.xml[tags=vat-allowance]
 ----
-<1> La classe `cac:TaxCategory` è utilizzata per informazioni sulla categoria IVA
-<2> Categoria IVA secondo la codifica {vat-codes}
-<3> Aliquota IVA
+<1> The class `cac:TaxCategory` is used for tax category information
+<2> TAX category according to codelist link:../../../../../../xml/ITA/peppol-bis-3/codelist/UNCL5305.html[UNCL5305]
+<3> TAX rate

@@ -1,6 +1,8 @@
 [[totals]]
 = Calcolo dei totali (AnticipatedMonetaryTotal)
 
+[[anchor-8]]
+
 I seguenti elementi mostrano gli importi totali presenti nell’ordine:
 [cols="3,3,5", options="header"]
 |===

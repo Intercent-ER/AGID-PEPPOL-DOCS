@@ -9,11 +9,26 @@ IMPORTANT: Attachments should be used for additional information and not as orde
 ====
 
 
+#Valid values (i.e. compatible with con NSO) are listed and highlighted in the codelist link:../../../../../../xml/ITA/peppol-bis-3/codelist/MimeCode.html[Mime code].#
+
+
 .Example of attachment as an embedded, binary object in an PEPPOL BIS Order Agreement message
 [source, xml, indent=0]
 ----
-include::{snippet-dir}/OA full.xml[tags=AdditionalDocumentReference]
+<cac:AdditionalDocumentReference>
+    <cbc:ID>ID documento</cbc:ID>
+    <cbc:DocumentType>Descrizione documento</cbc:DocumentType>
+    <cac:Attachment>
+        <cbc:EmbeddedDocumentBinaryObject mimeCode="application/pdf" filename="file.pdf">UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</cbc:EmbeddedDocumentBinaryObject>
+    </cac:Attachment>
+</cac:AdditionalDocumentReference>
 ----
+
+
+#In the event of goods and services orders that to be processed require necessarily the presence of certain documents (ex. Patient Cars), it is necessary that these documents need to be trasmitted through NSO as an attached PDF to the electronic order.#
+
+#Where the information contained in the attachments may involve privacy issues, these attachments can be in encrypted form or it is possible to use the element *cac:ExternalReference*, which access can be limited to appropriate profiling.#
+
 
 = Attachments and document references on line level
 
@@ -23,12 +38,26 @@ Non-XML documents can be sent as attachments to the PEPPOL BIS Order Agreement o
 .Example of attachment as an embedded, binary object in an PEPPOL BIS Order Agreement message on line level.
 [source, xml, indent=0]
 ----
-include::{snippet-dir}/OA full.xml[tags=ItemSpecificationDocumentReference]
+<cac:ItemSpecificationDocumentReference>
+    <cbc:ID>ID documento</cbc:ID>
+    <cbc:DocumentType>Descrizione documento</cbc:DocumentType>
+    <cac:Attachment>
+        <cbc:EmbeddedDocumentBinaryObject mimeCode="application/pdf" filename="specs.pdf">UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</cbc:EmbeddedDocumentBinaryObject>
+    </cac:Attachment>
+</cac:ItemSpecificationDocumentReference>
 ----
 
 
 .Example of a Link to a downloadable ticket
 [source, xml, indent=0]
 ----
-include::{snippet-dir}/OA full.xml[tags=ItemSpecificationDocumentReference2]
+<cac:ItemSpecificationDocumentReference>
+    <cbc:ID>ID documento</cbc:ID>
+    <cbc:DocumentType>Descrizione documento</cbc:DocumentType>
+    <cac:Attachment>
+        <cac:ExternalReference>
+            <cbc:URI>https://joinup.ec.europa.eu/svn/peppol/PostAward/Ordering28A/20160310%20-%20PEPPOL_BIS_28a-101.pdf</cbc:URI>
+        </cac:ExternalReference>
+    </cac:Attachment>
+</cac:ItemSpecificationDocumentReference>
 ----

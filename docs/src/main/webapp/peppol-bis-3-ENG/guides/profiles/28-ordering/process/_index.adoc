@@ -29,10 +29,10 @@ If the order was rejected, no contract and no residual obligations exist.
 
 As a result of the reception of an order, the Seller that must contain the indication of the Order previously sent, by which intends to communicate, alternatively, the following: +
 
-* the Order has been received (Risposta di ricezione);
-* the Order is accepted without amendment (Risposta di accettazione);
-* the Order is rejected (Risposta di diniego);
-* the Order is accepted with amendment (Risposta con modifiche).
+* the Order has been received (Response of receipt);
+* the Order is accepted without amendment (Response of acceptance);
+* the Order is rejected (Response of denial);
+* the Order is accepted with amendment (Response with changes).
 
 
 The Response with changes must contain all the Order lines, both those that are to be modified and maintained, since it is intended to supplement the related Order previously sent. +

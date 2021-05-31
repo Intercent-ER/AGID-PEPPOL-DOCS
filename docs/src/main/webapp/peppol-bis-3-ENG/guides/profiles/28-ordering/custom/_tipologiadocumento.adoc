@@ -21,7 +21,7 @@ See paragraph 6.12 and 7.1 for compilation rules.
 | Ordine inziale (Initial Order)| -
 | Ordine di revoca (Revocation Order)| -  
 | Ordine sostitutivo (Replacement Order)| -
-.3+.^| Ordine di riscontro (Confirmation Order) | Confirmation Order to approve| Confirmation Order to reject | Order Confirmation to substitute 
+.3+.^| Ordine di riscontro (Confirmation Order) | Confirmation Order to approve| Confirmation Order to reject | Confirmation Order to substitute 
 | Ordine collegato (Connected Order) | - 
 | Ordine di convalida (Validation Order)| - 
 
@@ -120,7 +120,7 @@ In this cases the *Connected Order* is used, where it is present a reference to 
 
 
 [NOTE]
-The Connected Order can be used exclusively to keep memory that the new process that is intended to begin it's connected to another one. This Order must never be used in place of the others (i.e. Revocation Order, Replacement Order, Confirmation Order) specifically realized to revoke, substitute (or integrate), confirm or refuse another Document.
+The Connected Order can be used exclusively to keep memory that the new process that is intended to begin it's connected to another one. This Order must never be used in place of the others (i.e. Revocation Order, Replacement Order, Confirmation Order) specifically designed to revoke, substitute (or integrate), confirm or refuse another Document.
 
 See paragraph 6.12 for compilation rules.
 
@@ -135,7 +135,7 @@ This Order can be exclusively used: +
 * if necessary, to validate an Invoice referred to an Order when the Invoicee is different from the initial Buyer (e.g. sent by a Contracting authority or in case the initial Buyer has been bought, sold or divided).
 
 [NOTE]
-The Validation Order must never be used in place of the others (i.e. Revocation Order, Replacement Order, Confirmation Order) specifically realized to revoke, substitute (or integrate), confirm or refuse another Document.
+The Validation Order must never be used in place of the others (i.e. Revocation Order, Replacement Order, Confirmation Order) specifically designed to revoke, substitute (or integrate), confirm or refuse another Document.
 
 .Compilation rules 
 

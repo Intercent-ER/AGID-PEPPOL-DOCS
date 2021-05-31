@@ -21,7 +21,7 @@ See paragraph 6.12 and 7.1 for compilation rules.
 | Ordine inziale (Initial Order)| -
 | Ordine di revoca (Revocation Order)| -  
 | Ordine sostitutivo (Replacement Order)| -
-.3+.^| Ordine di riscontro (Confirmation Order) | Confirmation Order to approve| Confirmation Order to reject | Order Confirmation to substitute 
+.3+.^| Ordine di riscontro (Confirmation Order) | Confirmation Order to approve| Confirmation Order to reject | Confirmation Order to substitute 
 | Ordine collegato (Connected Order) | - 
 | Ordine di convalida (Validation Order)| - 
 

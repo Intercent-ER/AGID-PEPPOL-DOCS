@@ -18,7 +18,7 @@ See paragraph 7.3.1 for compilation rules.
 
 
 .3+^.^|*Ordine (Order)* 
-.3+.^| Ordine di riscontro (Confirmation Order) | Confirmation Order to approve| Confirmation Order to reject | Order Confirmation to substitute 
+.3+.^| Ordine di riscontro (Confirmation Order) | Confirmation Order to approve| Confirmation Order to reject | Confirmation Order to substitute 
 
 
 .8+^.^|*Ordine Pre-concordato (Order Agreement)* 
@@ -136,7 +136,7 @@ The Validation Order Agreement must never be used in place of the others (i.e. R
 
 .Compilation rules 
 
-In the case of *Validation Order Agreement* it is necessary to report the details of the Invoice to be validated in the element *OrderDocumentReference/ID*, filling it with the values and by respecting the order of priority that follows:
+In the case of *Validation Order Agreement* it is necessary to report the details of the Invoice to be validated in the element *OrderReference/ID*, filling it with the values and by respecting the order of priority that follows:
 
 * the *number* of the Invoice that is intended to be validated;
 
@@ -149,9 +149,9 @@ In the case of *Validation Order Agreement* it is necessary to report the detail
 .Example
 [source, xml, indent=0]
 ----
-<cac:OrderDocumentReference>
+<cac:OrderReference>
     <cbc:ID>57#2018-01-30#ITccccccccccc#Invoice</cbc:ID>
-</cac:OrderDocumentReference>
+</cac:OrderReference>
 ----
 
 

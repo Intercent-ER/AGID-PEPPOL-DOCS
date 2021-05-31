@@ -76,6 +76,7 @@ For medical devices products provided with the code UDI (Unique Device Identific
 </cac:OrderLine>
 ----
 
+:leveloffset: -1
 
 :leveloffset: +1
 
@@ -109,8 +110,6 @@ The type of fuel through the use the element *cac:SellersItemIdentification/cbc:
 
 :leveloffset: -1
 
-
-:leveloffset: -1
 
 
 = Product name and description

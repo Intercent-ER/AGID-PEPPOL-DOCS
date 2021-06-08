@@ -1,0 +1,94 @@
+[[altri-riferimenti]]
+= #Altri riferimenti#
+
+Per fornire gli estremi di CUP, DDT, IMPEGNO, DELIBERA, CONTRATTO e CONVENZIONE vedasi tabella.
+
+
+[cols="1,2,7", options="header"]
+|====
+s|Riferimento
+s|Descrizione
+s|Dove usarlo
+
+|*CUP*
+|Codice Unico Progetto
+|In testata si usa +
+`cac:AdditionalDocumentReference` (0.n) +
+
+A livello di riga +
+`cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n)
+
+|*DDT*
+|Documento di Trasporto +
+|In testata si usa +
+`cac:AdditionalDocumentReference` (0.n) +
+
+A livello di riga +
+`cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n) +
+
+Usare solo per riferirsi a DDT precedentemente ricevuti nel corso di un conto deposito merce
+
+|*IMPEGNO*
+|Estremi Impegno
+|In testata si usa +
+`cac:AdditionalDocumentReference` (0.n) +
+
+A livello di riga +
+`cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n)
+
+|*DELIBERA*
+|Estremi Delibera
+|In testata si usa +
+`cac:AdditionalDocumentReference` (0.n) +
+
+A livello di riga +
+`cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n)
+
+|*CONTRATTO*
+|Estremi Contratto
+|In testata si usa +
+`cac:Contract` (0.1) +
+
+A livello di riga +
+`cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n)
+
+|*CONVENZIONE*
+|Estremi Convenzione
+|In testata si usa +
+`cac:AdditionalDocumentReference` (0.n) +
+
+A livello di riga +
+`cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n)
+
+|====
+
+.Esempio di riferimento ad un CUP a livello di testata.
+[source, xml, indent=0]
+----
+<cac:AdditionalDocumentReference>
+    <cbc:ID>J31E01000010004</cbc:ID>
+    <cbc:DocumentType>CUP</cbc:DocumentType>
+</cac:AdditionalDocumentReference>
+----
+.Esempio di riferimento ad un IMPEGNO e a un DDT a livello di riga.
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+        <cac:Item>
+		...
+            <cac:ItemSpecificationDocumentReference>
+                <cbc:Id>IMPEGNO:123/2019 </cbc:Id>
+            </cac:ItemSpecificationDocumentReference>
+            <cac:ItemSpecificationDocumentReference>
+                <cbc:Id>DDT:00001253/2019</cbc:Id>
+            </cac:ItemSpecificationDocumentReference>
+		...
+        </cac:Item>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+
+
+[NOTE]
+I campi "AdditionalDocumentReference/ID" e "ItemSpecificationDocumentReference/ID" sono campi strutturati.

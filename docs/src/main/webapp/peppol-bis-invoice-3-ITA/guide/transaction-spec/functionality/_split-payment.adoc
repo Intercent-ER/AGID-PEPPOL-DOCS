@@ -1,0 +1,20 @@
+
+= Scissione dei pagamenti
+
+La scissione dei pagamenti o split payment è un regime particolare che stabilisce che il debitore dell'IVA sia il cessionario/committente anziché, come avviene normalmente, il cedente/prestatore.
+
+In deroga alla norma {EN16931} è stata accordata una 'A-deviation' per supportare questo particolare caso utilizzando il TaxCategory 'B' (Transferred VAT) al posto del 'S' (Standard Rate) secondo la codifica UN/ECE 5305 ma al momento non presente nel subset utilizzato dalla {EN16931}.
+
+.Esempio UBL di Scissione dei pagamenti
+L'esempio riportato è relativo alla fattura emessa ad una autorità pubblica soggetta alla scissione pagamento.
+[source, xml, indent=0]
+----
+include::../{snippet-dir}/Esempio-Fattura-Professionista-Ordinario-con-Cassa-Ritenuta-e-Scissione.xml[tags=split-payment-tax-category]
+----
+<1> Utilizzo della categoria d'imposta 'B' per lo split payment.
+
+[source, xml, indent=0]
+----
+include::../{snippet-dir}/Esempio-Fattura-Professionista-Ordinario-con-Cassa-Ritenuta-e-Scissione.xml[tags=split-payment-tax-total]
+----
+<1> Utilizzo della categoria d'imposta 'B' per lo split payment.

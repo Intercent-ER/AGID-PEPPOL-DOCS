@@ -1,0 +1,29 @@
+
+
+= Codifiche per elementi codificati
+
+:leveloffset: +1
+
+include::../../profile/codes/_index.adoc[]
+
+include::../../transaction-spec/codes/_country.adoc[]
+
+include::../../transaction-spec/codes/_currency-code.adoc[]
+
+include::../../transaction-spec/codes/_vat-category.adoc[]
+
+include::../../transaction-spec/codes/_uom.adoc[]
+
+include::../../transaction-spec/codes/_allowance.adoc[]
+
+include::../../transaction-spec/codes/_charge.adoc[]
+
+include::../../transaction-spec/codes/_media-types.adoc[]
+
+include::../../transaction-spec/codes/_payment-means.adoc[]
+
+include::../../transaction-spec/codes/_taxpoint.adoc[]
+
+include::../../transaction-spec/codes/_vat-exempt.adoc[]
+
+:leveloffset: -1

@@ -1,0 +1,62 @@
+[[attachements]]
+= Allegati a livello di documento
+
+I documenti non-XML possono essere inviati come allegato all’Ordine pre-concordato Peppol. Questi potrebbero essere disegni o resoconti di ore lavorate o altri documenti rilevanti per l’Ordine. L’allegato può essere inviato come oggetto binario codificato in Base64, incorporato nel message o come URI ad un indirizzo esterno.
+
+Si raccomanda di inviare allegati in modo incorporato, oggetti binari e non come riferimenti esterni.
+
+====
+IMPORTANT: Gli allegati possono essere utilizzati come informazioni aggiuntive ma non come copie dell’ordine.
+====
+
+[yellow-background]#I codici validi sono quelli evidenziati nella codifica link:../../../../../../xml/ITA/peppol-bis-3/codelist/MimeCode.html[Mime code], compatibili con NSO.#
+
+.Esempio di allegato incorporato, oggetto binario nel messaggio dell’Ordine PEPPOL a livello di documento
+[source, xml, indent=0]
+----
+<cac:AdditionalDocumentReference>
+    <cbc:ID>ID documento</cbc:ID>
+    <cbc:DocumentType>Descrizione documento</cbc:DocumentType>
+    <cac:Attachment>
+        <cbc:EmbeddedDocumentBinaryObject mimeCode="application/pdf" filename="file.pdf">UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</cbc:EmbeddedDocumentBinaryObject>
+    </cac:Attachment>
+</cac:AdditionalDocumentReference>
+----
+
+
+#Nel caso di ordini di beni o servizi che per essere evasi richiedono obbligatoriamente la presenza di documenti (es. Scheda Paziente), è necessario che tali documenti siano trasmessi tramite NSO come allegato PDF all’ordine elettronico.#
+
+#Ove le informazioni contenute negli allegati possano comportare problemi legati alla privacy, i medesimi allegati possono essere in formato cifrato oppure è possibile ricorrere all’uso di riferimenti esterni (elemento *cac:ExternalReference*), il cui accesso può essere limitato utlizzando idonea profilatura.#
+
+
+
+= Allegati e riferimenti a documenti a livello di riga
+
+I documenti non-XML possono essere inviati come allegato all’Ordine pre-concordato Peppol a livello di riga. Questi potrebbero comprendere specifiche del prodotto, disegni o resoconti di ore lavorate o altri documenti rilevanti per l’Ordine pre-concordato. Vedi informazioni sopra relative agli allegati.
+
+.Esempio di allegato incorporato, oggetto binario nel messaggio dell’Ordine PEPPOL a livello di riga
+[source, xml, indent=0]
+----
+<cac:ItemSpecificationDocumentReference>
+    <cbc:ID>ID documento</cbc:ID>
+    <cbc:DocumentType>Descrizione documento</cbc:DocumentType>
+    <cac:Attachment>
+        <cbc:EmbeddedDocumentBinaryObject mimeCode="application/pdf" filename="specs.pdf">UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</cbc:EmbeddedDocumentBinaryObject>
+    </cac:Attachment>
+</cac:ItemSpecificationDocumentReference>
+----
+
+
+.Esempio di un link relativo ad un ticket scaricabile 
+[source, xml, indent=0]
+----
+<cac:ItemSpecificationDocumentReference>
+    <cbc:ID>ID documento</cbc:ID>
+    <cbc:DocumentType>Descrizione documento</cbc:DocumentType>
+    <cac:Attachment>
+        <cac:ExternalReference>
+            <cbc:URI>https://joinup.ec.europa.eu/svn/peppol/PostAward/Ordering28A/20160310%20-%20PEPPOL_BIS_28a-101.pdf</cbc:URI>
+        </cac:ExternalReference>
+    </cac:Attachment>
+</cac:ItemSpecificationDocumentReference>
+----

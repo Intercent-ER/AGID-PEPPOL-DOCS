@@ -1,0 +1,26 @@
+= Overview of changes/remarks of alignment
+:doctype: book
+:icons: font
+:stem:
+:toc: left
+:toclevels: 2
+:source-highlighter: coderay
+:source-language: xml
+:sectanchors:
+:sectnums:
+
+:leveloffset: +1
+
+include::_checklist.adoc[]
+
+include::_structure.adoc[]
+
+include::_vat-alignment.adoc[]
+
+include::_allowance.adoc[]
+
+include::_codelists.adoc[]
+
+include::_references.adoc[]
+
+:leveloffset: -1

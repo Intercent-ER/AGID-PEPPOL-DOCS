@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeList xmlns="urn:fdc:difi.no:2017:vefa:structure:CodeList-1">
+
+    <Title>Allowance reason codes (UNCL5189 subset)</Title>
+    <Identifier>UNCL5189</Identifier>
+    <Version>D.16B</Version>
+    <Agency>UN/CEFACT</Agency>
+    <Subset>openPEPPOL</Subset>
+
+
+
+    <Code>
+        <Id>41</Id>
+        <Name>Bonus for works ahead of schedule</Name>
+        <LocalDescription>Sconto per i lavori prima del previsto</LocalDescription>
+    </Code>
+
+    <Code>
+        <Id>42</Id>
+       <Name>Other bonus</Name>
+       <LocalDescription>Altro sconto</LocalDescription>
+    </Code>
+
+    <Code>
+        <Id>60</Id>
+        <Name>Manufacturer’s consumer discount</Name>
+        <LocalDescription>Sconto consumatore del produttore</LocalDescription>
+    </Code>
+
+    <Code>
+        <Id>62</Id>
+        <Name>Due to military status</Name>
+        <LocalDescription>Sconto causa dello stato militare</LocalDescription>
+    </Code>
+
+    <Code>
+        <Id>63</Id>
+        <Name>Due to work accident</Name>
+        <LocalDescription>Sconto causa incidente sul lavoro</LocalDescription>
+    </Code>
+
+    <Code>
+        <Id>64</Id>
+        <Name>Special agreement</Name>
+        <LocalDescription>Sconto accordo speciale</LocalDescription>
+    </Code>
+
+    <Code>
+        <Id>65</Id>
+        <Name>Production error discount</Name>
+        <LocalDescription>Sconto errore di produzione</LocalDescription>
+    </Code>
+
+    <Code>
+        <Id>66</Id>
+        <Name>New outlet discount</Name>
+        <LocalDescription>Nuovo sconto outlet</LocalDescription>
+    </Code>
+
+    <Code>
+        <Id>67</Id>
+        <Name>Sample discount</Name>
+        <LocalDescription>Sconto su un articolo campione</LocalDescription>
+    </Code>
+
+    <Code>
+        <Id>68</Id>
+        <Name>End-of-range discount</Name>
+        <LocalDescription>Sconto di fine intervallo</LocalDescription>
+    </Code>
+
+    <Code>
+        <Id>70</Id>
+        <Name>Incoterm discount</Name>
+        <LocalDescription>Sconto in termini commerciali internazionali con soggetti coinvolti in una transazione di merci tra nazioni diverse</LocalDescription>
+    </Code>
+
+    <Code>
+        <Id>71</Id>
+        <Name>Point of sales threshold allowance</Name>
+        <LocalDescription>Indennità soglia per punto di vendita</LocalDescription>
+    </Code>
+
+    <Code>
+        <Id>88</Id>
+        <Name>Material surcharge/deduction</Name>
+        <LocalDescription>Supplemento / detrazione materiale</LocalDescription>
+    </Code>
+
+    <Code>
+        <Id>95</Id>
+        <Name>Discount</Name>
+        <LocalDescription>Sconto</LocalDescription>
+    </Code>
+
+    <Code>
+        <Id>100</Id>
+        <Name>Special rebate</Name>
+        <LocalDescription>Sconto speciale</LocalDescription>
+    </Code>
+
+    <Code>
+        <Id>102</Id>
+        <Name>Fixed long term</Name>
+        <LocalDescription>Risolto a lungo termine</LocalDescription>
+    </Code>
+
+    <Code>
+        <Id>103</Id>
+        <Name>Temporary</Name>
+        <LocalDescription>Temporaneo</LocalDescription>
+    </Code>
+
+    <Code>
+        <Id>104</Id>
+        <Name>Standard</Name>
+        <LocalDescription>Standard</LocalDescription>
+    </Code>
+
+    <Code>
+        <Id>105</Id>
+        <Name>Yearly turnover</Name>
+        <LocalDescription>Fatturato annuale</LocalDescription>
+    </Code>
+
+</CodeList>

@@ -1,0 +1,133 @@
+[[totals]]
+= Calcolo dei totali (LegalMonetaryTotal)
+
+[[anchor-6]]
+
+I seguenti elementi mostrano gli importi totali presenti nell’ordine:
+[cols="3,3,5", options="header"]
+|===
+| Elemento
+|Descrizione
+| Formula
+
+| <cbc:LineExtensionAmount>
+| Somma degli importi di riga
+| stem:[sum("cac:OrderLine/cac:LineItem/cbc:LineExtensionAmount")]
+
+| <cbc:AllowanceTotalAmount>
+|Sconti/Abbuoni a livello di testata
+| stem:[sum("cac:AllowanceCharge[ChargeIndicator='false'$$]$$/cbc:Amount")]
+
+| <cbc:ChargeTotalAmount>
+|Maggiorazioni a livello di testata
+| stem:[sum("cac:AllowanceCharge[ChargeIndicator='true'$$]$$/cbc:Amount")]
+
+| <cbc:TaxExclusiveAmount>
+| Importo totale dell’Ordine escluse le imposte
+| stem:[\ \ \ \ "cac:LegalMonetaryTotal/cbc:LineExtensionAmount"] +
+stem:[– \ "cac:LegalMonetaryTotalMonetaryTotal/cbc:AllowanceTotalAmount"] +
+stem:[+ \ "cac:LegalMonetaryTotal/cbc:ChargeTotalAmount"]
+
+| <cbc:TaxInclusiveAmount>
+| Importo totale dell’Ordine incluse le imposte
+| stem:[\ \ \ \ "cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount"] +
+stem:[+ \ "cac:TaxTotal/cbc:TaxAmount"]
+
+| <cbc:PrepaidAmount>
+|Eventuale importo pagato in anticipo
+| _Not applicable_
+
+| <cbc:PayableRoundingAmount>
+| Arrotondamento applicato al totale dell’Ordine
+| _Not applicable_
+
+| <cbc:PayableAmount>
+| L’importo previsto per il pagamento
+| stem:[\ \ \ \ "cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount"] +
+stem:[- \ "cac:LegalMonetaryTotal/cbc:PrepaidAmount"] +
+stem:[+ \ "cac:LegalMonetaryTotal/cbc:PayableRoundingAmount"]
+|===
+
+
+* Gli importi DEVONO essere forniti con una precisione di due decimali ad eccezione del prezzo dove il numero massimo di decimali può essere cinque come da normativa italiana;
+
+* Il totale dovuto previsto NON DEVE essere negativo;
+
+* Il totale degli importi di riga previsto NON DEVE essere negativo.
+
+****
+[NOTE]
+E’ importante notare che la classe LegalMonetaryTotal è opzionale. Se la classe viene inclusa nel messaggio, gli unici elementi obbligatori sono LineExtensionAmount, TaxExclusiveAmount, TaxInclusiveAmount e PayableAmount. Tutti gli altri sono opzionali. Quando gli elementi opzionali vengono usati, il loro contenuto DEVE seguire le regole sotto riportate.
+****
+
+[[element-for-rounding-amount-the-payableroundingamount]]
+== Arrotondamento del PayableRoundingAmount
+
+E’ possibile arrotondare l’importo dovuto previsto. La regola per attuarlo è quella di arrotondamento standard, es. Maggiore o uguale a 0.5 viene arrotondato per eccesso, tutti gli altri valori vengono arrotondati per difetto.
+
+L’elemento `cac:LegalMonetaryTotal/cbc:PayableRoundingAmount` viene usato allo scopo ed è specificato a livello di testata. Questo valore deve essere aggiunto al valore indicato in AnticipatedMonetaryTotal/TaxInclusiveAmount.
+
+Esempio: *Importo 999.81 arrotondato a 1000.00 PayableRoundingAmount = 0.19.*
+
+[[example-of-calculations]]
+== Esempi di calcoli
+
+[cols="2,1,2",options="header"]
+|====
+|Descrizione
+|Elemento
+|Importo
+
+
+|Somma degli importi di riga
+|`cbc:LineExtensionAmount`
+|700
+
+|Sconti/Abbuoni a livello di testata
+|`cbc:AllowanceTotalAmount`
+|100.00
+
+|Maggiorazioni a livello di testata
+|`cbc:ChargeTotalAmount`
+|200.00
+
+|Importo totale dell’Ordine escluse le imposte
+|`cbc:TaxExclusiveAmount`
+|800
+
+|Importo totale delle imposte
+|`cac:TaxTotal/cbc:TaxAmount`
+|85.63
+
+|Arrotondamento applicato al totale dell’Ordine
+|`cbc:PayableRoundingAmount`
+|0.37
+
+|Importo totale dell’Ordine incluse le imposte
+|`cbc:TaxInclusiveAmount`
+|885.63
+
+|Importo pagato in anticipo
+|`cbc:PrepaidAmount`
+| 135.00
+
+|L’importo previsto per il pagamento
+|`cbc:PayableAmount`
+|751.00
+
+|====
+
+.L'esempio di cui sopra viene espresso nell'ordine nel seguente modo:
+[source, xml, indent=0]
+----
+<cac:LegallMonetaryTotal>
+    <cbc:LineExtensionAmount currencyID="EUR">1436.50</cbc:LineExtensionAmount>
+    <cbc:TaxExclusiveAmount currencyID="EUR">1536.50</cbc:TaxExclusiveAmount>
+    <cbc:TaxInclusiveAmount currencyID="EUR">1921.00</cbc:TaxInclusiveAmount>
+    <cbc:AllowanceTotalAmount currencyID="EUR">100.00</cbc:AllowanceTotalAmount>
+    <cbc:ChargeTotalAmount currencyID="EUR">200.00</cbc:ChargeTotalAmount>
+    <cbc:PrepaidAmount currencyID="EUR">1000.00</cbc:PrepaidAmount>
+    <cbc:PayableRoundingAmount currencyID="EUR">0.37</cbc:PayableRoundingAmount>
+    <cbc:PayableAmount currencyID="EUR">921.00</cbc:PayableAmount>
+</cac:LegalMonetaryTotal>
+----

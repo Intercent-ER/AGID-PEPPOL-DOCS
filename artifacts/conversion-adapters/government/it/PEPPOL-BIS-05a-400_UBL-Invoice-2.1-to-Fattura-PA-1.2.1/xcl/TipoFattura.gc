@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/">
+    <Identification>
+        <ShortName>TipoFattura</ShortName>
+        <LongName xml:lang="it">Tipo Fattura</LongName>
+        <LongName Identifier="listID">TipoFattura</LongName>
+        <Version>1.0</Version>
+        <CanonicalUri>urn:www.ubl-italia.org:spec:fatturapa:codelist:gc:TipoFattura</CanonicalUri>
+        <Agency>
+            <LongName xml:lang="it">UBL Italia</LongName>
+            <Identifier>UBL-ITALIA</Identifier>
+        </Agency>
+    </Identification>
+    <ColumnSet>
+        <Column Id="code" Use="required">
+            <ShortName>Code</ShortName>
+            <Data Type="normalizedString"/>
+        </Column>
+        <Column Id="name" Use="optional">
+            <ShortName>Name</ShortName>
+            <Data Type="string"/>
+        </Column>
+        <Column Id="xcode" Use="required">
+            <ShortName>Cross Reference Code</ShortName>
+            <Data Type="normalizedString"/>
+        </Column>
+        <Key Id="codeKey">
+            <ShortName>CodeKey</ShortName>
+            <ColumnRef Ref="code"/>
+        </Key>
+    </ColumnSet>
+    <SimpleCodeList>
+        <Row>
+            <Value ColumnRef="code">
+                <SimpleValue>TD01</SimpleValue>
+            </Value>
+            <Value ColumnRef="name">
+                <SimpleValue>Fattura</SimpleValue>
+            </Value>
+            <Value ColumnRef="xcode">
+                <SimpleValue>380</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="code">
+                <SimpleValue>TD02</SimpleValue>
+            </Value>
+            <Value ColumnRef="name">
+                <SimpleValue>Acconto / anticipo su fattura</SimpleValue>
+            </Value>
+            <Value ColumnRef="xcode">
+                <SimpleValue>386</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="code">
+                <SimpleValue>TD05</SimpleValue>
+            </Value>
+            <Value ColumnRef="name">
+                <SimpleValue>Nota di debito</SimpleValue>
+            </Value>
+            <Value ColumnRef="xcode">
+                <SimpleValue>384</SimpleValue>
+            </Value>
+        </Row>
+    </SimpleCodeList>
+</gc:CodeList>

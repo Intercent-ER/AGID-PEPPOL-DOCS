@@ -1,0 +1,35 @@
+
+= Semantic data types
+
+The different semantic data types are described in the tables below, where various features such as attributes, format, and decimals as well as the basic type are defined for each semantic data type. They are based on {ISO15000}.
+
+When used in an instance document, each data element will contain data. In the below tables this is identified as the “content”. Whenever a business term is used this term shall *always* have content and therefore the content is always mandatory.
+
+
+:leveloffset: +1
+
+include::_amount.adoc[]
+
+include::_price.adoc[]
+
+include::_percentage.adoc[]
+
+include::_quantities.adoc[]
+
+include::_codes.adoc[]
+
+include::_identifier.adoc[]
+
+include::_date.adoc[]
+
+include::_time.adoc[]
+
+include::_doc-reference.adoc[]
+
+include::_text.adoc[]
+
+include::_binary.adoc[]
+
+include::_boolean.adoc[]
+
+:leveloffset: -1

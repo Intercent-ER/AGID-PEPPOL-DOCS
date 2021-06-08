@@ -1,0 +1,33 @@
+= Principi di validazione
+
+le fasi nel processo di validazione:
+
+Validazione della sintassi::
+ Per esempio:
+  * Verifica della buona formattazione (W3C well-formedness)
+  * I nomi dei Tag e gli attributi devono essere scritti correttamente e seguire la sequenza UBL 2.1
+  * Tutti gli elementi obbligatori in UBL 2.1 devono essere presenti.
+  * Il contenuto degli elementi deve aderire alla definizione dei tipi di elementi su cui si basano.
+
+Validazione in base alla {EN16931}::
+ Per verificare che l'istanza di un messaggio sia conforme allo standard europeo, come:
+  * Codici validi per le valute, paesi, tasse, etc.
+  * Elementi obbligatori secondo {EN16931}.
+  * Correlazioni logiche tra gli elementi informativi, es. la data iniziale è inferiore o uguale a quella finale, i calcoli danno il risulato coretto, etc.
+
+CIUS - regole generali::
+Le regole generali che si applicano a tutte le fatture e che sono scaturite dalla presenza di uno o più termini di business specifici.
+
+* *Esempio di testo della regola* +
+_Una fattura deve avere il riferimento della parte acquirente *oppure* un riferimento all'ordine_
+
+* *I criteri verificati dalla regola* +
+_Esistenza del Buyer reference (BT-10) *OR* Purchased order reference (BT-13)_
+
+CIUS - Regole di validazione in base al paese::
+Si applica solo alle fatture emesse in un paese specifico. La regola è innescata dal codice paese del venditore (BT-40).
+* *Esempio di testo della regola* +
+_Quando il Venditore è Svedese, il Legal Registration Number deve essere numerico con 10 cifre._
+
+* *I criteri verificati dalla regola* +
+_Esistenza di Seller/Address/CountryCode=‘SE’ *AND* esistenza di Seller/LegalRegistrationNumber_

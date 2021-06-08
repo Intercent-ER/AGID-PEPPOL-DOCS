@@ -1,0 +1,34 @@
+[[descriptions]]
+= Esempi di parti selezionate della transazione
+
+Nei paragrafi seguenti vengono riportarti esempi di parti selezionate della transazione. Si consiglia di esaminare anche la <<Detailed UBL message guideline>> per i dettagli su tutti gli elementi e gli attributi, le loro regole e l'utilizzo delle codifiche di riferimento.
+
+:leveloffset: +1
+
+
+include::_roles-and-actor.adoc[]
+
+include::_address.adoc[]
+
+include::_delivery-details.adoc[]
+
+include::references/_index.adoc[]
+
+include::_preceding-invoice.adoc[]
+
+include::_allowance.adoc[]
+
+include::_vat-currency.adoc[]
+
+include::_payment.adoc[]
+
+include::_intrastat.adoc[]
+
+include::_item.adoc[]
+
+include::_price.adoc[]
+
+include::_uom.adoc[]
+
+
+:leveloffset: -1

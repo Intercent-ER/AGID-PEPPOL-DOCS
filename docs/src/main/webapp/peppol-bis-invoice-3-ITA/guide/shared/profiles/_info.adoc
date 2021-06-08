@@ -1,0 +1,9 @@
+
+= Profili e messaggi [[profiles]]
+
+Tutti i messaggi contengono il ProfileID e il CustomizationID. Il ProfileID identifica di quale processo di business un dato messaggio è parte, e il CustomizationID identifica il tipo di messaggio e le regole applicate.
+
+I profili sono connessi ad un processo di business e possono contenere molteplici tipologie di documenti (transazioni). Istanze valide dei documenti devono contenere i corrispondenti ProfileID e CustomizationID.
+
+
+IMPORTANT: Il CustomizationID è una stringa senza spazi. La tabella seguente contiene spazi in CustomizationID al solo scopo di renderlo più leggibile. *Bisogna assicurarsi di rimuovere tutti gli spazi intermedi prima dell'uso*.

@@ -1,0 +1,11 @@
+
+[[id_schemes]]
+= Codifiche di riferimento per gli identifier schemes
+
+:leveloffset: +1
+
+include::schemes/_endpoint.adoc[]
+include::schemes/_party-id.adoc[]
+
+
+:leveloffset: -1

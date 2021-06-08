@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/">
+    <Identification>
+        <ShortName>TipoDocumento</ShortName>
+        <LongName xml:lang="it">Tipo Documento</LongName>
+        <LongName Identifier="listID">TipoDocumento FatturaPA mappato su UNCL1001</LongName>
+        <Version>1.2.1</Version>
+        <CanonicalUri>urn:fdc:agid.gov.it:fatturapa:codelist:gc:TipoDocumento</CanonicalUri>
+        <Agency>
+            <LongName xml:lang="it">AGID</LongName>
+            <Identifier>AGID</Identifier>
+        </Agency>
+    </Identification>
+    <ColumnSet>
+        <Column Id="code" Use="required">
+            <ShortName>Code</ShortName>
+            <Data Type="normalizedString"/>
+        </Column>
+        <Column Id="name" Use="optional">
+            <ShortName>Name</ShortName>
+            <Data Type="string"/>
+        </Column>
+        <Column Id="xcode" Use="required">
+            <ShortName>Cross Reference Code</ShortName>
+            <Data Type="normalizedString"/>
+        </Column>
+        <Key Id="codeKey">
+            <ShortName>CodeKey</ShortName>
+            <ColumnRef Ref="code"/>
+        </Key>
+    </ColumnSet>
+    <SimpleCodeList>
+        <Row>
+            <Value ColumnRef="code">
+                <SimpleValue>TD01</SimpleValue>
+            </Value>
+            <Value ColumnRef="name">
+                <SimpleValue>Fattura</SimpleValue>
+            </Value>
+            <Value ColumnRef="xcode">
+                <SimpleValue>380</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="code">
+                <SimpleValue>TD02</SimpleValue>
+            </Value>
+            <Value ColumnRef="name">
+                <SimpleValue>Acconto / anticipo su fattura</SimpleValue>
+            </Value>
+            <Value ColumnRef="xcode">
+                <SimpleValue>380</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="code">
+                <SimpleValue>TD03</SimpleValue>
+            </Value>
+            <Value ColumnRef="name">
+                <SimpleValue>Acconto / anticipo su parcella</SimpleValue>
+            </Value>
+            <Value ColumnRef="xcode">
+                <SimpleValue>380</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="code">
+                <SimpleValue>TD04</SimpleValue>
+            </Value>
+            <Value ColumnRef="name">
+                <SimpleValue>Nota di credito</SimpleValue>
+            </Value>
+            <Value ColumnRef="xcode">
+                <SimpleValue>381</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="code">
+                <SimpleValue>TD05</SimpleValue>
+            </Value>
+            <Value ColumnRef="name">
+                <SimpleValue>Nota di debito</SimpleValue>
+            </Value>
+            <Value ColumnRef="xcode">
+                <SimpleValue>380</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="code">
+                <SimpleValue>TD06</SimpleValue>
+            </Value>
+            <Value ColumnRef="name">
+                <SimpleValue>Parcella</SimpleValue>
+            </Value>
+            <Value ColumnRef="xcode">
+                <SimpleValue>380</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="code">
+                <SimpleValue>TD16</SimpleValue>
+            </Value>
+            <Value ColumnRef="name">
+                <SimpleValue>Integrazione fattura reverse charge interno</SimpleValue>
+            </Value>
+            <Value ColumnRef="xcode">
+                <SimpleValue>380</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="code">
+                <SimpleValue>TD17</SimpleValue>
+            </Value>
+            <Value ColumnRef="name">
+                <SimpleValue>Integrazione/autofattura per acquisto servizi dall'estero</SimpleValue>
+            </Value>
+            <Value ColumnRef="xcode">
+                <SimpleValue>380</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="code">
+                <SimpleValue>TD18</SimpleValue>
+            </Value>
+            <Value ColumnRef="name">
+                <SimpleValue>Integrazione per acquisto di beni intracomunitari</SimpleValue>
+            </Value>
+            <Value ColumnRef="xcode">
+                <SimpleValue>380</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="code">
+                <SimpleValue>TD19</SimpleValue>
+            </Value>
+            <Value ColumnRef="name">
+                <SimpleValue>Integrazione/autofattura per acquisto di beni ex art.17 c.2 DPR 633/72</SimpleValue>
+            </Value>
+            <Value ColumnRef="xcode">
+                <SimpleValue>380</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="code">
+                <SimpleValue>TD20</SimpleValue>
+            </Value>
+            <Value ColumnRef="name">
+                <SimpleValue>Autofattura per regolarizzazione e integrazione delle fatture (ex art.6 c.8 d.lgs. 471/97  o  art.46 c.5 D.L. 331/93)</SimpleValue>
+            </Value>
+            <Value ColumnRef="xcode">
+                <SimpleValue>380</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="code">
+                <SimpleValue>TD21</SimpleValue>
+            </Value>
+            <Value ColumnRef="name">
+                <SimpleValue>Autofattura per splafonamento</SimpleValue>
+            </Value>
+            <Value ColumnRef="xcode">
+                <SimpleValue>380</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="code">
+                <SimpleValue>TD22</SimpleValue>
+            </Value>
+            <Value ColumnRef="name">
+                <SimpleValue>Estrazione beni da Deposito IVA</SimpleValue>
+            </Value>
+            <Value ColumnRef="xcode">
+                <SimpleValue>380</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="code">
+                <SimpleValue>TD23</SimpleValue>
+            </Value>
+            <Value ColumnRef="name">
+                <SimpleValue>Estrazione beni da Deposito IVA con versamento dell'IVA</SimpleValue>
+            </Value>
+            <Value ColumnRef="xcode">
+                <SimpleValue>380</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="code">
+                <SimpleValue>TD24</SimpleValue>
+            </Value>
+            <Value ColumnRef="name">
+                <SimpleValue>Fattura differita di cui all'art. 21, comma 4, lett. a)</SimpleValue>
+            </Value>
+            <Value ColumnRef="xcode">
+                <SimpleValue>380</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="code">
+                <SimpleValue>TD25</SimpleValue>
+            </Value>
+            <Value ColumnRef="name">
+                <SimpleValue>Fattura differita di cui all'art. 21, comma 4, terzo periodo lett. b)</SimpleValue>
+            </Value>
+            <Value ColumnRef="xcode">
+                <SimpleValue>380</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="code">
+                <SimpleValue>TD26</SimpleValue>
+            </Value>
+            <Value ColumnRef="name">
+                <SimpleValue>Cessione di beni ammortizzabili e per passaggi interni (ex art.36 DPR 633/72)</SimpleValue>
+            </Value>
+            <Value ColumnRef="xcode">
+                <SimpleValue>380</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="code">
+                <SimpleValue>TD27</SimpleValue>
+            </Value>
+            <Value ColumnRef="name">
+                <SimpleValue>Fattura per autoconsumo o per cessioni gratuite senza rivalsa</SimpleValue>
+            </Value>
+            <Value ColumnRef="xcode">
+                <SimpleValue>380</SimpleValue>
+            </Value>
+        </Row>
+    </SimpleCodeList>
+</gc:CodeList>

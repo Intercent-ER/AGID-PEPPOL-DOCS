@@ -1,0 +1,28 @@
+
+= Information about taxes
+
+The follwing paragrapghs describe several information about taxes that can be provided with this BIS. 
+"Tax" refers to VAT (IVA in Italy), GST or Sales Tax, according to the field of application.
+
+Please also see link:../../../../../../xml/ITA/peppol-bis-3/codelist/UNCL5305.html[UNCL5305] for details on the TAX category code list, and <<vat-calc>> for detailed explanation and example on how to perform the calculations for TAX Breakdown.
+
+:leveloffset: +1
+
+include::../../shared/files/_vat-cat-line.adoc[]
+
+:leveloffset: -1
+
+== TAX info for allowance or charge
+
+Document level allowance/charge is stated using the UBL element `cac:AllowanceCharge`. Further details on allowance and charge can be found in <<anchor-8,Allowances and Charges.>>
+
+Each document level charge or allowance must have the Document level allowance or charge TAX category code, and for all TAX categories except when tax category indicates that the invoice is not subject to TAX (e.g. (O) in EU), then the TAX rate shall be provided.
+
+.UBL Example of a charge with tax category information, when the TAX is VAT.
+[source, xml, indent=0]
+----
+include::../snippets/snippet-oa-vat.xml[tags=vat-allowance]
+----
+<1> The class `cac:TaxCategory` is used for tax category information
+<2> TAX category according to codelist link:../../../../../../xml/ITA/peppol-bis-3/codelist/UNCL5305.html[UNCL5305]
+<3> TAX rate

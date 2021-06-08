@@ -1,0 +1,20 @@
+
+[[Codice-Trattamento-linea-DDT]]
+= #Special treatment (line level)#
+
+In some cases, a part of the shipping may need a special treatment, such as the refrigeration of the goods.
+
+The element *cbc:HandlingCode* on the line level, in Shipment segment, can be used as the example below:
+
+.Example
+[source, xml, indent=0]
+----
+<cac:DespatchLine>
+	<cac:Shipment>
+		<cbc:HandlingCode>11</cbc:HandlingCode>
+	</cac:Shipment>
+</cac:DespatchLine>
+----
+
+Use the codelist “HandlingInstructionDescriptionCode” ({UNCL4079}) available in the codelists section.
+

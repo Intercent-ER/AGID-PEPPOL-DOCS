@@ -1,0 +1,6 @@
+[[namespaces]]
+= Namespaces
+
+include::../{order}/technical/_namespace.adoc[]
+
+include::../{order-resp}/technical/_namespace.adoc[]

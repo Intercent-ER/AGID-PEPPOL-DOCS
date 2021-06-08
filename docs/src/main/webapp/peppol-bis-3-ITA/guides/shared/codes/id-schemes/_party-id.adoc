@@ -1,0 +1,16 @@
+
+
+= Identificatori delle parti e schema identificatore delle parti legali registrate
+
+Tutti gli identificatori delle parti (`cac:PartyIdentification/cbc:ID`) e gli identificatori delle parti legali registrate (`cac:PartyLegalEntity/cbc:CompanyID`) hanno uno attributo facoltativo per lo schema dell'identificatore (`@schemeID`).
+Se utilizzato, il valore deve essere scelto tra i codici presenti nella link:../../../../../../xml/ITA/peppol-bis-3/codelist/ICD.html[Codifica ICD]
+
+
+.Esempio di utilizzo di `cac:PartyIdentification`
+[source,xml, indent="0"]
+----
+<cac:PartyIdentification>
+	<cbc:ID schemeID="0210">01598570354</cbc:ID> <1>
+</cac:PartyIdentification>
+----
+<1> L’attributo schemeID è facoltativo, se utilizzato, i codici devono essere presenti nella link:../../../../../../xml/ITA/peppol-bis-3/codelist/ICD.html[Codifica ICD].

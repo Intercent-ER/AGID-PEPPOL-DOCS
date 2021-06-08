@@ -1,0 +1,241 @@
+[[order-response-with-changes]]
+= Order response with changes
+
+* When Seller accepts an order with changes, the response code «CA» must be sent on header level.
+* On line level there may be a mix of different response codes.
+* Some lines may have been accepted without amendments (line response code 5), some not accepted (line response code 7) and some changed (line response code 3).
+
+* If line response code = 3, the elements to be changed must be sent with new values.
+
+** The following elements can be changed:
+
+*** Quantity
+*** Delivery period
+*** Replacement item
+*** Price
+
+.Example of change of quantity in an Order Response message:
+[source, xml, indent=0]
+----
+<ubl:Order>
+...
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>4</cbc:ID>
+        <cbc:Quantity unitCode="C62">30</cbc:Quantity>
+        <cbc:LineExtensionAmount currencyID="EUR">60.00</cbc:LineExtensionAmount>
+        <cbc:PartialDeliveryIndicator>true</cbc:PartialDeliveryIndicator>
+        <cbc:AccountingCost>ProjectID123</cbc:AccountingCost>
+        <cac:Delivery>
+            <cac:DeliveryLocation>
+            ....
+             </cac:DeliveryLocation>
+            <cac:RequestedDeliveryPeriod>
+                <cbc:StartDate>2018-06-30</cbc:StartDate>
+                <cbc:EndDate>2018-06-30</cbc:EndDate>
+            </cac:RequestedDeliveryPeriod>
+            <cac:DeliveryParty>
+            ...
+            </cac:DeliveryParty>
+        </cac:Delivery>
+        <cac:Price>
+            <cbc:PriceAmount currencyID="EUR">2.00</cbc:PriceAmount>
+            <cbc:BaseQuantity unitCode="C62">1</cbc:BaseQuantity>
+        </cac:Price>
+        <cac:Item>
+            <cbc:Description>Descrizione</cbc:Description>
+            <cbc:Name>Salviette per bambini</cbc:Name>
+            <cac:SellersItemIdentification>
+                <cbc:ID>SItemNo011</cbc:ID>
+            </cac:SellersItemIdentification>
+            <cac:StandardItemIdentification>
+                <cbc:ID schemeID="0160">05704368876486</cbc:ID>
+            </cac:StandardItemIdentification>
+            <cac:CommodityClassification>
+                <cbc:ItemClassificationCode listID="STI">56789</cbc:ItemClassificationCode>
+            </cac:CommodityClassification>
+            ...
+        </cac:Item>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+
+
+.Example of change of quantity in an Order Response message:
+[source, xml, indent=0]
+----
+<ubl:OrderResponse>
+...
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>4</cbc:ID>
+        <cbc:LineStatusCode>3</cbc:LineStatusCode>
+        <cbc:Quantity unitCode="C62">18</cbc:Quantity>
+        <cac:Item>
+            <cbc:Name>Salviette umide per bambini</cbc:Name>
+            <cac:SellersItemIdentification>
+                <cbc:ID>SN-35</cbc:ID>
+            </cac:SellersItemIdentification>
+        </cac:Item>
+    </cac:LineItem>
+    <cac:OrderLineReference>
+        <cbc:LineID>4</cbc:LineID>
+    </cac:OrderLineReference>
+</cac:OrderLine>
+----
+
+.Example of change of quantity and delivery period in an Order Response message:
+[source, xml, indent=0]
+----
+<ubl:OrderResponse>
+...
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>4</cbc:ID>
+        <cbc:LineStatusCode>3</cbc:LineStatusCode>
+        <cbc:Quantity unitCode="C62">18</cbc:Quantity>
+        <cac:Delivery>
+            <cac:PromisedDeliveryPeriod>
+                <cbc:StartDate>2018-07-15</cbc:StartDate>
+                <cbc:EndDate>2018-07-15</cbc:EndDate>
+            </cac:PromisedDeliveryPeriod>
+        </cac:Delivery>
+        <cac:Item>
+            <cbc:Name>Salviette umide per bambini</cbc:Name>
+            <cac:SellersItemIdentification>
+                <cbc:ID>SN-35</cbc:ID>
+            </cac:SellersItemIdentification>
+        </cac:Item>
+    </cac:LineItem>
+    <cac:OrderLineReference>
+        <cbc:LineID>4</cbc:LineID>
+    </cac:OrderLineReference>
+</cac:OrderLine>
+----
+
+NOTE:  It is possible to send more than one Order Response line per Order line.
+
+
+For the same order line therefore we add another change to the quantity and to the delivery period, as shown in the example above.
+
+[source, xml, indent=0]
+----
+<ubl:OrderResponse>
+...
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>5</cbc:ID>
+        <cbc:LineStatusCode>1</cbc:LineStatusCode>
+        <cbc:Quantity unitCode="C62">12</cbc:Quantity>
+        <cac:Delivery>
+            <cac:PromisedDeliveryPeriod>
+                <cbc:StartDate>2018-08-15</cbc:StartDate>
+                <cbc:EndDate>2018-08-15</cbc:EndDate>
+            </cac:PromisedDeliveryPeriod>
+        </cac:Delivery>
+        <cac:Item>
+            <cbc:Name>Salviette umide per bambini</cbc:Name>
+            <cac:SellersItemIdentification>
+                <cbc:ID>SN-35</cbc:ID>
+            </cac:SellersItemIdentification>
+        </cac:Item>
+    </cac:LineItem>
+    <cac:OrderLineReference>
+        <cbc:LineID>4</cbc:LineID>
+    </cac:OrderLineReference>
+</cac:OrderLine>
+----
+
+The effect of the two Order response lines above should be interpreted as follows:
+
+* Order line 4 will be delivered on two dates:
+** 18 pieces on 15^th^ of July and
+** 12 pieces on the 15^th^ of August.
+
+
+
+.Example of Replacement item in an Order Response message:
+[source, xml, indent=0]
+----
+<ubl:OrderResponse>
+...
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>4</cbc:ID>
+        <cbc:LineStatusCode>3</cbc:LineStatusCode>
+        <cac:Item>
+            <cbc:Name>Salviette umide per bambini</cbc:Name>
+            <cac:SellersItemIdentification>
+                <cbc:ID>SItemNo011</cbc:ID>
+            </cac:SellersItemIdentification>
+            <cac:StandardItemIdentification>
+                <cbc:ID schemeID="0160">05704368876486</cbc:ID>
+            </cac:StandardItemIdentification>
+            <cac:CommodityClassification>
+                <cbc:ItemClassificationCode listID="STI">56789</cbc:ItemClassificationCode>
+            </cac:CommodityClassification>
+        </cac:Item>
+    </cac:LineItem>
+    <cac:SellerSubstitutedLineItem> <1> 
+        <cbc:ID>4</cbc:ID>
+        <cac:Item>
+            <cbc:Name>Salviette umide per adulti</cbc:Name>
+            <cac:SellersItemIdentification>
+                <cbc:ID>SItemNo012</cbc:ID>
+            </cac:SellersItemIdentification>
+            <cac:StandardItemIdentification>
+                <cbc:ID schemeID="0160">05704368643453</cbc:ID>
+            </cac:StandardItemIdentification>
+            <cac:CommodityClassification>
+                <cbc:ItemClassificationCode listID="STI">675634</cbc:ItemClassificationCode>
+            </cac:CommodityClassification>
+        </cac:Item>
+    </cac:SellerSubstitutedLineItem>
+    <cac:OrderLineReference>
+        <cbc:LineID>4</cbc:LineID>
+    </cac:OrderLineReference>
+</cac:OrderLine>
+----
+
+<1> Information on the replacement item is sent in `cac:SellerSubstitutedLineItem`
+
+
+.Example of change of price in an Order Response message:
+[source, xml, indent=0]
+----
+<ubl:OrderResponse>
+...
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>4</cbc:ID>
+        <cbc:Note>Merce Modificata nel Prezzo</cbc:Note>
+        <!--Riga accettata con modifica-->
+        <cbc:LineStatusCode>3</cbc:LineStatusCode>
+        <cbc:Quantity unitCode="C62">30</cbc:Quantity>
+        <cac:Delivery>
+            <cac:PromisedDeliveryPeriod>
+                <cbc:StartDate>2018-06-30</cbc:StartDate>
+                <cbc:EndDate>2018-06-30</cbc:EndDate>
+            </cac:PromisedDeliveryPeriod>
+        </cac:Delivery>
+        <cac:Price>
+            <cbc:PriceAmount currencyID="EUR">3.00</cbc:PriceAmount>
+        </cac:Price>
+        <cac:Item>
+            <cbc:Name>Salviette umide per bambini</cbc:Name>
+            <cac:SellersItemIdentification>
+                <cbc:ID>SItemNo011</cbc:ID>
+            </cac:SellersItemIdentification>
+            <cac:StandardItemIdentification>
+                <cbc:ID schemeID="0160">05704368876486</cbc:ID>
+            </cac:StandardItemIdentification>
+            <cac:CommodityClassification>
+                <cbc:ItemClassificationCode listID="STI">56789</cbc:ItemClassificationCode>
+            </cac:CommodityClassification>
+        </cac:Item>
+    </cac:LineItem>
+    <cac:OrderLineReference>
+        <cbc:LineID>4</cbc:LineID>
+    </cac:OrderLineReference>
+</cac:OrderLine>
+----

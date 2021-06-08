@@ -1,0 +1,54 @@
+[[antiblastici]]
+== #Advances example in the Health sector: anablastics drugs#
+
+In case it is necessary to identify in a more precise way the hazardous items, it is possibile to provide further information, such as:
+
+* Hazardous item identifier, according to the NDGCode convention;
+* Hazardous item technical name;
+* Hazardous item category.
+
+In the case of hazardous item road transport (e.g. anablastics) the convention ADR is used, which defines the Hazard classes and identifies each substance with an UN Number.
+
+In the table below, the most used identifiers and the related hazard classes for anablastics transportation are provided:
+
+.Hazard classes
+[width="100%", cols="2h,3m,1m"]
+|===
+| *UN number*
+| *UN denomination*
+| *Hazard class*
+
+| UN 1851
+| Medicine, liquid, toxic, n.o.s
+| 6.1
+
+| UN 3248
+| Medicine, liquid, flammable, toxic, n.o.s
+| 3
+
+| UN 3249
+| Medicine, solid, toxic, n.o.s
+| 6.1
+|===
+
+For further clarifications, see the example below.
+
+.Example of anablastics drugs
+[source, xml, indent=0]
+----
+include::{snippet-dir}/snippet-30-3.xml[tags=antiblastici]
+----
+
+The example above denotes the use of:
+
+<1> UN identifier (UN Number) assigned to the substance: 3249
+<2> The convention: ADR (European agreement on the international carriage of dangerous goods on road) according to the codelist UNCL8273 (Dangerous goods regulations code)
+<3> Technical name of the medicinal: Medicine, solid, toxic, n.o.s
+<4> Category of the medicinal: ANTIBLASTICI
+<5> Hazard class
+
+UN Numbers are available in the following tool:
+
+{link-hazmattool}
+ 
+

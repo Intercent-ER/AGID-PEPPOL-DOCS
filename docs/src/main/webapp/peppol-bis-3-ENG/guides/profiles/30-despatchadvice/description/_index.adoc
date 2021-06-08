@@ -1,0 +1,50 @@
+[[description-of-selected-parts-of-the-despatch-advice-message]]
+= Description of selected parts of the despatch advice message
+
+:leveloffset: +1
+
+include::_parties.adoc[]
+
+include::_orderreference.adoc[]
+
+//include::../custom/_altririferimenti.adoc[]
+
+include::_shipment.adoc[]
+
+:leveloffset: -1
+
+[[despatch-line]]
+= Despatch line
+
+Description of items that are being despatched.
+
+:leveloffset: +1
+
+include::_itemdescription.adoc[]
+
+include::_outstandingquantity.adoc[]
+
+include::_hazardous.adoc[]
+
+include::../custom/_antiblastici.adoc[]
+
+include::_itemproperties.adoc[]
+
+include::_serialnumber.adoc[]
+
+include::_batchnumber.adoc[]
+
+include::../custom/_scadenzafarmaci.adoc[]
+
+include::_transporthandlingunit.adoc[]
+
+include::../custom/_infoaggiuntive.adoc[]
+
+include::../custom/_confezionamento.adoc[]
+
+include::../custom/_particolaretrattamento.adoc[]
+
+include::../custom/_specifichepartitamerce.adoc[]
+
+:leveloffset: -1
+

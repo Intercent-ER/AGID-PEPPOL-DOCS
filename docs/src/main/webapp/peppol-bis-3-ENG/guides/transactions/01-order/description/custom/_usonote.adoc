@@ -1,0 +1,18 @@
+[[use-of-notes]]
+= #Use of the elements "Note"#
+
+
+When there is the necessity to provide particular information, it is possible to valorize with free-form text the elementes “Note” present at various points of the Documents data's schemes. +
+
+In particular, with referecence to the element “Note” in the segment “PaymentTerms”, it is recommended to indicate the number of days since the invoice was issued. The absence of any indications means that valid terms established by current legislation are taken into account.
+
+.Example
+[source, xml, indent=0]
+----
+<cac:PaymentTerms>
+    <cbc:Note>30 giorni fattura</cbc:Note>
+</cac:PaymentTerms>
+----
+
+
+IMPORTANT: As a general rule, it is recommended using the textual notes only if absolutely necessary and in absence of other elements that may contain the same information.

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeList xmlns="urn:fdc:difi.no:2017:vefa:structure:CodeList-1">
+
+    <Title>Document Status Code</Title>
+    <Identifier>DocumentStatusCode</Identifier>
+    <Version>2.1</Version>
+    <Agency>OASIS Universal Business Language</Agency>
+  
+    <Code>
+        <Id>Cancelled</Id>
+        <Name>Document has been cancelled</Name>
+    </Code>
+    
+    <Code>
+        <Id>Disputed</Id>
+        <Name>Document is disputed</Name>
+    </Code>
+    
+    <Code>
+        <Id>NoStatus</Id>
+        <Name>No status on document</Name>
+    </Code>
+    
+    <Code>
+        <Id>Revised</Id>
+        <Name>Document has been revised</Name>
+    </Code>
+    
+    <Code>
+        <Id>Confirmed</Id>
+        <Name>Document has been confirmed</Name>
+    </Code>
+       
+    <Code>
+        <Id>NotConfirmed</Id>
+        <Name>Document has not been confirmed</Name>
+    </Code>
+    
+    <Code>
+        <Id>Rejected</Id>
+        <Name>Document has been rejected</Name>
+    </Code>
+    
+    <Code>
+        <Id>Completed</Id>
+        <Name>Document has been completed</Name>
+    </Code>
+
+
+</CodeList>

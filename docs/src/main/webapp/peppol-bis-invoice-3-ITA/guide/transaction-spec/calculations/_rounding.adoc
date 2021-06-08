@@ -1,0 +1,13 @@
+
+= Arrotondamenti
+
+Per ridurre al minimo il rischio di difformità dovute agli arrotondamenti, si applicano le seguenti regole:
+
+[IMPORTANT]
+====
+* Tutti gli importi a livello di documento devono essere arrotondati a due decimali
+* L'importo netto delle righe di fattura deve essere arrotondato a due cifre decimali
+* Risultati di calcoli che coinvolgono importi già arrotondati non sono soggetti ad ulteriore arrotondamento, come gli importi da pagare e i totali inclusi IVA
+====
+
+Consultare anche il capitolo <<Calcoli>> per ulteriori dettagli su come calcolare differenti tipologie di importi.

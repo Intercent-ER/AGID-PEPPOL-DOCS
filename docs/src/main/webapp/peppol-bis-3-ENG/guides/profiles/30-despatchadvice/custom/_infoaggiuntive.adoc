@@ -1,0 +1,37 @@
+[[infoaggiuntive]]
+= #Additional information (free items or discounts)#
+
+It is possibile to utilize the element *cbc:AdditionalInformation* to provide additional information about free items or discounts on the line level, as shown in the example below:
+
+.Example of a free article
+[source, xml, indent=0]
+----
+<cbc:DespatchLine>
+	<cbc:ID>3</cbc:ID>
+	<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
+	<cbc:DeliveredQuantity unitCode="SR">20</cbc:DeliveredQuantity>
+	…
+	<cac:Item>
+		<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
+		<cbc:Name>Striscie per glucosio</cbc:Name>
+		<cbc:AdditionalInformation>OMAGGIO</cbc: AdditionalInformation>
+	</cac:Item>
+</cbc:DespatchLine>
+----
+
+
+.Example of a discounted article
+[source, xml, indent=0]
+----
+<cbc:DespatchLine>
+	<cbc:ID>3</cbc:ID>
+	<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
+	<cbc:DeliveredQuantity unitCode="SR">20</cbc:DeliveredQuantity>
+	…
+	<cac:Item>
+		<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
+		<cbc:Name>Striscie per glucosio</cbc:Name>
+		<cbc:AdditionalInformation>SCONTO MERCE</cbc: AdditionalInformation>
+	</cac:Item>
+</cbc:DespatchLine>
+----

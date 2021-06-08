@@ -1,0 +1,20 @@
+
+
+= Codifiche di riferimento dell'ordine
+
+:leveloffset: +1
+
+include::elements/_order-type.adoc[]
+
+include::elements/_currency-code.adoc[]
+
+include::elements/_media-types.adoc[]
+
+include::elements/_country.adoc[]
+
+include::elements/_uom.adoc[]
+
+include::../../../shared/codes/_vat-category.adoc[]
+
+
+:leveloffset: -1

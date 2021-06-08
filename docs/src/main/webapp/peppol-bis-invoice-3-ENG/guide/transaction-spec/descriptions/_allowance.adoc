@@ -1,0 +1,27 @@
+
+= Sconti e maggiorazioni
+
+L'elemento `cac:AllowanceCharge` con il sotto elemento `cbc:ChargeIndicator` indica se siamo in presenza di una maggiorazione (true) o di uno sconto (false).
+
+Gli elementi informativi relativi agli sconti e maggiorazioni si trovano in tre livelli:
+
+Il livello di testata:: _Il livello di testata si applica a tutta la fattura ed è incluso quindi nel calcolo del suo totale._
+* Possono essere indicati diversi sconti e maggiorazioni
+* L’IVA/VAT relativa a sconti e maggiorazioni deve essere specificata attraverso l'elemento `cac:TaxCategory` e i suoi sotto elementi.
+* La somma di tutti gli sconti e maggiorazioni a livello di testata deve essere specificata rispettivamente in `cbc:AllowanceTotalAmount` e `cbc:ChargeTotalAmount`. Vedi <<totals>>
+
+Il livello di riga:: _Il livello di riga si applica alle sole righe ed è incluso nel calcolo dell’importo di riga._
+* Possono essere indicati diversi sconti e maggiorazioni
+* L’IVA/VAT relativa a sconti e maggiorazioni non deve essere specificata, in quanto la categoria VAT/IVA fornita sulla stessa riga fattura si applica anche agli sconti/maggiorazioni della riga.
+* Quando si calcola il totale della riga fattura bisogna tenere conto della somma di tutti gli sconti e maggiorazioni sulla stessa riga e sottraendola o sommandola opportunamente. Questi sconti e maggiorazioni a livello di riga non devono essere calcolati a livello di testata.
+
+L'elemento Price all’interno del prezzo (elemento Price):: _Le informazioni sugli sconti e maggiorazioni a questo livello potrebbero essere fornite per informare l’acquirente su come è composto il prezzo. E’ inoltre importante nel caso in cui il fornitore o l’acquirente desiderano importare le informazioni sugli sconti e maggiorazioni nel loro sistema contabile.  Il prezzo deve essere sempre netto, es. l’importo base ridotto/incrementato dal quello dello sconto/maggiorazione._
+* Solo un'occorrenza dello sconto è permessa.
+* L’IVA/VAT relativa a sconti non deve essere specificata.
+* Gli sconti relativi al prezzo (elemento Price) non dovranno essere parte di qualsiasi altro calcolo.
+* Gli sconti e maggiorazioni relativi al prezzo possono specificare l’importo (AllowanceCharge/Amount) e l’importo base.
+
+Dettagli ulteriori sul calcolo degli sconti/maggiorazioni sono disponibili presso <<allowance-calc>>
+
+include::../../syntax/_allowance.adoc[]
+include::../../syntax/_allowance-line.adoc[]

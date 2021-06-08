@@ -1,0 +1,9 @@
+
+.Currency identifiers
+[cols="1,4"]
+|===
+h| Percorso nel documento
+| `cbc:*/@currencyID`
+h| Sorgente della codifica
+| {ISO4217}
+|===

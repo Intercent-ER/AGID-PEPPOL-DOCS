@@ -1,0 +1,8 @@
+
+[cols="1,4"]
+|===
+h| Percorso nel documento
+| `cac:InvoicePeriod/cbc:DescriptionCode`
+h| Sorgente della codifica
+| {UNCL2005}
+|===

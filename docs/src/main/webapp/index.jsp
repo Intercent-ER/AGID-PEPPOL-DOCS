@@ -4,7 +4,7 @@
     %><!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Specifiche PEPPOL 3</title>
+        <title>PEPPOL BIS versione 3</title>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -23,7 +23,7 @@
         <script>
             //<![CDATA[
             $(function () {
-                const VER = "53";    // Math.random()*1000000
+                const VER = "56";    // Math.random()*1000000
                 var $body = $("body"), $main = $("#main"), $guide = $("#guide").hide(), $adoc = $("#adoc-viewer"), $loader = $("#loader");
                 var defBis = "peppol-bis-3";
 
@@ -37,6 +37,7 @@
                     $("#stylesheet-menu").load(bisRef + '/menu/stylesheet-menu.html?v=' + VER + ' .dropdown-menu > li');
                     $("#codelist-menu").load(bisRef + '/menu/codelist-menu.html?v=' + VER + ' .dropdown-menu > li');
                     // Home List
+					$("#jumbo-list").load(bisRef + '/menu/jumbo-list.html?v=' + VER + ' .list-group > a');
                     $("#intro-list").load(bisRef + '/menu/intro-list.html?v=' + VER + ' .list-group > a');
                     $("#bis-list").load(bisRef + '/menu/bis-list.html?v=' + VER + ' .list-group > a');
                     $("#syntax-list").load(bisRef + '/menu/syntax-list.html?v=' + VER + ' .list-group > a');
@@ -266,7 +267,7 @@
                     <ul class="nav navbar-nav">
                         <li class="btn-group" id="peppol-bis">
                             <button type="button" class="btn btn-primary btn-agid" style="margin-top: 8px;">PEPPOL BIS 3 (altri processi)</button>
-                            <button type="button" class="btn btn-primary dropdown-toggle btn-agid" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 8px;">
+                            <button type="button" class="btn btn-primary dropdown-toggle btn-agid dropdown-alignment" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 8px;">
                                 <span class="caret"></span>
                                 <span class="sr-only">Toggle Dropdown</span>
                             </button>
@@ -307,10 +308,15 @@
         <div id="main" class="container">
 
             <div class="page-header">
-                <h1>Indice : <span id="home-title"></span></h1>
+                <h1>Indice: <span id="home-title"></span></h1>
             </div>
 
             <dl class="dl-horizontal">
+                <dd>
+                    <div class="list-group" id="jumbo-list">
+                    </div>
+                </dd>
+
 
                 <dt>Note di Rilascio</dt>
                 <dd>

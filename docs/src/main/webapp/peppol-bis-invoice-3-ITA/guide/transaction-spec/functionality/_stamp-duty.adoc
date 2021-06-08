@@ -1,0 +1,32 @@
+
+= Marca da Bollo
+
+Se la fattura è soggetta alla marca da bollo questa non deve contenere IVA, l'importo deve essere superiore a 77,47 EURO e nel riepilogo delle imposte deve menzionare la relativa norma 'cac:TaxSubtotal/cac:TaxCategory/cbc:TaxExemptionReason'.
+
+[IMPORTANT]
+
+====
+Bollo assolto ai sensi del decreto MEF 17 giugno 2014 (art. 6)
+====
+
+L'emittente fattura può decidere se:
+[loweralpha]
+. effettuare la rivalsa dell'imposta di bollo (B2B) indicando una maggiorazione a livello di testata nell'elemento 'cac:AllowanceCharge/cbc:Amount'.
+. non effettuare la rivalsa (B2G) menzionando l'importo del bollo a livello di testata nell'elemento 'cac:AllowanceCharge/cbc:BaseAmount' e  ponendo 'cac:AllowanceCharge/cbc:MultiplierFactorNumeric' = 1. 
+
+.Esempio UBL di imposta di bollo
+[source, xml, indent=0]
+----
+include::../{snippet-dir}/Esempio-Fattura-Professionista-Minimi-con-Cassa-Ritenuta-e-Bollo.xml[tags=bollo]
+----
+<1> Codice della maggiorazione posto a 'SAE' (stamping) secondo la codifica UNCL7161.
+<2> Il motivo della maggiorazione posto a 'IT:BOLLO'.
+<3> L'importo del bollo se rifatturato al cliente, oppure 0.00
+<4> L'importo base del bollo (es. 2.00)
+
+[source, xml, indent=0]
+----
+include::../{snippet-dir}/Esempio-Fattura-Professionista-Minimi-con-Cassa-Ritenuta-e-Bollo.xml[tags=riepilogo-bollo]
+----
+<1> La categoria d'imposta 'E' (esente) o 'O' (fuori ambito).
+<2> La norma relativa all'assolvimento dell'imposta di bollo.

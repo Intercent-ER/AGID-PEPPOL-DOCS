@@ -1,0 +1,162 @@
+[[tipologia-documento]]
+= #Type of Document#
+
+
+The Documents, which constitute the body of the message, contain the instructions that Buyers and Sellers exchange to settle the provision of goods and services.
+
+The following table lists documents documents sub-types and variants of the Order and described in the paragraphs that follows.
+
+See paragraph 7.3.1 for compilation rules.
+
+
+[width="100%", cols="2,3,3", options="header"]
+|===
+
+^.^|*Type of Document* 
+^.^|*Sub-types*
+^.^|*Variants* 
+
+
+.3+^.^|*Ordine (Order)* 
+.3+.^| Ordine di riscontro (Confirmation Order) | Confirmation Order to approve| Confirmation Order to reject | Confirmation Order to substitute 
+
+
+.8+^.^|*Ordine Pre-concordato (Order Agreement)* 
+| Ordine Pre-concordato inziale (Initial Order Agreement)| -
+| Ordine Pre-concordato di revoca (Revocation Order Agreement)| -  
+| Ordine Pre-concordato sostitutivo (Replacement Order Agreement)| -
+| Ordine Pre-concordato collegato (Connected Order Agreement) | - 
+| Ordine Pre-concordato di convalida (Validation Order Agreement)| - 
+
+
+|===
+
+
+*[red]#Confirmation Order#*
+
+The *Confirmation Order* is a particular Order Document sub-type with which the Buyer (sender) approve, reject or susbtitute a Response sent by the Seller (receiver).
+
+The Confirmation Order takes on the following variants: +
+
+*  The _Confirmation Order to approve_ is an Order containing the indication that it is a confirmation (“Accepted”) and the reference to the Response that is intended to be confirmed. This Order contains only one empty order line.
+* The _Confirmation Order to reject_ is an Order containing the indication that it is a refusal (“Cancelled”) and the reference to the Response that is intended to be rejected. This Order contains only one empty order line.
+* The _Confirmation Order to substitute_ is a new Order, complete of all the order lines and contains the indication that it's a substitution (“Revised”) and the reference to the Response that is intended to be replaced. +
+
+
+[NOTE]
+_Confirmation Order to substitute_ and _Confirmation Order to reject_, respectively, replaces and cancels the Response specified therein and all the other Replacement Order/s and Revocation Order/s already transmitted, related to the Initial Order.
+
+
+.Example of a Confirmation Order to reject
+[source, xml, indent=0]
+----
+<cbc:CustomizationID>urn:fdc:peppol.eu:poacc:trns:order:3 :restrictive:urn:www.agid.gov.it:trns:ordine:3.1<cbc:CustomizationID>
+<cbc:ProfileID>urn:fdc:peppol.eu:poacc:bis:order_only:3</cbc:ProfileID>
+<cbc:ID>460</cbc:ID>
+<cbc:IssueDate>2018-03-15<cbc:IssueDate>
+…
+<cac:OrderDocumentReference>
+    <cbc:ID>380#2018-02-16#ITccccccccccc#Cancelled</cbc:ID>
+</cac:OrderDocumentReference>
+…
+<cac:BuyerCustomerParty>
+    <cac:Party>
+        <cbc:EndpointID schemeID="0201”>ABCDEF</cbc:EndpointID>
+    </cac:Party>
+</cac:BuyerCustomerParty>
+…
+<cac:SellerSupplierParty>
+    <cac:Party>
+        <cbc:EndpointID schemeID="0211">ITddddddddddd</cbc:EndpointID>
+    </cac:Party>
+</cac:SellerSupplierParty>
+…
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>NA</cbc:ID>
+        <cbcQuantity unitCode="C62">0</cbc:Quantity>
+        <cac:Item>
+           <cbc:Name>NA</cbc:Name>
+        </cbc:Item>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+
+
+*[red]#Revocation Order Agreement#*
+
+For some circumstances, the revocation of a previosly issued Order may be useful. +
+
+The *Revocation Order Agreement* is an Order Agreement that contains the reference another Order Agreement that is intended to revoke and the indication that convey this information (“Cancelled”), also it has only one order line empty.
+
+See paragraph 6.12 for compilation rules.
+
+
+*[red]#Replacement Order Agreement#*
+
+Where appropriate, the instructions contain into an Order Agreement can be modified through the issuance of a *Replacement Order Agreement*. However, unless otherwise prescribed by regulations, commercial use or agreement between the parties, the Seller is required to consider as effective only the replacement of Orders received before the execution of the supply. 
+
+The Replacement Order Agreement is a new Order, complete with all the order lines and contains the reference to the Order Agreement that is intended to be replaced with the indication that it's a "substitution" (“Revised”).
+
+In some cases, however, it may be necessary to modify the information contained in a previous Order Agreement, even after the conclusion of the supply process, or even after the issuance of the related Invoice (when the Document is only issued in order to regulate some details of a process already closed)
+
+[NOTE]
+In this cases the Replacement Order Agreement must report the indication of the Order sub-type “OR”, (so-called “Regulating Replacement Order Agreement", see paragraph 4.4).
+
+
+See paragraph 6.12 for compilation rules.
+
+
+
+
+*[red]#Connected Order Agreement#*
+
+For some circumstances, it may be useful to highlight that an Order Agreement, even though is indipendent, it is generically related to another Document.
+
+In this cases the *Connected Order Agreement* is used, where it is present a reference to the linked Order and the indication “Connected”.
+
+
+[NOTE]
+The Connected Order Agreement can be used exclusively to keep memory that the new process that is intended to begin it's connected to another one. This Order must never be used in place of the others (i.e. Revocation Order Agreement, Replacement Order Agreement, Confirmation Order Agreement) specifically designed to revoke, substitute (or integrate), confirm or refuse another Document.
+
+See paragraph 6.12 for compilation rules.
+
+
+*[red]#Validation Order Agreement#*
+
+The *Validation Order Agreement* is an Order Agreementin which there is a reference to an Invoice to be regularised and the indication that it's a validation (“Invoice”). 
+
+This Order Agreement can be exclusively used: +
+
+* to validate an Invoice issued in absence of the relative provision order through NSO;
+* if necessary, to validate an Invoice referred to an Order when the Invoicee is different from the initial Buyer (e.g. sent by a Contracting authority or in case the initial Buyer has been bought, sold or divided).
+
+[NOTE]
+The Validation Order Agreement must never be used in place of the others (i.e. Revocation Order Agreement, Replacement Order Agreement, Confirmation Order Agreement) specifically designed to revoke, substitute (or integrate), confirm or refuse another Document.
+
+.Compilation rules 
+
+In the case of *Validation Order Agreement* it is necessary to report the details of the Invoice to be validated in the element *OrderReference/ID*, filling it with the values and by respecting the order of priority that follows:
+
+* the *number* of the Invoice that is intended to be validated;
+
+* the *issuing date* of the Invoice that is intended to be validated;
+
+* the *VAT number* of the subject who issued the Invoice   that is intended to be validated;
+
+* the text *“Invoice”* to indicate that it's an Order for validating an Invoice (or an equivalent request for payment).
+
+.Example
+[source, xml, indent=0]
+----
+<cac:OrderReference>
+    <cbc:ID>57#2018-01-30#ITccccccccccc#Invoice</cbc:ID>
+</cac:OrderReference>
+----
+
+
+
+
+
+
+

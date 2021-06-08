@@ -1,0 +1,152 @@
+[[response-code]]
+= Codice di Risposta
+
+Il Codice di Risposta indica la capacità del venditore di soddisfare l’ordine e deve essere inviato sia a livello di testata sia a livello di riga se le righe vengono inviate.
+
+
+[IMPORTANT]
+====
+* Il Codice di Risposta *deve* essere inviato a livello di testata.
+* Il Codice di Risposta di riga *deve* essere inviato a livello di riga se le righe sono inviate.
+* Il Codice di Risposta può avere 4 valori: AB, RE, AP e CA (sottoinsieme della codifica di riferimento UNCL 4343)
+* Il Codice di Risposta di riga può avere 5 valori: 1, 3, 5, 7 e 42. Sono valori estratti, come sottoinsieme, dalla codifica di riferimento UNCL 1229.
+====
+
+== Codice di Risposta a livello di Testata
+
+[cols="2,8",options="header"]
+|====
+|Codice di Risposta
+|Azione
+
+|AB
+a|
+L’ordine è stato ricevuto +
+
+L’ordine non è ancora stato processato +
+
+*Nessuna riga* deve essere inviata
+
+|RE
+a|
+L’ordine è respinto +
+
+*Nessuna riga* deve essere inviata
+
+|AP
+a|
+L’ordine è accettato senza modifiche +
+
+*Nessuna riga* deve essere inviata
+
+|CA
+a|
+L’ordine è accettato con modifica a livello di riga +
+
+*Tutte le righe* devono essere inviate
+|====
+
+
+.Esempio UBL di Codice di Risposta a livello di testata in un messaggio di risposta d’ordine
+[source, xml, indent=0]
+----
+<cbc:OrderResponseCode>CA</cbc:OrderResponseCode>
+----
+
+.Esempio UBL di una risposta d’ordine che utilizza il codice risposta "AB" (ordine ricevuto)
+[source, xml, indent=0]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<OrderResponse
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns="urn:oasis:names:specification:ubl:schema:xsd:OrderResponse-2"
+    xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+    xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">
+    <cbc:CustomizationID>urn:fdc:peppol.eu:poacc:trns:order_response:3</cbc:CustomizationID>
+    <cbc:ProfileID>urn:fdc:peppol.eu:poacc:bis:ordering:3</cbc:ProfileID>
+    <cbc:ID>0005a-2018</cbc:ID>
+    <cbc:IssueDate>2018-12-01</cbc:IssueDate>
+    <cbc:IssueTime>14:30:00</cbc:IssueTime>
+    <!--Ordine ricevuto ma ancora non processato-->
+    <cbc:OrderResponseCode>AB</cbc:OrderResponseCode>  <1>
+    <cbc:Note>Risposta Ordine Inviato al Cliente</cbc:Note>
+    <cbc:DocumentCurrencyCode>EUR</cbc:DocumentCurrencyCode>
+    <cac:OrderReference>
+        <cbc:ID>5a-2018#2018-11-25#UFY9MH</cbc:ID>
+    </cac:OrderReference>
+    <!--Fornitore, Venditore-->
+    <cac:SellerSupplierParty>
+        <cac:Party>
+            <cbc:EndpointID schemeID="0211">IT05501420900</cbc:EndpointID>
+            <cac:PartyIdentification>
+                <cbc:ID schemeID="0211">IT05501420900</cbc:ID>
+            </cac:PartyIdentification>
+            <cac:PartyLegalEntity>
+                <cbc:RegistrationName>Fornitore S.p.A.</cbc:RegistrationName>
+            </cac:PartyLegalEntity >
+        </cac:Party>
+    </cac:SellerSupplierParty>
+    <!--Mittente, Cliente-->
+    <cac:BuyerCustomerParty>
+        <cac:Party>
+            <cbc:EndpointID schemeID="0201">UFY9MH</cbc:EndpointID>
+            <cac:PartyIdentification>
+                <cbc:ID schemeID="0201">UFY9MH</cbc:ID>
+            </cac:PartyIdentification>
+            <cac:PartyLegalEntity>
+                <cbc:RegistrationName>Azienda USL di Reggio Emilia </cbc:RegistrationName>
+            </cac:PartyLegalEntity >
+        </cac:Party>
+    </cac:BuyerCustomerParty>
+    <cac:Delivery>
+        <cac:PromisedDeliveryPeriod>
+            <cbc:StartDate>2018-12-10</cbc:StartDate>
+            <cbc:EndDate>2018-12-20</cbc:EndDate>
+        </cac:PromisedDeliveryPeriod>
+    </cac:Delivery> <2> 
+</OrderResponse>
+----
+<1> Il codice di risposta AB indica solamente che l’ordine è stato ricevuto, ma non è ancora stato processato.
+Nessuna riga d’ordine è stata inviata in questa risposta.
+
+<2> Nessuna riga d’ordine è stata inviata in questa risposta.
+
+== Codice di Risposta a livello di riga
+
+Quando l’ordine viene accettato con modifiche a livello di riga, tutte le righe d’ordine devono essere inviate nella risposta includendo il relativo codice.
+
+[cols="2,11",options="header"]
+|====
+|Codice di risposta
+|Azione
+
+|1
+|La riga d’ordine è stata aggiunta
+
+|3
+|La riga d’ordine è stata cambiata
+
+|5
+|La riga d’ordine è stata accettata senza modifiche
+
+|7
+|La riga d’ordine non è stata accettata
+
+|42
+|La riga d’ordine è già stata consegnata
+
+|====
+
+
+.Esempio di Codice di Risposta a livello di riga in un messaggio di risposta d’ordine:
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>1</cbc:ID>
+        <cbc:Note>Merce terminata</cbc:Note>
+        <cbc:LineStatusCode>7</cbc:LineStatusCode>
+        ...
+    </cac:LineItem>
+</cac:OrderLine>
+----

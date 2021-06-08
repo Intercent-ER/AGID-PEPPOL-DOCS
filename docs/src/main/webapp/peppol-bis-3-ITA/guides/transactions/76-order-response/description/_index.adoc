@@ -1,0 +1,48 @@
+[[Descrizione-di-parti-selezionate-del-messaggio-di-risposta-ordine]]
+= Descrizione di parti selezionate del messaggio di risposta d’ordine
+
+Il messaggio di risposta d’ordine viene inviato dal venditore all’acquirente attestando la capacità del venditore di evadere l’ordine. Le seguenti regole si applicano al PEPPOL BIS Order Response:
+
+* La risposta d’ordine deve essere riferita ad un ordine.
+
+* Il venditore può accettare o respingere l’intero ordine.
+
+* La risposta d’ordine in caso di rigetto deve specificarne il motivo.
+
+* Il venditore può accettare o respingere le singole righe d’ordine.
+
+* Se il venditore accetta o respinge le righe d’ordine, tutte le righe d’ordine devono essere inviate nella risposta d’ordine.
+
+* Le righe nella risposta d’ordine devono essere riferite alle righe corrispondenti nell’ordine, 1 a 1.
+
+* Le informazioni seguenti possono essere modificate nella risposta d’ordine:
+
+** Quantità;
+
+** Periodo di consegna;
+
+** Articolo in sostituzione;
+
+** Prezzo. +
+
+
+* #Se l’ordine è respinto o modificato, la risposta d’ordine deve includere in testata le informazioni di contatto del venditore nel *cbc:Note*#.
+
+* #La risposta d’ordine deve riportare univocamente l’identificativo del Fornitore.#
+
+
+:leveloffset: +1
+
+include::_response-code.adoc[]
+
+include::_order-ref.adoc[]
+
+include::_change.adoc[]
+
+include::_changeanddeliver.adoc[]
+
+include::_backorder.adoc[]
+
+include::../../../shared/files/_vat-cat-line.adoc[]
+
+:leveloffset: -1

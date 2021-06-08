@@ -1,0 +1,12 @@
+
+= Informazioni di consegna (Data e Luogo)
+
+Le informazioni di consegna possono essere fornite a livello di testata.
+
+Luogo e data di consegna sono raccomandati e devono essere inviati a meno che le informazioni non pregiudichino la capacità di garantire la correttezza della fattura.
+
+L'elemento di consegna contiene informazioni su nome, indirizzo e identificatore del luogo di consegna (`cac:Delivery/cac:DeliveryLocation/cbc:ID`) che possono essere utilizzati se il luogo di consegna è definito attraverso un identificatore.
+
+Esempi sono GLN (Global Location Number) oppure GSRN (Global Service Relationship Number) entrambi emessi da GS1.
+
+include::../../syntax/_delivery.adoc[]

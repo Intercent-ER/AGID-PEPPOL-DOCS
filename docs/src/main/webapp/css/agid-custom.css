@@ -22,6 +22,12 @@
 .navbar-default .navbar-nav>li>a {
 	color: #FFFFFF;
 }
+
+.dropdown-alignment {
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
 .btn-agid{
 	background-color: #e0e0e0;
 	color: #333333;
@@ -36,4 +42,12 @@
     margin: 0;
     padding: 0;
     display: inline;
+}
+.annuncio{
+	font-size: 120%;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    background-color: #FFFFAA;
+    border-color: orange;
+    font-style: italic;
 }

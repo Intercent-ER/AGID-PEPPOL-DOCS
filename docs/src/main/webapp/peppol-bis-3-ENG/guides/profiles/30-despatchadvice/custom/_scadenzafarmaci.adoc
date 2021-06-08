@@ -1,0 +1,15 @@
+[[scadenza-farmaci]]
+
+== #AIFA Note (Italian Medicine Agency)#
+
+When the expiry date of a medical drug is indicated with month and year, the validity is meant to be until the last day of the month.
+
+This is stated in the "Quality review of documents human product information annotated template", document that the European Medicines Agency makes available on its portal and that indicates which information neeeds to be reported on medical drugs' prints (Summary of Product Characteristics,  Package Leaflet and Label).
+
+In particular, point 8 of Annex III clarifies: “The expiry date printed on medicinal product stating only month and year should be taken to mean the last day of that month”.
+
+The document is available at the following link:
+
+{link-nota-aifa}
+
+

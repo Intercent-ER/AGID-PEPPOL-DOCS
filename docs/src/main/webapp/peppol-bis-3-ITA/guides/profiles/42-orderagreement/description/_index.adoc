@@ -1,0 +1,37 @@
+[[description-of-selected-parts-of-the-order-message]]
+= Descrizione di parti selezionate dell'ordine pre-concordato
+
+I paragrafi seguenti descrivono l'uso delle singole sezioni di un Ordine pre-concordato.
+
+:leveloffset: +1
+
+include::_parties.adoc[]
+
+include::_delivery.adoc[]
+
+include::_references.adoc[]
+
+include::_attachments.adoc[]
+
+include::_productid.adoc[]
+
+include::_itemlabels.adoc[]
+
+include::_classification.adoc[]
+
+include::_quantity.adoc[]
+
+include::_prices.adoc[]
+
+include::_allowance.adoc[]
+
+include::../../../shared/files/_vat-info.adoc[]
+
+include::_gestioneordiniparticolari.adoc[]
+
+include::_ulteriori-informazioni.adoc[]
+
+include::_usonote.adoc[]
+
+
+:leveloffset: -1

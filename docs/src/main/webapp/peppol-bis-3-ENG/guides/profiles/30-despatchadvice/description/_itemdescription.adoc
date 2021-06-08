@@ -1,0 +1,68 @@
+[[item-description-and-identification]]
+= Item description and identification
+
+Each despatch line contains elements for description and identification of the item. +
+
+Normally only one of the identifiers is needed in the message.
+
+.Example:
+[source, xml, indent=0]
+----
+include::{snippet-dir}/snippet-30-1.xml[tags=item]
+----
+
+
+:leveloffset: +1
+
+[[product-identification]]
+= #Details on pharmaceutical products and their identification - AIC code#
+
+For pharmaceutical products provided with the code "Autorizzazione all’Immissione in Commercio" (AIC), released by the Agency "Agenzia Italiana del Farmaco" (AIFA), the element *cac:SellersItemIdentification/cbc:ID* needs to be valued with the AIC code, prefixed by the string "AICFARMACO:".
+
+.Example of an order with the indication of the AIC code
+[source, xml, indent=0]
+----
+<cac:DespatchLine>
+    ...
+        <cac:Item>
+            <cbc:Name>NORVASC</cbc:Name>
+            <cac:SellersItemIdentification>
+                <cbc:ID>AICFARMACO:027428010</cbc:ID>
+            </cac:SellersItemIdentification>
+        </cac:Item>
+</cac:DespatchLine>
+
+----
+
+[NOTE]
+====
+In particular circumstances, some foreign pharmaceutical products are commercialized in Italy without the authorization released by the AIFA. This products do not fall within the application of the Decree of the Italian Ministry of the Economy 20 December 2017, bearing “Modalità tecniche di indicazione dell'AIC sulla fattura elettronica, nonché modalità di accesso da parte dell'AIFA ai dati ivi contenuti”, and the alphanumeric code associated to them it is not an AIC code exactly, therefore needs to be indicated without the prefix “AICFARMACO:”.
+====
+
+:leveloffset: -1
+
+
+:leveloffset: +1
+
+[[product-identification]]
+= #Details on medical devices products and their identification - UDI code#
+
+For medical devices products provided with the code UDI (Unique Device Identification) released by the Agency "GS1 Italy", the element *cac:SellersItemIdentification/cbc:ID* needs to be valued with the UDI code, prefixed by the string "UDI:".
+
+.Example of an order with the indication of the UDI code
+[source, xml, indent=0]
+----
+<cac:DespatchLine>
+    ...
+        <cac:Item>
+            <cbc:Name>Item's name</cbc:Name>
+            <cac:SellersItemIdentification>
+              <cbc:ID>UDI:(01)47964367965424(11)173434(17)226565(10)A379B3(21)1237</cbc:ID>
+            </cac:SellersItemIdentification>
+        </cac:Item>
+</cac:DespatchLine>
+
+----
+
+
+:leveloffset: -1

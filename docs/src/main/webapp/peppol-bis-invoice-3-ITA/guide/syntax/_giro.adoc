@@ -1,0 +1,10 @@
+
+
+.Esempio UBL di modalità pagamento quando il pagamento è effettuato con postagiro
+[source, xml, indent=0]
+----
+include::{snippet-dir}/giro.xml[tags=giro]
+----
+<1> Codice modalità di pagamento
+<2> Informazioni di rimessa pagamento
+<3> Numero di conto locale del postagiro

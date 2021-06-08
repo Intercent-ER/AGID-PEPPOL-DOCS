@@ -1,0 +1,19 @@
+= Etichette prodotti
+
+Informazioni ambientali, sociali, etiche e sulla qualità dei prodotti possono essere fornite attraverso il `cac:Certificate`. La struttura UBL usata per l'etichettatura necessita dell'aggiunta di alcuni elementi, rispetto a quelli usati da questa BIS. Per soddisfare i requisiti UBL, le informazioni trattate in questo paragrafo sono fornite con l'aggiunta del valore *NA*.
+
+.Esempio
+[source, xml, indent=0]
+----
+include::{snippet-dir}/OA full.xml[tags=Certificate]
+----
+
+= Prodotti relativi ad un contratto
+
+Se i beni acquistati sono offerti in accordo ad un contratto esistente, quest'ultimo deve essere indicato nell'ordine pre-concordato, valorizzando l'elemento `cac:TransactionConditions/cbc:ActionCode` come riportato nell'esempio seguente:
+
+.Esempio
+[source, xml, indent=0]
+----
+include::{snippet-dir}/OA full.xml[tags=TransactionConditions]
+----

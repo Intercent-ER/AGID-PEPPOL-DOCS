@@ -1,0 +1,9 @@
+
+.Esempio UBL di riferimento ad una fattura precedente
+[source, xml, indent=0]
+----
+include::{snippet-dir}/Snippet-cn.xml[tags=prec-inv]
+----
+<1> L'identificatore è obbligatorio se viene incluso il `cac:BillingReference`
+<2> La data di emissione deve essere compilata se il riferimento alla fattura non è univoco
+<3> Ripete il `cac:BillingReference` per aggiungere diversi riferimenti a fatture precedenti

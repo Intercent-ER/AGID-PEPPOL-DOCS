@@ -1,0 +1,7 @@
+
+
+.Esempio UBL delle informazioni di consegna
+[source, xml, indent=0]
+----
+include::{snippet-dir}/Snippet-full.xml[tags=delivery]
+----

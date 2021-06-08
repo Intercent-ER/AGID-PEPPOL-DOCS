@@ -1,6 +1,6 @@
 @echo off
 cls
-echo FatturaPA 1.2 validation
+echo FatturaPA 1.2.1 validation
 set "xml="
 call _fc xml
 IF %ERRORLEVEL% EQU 1 GOTO :done

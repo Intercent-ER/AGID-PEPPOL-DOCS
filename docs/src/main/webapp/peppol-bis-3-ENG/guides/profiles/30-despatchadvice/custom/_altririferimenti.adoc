@@ -1,0 +1,59 @@
+
+= Other references
+
+In public procurement there may be different necessary references to identify a delivery.
+
+To provide the details of a tendering procedure it is necessary to specify the typology using the values defined in the table below.
+
+The element *cac:DocumentType* is a test field, not subject to semantic valvalidation, so can be utilize to express vary documents' references.
+
+It is important to ensure that the document typology is compliant whit this Documentation to guarantee the interoperability.
+
+.Tipology of documents
+[width="100%", cols="1h,2m,3m"]
+|===
+| *DocumentType*
+| *Description*
+| *Where to use it*
+
+| CIG
+| Codice Identificativo Gara
+| cac:AdditionalDocumentReference (0..n)
+cac:DespatchLine/cac:DocumentReference (0..n)
+
+| CUP
+| Codice Unico Progetto
+| cac:AdditionalDocumentReference (0..n)
+cac:DespatchLine/cac:DocumentReference (0..n)
+
+| CONVENZIONE
+| Estremi Convenzione
+| cac:AdditionalDocumentReference (0..n)
+cac:DespatchLine/cac:DocumentReference (0..n)
+|===
+
+
+== Additionat reference at header level
+
+.Esempio di riferimento a un CIG
+[source, xml, indent=0]
+----
+<cac:AdditionalDocumentReference>
+    <cbc:ID>1Z1A3EE456</cbc:ID>
+    <cbc:DocumentType>CIG</cbc:DocumentType>
+</cac:AdditionalDocumentReference>
+----
+
+
+== Additionat reference at line level
+
+.Esempio di riferimento a un CIG
+[source, xml, indent=0]
+----
+<cac:DespatchLine>
+    <cac:DocumentReference>
+        <cbc:ID>1Z1A3EE456</cbc:ID>
+        <cbc:DocumentType>CIG</cbc:DocumentType>
+    </cac:DocumentReference>
+</cac:DespatchLine>
+----

@@ -1,0 +1,18 @@
+
+= Allegati
+
+L’elemento per memorizzare le informazioni degli allegati (AdditionalDocumentReference) può essere ripetuto diverse volte, permettendo quindi di avere molteplici allegati.
+
+Gli allegati possono essere utilizzati per fornire informazioni aggiuntive a supporto della richiesta di pagamento che la fattura rappresenta. Informazioni aggiuntive possono essere fogli presenze, ricevute, biglietti aerei, ecc.
+
+[NOTE]
+
+====
+ Lo scopo dell’allegato non è quello di trasferire la versione pdf della fattura.
+====
+
+Gli allegati possono essere grafici e immagini. Essi potrebbero essere inviati come oggetti binari o come indirizzo esterno alla posizione dove l’oggetto è memorizzato (URI). Gli allegati inviati come oggetti binari dovrebbero essere limitati alle tipologie MIME specificati nella codifica di riferimento http://docs.peppol.eu/poacc/billing/3.0/codelist/MimeCode/[IANA].
+
+Si raccomanda l’invio di informazioni aggiuntive incluse nel formato del messaggio e non come indirizzi esterni (URI), in quanto molte aziende sono limitate nell’accesso a link esterni. 
+
+include::../../../syntax/references/_attachments.adoc[]

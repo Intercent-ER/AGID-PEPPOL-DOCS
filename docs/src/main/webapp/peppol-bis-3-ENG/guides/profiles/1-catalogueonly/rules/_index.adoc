@@ -1,0 +1,11 @@
+[[business-rules]]
+= Business Rules
+
+:leveloffset: +1
+
+include::_cataloguebr.adoc[]
+include::_catalogueresponsebr.adoc[]
+include::_codelis_tbr.adoc[]
+
+
+:leveloffset: -1

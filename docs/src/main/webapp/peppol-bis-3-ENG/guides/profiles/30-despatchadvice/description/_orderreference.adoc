@@ -1,0 +1,61 @@
+[[order-reference]]
+= Order reference
+
+Used to provide a reference to the purchase order on which the Despatch Advice is based. 
+There may be multiple Despatch Advices to cover one purchase order. +
+
+When all the lines of the Despatch Advice relate to the same purchase order, the order reference is indicated only in the header. +
+When the lines of the Despatch Advice relate to different purchase orders, the order references must be indicated in the lines. +
+
+The reference to *Order Line-ID* (element "cbc:LineID") is required in the UBL syntax. To cater for scenarios where no order line reference exist a dummy value must be applied. The dummy value must consist of the characters **NA**.
+
+#Reference to the related order must be done indicating the "identification triplet" (so-called Tripletta di identificazione) of the Order through the concatenation of the following values:#
+
+* #*Order ID*;#
+* #*IssueDate* valorized with the date of the order;#
+* #*EndpointID* of the element BuyerCustomerParty in the order;#
+
+.Example on header level
+[source, xml, indent=0]
+----
+include::{snippet-dir}/snippet-30-2.xml[tags=ref-order]
+----
+
+.Example 1 on line level
+[source, xml, indent=0]
+----
+include::{snippet-dir}/snippet-30-2.xml[tags=ref-orderline]
+----
+
+.Example 2 on line level
+[source, xml, indent=0]
+----
+include::{snippet-dir}/snippet-30-2.xml[tags=ref-orderlinena]
+----
+
+It is also possible to refer to more than one order in one single despatch advice.
+In this case there must not be an order reference on header level.
+
+#In order to refer to more orders it is possible to indicate one or more Order numbers on each despatch line.#
+
+.Example 1 on line level with reference to many orders
+[source, xml, indent=0]
+----
+include::{snippet-dir}/snippet-30-3.xml[tags=ref-orderlinemulti]
+----
+
+== #Additional reference to the Order#
+
+When the Documento di trasporto refers to a single Order on the header level, with the element cbc:CustomerReference is possible to provide a further reference of the Client.
+
+This information is utilized as reference issued by the Client to identify the object of the shimpent, such as the final receiver of  pharmaceutical products (Patient ID) in the case of home delivery (see §. 6.3.1)
+
+.Example of reference to a client in the case of home delivery:
+[source, xml, indent=0]
+----
+<cac:OrderReference>
+    <cbc:ID>4321#2013-01-30#ABCDEF</cbc:ID>
+    <!-- ID Paziente -->
+    <cbc:CustomerReference>123</cbc:CustomerReference>
+</cac:OrderReference>
+----

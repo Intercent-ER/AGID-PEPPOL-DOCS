@@ -1,4 +1,0 @@
-[[namespace]]
-= Namespace
-
-include::../{order}/technical/namespace.adoc[]

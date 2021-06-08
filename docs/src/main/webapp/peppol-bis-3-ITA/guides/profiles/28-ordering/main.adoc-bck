@@ -1,0 +1,64 @@
+include::../../shared/_links.adoc[]
+:doctype: book
+:icons: font
+:stem:
+:lang: it
+:toc: left
+:toclevels: 2
+:source-highlighter: coderay
+:source-language: xml
+:sectanchors:
+:sectnums:
+:title-logo-image: ../../shared/images/peppol.png
+:order: ../../transactions/01-order
+:order-resp: ../../transactions/76-order-response
+:snippet-dir: ../../../../rules/snippets/order
+:snippet-response-dir: ../../../../rules/snippets/order-response
+
+image:../../../shared/images/peppol.png[float="right"]
+
+= [black]#BIS Ordinazione Completa 3.2#
+
+{author}
+v{ord_version_it}
+
+{description}
+
+image::../../../../images/PEPPOL_Authority.jpg[width=100%, pdfwidth=100%, scaledwidth=100%]
+include::../../shared/_copyright.adoc[]
+
+
+//= Link to main site of documentation
+
+//{main-site}
+
+
+:leveloffset: +1
+
+include::introduction/_index.adoc[]
+
+include::principles/_index.adoc[]
+
+include::process/_index.adoc[]
+
+//include::requirements/_index.adoc[]
+
+include::../../shared/datatypes/_index.adoc[]
+
+:leveloffset: +1
+
+include::custom/_campistrutturati.adoc[]
+
+include::custom/_tipologiaordine.adoc[]
+
+:leveloffset: -1
+
+include::../../shared/codes/_index.adoc[]
+
+include::{order}/description/_index.adoc[]
+
+include::{order-resp}/description/_index.adoc[]
+
+include::profile/_index.adoc[]
+
+:leveloffset: -1

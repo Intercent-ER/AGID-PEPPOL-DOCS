@@ -1,0 +1,39 @@
+[[transport-handling-unit]]
+= Transport handling unit
+
+The items on a Despatch line may be packed in several transport handling units which are the physical handling units such as box, container, pallet, etc.
+containing the consignment.
+
+The code "TransportHandlingUnitTypeCode" allow to specify precisely the type of transport handling unit using the codelist UN/ECE Rec 21, of which some examples are reported below:
+
+.Type of transport handling unit
+[width="50%", cols="2h,3"]
+|===
+| *Code*
+| *Transport handling unit*
+
+| CT
+| Carton
+
+| CS
+| Case
+
+| BX
+| Box
+
+| PX
+| Pallet
+|===
+
+Serial shipping container code (SSCC) issued by GS1 may be used to identify the transport handling unit.
+Note that the same physical handling unit may contain items from different despatch lines.
+Implemented by referencing the same SSCC code in the ID element of the TransportHandlingUnit on several despatch lines.
+
+#In Italy the logistic label placed over the logistic unit, such as one pallet with the related SSCC identifier, is usually called “segnacollo”.#
+
+Example:
+
+[source, xml, indent=0]
+----
+include::{snippet-dir}/snippet-30-3.xml[tags=transporthandling]
+----

@@ -1,0 +1,9 @@
+
+[cols="1,4"]
+|===
+h| Percorso nel documento
+| `cac:ClassifiedTaxCategory/cbc:ID` +
+`cac:TaxCategory/cbc:ID`
+h| Sorgente della codifica
+| Subset of {UNCL5305}
+|===

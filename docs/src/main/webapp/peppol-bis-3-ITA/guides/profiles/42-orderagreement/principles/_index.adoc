@@ -1,0 +1,27 @@
+
+[[principles]]
+= Principi e prerequisiti
+
+Questo capitolo descrive i principi e le assunzioni che stanno alla base dell’uso degli Ordini pre-concordati Peppol. Esso si basa sul profilo http://www.cenbii.eu[CEN WS/BII] 42 Order Agreement.
+
+Questo profilo identifica, spiega e giustifica i requisiti di business del processo dell’Ordinazione pre-concordata. Fornisce i collegamenti alla sintassi http://docs.oasis-open.org/ubl/UBL-2.1.html[UBL 2.1] (Universal Business Language) ed include anche una guida all'implementazione della sintassi.
+
+Il profilo dell'ordine pre-concordato descrive i processi in cui l'acquirente, dopo aver acquistato beni e servizi, riceve un messaggio strutturato con informazioni che ne documentano l'acquisto.
+
+
+
+:leveloffset: +1
+
+include::_prerequisit.adoc[]
+
+include::_scope.adoc[]
+
+include::_goals.adoc[]
+
+include::_partiesandroles.adoc[]
+
+include::_benefits.adoc[]
+
+include::../../../shared/files/_interoperability.adoc[]
+
+:leveloffset: -1

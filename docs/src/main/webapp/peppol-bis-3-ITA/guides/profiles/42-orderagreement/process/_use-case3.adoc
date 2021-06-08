@@ -1,0 +1,39 @@
+[[use-case-3-telephone-and-e-mail-is-used-to-order-items]]
+= Caso d’uso 3 – Utilizzo dei canali telefono/e-mail per ordinare articoli
+
+Questo caso d’uso descrive il processo dove un Cliente/Acquirente ordina prodotti tramite telefono/e-mail.
+
+[cols="1h,5",]
+|====
+|Caso d’uso nr.
+|3
+
+|Nome
+|Ordine effettuato per telefono o per mail
+
+|Descrizione 
+|L'Acquirente fa un acquisto chiamando il Venditore per telefono o mandando una mail.
+
+|Ruoli coinvolti
+a| * Acquirente
+* Venditore
+
+|Assunzioni 
+|L'Acquirente ha un account con il Venditore con i dettagli necessari per inviargli un ordine pre-concordato.
+
+|Il flusso
+a|L'Acquirente sta utilizzando il sistema acquisti interno ed ha bisogno di stampanti; seleziona quindi un Venditore di stampanti. Gli articoli del Venditore non sono nel sistema di acquisto e il Venditore non offre un negozio web. L'Acquirente chiama il Venditore al telefono. +
+
+L'Acquirente ordina direttamente la stampante durante la telefonata ed informa il Venditore riguardo quale riferimento usare. +
+
+Un Ordine pre-concordato con informazioni sull'articolo ed il prezzo degli articoli selezionati viene inviato dal Venditore al sistema di acquisto dell'Acquirente. L’Ordine pre-concordato è registrato nel sistema di acquisto del dell'Acquirente. +
+
+Dopo la consegna della merce, il Venditore invia una fattura che corrisponde all'ordine
+ed alla consegna, ma questo è al di fuori di questa specifica. 
+
+|Risultati
+|L'Acquirente e il Venditore hanno raggiunto un accordo. Un ordine è stato inserito 
+e l'Acquirente ha ricevuto un messaggio strutturato con i dettagli dell’ordine. Se la fattura ha un riferimento all’ordine, la fattura può essere abbinata automaticamente.
+
+
+|====

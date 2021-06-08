@@ -1,0 +1,7 @@
+
+[[inv-object-code]]
+= Schema per gli identificatori di un oggetto fatturato
+
+Lo schema degli identificatori per un oggetto fatturato deve basarsi su {UNCL1153}
+
+include::../../syntax/codelists/_inv-object.adoc[]

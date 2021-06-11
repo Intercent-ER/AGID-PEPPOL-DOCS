@@ -1,0 +1,13 @@
+
+
+[[rules]]
+= Regole di validazione per le transazioni
+
+
+:leveloffset: +1
+
+include::_peppol_rules.adoc[]
+
+include::_tc434_rules.adoc[]
+
+:leveloffset: -1

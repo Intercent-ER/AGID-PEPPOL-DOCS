@@ -1,0 +1,58 @@
+
+= Codici specifici per la nota di credito
+
+== Il codice tipo per la nota di credito
+
+include::../../syntax/codelists/_cn-type.adoc[]
+
+
+
+[cols="1h,2s,4a,1,2m", options="header"]
+.Codifica
+|===
+| Codice
+| None
+| Descrizione
+| Sinonimo di
+| Tipo messaggio UBL
+
+
+| 381
+| Credit note
+| Documento/messaggio per fornire informazioni relative ad un credito alla parte interessata.
+|
+| CreditNote
+
+
+
+| 396
+| Factored credit note
+| Nota di credito relativa ad una fattura(e) assegnata.
+| 381
+| CreditNote
+
+
+| 81
+| Credit note related to goods or services
+| Documento/messaggio usato per fornire informazioni circa un credito relativo ad una transazione di beni o servizi alla parte interessata.
+| 381
+| CreditNote
+
+
+| 83
+| Credit note related to financial adjustments
+| Documento/messaggio usato per fornire informazioni circa un credito relativo ad un aggiustamento finanziario (e.g., bonus).
+| 381
+| CreditNote
+
+
+| 532
+| Forwarder's credit note
+|  Documento/messaggio per fornire informazioni riguardo un credito alla parte interessata.
+| 381
+| CreditNote
+
+
+
+
+|===

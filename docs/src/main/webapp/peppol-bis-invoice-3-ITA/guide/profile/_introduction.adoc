@@ -1,0 +1,67 @@
+[preface]
+= Introduzione a openPEPPOL e alla BIS
+
+Questa Business Interoperability Specification (BIS) fornisce un insieme di specifiche per l'implementanzione della fatturazione elettronica e pubblicato come parte delle specifiche https://docs.peppol.eu/poacc/billing/3.0/[Peppol].
+
+Questa specifica è composta da: +
+
+* un insieme di specifiche derivanti dalla Core Invoice Usage Specification (CIUS) della {EN16931} emanate con provvedimento #...# dell'Agenzia delle Entrate;
+* un insieme di estensioni della Core Invoice atte a rendere equipollente il contenuto di una fattura elettronica redatta secondo queste specifiche con il formato italiano FatturaPA.
+
+#In questo documento le regole d’uso ed i paragrafi derivanti dal modello italiano di e-procurement sono evidenziate in giallo.#
+
+*L’obiettivo* di questo documento è facilitare un’efficiente implementazione e diffusione delle transazioni elettroniche per il processo di fatturazione.
+
+== Struttura del documento
+
+Questo documento è strutturato come segue:
+
+* *Capitolo 1 - 5*: informazioni generali sui processi di business, i requisiti e le funzionalità
+
+* *Capitolo 6*: semantica dei tipi di dato
+
+* *Capitoli 7 - 9*: imposta sul valore aggiunto (IVA), calcoli e arrotondamenti
+
+* *Capitoli 10*: descrizione di parti selezionate della fattura
+
+* *Capitolo 11*: dettagli e link alle codifiche utilizzate
+
+* *Capitolo 12*: informazioni sugli identificatori PEPPOL
+
+* *Capitolo 13*: schemi UBL e spazi dei nomi
+
+* *Capitolo 14 e 15*: regole di business e validazione per la fattura e nota di credito
+
+* *Allegati*: restrizioni secondo la {EN16931} e l'uso della sintassi Cross Industry Invoice (CII) e le regole nazionali e sintattiche.
+
+== Ambito
+
+Questo documento  fornisce le linee guida per il supporto e l'implementazione delle transazioni relative a fatture e note di credito.
+
+//Questo BIS non impone l'utilizzo di dati specifici per gli approvvigionamenti ma supporta diversi modi di riferirsi al processo dell'ordine. L'uso selettivo di questi riferimenti può essere la base per l'elaborazione automatizzata delle fatture.
+
+Sono supportati specificatamente i seguenti scenari di business:
+
+* B2G – Business to Government
+* B2B – Business to Business
+* B2C – Business to Consumer
+* G2G – Government to Government
+* G2B – Government to Business
+* G2C – Government to Consumer
+
+== A chi si rivolge
+
+Questo documento si rivolge alle organizzazioni che intendono utilizzare PEPPOL per scambiare fatture e note di credito elettroniche e/o ai loro fornitori ICT. Queste organizzazioni potrebbero essere:
+
+     * Fornitori di Servizi ICT (SP)
+     * Autorità appaltanti (CA)
+     * Operatori Economici (EO)
+     * Sviluppatori Software
+
+Più specificatamente, i ruoli affrontati sono i seguenti:
+
+    * Architetti ICT
+    * Sviluppatori ICT
+    * Esperti di Business
+
+Per ulteriori informazioni su PEPPOL/OpenPEPPOL, leggete {common}

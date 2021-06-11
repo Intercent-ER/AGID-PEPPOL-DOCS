@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/">
+    <Identification>
+        <ShortName>VATSchemes</ShortName>
+        <LongName xml:lang="it">VAT Schemes</LongName>
+        <LongName Identifier="listID">VATSchemes</LongName>
+        <Version>1.0</Version>
+        <CanonicalUri>urn:www.ubl-italia.org:spec:fatturapa:codelist:gc:VATSchemes</CanonicalUri>
+        <Agency>
+            <LongName xml:lang="it">UBL Italia</LongName>
+            <Identifier>UBL-ITALIA</Identifier>
+        </Agency>
+    </Identification>
+    <ColumnSet>
+        <Column Id="code" Use="required">
+            <ShortName>Code</ShortName>
+            <Data Type="normalizedString"/>
+        </Column>
+        <Column Id="VATSchemeID" Use="required">
+            <ShortName>VAT Scheme ID</ShortName>
+            <Data Type="normalizedString"/>
+        </Column>
+        <Key Id="codeKey">
+            <ShortName>CodeKey</ShortName>
+            <ColumnRef Ref="code"/>
+        </Key>
+    </ColumnSet>
+    <SimpleCodeList>
+<Row><Value ColumnRef="code"><SimpleValue>AD</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>AD:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>AL</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>AL:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>AT</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>AT:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>BA</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>BA:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>BE</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>BE:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>BG</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>BG:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>CH</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>CH:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>CY</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>CY:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>CZ</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>CZ:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>DE</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>DE:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>DK</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>DK:CVR</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>EE</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>EE:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>ES</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>ES:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>FI</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>FI:OVT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>FR</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>FR:SIRENE</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>GB</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>GB:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>GR</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>GR:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>HR</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>HR:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>HU</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>HU:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>IE</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>IE:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>IT</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>IT:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>LI</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>LI:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>LT</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>LT:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>LU</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>LU:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>LV</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>LV:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>MC</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>MC:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>ME</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>ME:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>MK</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>MK:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>MT</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>MT:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>NL</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>NL:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>NO</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>NO:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>PL</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>PL:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>PT</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>PT:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>RO</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>RO:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>RS</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>RS:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>SI</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>SI:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>SK</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>SK:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>SM</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>SM:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>TR</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>TR:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>VA</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>VA:VAT</SimpleValue></Value></Row>
+<Row><Value ColumnRef="code"><SimpleValue>SE</SimpleValue></Value><Value ColumnRef="VATSchemeID"><SimpleValue>SE:VAT</SimpleValue></Value></Row>
+    </SimpleCodeList>
+</gc:CodeList>

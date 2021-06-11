@@ -1,0 +1,8 @@
+
+[[payment-means]]
+= Termini di pagamento type code
+
+Tutti i codici termini di pagamento devono essere espressi secondo la codifica
+ {UNCL4461}
+
+include::../../syntax/codelists/_payment.adoc[]

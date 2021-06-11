@@ -1,0 +1,13 @@
+include::../shared/_settings.adoc[]
+= PEPPOL BIS Fatturazione {version}
+Note di Rilascio
+:doctype: book
+:encoding: utf-8
+:lang: it
+:toc: left
+:toclevels: 2
+:numbered:
+
+
+
+include::_list.adoc[]

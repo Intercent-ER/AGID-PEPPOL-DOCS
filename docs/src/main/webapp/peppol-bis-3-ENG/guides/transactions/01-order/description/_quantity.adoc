@@ -1,0 +1,56 @@
+[[quantities-and-units]]
+= Quantities and units
+
+Various quantities and units can be stated in the PEPPOL BIS Order.
+These are both related to the ordering process and the logistics process.
+
+The table below lists quantities and units in the format.
+To all quantities there must be a valid Unit according to the Code list "Recommandation 20".
+
+[cols="1,5",options="header"]
+|====
+|Element name / (Tag name)
+|Description
+
+|Price Quantity +
+(`cbc:BaseQuantity`)
+|Quantity related to Price.
+
+|Order Quantity +
+(`cbc:Quantity`)
+|Quantity that is ordered, e.g. number of pieces or volume in litre.
+|====
+
+[IMPORTANT]
+====
+#As a general rule, please note that when the description related to the product's codelist (e.g. Seller's item identification) already contains the minimum sale unit or the packaging unit, it's advisable to use the unit quantity code *“C62”* to prevent any misunderstandig between the Parties.#
+====
+
+.Example of an order line with the quantity of a product per unit:
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:Quantity unitCode=”C62”>3</cbc:Quantity>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+
+.Example of an order line of 120 litres (cbc:Quantity) and the price per liter:
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>1</cbc:ID>
+        <cbc:Quantity unitCode="LTR">120</cbc:Quantity>
+        <cbc:LineExtensionAmount currencyID="EUR">6000.00</cbc:LineExtensionAmount>
+        <cbc:PartialDeliveryIndicator>false</cbc:PartialDeliveryIndicator>
+        <cbc:AccountingCost>ProjectID123</cbc:AccountingCost>
+        <cac:Price>
+            <cbc:PriceAmount currencyID="EUR">50.00000</cbc:PriceAmount>
+            <cbc:BaseQuantity unitCode="LTR">1</cbc:BaseQuantity>
+        </cac:Price>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+

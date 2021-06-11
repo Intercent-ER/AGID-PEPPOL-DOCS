@@ -1,6 +1,0 @@
-
-= Codice paese
-
-Tutti i codici paese in una fattura o nota di credito devono essere espressi secondo la codifica alpha-2 di {ISO3166}
-
-include::../../syntax/codelists/country.adoc[]

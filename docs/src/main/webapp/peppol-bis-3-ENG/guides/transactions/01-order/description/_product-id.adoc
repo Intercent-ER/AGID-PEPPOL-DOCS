@@ -1,0 +1,114 @@
+[[product-identification]]
+= Product identification
+
+Product identification must be done using the identifiers described below:
+
+* Sellers ID
+* Standard ID, e.g. the GS1 Global Trade Item Number (GTIN)
+
+Which identifier to use depends on what is known at the time ordering or what is commonly used in the relevant business sector.
+
+IMPORTANT: Each order line MUST have an item identifier and/or an item name
+
+
+.Example of an order with Seller ID and Standard ID (GTIN):
+[source, xml, indent=0]
+----
+<cac:SellersItemIdentification>
+  <cbc:ID>SN-33</cbc:ID>
+</cac:SellersItemIdentification>
+<cac:StandardItemIdentification>
+  <cbc:ID schemeID="0160">05704066204093</cbc:ID>
+</cac:StandardItemIdentification>
+----
+
+:leveloffset: +1
+
+[[product-identification]]
+= #Details on pharmaceutical products and their identification - AIC code#
+
+For pharmaceutical products provided with the code "Autorizzazione all’Immissione in Commercio" (AIC), released by the Agency "Agenzia Italiana del Farmaco" (AIFA), the element *cac:SellersItemIdentification/cbc:ID* needs to be valued with the AIC code, prefixed by the string "AICFARMACO:".
+
+.Example of an order with the indication of the AIC code
+[source, xml, indent=0]
+----
+<<cac:OrderLine>
+    <cac:LineItem>
+    ...
+        <cac:Item>
+            <cbc:Description>NORVASC*5MG 28CPR</cbc:Description>
+            <cbc:Name>NORVASC</cbc:Name>
+            <cac:SellersItemIdentification>
+                <cbc:ID>AICFARMACO:027428010</cbc:ID>
+            </cac:SellersItemIdentification>
+            <cac:CommodityClassification>
+                <cbc:ItemClassificationCode listID="STL" listIVersionID="UNCL7143">C08CA01</cbc:ItemClassificationCode>
+            </cac:CommodityClassification>
+        </cac:Item>
+    </cac:LineItem>
+</cac:OrderLine>
+
+----
+
+[NOTE]
+====
+In particular circumstances, some foreign pharmaceutical products are commercialized in Italy without the authorization released by the AIFA. This products do not fall within the application of the Decree of the Italian Ministry of the Economy 20 December 2017, bearing “Modalità tecniche di indicazione dell'AIC sulla fattura elettronica, nonché modalità di accesso da parte dell'AIFA ai dati ivi contenuti”, and the alphanumeric code associated to them it is not an AIC code exactly, therefore needs to be indicated without the prefix “AICFARMACO:”.
+====
+
+:leveloffset: -1
+
+
+:leveloffset: +1
+
+[[product-identification]]
+= #Details on medical devices products and their identification - UDI code#
+
+For medical devices products provided with the code UDI (Unique Device Identification) released by the Agency "GS1 Italy", the element *cac:SellersItemIdentification/cbc:ID* needs to be valued with the UDI code, prefixed by the string "UDI:".
+
+.Example of an order with the indication of the UDI code
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+    ...
+        <cac:Item>
+            <cbc:Name>Nome articolo</cbc:Name>
+            <cac:SellersItemIdentification>
+              <cbc:ID>UDI:(01)47964367965424(11)173434(17)226565(10)A379B3(21)1237</cbc:ID>
+            </cac:SellersItemIdentification>
+        </cac:Item>
+</cac:OrderLine>
+----
+
+
+:leveloffset: -1
+
+:leveloffset: +1
+
+[[type-of-fuel]]
+= #Type of fuel#
+
+The type of fuel through the use the element *cac:SellersItemIdentification/cbc:ID* in which is entered the value of the reference table for energetic products TA13, published on the Agenzia delle Dogane's website, prefixed by the string “CARB:”.
+
+.Example of an order with the indication of the type of fuel:
+[source, xml, indent=0]
+----
+<cac:Item>
+	<cbc:Name>Benzina senza piombo, ottani>=98</cbc:Name>
+	<cac:SellersItemIdentification>
+		<cbc:ID>CARB:27101249</cbc:ID>
+	</cac:SellersItemIdentification>
+	<cac:ClassifiedTaxCategory>
+		<cbc:ID schemeID="UNCL5305">S</cbc:ID>
+		<cbc:Percent>22</cbc:Percent>
+		<cac:TaxScheme>
+			<cbc:ID>VAT</cbc:ID>
+		</cac:TaxScheme>
+	</cac:ClassifiedTaxCategory>
+</cac:Item>
+----
+
+:leveloffset: -1
+
+
+

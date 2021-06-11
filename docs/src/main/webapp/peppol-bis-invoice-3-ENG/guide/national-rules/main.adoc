@@ -1,0 +1,29 @@
+include::_settings.adoc[]
+
+= {doctitle}
+{name-op-en}
+v{revision}
+:description: This PEPPOL methodology document has been developed by the OpenPEPPOL AISBL Post Award Coordinating Community.
+:doctype: book
+:icons: font
+:stem:
+:toc: left
+:toclevels: 2
+:source-highlighter: coderay
+:source-language: xml
+:sectanchors:
+:sectnums:
+:CIUS: Core Invoice Usage Specification (CIUS)
+:title-logo-image: ../../images/peppol.jpg
+
+
+
+:leveloffset: +1
+
+include::_introduction.adoc[]
+include::_development.adoc[]
+include::_documentation.adoc[]
+include::_schematron.adoc[]
+include::_testfiles.adoc[]
+
+:leveloffset: -1

@@ -1,0 +1,28 @@
+
+= Funzionalità della fattura
+
+:leveloffset: +1
+
+include::_intro.adoc[]
+
+include::_accounting.adoc[]
+
+include::_verification.adoc[]
+
+include::_auditing.adoc[]
+
+include::_vat-reporting.adoc[]
+
+include::_payment.adoc[]
+
+include::_negative-invoices.adoc[]
+
+include::_withholding-tax.adoc[]
+
+include::_social-securities.adoc[]
+
+include::_stamp-duty.adoc[]
+
+include::_split-payment.adoc[]
+
+:leveloffset: -1

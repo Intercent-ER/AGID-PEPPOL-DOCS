@@ -1,0 +1,20 @@
+
+= Document Reference
+
+
+I riferimenti a documenti sono identificatori che sono stati assegnati ad un documento o ad una sua riga dall'acquirente, dal venditore o da una terza parte.
+
+
+.Document Reference. Type
+[cols="1s,1,1,1", options="header"]
+|===
+|Componente
+|Uso
+|Tipo primitivo
+|Esempio
+
+|Contenuto
+|Obbligatorio
+|String
+|abc:123-DEF
+|===

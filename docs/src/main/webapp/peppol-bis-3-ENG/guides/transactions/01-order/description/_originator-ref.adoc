@@ -1,0 +1,58 @@
+= CIG (Originator document reference)
+
+#In public procurement there may be different referenced document needed for identifying a provision of good and services; to provide the details at the document or line level it is necessary to specify the identifier of the document.#
+
+#In "Initial Order" and "Replacement Order" the CIG (Codice Identificativo Gara) must be indicated.#
+
+[cols="1,2,5", options="header"]
+|====
+s|Reference
+s|Description
+s|Use
+
+|*CIG*
+|Tender identification code
+|At document level +
+`cac:OriginatorDocumentReference` (0..1) +
+
+At line level +
+`cac:OrderLine/cac:LineItem/cac:Item/cac:ItemSpecificationDocumentReference/ID` (0..n)
+
+|====
+
+
+.Example of an order with the CIG code on the header level:
+[source, xml, indent=0]
+----
+<cac:OriginatorDocumentReference>
+    <cbc:ID>1Z1A3EE456</cbc:ID>
+</cac:OriginatorDocumentReference>
+----
+
+#In the exclusion cases, according to the current legislation, in the place of CIG value it needs to be utilised one of the codes present in the coelist *"Esclusioni CIG (IT)"*, available in the section CODELIST. The reason of the exclusion is indicated by inserting the specific code.#
+
+.Example with an exclusion reason code of ES12 (“AFFIDAMENTI_IN_HOUSE”)
+[source, xml, indent=0]
+----
+<cac:OriginatorDocumentReference>
+    <cbc:ID>ES12</cbc:ID>
+</cac:OriginatorDocumentReference>
+----
+
+.Example of an order with the CIG code on the line level:
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+        <cac:Item>
+		...
+            <cac:ItemSpecificationDocumentReference>
+                <cbc:Id>CIG:1Z1A3EE456</cbc:Id>
+            </cac:ItemSpecificationDocumentReference>
+		...
+        </cac:Item>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+
+

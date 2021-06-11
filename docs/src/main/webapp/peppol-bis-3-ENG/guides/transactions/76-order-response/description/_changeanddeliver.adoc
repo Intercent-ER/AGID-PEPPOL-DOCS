@@ -1,0 +1,129 @@
+[[order-response-with-changes-adding-delivering]]
+= Order response replacing items and delivering over time.
+
+An order response can replace the items in two ways. +
+
+If the total quantity of an order is replaced, this information can be provided by using the element that identifies the new Seller (`cac:SellerSubstitutedLineItem`) into the invoice response, as shown in the example below.
+
+.Example of article replaced in a order response message
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>6</cbc:ID>
+        <cbc:LineStatusCode>3</cbc:LineStatusCode>
+        <cac:Item>
+            <cbc:Name>Salviette umide</cbc:Name>
+            <cac:SellersItemIdentification>
+                <cbc:ID>SItemNo011</cbc:ID>
+            </cac:SellersItemIdentification>
+            <cac:StandardItemIdentification>
+                <cbc:ID schemeID="0160">05704368876486</cbc:ID>
+            </cac:StandardItemIdentification>
+        </cac:Item>
+    </cac:LineItem>
+    <cac:SellerSubstitutedLineItem> <1>
+        <cbc:ID>2</cbc:ID>
+        <cac:Item>
+            <cbc:Name>Salviette umide</cbc:Name>
+            <cac:SellersItemIdentification>
+                <cbc:ID>SItemNo012</cbc:ID>
+            </cac:SellersItemIdentification>
+            <cac:StandardItemIdentification>
+                <cbc:ID schemeID="0160">05704368643453</cbc:ID>
+            </cac:StandardItemIdentification>
+            <cac:CommodityClassification>
+                <cbc:ItemClassificationCode listID="STI">675634</cbc:ItemClassificationCode>
+            </cac:CommodityClassification>
+        </cac:Item>
+    </cac:SellerSubstitutedLineItem>
+    <cac:OrderLineReference>
+        <cbc:LineID>5</cbc:LineID>
+    </cac:OrderLineReference>
+</cac:OrderLine>
+----
+
+<1> 	Information on the replacement item is sent in  `cac:SellerSubstitutedLineItem`
+
+If the seller replaces a part of the order quantity or delivers the quantity at different times, may have to add order lines and/or to mark order lines ad delivered, as shown in the following example. +
+
+In the example, the Seller confirms the first order line, provides two dates for the second order's line of 3 items by adding a new order line (Product B), and so confirming that the order line no. 3 has already been delivered.
+
+.Example of additional lines and delivery out of time
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>1</cbc:ID>
+        <cbc:LineStatusCode>5</cbc:LineStatusCode>
+        <cac:Item>
+            <cbc:Name>Prodotto A</cbc:Name>
+            <cac:SellersItemIdentification>
+                <cbc:ID>Pr00A</cbc:ID>
+            </cac:SellersItemIdentification>
+        </cac:Item>
+    </cac:LineItem>
+    <cac:OrderLineReference>
+        <cbc:LineID>1</cbc:LineID>
+    </cac:OrderLineReference>
+</cac:OrderLine>
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>2</cbc:ID>
+        <cbc:LineStatusCode>3</cbc:LineStatusCode>
+        <cbc:Quantity unitCode="C62">2</cbc:Quantity>
+        <cac:Delivery>
+            <cac:PromisedDeliveryPeriod>
+                <cbc:StartDate>2018-07-01</cbc:StartDate>
+            </cac:PromisedDeliveryPeriod>
+        </cac:Delivery>
+        <cac:Item>
+            <cbc:Name>Prodotto B</cbc:Name>
+            <cac:SellersItemIdentification>
+                <cbc:ID>Pr00B</cbc:ID>
+            </cac:SellersItemIdentification>
+        </cac:Item>
+    </cac:LineItem>
+    <cac:OrderLineReference>
+        <cbc:LineID>2</cbc:LineID>
+    </cac:OrderLineReference>
+</cac:OrderLine>
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>3</cbc:ID>
+        <cbc:LineStatusCode>1</cbc:LineStatusCode>
+        <cbc:Quantity unitCode="C62">1</cbc:Quantity>
+        <cac:Delivery>
+            <cac:PromisedDeliveryPeriod>
+                <cbc:StartDate>2018-07-05</cbc:StartDate>
+            </cac:PromisedDeliveryPeriod>
+        </cac:Delivery>
+        <cac:Item>
+            <cbc:Name>Prodotto B</cbc:Name>
+            <cac:SellersItemIdentification>
+                <cbc:ID>Pr00B</cbc:ID>
+            </cac:SellersItemIdentification>
+        </cac:Item>
+    </cac:LineItem>
+    <cac:OrderLineReference>
+        <cbc:LineID>2</cbc:LineID>
+    </cac:OrderLineReference>
+</cac:OrderLine>
+<cac:OrderLine>
+    <cac:LineItem>
+        <cbc:ID>4</cbc:ID>
+        <cbc:LineStatusCode>42</cbc:LineStatusCode>
+        <cac:Item>
+            <cbc:Name>Prodotto C</cbc:Name>
+            <cac:SellersItemIdentification>
+                <cbc:ID>Pr00C</cbc:ID>
+            </cac:SellersItemIdentification>
+        </cac:Item>
+    </cac:LineItem>
+    <cac:OrderLineReference>
+        <cbc:LineID>3</cbc:LineID>
+    </cac:OrderLineReference>
+</cac:OrderLine>
+----
+
+

@@ -1,0 +1,46 @@
+[[description-of-selected-parts-of-the-order-message]]
+= Descrizione di parti selezionate dell'ordine
+
+:leveloffset: +1
+
+include::_parties.adoc[]
+
+include::_attachments.adoc[]
+
+include::_originator-ref.adoc[]
+
+include::_product-id.adoc[]
+
+include::_product-name.adoc[]
+
+include::_quantity.adoc[]
+
+include::_price.adoc[]
+
+include::_allowance.adoc[]
+
+include::_totals.adoc[]
+
+include::_tax-total.adoc[]
+
+include::../../../shared/files/_vat-cat-line.adoc[]
+
+include::custom/_riferimentialtroordine.adoc[]
+
+include::custom/_gestioneordiniparticolari.adoc[]
+
+include::custom/_altririferimenti.adoc[]
+
+include::custom/_classificazioneprodotto.adoc[]
+
+include::custom/_consegna.adoc[]
+
+include::custom/_ulteriori-informazioni.adoc[]
+
+include::custom/_usonote.adoc[]
+
+include::custom/_accountingcost.adoc[]
+
+include::custom/_ribaltamento.adoc[]
+
+:leveloffset: -1

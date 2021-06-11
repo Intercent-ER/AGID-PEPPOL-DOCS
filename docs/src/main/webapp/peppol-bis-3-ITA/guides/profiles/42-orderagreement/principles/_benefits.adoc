@@ -1,0 +1,11 @@
+[[benefits]]
+= Benefici
+
+I benefici attesi dall’utilizzo di questo profilo  sono i seguenti:
+
+* La capacità di utilizzare i processi di abbinamento ordine-fattura esistenti, anche se l'ordine non è stato emesso da un sistema di approvvigionamento;
+* Acquisire, in formato strutturato, i dati degli ordini effettuati dall’acquirente attraverso altri canali (quali negozi web, telefono, e-mail o tramite richiesta diretta verso il magazzino/negozio del fornitore);
+*   Visibilità dell'intera analisi di spesa nell'applicativo per ordini utilizzato importando anche gli ordini che non sono stati inviati direttamente dall'applicativo; 
+*	Supportare processi di ordinazione quando i beni e servizi  non sono descritti necessariamente come elementi di un catalogo standardizzato.
+
+

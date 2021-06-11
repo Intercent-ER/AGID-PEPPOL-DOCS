@@ -1,0 +1,20 @@
+
+= Calcolo dell'IVA
+
+[[anchor-2]]
+
+Un riepilogo IVA deve essere fornito per ogni combinazione distinta di codice categoria e aliquota IVA trovate sia nelle informazioni IVA di riga che a livello di testata negli sconti/maggiorazioni.
+
+Per ogni combinazione distinta i calcoli sono:
+====
+stem:["VAT category taxable amount (BT-116)" = sum("Invoice line net amounts (BT-113)")] +
+stem:[+ "Document level charge amount (BT-99)" - "Document level allowance amount (BT-93)"]
+====
+
+====
+stem:["VAT category tax amount (BT-117)" = "VAT category taxable amount (BT-116)" times ("VAT rate (BT-119)" div 100)]
+====
+
+IMPORTANT: Per il riepilogo IVA dove la categoria IVA è "Non soggetta" (O), l'importo IVA delle categoria deve essere posta a zero.
+
+include::../../syntax/_vat-calc.adoc[]

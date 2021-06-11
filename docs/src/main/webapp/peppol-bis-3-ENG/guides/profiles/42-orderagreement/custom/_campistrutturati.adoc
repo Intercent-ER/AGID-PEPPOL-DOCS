@@ -1,0 +1,37 @@
+[[campi-strutturati]]
+= #Use of concatenated information in structured fields#
+
+The use of concatenated information in structured fields is permitted, where possible; this means XML elements that contain tuples of values, divided among themselves by the symbol "#" and without using spaces, as shown in the following example:
+
+[source, xml]
+
+<Tag>Valore#Valore#Valore</Tag>
+
+Structured fields allowed are solely and strictly the ones listed in the table below: 
+
+[cols="3,3", options="header"]
+|===
+^.^|*Structured fields*
+^.^|*Peppol Document*
+
+|OrderDocumentReference/ID
+|Order Only
+
+|OrderReference/ID
+|Order Agreement +
+
+|DeliveryTerms/SpecialTerms
+|Order Only +
+Order Agreement
+
+|AccountingCost
+|Order Only
+
+|AdditionalDocumentReference/ID
+|Order Only +
+Order Agreement
+
+|ItemSpecificationDocumentReference/ID
+|Order Only +
+Order Agreement
+|===

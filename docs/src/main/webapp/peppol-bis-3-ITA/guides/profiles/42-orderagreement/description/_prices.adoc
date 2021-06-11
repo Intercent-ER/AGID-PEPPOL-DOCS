@@ -1,0 +1,18 @@
+[[prices]]
+= Prezzi
+
+Nel processo dell’ordine pre-concordato i prezzi devono essere scambiati. Il prezzo potrebbe essere 0 (zero).
+
+Il Prezzo viene specificato per gli articoli o servizi indicati nell’ordine pre-concordato.
+
+In particolare, i prezzi dovrebbero includere abbuoni/sconti e/o maggiorazioni ma al netto delle imposte (es. IVA, GST o Sales tax).
+
+
+.Esempio di prezzo per un articolo merce:
+[source, xml, indent=0]
+----
+<cac:Price>
+ 	<cbc:PriceAmount currencyID="EUR">50</cbc:PriceAmount>
+ 	<cbc:BaseQuantity unitCode="C62">1</cbc:BaseQuantity>
+</cac:Price>
+----

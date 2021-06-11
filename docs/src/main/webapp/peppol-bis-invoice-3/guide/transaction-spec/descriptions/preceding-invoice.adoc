@@ -1,8 +1,0 @@
-
-= Riferimento a fatture precedenti
-
-Una nota di credito o fattura negativa può fare riferimento ad una o più fatture precedenti. Questo è possibile nel gruppo informativo *BG-3 Preceding invoice reference*, fornendo il numero e la data fattura. La data fattura deve essere fornita nel caso in cui il numero di fattura precedente in riferimento non sia univoco.
-
-Nel caso in cui la correzione si applichi a più fatture può, in alternativa, essere fornito in testata il periodo di fatturazione (BG-14) combinato opportunamente ad una nota esplicativa (BT-22).
-
-include::../../syntax/preceding-invoice.adoc[]

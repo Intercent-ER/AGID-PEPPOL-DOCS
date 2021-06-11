@@ -1,0 +1,14 @@
+
+= Tipi di dato semantici
+
+I tipi di dato semantici vengono utilizzati per colmare il divario tra i concetti semantici espressi dagli elementi informativi definiti nel modello semantico della https://standards.cen.eu/dyn/www/f?p=204:110:0::::FSP_PROJECT:60602&cs=1B61B766636F9FB34B7DBD72CE9026C72[EN16931] e l'implementazione tecnica. I tipi di dato semantici definiscono i domini dei valori consentiti nel contenuto e qualsiasi altro componente informativo (attributi), necessari a garantire la sua corretta interpretazione.
+
+NOTE: I dettagli di implementazione tecnica possono essere reperiti in <<Detailed UBL message guideline>>
+
+:leveloffset: +1
+
+include::_primitive-types.adoc[]
+
+include::_semantic-types.adoc[]
+
+:leveloffset: -1

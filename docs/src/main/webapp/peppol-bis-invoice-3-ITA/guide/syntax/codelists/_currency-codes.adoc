@@ -1,0 +1,10 @@
+
+.Documento e VAT currency codes
+[cols="1,4"]
+|===
+h| Percorso nel documento
+| `cbc:DocumentCurrencyCode` +
+`cbc:TaxCurrencyCode`
+h| Sorgente della codifica
+| {ISO4217}
+|===

@@ -1,0 +1,13 @@
+
+
+include::_contract.adoc[]
+
+include::_despatch-receipt.adoc[]
+
+include::_tender.adoc[]
+
+include::_project.adoc[]
+
+include::_agid-convenzione.adoc[]
+
+include::_agid-riferimentofase.adoc[]

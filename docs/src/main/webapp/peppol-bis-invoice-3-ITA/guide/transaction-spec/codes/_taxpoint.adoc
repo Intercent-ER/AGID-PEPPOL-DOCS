@@ -1,0 +1,24 @@
+
+= Codice Esigibilità IVA 
+
+Un sottoinsieme di valori della codifica {UNCL2005} deve essere usato.
+
+include::../../syntax/codelists/_taxpoint-date.adoc[]
+
+I valori validi sono elencati nella tabella di seguito:
+
+[cols="1,4", options="header"]
+.Code list
+|===
+| Codice
+| Descrizione
+
+| 3
+| Invoice document issue date time
+
+| 35
+| Delivery date/time, actual
+
+| 432
+| Paid to date
+|===

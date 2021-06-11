@@ -1,0 +1,7 @@
+
+= Currency code
+
+Tutte le valute in una fattura o nota di credito devono essere espresse secondo la codifica {ISO4217}
+
+include::../../syntax/codelists/_currency-codes.adoc[]
+include::../../syntax/codelists/_currency-id.adoc[]

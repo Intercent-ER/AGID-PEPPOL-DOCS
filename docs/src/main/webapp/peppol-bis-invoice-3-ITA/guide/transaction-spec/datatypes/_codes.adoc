@@ -1,0 +1,19 @@
+
+= Code
+
+I codici vengono utilizzati per specificare i valori consentiti degli elementi come pure per le liste di opzioni. Il codice differisce dall’identificatore in quanto i valori consentiti hanno significati standardizzati che possono essere riconosciuti dal destinatario.
+
+IMPORTANT: I codici devono essere inseriti esattamente come indicato nella codifica di riferimento selezionata.
+
+[cols="1s,1,1,1", options="header"]
+|===
+|Componente
+|Uso
+|Tipo primitivo
+|Esempio
+
+|Contenuto
+|Obbligatorio
+|String
+|Abc123
+|===

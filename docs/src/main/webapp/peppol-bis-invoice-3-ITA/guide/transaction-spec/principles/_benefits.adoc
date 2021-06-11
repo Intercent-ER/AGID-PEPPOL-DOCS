@@ -1,0 +1,12 @@
+[[benefits]]
+= Benefici
+
+La fattura e la nota di credito forniscono un supporto semplice per le casistiche di fatturazione complessa, laddove è necessaria la nota di credito in aggiunta alla fattura. Altri potenziali benefici sono:
+
+* può essere resa obbligatoria per iniziative di fatturazione elettronica nazionale o regionale;
+* le stazioni appaltanti possono usarla come base per gestire l'intero processo di fatturazione in formato elettronico. La flessibilità delle specifiche permette agli acquirenti di automatizzare gradualmente l’elaborazione delle fatture, mediante diversi set di identificatori o riferimenti, e basandosi su un approccio costi/benefici;
+* le PMI possono offrire ai loro partner commerciali l’opzione di scambiare documenti standardizzati in un modo uniforme e quindi gestire tutte le fatture/n.c. in formato elettronico;
+* le grandi aziende possono implementare queste transazioni come documenti standardizzati per l’operatività generale e implementare transazioni bilaterali customizzate verso partner commerciali più grandi;
+* supportare i clienti che hanno necessità di interazioni più complesse;
+* può essere utilizzato come base per reingegnerizzare i processi interni di fatturazione;
+* la stazione appaltante può realizzare un notevole risparmio automatizzando e razionalizzando i suoi processi interni. La contabilità può essere automatizzata in modo significativo, il ciclo di approvazione può essere semplificato e razionalizzato, i pagamenti possono essere accelerati.

@@ -1,0 +1,22 @@
+
+[[prof-42]]
+= Identificatori per la customizzazione e profilo
+
+Nella tabella seguente troverai i valori da utilizzare come identificatore della specifica e il tipo di processo di business per questo profilo
+
+[cols="2s,5a,5a", options="header"]
+|===
+| Tipo
+| Elemento `cbc:CustomizationID`
+| Elemento `cbc:ProfileID`
+
+
+| Order Agreement (Trdm110)
+| #urn:fdc:peppol.eu:poacc:trns:order_agreement:3 :restrictive:urn:www.agid.gov.it:trns:ordine_preconcordato:3.0#
+.2+.^| urn:fdc:peppol.eu:poacc:bis:order_agreement:3
+
+| Order (Trdm01)
+| #urn:fdc:peppol.eu:poacc:trns:order:3 :restrictive:urn:www.agid.gov.it:trns:ordine:3.1#
+
+
+|===

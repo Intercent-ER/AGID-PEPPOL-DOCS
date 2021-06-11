@@ -1,0 +1,328 @@
+= References
+
+When sending the order agreement transaction the seller may include a reference that the buyers gave to him during the purchase. This reference can be of different nature and since it originates from the buyer it is understood by him.
+
+.Example
+[source, xml, indent=0]
+----
+include::{snippet-dir}/OA full.xml[tags=CustomerReference]
+----
+:leveloffset: +1
+
+= #Reference to another Order Agreement#
+
+In the case of *Connected Order Agreement*, *Revocation Order Agreement* or *Replacement Order Agreement*, it is necessary to indicate the so-called "Identification triple"(in italian Tripletta di identificazione) of the related Order Agreement in the elemement `cac:OrderReference/cbc:ID`, which is a structured field, by concatenating the following information in the order that follows:
+
+* *ID*, the identifier of the Order Agreement which this Order refers;
+
+* *IssueDate*, valorized with the date of the Order Agreement which this Order refers;
+
+* *EndpointID* of the element “SellerCustomerParty/Party” of the Order Agreement which this Order refers;
+
+* the *status* to be assigned to the Order Agreement, which can be: +
+
+** “Connected”, for connection;
+** “Cancelled”, for the revocation;
+** “Revised”, for the replacement.
+
+.Example
+[source, xml, indent=0]
+----
+<cac:OrderReference>
+    <cbc:ID>110#2018-01-30#aaaaaa#Connected</cbc:ID>
+</cac:OrderReference>
+----
+
+
+[IMPORTANT]
+====
+The `cac:OrderReference` is a mandatory field in the Order Agreement (cardinality 1..1). If no identifier is available, fill the element with "0".
+====
+
+:leveloffset: -1
+
+:leveloffset: +1
+
+=  #Example of Initial Order Agreement, Replacement Order Agreement and Revocation Order Agreement#
+
+== Case 1: Initial Order Agreement 
+
+The right to issue an Order Agreement may result from a contract or another document (for example, an order sent via fax or e-mail, due to unavailability of the informatic system that issues the electronic orders), with which the Buyer has pre-authorized the Seller to issue the Order Agreement.
+
+
+.Description of the case 
+On the 30/1/2018, the Company “C” sends to the Entity “A” an Order Agreement with the identifier “110”. The Document refers to a contract with “exclusive right”, therefore is free from the CIG (Codice Identificativo Gara).
+
+
+[source, xml, indent=0]
+----
+<cbc:CustomizationID>urn:fdc:peppol.eu:poacc:trns:order_agreement:3:restrictive:urn:www.agid.gov.it:trns:ordine_preconcordato:3.0<cbc:CustomizationID>
+<cbc:ProfileID>urn:fdc:peppol.eu:poacc:bis:order_agreement:3</cbc:ProfileID>
+<cbc:ID>110</cbc:ID>
+<cbc:IssueDate>2018-01-30<cbc:IssueDate>
+…
+<cac:OrderReference>
+    <cbc:ID>0</cbc:ID>
+</cac:OrderReference>
+…
+<cac:OriginatorDocumentReference>
+    <cbc:ID>ES07</cbc:ID>
+</cac:OriginatorDocumentReference>
+…
+<cac:SellerSupplierParty>
+    <cac:Party>
+        <cbc:EndpointID schemeID=”0211”>IT02188520544</cbc:EndpointID>
+    </cac:Party>
+</cac:SellerSupplierParty>
+…
+<cac:BuyerCustomerParty>
+    <cac:Party>
+        <cbc:EndpointID schemeID=”0201”>ABCDEF</cbc:EndpointID>
+    </cac:Party>
+</cac:BuyerCustomerParty>
+…
+----
+
+== Case 2: Replacement Order Agreement
+
+In this example the Seller wants to modify the Order Agreement already transmitted, therefore sends a Replacement Order Agreement.
+
+The Replacement Order AgreementL'Ordine pre-concordato replace both the Order Agreement indicated in the Document and all the other Replacements and Revocations made and already transmitted, related to the same Initial Order Agreement. In addition, it starts a new ordering process. 
+
+.Description of the case  
+On the 15/2/2018, Company “C” sends to the Entity “A” the Replacement Order Agreement n. “250”, that replace the Order Agreement n. “110”, because there was quanto era stato erroneamente indicata l’esenzione dal CIG. Il CIG corretto è
+“1234567889B”.
+
+[source, xml, indent=0]
+----
+<cbc:CustomizationID>urn:fdc:peppol.eu:poacc:trns:order_agreement:3:restrictive:urn:www.agid.gov.it:trns:ordine_preconcordato:3.0<cbc:CustomizationID>
+<cbc:ProfileID>urn:fdc:peppol.eu:poacc:bis:order_agreement:3</cbc:ProfileID>
+<cbc:ID>250</cbc:ID>
+<cbc:IssueDate>2018-02-15<cbc:IssueDate>
+…
+<cac:OrderReference>
+<cbc:ID>110#2018-01-30#IT02188520544#Revised</cbc:ID>
+</cac:OrderReference>
+…
+<cac:OriginatorDocumentReference>
+    <cbc:ID>1234567889B</cbc:ID>
+</cac:OriginatorDocumentReference>
+…
+<cac:SellerSupplierParty>
+    <cac:Party>
+        <cbc:EndpointID schemeID=”0211”>IT02188520544</cbc:EndpointID>
+    </cac:Party>
+</cac:SellerSupplierParty>
+…
+<cac:BuyerCustomerParty>
+    <cac:Party>
+        <cbc:EndpointID schemeID=”0201”>ABCDEF</cbc:EndpointID>
+    </cac:Party>
+</cac:BuyerCustomerParty>
+…
+----
+
+== Case 3: Revocation Order Agreement
+
+At a later time, Company “C” needs to revoke the Order Agreement previously issued, thus sends a Revocation Order Agreement. +
+
+The Revocation Order Agreement revokes both the Order Agreement indicated in the Document and all the other Replacements and Revocations made and already transmitted, related to the same Initial Order Agreement. 
+
+.Description of the case 
+On the 15/3/2018 the Company “C” sends to the Entity “A” the Revocation Order Agreement n. “300”, which nullifies the Order Agreement n. “250”.
+
+[source, xml, indent=0]
+----
+<cbc:CustomizationID>urn:fdc:peppol.eu:poacc:trns:order_agreement:3:restrictive:urn:www.agid.gov.it:trns:ordine_preconcordato:3.0<cbc:CustomizationID>
+<cbc:ProfileID>urn:fdc:peppol.eu:poacc:bis:order_agreement:3</cbc:ProfileID>
+<cbc:ID>300</cbc:ID>
+<cbc:IssueDate>2018-03-15<cbc:IssueDate>
+…
+<cac:OrderReference>
+<cbc:ID>250#2018-02-15#IT02188520544#Cancelled</cbc:ID>
+</cac:OrderReference>
+…
+<cac:OriginatorDocumentReference>
+    <cbc:ID>1234567889B</cbc:ID>
+</cac:OriginatorDocumentReference>
+…
+<cac:SellerSupplierParty>
+    <cac:Party>
+        <cbc:EndpointID schemeID=”0211”>IT02188520544</cbc:EndpointID>
+    </cac:Party>
+</cac:SellerSupplierParty>
+…
+<cac:BuyerCustomerParty>
+    <cac:Party>
+        <cbc:EndpointID schemeID=”0201”>ABCDEF</cbc:EndpointID>
+    </cac:Party>
+</cac:BuyerCustomerParty>
+…
+----
+
+:leveloffset: -1
+
+:leveloffset: +1
+
+= #CIG (Originator document reference)#
+
+In public procurement there may be different referenced document needed for identifying a provision of good and services; to provide the details at the document or line level it is necessary to specify the identifier of the document.
+
+In "Initial Order Agreement" and "Replacement Order Agreement" is mandatory to indicate the *Codice Identificativo Gara* (CIG or Smart CIG), registered in the "Banca dati Nazionale dei contratti pubblici" (BDNCP), related to the object of the Document.
+
+
+[cols="1,2,5", options="header"]
+|====
+s|Reference
+s|Description
+s|Use
+
+|*CIG*
+|Tender identification code
+|At document level +
+`cac:OriginatorDocumentReference` (0..1) +
+
+At line level +
+`cac:OrderLine/cac:LineItem/cac:Item/cac:ItemSpecificationDocumentReference/ID` (0..n)
+
+|====
+
+
+.Example of an order with the CIG code on the header level:
+[source, xml, indent=0]
+----
+<cac:OriginatorDocumentReference>
+    <cbc:ID>1Z1A3EE456</cbc:ID>
+</cac:OriginatorDocumentReference>
+----
+
+In the exclusion cases, according to the current legislation, in the place of CIG value it needs to be utilised one of the codes present in the coelist *"Esclusioni CIG (IT)"*, available in the section CODELIST. The reason of the exclusion is indicated by inserting the specific code.
+
+.Example with an exclusion reason code of ES12 (“AFFIDAMENTI_IN_HOUSE”)
+[source, xml, indent=0]
+----
+<cac:OriginatorDocumentReference>
+    <cbc:ID>ES12</cbc:ID>
+</cac:OriginatorDocumentReference>
+----
+
+.Example of an order with the CIG code on the line level:
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+        <cac:Item>
+		...
+            <cac:ItemSpecificationDocumentReference>
+                <cbc:Id>CIG:1Z1A3EE456</cbc:Id>
+            </cac:ItemSpecificationDocumentReference>
+		...
+        </cac:Item>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+
+[NOTE]
+====
+In the event that the CIG is provided at the line level, no other Document can be indicated int the cac:ItemSpecificationDocumentReference (see next par.).
+====
+
+:leveloffset: -1
+
+:leveloffset: +1
+
+[[altri-riferimenti]]
+= #Other references#
+
+To provide the ID of CUP, Despatch Advice, Expenditure Commitment, Expenditure Deliberation, Contract and Framework Agreement see the table below.
+
+Even though at document level can be provided one or more references to several documents (cardinality 0..n), at line level it is not possible to indicate more than one Document (cardinality 0..1).
+
+[cols="1,2,7", options="header"]
+|====
+s|Reference
+s|Description
+s|Use
+
+|*CUP*
+|Unique Project Reference (Codice Unico di Progetto)
+|At document level +
+`cac:AdditionalDocumentReference` (0.n) +
+
+At line level +
+`cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..1)
+
+|*DDT*
+|Despatch Advice ID (Documento di Trasporto) +
+|At document level +
+`cac:AdditionalDocumentReference` (0.n) +
+
+At line level +
+`cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..1)
+
+Use it only to refer to Despatch Advice previously received during a goods deposit account
+
+
+|*IMPEGNO*
+|Expenditure Commitment ID 
+|At document level +
+`cac:AdditionalDocumentReference` (0.n) +
+
+At line level +
+`cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..1)
+
+|*DELIBERA*
+|Expenditure Deliberation ID 
+|At document level +
+`cac:AdditionalDocumentReference` (0.n) +
+
+At line level +
+`cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..1)
+
+|*CONTRATTO*
+|Contract ID
+|At document level +
+`cac:Contract` (0.1) +
+
+At line level use +
+`cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..1)
+
+|*CONVENZIONE*
+|Framework Agreement ID
+|At document level +
+`cac:AdditionalDocumentReference` (0.n) +
+
+At line level +
+`cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..1)
+
+|====
+
+.Example of a reference to the CUP code on the header level
+[source, xml, indent=0]
+----
+<cac:AdditionalDocumentReference>
+    <cbc:ID>J31E01000010004</cbc:ID>
+    <cbc:DocumentType>CUP</cbc:DocumentType>
+</cac:AdditionalDocumentReference>
+----
+.Example of a reference to Expenditure Commitment ID on the line level
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+        <cac:Item>
+		...
+            <cac:ItemSpecificationDocumentReference>
+                <cbc:Id>IMPEGNO:123/2019 </cbc:Id>
+            </cac:ItemSpecificationDocumentReference>
+		...
+        </cac:Item>
+    </cac:LineItem>
+</cac:OrderLine>
+----
+
+[NOTE]
+The elements "AdditionalDocumentReference/ID" and "ItemSpecificationDocumentReference/ID" are structured fields.
+
+:leveloffset: -1
+

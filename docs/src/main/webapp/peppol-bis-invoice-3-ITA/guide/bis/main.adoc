@@ -1,0 +1,81 @@
+include::_settings.adoc[]
+:doctype: book
+//:forceinclude:
+:icons: font
+:stem:
+:toc: left
+:toclevels: 2
+:source-highlighter: coderay
+:source-language: xml
+:sectanchors:
+:sectnums:
+:description: La specifica PEPPOL Business Interoperability, la denomineremo "BIS" da ora in avanti, è stata sviluppata da OpenPEPPOL AISBL Post Award Coordinating Community e pubblicata come parte delle specifiche PEPPOL.
+:CIUS: Core Invoice Usage Specification (CIUS)
+
+= {doctitle}
+{name-op-en}
+v{version}
+
+{description}
+
+image::../../../images/PEPPOL_Authority.jpg[width=100%, pdfwidth=100%, scaledwidth=100%]
+//= Collegamento all'indice principale della documentazione
+
+//link:/poacc/billing/3.0/[Main documentation site]
+
+<<<
+
+.Statement of copyright
+****
+This PEPPOL Business Interoperability Specification (PEPPOL BIS) document is a Core Invoice Usage Specification (CIUS) based on CEN/EN 16931:2017. The restrictions on CEN/EN 16931:2017 implemented in this PEPPOL BIS appear from the conformance statement provided in appendix A.
+
+The copyright of CEN/EN 16931:2107 is owned by CEN and its members - the European National Standards Bodies. A copy of CEN/EN 16931-1:2017 may be obtained free of charge from any CEN member.
+
+OpenPEPPOL AISBL holds the copyright of this PEPPOL BIS, developed and published subject to the conditions of the agreement between the European Commission and CEN allowing derivate works to be developed and distributed with no additional licensing requirements. CEN and the National  Standards Bodies bears no liability from the content and implementation of this PEPPOL BIS.
+
+This PEPPOL BIS document may not be modified, re-distribute, sold or repackaged in any other way without the prior consent of OpenPEPPOL AISBL.
+****
+
+:leveloffset: +1
+
+include::../profile/_introduction.adoc[]
+
+include::../transaction-spec/principles/_index.adoc[]
+
+include::../profile/process/_index.adoc[]
+
+include::../transaction-spec/functionality/_index.adoc[]
+
+include::../transaction-spec/requirements/_index.adoc[]
+
+include::../transaction-spec/datatypes/_index.adoc[]
+
+include::../transaction-spec/vat-info/_vat-info.adoc[]
+
+include::../transaction-spec/calculations/_rounding.adoc[]
+
+include::../transaction-spec/calculations/_index.adoc[]
+
+include::../transaction-spec/descriptions/_index.adoc[]
+
+include::codes/_index.adoc[]
+
+include::../profile/profiles/_index.adoc[]
+
+include::../syntax/_guideline.adoc[]
+
+include::../transaction-spec/validation/_index.adoc[]
+
+include::../transaction-spec/rules/_index.adoc[]
+
+include::restrictions/_index.adoc[]
+
+include::appendix/_cii.adoc[]
+
+include::appendix/_national_rules.adoc[]
+
+include::appendix/_syntax_rules.adoc[]
+
+include::appendix/_examples.adoc[]
+
+//include::rules/_index.adoc[]

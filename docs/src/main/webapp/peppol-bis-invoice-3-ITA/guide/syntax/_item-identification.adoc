@@ -1,0 +1,27 @@
+
+.Esempio UBL di identificatori per l'articolo
+[source, xml, indent=0]
+----
+include::{snippet-dir}/item.xml[tags=item]
+----
+<1> 0160 è il valore ICD per l'identificatore GTIN
+
+#In coerenza con quanto previsto per l’ordine, la gestione dell’AICFarmaco è operata a mezzo del *cac:SellersItemIdentification/cbc:ID* (BT-155 Item Seller's Identifier) in cui viene inserito il codice AICFarmaco stesso preceduto dalla stringa “AICFARMACO:”.#
+
+.Esempio UBL di identificatore AIC per i farmaci
+[source, xml, indent=0]
+----
+<cac:SellersItemIdentification>
+    <cbc:ID>AICFARMACO:025829211</cbc:ID> 
+</cac:SellersItemIdentification>
+----
+
+#La gestione del tipo carburante è operata a mezzo del *cac:SellersItemIdentification/cbc:ID* (BT-155 Item Seller's Identifier) in cui viene inserito il valore della tabella di riferimento per i prodotti energetici TA13 – pubblicata sul sito dell’Agenzia delle Dogane preceduto dalla stringa “CARB:”.#
+
+.Esempio UBL con l’indicazione del tipo carburante 
+[source, xml, indent=0]
+----
+<cac:SellersItemIdentification>
+    <cbc:ID>CARB:27101249</cbc:ID> 
+</cac:SellersItemIdentification>
+----

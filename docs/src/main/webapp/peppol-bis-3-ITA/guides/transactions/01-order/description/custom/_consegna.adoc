@@ -1,0 +1,192 @@
+[[Consegna-Delivery]]
+= #Consegna (Delivery)#
+
+:leveloffset: +1
+
+= Luogo di consegna (DeliveryLocation)
+
+Le informazioni di consegna sono necessarie qualora l’indirizzo differisca da quello della parte che emette l’ordine e permette di fornire indicazioni più precise sulla resa della merce (DeliveryTerms). Si ricorda che l’orario di apertura del magazzino dovrà essere inserita nel campo AddressLine/Line del segmento Address.
+
+Il luogo di esecuzione della fornitura è la sede in cui deve avvenire la cessione dei beni e/o la prestazione dei servizi. È rappresentato, a livello di testata documento, dall’elemento “Delivery/DeliveryLocation”. +
+
+Il luogo di consegna può essere indicato anche a livello di linea d’ordine
+utlizzando il campo "Delivery/ID" dell’elemento "OrderLine/LineItem". Si tratta, tuttavia,
+di una pratica sconsigliata se non preventivamente concordata tra Cliente e Fornitore. +
+
+.Esempio dell'indicazione del Delivery/ID sulle linee d'ordine
+[source, xml, indent=0]
+----
+<cac:OrderLine>
+    <cac:LineItem>
+        ...
+        <cac:Delivery>
+            <cbc:ID>123456788901-acdg45</cbc:ID>
+            ...
+        </cac:Delivery>
+        ...
+    <cac:LineItem>
+</cac:OrderLine>
+----
+
+Se il luogo di consegna è un indirizzo istituzionale del Cliente a cui è stato associato un identificativo univoco reso disponibile al Fornitore, indicare anche tale identificativo, come mostrato nel seguente esempio:
+
+[source, xml, indent=0]
+----
+<cac:Delivery>
+    <cac:DeliveryLocation>
+        <cbc:ID>CF-IdShipTo</cbc:ID>
+        <Name>Magazzino centralizzato</Name>
+        <cac:Address>
+            <cbc:StreetName>Viale Ercolani, 4</cbc:StreetName>
+            <cbc:CityName>Bologna</cbc:CityName>
+            <cbc:PostalZone>40138</cbc:PostalZone>
+            <cbc:CountrySubentity>BO</cbc:CountrySubentity>
+            <cac:AddressLine>
+                <cbc:Line>Orario:Lunedì-Venerdì 8:00-13:00 - Sabato 8:00-12:00</cbc:Line>
+            </cac:AddressLine>
+            <cac:Country>
+                <cbc:IdentificationCode>IT</cbc:IdentificationCode>
+            </cac:Country>
+        </cac:Address>
+    </cac:DeliveryLocation>
+    <cac:RequestedDeliveryPeriod>
+        <cbc:StartDate>2018-05-15</cbc:StartDate>
+        <cbc:EndDate>2018-05-15</cbc:EndDate>
+    </cac:RequestedDeliveryPeriod>
+    <cac:DeliveryParty>
+        <cac:PartyIdentification>
+            <cbc:ID schemeID="0201">AAFF33</cbc:ID>
+        </cac:PartyIdentification>
+        <cac:PartyName>
+            <cbc:Name>Centro Logistico Beni Sanit-Ecom Area 2</cbc:Name>
+        </cac:PartyName>
+        <cac:Contact>
+            <cbc:Name>ResponsabileMagazzino</cbc:Name>
+            <cbc:Telephone>0516361509</cbc:Telephone>
+            <cbc:ElectronicMail>responsabile.magazzino@aziendasanitaria.it</cbc:ElectronicMail>
+        </cac:Contact>
+    </cac:DeliveryParty>
+</cac:Delivery>
+<cac:DeliveryTerms>
+    <cbc:ID>PORTO FRANCO</cbc:ID>
+</cac:DeliveryTerms>
+----
+
+Se, invece, la consegna dei beni e/o la prestazione dei servizi deve avvenire presso un luogo non istituzionale o in un luogo istituzionale non codificato (anche temporaneamente), vanno indicate con precisione tutte le parti del sotto-elemento “Address”,  come mostrato nel seguente esempio:
+
+.Esempio
+[source, xml, indent=0]
+----
+<cac:Delivery>
+    <cac:DeliveryLocation>
+        <Name>Entrata magazzino merci</Name>
+        <cac:Address>
+            <cbc:StreetName>Via Attanasio Soldati 80</cbc:StreetName>
+            <cbc:AdditionalStreetName>Località La Rustica</cbc:AdditionalStreetName>
+            <cbc:CityName>Roma</cbc:CityName>
+            <cbc:PostalZone>00155</cbc:PostalZone>
+            <cbc:CountrySbentity>Lazio</cbc:CountrySubentity>
+            <cac:AddressLine>
+                <cbc:Line>Edificio C, Quarto piano, Stanza 01</cbc:Line>
+            </cac:AddressLine>
+            <cac:Country>
+                <cbc:IdentificationCode>IT</cbc:IdentificationCode>
+            </cac:Country>
+        </cac:Address>
+    </cac:DeliveryLocation>
+</cac:Delivery>
+----
+
+Se trattasi di consegna domiciliare (ad esempio, all’indirizzo di un paziente), questa circostanza va specificata valorizzando il campo “ID” con il testo “Consegna domiciliare” e indicando con precisione nel campo “AddressLine/Line” l’indirizzo esatto di consegna (ad esempio, includendo il numero di interno), come mostrato nel seguente esempio:
+
+
+.Esempio
+[source, xml, indent=0]
+----
+<cac:Delivery>
+    <cac:DeliveryLocation>
+        <cac:ID>Consegna domiciliare</cac:ID>
+        <Name>Entrata lato portineria</Name>
+        <cac:Address>
+            <cbc:StreetName>Via Attanasio Soldati 80</cbc:StreetName>
+            <cbc:AdditionalStreetName>Località La Rustica</cbc:AdditionalStreetName>
+            <cbc:CityName>Roma</cbc:CityName>
+            <cbc:PostalZone>00155</cbc:PostalZone>
+            <cbc:CountrySbentity>Lazio</cbc:CountrySubentity>
+            <cac:AddressLine>
+                <cbc:Line>Edificio C, Quarto piano, Stanza 01</cbc:Line>
+            </cac:AddressLine>
+            <cac:Country>
+                <cbc:IdentificationCode>IT</cbc:IdentificationCode>
+            </cac:Country>
+        </cac:Address>
+    </cac:DeliveryLocation>
+</cac:Delivery>
+----
+
+:leveloffset: -1
+
+
+
+:leveloffset: +1
+
+= Destinatario della consegna o Beneficiario (DeliveryParty)
+
+Se chi deve ricevere la fornitura oggetto dell’Ordine è un soggetto determinato, è necessario indicarlo con precisione, valorizzando in modo appropriato i campi dell’elemento `cac:DeliveryParty`. +
+
+L’indicazione del destinatario della consegna è prevista solo con riferimento all’intero Documento. +
+
+L’esempio seguente si riferisce alla consegna ad una particolare unità organizzativa:
+
+[source, xml, indent=0]
+----
+<cac:Delivery>
+    <cac:DeliveryParty>
+          <cac:PartyIdentification>
+          <cbc:ID>UO07</cbc:ID>
+          <cac:PartyName>
+              <cbc:Name>Centro logistico</cbc:Name>
+     </cac:PartyName>
+     <cac:Contact>
+         <cbc:Name>James Bond</Name
+         <cbc:Telephone>0647611</cbc:Telephone>
+         <cbc:ElectronicMail>james.bond@peo.it</ ElectronicMail>
+        </cac:Contact>
+        </cac:PartyIdentification>
+    </cac:DeliveryParty>
+</cac:Delivery>
+---- 
+
+Qualora si indichi il Beneficiario, l’identificativo (campo “ID”) e la denominazione (campo “Name”) dell’unità organizzativa sono entrambi obbligatori. Se l’identificativo non è noto o non esiste, è sufficiente valorizzare il campo con il testo “UO”, che sta per unità organizzativa. +
+
+Se invece il Beneficiario è una persona fisica è necessario contemperare l’esigenza di
+tutelarne la riservatezza con la necessità di dare indicazioni complete ed esaurienti per
+la consegna. A tal fine: +
+
+* se non è strettamente necessario indicare per esteso il nome del Beneficiario, il
+campo “Name” deve essere valorizzato con “PF”, che sta per persona fisica;
+* se al Beneficiario è stato assegnato un identificativo, questo deve essere indicato
+nel campo “ID”, altrimenti anche questo campo va valorizzato con “PF”.
+
+:leveloffset: -1
+
+
+:leveloffset: +1
+
+= Etichette imballaggio (ShippingMarks)
+
+Se necessario, il Cliente può richiedere al Fornitore di stampare un testo sull’etichetta di imballaggio, valorizzando in modo appropriato il campo “TransportHandlingUnit/ShippingMarks” dell’elemento “Shipment”, come mostrato nel seguente esempio:
+
+[source, xml, indent=0]
+----
+<cac:Delivery>
+    <cbc:ID>NA</cbc:ID> 
+    <cac:Shipment>
+        <cac:TransportHandlingUnit>
+            <cbc:ShippingMarks>aaaaaaaaaa</cbc:ShippingMarks>
+        </cac:TransportHandlingUnit>
+    </cac:Shipment>
+</cac:Delivery>
+---- 
+
+:leveloffset: -1

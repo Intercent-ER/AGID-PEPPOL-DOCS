@@ -1,0 +1,57 @@
+
+= #Ritenuta d'acconto# (estensione)
+
+La sezione ritenuta d'acconto serve ad evidenziare: +
+
+* una trattenuta Irpef (per i redditi delle persone fisiche) o Ires (per le persone giuridiche: società) che viene effettuata sul totale imponibile della fattura inviata al Cliente da parte del Fornitore, che agisce come sostituto d'imposta;
+* una trattenuta previdenziale che viene effettuata sul totale imponibile della fattura inviata al Cliente da parte del Fornitore che si occuperà del successivo riversamento all'Ente previdenziale di riferimento.
+
+Entrambe le tipologie di ritenuta d'acconto possono essere contenute nella medesima fattura.
+
+Il *tipo di ritenuta* applicata deve essere indicata in testata al documento in una estensione UBL separata. Se non viene indicato alcun tipo di ritenuta ed è stata specificata almeno una ritenuta, il valore predefinito sarà RT01 per le persone fisiche ed RT02 per quelle giuridiche.
+
+Si raccomanda l'uso di questa estensione UBL per specificare esplicitamente il tipo di ritenuta/e ove applicate. +
+
+
+L'importo totale delle ritenute va inserito nel *cbc:PrepaidAmount*.
+
+L'ExtensionURI dovrà contenere il prefisso 'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta' e il numero di occorrenza della ritenuta '::n'.
+
+.Esempio UBL dell'uso di una doppia ritenuta d'acconto in testata 
+[source, xml, indent=0]
+----
+include::../{snippet-dir}/agid-extensions.xml[tags=ext_TipoRitenuta]
+----
+
+
+.Esempio UBL di ritenuta d'acconto nella fattura
+Nella Fattura è possibile specificare una o più ritenute nell'elemento WithholdingTaxTotal a livello di testata, come nell'esempio riportato.
+
+[source, xml, indent=0]
+----
+	<!-- Ritenuta ENASARCO su imponibile prestazione -->
+	<cac:WithholdingTaxTotal>
+		<cbc:TaxAmount currencyID="EUR">82.50</cbc:TaxAmount>
+		<cac:TaxSubtotal>
+			<cbc:TaxableAmount currencyID="EUR">1000.00</cbc:TaxableAmount>
+			<cbc:TaxAmount currencyID="EUR">82.50</cbc:TaxAmount>
+			<cac:TaxCategory>
+				<cbc:ID>S</cbc:ID>
+				<cbc:Percent>8.25</cbc:Percent><!-- 50% dell'aliquota 16.50% -->
+				<cac:TaxScheme>
+					<cbc:ID>SWT</cbc:ID>
+					<cbc:TaxTypeCode>R</cbc:TaxTypeCode><!-- provvigioni corrisposte ad agente o rappresentante di commercio plurimandatario -->
+				</cac:TaxScheme>
+			</cac:TaxCategory>
+		</cac:TaxSubtotal>
+	</cac:WithholdingTaxTotal>
+----
+
+.Esempio UBL di ritenuta d'acconto nella nota di credito
+Nella Nota di Credito UBL 2.1 non è presente l'elemento WithholdingTaxTotal per indicare le ritenute applicate, ma è possibile includerlo come estensione UBL in testata al documento, come nell'esempio riportato.
+
+[source, xml, indent=0]
+----
+include::../{snippet-dir}/agid-extensions.xml[tags=ext_ritenuta_NC]
+----
+

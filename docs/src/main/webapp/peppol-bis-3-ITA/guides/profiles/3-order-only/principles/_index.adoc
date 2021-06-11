@@ -1,0 +1,17 @@
+[[principi-e-prequisiti]]
+= Principi e prerequisiti
+
+Questo capitolo descrive i principi e le assunzioni sottostanti l'utilizzo di questo profilo. 
+La documentazione si basa su BII-order.
+
+:leveloffset: +1
+
+include::_scope.adoc[]
+
+include::_parties.adoc[]
+
+include::_benefit.adoc[]
+
+include::../../../shared/files/_interoperability.adoc[]
+
+:leveloffset: -1

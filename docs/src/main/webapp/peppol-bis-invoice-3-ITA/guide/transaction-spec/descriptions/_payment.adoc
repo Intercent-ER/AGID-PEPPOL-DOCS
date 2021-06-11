@@ -1,0 +1,74 @@
+
+= Informazioni sulle modalità di pagamento
+
+== Bonifico
+
+Se il pagamento viene effettuato mediante bonifico, l'elemento Payment account identifier (BT-84) è obbligatorio
+
+Vedi <<payment-means>> per tutti i codici ammessi. Esempi di codici per i pagamenti con bonifico sono:
+
+* 30 - Bonifico
+* 56 - Giroconto bancario
+
+include::../../syntax/_credit-payment.adoc[]
+
+== Pagamento con carta
+
+Se l'Acquirente ha scelto di pagare mediante una carta di pagamento come ad esempio una carta di credito o di debito, le informazioni relative al Primary Account Number (PAN) dovranno essere presenti in fattura.
+
+Vedi <<payment-means>> per tutti i codici ammessi. Esempi di codici per i pagamenti con carta sono:
+
+* 48 - Bancomat 
+* 54 - Carta di credito (es. VISA, Mastercard, ...)
+* 55 - Carta di debito (es. VISA Electron)
+
+include::../../syntax/_card-payment.adoc[]
+
+== Addebito diretto
+
+Vedi <<payment-means>> per tutti i codici ammessi. Esempi di codici per l'addebito diretto sono:
+
+* 49 - Addebito diretto
+* 59 - Addebito diretto SEPA (SEPA direct debit o SDD)
+
+include::../../syntax/_direct-debit.adoc[]
+
+== Pagamento tramite bollettino di conto corrente postale
+
+Vedi <<payment-means>> per tutti i codici ammessi. Esempi di codici per il postagiro o giroconto sono:
+
+* 50 - Giroconto postale (Postagiro o bollettino postale)
+
+include::../../syntax/_giro.adoc[]
+
+== #Pagamento mediante contante#
+
+Vedi <<payment-means>> per tutti i codici ammessi. Esempio di codice per il pagamento in contante:
+
+* 10 - Contante
+
+include::../../syntax/_cash-payment.adoc[]
+
+
+//== Pagamento non specificato
+
+Se il venditore non dà indicazioni su come regolarizzare il pagamento della fattura, esiste solitamente un contratto che lo regola.
+
+Indicando il codice 1, l’acquirente non viene informato sulle modalità di pagamento della fattura e può essere indicata solo una data di pagamento.
+
+include::../../syntax/_unspecified-payment.adoc[]
+
+== #Pagamento mediante PagoPA#
+
+Il codice 9 (National or regional clearing) viene mappato con MP23 – PagoPA: +
+
+* 9 - PagoPA
+
+.Esempio UBL di modalità pagamento con PagoPA
+[source, xml, indent=0]
+----
+<cac:PaymentMeans>
+    <cbc:PaymentMeansCode name="PagoPA">9</cbc:PaymentMeansCode>
+</cac:PaymentMeans>
+----
+

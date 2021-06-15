@@ -1,0 +1,61 @@
+
+[[customization-and-profile]]
+= Identificatori per la customizzazione e profilo
+
+Le regole della CIUS-IT completano quelle già previste dal modello semantico e da ciascuna delle sintassi indicate dalla norma, garantendo che il file fattura, compilato nel loro rispetto, contenga tutti gli elementi per essere accettato e trasmesso. +
+
+L’innesco delle *CIUS domestic* si attiva quando il BT-40 “Seller country code” è valorizzato a IT; mentre le *CIUS cross-border*, si attivano quando il BT-55 “Buyer country code” è popolato con IT e il BT-40 è diverso da IT. +
+
+La CIUS-IT viene identificata, all’interno del file in cui è rappresentata la fattura discriminando in funzione della valorizzazione presente in BT-40 e BT-55 per il tramite delle seguenti diciture che valorizzano il BT-24.
+
+* BT-40 pari a IT, allora:
+
+
+[cols="4,4", options="header"]
+|===
+| Elemento `cbc:CustomizationID` +
+`_(BT-24 Specification identifier)_`
+| Elemento `cbc:ProfileID` +
+`_(BT-23 Business process
+type)_`
+
+| #urn:cen.eu:en16931:2017#compliant#urn:fatturapa.gov.it:CIUSIT:
+2.0.0#conformant#urn:fatturapa.gov.it:EXT-IT:1.0.0#
+| urn:fdc:peppol.eu:2017:poacc:billing:01:1.0
+
+|===
+
+* BT-40 diverso da IT e BT-55 pari a IT, allora:
+
+
+[cols="4,4", options="header"]
+|===
+| Elemento `cbc:CustomizationID` +
+`_(BT-24 Specification identifier)_`
+| Elemento `cbc:ProfileID` +
+`_(BT-23 Business process
+type)_`
+
+| #urn:cen.eu:en16931:2017#compliant#urn:fatturapa.gov.it:CIUS-IT:2.0.0#
+| urn:fdc:peppol.eu:2017:poacc:billing:01:1.0
+
+|===
+
+A titolo puramente esemplificativo e non esaustivo, si riporta a seguire come viene espresso nelle due sintassi l’identificativo qualora la fattura fosse crossborder (ovvero BT-40 diverso da IT e BT-55 pari a IT):
+
+.Esempio per UBL 2.1
+[source, xml, indent=0]
+----
+<cbc:CustomizationID> urn:cen.eu:en16931:2017#compliant#urn:fatturapa.gov.it:CIUS-IT:2.0.0 </cbc:CustomizationID>
+----
+
+.Esempio per UN/CEFACT CII 16B
+[source, xml, indent=0]
+----
+<rsm:ExchangedDocumentContext>
+<ram:GuidelineSpecifiedDocumentContextParameter>
+<ram:ID>urn:cen.eu:en16931:2017#compliant#urn:fatturapa.gov.it:CIUS-IT:2.0.0</ram:ID>
+</ram:GuidelineSpecifiedDocumentContextParameter>
+</rsm:ExchangedDocumentContext>
+----
+

@@ -1,12 +1,12 @@
 
-= #Rivalsa Cassa previdenziale# (CIUS)
+= #Rivalsa Cassa previdenziale# (CIUS domestica)
 
 La Cassa previdenziale viene trattata come maggiorazione a livello di documento utilizzando il *cac:AllowanceCharge* (BG-21 Document level charge). +
 
 La base imponibile del contributo viene inserita nel *cbc:BaseAmount* (BT-100 Document level charghe base amount). +
 L’aliquota nel *cbc:MultiplierFactorNumeric* (BT-101 Document level charge percentage), l’importo del contributo nel *cbc:Amount* (BT-99 Document level charge amount). +
 
-Le informazioni tipo cassa (FPA 2.1.1.7.1), ritenuta (FPA 2.1.1.7.6), natura (FPA 2.1.1.7.7) e riferimento amministrazione (FPA 2.1.1.7.8) vengono concatenate con il simbolo "#" nel *cbc:AllowanceChargeReason* (BT-104 Document level charge reason).
+Le informazioni tipo cassa (FPA 2.1.1.7.1), ritenuta (FPA 2.1.1.7.6) e natura (FPA 2.1.1.7.7) vengono concatenate con il simbolo "#" nel *cbc:AllowanceChargeReason* (BT-104 Document level charge reason).
 
 Il *cbc:AllowanceChargeReasonCode* (BT-105 Document level charge reason code) viene valorizzato con "ZZZ". +
 
@@ -21,7 +21,7 @@ L’esempio si riferisce ad una prestazione di 1.000 euro soggetta IVA ordinaria
 <cac:AllowanceCharge>
   <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
   <cbc:AllowanceChargeReasonCode>ZZZ</cbc:AllowanceChargeReasonCode>
-  <cbc:AllowanceChargeReason>TC02#SI##2019/1317</cbc:AllowanceChargeReason>
+  <cbc:AllowanceChargeReason>TC02#SI#</cbc:AllowanceChargeReason>
   <cbc:MultiplierFactorNumeric>4</cbc:MultiplierFactorNumeric>
   <cbc:Amount currencyID="EUR">40.00</cbc:Amount>
   <cbc:BaseAmount currencyID="EUR">1000.00</cbc:BaseAmount>
@@ -43,7 +43,7 @@ L’esempio si si riferisce ad una prestazione di 1.000 euro non soggetta ad IVA
 <cac:AllowanceCharge>
   <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
   <cbc:AllowanceChargeReasonCode>ZZZ</cbc:AllowanceChargeReasonCode>
-  <cbc:AllowanceChargeReason>TC02#SI#N2#2019/1317</cbc:AllowanceChargeReason>
+  <cbc:AllowanceChargeReason>TC02#SI#</cbc:AllowanceChargeReason>
   <cbc:MultiplierFactorNumeric>4</cbc:MultiplierFactorNumeric>
   <cbc:Amount currencyID="EUR">40.00</cbc:Amount>
   <cbc:BaseAmount currencyID="EUR">1000.00</cbc:BaseAmount>

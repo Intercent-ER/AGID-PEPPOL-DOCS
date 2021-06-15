@@ -1,5 +1,5 @@
 
-= #Imposta di Bollo# (CIUS)
+= #Imposta di Bollo# (CIUS domestica)
 
 La gestione del bollo è operata come sconto o maggiorazione a livello di documento a mezzo dell’utilizzo del *cac:AllowanceCharge* (BG-21 Document level charge): +
 

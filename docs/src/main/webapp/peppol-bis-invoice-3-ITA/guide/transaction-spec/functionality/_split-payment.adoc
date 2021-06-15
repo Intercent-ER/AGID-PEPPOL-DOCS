@@ -1,5 +1,5 @@
 
-= #Scissione dei pagamenti (Split payment)#
+= #Scissione dei pagamenti - Split payment# (CIUS domestica)
 
 La scissione dei pagamenti o split payment è un regime particolare che stabilisce che il debitore dell'IVA sia il cessionario/committente anziché, come avviene normalmente, il cedente/prestatore.
 

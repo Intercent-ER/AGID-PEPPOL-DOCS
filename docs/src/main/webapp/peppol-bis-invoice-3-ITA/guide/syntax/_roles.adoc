@@ -10,7 +10,7 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 ----
 <cac:AccountingSupplierParty>
     <cac:Party>
-	 <cbc:EndpointID schemeID="9906">IT01234567890</cbc:EndpointID>
+	 <cbc:EndpointID schemeID="0211">IT01234567890</cbc:EndpointID>
 	 <cac:PartyName>
 	 	<cbc:Name>Fornitore S.p.A.</cbc:Name>
 	 </cac:PartyName>
@@ -24,7 +24,7 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 	 		<cbc:Line>Zona Savena</cbc:Line>
 	 	</cac:AddressLine>
 	 	<cac:Country>
-	 	<cbc:IdentificationCode listID="ISO3166-1:Alpha2">IT</cbc:IdentificationCode>
+	 	<cbc:IdentificationCode>IT</cbc:IdentificationCode>
 	 	</cac:Country>
 	 </cac:PostalAddress>
 	 <cac:PartyTaxScheme>
@@ -66,7 +66,7 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 		<cbc:PostalZone>42122</cbc:PostalZone>
 		<cbc:CountrySubentity>RE</cbc:CountrySubentity>
 		<cac:Country>
-			<cbc:IdentificationCode listID="ISO3166-1:Alpha2">IT</cbc:IdentificationCode>
+			<cbc:IdentificationCode>IT</cbc:IdentificationCode>
 		</cac:Country>
 	</cac:PostalAddress>
 	<cac:PartyTaxScheme>
@@ -77,7 +77,7 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 	</cac:PartyTaxScheme>
 	<cac:PartyLegalEntity>
 		<cbc:RegistrationName>Azienda USL di Reggio Emilia</cbc:RegistrationName>
-		<cbc:CompanyID>CF:01598570354</cbc:CompanyID>
+		<cbc:CompanyID schemeID="0210">01598570354</cbc:CompanyID>
 	</cac:PartyLegalEntity>
 	<cac:Contact>
 		<cbc:Name>Giovanni Rossi</cbc:Name>
@@ -106,7 +106,7 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 		<cbc:Line>Deposito Consegnatario: Fornitore Estero</cbc:Line>
 		</cac:AddressLine>
 			<cac:Country>
-			<cbc:IdentificationCode listID="ISO3166-1:Alpha2">BE</cbc:IdentificationCode>
+			<cbc:IdentificationCode>BE</cbc:IdentificationCode>
 			</cac:Country>
 	 </cac:PostalAddress>
 	 <cac:PartyTaxScheme>
@@ -131,6 +131,10 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 
 
 #Le informazioni relative all'Albo vengono fornite nel *cac:PartyIdentification/cbc:ID* concatenando il Nome Albo, il numero e la data iscrizione con il simbolo "&#x0023;", preceduti dalla stringa "ALBO:".#
+
+[NOTE]
+Trattasi di CIUS domestica (DC)
+
 
 .Esempio UBL per esprimere informazioni relative all'Albo
 
@@ -157,8 +161,11 @@ include::../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_for
 
 #Il campo *cac:PartylegalEntity/cbc:CompanyID* può essere usato per indicare le informazioni relative a FPA 1.2.4.1 Ufficio e FPA 1.2.4.2 Numero REA  concatenando i due dati con il "&#x0023;", preceduti dalla stringa "REA:".#
 
-.Esempio UBL per esprimere informazioni relative al numero REA
+[NOTE]
+Trattasi di CIUS domestica (DC)
 
+
+.Esempio UBL per esprimere informazioni relative al numero REA
 [source, xml, indent=0]
 ----
 <cac:PartyLegalEntity>
@@ -171,6 +178,10 @@ include::../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_for
 
 #Il campo *cac:PartyLegalEntity/cbc:CompanyLegalForm* può essere usato per indicare informazioni legali addizionali quali FPA 1.2.4.3 CapitaleSociale, FPA 1.2.4.4 SocioUnico e FPA  1.2.4.5 StatoLiquidazione, concatenando i campi con il simbolo "&#x0023;".#
 
+[NOTE]
+Trattasi di CIUS domestica (DC)
+
+
 .Esempio UBL per indicare il Capitale Sociale
 
 [source, xml, indent=0]
@@ -181,8 +192,6 @@ include::../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_for
 	...
 </cac:PartyLegalEntity>
 ----
-
-
 
 
 = Il Cliente (AccountingCustomerParty)
@@ -203,82 +212,9 @@ include::{snippet-dir}/Snippet-full.xml[tags=buyer]
 <2> Gli identificatori per il VAT/IVA devono incudere il prefisso del codice paese
 <3> Il codice fiscale è preceduto dalla stringa "CF:"
 
-#Nel contesto B2C il Cliente può essere un cittadino (una persona fisica).#
-
-.Esempio di un soggetto residente in possesso della PEC.
-
-[source, xml]
-
-<cac:AccountingCustomerParty>
-	<cac:Party>
-		<cbc:EndpointID schemeID="0202">nome.cognome@pec-domain.it</cbc:EndpointID>
-		<cac:PartyName>
-			<cbc:Name>Mario Rossi</cbc:Name>
-		</cac:PartyName>
-                <cac:PostalAddress>
-                        <cbc:StreetName>Via Riviera di Chiaia, 99A</cbc:StreetName>
-                        <cbc:CityName>Napoli</cbc:CityName>
-                        <cbc:PostalZone>80121</cbc:PostalZone>
-                        <cac:AddressLine>
-                        <cbc:Line> Informazioni Aggiuntive /cbc:Line>
-                    </cac:AddressLine>
-                        <cac:Country>
-                            <cbc:IdentificationCode>IT</cbc:IdentificationCode>
-                        </cac:Country>
-                </cac:PostalAddress>
-                <cac:PartyTaxScheme>
-                    <cbc:CompanyID>IT01234567890</cbc:CompanyID>
-                    <cac:TaxScheme>
-                        <cbc:ID>VAT</cbc:ID>
-                    </cac:TaxScheme>
-                </cac:PartyTaxScheme>
-                <cac:Contact>
-                        <cbc:Telephone>06123456</cbc:Telephone>
-                        <cbc:ElectronicMail>nome.cognome@pec-domain.it</cbc:ElectronicMail>
-                </cac:Contact>
-	</cac:Party>
-</cac:AccountingCustomerParty>
-
-
-#Nel contesto B2B o G2B, in base alla specifica della FatturaPA italiana, il Cliente può essere identificato mediante il *Codice Destinatario*. +#
-
-.Esempio di un soggetto (non persona fisica) in possesso del Codice Destinatario accreditato presso l'Agenzia delle Entrate.
-
-[source, xml]
-
-<cac:EndPointID>
-    <cbc:ID schemeID="0205">L0U7KO4</cbc:ID>
-</cac:EndPointID>
-
-.Esempio di un soggetto residente privo di Codice Destinatario e di PEC:
-
-[source, xml]
-
-<cac:EndPointID>
-    <cbc:ID schemeID="0205">0000000</cbc:ID>
-</cac:EndPointID>
-
-
-.Esempio di un soggetto (non persona fisica) non residente, non stabilito o identificato in Italia, privo di Codice e Destinatario e di PEC.
-
-[source, xml]
-
-<cac:EndPointID>
-    <cbc:ID schemeID="0205">XXXXXXX</cbc:ID>
-</cac:EndPointID>
-
 
 #Il campo *cac:PartyLegalEntity/cbc:RegistrationName* può essere usato per indicare il dato FPA 1.2.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.2.1.3.2 Nome e 1.2.1.3.3 Cognome preceduti dalla stringa "Nome&Cognome:" e concatenati dal simbolo "&#x0023;".#
 
-
-#Nella fatturazione tra privati (B2B), se il cessionario/committente non residente ha una *stabile organizzazione* in Italia, si può specificare in fattura come parte dei dati del cliente nell'elemento AgentParty.#
-
-
-.Esempio UBL per la stabile organizzazione del cliente
-[source, xml, indent=0]
-----
-include::../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_cliente]
-----
 
 
 = Il Beneficiario (PayeeParty)
@@ -326,17 +262,6 @@ include::{snippet-dir}/Snippet-full.xml[tags=taxrep]
 <1> Gli identificatori per il VAT/IVA devono incudere il prefisso del codice paese
 
 #Il campo *cac:PartyName/cbc:Name* può essere usato per indicare il dato FPA 1.3.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.3.1.3.2 Nome e 1.3.1.3.3 Cognome preceduti dalla stringa "Nome&Cognome:" e concatenati dal simbolo "&#x0023;".#
-
-
-= #Il Rappresentante fiscale del cliente (AccountingCustomerParty/Party/PowerOfAttorney)#
-
-Nella fatturazione tra privati (B2B), se il cessionario/committente si avvale di un rappresentante fiscale in Italia, si può specificare in fattura come parte dei dati del fornitore nell'elemento PowerOfAttorney, come procura per la rappresentanza fiscale.
-
-.Esempio UBL per il rappresentante fiscale del cliente
-[source, xml, indent=0]
-----
-include::{snippet-dir}/agid-extensions.xml[tag=rappresentante_fiscale_cliente]
-----
 
 
 = #Il Terzo Intermediario o Soggetto Emittente (AccountingSupplierParty/ServiceProviderParty)#

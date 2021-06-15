@@ -1,7 +1,0 @@
-
-[[prof-01]]
-= Identificatori per la customizzazione e profilo
-
-Nella tabella seguente troverete i valori da utilizzare in questo profilo per l'identificatore della specifica (BT-24) e per il tipo di processo di business (BT-23).
-
-include::../../syntax/_profile.adoc[]

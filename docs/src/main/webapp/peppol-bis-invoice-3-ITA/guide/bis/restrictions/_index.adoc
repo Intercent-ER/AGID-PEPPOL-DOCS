@@ -1,23 +1,27 @@
 
 [appendix]
-= Restrizioni alla EN16931
+= Restrizioni #ed Estensioni# alla EN16931
 
-Di seguito vengono elencate le restrizioni alla {EN16931} applicate a questa {CIUS}. In aggiunta a queste regole, alcune regole nazionali forniscono ulteriori restrizioni basate su paese del venditore o IVA/VAT del paese.
-Una lista di queste regole nazionali è disponibile nelle <<national_rules>> 
+Di seguito vengono elencate le restrizioni alla {EN16931} applicate a questa {CIUS}. +
 
-Tutte le restrizioni si trovano nelle specifiche ammesse in una {CIUS}, come indicato nel capitolo 7.3.2 della {EN16931}.
+In aggiunta alle regole base di Peppol, alcune regole nazionali forniscono ulteriori restrizioni basate sul paese del venditore o IVA/VAT del paese. La lista di queste regole nazionali è riportata nelle <<national_rules>>. +
+
+#Nello specifico contesto italiano, valgono ulteriori restrizioni/estensioni.#
+
+#Le restrizioni per la fatturazione cross-border sono riportate al paragrafo Annex C.1.# + 
+#Le restrizioni per la fatturazione domestica sono riportate al paragrafo Annex C.2.# + 
+#Le estensioni per la fatturazione domestica sono riportate al paragrafo Annex C.3.# + 
+
+Le restrizioni sotto riportate sono espresse come indicato nel capitolo 7.3.2 della {EN16931}.
 
 :leveloffset: +1
 
-include::../../profile/annex/_restricted-elements.adoc[]
+include::_restricted-elements.adoc[]
 
-include::../../transaction-spec/annex/_restricted-elements.adoc[]
+include::_restricted-elements2.adoc[]
 
-include::../../profile/annex/_processes.adoc[]
+include::_processes.adoc[]
 
-include::../../profile/annex/_known-issues.adoc[]
-
-include::../../cius-italia/annex/_cius-italia.adoc[]
-
+include::_known-issues.adoc[]
 
 :leveloffset: -1

@@ -8,7 +8,7 @@ L’innesco delle *CIUS domestic* si attiva quando il BT-40 “Seller country co
 
 La CIUS-IT viene identificata, all’interno del file in cui è rappresentata la fattura discriminando in funzione della valorizzazione presente in BT-40 e BT-55 per il tramite delle seguenti diciture che valorizzano il BT-24.
 
-* BT-40 pari a IT, allora:
+* BT-40 pari a IT e BT-55 pari a IT, allora:
 
 
 [cols="4,4", options="header"]
@@ -19,8 +19,7 @@ La CIUS-IT viene identificata, all’interno del file in cui è rappresentata la
 `_(BT-23 Business process
 type)_`
 
-| #urn:cen.eu:en16931:2017#compliant#urn:fatturapa.gov.it:CIUSIT:
-2.0.0#conformant#urn:fatturapa.gov.it:EXT-IT:1.0.0#
+| #urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:www.agid.gov.it:trns:fattura:3#
 | urn:fdc:peppol.eu:2017:poacc:billing:01:1.0
 
 |===
@@ -36,26 +35,17 @@ type)_`
 `_(BT-23 Business process
 type)_`
 
-| #urn:cen.eu:en16931:2017#compliant#urn:fatturapa.gov.it:CIUS-IT:2.0.0#
+| #urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#
 | urn:fdc:peppol.eu:2017:poacc:billing:01:1.0
 
 |===
 
-A titolo puramente esemplificativo e non esaustivo, si riporta a seguire come viene espresso nelle due sintassi l’identificativo qualora la fattura fosse crossborder (ovvero BT-40 diverso da IT e BT-55 pari a IT):
+A titolo puramente esemplificativo e non esaustivo, si riporta a seguire come viene espresso l’identificativo per la fatturazione domestica (ovvero BT-40 pari a IT e BT-55 pari a IT):
 
 .Esempio per UBL 2.1
 [source, xml, indent=0]
 ----
-<cbc:CustomizationID> urn:cen.eu:en16931:2017#compliant#urn:fatturapa.gov.it:CIUS-IT:2.0.0 </cbc:CustomizationID>
+<cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:www.agid.gov.it:trns:fattura:3</cbc:CustomizationID>
 ----
 
-.Esempio per UN/CEFACT CII 16B
-[source, xml, indent=0]
-----
-<rsm:ExchangedDocumentContext>
-<ram:GuidelineSpecifiedDocumentContextParameter>
-<ram:ID>urn:cen.eu:en16931:2017#compliant#urn:fatturapa.gov.it:CIUS-IT:2.0.0</ram:ID>
-</ram:GuidelineSpecifiedDocumentContextParameter>
-</rsm:ExchangedDocumentContext>
-----
 

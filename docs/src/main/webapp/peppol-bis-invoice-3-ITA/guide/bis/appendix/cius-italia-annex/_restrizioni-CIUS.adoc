@@ -1,0 +1,36 @@
+
+
+= #Restrizioni - CIUS#
+
+_Da aggiornare_
+
+
+[cols="3s,3s,3,3,3", options="header"]
+|====
+
+^.^|CIUS ID
+^.^|Tipologia di regola
+^.^|Terminologia di business
+^.^|Elemento in XML PA
+^.^|Descrizione regola
+
+|
+|
+|
+|
+|
+
+|
+|
+|
+|
+|
+
+|
+|
+|
+|
+|
+
+
+|====

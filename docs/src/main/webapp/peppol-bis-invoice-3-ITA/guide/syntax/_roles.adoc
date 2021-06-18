@@ -77,7 +77,7 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 	</cac:PartyTaxScheme>
 	<cac:PartyLegalEntity>
 		<cbc:RegistrationName>Azienda USL di Reggio Emilia</cbc:RegistrationName>
-		<cbc:CompanyID schemeID="0210">01598570354</cbc:CompanyID>
+		<cbc:CompanyID>CF:01598570354</cbc:CompanyID>
 	</cac:PartyLegalEntity>
 	<cac:Contact>
 		<cbc:Name>Giovanni Rossi</cbc:Name>
@@ -143,7 +143,7 @@ Trattasi di CIUS domestica (DC)
 </cac:AccountingSupplierParty>
     <cac:Party>
     ...
-	    <cac:PartyIdentification>
+        <cac:PartyIdentification>
             <cbc:ID>ALBO:NomeAlbo#12345#YYYY-MM-DD</cbc:ID>
         </cac:PartyIdentification>
     ...
@@ -251,7 +251,7 @@ Sono comprese le aziende extra-EU che operano in Europa, gli importatori in EU e
 
 I rappresentanti fiscali sono responsabili per la gestione corretta e la regolarizzazione dell'IVA per conto delle aziende, in linea con le normative locali. Un rappresentante fiscale è considerato come l'agente locale del commerciante.  In molti casi, il rappresentante fiscale è ritenuto responsabile in solido per le tasse del commerciante.
 
-#Il Codice Fiscale può essere espresso all'interno del Party nell'elemento PartyIdentification/ID omettendo l'attributo @schemeID ma includendo il prefisso "CF:" come nell'esempio di seguito.#
+#Il Codice Fiscale può essere espresso all'interno del Party nell'elemento PartyIdentification/ID inserendo l’attributo @schemeID valorizzato con il codice "0210", come nell'esempio di seguito.#
 
 
 .Esempio UBL per le informazioni del rappresentante fiscale
@@ -274,12 +274,12 @@ Nel caso sia un soggetto terzo ad emettere fattura per conto del cedente / prest
 include::{snippet-dir}/agid-extensions.xml[tag=terzo_intermediario]
 ----
 
-Il Codice Fiscale può essere espresso all'interno del Party nell'elemento PartyIdentification/ID omettendo l'attributo @schemeID ma includendo il prefisso "CF:" come nell'esempio di seguito.
+Il Codice Fiscale può essere espresso all'interno del Party nell'elemento PartyIdentification/ID inserendo l’attributo @schemeID valorizzato con il codice "0210", come nell'esempio di seguito.
 
 [source, xml, indent=0]
 ----
 <cac:PartyIdentification>
-    <cbc:ID>CF:CXXNXX68M06E123H</cbc:ID>
+    <cbc:ID schemeID="0210">CXXNXX68M06E123H</cbc:ID>
 </cac:PartyIdentification>
 ----
 
@@ -288,7 +288,7 @@ Il Codice Fiscale può essere espresso all'interno del Party nell'elemento Party
 
 Nei casi di fattura "accompagnatoria", come parte delle informazioni relative al trasporto è possibile specificare i dati fiscali e anagrafici del vettore che trasporta e consegna la merce, nell'elemento CarrierParty.
 
-Il Codice Fiscale può essere espresso all'interno del Party nell'elemento PartyIdentification/ID omettendo l'attributo @schemeID ma includendo il prefisso "CF:" come nell'esempio di seguito.
+Il Codice Fiscale può essere espresso all'interno del Party nell'elemento PartyIdentification/ID inserendo l’attributo @schemeID valorizzato con il codice "0210", come nell'esempio di seguito.
 
 
 .Esempio UBL per il vettore che effettua il trasporto

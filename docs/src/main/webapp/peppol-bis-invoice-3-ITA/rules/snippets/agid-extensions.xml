@@ -406,7 +406,7 @@
         <!-- tag::info_vettore[] -->
         <cac:CarrierParty>
             <cac:PartyIdentification>
-                <cbc:ID>CF:CXXNXX68M06E123H</cbc:ID>
+                <cbc:ID schemeID="0210">>CXXNXX68M06E123H</cbc:ID>
             </cac:PartyIdentification>
             <cac:PartyName>
                 <cbc:Name>Trasporti di Mario Rossi</cbc:Name>

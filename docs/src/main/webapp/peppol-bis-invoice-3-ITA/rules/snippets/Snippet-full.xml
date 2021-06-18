@@ -143,7 +143,7 @@
             </cac:PartyTaxScheme>
             <cac:PartyLegalEntity>
                 <cbc:RegistrationName>Cliente S.p.A.</cbc:RegistrationName>
-                <cbc:CompanyID>CF:39937423947</cbc:CompanyID>
+                <cbc:CompanyID schemeID="0210">39937423947</cbc:CompanyID>
                 <!--3-->
             </cac:PartyLegalEntity>
             <cac:Contact>
@@ -158,20 +158,20 @@
     <!-- tag::payee[] -->
     <cac:PayeeParty>
         <cac:PartyIdentification>
-            <cbc:ID>PIVA:IT01598570354</cbc:ID>
+            <cbc:ID schemeID="0211">IT01598570354</cbc:ID>
         </cac:PartyIdentification>
         <cac:PartyName>
             <cbc:Name>Beneficiario e F.lli S.a.s</cbc:Name>
         </cac:PartyName>
         <cac:PartyLegalEntity>
-            <cbc:ID>CF:CXXNXX68M06E123H</cbc:ID>
+            <cbc:ID schemeID="0210">CXXNXX68M06E123H</cbc:ID>
         </cac:PartyLegalEntity>
     </cac:PayeeParty>
     <!-- end::payee[] -->
     <!-- tag::taxrep[] -->
     <cac:TaxRepresentativeParty>
         <cac:PartyIdentification>
-            <cbc:ID>CF:CXXNXX68M06E123H</cbc:ID>
+            <cbc:ID schemeID="0210">CXXNXX68M06E123H</cbc:ID>
         </cac:PartyIdentification>
         <cac:PartyName>
             <cbc:Name>Commercialista Snc</cbc:Name>

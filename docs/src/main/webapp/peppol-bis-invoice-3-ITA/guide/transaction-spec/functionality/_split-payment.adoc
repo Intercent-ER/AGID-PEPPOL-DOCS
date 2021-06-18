@@ -3,7 +3,7 @@
 
 La scissione dei pagamenti o split payment è un regime particolare che stabilisce che il debitore dell'IVA sia il cessionario/committente anziché, come avviene normalmente, il cedente/prestatore.
 
-Per supportare questo particolare caso si valorizza il *cac:TaxCategory/cbc:ID* (BT-118 VAT Category code) utilizzando il TaxCategory 'B' (Transferred VAT) secondo la codifica #UN/ECE 5305#.
+Per supportare questo particolare caso si valorizza il *cac:TaxCategory/cbc:ID* (BT-118 VAT Category code) utilizzando il TaxCategory 'B' (Transferred VAT) secondo la codifica UN/ECE 5305.
 
 [NOTE]
 ====

@@ -43,7 +43,7 @@ L’esempio si si riferisce ad una prestazione di 1.000 euro non soggetta ad IVA
 <cac:AllowanceCharge>
   <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
   <cbc:AllowanceChargeReasonCode>ZZZ</cbc:AllowanceChargeReasonCode>
-  <cbc:AllowanceChargeReason>TC02#SI#</cbc:AllowanceChargeReason>
+  <cbc:AllowanceChargeReason>TC04#SI#N2.2</cbc:AllowanceChargeReason>
   <cbc:MultiplierFactorNumeric>4</cbc:MultiplierFactorNumeric>
   <cbc:Amount currencyID="EUR">40.00</cbc:Amount>
   <cbc:BaseAmount currencyID="EUR">1000.00</cbc:BaseAmount>

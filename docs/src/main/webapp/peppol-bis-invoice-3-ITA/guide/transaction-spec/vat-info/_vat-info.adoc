@@ -23,29 +23,29 @@ Deve essere fornito un solo riepilogo IVA per ogni combinazione distinta di cate
 
 Si consiglia di osservare che per l'aliquota dell'IVA dovrebbero essere considerati solo i decimali significativi, ovvero qualsiasi differenza nei decimali non deve determinare differenti riepiloghi IVA.
 
-.Example
+_Esempio:_
 ====
-Riga 1 della fattura ha categoria IVA = S e aliquota IVA = *25* +
-Riga 2 della fattura ha categoria IVA = S e aliquota IVA = *25.00* +
+Riga 1 della fattura ha categoria IVA = S e aliquota IVA = *25,00* +
+Riga 2 della fattura ha categoria IVA = S e aliquota IVA = *25,00* +
 Questo dovrebbe originare un singolo riepilogo IVA.
 ====
 
 
-La gestione della natura dell'operazione (FPA 2.2.2.2 Natura) è operata a mezzo dell’utilizzo di: +
+#La gestione della natura dell'operazione (FPA 2.2.2.2 Natura) è operata a mezzo dell’utilizzo di:# +
 
-1.	*cac:TaxCategory/cbc:ID* (BT-118 VAT category code) per i riepiloghi IVA e *cac:Item/cac:TaxCategory/cbc:ID* (BT-151 VAT category code) per le righe di fattura;
-2.	*cbc:TaxExemptionReason* (BT-120 VAT exemption reason text) per i riepiloghi IVA, in cui viene inserita il codice natura secondo le specifiche FatturaPA;
-3.	*cbc:TaxExemptionReasonCode* (BT-121 VAT exemption reason code) per i riepiloghi IVA, cosiddetta tabella VATEX;
-4.	*cac:AdditionalItemProperty/cbc:Name* (BT-160) e *cac:AdditionalItemProperty/cbc:Value* (BT-161) per indicare la natura a livello di riga di fattura . L’item attribute name viene valorizzato con la stringa “NATURA”, l’item attribute value con il codice natura secondo le specifiche FatturaPA. +
+1.	#*cac:TaxCategory/cbc:ID* (BT-118 VAT category code) per i riepiloghi IVA e *cac:Item/cac:TaxCategory/cbc:ID* (BT-151 VAT category code) per le righe di fattura;#
+2.	#*cbc:TaxExemptionReason* (BT-120 VAT exemption reason text) per i riepiloghi IVA, in cui viene inserita il codice natura secondo le specifiche FatturaPA ed il Riferimento Normativo;#
+3.	#*cbc:TaxExemptionReasonCode* (BT-121 VAT exemption reason code) per i riepiloghi IVA, cosiddetta tabella VATEX;#
+4.	#*cac:AdditionalItemProperty/cbc:Name* (BT-160) e *cac:AdditionalItemProperty/cbc:Value* (BT-161) per indicare la natura a livello di riga di fattura . L’item attribute name viene valorizzato con la stringa “NATURA”, l’item attribute value con il codice natura secondo le specifiche FatturaPA.# +
 
 [IMPORTANT]
-Non è possibile inserire nella medesima fattura operazioni con il medesimo Tax Category ID (BT-118 VAT category code) e natura differente.
+#Non è possibile inserire nella medesima fattura operazioni con il medesimo Tax Category ID (BT-118 VAT category code) e natura differente.#
 
 .Tabella di relazione tra natura, VAT Category Code e VAT exemption reason code
-image::./vatex_table.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
+image:image/vatex_table.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
 
 
-=== Caso 1 - natura diversa da N1 – esempio riferito ad un’operazione in regime di reverse charge
+=== #Caso 1 - natura diversa da N1 – esempio riferito ad un’operazione in regime di reverse charge#
 
 [source, xml, indent=0]
 ----
@@ -58,7 +58,7 @@ image::./vatex_table.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100
       <cbc:ID>AE</cbc:ID>
     </cac:TaxCategory>
     <cbc:TaxExemptionReasonCode>vatex-eu-ae</cbc:TaxExemptionReasonCode>
-    <cbc:TaxExemptionReason>N6.3</cbc:TaxExemptionReason>
+    <cbc:TaxExemptionReason>N6.3#Art.16,co.6,lett.a (prestazioni di servizi rese dai subappaltatori nel settore edilizio)</cbc:TaxExemptionReason>
     <cac:TaxScheme>
       <cbc:ID>VAT</cbc:ID>
     </cac:TaxScheme>
@@ -88,7 +88,7 @@ image::./vatex_table.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100
   </cac:Price>
 ----
 
-=== Caso 2 - natura N1 – esempio riferito ad un’operazione esclusa
+=== #Caso 2 - natura N1 – esempio riferito ad un’operazione esclusa#
 
 [source, xml, indent=0]
 ----
@@ -131,8 +131,12 @@ image::./vatex_table.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100
   </cac:Price>
 </cac:InvoiceLine>
 ----
+== Totale IVA 
 
-== Data operazione ed esigibilità IVA
+Il totale IVA *cbc:TaxAmount* (BT-110) è la somma delle imposte dei singoli riepiloghi *cbc:TaxAmount* (BT-117)
+
+
+== #Data operazione ed esigibilità IVA#
 
 La gestione della data operazione e dell’esigibilità IVA è operata a mezzo dell’utilizzo di: +
 

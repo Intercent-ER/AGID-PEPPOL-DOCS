@@ -5,10 +5,17 @@ Questa Business Interoperability Specification (BIS) fornisce un insieme di spec
 
 Questa specifica è composta da: +
 
-* un insieme di specifiche derivanti dalla Core Invoice Usage Specification (CIUS) della {EN16931} emanate con provvedimento #...# dell'Agenzia delle Entrate;
-* un insieme di estensioni della Core Invoice atte a rendere equipollente il contenuto di una fattura elettronica redatta secondo queste specifiche con il formato italiano FatturaPA.
+* un insieme di specifiche derivanti dalla Core Invoice Usage Specification (CIUS) Peppol della {EN16931};
+* #un insieme di specifiche derivanti dalla Core Invoice Usage Specification (CIUS) della {EN16931} come da Specifiche Tecniche Fatturazione Europea v2.0 dell'Agenzia delle Entrate;#
+* #un insieme di CIUS ed estensioni della Core Invoice atte a rendere equipollente il contenuto di una fattura elettronica redatta secondo queste specifiche con il formato italiano FatturaPA.#
 
-#In questo documento le regole d’uso ed i paragrafi derivanti dal modello italiano di e-procurement sono evidenziate in giallo.#
+#In questo documento le regole d’uso ed i paragrafi derivanti dal modello italiano di eProcurement sono evidenziate in giallo, con specifica evidenza:#
+
+* #delle CIUS da applicare alle fatture cross-border;#
+* #delle CIUS da applicare alle fatture domestiche (CIUS domestica);#
+* #delle Estensioni da applicare alle fatture domestiche (estensione).#
+
+#Per ulteriori dettagli vedi anche i paragrafi 12.2 e 14.1.#
 
 *L’obiettivo* di questo documento è facilitare un’efficiente implementazione e diffusione delle transazioni elettroniche per il processo di fatturazione.
 
@@ -40,14 +47,10 @@ Questo documento  fornisce le linee guida per il supporto e l'implementazione de
 
 //Questo BIS non impone l'utilizzo di dati specifici per gli approvvigionamenti ma supporta diversi modi di riferirsi al processo dell'ordine. L'uso selettivo di questi riferimenti può essere la base per l'elaborazione automatizzata delle fatture.
 
-Sono supportati specificatamente i seguenti scenari di business:
+#Sono supportati specificatamente i seguenti scenari di business:#
 
-* B2G – Business to Government
-* B2B – Business to Business
-* B2C – Business to Consumer
-* G2G – Government to Government
-* G2B – Government to Business
-* G2C – Government to Consumer
+* #B2G – Business to Government#
+* #G2G – Government to Government#
 
 == A chi si rivolge
 

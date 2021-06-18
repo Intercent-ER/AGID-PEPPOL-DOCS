@@ -6,7 +6,7 @@ Una fattura può supportare funzioni relative a più processi di business (inter
 * Revisione Contabile
 * Pagamento
 
-In aggiunta alle funzioni core sono disponibili specifiche funzionalità domestiche necessarie alle imprese individuali e professionisti:
+#In aggiunta alle funzioni core sono disponibili specifiche funzionalità domestiche necessarie alle imprese individuali e professionisti, tra cui le principali sono:#
 
 * #Ritenuta d'acconto#
 * #Rivalsa Cassa previdenziale#

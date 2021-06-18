@@ -9,11 +9,10 @@ include::_settings.adoc[]
 :source-language: xml
 :sectanchors:
 :sectnums:
-:title-logo-image: ../../shared/images/peppol.png
 :description: La specifica PEPPOL per l’interoperabilità nel Business, d’ora in poi “BIS”, è stata sviluppata da OpenPEPPOL AISBL Post Award Coordinating Community ed è pubblicata come parte delle specifiche PEPPOL.
 :CIUS: Core Invoice Usage Specification (CIUS)
 
-image::../shared/images/peppol.png[float="right"]
+image::../shared/images/peppol-new-logo.png[float="right"]
 
 = [black]#BIS Fatturazione 3.0#
 

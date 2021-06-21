@@ -17,19 +17,8 @@ Ogni sconto o maggiorazione a livello di testata deve avere il codice di categor
 
 #Per gli sconti e maggiorazioni a livello di testata di FatturaPA vedasi 10.5. Sconti e maggiorazioni.#
 
-== Riepiloghi IVA e natura dell'operazione
 
-Deve essere fornito un solo riepilogo IVA per ogni combinazione distinta di categoria e aliquota IVA sia a livello di riga che negli sconti e maggiorazioni a livello di testata. Per alcune categorie IVA, l'aliquota deve essere posta a zero e quindi non viene utilizzata in questi casi per raggruppare il riepilogo IVA.
-
-Si consiglia di osservare che per l'aliquota dell'IVA dovrebbero essere considerati solo i decimali significativi, ovvero qualsiasi differenza nei decimali non deve determinare differenti riepiloghi IVA.
-
-_Esempio:_
-====
-Riga 1 della fattura ha categoria IVA = S e aliquota IVA = *25,00* +
-Riga 2 della fattura ha categoria IVA = S e aliquota IVA = *25,00* +
-Questo dovrebbe originare un singolo riepilogo IVA.
-====
-
+== Natura dell'operazione e Riepiloghi IVA
 
 #La gestione della natura dell'operazione (FPA 2.2.2.2 Natura) è operata a mezzo dell’utilizzo di:# +
 
@@ -38,12 +27,25 @@ Questo dovrebbe originare un singolo riepilogo IVA.
 3.	#*cbc:TaxExemptionReasonCode* (BT-121 VAT exemption reason code) per i riepiloghi IVA, cosiddetta tabella VATEX;#
 4.	#*cac:AdditionalItemProperty/cbc:Name* (BT-160) e *cac:AdditionalItemProperty/cbc:Value* (BT-161) per indicare la natura a livello di riga di fattura . L’item attribute name viene valorizzato con la stringa “NATURA”, l’item attribute value con il codice natura secondo le specifiche FatturaPA.# +
 
-[IMPORTANT]
-#Non è possibile inserire nella medesima fattura operazioni con il medesimo Tax Category ID (BT-118 VAT category code) e natura differente.#
-
 .Tabella di relazione tra natura, VAT Category Code e VAT exemption reason code
 image:image/vatex_table.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
 
+Deve essere fornito un solo riepilogo IVA per ogni combinazione distinta di categoria e aliquota IVA sia a livello di riga che negli sconti e maggiorazioni a livello di testata. Per alcune categorie IVA, l'aliquota deve essere posta a zero e quindi non viene utilizzata in questi casi per raggruppare il riepilogo IVA.
+
+Si consiglia di osservare che per l'aliquota dell'IVA dovrebbero essere considerati solo i decimali significativi, ovvero qualsiasi differenza nei decimali non deve determinare differenti riepiloghi IVA.
+
+[IMPORTANT]
+#Non è possibile inserire nella medesima fattura operazioni con il medesimo Tax Category ID (BT-118 VAT category code) e natura differente.#
+
+
+_Esempio:_
+====
+Riga 1 della fattura ha categoria IVA = S e aliquota IVA = *25,00* +
+Riga 2 della fattura ha categoria IVA = S e aliquota IVA = *25,00* +
+Questo dovrebbe originare un singolo riepilogo IVA.
+====
+
+Per altri dettagli vedi anche il paragrafo <<anchor-11,9.4. Calcolo dell’IVA>>.
 
 === #Caso 1 - natura diversa da N1 – esempio riferito ad un’operazione in regime di reverse charge#
 

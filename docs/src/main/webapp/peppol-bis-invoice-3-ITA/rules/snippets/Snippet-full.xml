@@ -121,7 +121,7 @@
             <cbc:EndpointID schemeID="0201">ABCDEF</cbc:EndpointID>
             <!--1-->
             <cac:PartyName>
-                <cbc:Name>Cliente S.p.A.</cbc:Name>
+                <cbc:Name>Azienda USL di Reggio Emilia</cbc:Name>
             </cac:PartyName>
             <cac:PostalAddress>
                 <cbc:StreetName>Via Pubblica, 712</cbc:StreetName>
@@ -142,7 +142,7 @@
                 </cac:TaxScheme>
             </cac:PartyTaxScheme>
             <cac:PartyLegalEntity>
-                <cbc:RegistrationName>Cliente S.p.A.</cbc:RegistrationName>
+                <cbc:RegistrationName>Azienda USL di Reggio Emilia</cbc:RegistrationName>
                 <cbc:CompanyID schemeID="0210">39937423947</cbc:CompanyID>
                 <!--3-->
             </cac:PartyLegalEntity>

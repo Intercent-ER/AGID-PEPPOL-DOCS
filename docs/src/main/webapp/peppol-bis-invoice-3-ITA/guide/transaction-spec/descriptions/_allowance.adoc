@@ -11,12 +11,13 @@ a. _Applicato a tutta la fattura, ma incluso nel calcolo del suo totale._
 * Possono essere indicati diversi sconti e maggiorazioni.
 * L’IVA relativa a sconti e maggiorazioni deve essere specificata attraverso l'elemento `cac:TaxCategory` e i suoi sotto elementi.
 * La somma di tutti gli sconti e maggiorazioni a livello di testata deve essere specificata rispettivamente in `cbc:AllowanceTotalAmount` e `cbc:ChargeTotalAmount`. Vedi <<totals>>
+* #Nel contesto nazionale la sezione è utilizzata solo per Bollo (vedi paragrafo 4.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 4.8).#
 +
 b. _#Applicato sul totale generale senza cambiare l’imponibile.#_
-* Il medesimo sconto usato in FatturaPA a livello di testata.
-* Espresso mediante estensione UBL.
-* Possono essere indicati diversi sconti e maggiorazioni, a catena.
-* Non modifica nè l'imponibile, nè l'IVA.
+* #Il medesimo sconto usato in FatturaPA a livello di testata.#
+* #Espresso mediante estensione UBL.#
+* #Possono essere indicati diversi sconti e maggiorazioni, a catena.#
+* #Non modifica nè l'imponibile, nè l'IVA.#
 
 A livello di riga:: _Il livello di riga si applica alle sole righe ed è incluso nel calcolo dell’importo di riga._
 * Possono essere indicati diversi sconti e maggiorazioni.
@@ -34,7 +35,7 @@ Dettagli ulteriori sul calcolo degli sconti/maggiorazioni sono disponibili press
 include::../../syntax/_allowance.adoc[]
 include::../../syntax/_allowance-line.adoc[]
 
-.Esempio UBL per fornire lo sconto sul totale documento, mediante estensione.
+.#Esempio UBL per fornire lo sconto sul totale documento, mediante estensione#.
 [source, xml, indent=0]
 ----
 include::../../../rules/snippets/agid-extensions.xml[tag=ext_ScontoFatturaPA]

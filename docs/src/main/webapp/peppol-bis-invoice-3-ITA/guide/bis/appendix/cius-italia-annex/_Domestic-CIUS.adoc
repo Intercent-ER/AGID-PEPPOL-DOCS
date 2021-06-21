@@ -2,7 +2,7 @@
 
 = #Restrizioni - CIUS Domestiche#
 
-[cols="4s,3,3,4,5", options="header"]
+[cols="4s,3,3,4,4", options="header"]
 |====
 
 ^.^|CIUS ID

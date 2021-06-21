@@ -198,9 +198,10 @@ Trattasi di CIUS domestica (DC)
 
 Il Cliente, detto anche Cessionario o Committente, è la persona o organizzazione che acquisisce la proprietà di un prodotto o di un servizio in base ad un prezzo concordato e a dei termini di pagamento. +
 
-#Il cliente può essere una PA, un operatore economico, un cittadino o un soggetto residente, non residente, non stabilito/identificato in Italia.#
+#Il cliente può essere solo una Pubblica Amministrazione.#
 
 Le informazioni inerenti al cliente sono obbligatorie e vengono fornite nell'elemento 'cac:AccountingCustomerParty'
+
 
 .Esempio UBL di informazioni sul Cliente
 [source, xml, indent=0]

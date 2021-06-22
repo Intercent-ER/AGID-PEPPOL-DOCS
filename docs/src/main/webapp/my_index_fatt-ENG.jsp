@@ -30,9 +30,6 @@
 				</div>
 
 				<dl class="dl-horizontal">
-					<dd>
-						<%@include file="../peppol-bis-invoice-3-ENG/menu/jumbo-list.html" %>
-					</dd>
 					<dt>Release Notes</dt>
 					<dd>
 						<%@include file="../peppol-bis-invoice-3-ENG/menu/intro-list.html" %>

@@ -3,7 +3,7 @@
 = #Restrizioni - CIUS#
 
 
-[cols="3s,3,3,3,3", options="header"]
+[cols="3s,2,3,3,3", options="header"]
 |====
 
 ^.^|CIUS ID
@@ -41,13 +41,13 @@ BT-40 Seller country code
 |Value domain for an element - Restrict  text or byte array length
 |BT-13 Purchase order reference
 |2.1.2.2. IdDocumento
-La lunghezza dell'elemento non può superare i 20 caratteri
+|La lunghezza dell'elemento non può superare i 20 caratteri
 
 |BR-IT-050
 |Value domain for an element - Restrict  text or byte array length
 |BT-15 Receiving advice reference
 |2.1.5.2 IdDocumento
-La lunghezza dell'elemento non può superare i 20 caratteri
+|La lunghezza dell'elemento non può superare i 20 caratteri
 
 |BR-IT-060
 |Value domain for an element - Restrict  text or byte array length

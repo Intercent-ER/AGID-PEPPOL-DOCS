@@ -27,6 +27,10 @@ Ogni sconto o maggiorazione a livello di testata deve avere il codice di categor
 3.	#*cbc:TaxExemptionReasonCode* (BT-121 VAT exemption reason code) per i riepiloghi IVA, cosiddetta tabella VATEX;#
 4.	#*cac:AdditionalItemProperty/cbc:Name* (BT-160) e *cac:AdditionalItemProperty/cbc:Value* (BT-161) per indicare la natura a livello di riga di fattura . L’item attribute name viene valorizzato con la stringa “NATURA”, l’item attribute value con il codice natura secondo le specifiche FatturaPA.# +
 
+[NOTE]
+Trattasi di CIUS domestica (DC)
+
+
 .Tabella di relazione tra natura, VAT Category Code e VAT exemption reason code
 image:image/vatex_table.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
 

@@ -194,8 +194,8 @@ Trattasi di CIUS domestica (DC)
 ----
 <cac:PartyLegalEntity>
     ...
-	<cbc:cbc:CompanyLegalForm>100000##</cbc:cbc:CompanyLegalForm>
-	...
+    <cbc:cbc:CompanyLegalForm>100000##</cbc:cbc:CompanyLegalForm>
+    ...
 </cac:PartyLegalEntity>
 ----
 
@@ -271,6 +271,8 @@ Trattasi di CIUS domestica (DC)
 </cac:PartyIdentification>
 ----
 
+
+
 = Il Beneficiario (PayeeParty)
 
 Il beneficiario è una persona, istituto bancario o entità di business alla quale si effettua il pagamento.
@@ -294,8 +296,9 @@ Per riflettere l'assegnazione di una Fattura ad un factor è necessario:
 include::{snippet-dir}/Snippet-full.xml[tags=payee]
 ----
 
-
 #Il campo *cac:PartyIdentification/cbc:ID* può essere inoltreusato per fornire le informazioni anagrafiche del Quietanzante indicando i dati FPA 2.4.2.8 CognomeQuietanzante e  FPA 2.4.2.9 NomeQuietanzante concatenati con il simbolo "&#x0023;".#
+
+
 
 
 = Rappresentante fiscale del fornitore (TaxRepresentativeParty)
@@ -330,7 +333,9 @@ Trattasi di CIUS domestica (DC)
 </cac:PartyIdentification>
 ----
 
-= #Stabile Organizzazione (AccountingSupplierParty/ServiceProviderParty)#
+
+
+= #Stabile Organizzazione (AccountingSupplierParty/AgentParty) - Estensione#
 
 #Se il cedente/prestatore non residente ha una stabile organizzazione in Italia, si può specificare in fattura come parte dei dati del fornitore nell'elemento AgentParty.#
 
@@ -341,7 +346,8 @@ include::../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_for
 ----
 
 
-= #Il Terzo Intermediario o Soggetto Emittente (AccountingSupplierParty/ServiceProviderParty)#
+
+= #Il Terzo Intermediario o Soggetto Emittente (AccountingSupplierParty/ServiceProviderParty) - Estensione#
 
 Nel caso sia un soggetto terzo ad emettere fattura per conto del cedente / prestatore, si può specificare in fattura come parte dei dati del fornitore nell'elemento ServiceProviderParty.
 
@@ -372,6 +378,8 @@ Trattasi di CIUS domestica (DC)
     <cbc:ID>EORI:12345678901</cbc:ID>
 </cac:PartyIdentification>
 ----
+
+
 
 = #Il Vettore (Delivery/CarrierParty)#
 

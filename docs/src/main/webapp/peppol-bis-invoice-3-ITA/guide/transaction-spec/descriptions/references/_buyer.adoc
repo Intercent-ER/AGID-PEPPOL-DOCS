@@ -6,13 +6,11 @@ Il riferimento dell'acquirente è **facoltativo**. Una fattura deve avere il rif
 
 L'elemento è utilizzato come riferimento per chi ha ordinato  prodotti/servizi. L'esempio è dato dal nome della persona che ordina, il numero del dipendente o un codice che identifica questa persona o dipartimento/gruppo. Il loro riferimento viene spesso utilizzato per lo smistamento interno al beneficiario, quindi è importante valorizzare questo elemento con i valori corretti in base alle necessità del beneficiario.
 
-If neither buyer reference nor a reference to an order is supplied by the customer, the name of the person ordering or appointed for the customer can be supplied in buyer reference if known by the supplier.
+#Se la fattura viene messa nell'ambito di un processo di Ordinazione Semplice o Ordinazione Completa rilevante ai fini del sistema NSO, occorre riportare nel *cbc:BuyerReference* (BT-10 Buyer reference) la Tripletta di identificazione completa separando i componenti (Id, data e Endpoint) con il carattere &#x0023; senza interposizione di spazi, come nel seguente esempio:#
 
-IMPORTANT: When reference is provided by the customer, the correct element shall contain the provided reference.
-
-
-.UBL example of buyer reference
 [source, xml, indent=0]
 ----
-<cbc:BuyerReference>0150abc</cbc:BuyerReference>
+<cbc:BuyerReference>110#2018-01-30#aaaaaa</cbc:BuyerReference>
 ----
+
+#Se la fornitura promana da un processo di ordinazione tradizionale (ad esempio, via lettera, fax, ecc.), ovvero non gestito tramite NSO, per dare maggior evidenza a tale circostanza si può indicare il testo "&#x0023;NO&#x0023;" nel *cbc:BuyerReference* (BT-10 Buyer reference).#

@@ -135,7 +135,6 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 [NOTE]
 Trattasi di CIUS domestica (DC)
 
-
 .Esempio UBL per esprimere informazioni relative all'Albo
 
 [source, xml, indent=0]
@@ -151,13 +150,20 @@ Trattasi di CIUS domestica (DC)
 </cac:AccountingSupplierParty>
 ----
 
-#Nella fatturazione tra privati (B2B), se il cedente/prestatore non residente ha una stabile organizzazione in Italia, si può specificare in fattura come parte dei dati del fornitore nell'elemento AgentParty.#
 
-.Esempio UBL per la stabile organizzazione del fornitore
+#Il numero del Codice EORI (Economic Operator Registration and Identification) basato sul Regolamento (CE) n. 312 del 16 aprile 2009 ed in vigore dal 1 luglio 2009, può essere anch'esso espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.#
+
+[NOTE]
+Trattasi di CIUS domestica (DC)
+
+.Esempio UBL per esprimere il codice EORI
 [source, xml, indent=0]
 ----
-include::../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_fornitore]
+<cac:PartyIdentification>
+    <cbc:ID>EORI:12345678901</cbc:ID>
+</cac:PartyIdentification>
 ----
+
 
 #Il campo *cac:PartylegalEntity/cbc:CompanyID* può essere usato per indicare le informazioni relative a FPA 1.2.4.1 Ufficio e FPA 1.2.4.2 Numero REA  concatenando i due dati con il "&#x0023;", preceduti dalla stringa "REA:".#
 
@@ -193,6 +199,41 @@ Trattasi di CIUS domestica (DC)
 </cac:PartyLegalEntity>
 ----
 
+#Nell'utilizzo dell’aggregato informativo *cac:PostalAddress*, è obbligatorio l'utilizzo delle informazioni di indirizzo, CAP, Comune e nazione.# +
+
+[NOTE]
+Trattasi di CIUS domestica (DC)
+
+#Di seguito si riportano due esempi di come compilare le informazioni dell’indirizzo.#
+
+.Indirizzo semplice
+[source, xml]
+<cac:PostalAddress>
+	<cbc:StreetName>Via principale 2, Palazzo 4</cbc:StreetName>
+	<cbc:CityName>Grande città</cbc:CityName>
+	<cbc:PostalZone>54321</cbc:PostalZone>
+	<cac:Country>
+		<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+	</cac:Country>
+</cac:PostalAddress>
+
+.Indirizzo completo
+[source, xml]
+<cac:PostalAddress>
+	<cbc:StreetName>Corso di Francia</cbc:StreetName>
+	<cbc:AdditionalStreetName>I Parioli</cbc:AdditionalStreetName>
+	<cbc:CityName>Roma</cbc:CityName>
+	<cbc:PostalZone>00197</cbc:PostalZone>
+	<cbc:CountrySubentity>RM</cbc:CountrySubentity>
+	<cac:AddressLine>
+		<cbc:Line>Informazioni Aggiuntive</cbc:Line>
+	</cac:AddressLine>
+	<cac:Country>
+		<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+	</cac:Country>
+</cac:PostalAddress>
+
+
 
 = Il Cliente (AccountingCustomerParty)
 
@@ -217,6 +258,18 @@ include::{snippet-dir}/Snippet-full.xml[tags=buyer]
 #Il campo *cac:PartyLegalEntity/cbc:RegistrationName* può essere usato per indicare il dato FPA 1.2.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.2.1.3.2 Nome e 1.2.1.3.3 Cognome preceduti dalla stringa "Nome&Cognome:" e concatenati dal simbolo "&#x0023;".#
 
 
+#Il Codice EORI può essere espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.#
+
+[NOTE]
+Trattasi di CIUS domestica (DC)
+
+.Esempio UBL per esprimere il codice EORI
+[source, xml, indent=0]
+----
+<cac:PartyIdentification>
+    <cbc:ID>EORI:12345678901</cbc:ID>
+</cac:PartyIdentification>
+----
 
 = Il Beneficiario (PayeeParty)
 
@@ -264,6 +317,29 @@ include::{snippet-dir}/Snippet-full.xml[tags=taxrep]
 
 #Il campo *cac:PartyName/cbc:Name* può essere usato per indicare il dato FPA 1.3.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.3.1.3.2 Nome e 1.3.1.3.3 Cognome preceduti dalla stringa "Nome&Cognome:" e concatenati dal simbolo "&#x0023;".#
 
+#Il Codice EORI può essere espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.#
+
+[NOTE]
+Trattasi di CIUS domestica (DC)
+
+.Esempio UBL per esprimere il codice EORI
+[source, xml, indent=0]
+----
+<cac:PartyIdentification>
+    <cbc:ID>EORI:12345678901</cbc:ID>
+</cac:PartyIdentification>
+----
+
+= #Stabile Organizzazione (AccountingSupplierParty/ServiceProviderParty)#
+
+#Se il cedente/prestatore non residente ha una stabile organizzazione in Italia, si può specificare in fattura come parte dei dati del fornitore nell'elemento AgentParty.#
+
+.Esempio UBL per la stabile organizzazione del fornitore
+[source, xml, indent=0]
+----
+include::../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_fornitore]
+----
+
 
 = #Il Terzo Intermediario o Soggetto Emittente (AccountingSupplierParty/ServiceProviderParty)#
 
@@ -284,6 +360,18 @@ Il Codice Fiscale può essere espresso all'interno del Party nell'elemento Party
 </cac:PartyIdentification>
 ----
 
+#Il Codice EORI può essere espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.#
+
+[NOTE]
+Trattasi di CIUS domestica (DC)
+
+.Esempio UBL per esprimere il codice EORI
+[source, xml, indent=0]
+----
+<cac:PartyIdentification>
+    <cbc:ID>EORI:12345678901</cbc:ID>
+</cac:PartyIdentification>
+----
 
 = #Il Vettore (Delivery/CarrierParty)#
 

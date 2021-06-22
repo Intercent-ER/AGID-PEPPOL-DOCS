@@ -9,5 +9,7 @@ Può essere espresso per il *Fornitore* (AccountingSupplierParty), per il *Clien
 .Esempio UBL per esprimere il codice EORI
 [source, xml, indent=0]
 ----
-include::../../../rules/snippets/agid-extensions.xml[tag=eori]
+<cac:PartyIdentification>
+    <cbc:ID>EORI:12345678901</cbc:ID>
+</cac:PartyIdentification>
 ----

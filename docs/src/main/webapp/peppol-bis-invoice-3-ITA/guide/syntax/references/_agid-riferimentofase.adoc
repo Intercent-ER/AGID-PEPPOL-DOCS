@@ -12,7 +12,7 @@ Per fare riferimento alla fase di un SAL, il codice può essere espresso come se
 </cac:AdditionalDocumentReference>
 ----
 
-Per riferirsi a più convenzioni dalle righe di fattura è necessario utilizzare *cac:DocumentReference* con il codice tipo documento = 130.
+Per riferirsi alla fase di un SAL dalle righe di fattura è necessario utilizzare *cac:DocumentReference* con il codice tipo documento = 130.
 
 .Esempio UBL per il riferimento alla fase di un SAL in riga
 [source, xml, indent=0]

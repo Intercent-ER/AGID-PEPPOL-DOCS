@@ -16,7 +16,7 @@ Il *cac:AdditionalItemProperty/cbc:Name* può essere valorizzato con "Testo", "N
 
 Il campi UBL *cac:AdditionalItemProperty/cbc:Name* e *cac:AdditionalItemProperty/cbc:Value* sono utilizzati per fornire informazioni riguardo il gruppo FPA Dati Veicoli.
 
-* Se cbc:Name è valorizzato con "DatiVeicoli", allora compilare il cbc:Value con i dati FPA 2.3.1 <Data> e FPA 2.3.2 <TotalePercorso> concatenati con il simbolo "#".
+* Se cbc:Name è valorizzato con "DatiVeicoli", allora compilare il cbc:Value con i dati FPA 2.3.1 Data e FPA 2.3.2 TotalePercorso concatenati con il simbolo "#".
 
 
 = #Condizioni pagamento#

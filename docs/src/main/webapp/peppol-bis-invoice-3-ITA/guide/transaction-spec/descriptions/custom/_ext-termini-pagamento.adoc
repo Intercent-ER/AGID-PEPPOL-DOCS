@@ -9,7 +9,13 @@ A fronte di un pagamento anticipato è possibile offrire uno sconto specificando
 .Esempio UBL per specificare un pagamento anticipato
 [source, xml, indent=0]
 ----
-include::../../../rules/snippets/agid-extensions.xml[tag=pagamento_anticipato]
+<cac:PaymentTerms>
+    <cbc:Note>Sconto per pagamento anticipato</cbc:Note>
+    <cbc:SettlementDiscountAmount currencyID="EUR">100.00</cbc:SettlementDiscountAmount>
+    <cac:SettlementPeriod>
+        <cbc:EndDate>2020-10-31</cbc:EndDate>
+    </cac:SettlementPeriod>
+</cac:PaymentTerms>
 ----
 
 == Pagamento Ritardato
@@ -19,5 +25,11 @@ A fronte di un pagamento ritardato è possibile fissare una penalità specifican
 .Esempio UBL per specificare un pagamento ritardato
 [source, xml, indent=0]
 ----
-include::../../../rules/snippets/agid-extensions.xml[tag=pagamento_ritardato]
+<cac:PaymentTerms>
+    <cbc:Note>Penale per pagamento ritardato</cbc:Note>
+    <cbc:PenaltyAmount currencyID="EUR">100.00</cbc:PenaltyAmount>
+    <cac:PenaltyPeriod>
+        <cbc:StartDate>2020-10-01</cbc:StartDate>
+    </cac:PenaltyPeriod>
+</cac:PaymentTerms>
 ----

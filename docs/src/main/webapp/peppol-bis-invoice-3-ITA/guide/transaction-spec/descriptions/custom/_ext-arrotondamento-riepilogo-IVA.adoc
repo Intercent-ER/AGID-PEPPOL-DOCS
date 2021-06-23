@@ -6,5 +6,16 @@ Eventuali arrotondamenti necessari a riportare al centesimo di euro le somme dei
 .Esempio UBL per fornire l'arrotondamento di un imponibile nel riepilogo IVA
 [source, xml, indent=0]
 ----
-include::../../../rules/snippets/agid-extensions.xml[tag=ext_RiepilogoIVA_Arrotondamento]
+<ext:UBLExtension>
+        <ext:ExtensionURI>urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento::1</ext:ExtensionURI>
+        <ext:ExtensionContent>
+            <cbc:Amount currencyID="EUR">0.5</cbc:Amount>
+        </ext:ExtensionContent>
+</ext:UBLExtension>
+<ext:UBLExtension>
+        <ext:ExtensionURI>urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento::2</ext:ExtensionURI>
+        <ext:ExtensionContent>
+                <cbc:Amount currencyID="EUR">0.8</cbc:Amount>
+        </ext:ExtensionContent>
+</ext:UBLExtension>
 ----

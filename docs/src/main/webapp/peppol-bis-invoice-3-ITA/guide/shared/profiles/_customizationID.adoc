@@ -2,6 +2,8 @@
 [[customization-and-profile]]
 = Identificatori per la customizzazione e profilo
 
+[[anchor-75]]
+
 Le regole della CIUS-IT completano quelle già previste dal modello semantico e da ciascuna delle sintassi indicate dalla norma, garantendo che il file fattura, compilato nel loro rispetto, contenga tutti gli elementi per essere accettato e trasmesso. +
 
 L’innesco delle *CIUS domestic* si attiva quando il BT-40 “Seller country code” è valorizzato a IT; mentre le *CIUS cross-border*, si attivano quando il BT-55 “Buyer country code” è popolato con IT e il BT-40 è diverso da IT. +

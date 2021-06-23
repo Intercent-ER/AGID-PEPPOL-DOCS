@@ -49,7 +49,7 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 
 #Nel caso in cui non si inserisca la Partita IVA nell’EndpointID, la Partita IVA va indicata nel *cac:PartyTaxScheme/cbc:CompanyID*.#
 
-#Nel caso in cui si voglia indicare anche il Codice Fiscale, quest’ultimo va indicato nel *cac:PartyLegalEntity/cbc:CompanyID*.#
+#Nel caso in cui si voglia indicare anche il Codice Fiscale, quest’ultimo va indicato nel *cac:PartyLegalEntity/cbc:CompanyID*, omettendo l’attributo @schemeID ma includendo il prefisso "CF:" come nell’esempio di seguito.#
 
 .Esempio di indicazione della Partita Iva e del Codice Fiscale
 [source, xml, indent=0]
@@ -241,7 +241,14 @@ Il Cliente, detto anche Cessionario o Committente, è la persona o organizzazion
 
 #Il cliente può essere solo una Pubblica Amministrazione.#
 
-Le informazioni inerenti al cliente sono obbligatorie e vengono fornite nell'elemento 'cac:AccountingCustomerParty'
+Le informazioni inerenti al cliente sono obbligatorie e vengono fornite nell'elemento 'cac:AccountingCustomerParty'. +
+
+#Nel caso in cui il cliente abbia la Partita IVA, la Partita IVA va indicata nel *cac:PartyTaxScheme/cbc:CompanyID*.# +
+
+#Nel caso in cui il cliente sia dotato solo di Codice Fiscale, questo va indicato nel *cac:PartyLegalEntity/cbc:CompanyID*, valorizzando l’attributo @schemeID con “0210”.#
+
+[IMPORTANT]
+Almeno uno dei due deve essere presente
 
 
 .Esempio UBL di informazioni sul Cliente

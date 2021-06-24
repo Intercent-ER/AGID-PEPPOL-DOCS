@@ -6,3 +6,5 @@ I file di esempio sono pubblicati su GitHub. In aggiunta, diversi file di esempi
 
 * https://github.com/OpenPEPPOL/peppol-bis-invoice-3/tree/master/rules/examples[File di esempio della specifica Peppol EU]
 * https://github.com/OpenPEPPOL/peppol-bis-invoice-3/tree/master/rules/snippets[File snippet della specifica Peppol EU]
+* File di esempio della specifica Peppol IT, disponibili nella sezione Downloads della link:../../../../../../[Homepage]
+

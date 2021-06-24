@@ -8,6 +8,6 @@ Le fatture conformi a questa specifica PEPPOL BIS supportano il processo di revi
 *	Identificazione delle parti interessate (acquirente e venditore).
 *	Identificazione dei beni e/o servizi commercializzati, inclusa la loro descrizione, valore e quantità.
 *	Informazioni per correlare la fattura ai suoi pagamenti.
-*	Informazioni per correlare la fattura ai documenti rilevanti come i contratti e gli ordini.
+*	Informazioni per correlare la fattura ai documenti rilevanti come i contratti e gli ordini d'acquisto.
 
 Per i requisiti dettagliati a supporto della revisione contabile, si consiglia di consultare i <<auditingreq>>

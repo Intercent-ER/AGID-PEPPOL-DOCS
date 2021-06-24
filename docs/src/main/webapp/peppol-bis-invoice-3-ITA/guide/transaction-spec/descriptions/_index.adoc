@@ -28,23 +28,15 @@ include::_price.adoc[]
 
 include::_uom.adoc[]
 
-include::_ext-tipo-documento.adoc[]
+include::custom/_ext-tipo-documento.adoc[]
 
-include::_address.adoc[]
+include::custom/_ext-regime-fiscale.adoc[]
 
-include::_ext-regime-fiscale.adoc[]
+include::custom/_ext-termini-pagamento.adoc[]
 
-//include::_ext-stabile-organizzazione.adoc[]
+include::custom/_ext-arrotondamento-riepilogo-IVA.adoc[]
 
-//include::_ext-codice-fiscale.adoc[]
-
-include::_ext-codice-EORI.adoc[]
-
-include::_ext-termini-pagamento.adoc[]
-
-include::_ext-arrotondamento-riepilogo-IVA.adoc[]
-
-include::_altreregoleitaliane.adoc[]
+include::custom/_altreregoleitaliane.adoc[]
 
 
 :leveloffset: -1

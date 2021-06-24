@@ -1,0 +1,79 @@
+[[altri-riferimenti]]
+= #Riepilogo riferimenti ad altri documenti#
+
+[cols="2,2,3,6", options="header"]
+|====
+^.^|Riferimento
+^.^|Descrizione
+^.^|Campo Fattura PA
+^.^|Dove usarlo
+
+|*CONTRATTO*
+|Estremi Contratto
+|2.1.3.2 IdDocumento
+|In testata si usa +
+`cac:ContractDocumentReference` (0.1) +
+
+A livello di riga +
+`cac:InvoiceLine/cac:DocumentReference/cbc:ID` (0..n) +
+con @schemeID = CT
+
+
+|*DDT*
+|Documento di Trasporto +
+|2.1.8.1 NumeroDDT
+|In testata si usa +
+`cac:DespatchDocumentReference` (0.n) +
+
+A livello di riga +
+`cac:DespatchLineReference` (0..n) +
+
+
+|*CIG*
+|Codice Identificativo Gara +
+|2.1.3.7 CodiceCIG
+|In testata si usa +
+`cac:OriginatorDocumentReference` (0.1) +
+
+A livello di riga +
+`cac:InvoiceLine/cac:DocumentReference/cbc:ID` (0..n) +
+con @schemeID = AGB
+
+
+|*CUP*
+|Codice Unico Progetto
+|2.1.3.6 CodiceCUP
+|In testata si usa +
+`cac:ProjectReference` (0.1) +
+
+A livello di riga +
+`cac:InvoiceLine/cac:DocumentReference/cbc:ID` (0..n) +
+con @schemeID = AEP
+
+
+|*CONVENZIONE*
+|Estremi Convenzione
+|2.1.4.5 CodiceCommessaConvenzione
+|In testata si usa +
+`cac:AdditionalDocumentReference/cbc:ID` (0.n) +
+con @schemeID = AVV
+
+A livello di riga +
+`cac:InvoiceLine/cac:DocumentReference/cbc:ID` (0..n) +
+con @schemeID = AVV
+
+
+|*Dati SAL*
+|Riferimento alla fase di un SAL
+|2.1.7.1 RiferimentoFase
+|In testata si usa +
+`cac:AdditionalDocumentReference/cbc:ID` (0.n) +
+con @schemeID = AOR
+
+A livello di riga +
+`cac:InvoiceLine/cac:DocumentReference/cbc:ID` (0..n) +
+con @schemeID = AOR
+
+
+
+|====

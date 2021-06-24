@@ -1,7 +1,7 @@
 
 = VAT category codes
 
-[[anchor-1]]
+[[anchor-17]]
 
 Un sottoinsieme di valori della codifica {UNCL5305} deve essere usato.
 

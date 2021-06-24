@@ -5,4 +5,4 @@ Questa {peppol} BIS supporta l'uso *opzionale* della UN/CEFACT XML Cross Industr
 
 Tutte le istanze delle fatture espresse in CII devono essere conformi alle restrizioni e alle regole realizzate in questa BIS, e quindi un'istanza CII, deve essere validata secondo specifiche regole PEPPOL, allo stesso modo delle istanze UBL.
 
-L'identificatore della specifica (BT-24) e del tipo di processo di business (BT-23) sono le stesse sia nelle istanze CII che UBL, vedi <<prof-01>>
+L'identificatore della specifica (BT-24) e del tipo di processo di business (BT-23) sono le stesse sia nelle istanze CII che UBL, vedi <<anchor-75, Identificatori per la customizzazione e profilo>>

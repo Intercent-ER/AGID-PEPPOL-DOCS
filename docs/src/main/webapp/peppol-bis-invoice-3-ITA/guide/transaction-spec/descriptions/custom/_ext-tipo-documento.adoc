@@ -8,5 +8,10 @@ Se il tipo documento non viene specificato, si intende la fattura commerciale (T
 .Esempio UBL per specificare il tipo documento come estensione UBL
 [source, xml, indent=0]
 ----
-include::../../../rules/snippets/agid-extensions.xml[tag=ext_TipoDocumento]
+<ext:UBLExtension>
+        <ext:ExtensionURI>urn:fdc:agid.gov.it:fatturapa:TipoDocumento</ext:ExtensionURI>
+        <ext:ExtensionContent>
+            <cbc:TypeCode>TD22</cbc:TypeCode>
+        </ext:ExtensionContent>
+</ext:UBLExtension>
 ----

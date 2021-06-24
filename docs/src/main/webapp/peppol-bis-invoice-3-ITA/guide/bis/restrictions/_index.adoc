@@ -2,6 +2,8 @@
 [appendix]
 = Restrizioni #ed Estensioni# alla EN16931
 
+[[anchor-82]]
+
 Di seguito vengono elencate le restrizioni alla {EN16931} applicate a questa {CIUS}. +
 
 In aggiunta alle regole base di Peppol, alcune regole nazionali forniscono ulteriori restrizioni basate sul paese del venditore o IVA/VAT del paese. La lista di queste regole nazionali è riportata nelle <<national_rules>>. +

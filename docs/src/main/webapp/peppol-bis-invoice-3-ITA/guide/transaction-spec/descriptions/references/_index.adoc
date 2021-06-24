@@ -17,4 +17,6 @@ include::../../../syntax/references/_index.adoc[]
 
 include::_ext-fattura-principale.adoc[]
 
+include::_riepilogo_riferimenti.adoc[]
+
 :leveloffset: -1

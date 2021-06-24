@@ -8,12 +8,13 @@ Il cliente deve emettere un ordine caratterizzato da un identificativo univoco c
 
 #Se la fattura viene messa nell'ambito di un processo di Ordinazione Semplice o Ordinazione Completa rilevante ai fini del sistema NSO, occorre riportare il riferimento all'ordine nel seguente modo:#
 
-1.	#Nel *cac:OrderReference/cbc:ID*  (BT-13 Purchase order reference) riportare il solo identificativo dell’ordine, come nel seguente esempio:#
+1.	#Nel *cac:OrderReference/cbc:ID*  (BT-13 Purchase order reference) riportare il solo identificativo dell’ordine, come nel seguente esempio (dove è riportata anche la data dell'ordine):#
 +
 [source, xml, indent=0]
 ----
 <cac:OrderReference>
     <cbc:ID>110</cbc:ID>
+    <cbc:IssueDate>2018-01-30</cbc:IssueDate>
 </cac:OrderReference>
 ----
 

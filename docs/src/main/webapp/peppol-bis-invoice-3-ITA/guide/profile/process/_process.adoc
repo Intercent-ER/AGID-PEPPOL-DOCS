@@ -5,7 +5,8 @@ Il processo di fatturazione include l'emissione e l'invio della fattura e della 
 
 Il processo di fatturazione è mostrato nel seguente flusso:
 
-* Un fornitore emette e invia una fattura ad un cliente. La fattura fa riferimento ad un ordine con specifici beni e/o servizi consegnati. 
+* Un fornitore emette e invia una fattura ad un cliente. La fattura fa riferimento ad un ordine con specifici beni e/o servizi consegnati. +
+
 Una fattura può anche fare riferimento ad un contratto o un accordo quadro. La fattura può specificare articoli (beni e/o servizi) con il codice e la descrizione dell'articolo.
 
 * Il cliente riceve la fattura e la elabora nel sistema di controllo delle fatture arrivando ad uno dei seguenti risultati:
@@ -14,7 +15,7 @@ Una fattura può anche fare riferimento ad un contratto o un accordo quadro. La 
 
   .. Il cliente rifiuta completamente la fattura, contatta il fornitore e richiede una nota di credito a storno totale.
 
-  .. Il cliente contesta parti della fattura, contatta il fornitore e richiede una nota di credito.
+  .. Il cliente contesta parti della fattura, contatta il fornitore e richiede una nota di credito e una nuova fattura.
 
 Il diagramma seguente mostra il processo di base della fatturazione con l'utilizzo del profilo BIS PEPPOL. Questo processo presuppone che sia la fattura che la nota di credito vengano scambiate elettronicamente.
 

@@ -1,7 +1,7 @@
 
 = Calcolo dell'IVA
 
-[[anchor-2]]
+[[anchor-42]]
 [[anchor-11]]
 
 Un riepilogo IVA deve essere fornito per ogni combinazione distinta di codice categoria e aliquota IVA trovate sia nelle informazioni IVA di riga che a livello di testata negli sconti/maggiorazioni.

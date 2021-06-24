@@ -14,4 +14,3 @@ L'elemento è utilizzato come riferimento per chi ha ordinato  prodotti/servizi.
 ----
 
 #Se la fornitura promana da un processo di ordinazione tradizionale (ad esempio, via lettera, fax, ecc.), ovvero non gestito tramite NSO, per dare maggior evidenza a tale circostanza si può indicare il testo "&#x0023;NO&#x0023;" nel *cbc:BuyerReference* (BT-10 Buyer reference).#
-

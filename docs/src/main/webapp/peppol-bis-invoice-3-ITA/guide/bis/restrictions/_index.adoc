@@ -10,9 +10,9 @@ In aggiunta alle regole base di Peppol, alcune regole nazionali forniscono ulter
 
 #Nello specifico contesto italiano, valgono ulteriori restrizioni/estensioni.#
 
-#Le restrizioni per la fatturazione cross-border sono riportate al paragrafo Annex C.1.# + 
-#Le restrizioni per la fatturazione domestica sono riportate al paragrafo Annex C.2.# + 
-#Le estensioni per la fatturazione domestica sono riportate al paragrafo Annex C.3.# + 
+#Le restrizioni per la fatturazione italiana cross-border (BT-40 Seller country code diverso da IT e BT-55 Buyer country code pari a IT) sono riportate al paragrafo Annex C.1.# + 
+#Le restrizioni per la fatturazione domestica italiana (BT-40 Seller country code pari da IT e BT-55 Buyer country code pari a IT) sono riportate al paragrafo Annex C.2.# + 
+#Le estensioni per la fatturazione domestica italiana (BT-40 Seller country code pari da IT e BT-55 Buyer country code pari a IT) sono riportate al paragrafo Annex C.3.# + 
 
 Le restrizioni sotto riportate sono espresse come indicato nel capitolo 7.3.2 della {EN16931}.
 

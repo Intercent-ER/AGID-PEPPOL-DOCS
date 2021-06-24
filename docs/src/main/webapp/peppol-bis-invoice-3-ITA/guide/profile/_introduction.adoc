@@ -7,15 +7,15 @@ Questa specifica è composta da: +
 
 * un insieme di specifiche derivanti dalla Core Invoice Usage Specification (CIUS) Peppol della {EN16931};
 * #un insieme di specifiche derivanti dalla Core Invoice Usage Specification (CIUS) della {EN16931} come da Specifiche Tecniche Fatturazione Europea v2.0 dell'Agenzia delle Entrate;#
-* #un insieme di CIUS ed estensioni della Core Invoice atte a rendere equipollente il contenuto di una fattura elettronica redatta secondo queste specifiche con il formato italiano FatturaPA.#
+* #un insieme di CIUS ed estensioni italiane della Core Invoice volte a rendere equipollente il contenuto di una fattura elettronica europea al formato italiano FatturaPA.#
 
-#In questo documento le regole d’uso ed i paragrafi derivanti dal modello italiano di eProcurement sono evidenziate in giallo, con specifica evidenza:#
+#In questo documento le regole d’uso ed i paragrafi applicabili specificatamente al contesto italiano sono evidenziate in giallo, con chiara distinzione:#
 
 * #delle CIUS da applicare alle fatture cross-border;#
 * #delle CIUS da applicare alle fatture domestiche (CIUS domestica);#
 * #delle Estensioni da applicare alle fatture domestiche (estensione).#
 
-#Per ulteriori dettagli vedi anche i paragrafi 12.2 e 14.1.#
+#Per ulteriori dettagli vedi anche i paragrafi 12.2 e Appendix A.#
 
 *L’obiettivo* di questo documento è facilitare un’efficiente implementazione e diffusione delle transazioni elettroniche per il processo di fatturazione.
 

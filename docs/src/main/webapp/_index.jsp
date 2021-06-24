@@ -295,6 +295,12 @@
                         </li>
 
                         <li class="dropdown dropdown-agid">
+                            <a href="https://peppol-validator.agid.gov.it/" class="dropdown-toggle link-agid" target="_blank" role="button">
+                                Validation Platform
+                            </a>
+                        </li>
+
+                        <li class="dropdown dropdown-agid">
                             <a href="#" class="dropdown-toggle link-agid" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fogli di stile <span class="caret"></span></a>
                             <ul class="dropdown-menu" id="stylesheet-menu" style="max-height: 610px; overflow-y: scroll;">
                             </ul>

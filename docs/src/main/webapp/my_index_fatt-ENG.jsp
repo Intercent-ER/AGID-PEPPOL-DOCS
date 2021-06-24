@@ -1,6 +1,6 @@
 <html lang="en">
 	<head>
-		<title>PEPPOL BIS 3</title>
+		<title>PEPPOL BIS version 3</title>
 		<meta charset="utf-8"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -25,7 +25,7 @@
 			<div id="main" class="container" style="display: block;">
 
 				<div class="page-header">
-					<h1>Index: <span id="home-title">PEPPOL BIS 3 Billing</span>
+					<h1>Index: <span id="home-title">PEPPOL BIS 3 (billing)</span>
 					</h1>
 				</div>
 

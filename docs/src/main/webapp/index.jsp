@@ -299,6 +299,12 @@
                             <ul class="dropdown-menu" id="stylesheet-menu" style="max-height: 610px; overflow-y: scroll;">
                             </ul>
                         </li>
+
+                        <li class="dropdown dropdown-agid">
+                            <a href="https://peppol-validator.agid.gov.it/" class="dropdown-toggle link-agid" target="_blank" role="button">
+                                Piattaforma di Validazione
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

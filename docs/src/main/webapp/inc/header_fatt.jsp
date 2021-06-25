@@ -60,7 +60,7 @@
 
 								<li class="dropdown dropdown-agid">
 									<a href="https://peppol-validator.agid.gov.it/" class="dropdown-toggle link-agid" target="_blank" role="button" title="Piattaforma di Validazione PEPPOL (apre un link in nuova finestra)">
-										Piattaforma di Validazione
+										Validazione
 									</a>
 								</li>
 

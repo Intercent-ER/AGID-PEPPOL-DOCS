@@ -296,7 +296,7 @@
 
                         <li class="dropdown dropdown-agid">
                             <a href="https://peppol-validator.agid.gov.it/" class="dropdown-toggle link-agid" target="_blank" role="button">
-                                Validation
+                                Validator
                             </a>
                         </li>
 

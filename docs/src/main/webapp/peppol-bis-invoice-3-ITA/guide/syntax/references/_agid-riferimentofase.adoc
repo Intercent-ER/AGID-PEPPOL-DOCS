@@ -3,7 +3,7 @@
 
 Per fare riferimento alla fase di un SAL, il codice può essere espresso come segue:
 
-.Esempio UBL per il riferimento alla fase di un SAL  in testata
+.Esempio UBL per il riferimento alla fase di un SAL
 [source, xml, indent=0]
 ----
 <cac:AdditionalDocumentReference>
@@ -14,11 +14,11 @@ Per fare riferimento alla fase di un SAL, il codice può essere espresso come se
 
 Per riferirsi alla fase di un SAL dalle righe di fattura è necessario utilizzare *cac:DocumentReference* con il codice tipo documento = 130.
 
-.Esempio UBL per il riferimento alla fase di un SAL in riga
+.Esempio UBL per il riferimento alla fase di un SAL dalle righe fattura
 [source, xml, indent=0]
 ----
-<cac:AdditionalDocumentReference>
+<cac:DocumentReference>
     <cbc:ID schemeID="AOR">001</cbc:ID>
     <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
-</cac:AdditionalDocumentReference>
+</cac:DocumentReference>
 ----

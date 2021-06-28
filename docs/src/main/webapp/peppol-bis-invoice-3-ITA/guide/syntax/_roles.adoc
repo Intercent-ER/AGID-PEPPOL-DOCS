@@ -49,7 +49,7 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 
 #Nel caso in cui non si inserisca la Partita IVA nell’EndpointID, la Partita IVA va indicata nel *cac:PartyTaxScheme/cbc:CompanyID*.#
 
-#Nel caso in cui si voglia indicare anche il Codice Fiscale, quest’ultimo va indicato nel *cac:PartyLegalEntity/cbc:CompanyID*, omettendo l’attributo @schemeID ma includendo il prefisso "CF:" come nell’esempio di seguito.#
+#Nel caso in cui si voglia indicare anche il Codice Fiscale, quest’ultimo va indicato nel *cac:PartyLegalEntity/cbc:CompanyID*, valorizzando l’attributo @schemeID con “0210”.#
 
 .Esempio di indicazione della Partita Iva e del Codice Fiscale
 [source, xml, indent=0]
@@ -77,7 +77,7 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 	</cac:PartyTaxScheme>
 	<cac:PartyLegalEntity>
 		<cbc:RegistrationName>Azienda USL di Reggio Emilia</cbc:RegistrationName>
-		<cbc:CompanyID>CF:01598570354</cbc:CompanyID>
+		<cbc:CompanyID schemeID="0201">01598570354</cbc:CompanyID>
 	</cac:PartyLegalEntity>
 	<cac:Contact>
 		<cbc:Name>Giovanni Rossi</cbc:Name>
@@ -315,7 +315,7 @@ Sono comprese le aziende extra-EU che operano in Europa, gli importatori in EU e
 
 I rappresentanti fiscali sono responsabili per la gestione corretta e la regolarizzazione dell'IVA per conto delle aziende, in linea con le normative locali. Un rappresentante fiscale è considerato come l'agente locale del commerciante.  In molti casi, il rappresentante fiscale è ritenuto responsabile in solido per le tasse del commerciante.
 
-#Il Codice Fiscale può essere espresso all'interno del Party nell'elemento PartyIdentification/ID inserendo l’attributo @schemeID valorizzato con il codice "0210", come nell'esempio di seguito.#
+#Il Codice Fiscale può essere espresso all'interno del Party nell'elemento *cac:PartyIdentification/cbc:ID* inserendo l’attributo @schemeID valorizzato con il codice "0210", come nell'esempio di seguito.#
 
 
 .Esempio UBL per le informazioni del rappresentante fiscale
@@ -344,7 +344,7 @@ Trattasi di CIUS domestica (DC)
 
 = #Stabile Organizzazione (AccountingSupplierParty/AgentParty) - Estensione#
 
-#Se il cedente/prestatore non residente ha una stabile organizzazione in Italia, si può specificare in fattura come parte dei dati del fornitore nell'elemento AgentParty.#
+#Se il cedente/prestatore non residente ha una stabile organizzazione in Italia, si può specificare in fattura come parte dei dati del fornitore nell'elemento *cac:AgentParty*.#
 
 .Esempio UBL per la stabile organizzazione del fornitore
 [source, xml, indent=0]
@@ -356,7 +356,7 @@ include::../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_for
 
 = #Il Terzo Intermediario o Soggetto Emittente (AccountingSupplierParty/ServiceProviderParty) - Estensione#
 
-Nel caso sia un soggetto terzo ad emettere fattura per conto del cedente / prestatore, si può specificare in fattura come parte dei dati del fornitore nell'elemento ServiceProviderParty.
+Nel caso sia un soggetto terzo ad emettere fattura per conto del cedente / prestatore, si può specificare in fattura come parte dei dati del fornitore nell'elemento *cac:ServiceProviderParty*.
 
 .Esempio UBL per il terzo intermediario o soggetto emittente per conto del fornitore
 [source, xml, indent=0]

@@ -1,6 +1,6 @@
 
 
-= #Restrizioni - CIUS Domestiche#
+= #Restrizioni - CIUS#
 
 
 [cols="3s,2,3,3,3", options="header"]
@@ -11,7 +11,6 @@
 ^.^|Terminologia di business
 ^.^|Elemento in XML PA
 ^.^|Descrizione regola
-
 
 |BR-IT-DC-001
 |Value domain for an element - Require defined structured values
@@ -77,6 +76,5 @@ BT-38 Seller post code
 BT-105 Document level charge reason code
 |
 |Se l'elemento BT-40 Seller country code ha valore "IT e la fattura è soggetta allo Split Payment questa deve esclusivamente utilizzare il TaxCategory = 'B' e deve indicare nei termini di pagamento "The total is without the VAT amount due to Split payment (ex art.17-ter del DPR 633/1972)".
-
 
 |====

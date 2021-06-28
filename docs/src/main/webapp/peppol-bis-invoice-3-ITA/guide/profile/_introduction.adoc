@@ -50,7 +50,11 @@ Questo documento  fornisce le linee guida per il supporto e l'implementazione de
 #Sono supportati specificatamente i seguenti scenari di business:#
 
 * #B2G – Business to Government#
+* B2B – Business to Business
+* B2C – Business to Consumer
 * #G2G – Government to Government#
+* G2B – Government to Business
+* G2C – Government to Consumer
 
 == A chi si rivolge
 

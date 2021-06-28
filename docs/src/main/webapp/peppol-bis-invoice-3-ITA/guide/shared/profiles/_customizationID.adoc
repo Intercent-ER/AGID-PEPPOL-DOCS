@@ -13,7 +13,7 @@ La CIUS-IT viene identificata, all’interno del file in cui è rappresentata la
 * BT-40 pari a IT e BT-55 pari a IT, allora:
 
 
-[cols="4,4", options="header"]
+[cols="2,2", options="header"]
 |===
 | Elemento `cbc:CustomizationID` +
 `_(BT-24 Specification identifier)_`
@@ -29,7 +29,7 @@ type)_`
 * BT-40 diverso da IT e BT-55 pari a IT, allora:
 
 
-[cols="4,4", options="header"]
+[cols="2,2", options="header"]
 |===
 | Elemento `cbc:CustomizationID` +
 `_(BT-24 Specification identifier)_`
@@ -37,7 +37,7 @@ type)_`
 `_(BT-23 Business process
 type)_`
 
-| urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0
+| #urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#compliant#urn:www.agid.gov.it:trns:fattura:3#
 | urn:fdc:peppol.eu:2017:poacc:billing:01:1.0
 
 |===

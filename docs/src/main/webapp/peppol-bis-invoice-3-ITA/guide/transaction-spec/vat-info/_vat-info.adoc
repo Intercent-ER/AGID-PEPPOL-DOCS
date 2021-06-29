@@ -32,7 +32,7 @@ Trattasi di CIUS domestica (DC)
 
 
 .Tabella di relazione tra natura, VAT Category Code e VAT exemption reason code
-image:image/vatex_table.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
+image::image/vatex-table.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
 
 Deve essere fornito un solo riepilogo IVA per ogni combinazione distinta di categoria e aliquota IVA sia a livello di riga che negli sconti e maggiorazioni a livello di testata. Per alcune categorie IVA, l'aliquota deve essere posta a zero e quindi non viene utilizzata in questi casi per raggruppare il riepilogo IVA.
 

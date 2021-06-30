@@ -46,7 +46,8 @@ stem:[times ("Invoiced Quantity (BT-129)")] +
 stem:[+ "Invoice line charge amount (BT-141)" - "Invoice line allowance amount (BT-136)"]
 ====
 
-IMPORTANT: L'importo netto di riga deve essere arrotondato a due decimali, pertanto, bisogna prestare attenzione ad arrotondare le diverse parti del calcolo separatamente. +
+IMPORTANT: L'importo netto di riga deve essere arrotondato a due decimali, pertanto, bisogna prestare attenzione ad +
+arrotondare le diverse parti del calcolo separatamente. +
 Es. il risultato di
 stem:["Item line net amount" = (("Item net price (BT-146)" div "Item price base quantity (BT-149)") times ("Invoiced Quantity (BT-129)")]
 deve essere arrontondato a due decimali e gli sconti/maggiorazionisono anch'essi arrotondati separatamente.

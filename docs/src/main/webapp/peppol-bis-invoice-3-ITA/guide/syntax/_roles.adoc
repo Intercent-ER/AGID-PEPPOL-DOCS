@@ -133,7 +133,7 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 #Le informazioni relative all'Albo vengono fornite nel *cac:PartyIdentification/cbc:ID* concatenando il Nome Albo, il numero e la data iscrizione con il simbolo "&#x0023;", preceduti dalla stringa "ALBO:".#
 
 [NOTE]
-Trattasi di CIUS domestica (DC)
+Trattasi di CIUS domestica (DC - Domestic CIUS)
 
 .Esempio UBL per esprimere informazioni relative all'Albo
 
@@ -154,7 +154,7 @@ Trattasi di CIUS domestica (DC)
 #Il numero del Codice EORI (Economic Operator Registration and Identification) basato sul Regolamento (CE) n. 312 del 16 aprile 2009 ed in vigore dal 1 luglio 2009, può essere anch'esso espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.#
 
 [NOTE]
-Trattasi di CIUS domestica (DC)
+Trattasi di CIUS domestica (DC - Domestic CIUS)
 
 .Esempio UBL per esprimere il codice EORI
 [source, xml, indent=0]
@@ -168,7 +168,7 @@ Trattasi di CIUS domestica (DC)
 #Il campo *cac:PartylegalEntity/cbc:CompanyID* può essere usato per indicare le informazioni relative a FPA 1.2.4.1 Ufficio e FPA 1.2.4.2 Numero REA  concatenando i due dati con il "&#x0023;", preceduti dalla stringa "REA:".#
 
 [NOTE]
-Trattasi di CIUS domestica (DC)
+Trattasi di CIUS domestica (DC - Domestic CIUS)
 
 
 .Esempio UBL per esprimere informazioni relative al numero REA
@@ -185,7 +185,7 @@ Trattasi di CIUS domestica (DC)
 #Il campo *cac:PartyLegalEntity/cbc:CompanyLegalForm* può essere usato per indicare informazioni legali addizionali quali FPA 1.2.4.3 CapitaleSociale, FPA 1.2.4.4 SocioUnico e FPA  1.2.4.5 StatoLiquidazione, concatenando i campi con il simbolo "&#x0023;".#
 
 [NOTE]
-Trattasi di CIUS domestica (DC)
+Trattasi di CIUS domestica (DC - Domestic CIUS)
 
 
 .Esempio UBL per indicare il Capitale Sociale
@@ -202,7 +202,7 @@ Trattasi di CIUS domestica (DC)
 #Nell'utilizzo dell’aggregato informativo *cac:PostalAddress*, è obbligatorio l'utilizzo delle informazioni di indirizzo, CAP, Comune e nazione.# +
 
 [NOTE]
-Trattasi di CIUS domestica (DC)
+Trattasi di CIUS domestica (DC - Domestic CIUS)
 
 #Di seguito si riportano due esempi di come compilare le informazioni dell’indirizzo.#
 
@@ -264,6 +264,9 @@ include::{snippet-dir}/Snippet-full.xml[tags=buyer]
 
 [lime-background]#Nel contesto B2C il Cliente può essere un cittadino (una persona fisica).#
 
+[NOTE]
+Trattasi di CIUS domestica valida per la fatturazione verso privati 
+
 .Esempio di un soggetto residente in possesso della PEC.
 [source, xml, indent=0]
 ----
@@ -300,6 +303,10 @@ include::{snippet-dir}/Snippet-full.xml[tags=buyer]
 
 [lime-background]#Nel contesto B2B o G2B, in base alla specifica della FatturaPA italiana, il Cliente può essere identificato mediante il Codice Destinatario.# 
 
+
+[NOTE]
+Trattasi di CIUS domestica valida per la fatturazione verso privati 
+
 .Esempio di un soggetto (non persona fisica) in possesso del Codice Destinatario accreditato presso l’Agenzia delle Entrate.
 [source, xml, indent=0]
 ----
@@ -330,7 +337,7 @@ include::{snippet-dir}/Snippet-full.xml[tags=buyer]
 #Il Codice EORI può essere espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.#
 
 [NOTE]
-Trattasi di CIUS domestica (DC)
+Trattasi di CIUS domestica (DC - Domestic CIUS)
 
 .Esempio UBL per esprimere il codice EORI
 [source, xml, indent=0]
@@ -392,7 +399,7 @@ include::{snippet-dir}/Snippet-full.xml[tags=taxrep]
 #Il Codice EORI può essere espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.#
 
 [NOTE]
-Trattasi di CIUS domestica (DC)
+Trattasi di CIUS domestica (DC - Domestic CIUS)
 
 .Esempio UBL per esprimere il codice EORI
 [source, xml, indent=0]
@@ -480,7 +487,7 @@ Il Codice Fiscale può essere espresso all'interno del Party nell'elemento Party
 #Il Codice EORI può essere espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.#
 
 [NOTE]
-Trattasi di CIUS domestica (DC)
+Trattasi di CIUS domestica (DC - Domestic CIUS)
 
 .Esempio UBL per esprimere il codice EORI
 [source, xml, indent=0]

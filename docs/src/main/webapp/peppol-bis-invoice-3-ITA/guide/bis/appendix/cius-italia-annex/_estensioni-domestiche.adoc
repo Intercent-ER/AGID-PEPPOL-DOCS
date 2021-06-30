@@ -18,7 +18,7 @@
 |L'estensione deve contenere un elemento  cbc:TypeCode valorizzato esclusivamente  con i valori del TipoDocumento, secondo  la specifica FatturaPA 1.2.1.
 
 |BR-IT-DE-003
-|2.1.1.1 Tipo Documento
+|2.1.1.5.1 Tipo Ritenuta
 |L'estensione deve contenere un elemento  cbcTypeCode valorizzato esclusivamente  con i valori del TipoRitenuta, secondo la  specifica FatturaPA 1.2.1
 
 |BR-IT-DE-004
@@ -26,7 +26,7 @@
 |L'estensione deve contenere un elemento  cbcTypeCode valorizzato esclusivamente  con il valore 'SI' per applicare l'Articolo 73  del DPR 633/72.
 
 |BR-IT-DE-005
-|2.1.1.12 Art73
+|2.2.2.4 Arrotondamento
 |L'estensione deve contenere un elemento  cbcAmount la cui lunghezza non può  superare i 15 caratteri incluso 2 cifre  decimali.
 
 |BR-IT-DE-006
@@ -62,7 +62,7 @@
 |Ogni ritenuta deve contenere la categoria  della ritenuta (cacTaxCategory) con  identificativo uguale a "S" (cbcID),  percentuale della ritenuta (cbcPercent) da  4 fino a 6 caratteri incluso 2 cifre decimali  e schema della ritenuta valorizzato con  cacTaxScheme/cbcID = 'SWT'
 
 |BR-IT-DE-014
-|2.1.10.1 NumeroFatturaPrincipale
+|2.1.10.1 NumeroFatturaPrincipale +
 2.1.10.2 DataFatturaPrincipale
 |Se si vuole fare riferimento ad una fattura  principale relativa al trasporto di beni  devono essere obbligatoriamente  valorizzati gli estremi della fattura con gli  elementi ID e IssueDate.
 
@@ -80,10 +80,10 @@
 
 |BR-IT-DE-018
 |1.2.3 Stabile Organizzazione
-|La Stabile Organizzazione deve fornire  l'indirizzo completo di via e numero civico,  comune, cap, provincia e nazione
+|La Stabile Organizzazione deve fornire  l'indirizzo completo di via e numero civico,  comune, CAP, provincia e nazione
 
 |BR-IT-DE-019
-|1.2.3.1 Indirizzo
+|1.2.3.1 Indirizzo +
 1.2.3.2 NumeroCivico
 |La lunghezza dell'elemento non può  superare i 60 caratteri.
 
@@ -116,9 +116,9 @@
 |Il Codice Fiscale deve essere preceduto  dal prefisso 'CF:' ed avere la lunghezza  del codice compresa fra 11 e 16 caratteri  alfanumerici
 
 |BR-IT-DE-027
-|2.1.9.1.3.1 Denominazione
-2.1.9.1.3.2 Nome
-2.1.9.1.3.3 Cognome
+|2.1.9.1.3.1 Denominazione +
+2.1.9.1.3.2 Nome +
+2.1.9.1.3.3 Cognome +
 |Se la Denominazione del Vettore è valorizzata, la sua lunghezza non può superare 80 caratteri, alternativamente, se è invece valorizzato il Nome e il Cognome, la loro lunghezza non potrà superare 60 caratteri
 
 |BR-IT-DE-028
@@ -134,7 +134,7 @@
 |Se il Numero Licenza Guida è valorizzata,  la sua lunghezza non può superare 20  caratteri e il tipo documento  (cbcDocumentTypeCode) deve essere '40'
 
 |BR-IT-DE-031
-|2.1.9.7 Peso Lordo
+|2.1.9.7 Peso Lordo +
 2.1.9.8 Peso Netto
 |La lunghezza del Peso Lordo o Netto deve  essere da 4 a 7 caratteri, incluse 1 o 2  cifre decimali.
 

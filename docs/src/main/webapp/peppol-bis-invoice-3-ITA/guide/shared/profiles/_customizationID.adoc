@@ -24,7 +24,7 @@ type)_`
 | #urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu
 :2017:poacc:billing:3.0#conformant#urn:www.agid.gov.it:trns:fattura:3#
 
-(rimuovere spazi prima dell'utilizzo)
+(rimuovere gli spazi prima dell'utilizzo)
 | urn:fdc:peppol.eu:2017:poacc:billing:01:1.0
 
 |===
@@ -43,7 +43,7 @@ type)_`
 | #urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu
 :2017:poacc:billing:3.0#compliant#urn:www.agid.gov.it:trns:fattura:3#
 
-(rimuovere spazi prima dell'utilizzo)
+(rimuovere gli spazi prima dell'utilizzo)
 | urn:fdc:peppol.eu:2017:poacc:billing:01:1.0
 
 |===

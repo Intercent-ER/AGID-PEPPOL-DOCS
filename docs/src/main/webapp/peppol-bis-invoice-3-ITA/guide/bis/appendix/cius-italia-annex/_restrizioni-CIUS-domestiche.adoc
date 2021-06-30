@@ -12,12 +12,19 @@
 ^.^|Elemento in XML PA
 ^.^|Descrizione regola
 
-|BR-IT-DC-001
+|BR-IT-DC-002
 |Value domain for an element - Require defined structured values
 |BT-24 Specification Identifier +
 BT-40 Seller country code
 |
-|Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-24 deve essere valorizzato come segue: urn:cen.eu:en16931:2017#compliant#urn:fat turapa.gov.it:CIUSIT:2.0.0#conformant#urn:fatturapa.gov.it:EX T-IT:1.0.0
+|Se il valore dell’elemento BT-40 (Seller country +
+code) è uguale a "IT", il BT-24 deve essere +
+valorizzato come segue: +
+*urn:cen.eu:en16931:2017#compliant#urn* +
+*:fdc:peppol.eu:2017:poacc:billing:3.0#* +
+*conformant#urn:www.agid.gov.it:trns:fattura:3*
+
+(rimuovere gli spazi prima dell'utilizzo)
 
 |BR-IT-DC-100
 |Value domain for an element - Restrict text or byte array length
@@ -27,34 +34,34 @@ BT-40 Seller country code
 1.2.1.6 NumeroIscrizioneAlbo
 1.2.1.7 DataIscrizioneAlbo
 |Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT29 Seller identifier comincia con "EORI:", la sua lunghezza deve essere compresa fra 18 e 22 caratteri.
+Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT29 Seller identifier comincia con "ALBO:", la sua lunghezza non può superare i 137 caratteri e può essere indicato come "ALBO:AlboProfessionale +
+#NumeroIscrizioneAlb o#DataIscrizione" (con Data nel formato AAAA- MM-GG).
 
-Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT29 Seller identifier comincia con "ALBO:", la sua lunghezza non può superare i 137 caratteri e può essere indicato come "ALBO:AlboProfessionale#NumeroIscrizioneAlb o#DataIscrizione" (con Data nel formato AAAA- MM-GG).
-
-|BR-IT-DC-110
+|BR-IT-DC-111
 |Value domain for an element - Restrict text or byte array length
 |BT-30 Seller legal registration identifier
-|1.2.4.1 Ufficio
-1.2.4.2 NumeroREA or
+|1.2.4.1 Ufficio +
+1.2.4.2 NumeroREA +
+or +
 1.2.1.2 CodiceFiscale
-|Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT-30 Seller legal registration identifier comincia con "REA:", la sua lunghezza deve essere compresa fra 8 e 27 caratteri e deve essere indicato come "REA:Ufficio#NumeroREA". 
-
-Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT-30 Seller legal registration identifier comincia con "CF:", la sua lunghezza deve essere compresa fra 14 e 19 caratteri.
+|Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT-30 Seller legal registration identifier comincia con "REA:", la sua lunghezza deve essere compresa fra 8 e 27 caratteri e deve essere indicato come "REA:Ufficio#NumeroREA". +
+Se il valore dell’elemento BT-40 (Seller country code) è "IT", se l'elemento BT-30-1 (Seller legal registration identifier scheme identifier) contiene il valore "0210", l'elemento BT-30 (Seller legal registration identifier) deve contenere un Codice Fiscale con lunghezza compresa fra 11 e 16 caratteri.
 
 |BR-IT-DC-122
-|
+|Value domain for an element - Restrict text or byte array length
 |BT-33 Seller Additional Legal Information
-|1.2.4.3 CapitaleSociale 
-1.2.4.4 SocioUnico 
+|1.2.4.3 CapitaleSociale +
+1.2.4.4 SocioUnico +
 1.2.4.5 StatoLiquidazione
 |La lunghezza dell'elemento non può superare i 21 caratteri.
 
 |BR-IT-DC-140
-|Value domain for an element - Restrict text or byte array length
+|Cardinality - Make a conditional element mandatory (0..x --> 1..x)
 |BT-35 Seller address line 1 
 BT-37 Seller city 
 BT-38 Seller post code
-|1.2.2.1 Indirizzo 
-1.2.2.4 Comune 
+|1.2.2.1 Indirizzo +
+1.2.2.4 Comune +
 1.2.2.3 CAP
 |Se il valore dell’elemento BT-40 Seller country code è “IT”, gli elementi devono essere obbligatoriamente valorizzati.
 
@@ -62,7 +69,29 @@ BT-38 Seller post code
 |Value domain for an element - Require defined structured values
 |BT-39 Seller country subdivision
 |1.2.2.5 Provincia
-|Se l'elemento BT-40 Seller country code ha valore "IT", per l'elemento  BT-39 Seller  country  subdivision deve  essere utilizzato uno dei valori della lista delle province italiane. Altrimenti l'informazione è riportata in allegatoo
+|Se l'elemento BT-40 Seller country code ha valore "IT", per l'elemento  BT-39 Seller  country  subdivision deve  essere utilizzato uno dei valori della lista delle province italiane. Altrimenti l'informazione è riportata in allegato
+
+|BR-IT-DC-191
+|Value domain for an element - Require defined structured values
+|BT-49 Buyer electroni caddress 
+BT-49-1 Buyer electronic address identification scheme
+|1.2.2.5 Provincia
+|L'elemento BT-49 (Buyer electronic address) deve contenere il Codice IPA, la PEC del destinatario della fattura oppure il Codice Destinatario. Di conseguenza, per l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) sono previsti rispettivamente i valori 0201, 0202 oppure 0205
+
+|BR-IT-DC-202
+|Value domain for an element - Restrict text or byte array length
+|BT-49 Buyer electroni caddress 
+BT-49-1 Buyer electronic address identification scheme
+|1.1.4  CodiceDestinatario
+|Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0205", l'elemento BT-49 deve contenere un Codice Destinatario di pari a 7 caratteri
+
+|BR-IT-DC-203
+|Value domain for an element - Restrict text or byte array length
+|BT-49 Buyer electroni caddress 
+BT-49-1 Buyer electronic address identification scheme
+|1.1.6 PECDestinatario
+|Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0202", l'elemento BT-49 deve contenere un indirizzo PEC di lunghezza compresa fra 7 e 256 caratteri
+
 
 |BR-IT-DC-480
 |
@@ -76,5 +105,11 @@ BT-38 Seller post code
 BT-105 Document level charge reason code
 |
 |Se l'elemento BT-40 Seller country code ha valore "IT e la fattura è soggetta allo Split Payment questa deve esclusivamente utilizzare il TaxCategory = 'B' e deve indicare nei termini di pagamento "The total is without the VAT amount due to Split payment (ex art.17-ter del DPR 633/1972)".
+
+|BR-IT-DC-523
+|Value domain for an element - Restrict text or byte array length
+|BT-46 Buyer identifier
+|1.4.1.3.5 Codice EORI
+|Il Codice EORI (BT-46 Buyer identifier) deve essere preceduto dal prefisso 'EORI:' ed avere la lunghezza del codice compresa fra 13 e 17 caratteri alfanumerici.
 
 |====

@@ -428,7 +428,7 @@ Nella fatturazione tra privati (B2B, B2C, G2B e G2C), se il cessionario/committe
 
 = #Stabile Organizzazione (AccountingSupplierParty/AgentParty) - Estensione#
 
-#Se il cedente/prestatore non residente ha una stabile organizzazione in Italia, si può specificare in fattura come parte dei dati del fornitore nell'elemento *cac:AgentParty*.#
+Se il cedente/prestatore non residente ha una stabile organizzazione in Italia, si può specificare in fattura come parte dei dati del fornitore nell'elemento *cac:AgentParty*.
 
 .Esempio UBL per la stabile organizzazione del fornitore
 [source, xml, indent=0]

@@ -13,6 +13,7 @@ Questa specifica è composta da: +
 
 * #delle CIUS da applicare alle fatture cross-border;#
 * #delle CIUS da applicare alle fatture domestiche (CIUS domestica);#
+* [lime-background]#delle CIUS da applicare alle fatture domestiche verso i privati;#
 * #delle Estensioni da applicare alle fatture domestiche (estensione).#
 
 #Per ulteriori dettagli vedi anche i paragrafi 12.2 e Appendix A.#
@@ -50,11 +51,11 @@ Questo documento  fornisce le linee guida per il supporto e l'implementazione de
 #Sono supportati specificatamente i seguenti scenari di business:#
 
 * #B2G – Business to Government#
-* B2B – Business to Business
-* B2C – Business to Consumer
+* [lime-background]#B2B – Business to Business#
+* [lime-background]#B2C – Business to Consumer#
 * #G2G – Government to Government#
-* G2B – Government to Business
-* G2C – Government to Consumer
+* [lime-background]#G2B – Government to Business#
+* [lime-background]#G2C – Government to Consumer#
 
 == A chi si rivolge
 

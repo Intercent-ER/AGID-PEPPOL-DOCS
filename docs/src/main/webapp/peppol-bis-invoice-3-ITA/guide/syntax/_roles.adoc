@@ -262,7 +262,7 @@ include::{snippet-dir}/Snippet-full.xml[tags=buyer]
 <3> Il codice fiscale è preceduto dall’attributo @schemeID valorizzato con “0210”
 
 
-#Nel contesto B2C il Cliente può essere un cittadino (una persona fisica).#
+[lime-background]#Nel contesto B2C il Cliente può essere un cittadino (una persona fisica).#
 
 .Esempio di un soggetto residente in possesso della PEC.
 [source, xml, indent=0]
@@ -298,7 +298,7 @@ include::{snippet-dir}/Snippet-full.xml[tags=buyer]
 </cac:AccountingCustomerParty>
 ----
 
-#Nel contesto B2B o G2B, in base alla specifica della FatturaPA italiana, il Cliente può essere identificato mediante il Codice Destinatario.# 
+[lime-background]#Nel contesto B2B o G2B, in base alla specifica della FatturaPA italiana, il Cliente può essere identificato mediante il Codice Destinatario.# 
 
 .Esempio di un soggetto (non persona fisica) in possesso del Codice Destinatario accreditato presso l’Agenzia delle Entrate.
 [source, xml, indent=0]
@@ -403,9 +403,9 @@ Trattasi di CIUS domestica (DC)
 ----
 
 
-= #Il Rappresentante fiscale del cliente (AccountingCustomerParty/PowerOfAttorney) - Estensione#
+= [lime-background]#Il Rappresentante fiscale del cliente (AccountingCustomerParty/PowerOfAttorney) - Estensione#
 
-Nella fatturazione tra privati (B2B), se il cessionario/committente si avvale di un rappresentante fiscale in Italia, si può specificare in fattura come parte dei dati del fornitore nell’elemento PowerOfAttorney, come procura per la rappresentanza fiscale.
+Nella fatturazione tra privati (B2B, B2C, G2B e G2C), se il cessionario/committente si avvale di un rappresentante fiscale in Italia, si può specificare in fattura come parte dei dati del fornitore nell’elemento PowerOfAttorney, come procura per la rappresentanza fiscale.
 
 .Esempio UBL per il rappresentante fiscale del cliente
 [source, xml, indent=0]
@@ -436,9 +436,9 @@ Nella fatturazione tra privati (B2B), se il cessionario/committente si avvale di
 include::../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_fornitore]
 ----
 
-= #Stabile Organizzazione (AccountingCustomerParty/AgentParty) - Estensione#
+= [lime-background]#Stabile Organizzazione (AccountingCustomerParty/AgentParty) - Estensione#
 
-Nella fatturazione tra privati (B2B), se il cessionario/committente non residente ha una stabile organizzazione in Italia, si può specificare in fattura come parte dei dati del cliente nell’elemento AgentParty.
+Nella fatturazione tra privati (B2B, B2C, G2B e G2C), se il cessionario/committente non residente ha una stabile organizzazione in Italia, si può specificare in fattura come parte dei dati del cliente nell’elemento AgentParty.
 
 .Esempio UBL per la stabile organizzazione del cliente
 [source, xml, indent=0]

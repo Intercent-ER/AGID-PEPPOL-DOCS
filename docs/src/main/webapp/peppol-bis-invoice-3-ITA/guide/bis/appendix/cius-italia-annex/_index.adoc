@@ -3,8 +3,10 @@
 
 include::_restrizioni-CIUS.adoc[]
 
-include::_Domestic-CIUS.adoc[]
+include::_restrizioni-CIUS-domestiche.adoc[]
 
-include::_Domestic-Extensions.adoc[]
+include::_restrizioni-CIUS-privati.adoc
+
+include::_estensioni-domestiche.adoc[]
 
 

@@ -52,7 +52,7 @@
 							<transformationSets>
 								<transformationSet>
 									<dir>${basedir}/src/main/webapp/peppol-bis-3-ITA/structure/syntax/</dir>
-									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-structure-v1.5.3.xsl</stylesheet>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-structure-v1.5.4.xsl</stylesheet>
 									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ITA/peppol-bis-3/</outputDir>
 									<fileMappers>
 										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
@@ -73,7 +73,7 @@
 							<transformationSets>
 								<transformationSet>
 									<dir>${basedir}/src/main/webapp/peppol-bis-invoice-3-ITA/structure/syntax/</dir>
-									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-structure-v1.5.3.xsl</stylesheet>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-structure-v1.5.4.xsl</stylesheet>
 									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ITA/peppol-bis-invoice-3/</outputDir>
 									<fileMappers>
 										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
@@ -146,7 +146,7 @@
 							<transformationSets>
 								<transformationSet>
 									<dir>${basedir}/src/main/webapp/peppol-bis-3-ENG/structure/syntax/</dir>
-									<stylesheet>${basedir}/src/main/webapp/xsl/ENG/agid-peppol-bis-structure-v1.5.3.xsl</stylesheet>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ENG/agid-peppol-bis-structure-v1.5.4.xsl</stylesheet>
 									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ENG/peppol-bis-3/</outputDir>
 									<fileMappers>
 										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
@@ -167,7 +167,7 @@
 							<transformationSets>
 								<transformationSet>
 									<dir>${basedir}/src/main/webapp/peppol-bis-invoice-3-ENG/structure/syntax/</dir>
-									<stylesheet>${basedir}/src/main/webapp/xsl/ENG/agid-peppol-bis-structure-v1.5.3.xsl</stylesheet>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ENG/agid-peppol-bis-structure-v1.5.4.xsl</stylesheet>
 									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ENG/peppol-bis-invoice-3/</outputDir>
 									<fileMappers>
 										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">

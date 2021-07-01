@@ -1,5 +1,3 @@
-Version 3.0.9 hotfix
-
-Contiene A-deviation per Tax category "B" (Transferred VAT).
+Version 3.0.10
 
 Contiene CIUS ed Estensioni AGID

@@ -12,13 +12,19 @@
 ^.^|Elemento in XML PA
 ^.^|Descrizione regola
 
-|BR-IT-000
+|BR-IT-001
 |Value domain for an element - Require defined structured values
-|BT-24 Specification Identifier 
+|BT-24 Specification Identifier + 
 BT-40 Seller country code
 |
-|Se il valore dell’elemento BT-40 (Seller country code) è diverso da "IT", il BT-24 deve essere valorizzato come segue: urn:cen.eu:en16931:2017#compliant#urn:fat +
-turapa.gov.it:CIUS-IT:2.0.0
+|Se il valore dell’elemento BT-40 (Seller country +
+code) è diverso da "IT", il BT-24 deve essere +
+valorizzato come segue: + 
+*urn:cen.eu:en16931:2017#compliant#urn:fdc +
+:peppol.eu:2017:poacc:billing:3.0#compliant +
+#urn:www.agid.gov.it:trns:fattura:3*
+
+(rimuovere gli spazi prima dell'utilizzo)
 
 |BR-IT-010
 |Value domain for an element - Restrict  text or byte array length
@@ -77,34 +83,34 @@ turapa.gov.it:CIUS-IT:2.0.0
 |BR-IT-120
 |Value domain for an element - Restrict  text or byte array length
 |BT-31 Seller VAT identifier
-|1.2.1.1.1 IdPaese 
+|1.2.1.1.1 IdPaese +
 1.2.1.1.2 IdCodice
 |La lunghezza dell'elemento non può superare i 30 caratteri
 
 |BR-IT-180
 |Value domain for an element - Restrict  text or byte array length
 |BT-48 Buyer VAT identifier
-|1.4.1.1.1 IdPaese 
+|1.4.1.1.1 IdPaese +
 1.4.1.1.2 IdCodice
 |La lunghezza dell'elemento non può superare i 30 caratteri
 
-|BR-IT-200
+|BR-IT-201
 |Value domain for an element - Restrict  text or byte array length
-|BT-49 Buyer electroni caddress 
+|BT-49 Buyer electronic address +
 BT-49-1 Buyer electronic address identification scheme 
 |
 |Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0201", l'elemento BT-49 (Buyer electronic address) deve contenere un codice IPA con lunghezza pari a 6 caratteri
 
 |BR-IT-210
 |Cardinality - Make a conditional element mandatory (0..x --> 1..x)
-|BT-50 Buyer address line 1
-BT-51 Buyer address line 2 
-BT-52 Buyer city
-BT-53 Buyer post code
-|1.4.2.1 Indirizzo
-1.4.2.2 NumeroCivico
-1.4.2.4 Comune
-1.4.2.3 CAP
+|BT-50 Buyer address line 1 +
+BT-51 Buyer address line 2 +
+BT-52 Buyer city +
+BT-53 Buyer post code 
+|1.4.2.1 Indirizzo +
+1.4.2.2 NumeroCivico +
+1.4.2.4 Comune +
+1.4.2.3 CAP +
 |Tutti gli elementi sono obbligatori a meno del Numero Civico
 
 |BR-IT-220
@@ -116,23 +122,23 @@ BT-53 Buyer post code
 |BR-IT-230
 |Value domain for an element - Restrict  text or byte array length
 |BT-63 Seller  tax representa tive VAT identifier
-|1.3.1.1.1 IdPaese 
+|1.3.1.1.1 IdPaese +
 1.3.1.1.2 IdCodice
 |La lunghezza dell'elemento non può superare i 30 caratteri
 
 |BR-IT-240
 |Cardinality - Make a conditional element mandatory (0..x --> 1..x)
-|BT-75 Deliver to address line   1 
-BT-77 Deliver to city 
-BT-78 Deliver  to post code
-|2.1.9.12.1  Indirizzo
-2.1.9.12.4  Comune
-2.1.9.12.3 CAP
+|BT-75 Deliver to address line 1 +
+BT-77 Deliver to city +
+BT-78 Deliver  to post code +
+|2.1.9.12.1  Indirizzo +
+2.1.9.12.4  Comune +
+2.1.9.12.3 CAP +
 |Se il valore dell’elemento BT-80 Deliver to country code è ”IT”, gli elementi devono essere obbligatoriamente valorizzati
 
 |BR-IT-250
 |Value domain for an element - Require defined structured values
-|BT-79 Deliver  to country subdivision
+|BT-79 Deliver to country subdivision
 |2.1.9.12.5 Provincia
 |Se l'elemento BT-80 Deliver to country code ha valore "IT", per l'elemento BT-79 Deliver to country subdivision deve essere utilizzato uno dei valori della lista delle province italiane. Altrimenti l'informazione deve essere riportata in allegato
 
@@ -143,7 +149,7 @@ BT-78 Deliver  to post code
 |Il gruppo di elementi BG-16 Payment instructions  deve essere obbligatorio
 
 |BR-IT-270
-|Value domain for an element - Restrict  text or byte array length
+|Business Terms - Make semantic definition narrower
 |BT-84 Payment account identifier
 |2.4.2.13 IBAN
 |L'identificativo  del  pagamento  BT-84  Payment  account identifier deve essere un codice IBAN
@@ -156,9 +162,9 @@ BT-78 Deliver  to post code
 
 |BR-IT-290
 |Value domain for an element - Require defined structured values
-|BT-92 Document level allowance amount 
+|BT-92 Document level allowance amount + 
 BT-99 Document level charge amount
-|2.2.1.9 PrezzoUnitario 
+|2.2.1.9 PrezzoUnitario +
 2.2.1.11 PrezzoTotale
 |La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali
 
@@ -194,13 +200,16 @@ BT-99 Document level charge amount
 
 |BR-IT-350
 |Codes and identifiers - Mark defined values as not allowed
-|BT-118 VAT category code BT-95 Document level allowence VAT category code BT-102 Document level charge VAT category code BT-151 invoiced item  VAT category code
+|BT-118 VAT category code +
+BT-95 Document level allowence VAT category code +
+BT-102 Document level charge VAT category code +
+BT-151 invoiced item  VAT category code
 |
 |I valori accettati sono esclusivamente AE E S G K Z B
 
 |BR-IT-360
 |Cardinality - Make a conditional element mandatory (0..x --> 1..x)
-|BT-124 External document location 
+|BT-124 External document location + 
 BT-125 Attached document
 |2.5.5 Attachment
 |Se  l'elemento  l’elemento  BT-122  Supporting  document reference è valorizzato, è obbligatorio valorizzare almeno uno degli elementi BT-124 External document location e BT- 125 Attached document
@@ -237,9 +246,9 @@ BT-125 Attached document
 
 |BR-IT-420
 |Value domain for an element - Require defined structured values
-|BT-136 Invoice line allowance amount 
+|BT-136 Invoice line allowance amount +
 BT-141 Invoice line charge amount
-|2.2.1.9  PrezzoUnitario 
+|2.2.1.9  PrezzoUnitario +
 2.2.1.11 PrezzoTotale
 |La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali
 
@@ -252,38 +261,32 @@ BT-141 Invoice line charge amount
 |BR-IT-440
 |Value domain for an element - Restrict  text or byte array length
 |BT-155 Item Seller's identifier
-|2.2.1.3.1 Codice Tipo
+|2.2.1.3.1 Codice Tipo +
 2.2.1.3.2 CodiceValore
 |La lunghezza dell'elemento non può superare i 35 caratteri
 
 |BR-IT-470
 |Value domain for an element - Restrict  text or byte array length
 |BT-158 Item classificati on identifier
-|2.2.1.3.1 Codice Tipo
+|2.2.1.3.1 Codice Tipo +
 2.2.1.3.2 CodiceValore
 |La lunghezza dell'elemento non può superare i 35 caratteri
 
-|BR-IT-520
+|BR-IT-521
 |Add new non-conflicting business rule to existing element(s)
-|BT-47 Buyer legal registration identifier
+|BT-47 Buyer legal registration identifier +
 BT-48 Buyer VAT identifier
-|1.4.1.2 CodiceFiscale
+|1.4.1.2 CodiceFiscale +
 1.4.1.1 IdFiscaleIVA
 |Almeno uno degli elementi BT-48 (Buyer VAT identifier) o BT-47 (Buyer legal registration identifier) deve essere valorizzato.
 
 
-|BR-IT-521
+|BR-IT-522
 |Value domain for an element - Restrict  text or byte array length
-|BT-47 Buyer legal registration identifier
+|BT-47 Buyer legal registration identifier +
 BT-47-1 Buyer legal registration identifier scheme identifier
 |1.4.1.2 CodiceFiscale
 |Se l'elemento BT-47-1 (Buyer legal registration identifier scheme identifier) contiene il valore "0210", l'elemento BT-47 (Buyer legal registration identifier) deve contenere un Codice Fiscale con lunghezza compresa fra 11 e 16 caratteri.
 
-
-|BR-IT-522
-|Value domain for an element - Restrict  text or byte array length
-|BT-46 Buyer identifier
-|1.4.1.3.5 Codice EORI
-|Il Codice EORI (BT-46 Buyer identifier) deve essere preceduto dal prefisso 'EORI:' ed avere la lunghezza del codice compresa fra 13 e 17 caratteri alfanumerici.
 
 |====

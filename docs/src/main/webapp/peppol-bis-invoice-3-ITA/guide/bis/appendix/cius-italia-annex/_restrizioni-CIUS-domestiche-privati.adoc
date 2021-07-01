@@ -3,7 +3,7 @@
 = [lime-background]#CIUS Domestiche (fatturazione verso privati)#
 
 
-[cols="3s,2,3,3,3", options="header"]
+[cols="2s,2,3,3,4", options="header"]
 |====
 
 ^.^|CIUS ID
@@ -15,14 +15,14 @@
 
 |BR-IT-DC-202
 |Value domain for an element - Restrict  text or byte array length
-|BT-49 Buyer electroni caddress 
+|BT-49 Buyer electroni caddress +
 BT-49-1 Buyer electronic address identification scheme
 |1.1.4  CodiceDestinatario
 |Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0205", l'elemento BT-49 deve contenere un Codice Destinatario di pari a 7 caratteri
 
 |BR-IT-DC-203
 |Value domain for an element - Restrict  text or byte array length
-|BT-49 Buyer electroni caddress 
+|BT-49 Buyer electroni caddress +
 BT-49-1 Buyer electronic address identification scheme
 |1.1.6 PECDestinatario
 |Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0202", l'elemento BT-49 deve contenere un indirizzo PEC di lunghezza compresa fra 7 e 256 caratteri

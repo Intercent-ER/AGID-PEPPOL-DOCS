@@ -14,6 +14,7 @@ In aggiunta alle regole base di Peppol, alcune regole nazionali forniscono ulter
 #Le restrizioni per la fatturazione domestica italiana (BT-40 Seller country code pari da IT e BT-55 Buyer country code pari a IT) sono riportate al paragrafo Annex C.2.# + 
 [lime-background]#Le restrizioni per la fatturazione domestica italiana (BT-40 Seller country code pari da IT e BT-55 Buyer country code pari a IT), verso i privati, sono riportate al paragrafo Annex C.3.# + 
 #Le estensioni per la fatturazione domestica italiana (BT-40 Seller country code pari da IT e BT-55 Buyer country code pari a IT) sono riportate al paragrafo Annex C.4.# + 
+[lime-background]#Le estensioni per la fatturazione domestica italiana (BT-40 Seller country code pari da IT e BT-55 Buyer country code pari a IT) verso i privati, sono riportate al paragrafo Annex C.5.# + 
 
 Le restrizioni sotto riportate sono espresse come indicato nel capitolo 7.3.2 della {EN16931}.
 

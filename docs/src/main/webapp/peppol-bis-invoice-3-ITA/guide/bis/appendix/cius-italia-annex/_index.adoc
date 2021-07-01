@@ -9,4 +9,6 @@ include::_restrizioni-CIUS-domestiche-privati.adoc[]
 
 include::_estensioni-domestiche.adoc[]
 
+include::_estensioni-domestiche-privati.adoc[]
+
 

@@ -352,6 +352,10 @@
         </xsl:variable>
         <xsl:variable name="extension" select="contains(@cus:custom, 'extension')"/>
         <xsl:variable name="restriction" select="contains(@cus:custom, 'restriction')"/>
+		<xsl:variable name="b2c" select="contains(@cus:custom, 'b2c')"/>
+		<xsl:variable name="b2b" select="contains(@cus:custom, 'b2b')"/>
+		<xsl:variable name="b2g" select="contains(@cus:custom, 'b2g')"/>
+		<xsl:variable name="g2g" select="contains(@cus:custom, 'g2g')"/>
         <xsl:variable name="rule" select="contains(@cus:custom, 'rule')"/>
         <xsl:variable name="fixedValue" select="contains(@cus:custom, 'fixed-value')"/>
         <xsl:variable name="customCardinality" select="contains(@cus:custom, 'cardinality')"/>

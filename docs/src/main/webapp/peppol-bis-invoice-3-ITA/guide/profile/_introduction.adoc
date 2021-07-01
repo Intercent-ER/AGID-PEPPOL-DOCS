@@ -9,12 +9,13 @@ Questa specifica è composta da: +
 * #un insieme di specifiche derivanti dalla Core Invoice Usage Specification (CIUS) della {EN16931} come da Specifiche Tecniche Fatturazione Europea v2.0 dell'Agenzia delle Entrate;#
 * #un insieme di CIUS ed estensioni italiane della Core Invoice volte a rendere equipollente il contenuto di una fattura elettronica europea al formato italiano FatturaPA.#
 
-#In questo documento le regole d’uso ed i paragrafi applicabili specificatamente al contesto italiano sono evidenziate in giallo, con chiara distinzione:#
+#In questo documento le regole d’uso ed i paragrafi applicabili specificatamente al contesto italiano sono evidenziate in giallo, con chiara distinzione:# +
 
-* #delle CIUS da applicare alle fatture cross-border;#
+* #delle CIUS da applicare alle fatture cross-border (CIUS);#
 * #delle CIUS da applicare alle fatture domestiche (CIUS domestica);#
-* [lime-background]#delle CIUS da applicare alle fatture domestiche verso i privati;#
 * #delle Estensioni da applicare alle fatture domestiche (estensione).#
+
+[lime-background]#Le regole d’uso ed i paragrafi applicabili specificatamente delle alla fatturazione domestica verso i privati sono invece evidenziate in verde. La fatturazione verso i privati sottintende la messa a disposizione di un traduttore da UBL verso il formato FatturaPR che sarà reso disponibile successivamente.#
 
 #Per ulteriori dettagli vedi anche i paragrafi 12.2 e Appendix A.#
 
@@ -51,9 +52,9 @@ Questo documento  fornisce le linee guida per il supporto e l'implementazione de
 #Sono supportati specificatamente i seguenti scenari di business:#
 
 * #B2G – Business to Government#
+* #G2G – Government to Government#
 * [lime-background]#B2B – Business to Business#
 * [lime-background]#B2C – Business to Consumer#
-* #G2G – Government to Government#
 * [lime-background]#G2B – Government to Business#
 * [lime-background]#G2C – Government to Consumer#
 

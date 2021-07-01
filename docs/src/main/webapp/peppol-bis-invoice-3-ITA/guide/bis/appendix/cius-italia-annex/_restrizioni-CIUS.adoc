@@ -17,7 +17,8 @@
 |BT-24 Specification Identifier 
 BT-40 Seller country code
 |
-|Se il valore dell’elemento BT-40 (Seller country code) è diverso da "IT", il BT-24 deve essere valorizzato come segue: urn:cen.eu:en16931:2017#compliant#urn:fat turapa.gov.it:CIUS-IT:2.0.0
+|Se il valore dell’elemento BT-40 (Seller country code) è diverso da "IT", il BT-24 deve essere valorizzato come segue: urn:cen.eu:en16931:2017#compliant#urn:fat +
+turapa.gov.it:CIUS-IT:2.0.0
 
 |BR-IT-010
 |Value domain for an element - Restrict  text or byte array length

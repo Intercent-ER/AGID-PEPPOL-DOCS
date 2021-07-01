@@ -12,27 +12,21 @@
 ^.^|Elemento in XML PA
 ^.^|Descrizione regola
 
-|BR-IT-190
-|Value domain for an element - Require defined structured values
-|BT-24 Specification Identifier 
-BT-40 Seller country code
-|1.1.6 PECDestinatario 
-1.1.4  CodiceDestinatario
-|L'elemento BT-49 Buyer electronic address deve contenere la PEC del destinatario della fattura oppure il Codice Destinatario. Di conseguenza, per l'elemento BT-49-1 Buyer electronic address identification scheme identifier sono previsti i valori 0202 oppure 0205
 
-|BR-IT-201
-|Value domain for an element - Restrict  text or byte array length
-|BT-49 Buyer electroni caddress 
-BT-49-1 Buyer electronic address identification scheme
-|1.1.6 PECDestinatario 
-|Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0202", l'elemento BT-49 deve contenere un indirizzo PEC di lunghezza compresa fra 7 e 256 caratteri
-
-|BR-IT-202
+|BR-IT-DC-202
 |Value domain for an element - Restrict  text or byte array length
 |BT-49 Buyer electroni caddress 
 BT-49-1 Buyer electronic address identification scheme
 |1.1.4  CodiceDestinatario
-|Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0205", l'elemento BT-49 deve contenere un Codice Destinatario (CODDEST) di pari a 7 caratteri
+|Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0205", l'elemento BT-49 deve contenere un Codice Destinatario di pari a 7 caratteri
+
+|BR-IT-DC-203
+|Value domain for an element - Restrict  text or byte array length
+|BT-49 Buyer electroni caddress 
+BT-49-1 Buyer electronic address identification scheme
+|1.1.6 PECDestinatario
+|Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0202", l'elemento BT-49 deve contenere un indirizzo PEC di lunghezza compresa fra 7 e 256 caratteri
+
 
 
 |====

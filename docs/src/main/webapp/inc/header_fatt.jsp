@@ -18,7 +18,7 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li class="btn-group" id="peppol-bis">
-							<button type="button" class="btn btn-primary btn-agid" style="margin-top: 8px;">PEPPOL BIS Fatturazione 3</button>
+							<button type="button" class="btn btn-primary btn-agid" style="margin-top: 8px;">PEPPOL BIS 3 (fatturazione)</button>
 							<button type="button" class="btn btn-primary dropdown-toggle btn-agid dropdown-alignment" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 8px;">
 								<span class="caret"></span>
 								<span class="sr-only">Toggle Dropdown</span>

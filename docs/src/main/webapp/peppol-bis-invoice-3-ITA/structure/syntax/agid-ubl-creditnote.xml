@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet href="agid-peppol-document-syntax-v1.2.xsl" type="text/xsl"?>
 <Structure xmlns="urn:fdc:difi.no:2017:vefa:structure-1" xmlns:agid="urn:fdc:agid.gov.it:peppol:customization">
 
     <Term>ubl-creditnote</Term>
@@ -232,6 +231,14 @@
                 <DataType>Document Reference</DataType>
                 <Reference type="BUSINESS_TERM">BT-14</Reference>
                 <Value type="EXAMPLE">112233</Value>
+            </Element>
+			
+            <Element cardinality="0..1" agid:custom="extension">
+                <Term>cbc:IssueDate</Term>
+                <Name>Purchase order issue date</Name>
+                <Description>The date on which the referenced Order was issued. Format = "YYYY-MM-DD".</Description>
+                <DataType>Date</DataType>
+                <Value type="EXAMPLE">2017-09-15</Value>
             </Element>
         </Element>
 

@@ -77,7 +77,8 @@ BT-38 Seller post code
 |Value domain for an element - Require defined structured values
 |BT-49 Buyer electroni caddress +
 BT-49-1 Buyer electronic address identification scheme
-|1.2.2.5 Provincia
+|1.1.6 PECDestinatario +
+1.1.4  CodiceDestinatario
 |L'elemento BT-49 (Buyer electronic address) deve contenere il Codice IPA, la PEC del destinatario della fattura oppure il Codice Destinatario. Di conseguenza, per l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) sono previsti rispettivamente i valori 0201, 0202 oppure 0205
 
 |BR-IT-DC-202

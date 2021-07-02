@@ -344,7 +344,7 @@
 								<transformationSet>
 									<dir>${project.build.directory}/${project.build.finalName}/temp/ph2</dir>
 									<stylesheet>${basedir}/../artifacts/validation/3.0/stylesheets/iso_schematron-to-asciidoc-v1.0.xsl</stylesheet>
-									<outputDir>${project.build.directory}/${project.build.finalName}/temp/ph3</outputDir>
+									<outputDir>${basedir}/src/main/webapp/peppol-bis-3-ITA/rules/generated</outputDir>
 									<includes>
 										<include>**/*.sch</include>
 										<include>*.sch</include>
@@ -407,7 +407,7 @@
 					</execution>
 					
 					<!-- BILLING generazione html a partire dagli adoc delle regole generati -->
-					<execution>
+					<!--<execution>
 						<id>output-html-billing-rules-ITA</id>
 						<phase>generate-resources</phase>
 						<goals>
@@ -416,11 +416,11 @@
 						<configuration>
 							<backend>html5</backend>
 							<sourceDirectory>${project.build.directory}/${project.build.finalName}/temp/ph3</sourceDirectory>
-							<outputDirectory>${project.build.directory}/generated-docs/ITA/invoice/generated-rules</outputDirectory>
+							<outputDirectory>${project.build.directory}/generated-docs/ITA/invoice/rules/generated</outputDirectory>
 							<relativeBaseDir>true</relativeBaseDir>
 							<preserveDirectories>true</preserveDirectories>
 						</configuration>
-					</execution>
+					</execution>-->
 					
 					
 					<!-- ENG -->

@@ -98,7 +98,7 @@ valorizzato come segue: +
 |Value domain for an element - Restrict  text or byte array length
 |BT-49 Buyer electronic address +
 BT-49-1 Buyer electronic address identification scheme 
-|
+|1.1.4  CodiceDestinatario
 |Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0201", l'elemento BT-49 (Buyer electronic address) deve contenere un codice IPA con lunghezza pari a 6 caratteri
 
 |BR-IT-210

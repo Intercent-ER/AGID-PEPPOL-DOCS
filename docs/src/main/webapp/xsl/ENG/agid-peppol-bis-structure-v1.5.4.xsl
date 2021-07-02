@@ -6,7 +6,7 @@
                 exclude-result-prefixes="stx cus">
     <!--
             Author: JAVEST by Roberto Cisternino
-            Version 1.5.3
+            Version 1.5.4
     -->
     <xsl:output method="html"
                     doctype-system="about:legacy-compat"
@@ -19,7 +19,7 @@
     <xsl:template match="/">
         <html data-transaction="{$transaction}">
             <head>
-                <title>PEPPOL BIS versione 3 | Struttura</title>
+                <title>PEPPOL BIS version 3 | Structure</title>
                 <meta charset="utf-8"/>
                 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -81,7 +81,7 @@
 									pathBack += "../";
 								}
 								$("#path").prepend('<li><a href="'+source+'">'+transaction+'</a></li>');
-								$("#path").prepend('<li><a href="' + pathBack + '" id="bis-index">Indice</a></li>');
+								$("#path").prepend('<li><a href="' + pathBack + '" id="bis-index">Index</a></li>');
 								var activeNode = $("#path").find("li").last();
 								activeNode.html(activeNode.find("a").text()).addClass("active");
 								$("#context").text(activeNode.text());
@@ -95,7 +95,7 @@
 
                     <ol id="path" class="breadcrumb">
                         <li>
-                            <a href="../../../my_index.jsp" id="bis-index">Indice</a>
+                            <a href="../../../my_index-ENG.jsp" id="bis-index">Index</a>
                         </li>
                         <li class="active">
                             <xsl:value-of select="$transaction"/>
@@ -117,11 +117,11 @@
                         <table class="table table-striped" style="table-layout: fixed">
                             <thead>
                                 <tr>
-                                    <th style="width: 7%; font-size: smaller">Cardinalità</th>
+                                    <th style="width: 7%; font-size: smaller">Card</th>
                                     <th style="width: 10%">ID</th>
-                                    <th style="width: 28%">Nome</th>
-                                    <th style="width: 48%">Descrizione</th>
-                                    <th style="width: 7%">Stato</th>
+                                    <th style="width: 28%">Name</th>
+                                    <th style="width: 48%">Description</th>
+                                    <th style="width: 7%">Status</th>
                                 </tr>
                             </thead>
                             <tbody id="syntax">
@@ -152,10 +152,10 @@
         <p>
             <xsl:choose>
                 <xsl:when test="@type='FIXED'">
-                    <xsl:text>Valore fisso:</xsl:text>
+                    <xsl:text>Fixed value:</xsl:text>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:text>Valore di esempio:</xsl:text>
+                    <xsl:text>Example value:</xsl:text>
                 </xsl:otherwise>
             </xsl:choose>
             <code>
@@ -210,6 +210,10 @@
         </xsl:variable>
         <xsl:variable name="extension" select="contains(@cus:custom, 'extension')"/>
         <xsl:variable name="restriction" select="contains(@cus:custom, 'restriction')"/>
+		<xsl:variable name="b2c" select="contains(@cus:custom, 'b2c')"/>
+		<xsl:variable name="b2b" select="contains(@cus:custom, 'b2b')"/>
+		<xsl:variable name="b2g" select="contains(@cus:custom, 'b2g')"/>
+		<xsl:variable name="g2g" select="contains(@cus:custom, 'g2g')"/>
         <xsl:variable name="rule" select="contains(@cus:custom, 'rule')"/>
         <xsl:variable name="fixedValue" select="contains(@cus:custom, 'fixed-value')"/>
         <xsl:variable name="customCardinality" select="contains(@cus:custom, 'cardinality')"/>
@@ -278,19 +282,19 @@
                 <xsl:apply-templates select="stx:Value"/>
                 <xsl:if test="$references">
                     <p class="references">
-                        <xsl:text>Termine di business:</xsl:text>
+                        <xsl:text>Business Term:</xsl:text>
                         <xsl:apply-templates select="$references"/>
                     </p>
                 </xsl:if>
                 <xsl:if test="$rules">
                     <p class="references">
-                        <xsl:text>Regole:</xsl:text>
+                        <xsl:text>Rules:</xsl:text>
                         <xsl:apply-templates select="$rules"/>
                     </p>
                 </xsl:if>
                 <xsl:if test="$codelists">
                     <p class="references">
-                        <xsl:text>Codifiche:</xsl:text>
+                        <xsl:text>Codelists:</xsl:text>
                         <xsl:apply-templates select="$codelists"/>
                     </p>
                 </xsl:if>
@@ -300,16 +304,28 @@
                     <i class="fa fa-exclamation fa-fw" title="Elemento diventato obbligatorio"/>
                 </xsl:if>
                 <xsl:if test="$extension">
-                    <small>Estensione</small>
+                    <small>Estension</small>
                 </xsl:if>
                 <xsl:if test="$restriction">
-                    <small>Restrizione</small>
+                    <small>Restriction</small>
                 </xsl:if>
                 <xsl:if test="$rule">
                     <i class="fa fa-check fa-fw" title="Regola/e italiane"/>
                 </xsl:if>
                 <xsl:if test="@cus:note='new'">
                     <i class="fa fa-map-pin fa-fw" title="Nuovo elemento"/>
+                </xsl:if>
+                <xsl:if test="$b2c">
+                    <small>&#160;(B2C)</small>
+                </xsl:if>
+                <xsl:if test="$b2b">
+                    <small>&#160;(B2B)</small>
+                </xsl:if>
+                <xsl:if test="$b2g">
+                    <small>&#160;(B2G)</small>
+                </xsl:if>
+                <xsl:if test="$g2g">
+                    <small>&#160;(G2G)</small>
                 </xsl:if>
             </td>
         </tr>
@@ -336,6 +352,10 @@
         </xsl:variable>
         <xsl:variable name="extension" select="contains(@cus:custom, 'extension')"/>
         <xsl:variable name="restriction" select="contains(@cus:custom, 'restriction')"/>
+		<xsl:variable name="b2c" select="contains(@cus:custom, 'b2c')"/>
+		<xsl:variable name="b2b" select="contains(@cus:custom, 'b2b')"/>
+		<xsl:variable name="b2g" select="contains(@cus:custom, 'b2g')"/>
+		<xsl:variable name="g2g" select="contains(@cus:custom, 'g2g')"/>
         <xsl:variable name="rule" select="contains(@cus:custom, 'rule')"/>
         <xsl:variable name="fixedValue" select="contains(@cus:custom, 'fixed-value')"/>
         <xsl:variable name="customCardinality" select="contains(@cus:custom, 'cardinality')"/>
@@ -391,19 +411,19 @@
                 <xsl:apply-templates select="stx:Value"/>
                 <xsl:if test="$references">
                     <p class="references">
-                        <xsl:text>Termine di business:</xsl:text>
+                        <xsl:text>Business Term:</xsl:text>
                         <xsl:apply-templates select="$references"/>
                     </p>
                 </xsl:if>
                 <xsl:if test="$rules">
                     <p class="references">
-                        <xsl:text>Regole:</xsl:text>
+                        <xsl:text>Rules:</xsl:text>
                         <xsl:apply-templates select="$rules"/>
                     </p>
                 </xsl:if>
                 <xsl:if test="$codelists">
                     <p class="references">
-                        <xsl:text>Codifiche:</xsl:text>
+                        <xsl:text>Codelists:</xsl:text>
                         <xsl:apply-templates select="$codelists"/>
                     </p>
                 </xsl:if>
@@ -413,16 +433,28 @@
                     <i class="fa fa-exclamation fa-fw" title="Attributo diventato obbligatorio"/>
                 </xsl:if>
                 <xsl:if test="$extension">
-                    <small>Estensione</small>
+                    <small>Extension</small>
                 </xsl:if>
                 <xsl:if test="$restriction">
-                    <small>Restrizione</small>
+                    <small>Restriction</small>
                 </xsl:if>
                 <xsl:if test="$rule">
                     <i class="fa fa-check fa-fw" title="Regola/e italiane"/>
                 </xsl:if>
                 <xsl:if test="@cus:note='new'">
                     <i class="fa fa-map-pin fa-fw" title="Nuovo attributo"/>
+                </xsl:if>
+                <xsl:if test="$b2c">
+                    <small>&#160;(B2C)</small>
+                </xsl:if>
+                <xsl:if test="$b2b">
+                    <small>&#160;(B2B)</small>
+                </xsl:if>
+                <xsl:if test="$b2g">
+                    <small>&#160;(B2G)</small>
+                </xsl:if>
+                <xsl:if test="$g2g">
+                    <small>&#160;(G2G)</small>
                 </xsl:if>
             </td>
         </tr>

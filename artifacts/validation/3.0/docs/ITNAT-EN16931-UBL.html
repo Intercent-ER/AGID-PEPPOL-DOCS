@@ -4,7 +4,7 @@
 <html data-transaction="EN16931 model bound to UBL">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+   
       <title>EN16931 model bound to UBL</title>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,25 +19,25 @@
 						var $html = $("html");
 						var source = window.location.href.split('?')[0];
 						var transaction = $html.data("transaction");
-
+						
 						$("#rule").hide();
 						$("#rules").show();
-
+						
 						$("#path").on("click", "li.subcontext a", function(e) {
 						e.preventDefault();
 						var ctx = $("#" + $(this).attr("href"));
 						changeContext(ctx);
 						});
-
+						
 						$("#rules tr > td > a").click(function(e) {
 						e.preventDefault();
 						var ctx = $(this);
 						changeContext(ctx);
 						});
-
+						
 						function changeContext(ctx) {
 						var branch = ctx.closest("tr"), activeContext = branch.find("> td > a").text();
-
+						
 						$("#path").html('<li><a href="'+source+'">'+transaction+'</a></li><li class="active">'+activeContext+'</li>');
 						// <li><a href="../../../">Home</a></li>
 						$("#context").text(activeContext);
@@ -1175,7 +1175,7 @@
                   <tr id="BR-IT-DC-100" data-context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]" data-test="matches(.,'^EORI:[A-Z0-9]{18,22}$')">
                      <td><a href="#">BR-IT-DC-100</a><br><span class="message">[BR-IT-DC-100] - Se il valore dell&#8217;elemento BT-40 (Seller country code) &egrave; "IT", se il valore dell'elemento BT29 Seller identifier
                            comincia con "EORI:", la sua lunghezza deve essere compresa fra 18 e 22 caratteri.
-
+                           
                            Se il valore dell&#8217;elemento BT-40 (Seller country code) &egrave; "IT", se il valore dell'elemento BT29 Seller identifier comincia
                            con "ALBO:", la sua lunghezza non pu&ograve; superare i 137 caratteri e pu&ograve; essere indicato come "ALBO:AlboProfessionale#NumeroIscrizioneAlbo#DataIscrizione"
                            (con Data nel formato AAAA-MM-GG).</span></td>
@@ -1184,7 +1184,7 @@
                   <tr id="BR-IT-DC-100" data-context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'ALBO:')]" data-test="matches(.,'^ALBO:[a-zA-Z]+:[A-Z0-9]+$') and string-length(.) &gt;= 1 and string-length(.) <= 137">
                      <td><a href="#">BR-IT-DC-100</a><br><span class="message">[BR-IT-DC-100] - Se il valore dell&#8217;elemento BT-40 (Seller country code) &egrave; "IT", se il valore dell'elemento BT29 Seller identifier
                            comincia con "EORI:", la sua lunghezza deve essere compresa fra 18 e 22 caratteri.
-
+                           
                            Se il valore dell&#8217;elemento BT-40 (Seller country code) &egrave; "IT", se il valore dell'elemento BT29 Seller identifier comincia
                            con "ALBO:", la sua lunghezza non pu&ograve; superare i 137 caratteri e pu&ograve; essere indicato come "ALBO:AlboProfessionale#NumeroIscrizioneAlbo#DataIscrizione"
                            (con Data nel formato AAAA-MM-GG).</span></td>
@@ -1193,8 +1193,8 @@
                   <tr id="BR-IT-DC-111" data-context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyLegalEntity/cbc:CompanyID[starts-with(., 'REA:')]" data-test="matches(.,'^REA:[a-zA-Z0-9]+:[A-Z0-9]+$') and string-length(.) &gt;= 8 and string-length(.) <= 27">
                      <td><a href="#">BR-IT-DC-111</a><br><span class="message">[BR-IT-DC-111] - Se il valore dell&#8217;elemento BT-40 (Seller country code) &egrave; "IT", se il valore dell'elemento BT-30 Seller legal
                            registration identifier comincia con "REA:", la sua lunghezza deve essere compresa fra 8 e 27 caratteri e deve essere indicato
-                           come "REA:Ufficio#NumeroREA".
-
+                           come "REA:Ufficio#NumeroREA". 
+                           
                            Se il valore dell&#8217;elemento BT-40 (Seller country code) &egrave; "IT", se l'elemento BT-30-1 (Seller legal registration identifier
                            scheme identifier) contiene il valore "0210", l'elemento BT-30 (Seller legal registration identifier) deve contenere un Codice
                            Fiscale con lunghezza compresa fra 11 e 16 caratteri.</span></td>
@@ -1203,8 +1203,8 @@
                   <tr id="BR-IT-DC-111" data-context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyLegalEntity/cbc:CompanyID[@schemeID='0210']" data-test="matches(.,'^[A-Z0-9]{11,16}$')">
                      <td><a href="#">BR-IT-DC-111</a><br><span class="message">[BR-IT-DC-111] - Se il valore dell&#8217;elemento BT-40 (Seller country code) &egrave; "IT", se il valore dell'elemento BT-30 Seller legal
                            registration identifier comincia con "REA:", la sua lunghezza deve essere compresa fra 8 e 27 caratteri e deve essere indicato
-                           come "REA:Ufficio#NumeroREA".
-
+                           come "REA:Ufficio#NumeroREA". 
+                           
                            Se il valore dell&#8217;elemento BT-40 (Seller country code) &egrave; "IT", se l'elemento BT-30-1 (Seller legal registration identifier
                            scheme identifier) contiene il valore "0210", l'elemento BT-30 (Seller legal registration identifier) deve contenere un Codice
                            Fiscale con lunghezza compresa fra 11 e 16 caratteri.</span></td>
@@ -1322,21 +1322,23 @@
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="BR-IT-DE-014" data-context="/*/cac:BillingReference/cac:AdditionalDocumentReference" data-test="cbc:ID and cbc:IssueDate">
-                     <td><a href="#">BR-IT-DE-014</a><br><span class="message">[BR-IT-DE-014][FPA 2.1.10] - Se si vuole fare riferimento ad una fattura principale relativa al trasporto di beni devono essere
-                           obbligatoriamente valorizzati gli estremi della fattura con gli elementi ID e IssueDate.</span></td>
+                     <td><a href="#">BR-IT-DE-014</a><br><span class="message">[BR-IT-DE-014][FPA 2.1.10.1 Numero Fattura Principale e 2.1.10.2 Data Fattura Principale] - Se si vuole fare riferimento ad
+                           una fattura principale relativa al trasporto di beni devono essere obbligatoriamente valorizzati gli estremi della fattura
+                           con gli elementi ID e IssueDate.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="BR-IT-DE-015" data-context="/*/cac:BillingReference/cac:AdditionalDocumentReference" data-test="matches(cbc:ID,'^(\p{IsBasicLatin}){0,20}$')">
-                     <td><a href="#">BR-IT-DE-015</a><br><span class="message">[BR-IT-DE-015][FPA 2.1.10.1] - L'identificativo della fattura principale non pu&ograve; superare i 20 caratteri.</span></td>
+                     <td><a href="#">BR-IT-DE-015</a><br><span class="message">[BR-IT-DE-015][FPA 2.1.10.1 Numero Fattura Principale] - L'identificativo della fattura principale non pu&ograve; superare i 20 caratteri.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="BR-IT-DE-016" data-context="/*/cac:DespatchDocumentReference" data-test="cbc:IssueDate">
-                     <td><a href="#">BR-IT-DE-016</a><br><span class="message">[BR-IT-DE-016][FPA 2.1.8.2] - La data del documento di trasporto deve  essere obbligatoriamente valorizzata a livello di documento.</span></td>
+                     <td><a href="#">BR-IT-DE-016</a><br><span class="message">[BR-IT-DE-016][FPA 2.1.8.2 DataDDT] - La data del documento di trasporto deve  essere obbligatoriamente valorizzata a livello
+                           di documento.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="BR-IT-DE-017" data-context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:TaxLevelCode" data-test="( ( not(contains(normalize-space(.),' ')) and contains( ' RF01 RF02 RF04 RF05 RF06 RF07 RF08 RF09 RF10 RF11 RF12 RF13 RF14 RF15 RF16 RF17 RF18 RF19 ',concat(' ',normalize-space(.),' ') ) ) )">
                      <td><a href="#">BR-IT-DE-017</a><br><span class="message">[BR-IT-DE-017][FPA 1.2.1.8 - Regime Fiscale] - Il Regime Fiscale (cbc:TaxLevelCode) deve essere valorizzato esclusivamente
-                           con i valori della relativa codifica, secondo la specifica FatturaPA 1.2.1.</span></td>
+                           con i valori della relativa codifica.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="BR-IT-DE-018" data-context="/*/cac:AccountingSupplierParty/cac:Party/cac:AgentParty/cac:PostalAddress" data-test="cbc:StreetName and cbc:CityName and cbc:PostalZone and cbc:CountrySubentity and cac:Country/cbc:IdentificationCode">
@@ -1352,8 +1354,8 @@
                      <td><a href="#">BR-IT-DE-020</a><br><span class="message">[BR-IT-DE-020][FPA 1.2.3.4 - Comune] - La lunghezza dell'elemento non pu&ograve; superare i 60 caratteri.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-IT-DE-021" data-context="/*/cac:AccountingSupplierParty/cac:Party/cac:AgentParty/cac:PostalAddress" data-test="matches(cbc:PostalZone,'^(\p{IsBasicLatin}){0,8}$')">
-                     <td><a href="#">BR-IT-DE-021</a><br><span class="message">[BR-IT-DE-021][FPA 1.2.3.3 - CAP] - La lunghezza dell'elemento non pu&ograve; superare 8 caratteri.</span></td>
+                  <tr id="BR-IT-DE-021" data-context="/*/cac:AccountingSupplierParty/cac:Party/cac:AgentParty/cac:PostalAddress" data-test="matches(cbc:PostalZone,'^(\p{IsBasicLatin}){5}$')">
+                     <td><a href="#">BR-IT-DE-021</a><br><span class="message">[BR-IT-DE-021][FPA 1.2.3.3 - CAP] - La lunghezza dell'elemento deve essere costituita da 5 cifre.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="BR-IT-DE-022" data-context="/*/cac:AccountingSupplierParty/cac:Party/cac:AgentParty/cac:PostalAddress" data-test="matches(cbc:CountrySubentity,'^[A-Z]{0,2}$')">
@@ -1365,12 +1367,12 @@
                            fiscale = 'VAT', la ragione sociale o una persona fisica (nome e cognome).</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-IT-DE-024" data-context="/*/cac:TaxRepresentativeParty/cac:PartyIdentification/cbc:ID" data-test="matches(.,'^CF:[A-Z0-9]{11,16}$')">
-                     <td><a href="#">BR-IT-DE-024</a><br><span class="message">[BR-IT-DE-024][FPA 1.3.1.2 - Codice Fiscale] - Il Codice Fiscale deve essere preceduto dal prefisso 'CF:' ed avere la lunghezza
-                           del codice compresa fra 11 e 16 caratteri alfanumerici.</span></td>
+                  <tr id="BR-IT-DE-024A" data-context="/*/cac:TaxRepresentativeParty/cac:PartyIdentification/cbc:ID[@schemeID='0210']" data-test="matches(.,'^[A-Z0-9]{11,16}$')">
+                     <td><a href="#">BR-IT-DE-024A</a><br><span class="message">[BR-IT-DE-024A][FPA 1.3.1.2 - Codice Fiscale] - Il Codice Fiscale deve specificare l'attributo @schemeID valorizzato con "0210"
+                           ed avere la lunghezza del codice compresa fra 11 e 16 caratteri alfanumerici.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-IT-DE-025" data-context="/*/cac:TaxRepresentativeParty/cac:PartyIdentification/cbc:ID" data-test="matches(.,'^EORI:[A-Z0-9]{13,17}$')">
+                  <tr id="BR-IT-DE-025" data-context="/*/cac:TaxRepresentativeParty/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]" data-test="matches(.,'^EORI:[A-Z0-9]{13,17}$')">
                      <td><a href="#">BR-IT-DE-025</a><br><span class="message">[BR-IT-DE-025][FPA 1.3.1.3.5 - Codice EORI] - Il Codice EORI deve essere preceduto dal prefisso 'EORI:' ed avere la lunghezza
                            del codice compresa fra 13 e 17 caratteri alfanumerici.</span></td>
                      <td style="width: 5%;">fatal</td>
@@ -1414,6 +1416,10 @@
                   </tr>
                   <tr id="BR-IT-DE-034" data-context="/*/cac:Delivery/cac:Shipment" data-test="not(cac:ShipmentStage/cbc:TransportMeansTypeCode) or matches(cac:ShipmentStage/cbc:TransportMeansTypeCode,'^(\p{IsBasicLatin}){0,80}$')">
                      <td><a href="#">BR-IT-DE-034</a><br><span class="message">[BR-IT-DE-034][FPA 2.1.9.2 - Mezzo di Trasporto] - La lunghezza dell'elemento non pu&ograve; superare gli 80 caratteri.</span></td>
+                     <td style="width: 5%;">fatal</td>
+                  </tr>
+                  <tr id="BR-IT-DE-035" data-context="/*/cac:Despatch" data-test="not(cbc:Instructions) or  matches(cbc:Instructions,'^[a-zA-Z0-9]{0,100}$')">
+                     <td><a href="#">BR-IT-DE-035</a><br><span class="message">[BR-IT-DE-035][FPA 2.1.9.3 Causale Trasporto] - La lunghezza dell'elemento non pu&ograve;  superare i 100 caratteri.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="BR-IT-DE-036" data-context="/*/cac:DeliveryTerms/cbc:ID" data-test="matches(.,'^[a-zA-Z0-9]{3,3}$')">

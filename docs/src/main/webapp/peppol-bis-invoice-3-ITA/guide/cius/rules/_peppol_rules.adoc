@@ -6,10 +6,5 @@ These rules apply in *all* implementations that follow this {peppol} BIS.
 
 
 .PEPPOL transaction business rules
-[cols="1,4", options="header"]
-|====
-|Rule
-|Message/Context/Test
 
 include::{rules-dir}/OPENPEPPOL/PEPPOL-EN16931-UBL.adoc[]
-|====

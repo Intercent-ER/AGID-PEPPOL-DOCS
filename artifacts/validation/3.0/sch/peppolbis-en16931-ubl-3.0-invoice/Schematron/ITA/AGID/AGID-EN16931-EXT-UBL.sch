@@ -51,23 +51,23 @@
 	<!-- Document Level -->
 
 	<rule context="/*/cac:BillingReference/cac:AdditionalDocumentReference" flag="fatal">
-		<assert test="cbc:ID and cbc:IssueDate" flag="fatal" id="BR-IT-DE-014">[BR-IT-DE-014][FPA 2.1.10] - Se si vuole fare riferimento ad una fattura principale relativa al trasporto di beni devono essere obbligatoriamente valorizzati gli estremi della fattura con gli elementi ID e IssueDate.</assert>
-		<assert test="matches(cbc:ID,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-DE-015">[BR-IT-DE-015][FPA 2.1.10.1] - L'identificativo della fattura principale non può superare i 20 caratteri.</assert>
+		<assert test="cbc:ID and cbc:IssueDate" flag="fatal" id="BR-IT-DE-014">[BR-IT-DE-014][FPA 2.1.10.1 Numero Fattura Principale e 2.1.10.2 Data Fattura Principale] - Se si vuole fare riferimento ad una fattura principale relativa al trasporto di beni devono essere obbligatoriamente valorizzati gli estremi della fattura con gli elementi ID e IssueDate.</assert>
+		<assert test="matches(cbc:ID,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-DE-015">[BR-IT-DE-015][FPA 2.1.10.1 Numero Fattura Principale] - L'identificativo della fattura principale non può superare i 20 caratteri.</assert>
 	</rule>
 	
 	<rule context="/*/cac:DespatchDocumentReference" flag="fatal">
-		<assert test="cbc:IssueDate" flag="fatal" id="BR-IT-DE-016">[BR-IT-DE-016][FPA 2.1.8.2] - La data del documento di trasporto deve  essere obbligatoriamente valorizzata a livello di documento.</assert>
+		<assert test="cbc:IssueDate" flag="fatal" id="BR-IT-DE-016">[BR-IT-DE-016][FPA 2.1.8.2 DataDDT] - La data del documento di trasporto deve  essere obbligatoriamente valorizzata a livello di documento.</assert>
 	</rule>
 
 	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:TaxLevelCode" flag="fatal">
-		<assert test="( ( not(contains(normalize-space(.),' ')) and contains( ' RF01 RF02 RF04 RF05 RF06 RF07 RF08 RF09 RF10 RF11 RF12 RF13 RF14 RF15 RF16 RF17 RF18 RF19 ',concat(' ',normalize-space(.),' ') ) ) )" flag="fatal" id="BR-IT-DE-017">[BR-IT-DE-017][FPA 1.2.1.8 - Regime Fiscale] - Il Regime Fiscale (cbc:TaxLevelCode) deve essere valorizzato esclusivamente con i valori della relativa codifica, secondo la specifica FatturaPA 1.2.1.</assert>
+		<assert test="( ( not(contains(normalize-space(.),' ')) and contains( ' RF01 RF02 RF04 RF05 RF06 RF07 RF08 RF09 RF10 RF11 RF12 RF13 RF14 RF15 RF16 RF17 RF18 RF19 ',concat(' ',normalize-space(.),' ') ) ) )" flag="fatal" id="BR-IT-DE-017">[BR-IT-DE-017][FPA 1.2.1.8 - Regime Fiscale] - Il Regime Fiscale (cbc:TaxLevelCode) deve essere valorizzato esclusivamente con i valori della relativa codifica.</assert>
 	</rule>
 
 	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:AgentParty/cac:PostalAddress" flag="fatal">
 		<assert test="cbc:StreetName and cbc:CityName and cbc:PostalZone and cbc:CountrySubentity and cac:Country/cbc:IdentificationCode" flag="fatal" id="BR-IT-DE-018">[BR-IT-DE-018][FPA 1.2.3 - Stabile Organizzazione] - La Stabile Organizzazione deve fornire l'indirizzo completo di via e numero civico, comune, cap, provincia e nazione.</assert>
 		<assert test="matches(cbc:StreetName,'^(\p{IsBasicLatin}){0,60}$')" flag="fatal" id="BR-IT-DE-019">[BR-IT-DE-019][FPA 1.2.3.1 - Indirizzo e 1.2.3.2 - NumeroCivico] - La lunghezza dell'elemento non può superare i 60 caratteri.</assert>
 		<assert test="matches(cbc:Cityname,'^(\p{IsBasicLatin}){0,60}$')" flag="fatal" id="BR-IT-DE-020">[BR-IT-DE-020][FPA 1.2.3.4 - Comune] - La lunghezza dell'elemento non può superare i 60 caratteri.</assert>
-		<assert test="matches(cbc:PostalZone,'^(\p{IsBasicLatin}){0,8}$')" flag="fatal" id="BR-IT-DE-021">[BR-IT-DE-021][FPA 1.2.3.3 - CAP] - La lunghezza dell'elemento non può superare 8 caratteri.</assert>
+		<assert test="matches(cbc:PostalZone,'^(\p{IsBasicLatin}){5}$')" flag="fatal" id="BR-IT-DE-021">[BR-IT-DE-021][FPA 1.2.3.3 - CAP] - La lunghezza dell'elemento deve essere costituita da 5 cifre.</assert>
 		<assert test="matches(cbc:CountrySubentity,'^[A-Z]{0,2}$')" flag="fatal" id="BR-IT-DE-022">[BR-IT-DE-022][FPA 1.2.3.5 - Provincia] - La lunghezza dell'elemento non può superare 2 caratteri.</assert>
 	</rule>
 		
@@ -75,13 +75,16 @@
 		<assert test="cac:PartyTaxScheme/cbc:CompanyID and cac:PartyTaxScheme/cac:TaxScheme/cbc:ID = 'VAT' and (cac:PartyName/cbc:Name or (cac:Person/cbc:FirstName and cac:Person/cbc:FamilyName))" flag="fatal" id="BR-IT-DE-023">[BR-IT-DE-023][FPA 1.5 - Terzo Intermediario] - Il Terzo Intermediario o Soggetto Emittente deve contenere la P.IVA, lo schema fiscale = 'VAT', la ragione sociale o una persona fisica (nome e cognome).</assert>
 	</rule>
 
-	<rule context="/*/cac:TaxRepresentativeParty/cac:PartyIdentification/cbc:ID" flag="fatal">
-		<assert test="matches(.,'^CF:[A-Z0-9]{11,16}$')" flag="fatal" id="BR-IT-DE-024">[BR-IT-DE-024][FPA 1.3.1.2 - Codice Fiscale] - Il Codice Fiscale deve essere preceduto dal prefisso 'CF:' ed avere la lunghezza del codice compresa fra 11 e 16 caratteri alfanumerici.</assert>
+	<rule context="/*/cac:TaxRepresentativeParty/cac:PartyIdentification/cbc:ID[@schemeID='0210']" flag="fatal">
+		<assert test="matches(.,'^[A-Z0-9]{11,16}$')" flag="fatal" id="BR-IT-DE-024A">[BR-IT-DE-024A][FPA 1.3.1.2 - Codice Fiscale] - Il Codice Fiscale deve specificare l'attributo @schemeID valorizzato con "0210" ed avere la lunghezza del codice compresa fra 11 e 16 caratteri alfanumerici.</assert>
+	</rule>
+
+	<rule context="/*/cac:TaxRepresentativeParty/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]" flag="fatal">
 		<assert test="matches(.,'^EORI:[A-Z0-9]{13,17}$')" flag="fatal" id="BR-IT-DE-025">[BR-IT-DE-025][FPA 1.3.1.3.5 - Codice EORI] - Il Codice EORI deve essere preceduto dal prefisso 'EORI:' ed avere la lunghezza del codice compresa fra 13 e 17 caratteri alfanumerici.</assert>
 	</rule>
 
 	<rule context="/*/cac:Delivery/cac:CarrierParty" flag="fatal">
-		<assert test="not(cac:PartyIdentification/cbc:ID) or matches(cac:PartyIdentification/cbc:ID,'^CF:[A-Z0-9]{11,16}$')" flag="fatal" id="BR-IT-DE-026">[BR-IT-DE-026][FPA 2.1.9.1.2 - Codice Fiscale] - Il Codice Fiscale deve essere preceduto dal prefisso 'CF:' ed avere la lunghezza del codice compresa fra 11 e 16 caratteri alfanumerici.</assert>
+		<assert test="not(cac:PartyIdentification/cbc:ID) or (matches(cac:PartyIdentification/cbc:ID,'^[A-Z0-9]{11,16}$') and cac:PartyIdentification/cbc:ID[@schemeID='0210'])" flag="fatal" id="BR-IT-DE-026A">[BR-IT-DE-026A][FPA 2.1.9.1.2 - Codice Fiscale] - Il Codice Fiscale deve essere specificare l'attributo @schemeID valorizzato con "0210" ed avere la lunghezza del codice compresa fra 11 e 16 caratteri alfanumerici.</assert>
 		<assert test="matches(cac:PartyName/cbc:Name,'^(\p{IsBasicLatin}){0,80}$') or (matches(cac:Person/cbc:FirstName,'^(\p{IsBasicLatin}){0,60}$') and matches(cac:Person/cbc:FamilyName,'^(\p{IsBasicLatin}){0,60}$'))" flag="fatal" id="BR-IT-DE-027">[BR-IT-DE-027][FPA 2.1.9.1.3 - Anagrafica] - Se la Denominazione del Vettore è valorizzata, la sua lunghezza non può superare 80 caratteri, alternativamente, se è invece valorizzato il Nome e il Cognome, la loro lunghezza non potrà superare 60 caratteri.</assert>
 		<assert test="matches(cac:PartyTaxScheme/cbc:CompanyID,'^[a-zA-Z0-9]{0,30}$')" flag="fatal" id="BR-IT-DE-028">[BR-IT-DE-028][FPA 2.1.9.1.1 - Partita IVA] - La lunghezza dell'elemento non può superare i 30 caratteri.</assert>
 		<assert test="cac:PartyTaxScheme/cac:TaxScheme/cbc:ID = 'VAT'" flag="fatal" id="BR-IT-DE-029">[BR-IT-DE-029] - L'identificativo del TaxScheme deve essere valorizzato con 'VAT'.</assert>
@@ -93,6 +96,10 @@
 		<assert test="not(cbc:TotalTransportHandlingUnitQuantity) or matches(cbc:TotalTransportHandlingUnitQuantity,'^[0-9]{1,9999}$')" flag="fatal" id="BR-IT-DE-032">[BR-IT-DE-032][FPA 2.1.9.4 - Numero Colli] - Il Numero di Colli può essere da 1 a 9999.</assert>
 		<assert test="not(cac:GoodsItem/cbc:Description) or matches(cac:GoodsItem/cbc:Description,'^(\p{IsBasicLatin}){0,100}$')" flag="fatal" id="BR-IT-DE-033">[BR-IT-DE-033][FPA 2.1.9.5 - Descrizione Merce] - La lunghezza dell'elemento non può superare i 100 caratteri.</assert>
 		<assert test="not(cac:ShipmentStage/cbc:TransportMeansTypeCode) or matches(cac:ShipmentStage/cbc:TransportMeansTypeCode,'^(\p{IsBasicLatin}){0,80}$')" flag="fatal" id="BR-IT-DE-034">[BR-IT-DE-034][FPA 2.1.9.2 - Mezzo di Trasporto] - La lunghezza dell'elemento non può superare gli 80 caratteri.</assert>
+	</rule>
+	
+	<rule context="/*/cac:Despatch" flag="fatal">
+		<assert test="not(cbc:Instructions) or  matches(cbc:Instructions,'^[a-zA-Z0-9]{0,100}$')" flag="fatal" id="BR-IT-DE-035">[BR-IT-DE-035][FPA 2.1.9.3 Causale Trasporto] - La lunghezza dell'elemento non può  superare i 100 caratteri.</assert>
 	</rule>
 	
 	<rule context="/*/cac:DeliveryTerms/cbc:ID" flag="fatal">
@@ -120,7 +127,21 @@
 	</rule>
 	
 	<rule context="/*/cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference" flag="fatal">
-		<assert test="cbc:IssueDate" flag="fatal" id="BR-IT-DE-042">[BR-IT-DE-043][FPA 2.1.8.2] - La data del documento di trasporto deve essere obbligatoriamente valorizzata.</assert>
+		<assert test="cbc:IssueDate" flag="fatal" id="BR-IT-DE-042">[BR-IT-DE-043][FPA 2.1.8.2 Data DDT] - La data del documento di trasporto deve essere obbligatoriamente valorizzata a livello di riga.</assert>
+	</rule>
+		
+	<!-- B2B -->
+	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cac:AgentParty/cac:PostalAddress" flag="fatal">
+		<assert test="cbc:StreetName and cbc:CityName and cbc:PostalZone and cbc:CountrySubentity and cac:Country/cbc:IdentificationCode" flag="fatal" id="BR-IT-DE-043">[BR-IT-DE-043][FPA 1.2.3 - Stabile Organizzazione] - La Stabile Organizzazione deve fornire l'indirizzo completo di via e numero civico, comune, cap, provincia e nazione.</assert>
+		<assert test="matches(cbc:StreetName,'^(\p{IsBasicLatin}){0,60}$')" flag="fatal" id="BR-IT-DE-044">[BR-IT-DE-044][FPA 1.2.3.1 - Indirizzo e 1.2.3.2 - NumeroCivico] - La lunghezza dell'elemento non può superare i 60 caratteri.</assert>
+		<assert test="matches(cbc:Cityname,'^(\p{IsBasicLatin}){0,60}$')" flag="fatal" id="BR-IT-DE-045">[BR-IT-DE-045][FPA 1.2.3.4 - Comune] - La lunghezza dell'elemento non può superare i 60 caratteri.</assert>
+		<assert test="matches(cbc:PostalZone,'^(\p{IsBasicLatin}){5}$')" flag="fatal" id="BR-IT-DE-046">[BR-IT-DE-046][FPA 1.2.3.3 - CAP] - La lunghezza dell'elemento deve essere costituita da 5 cifre.</assert>
+		<assert test="matches(cbc:CountrySubentity,'^[A-Z]{0,2}$')" flag="fatal" id="BR-IT-DE-047">[BR-IT-DE-047][FPA 1.2.3.5 - Provincia] - La lunghezza dell'elemento non può superare 2 caratteri.</assert>
+	</rule>
+	
+	<!-- B2B -->
+	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cac:PowerOfAttorney/cac:AgentParty" flag="fatal">
+		<assert test="cac:PartyTaxScheme/cbc:CompanyID and cac:PartyTaxScheme/cac:TaxScheme/cbc:ID = 'VAT' and cac:PartyLegalEntity/cbc:RegistrationName and (not(cac:Person) or (cac:Person/cbc:FirstName and cac:Person/cbc:FamilyName))" flag="fatal" id="BR-IT-DE-048">[BR-IT-DE-048][FPA 1.4.4 - Rappresentante Fiscale del Cliente] - Il Rappresentante Fiscale del Cliente deve contenere la P.IVA, lo schema fiscale = 'VAT', la ragione sociale e se viene specificata una persona fisica, il nome e cognome.</assert>
 	</rule>
 	
 </pattern>

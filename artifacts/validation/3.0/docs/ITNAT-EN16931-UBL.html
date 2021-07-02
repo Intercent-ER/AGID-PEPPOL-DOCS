@@ -1378,13 +1378,14 @@
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="BR-IT-DE-026A" data-context="/*/cac:Delivery/cac:CarrierParty" data-test="not(cac:PartyIdentification/cbc:ID) or (matches(cac:PartyIdentification/cbc:ID,'^[A-Z0-9]{11,16}$') and cac:PartyIdentification/cbc:ID[@schemeID='0210'])">
-                     <td><a href="#">BR-IT-DE-026A</a><br><span class="message">[BR-IT-DE-026A][FPA 2.1.9.1.2 - Codice Fiscale] - Il Codice Fiscale deve essere specificare l'attributo @schemeID valorizzato
-                           con "0210" ed avere la lunghezza del codice compresa fra 11 e 16 caratteri alfanumerici.</span></td>
+                     <td><a href="#">BR-IT-DE-026A</a><br><span class="message">[BR-IT-DE-026A][FPA 2.1.9.1.2 - Codice Fiscale] - Il Codice Fiscale deve specificare l'attributo @schemeID valorizzato con
+                           "0210" ed avere la lunghezza del codice compresa fra 11 e 16 caratteri alfanumerici.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="BR-IT-DE-027" data-context="/*/cac:Delivery/cac:CarrierParty" data-test="matches(cac:PartyName/cbc:Name,'^(\p{IsBasicLatin}){0,80}$') or (matches(cac:Person/cbc:FirstName,'^(\p{IsBasicLatin}){0,60}$') and matches(cac:Person/cbc:FamilyName,'^(\p{IsBasicLatin}){0,60}$'))">
-                     <td><a href="#">BR-IT-DE-027</a><br><span class="message">[BR-IT-DE-027][FPA 2.1.9.1.3 - Anagrafica] - Se la Denominazione del Vettore &egrave; valorizzata, la sua lunghezza non pu&ograve; superare
-                           80 caratteri, alternativamente, se &egrave; invece valorizzato il Nome e il Cognome, la loro lunghezza non potr&agrave; superare 60 caratteri.</span></td>
+                     <td><a href="#">BR-IT-DE-027</a><br><span class="message">[BR-IT-DE-027][FPA 2.1.9.1.3.1 Denominazione, 2.1.9.1.3.2 Nome, 2.1.9.1.3.3 Cognome] - Se la Denominazione del Vettore &egrave; valorizzata,
+                           la sua lunghezza non pu&ograve; superare 80 caratteri, alternativamente, se &egrave; invece valorizzato il Nome e il Cognome, la loro lunghezza
+                           non potr&agrave; superare 60 caratteri.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="BR-IT-DE-028" data-context="/*/cac:Delivery/cac:CarrierParty" data-test="matches(cac:PartyTaxScheme/cbc:CompanyID,'^[a-zA-Z0-9]{0,30}$')">
@@ -1448,29 +1449,29 @@
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="BR-IT-DE-042" data-context="/*/cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference" data-test="cbc:IssueDate">
-                     <td><a href="#">BR-IT-DE-042</a><br><span class="message">[BR-IT-DE-043][FPA 2.1.8.2 Data DDT] - La data del documento di trasporto deve essere obbligatoriamente valorizzata a livello
+                     <td><a href="#">BR-IT-DE-042</a><br><span class="message">[BR-IT-DE-042][FPA 2.1.8.2 Data DDT] - La data del documento di trasporto deve essere obbligatoriamente valorizzata a livello
                            di riga.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="BR-IT-DE-043" data-context="/*/cac:AccountingCustomerParty/cac:Party/cac:AgentParty/cac:PostalAddress" data-test="cbc:StreetName and cbc:CityName and cbc:PostalZone and cbc:CountrySubentity and cac:Country/cbc:IdentificationCode">
-                     <td><a href="#">BR-IT-DE-043</a><br><span class="message">[BR-IT-DE-043][FPA 1.2.3 - Stabile Organizzazione] - La Stabile Organizzazione deve fornire l'indirizzo completo di via e
+                     <td><a href="#">BR-IT-DE-043</a><br><span class="message">[BR-IT-DE-043][FPA 1.4.3 - Stabile Organizzazione] - La Stabile Organizzazione deve fornire l'indirizzo completo di via e
                            numero civico, comune, cap, provincia e nazione.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="BR-IT-DE-044" data-context="/*/cac:AccountingCustomerParty/cac:Party/cac:AgentParty/cac:PostalAddress" data-test="matches(cbc:StreetName,'^(\p{IsBasicLatin}){0,60}$')">
-                     <td><a href="#">BR-IT-DE-044</a><br><span class="message">[BR-IT-DE-044][FPA 1.2.3.1 - Indirizzo e 1.2.3.2 - NumeroCivico] - La lunghezza dell'elemento non pu&ograve; superare i 60 caratteri.</span></td>
+                     <td><a href="#">BR-IT-DE-044</a><br><span class="message">[BR-IT-DE-044][FPA 1.4.3.1 - Indirizzo e 1.4.3.2 - NumeroCivico] - La lunghezza dell'elemento non pu&ograve; superare i 60 caratteri.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="BR-IT-DE-045" data-context="/*/cac:AccountingCustomerParty/cac:Party/cac:AgentParty/cac:PostalAddress" data-test="matches(cbc:Cityname,'^(\p{IsBasicLatin}){0,60}$')">
-                     <td><a href="#">BR-IT-DE-045</a><br><span class="message">[BR-IT-DE-045][FPA 1.2.3.4 - Comune] - La lunghezza dell'elemento non pu&ograve; superare i 60 caratteri.</span></td>
+                     <td><a href="#">BR-IT-DE-045</a><br><span class="message">[BR-IT-DE-045][FPA 1.4.3.4 - Comune] - La lunghezza dell'elemento non pu&ograve; superare i 60 caratteri.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="BR-IT-DE-046" data-context="/*/cac:AccountingCustomerParty/cac:Party/cac:AgentParty/cac:PostalAddress" data-test="matches(cbc:PostalZone,'^(\p{IsBasicLatin}){5}$')">
-                     <td><a href="#">BR-IT-DE-046</a><br><span class="message">[BR-IT-DE-046][FPA 1.2.3.3 - CAP] - La lunghezza dell'elemento deve essere costituita da 5 cifre.</span></td>
+                     <td><a href="#">BR-IT-DE-046</a><br><span class="message">[BR-IT-DE-046][FPA 1.4.3.3 - CAP] - La lunghezza dell'elemento deve essere costituita da 5 cifre.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="BR-IT-DE-047" data-context="/*/cac:AccountingCustomerParty/cac:Party/cac:AgentParty/cac:PostalAddress" data-test="matches(cbc:CountrySubentity,'^[A-Z]{0,2}$')">
-                     <td><a href="#">BR-IT-DE-047</a><br><span class="message">[BR-IT-DE-047][FPA 1.2.3.5 - Provincia] - La lunghezza dell'elemento non pu&ograve; superare 2 caratteri.</span></td>
+                     <td><a href="#">BR-IT-DE-047</a><br><span class="message">[BR-IT-DE-047][FPA 1.4.3.5 - Provincia] - La lunghezza dell'elemento non pu&ograve; superare 2 caratteri.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="BR-IT-DE-048" data-context="/*/cac:AccountingCustomerParty/cac:Party/cac:PowerOfAttorney/cac:AgentParty" data-test="cac:PartyTaxScheme/cbc:CompanyID and cac:PartyTaxScheme/cac:TaxScheme/cbc:ID = 'VAT' and cac:PartyLegalEntity/cbc:RegistrationName and (not(cac:Person) or (cac:Person/cbc:FirstName and cac:Person/cbc:FamilyName))">

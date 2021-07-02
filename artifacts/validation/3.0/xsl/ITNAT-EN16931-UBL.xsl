@@ -20474,7 +20474,7 @@ Se il valore dell’elemento BT-40 (Seller country code) è "IT", se l'elemento 
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-DE-026A][FPA 2.1.9.1.2 - Codice Fiscale] - Il Codice Fiscale deve essere specificare l'attributo @schemeID valorizzato con "0210" ed avere la lunghezza del codice compresa fra 11 e 16 caratteri alfanumerici.</svrl:text>
+               <svrl:text>[BR-IT-DE-026A][FPA 2.1.9.1.2 - Codice Fiscale] - Il Codice Fiscale deve specificare l'attributo @schemeID valorizzato con "0210" ed avere la lunghezza del codice compresa fra 11 e 16 caratteri alfanumerici.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -20490,7 +20490,7 @@ Se il valore dell’elemento BT-40 (Seller country code) è "IT", se l'elemento 
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-DE-027][FPA 2.1.9.1.3 - Anagrafica] - Se la Denominazione del Vettore è valorizzata, la sua lunghezza non può superare 80 caratteri, alternativamente, se è invece valorizzato il Nome e il Cognome, la loro lunghezza non potrà superare 60 caratteri.</svrl:text>
+               <svrl:text>[BR-IT-DE-027][FPA 2.1.9.1.3.1 Denominazione, 2.1.9.1.3.2 Nome, 2.1.9.1.3.3 Cognome] - Se la Denominazione del Vettore è valorizzata, la sua lunghezza non può superare 80 caratteri, alternativamente, se è invece valorizzato il Nome e il Cognome, la loro lunghezza non potrà superare 60 caratteri.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -20793,7 +20793,7 @@ Se il valore dell’elemento BT-40 (Seller country code) è "IT", se l'elemento 
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-DE-043][FPA 2.1.8.2 Data DDT] - La data del documento di trasporto deve essere obbligatoriamente valorizzata a livello di riga.</svrl:text>
+               <svrl:text>[BR-IT-DE-042][FPA 2.1.8.2 Data DDT] - La data del documento di trasporto deve essere obbligatoriamente valorizzata a livello di riga.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -20816,7 +20816,7 @@ Se il valore dell’elemento BT-40 (Seller country code) è "IT", se l'elemento 
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-DE-043][FPA 1.2.3 - Stabile Organizzazione] - La Stabile Organizzazione deve fornire l'indirizzo completo di via e numero civico, comune, cap, provincia e nazione.</svrl:text>
+               <svrl:text>[BR-IT-DE-043][FPA 1.4.3 - Stabile Organizzazione] - La Stabile Organizzazione deve fornire l'indirizzo completo di via e numero civico, comune, cap, provincia e nazione.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -20832,7 +20832,7 @@ Se il valore dell’elemento BT-40 (Seller country code) è "IT", se l'elemento 
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-DE-044][FPA 1.2.3.1 - Indirizzo e 1.2.3.2 - NumeroCivico] - La lunghezza dell'elemento non può superare i 60 caratteri.</svrl:text>
+               <svrl:text>[BR-IT-DE-044][FPA 1.4.3.1 - Indirizzo e 1.4.3.2 - NumeroCivico] - La lunghezza dell'elemento non può superare i 60 caratteri.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -20848,7 +20848,7 @@ Se il valore dell’elemento BT-40 (Seller country code) è "IT", se l'elemento 
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-DE-045][FPA 1.2.3.4 - Comune] - La lunghezza dell'elemento non può superare i 60 caratteri.</svrl:text>
+               <svrl:text>[BR-IT-DE-045][FPA 1.4.3.4 - Comune] - La lunghezza dell'elemento non può superare i 60 caratteri.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -20864,7 +20864,7 @@ Se il valore dell’elemento BT-40 (Seller country code) è "IT", se l'elemento 
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-DE-046][FPA 1.2.3.3 - CAP] - La lunghezza dell'elemento deve essere costituita da 5 cifre.</svrl:text>
+               <svrl:text>[BR-IT-DE-046][FPA 1.4.3.3 - CAP] - La lunghezza dell'elemento deve essere costituita da 5 cifre.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -20880,7 +20880,7 @@ Se il valore dell’elemento BT-40 (Seller country code) è "IT", se l'elemento 
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-DE-047][FPA 1.2.3.5 - Provincia] - La lunghezza dell'elemento non può superare 2 caratteri.</svrl:text>
+               <svrl:text>[BR-IT-DE-047][FPA 1.4.3.5 - Provincia] - La lunghezza dell'elemento non può superare 2 caratteri.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>

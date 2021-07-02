@@ -9,13 +9,7 @@ Le regole nazionali sono fornite dalle Autorità PEPPOL di ogni paese, e se sono
 
 
 .Regole di business nazionali per le transazioni
-[cols="1,4", options="header"]
-|====
-|Regola
-|Messaggio/Contesto/Test
-
 include::{rules-dir}/AGID/AGID-EN16931-CIUS-UBL.adoc[]
-|====
 
 :leveloffset: +1
 

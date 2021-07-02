@@ -4,10 +4,5 @@
 The following {EN16931} rules apply to invoice and credit note transaction as it is used in this {peppol} BIS
 
 .EN 16931 business rules
-[cols="1,4", options="header"]
-|====
-|Rule
-|Message/Context/Test
 
 include::{rules-dir}/_tc434.sch.adoc[]
-|====

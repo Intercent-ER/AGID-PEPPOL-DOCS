@@ -14,7 +14,7 @@ Le regole nazionali sono fornite dalle Autorità PEPPOL di ogni paese, e se sono
 |Regola
 |Messaggio/Contesto/Test
 
-include::{rules-dir}/_PEPPOL-EN16931-UBL-NATIONAL.sch.adoc[]
+include::{rules-dir}/AGID/AGID-EN16931-CIUS-UBL.adoc[]
 |====
 
 :leveloffset: +1

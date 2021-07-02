@@ -371,7 +371,7 @@
 								<transformationSet>
 									<dir>${project.build.directory}/${project.build.finalName}/temp/ph2</dir>
 									<stylesheet>${basedir}/../artifacts/validation/3.0/stylesheets/iso_schematron-to-asciidoc-v1.0.xsl</stylesheet>
-									<outputDir>${basedir}/src/main/webapp/peppol-bis-3-ITA/rules/generated</outputDir>
+									<outputDir>${basedir}/src/main/webapp/peppol-bis-invoice-3-ITA/rules/generated</outputDir>
 									<includes>
 										<include>**/*.sch</include>
 										<include>*.sch</include>

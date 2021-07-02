@@ -10,5 +10,5 @@ Le regole di sintassi {EN16931} si applicano alle transazioni delle fatture e no
 |Regola
 |Messaggio
 
-include::{rules-dir}/_CEN-EN16931-UBL-SYNTAX.sch.adoc[]
+include::{rules-dir}/CEN/CEN-EN16931-UBL.adoc[]
 |====

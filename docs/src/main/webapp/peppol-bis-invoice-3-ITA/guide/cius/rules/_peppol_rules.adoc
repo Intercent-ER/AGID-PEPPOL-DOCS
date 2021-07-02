@@ -11,5 +11,5 @@ These rules apply in *all* implementations that follow this {peppol} BIS.
 |Rule
 |Message/Context/Test
 
-include::{rules-dir}/_PEPPOL-EN16931-UBL.sch.adoc[]
+include::{rules-dir}/OPENPEPPOL/PEPPOL-EN16931-UBL.adoc[]
 |====

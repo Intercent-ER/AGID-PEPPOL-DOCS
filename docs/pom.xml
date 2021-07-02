@@ -241,9 +241,36 @@
 								<transformationSet>
 									<dir>${project.build.directory}/${project.build.finalName}/sch/</dir>
 									<includes>
-										<include>**/**/ITA/**.sch</include>
+										<include>**/**/ITA/**/**.sch</include>
 									</includes>
+									<excludes>
+										<exclude>peppolbis-en16931-ubl-3.0-invoice/**</exclude>
+									</excludes>
 									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-rules-v1.2.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ITA/sch</outputDir>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.html</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+					<execution>
+						<id>apply-xslt-sch-invoice</id>
+						<phase>package</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${project.build.directory}/${project.build.finalName}/sch/</dir>
+									<includes>
+										<include>**/peppolbis-en16931-ubl-3.0-invoice/**/ITA/**/**.sch</include>
+									</includes>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-rules-invoice-v1.2.xsl</stylesheet>
 									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ITA/sch</outputDir>
 									<fileMappers>
 										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
@@ -281,7 +308,7 @@
 					</execution>
 					
 					
-					<!-- INVOICE TRASFORMAZIONE SCHEMATRON IN REGOLE -->
+					<!-- INVOICE TRASFORMAZIONE SCHEMATRON IN REGOLE (per la sezione delle specifiche)-->
 					
 					<execution>
 						<id>schematron-to-asciidoc-ph1</id>
@@ -406,8 +433,8 @@
 						</configuration>
 					</execution>
 					
-					<!-- BILLING generazione html a partire dagli adoc delle regole generati -->
-					<!--<execution>
+					<!-- BILLING generazione html (per le regole in homepage) a partire dagli schematron -->
+					<execution>
 						<id>output-html-billing-rules-ITA</id>
 						<phase>generate-resources</phase>
 						<goals>
@@ -415,12 +442,12 @@
 						</goals>
 						<configuration>
 							<backend>html5</backend>
-							<sourceDirectory>${project.build.directory}/${project.build.finalName}/temp/ph3</sourceDirectory>
-							<outputDirectory>${project.build.directory}/generated-docs/ITA/invoice/rules/generated</outputDirectory>
+							<sourceDirectory>${basedir}/../artifacts/validation/3.0/sch/peppolbis-en16931-ubl-3.0-invoice/Schematron/ITA</sourceDirectory>
+							<outputDirectory>${project.build.directory}/generated-docs/ITA/invoice/generated-rules</outputDirectory>
 							<relativeBaseDir>true</relativeBaseDir>
 							<preserveDirectories>true</preserveDirectories>
 						</configuration>
-					</execution>-->
+					</execution>
 					
 					
 					<!-- ENG -->

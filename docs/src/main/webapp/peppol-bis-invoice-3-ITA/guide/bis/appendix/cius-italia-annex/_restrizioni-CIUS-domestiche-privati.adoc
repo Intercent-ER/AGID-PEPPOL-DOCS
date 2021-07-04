@@ -18,7 +18,7 @@
 |BT-49 Buyer electroni caddress +
 BT-49-1 Buyer electronic address identification scheme
 |1.1.4  CodiceDestinatario
-|Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0205", l'elemento BT-49 deve contenere un Codice Destinatario di pari a 7 caratteri
+|Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0205", l'elemento BT-49 deve contenere un Codice Destinatario con lunghezza pari a 7 caratteri
 
 |BR-IT-DC-203
 |Value domain for an element - Restrict  text or byte array length

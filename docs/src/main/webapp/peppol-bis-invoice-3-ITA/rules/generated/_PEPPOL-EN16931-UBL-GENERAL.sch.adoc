@@ -1,4 +1,4 @@
-.3+| PEPPOL-COMMON-R040 *(warning)*
+.3+| PEPPOL-COMMON-R040 *(fatal)*
 | GLN must have a valid format according to GS1 rules.
 | cbc:EndpointID[@schemeID = '0088'] \| cac:PartyIdentification/cbc:ID[@schemeID = '0088'] \| cbc:CompanyID[@schemeID = '0088']
 | matches(normalize-space(), '^[0-9]+$') and u:gln(normalize-space())

@@ -41,7 +41,8 @@ Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore d
 
 |BR-IT-DC-111
 |Value domain for an element - Restrict text or byte array length
-|BT-30 Seller legal registration identifier
+|BT-30 Seller legal registration identifier +
+BT-30-1 Seller legal registration identifier scheme identifier
 |1.2.4.1 Ufficio +
 1.2.4.2 NumeroREA +
 or +
@@ -80,20 +81,6 @@ BT-49-1 Buyer electronic address identification scheme
 |1.1.6 PECDestinatario +
 1.1.4  CodiceDestinatario
 |L'elemento BT-49 (Buyer electronic address) deve contenere il Codice IPA, la PEC del destinatario della fattura oppure il Codice Destinatario. Di conseguenza, per l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) sono previsti rispettivamente i valori 0201, 0202 oppure 0205
-
-|BR-IT-DC-202
-|Value domain for an element - Restrict text or byte array length
-|BT-49 Buyer electroni caddress +
-BT-49-1 Buyer electronic address identification scheme
-|1.1.4  CodiceDestinatario
-|Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0205", l'elemento BT-49 deve contenere un Codice Destinatario di pari a 7 caratteri
-
-|BR-IT-DC-203
-|Value domain for an element - Restrict text or byte array length
-|BT-49 Buyer electroni caddress +
-BT-49-1 Buyer electronic address identification scheme
-|1.1.6 PECDestinatario
-|Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0202", l'elemento BT-49 deve contenere un indirizzo PEC di lunghezza compresa fra 7 e 256 caratteri
 
 
 |BR-IT-DC-480

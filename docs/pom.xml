@@ -310,7 +310,7 @@
 					
 					<!-- INVOICE TRASFORMAZIONE SCHEMATRON IN REGOLE (per la sezione delle specifiche)-->
 					
-					<execution>
+					<!--<execution>
 						<id>schematron-to-asciidoc-ph1</id>
 						<phase>generate-resources</phase>
 						<goals>
@@ -384,7 +384,7 @@
 								</transformationSet>
 							</transformationSets>
 						</configuration>
-					</execution>
+					</execution>-->
 					
 				</executions>
 

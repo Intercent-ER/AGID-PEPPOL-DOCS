@@ -7,5 +7,10 @@ Queste regole si applicano a *tutti* i profili che usano la specifica di questa 
 Vedasi anche <<anchor-82, Restrizioni ed Estensioni alla EN16931>> per ulteriori dettagli sulle restrizioni imposte da queste regole.
 
 .Regole di business PEPPOL per le transazioni
+[cols="1,4", options="header"]
+|====
+|Regola
+|Messaggio/Contesto/Test
 
-include::{rules-dir}/OPENPEPPOL/PEPPOL-EN16931-UBL.adoc[]
+include::{rules-dir}/_PEPPOL-EN16931-UBL-GENERAL.sch.adoc[]
+|====

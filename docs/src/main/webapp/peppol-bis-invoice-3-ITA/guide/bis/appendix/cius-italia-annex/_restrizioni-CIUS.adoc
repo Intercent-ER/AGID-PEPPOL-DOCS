@@ -248,8 +248,7 @@ BT-125 Attached document
 |Value domain for an element - Require defined structured values
 |BT-136 Invoice line allowance amount +
 BT-141 Invoice line charge amount
-|2.2.1.9  PrezzoUnitario +
-2.2.1.11 PrezzoTotale
+|2.2.1.10.3 Importo
 |La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali
 
 |BR-IT-430

@@ -135,7 +135,7 @@
                 </cac:Country>
             </cac:PostalAddress>
             <cac:PartyTaxScheme>
-                <cbc:CompanyID>IT07663520567</cbc:CompanyID>
+                <cbc:CompanyID>IT01598570354</cbc:CompanyID>
                 <!--2-->
                 <cac:TaxScheme>
                     <cbc:ID>VAT</cbc:ID>
@@ -143,7 +143,7 @@
             </cac:PartyTaxScheme>
             <cac:PartyLegalEntity>
                 <cbc:RegistrationName>Azienda USL di Reggio Emilia</cbc:RegistrationName>
-                <cbc:CompanyID schemeID="0210">39937423947</cbc:CompanyID>
+                <cbc:CompanyID schemeID="0210">01598570354</cbc:CompanyID>
                 <!--3-->
             </cac:PartyLegalEntity>
             <cac:Contact>

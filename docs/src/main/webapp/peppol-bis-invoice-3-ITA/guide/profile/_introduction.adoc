@@ -15,7 +15,7 @@ Questa specifica è composta da: +
 * #delle CIUS da applicare alle fatture domestiche (CIUS domestica);#
 * #delle Estensioni da applicare alle fatture domestiche (estensione).#
 
-[lime-background]#Le regole d’uso ed i paragrafi applicabili specificatamente delle alla fatturazione domestica verso i privati sono invece evidenziate in verde. La fatturazione verso i privati sottintende la messa a disposizione di un traduttore da UBL verso il formato FatturaPR che sarà reso disponibile successivamente.#
+[lime-background]#Le regole d’uso ed i paragrafi applicabili specificatamente alla fatturazione domestica verso i privati sono invece evidenziate in verde. La fatturazione verso i privati sottintende la messa a disposizione di un traduttore da UBL verso il formato FatturaPR che sarà reso disponibile successivamente.#
 
 #Per ulteriori dettagli vedi anche i paragrafi 12.2 e Appendix A.#
 

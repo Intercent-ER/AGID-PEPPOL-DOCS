@@ -53,7 +53,7 @@
 .3+| DK-R-016 *(fatal)*
 | For Danish Suppliers, a Credit note cannot have a negative total (PayableAmount)
 | ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK'] \| ubl-invoice:Invoice[$DKSupplierCountry = 'DK']
-| not((boolean(/ubl-creditnote:CreditNote) and ($DKCustomerCountry = 'DK'))       and (number(cac:LegalMonetaryTotal/cbc:PayableAmount/text()) < 0)       )
+| not((boolean(/ubl-creditnote:CreditNote) and ($DKCustomerCountry = 'DK'))       and (number(cac:LegalMonetaryTotal/cbc:PayableAmount/text()) < 0))
 .3+| GR-R-001-1 *(fatal)*
 | When the Supplier is Greek, the Invoice Id should consist of 6 segments
 | /ubl-invoice:Invoice/cbc:ID[$isGreekSender] \| /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]

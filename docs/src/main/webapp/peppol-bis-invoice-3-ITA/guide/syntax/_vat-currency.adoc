@@ -6,5 +6,5 @@ include::{snippet-dir}/Snippet-full.xml[tags=vat-curr1;vat-curr2]
 ----
 <1> Valuta della fattura
 <2> Valuta nazionale
-<3> Importo IVA/VAT nella valuta della fattura
-<4> Importo IVA/VAT nella valuta nazionale
+<3> Importo IVA nella valuta della fattura
+<4> Importo IVA nella valuta nazionale

@@ -8,8 +8,7 @@
     <Subset>openPEPPOL</Subset>
 
    
- 
-    
+     
     <Code>
         <Id>81</Id>
         <Name>Credit note related to goods or services</Name>
@@ -36,7 +35,9 @@
         <Description>(1113) Document/message for providing credit information
             to the relevant party.
         </Description>
-        <LocalDescription>Codifica per fornire informazioni di credito alla parte interessata.</LocalDescription>
+		<LocalId>TD04</LocalId>
+		<LocalName>Nota di credito</LocalName>
+        <LocalDescription>Documento / messaggio per fornire informazioni di credito alla parte interessata.</LocalDescription>
     </Code>
   
     <Code>

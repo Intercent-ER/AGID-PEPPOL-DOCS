@@ -1,0 +1,10 @@
+
+= #Ritiro Merce# (estensione)
+
+Nei casi di fattura "accompagnatoria" le informazioni relative al ritiro (pick-up) possono essere fornite nelle informazioni di consegna nell'elemento Despatch.
+
+.Esempio UBL completo per le informazioni sul ritiro della merce
+[source, xml, indent=0]
+----
+include::../../../rules/snippets/agid-extensions.xml[tag=info_ritiro_merce]
+----

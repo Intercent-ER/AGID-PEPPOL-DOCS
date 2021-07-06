@@ -1,0 +1,61 @@
+
+[[customization-and-profile]]
+= Identificatori per la customizzazione e profilo
+
+[[anchor-75]]
+
+L’innesco delle *CIUS cross-border* (vedi "Annex C.1") si attiva quando il BT-55 “Buyer country code” è popolato con IT e il BT-40 "Seller country code" è diverso da IT, mentre *CIUS ed Estensioni domestiche* (vedi "Annex C.2, C.3, C.4 e C.5") si attivano quando il BT-40 “Seller country code” è valorizzato a IT. 
+
+
+Il `cbc:CustomizationID` viene valorizzato quindi in funzione della valorizzazione presente in BT-40 e BT-55 così come segue:
+
+
+* BT-40 diverso da IT e BT-55 pari a IT, allora:
+
+
+[cols="2,2", options="header"]
+|===
+| Elemento `cbc:CustomizationID` +
+`_(BT-24 Specification identifier)_`
+| Elemento `cbc:ProfileID` +
+`_(BT-23 Business process
+type)_`
+
+| #urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu
+:2017:poacc:billing:3.0#compliant#urn:www.agid.gov.it:trns:fattura:3#
+
+(rimuovere gli spazi prima dell'utilizzo)
+| urn:fdc:peppol.eu:2017:poacc:billing:01:1.0
+
+|===
+
+
+* BT-40 pari a IT e BT-55 pari a IT, allora:
+
+
+[cols="2,2", options="header"]
+|===
+| Elemento `cbc:CustomizationID` +
+`_(BT-24 Specification identifier)_`
+| Elemento `cbc:ProfileID` +
+`_(BT-23 Business process
+type)_`
+
+| #urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu
+:2017:poacc:billing:3.0#conformant#urn:www.agid.gov.it:trns:fattura:3#
+
+(rimuovere gli spazi prima dell'utilizzo)
+| urn:fdc:peppol.eu:2017:poacc:billing:01:1.0
+
+|===
+
+
+A titolo puramente esemplificativo e non esaustivo, si riporta a seguire come viene espresso l’identificativo per la fatturazione domestica (ovvero BT-40 pari a IT e BT-55 pari a IT):
+
+.Esempio per UBL 2.1
+[source, xml, indent=0]
+----
+<cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:www.agid.gov.it:trns:fattura:3</cbc:CustomizationID>
+----
+
+

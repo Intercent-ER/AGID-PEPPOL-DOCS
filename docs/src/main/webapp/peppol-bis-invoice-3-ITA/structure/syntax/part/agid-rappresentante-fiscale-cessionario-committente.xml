@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" xmlns:agid="urn:fdc:agid.gov.it:peppol:customization" cardinality="0..1" agid:custom="extension,b2b">
+
+	<Term>cac:PowerOfAttorney</Term>
+	<Name>La procura per la rappresentanza fiscale associata al Cessionario/Committente</Name>
+	<Description>Elemento da valorizzare se il Cessionario/Committente si avvale di un rappresentante fiscale in Italia.</Description>
+	
+	<Element>
+		<Term>cbc:Description</Term>
+		<Name>Denominazione della procura</Name>
+		<DataType>Text</DataType>
+        <Value type="FIXED">Rappresentante Fiscale</Value>
+	</Element>
+	
+	<Element>
+		<Term>cac:AgentParty</Term>
+		<Name>Il Rappresentante Fiscale che detiene questa procura per conto del Cessionario/Committente - FPA 1.4.4 'RappresentanteFiscale'</Name>
+		<Reference type="RULE">BR-IT-226</Reference>
+
+		<Element agid:custom="cardinality">
+			<Term>cac:PartyTaxScheme</Term>
+			<Name>PARTY VAT/TAX IDENTIFIERS</Name>
+
+			<Element>
+				<Term>cbc:CompanyID</Term>
+				<Name>Identificativo fiscale (Partita IVA) del Rappresentante Fiscale - FPA 1.4.4.1.1 'IdPaese' e 1.4.4.1.2 'IdCodice'</Name>
+				<DataType>Identifier</DataType>
+				<Reference type="BUSINESS_TERM">BT-31, BT-32</Reference>
+				<Reference type="RULE">BR-CO-09</Reference>
+				<Reference type="RULE">BR-CO-26</Reference>
+				<Reference type="RULE">BR-S-02</Reference>
+				<Reference type="RULE">BR-S-03</Reference>
+				<Reference type="RULE">BR-S-04</Reference>
+				<Reference type="RULE">BR-Z-02</Reference>
+				<Reference type="RULE">BR-Z-03</Reference>
+				<Reference type="RULE">BR-Z-04</Reference>
+				<Reference type="RULE">BR-E-02</Reference>
+				<Reference type="RULE">BR-E-03</Reference>
+				<Reference type="RULE">BR-E-04</Reference>
+				<Reference type="RULE">BR-AE-02</Reference>
+				<Reference type="RULE">BR-AE-03</Reference>
+				<Reference type="RULE">BR-AE-04</Reference>
+				<Reference type="RULE">BR-IC-02</Reference>
+				<Reference type="RULE">BR-IC-03</Reference>
+				<Reference type="RULE">BR-IC-04</Reference>
+				<Reference type="RULE">BR-G-02</Reference>
+				<Reference type="RULE">BR-G-03</Reference>
+				<Reference type="RULE">BR-G-04</Reference>
+				<Reference type="RULE">BR-O-02</Reference>
+				<Reference type="RULE">BR-O-03</Reference>
+				<Reference type="RULE">BR-O-04</Reference>
+				<Reference type="RULE">BR-IG-02</Reference>
+				<Reference type="RULE">BR-IG-03</Reference>
+				<Reference type="RULE">BR-IG-04</Reference>
+				<Reference type="RULE">BR-IP-02</Reference>
+				<Reference type="RULE">BR-IP-03</Reference>
+				<Reference type="RULE">BR-IP-04</Reference>
+				<Reference type="RULE">IT-R-001</Reference>
+				<Reference type="RULE">NO-R-001</Reference>
+				<Reference type="RULE">NO-R-002</Reference>
+				<Reference type="RULE">SE-R-001</Reference>
+				<Reference type="RULE">SE-R-002</Reference>
+				<Reference type="RULE">SE-R-005</Reference>
+			</Element>
+
+			<Element>
+				<Term>cac:TaxScheme</Term>
+				<Name>TAX SCHEME</Name>
+
+				<Element>
+					<Term>cbc:ID</Term>
+					<Value type="EXAMPLE">VAT</Value>
+				</Element>
+			</Element>
+
+		</Element>
+
+		<Element>
+			<Term>cac:PartyLegalEntity</Term>
+			<Name>PARTY LEGAL ENTITY</Name>
+
+			<Element>
+				<Term>cbc:RegistrationName</Term>
+				<Name>Ragione Sociale - FPA 1.4.4.2 'Denominazione'</Name>
+				<DataType>Text</DataType>
+				<Reference type="RULE">BR-06</Reference>
+				<Value type="EXAMPLE">Rappresentante Fiscale Srl</Value>
+			</Element>
+
+		</Element>
+		
+		<Element cardinality="0..1">
+			<Term>cac:Person</Term>
+			<Name>Persona Fisica</Name>
+
+			<Element>
+				<Term>cbc:FirstName</Term>
+				<Name>Nome Persona Fisica - FPA 1.4.4.3 'Nome'</Name>
+				<DataType>Text</DataType>
+			</Element>
+			<Element>
+				<Term>cbc:FamilyName</Term>
+				<Name>Cognome Persona Fisica - FPA 1.4.4.4 'Cognome'</Name>
+				<DataType>Text</DataType>
+			</Element>
+
+		</Element>
+		
+	</Element>
+</Element>

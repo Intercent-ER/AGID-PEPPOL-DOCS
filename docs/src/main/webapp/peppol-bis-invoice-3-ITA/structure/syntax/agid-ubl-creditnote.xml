@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet href="agid-peppol-document-syntax-v1.2.xsl" type="text/xsl"?>
 <Structure xmlns="urn:fdc:difi.no:2017:vefa:structure-1" xmlns:agid="urn:fdc:agid.gov.it:peppol:customization">
 
     <Term>ubl-creditnote</Term>
@@ -7,15 +6,16 @@
     <Description>Please note that all element names are inhereted from EN16931 and naming use the term invoice, but this covers both invoice and credit notes. 
         The tag names are correct according to the UBL Credit note schema
     </Description>
-    <agid:Restriction>
-        <agid:ID>urn:fatturapa.gov.it:CIUS-IT:1.0.0.20170801</agid:ID>
-        <agid:Name>Linee guida per lo schema XML - Nota di Credito 3.0 (EN16931 Italian CIUS)</agid:Name>
-        <agid:Version>1.0.0.20170801</agid:Version>
-    </agid:Restriction>
+    <agid:Extension>
+		<agid:ID>urn:www.agid.gov.it:trns:nota_credito:3.0</agid:ID>
+		<agid:Name>Struttura Nota di Credito Elettronica 3.0 (Estensione Italiana della EN16931)</agid:Name>
+		<agid:Version>3.0.0</agid:Version>
+    </agid:Extension>
 
     <Namespace prefix="ubl">urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</Namespace>
     <Namespace prefix="cac">urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"</Namespace>
     <Namespace prefix="cbc">urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2</Namespace>
+	<Namespace prefix="ext">urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2</Namespace>
 
     <Rules type="schematron">../../rules/sch/PEPPOL-EN16931-UBL.sch</Rules>
     <Rules type="schematron">../../rules/sch/CEN-EN16931-UBL.sch</Rules>
@@ -23,6 +23,8 @@
     <Document>
         <Term>ubl:CreditNote</Term>
 
+        <Include>part/agid-nc-ubl-extensions.xml</Include>
+		
         <Element agid:custom="fixed-value">
             <Term>cbc:CustomizationID</Term>
             <Name>Specification identifier</Name>
@@ -33,7 +35,8 @@
             <Reference type="BUSINESS_TERM">BT-24</Reference>
             <Reference type="RULE">PEPPOL-EN16931-R004</Reference>
             <Reference type="RULE">BR-01</Reference>
-            <Value type="FIXED">urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#compliant#urn:fatturapa.gov.it:CIUS-IT:1.0.0.20170801</Value>
+			<Reference type="RULE">BR-IT-002</Reference>
+            <Value type="FIXED">urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:www.agid.gov.it:trns:nota_credito:3.0</Value>
         </Element>
 
         <Element>
@@ -229,6 +232,14 @@
                 <Reference type="BUSINESS_TERM">BT-14</Reference>
                 <Value type="EXAMPLE">112233</Value>
             </Element>
+			
+            <Element cardinality="0..1" agid:custom="extension">
+                <Term>cbc:IssueDate</Term>
+                <Name>Purchase order issue date</Name>
+                <Description>The date on which the referenced Order was issued. Format = "YYYY-MM-DD".</Description>
+                <DataType>Date</DataType>
+                <Value type="EXAMPLE">2017-09-15</Value>
+            </Element>
         </Element>
 
         <Element cardinality="0..n">
@@ -262,6 +273,29 @@
                     <Value type="EXAMPLE">2017-09-15</Value>
                 </Element>
             </Element>
+			
+			<Element cardinality="0..1" agid:custom="extension">
+				<Term>cac:AdditionalDocumentReference</Term>
+				<Name>Riferimento alla fattura principale</Name>
+
+				<Element>
+					<Term>cbc:ID</Term>
+					<Name>Numero Fattura Principale - FPA 2.1.10.1 'NumeroFatturaPrincipale'</Name>
+					<Description>Numero della fattura relativa al trasporto di beni, da indicare sulle fatture emesse dagli autotrasportatori per certificare le operazioni accessorie.</Description>
+					<DataType>Document Reference</DataType>
+					<Reference type="RULE">BR-IT-042</Reference>		 
+					<Value type="EXAMPLE">inv123</Value>
+				</Element>
+				<Element>
+					<Term>cbc:IssueDate</Term>
+					<Name>Data Fattura Principale - FPA 2.1.10.2 'DataFatturaPrincipale'</Name>
+					<Description>Data della fattura. Formato = "YYYY-MM-DD".</Description>
+					<DataType>Date</DataType>
+					<Value type="EXAMPLE">2020-09-15</Value>
+				</Element>
+				<Reference type="RULE">BR-IT-041</Reference>				
+			</Element>
+			
         </Element>
 
         <Element cardinality="0..1">
@@ -270,13 +304,22 @@
 
             <Element agid:custom="rule">
                 <Term>cbc:ID</Term>
-                <Name>Despatch advice reference</Name>
+                <Name>Numero DDT - FPA 2.1.8.1 'NumeroDDT'</Name>
                 <Description>An identifier of a referenced despatch advice.</Description>
                 <DataType>Document Reference</DataType>
                 <Reference type="BUSINESS_TERM">BT-16</Reference>
                 <Reference type="RULE">BR-IT-060</Reference>
                 <Value type="EXAMPLE">desp98</Value>
             </Element>
+			
+			<Element agid:custom="extension">
+				<Term>cbc:IssueDate</Term>
+				<Name>Data DDT - FPA 2.1.8.2 'DataDDT'</Name>
+				<Description>Data della fattura. Formato = "YYYY-MM-DD".</Description>
+				<DataType>Date</DataType>
+				<Reference type="RULE">BR-IT-061</Reference>				
+				<Value type="EXAMPLE">2020-09-15</Value>
+			</Element>
         </Element>
 
         <Element cardinality="0..1">
@@ -285,7 +328,7 @@
 
             <Element agid:custom="rule">
                 <Term>cbc:ID</Term>
-                <Name>Receiving advice reference</Name>
+                <Name>Receiving advice reference - FPA 2.1.5.2 IdDocumento</Name>
                 <Description>An identifier of a referenced receiving advice.</Description>
                 <DataType>Document Reference</DataType>
                 <Reference type="BUSINESS_TERM">BT-15</Reference>
@@ -329,10 +372,13 @@
                 <Attribute usage="Optional">
                     <Term>schemeID</Term>
                     <Name>Scheme identifier</Name>
-                    <Description>The identification scheme identifier of the Invoiced object identifier.</Description>
+                    <Description>The identification scheme identifier of the Invoiced object identifier.
+						Per la fatturazione verso la PA è possibile usare i seguenti schemi:
+						* AOR = Statement of work (SAL: FPA 2.1.7.1 'RiferimentoFase')
+						* AVV = Framework Agreement Number (Convenzione: FPA 2.1.2.5 'CodiceCommessaConvenzione')</Description>
                     <Reference type="RULE">BR-CL-07</Reference>
                     <Reference type="CODE_LIST">UNCL1153</Reference>
-                    <Value type="EXAMPLE">AUN</Value>
+                    <Value type="EXAMPLE">AVV</Value>
                 </Attribute>
                 
                 <Value type="EXAMPLE">AB23456</Value>              
@@ -418,7 +464,7 @@
 
             <Element agid:custom="rule">
                 <Term>cbc:ID</Term>
-                <Name>Tender or lot reference</Name>
+                <Name>Tender or lot reference - FPA 2.1.3.7 'CodiceCIG'</Name>
                 <Description>The identification of the call for tender or lot the invoice relates to.</Description>
                 <DataType>Document Reference</DataType>
                 <Reference type="BUSINESS_TERM">BT-17</Reference>
@@ -438,14 +484,14 @@
 
         <Include>part/delivery.xml</Include>
 
-
-
+		<Include>part/agid-termini-di-consegna.xml</Include>
 
         <Element cardinality="0..n">
             <Term>cac:PaymentMeans</Term>
             <Name>PAYMENT INSTRUCTIONS</Name>
             <Description>A group of business terms providing information about the payment.</Description>
             <Reference type="BUSINESS_TERM">BG-16</Reference>
+			<Reference type="RULE">BR-IT-260</Reference>
 
             <Element>
                 <Term>cbc:PaymentMeansCode</Term>
@@ -517,10 +563,75 @@
                     description of possible penalties). In case the Amount due for payment (BT-115) is positive, either the Payment due date (BT-9) or the Payment terms (BT-20) shall be present.
                 </Description>
                 <DataType>Text</DataType>
-                <Reference type="BUSINESS_TERM">BT-20</Reference>
+                <!--Reference type="BUSINESS_TERM">BT-20</Reference-->
                 <Reference type="RULE">BR-CO-25</Reference>
                 <Value type="EXAMPLE">Net within 30 days</Value>
             </Element>
+			
+			<Element cardinality="0..1" agid:custom="extension">
+				<Term>cbc:SettlementDiscountAmount</Term>
+				<Name>Sconto Pagamento Anticipato - FPA 2.4.2.17 'ScontoPagamentoAnticipato'</Name>
+				<Description>Ammontare dello sconto per pagamento anticipato.</Description>
+				<DataType>Amount</DataType>
+				<Reference type="RULE">BR-IT-281</Reference>
+				<Attribute>
+					<Term>currencyID</Term>
+					<Description>Mandatory attribute. Use BT-5</Description>
+					<Reference type="BUSINESS_TERM">BT-20</Reference>
+					<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
+					<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
+					<Reference type="CODE_LIST">ISO4217</Reference>
+					<Value type="EXAMPLE">EUR</Value>
+				</Attribute>
+
+				<Value type="EXAMPLE">100.00</Value>
+			</Element>
+
+			<Element cardinality="0..1" agid:custom="extension">
+				<Term>cbc:PenaltyAmount</Term>
+				<Name>Importo penalità - FPA 2.4.2.19 'PenalitaPagamentiRitardati'</Name>
+				<Description>Ammontare della penalità dovuta per pagamenti ritardati.</Description>
+				<DataType>Amount</DataType>
+				<Reference type="RULE">BR-IT-282</Reference>	
+
+				<Attribute>
+					<Term>currencyID</Term>
+					<Description>Mandatory attribute. Use BT-5</Description>
+					<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
+					<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
+					<Reference type="CODE_LIST">ISO4217</Reference>
+					<Value type="EXAMPLE">EUR</Value>
+				</Attribute>
+
+				<Value type="EXAMPLE">100.00</Value>
+			</Element>
+
+			<Element cardinality="0..1" agid:custom="extension">
+				<Term>cac:SettlementPeriod</Term>
+				<Name>Il periodo durante il quale può essere regolato il pagamento.</Name>
+
+				<Element cardinality="0..1">
+					<Term>cbc:EndDate</Term>
+					<Name>Data limite pagamento anticipato - FPA 2.4.2.18 'DataLimitePagamentoAnticipato'</Name>
+					<DataType>Date</DataType>
+					<Value type="EXAMPLE">2020-10-31</Value>
+				</Element>
+
+			</Element>			
+
+			<Element cardinality="0..1" agid:custom="extension">
+				<Term>cac:PenaltyPeriod</Term>
+				<Name>Il periodo durante il quale si applica la penalità.</Name>
+
+				<Element cardinality="0..1">
+					<Term>cbc:StartDate</Term>
+					<Name>Data decorrenza penale - FPA 2.4.2.20 'DataDecorrenzaPenale'</Name>
+					<DataType>Date</DataType>
+					<Value type="EXAMPLE">2020-10-01</Value>
+				</Element>
+
+			</Element>			
+			
         </Element>
 
 
@@ -625,22 +736,80 @@
 
            
 
-            <Element cardinality="0..1">
+            <Element cardinality="0..n" agid:custom="rule,cardinality">
                 <Term>cac:OrderLineReference</Term>
                 <Name>ORDER LINE REFERENCE</Name>
 
                 <Element agid:custom="rule">
                     <Term>cbc:LineID</Term>
-                    <Name>Referenced purchase order line reference</Name>
-                    <Description>An identifier for a referenced line within a purchase order, issued by the Buyer.</Description>
-                    <DataType>Identifier</DataType>
+					<Name>Referenced purchase order line reference - FPA 2.1.2.4 'NumItem'</Name>
+					<Description>Il riferimento ad una riga d'ordine. Se non viene specificato l'ordine al quale si fa riferimento aggiungendo di seguito un cac:OrderReference, la riga d'ordine farà riferimento all'ordine indicato in testata in cac:OrderReference.
+					Indicare 'NA' se ci si riferisce ad un ordine intero aggiungendo di seguito un cac:OrderReference.</Description>
+					<DataType>Identifier</DataType>
                     <Reference type="BUSINESS_TERM">BT-132</Reference>
                     <Reference type="RULE">BR-IT-400</Reference>
                     <Value type="EXAMPLE">3</Value>
                 </Element>
+				
+				<Element cardinality="0..1" agid:custom="extension">
+					<Term>cac:OrderReference</Term>
+					<Name>Il riferimento all'ordine che contiene la riga alla quale si fa riferimento - FPA 2.1.2 'DatiOrdineAcquisto'</Name>
+					<Description>A reference to the Order containing the referenced order line.</Description>
+					
+					<Element>
+						<Term>cbc:ID</Term>
+						<Name>Numero Ordine - FPA 2.1.2.2 'IdDocumento'</Name>
+						<DataType>Identifier</DataType>
+						<Reference type="RULE">BR-IT-401</Reference>
+						<Value type="EXAMPLE">33445566</Value>
+					</Element>
+
+					<Element cardinality="0..1">
+						<Term>cbc:IssueDate</Term>
+						<Name>Data Ordine - FPA 2.1.2.3 'Data'</Name>
+						<DataType>Date</DataType>
+						<Value type="EXAMPLE">2017-11-01</Value>
+					</Element>
+					
+				</Element>
             </Element>
 
-            <Element cardinality="0..1">
+			<Element cardinality="0..n" agid:custom="extension">
+				<Term>cac:DespatchLineReference</Term>
+				<Name>Riferimento a un DDT dalla riga fattura - FPA 2.1.8 'DatiDDT'</Name>
+				<Description>Elemento da valorizzare nei casi di fattura "differita" per indicare il documento con cui è stato consegnato il bene.</Description>
+
+				<Element>
+					<Term>cbc:LineID</Term>
+					<Name>Riferimento ad una riga DDT dalla riga fattura. Non supportato da SDI. Valorizzarlo sempre con 0 (zero).</Name>
+					<DataType>Identifier</DataType>
+					<Reference type="RULE">BR-IT-402</Reference>
+					<Value type="FIXED">NA</Value>
+				</Element>
+
+				<Element>
+					<Term>cac:DocumentReference</Term>
+					<Name>Riferimento a un DDT</Name>
+					
+					<Element>
+						<Term>cbc:ID</Term>
+						<Name>Numero DDT - FPA 2.1.8.1 'NumeroDDT'</Name>
+						<DataType>Identifier</DataType>
+						<Reference type="RULE">BR-IT-403</Reference>
+						<Value type="EXAMPLE">33445566</Value>
+					</Element>
+
+					<Element>
+						<Term>cbc:IssueDate</Term>
+						<Name>Data DDT - FPA 2.1.8.2 'DataDDT'</Name>
+						<DataType>Date</DataType>
+						<Reference type="RULE">BR-IT-404</Reference>
+						<Value type="EXAMPLE">2017-11-01</Value>
+					</Element>
+				</Element>
+			</Element>
+			
+            <Element cardinality="0..n" agid:custom="cardinality">
                 <Term>cac:DocumentReference</Term>
                 <Name>LINE OBJECT IDENTIFIER</Name>
 
@@ -654,7 +823,12 @@
                     <Attribute usage="Optional">
                         <Term>schemeID</Term>
                         <Name>Invoice line object identifier identification scheme identifier</Name>
-                        <Description>The identification scheme identifier of the Invoice line object identifier.</Description>
+                        <Description>The identification scheme identifier of the Invoice line object identifier.
+						Per la fatturazione verso la PA gli schemi per riferimenti più comuni sono i seguenti:
+						* CT = Contract number (Contratto: FPA 2.1.3.2 'IdDocumento')
+						* AEP = Project number (CUP: FPA 2.1.3.6 'CodiceCUP')
+						* GB = Contract party reference number (CIG: FPA 2.1.3.7 'CodiceCIG')
+						* AVV = Framework Agreement Number (Convenzione: FPA 2.1.2.5 'CodiceCommessaConvenzione')</Description>
                         <Reference type="CODE_LIST">UNCL1153</Reference>
                         <Value type="EXAMPLE">AVV</Value>
                     </Attribute>

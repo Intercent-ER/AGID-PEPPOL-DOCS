@@ -1,6 +1,6 @@
 <html lang="en">
 	<head>
-		<title>PEPPOL BIS version 3</title>
+		<title>PEPPOL BIS versione 3</title>
 		<meta charset="utf-8"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -25,14 +25,11 @@
 			<div id="main" class="container" style="display: block;">
 
 				<div class="page-header">
-					<h1>Indice: <span id="home-title">PEPPOL BIS 3 (altri processi)</span>
+					<h1>Indice: <span id="home-title">PEPPOL BIS 3 (fatturazione)</span>
 					</h1>
 				</div>
 
 				<dl class="dl-horizontal">
-					<dd>
-						<%@include file="../peppol-bis-invoice-3-ITA/menu/jumbo-list.html" %>
-					</dd>
 					<dt>Note di Rilascio</dt>
 					<dd>
 						<%@include file="../peppol-bis-invoice-3-ITA/menu/intro-list.html" %>
@@ -53,10 +50,10 @@
 					<dd>
 						<%@include file="../peppol-bis-invoice-3-ITA/menu/codelist-list.html" %>
 					</dd>
-					<dt>Fogli di stile</dt>
+					<!--<dt>Fogli di stile</dt>
 					<dd>
 						<%@include file="../peppol-bis-invoice-3-ITA/menu/stylesheet-list.html" %>
-					</dd>
+					</dd>-->
 					<dt>Downloads</dt>
 					<dd>
 						<%@include file="../peppol-bis-invoice-3-ITA/menu/download-list.html" %>

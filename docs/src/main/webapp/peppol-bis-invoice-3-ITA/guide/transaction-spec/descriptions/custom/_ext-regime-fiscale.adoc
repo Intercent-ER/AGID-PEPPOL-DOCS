@@ -1,0 +1,24 @@
+
+= #Regime Fiscale# (estensione)
+
+Il regime fiscale indica il regime contabile associato al fornitore e pertanto le agevolazioni o semplificazioni a cui è soggetto.
+
+Se il regime fiscale non viene specificato, si intende il regime ordinario (RF01).
+
+.Esempio UBL per specificare il regime fiscale
+[source, xml, indent=0]
+----
+<cac:AccountingSupplierParty>
+    <cac:Party>
+    ...
+        <cac:PartyTaxScheme>
+            <cbc:CompanyID>IT07643520567</cbc:CompanyID>
+            <cbc:TaxLevelCode>RF19</cbc:TaxLevelCode>
+            <cac:TaxScheme>
+                <cbc:ID>VAT</cbc:ID>
+            </cac:TaxScheme>
+        </cac:PartyTaxScheme>
+    ...
+    </cac:Party>
+</cac:AccountingSupplierParty>
+----

@@ -1,3 +1,3 @@
-Version 3.0.6
+Version 3.0.11
 
-Contiene A-deviation per Tax category "B" (Transferred VAT).
+Contiene CIUS ed Estensioni AGID

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" xmlns:agid="urn:fdc:agid.gov.it:peppol:customization" cardinality="0..1" agid:custom="extension">
+
+	<Term>cac:DeliveryTerms</Term>
+	<Name>Termini di Consegna</Name>
+	<Description>A set of delivery terms associated with this document.</Description>
+
+	<Element>
+		<Term>cbc:ID</Term>
+		<Name>Tipo Resa Merce - FPA 2.1.9.11 'TipoResa'</Name>
+		<Description>An identifier for this description of delivery terms. (e.g. ICC Incoterms 2000)</Description>
+		<DataType>Identifier</DataType>
+		<Reference type="RULE">BR-IT-262</Reference>
+
+		<Attribute usage="Optional">
+			<Term>schemeID</Term>
+			<Name>Schema su cui si basa l'identificativo del tipo resa merce</Name>
+			<Value type="EXAMPLE">Incoterms2000</Value>
+		</Attribute>
+
+		<Value type="EXAMPLE">EXW</Value>
+
+	</Element>
+
+</Element>

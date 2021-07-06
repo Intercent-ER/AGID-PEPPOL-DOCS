@@ -8,16 +8,16 @@
             to the Invoice as a whole.
         </Description>
         <Reference type="BUSINESS_TERM">BG-20, BG-21</Reference>
-        
-        
+
+
         <Element>
             <Term>cbc:ChargeIndicator</Term>
-            <Description>Use “true” when informing about Charges and “false” when informing about
-                Allowances.
+			<Name>Tipo (Sconto o Maggiorazione)</Name>
+            <Description>Usare "true" per indicare una Maggiorazione e "false" per uno Sconto.
             </Description>
             <Value type="EXAMPLE">false</Value>
         </Element>
-        
+
         <Element cardinality="0..1">
             <Term>cbc:AllowanceChargeReasonCode</Term>
             <Name>Document level allowance or charge reason code</Name>
@@ -38,7 +38,7 @@
             <Reference type="RULE">DK-R-004</Reference>
             <Value type="EXAMPLE">95</Value>
         </Element>
-        
+
         <Element cardinality="0..1">
             <Term>cbc:AllowanceChargeReason</Term>
             <Name>Document level allowance or charge reason</Name>
@@ -54,12 +54,12 @@
             <Reference type="RULE">BR-CO-22</Reference>
             <Reference type="RULE">DK-R-004</Reference>
             <Value type="EXAMPLE">Discount</Value>
-            
+
         </Element>
-        
+
         <Element cardinality="0..1">
             <Term>cbc:MultiplierFactorNumeric</Term>
-            <Name>Document level allowance or charge percentage</Name>
+            <Name>Percentuale dello sconto o della maggiorazione a livello documento</Name>
             <Description>The percentage that may be used, in conjunction with the document level allowance base amount, to
                 calculate the document level allowance or charge amount. To state 20%, use value 20.
             </Description>
@@ -68,10 +68,10 @@
             <Reference type="RULE">PEPPOL-EN16931-R042</Reference>
             <Value type="EXAMPLE">20</Value>
         </Element>
-        
+
         <Element>
             <Term>cbc:Amount</Term>
-            <Name>Document level allowance or charge amount</Name>
+            <Name>Importo dello sconto o della maggiorazione a livello documento - FPA 2.1.1.7.3 'ImportoContributoCassa', FPA 2.1.1.6.2 'ImportoBollo'</Name>
             <Description>The amount of an allowance or a charge, without VAT. Must be rounded to maximum 2 decimals
             </Description>
             <DataType>Amount</DataType>
@@ -82,7 +82,8 @@
             <Reference type="RULE">BR-DEC-01</Reference>
             <Reference type="RULE">BR-DEC-05</Reference>
             <Reference type="RULE">UBL-DT-01</Reference>
-            
+			<Reference type="RULE">BR-IT-290</Reference>
+
             <Attribute>
                 <Term>currencyID</Term>
                 <Description>Mandatory attribute. Use BT-5</Description>
@@ -93,7 +94,7 @@
             </Attribute>
             <Value type="EXAMPLE">200</Value>
         </Element>
-        
+
         <Element cardinality="0..1">
             <Term>cbc:BaseAmount</Term>
             <Name>Document level allowance or charge base amount</Name>
@@ -106,8 +107,8 @@
             <Reference type="RULE">BR-DEC-02</Reference>
             <Reference type="RULE">BR-DEC-06</Reference>
             <Reference type="RULE">UBL-DT-01</Reference>
-            
-            
+
+
             <Attribute>
                 <Term>currencyID</Term>
                 <Description>Mandatory attribute. Use BT-5</Description>
@@ -116,14 +117,14 @@
                 <Reference type="CODE_LIST">ISO4217</Reference>
                 <Value type="EXAMPLE">EUR</Value>
             </Attribute>
-            
+
             <Value type="EXAMPLE">1000</Value>
-            
+
         </Element>
     <Element>
         <Term>cac:TaxCategory</Term>
         <Name>TAX CATEGORY</Name>
-        
+
         <Element>
             <Term>cbc:ID</Term>
             <Name>Document level allowance or charge VAT category code</Name>
@@ -134,12 +135,13 @@
             <Reference type="RULE">BR-37</Reference>
             <Reference type="RULE">BR-O-13</Reference>
             <Reference type="RULE">BR-O-14</Reference>
+			<Reference type="RULE">BR-IT-350</Reference>
             <Reference type="CODE_LIST">UNCL5305</Reference>
             <Value type="EXAMPLE">S</Value>
-            
-            
+
+
         </Element>
-        
+
         <Element cardinality="0..1">
             <Term>cbc:Percent</Term>
             <Name>Document level allowance or charge VAT rate</Name>
@@ -166,13 +168,13 @@
             <Reference type="RULE">BR-IP-07</Reference>
             <Reference type="RULE">SE-R-006</Reference>
             <Value type="EXAMPLE">25</Value>
-            
+
         </Element>
-        
+
         <Element>
             <Term>cac:TaxScheme</Term>
             <Name>TAX SCHEME</Name>
-            
+
             <Element>
                 <Term>cbc:ID</Term>
                 <Description>Mandatory element. Use “VAT”</Description>
@@ -182,4 +184,3 @@
     </Element>
 
 </Element>
-        

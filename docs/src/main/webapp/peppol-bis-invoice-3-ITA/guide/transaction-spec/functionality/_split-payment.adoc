@@ -1,20 +1,40 @@
 
-= Scissione dei pagamenti
+= #Scissione dei pagamenti - Split payment# (CIUS domestica)
 
 La scissione dei pagamenti o split payment è un regime particolare che stabilisce che il debitore dell'IVA sia il cessionario/committente anziché, come avviene normalmente, il cedente/prestatore.
 
-In deroga alla norma {EN16931} è stata accordata una 'A-deviation' per supportare questo particolare caso utilizzando il TaxCategory 'B' (Transferred VAT) al posto del 'S' (Standard Rate) secondo la codifica UN/ECE 5305 ma al momento non presente nel subset utilizzato dalla {EN16931}.
+Per supportare questo particolare caso si valorizza il *cac:TaxCategory/cbc:ID* (BT-118 VAT Category code) utilizzando il TaxCategory 'B' (Transferred VAT) secondo la codifica UN/ECE 5305.
 
-.Esempio UBL di Scissione dei pagamenti
-L'esempio riportato è relativo alla fattura emessa ad una autorità pubblica soggetta alla scissione pagamento.
+[NOTE]
+====
+Per evidenziare che il totale fattura non include l'IVA (a carico del committente), si deve utilizzare il *cbc:PrepaidAmount* indicando il valore delle tasse. Si evidenzia che il cbc:PrepaidAmount non è supportato in FatturaPA ma viene utilizzato solo per validare il calcolo del totale fattura.
+====
+
+
+.Esempio di Scissione dei pagamenti
+L'esempio riportato è relativo alla fattura emessa ad una PA soggetta alla scissione pagamento.
+
 [source, xml, indent=0]
 ----
-include::../{snippet-dir}/Esempio-Fattura-Professionista-Ordinario-con-Cassa-Ritenuta-e-Scissione.xml[tags=split-payment-tax-category]
+<cac:TaxTotal>
+  <cbc:TaxAmount currencyID="EUR">22.00</cbc:TaxAmount>
+  <cac:TaxSubtotal>
+    <cbc:TaxableAmount currencyID="EUR">100.00</cbc:TaxableAmount>
+    <cbc:TaxAmount currencyID="EUR">22.00</cbc:TaxAmount>
+    <cac:TaxCategory>
+      <cbc:ID>B</cbc:ID>
+      <cbc:Percent>22</cbc:Percent>
+    </cac:TaxCategory>
+    <cac:TaxScheme>
+      <cbc:ID>VAT</cbc:ID>
+    </cac:TaxScheme>
+  </cac:TaxSubtotal>
+</cac:TaxTotal>
+<cac:LegalMonetaryTotal>
+  <cbc:TaxExclusiveAmount currencyID="EUR">100.00</cbc:TaxExclusiveAmount>
+  <cbc:TaxInclusiveAmount currencyID="EUR">122.00</cbc:TaxInclusiveAmount>
+  <cbc:PrepaidAmount currencyID="EUR">22.00</cbc:PrepaidAmount>
+  <cbc:PayableAmount currencyID="EUR">100.00</cbc:PayableAmount>
+</cac:LegalMonetaryTotal>
 ----
-<1> Utilizzo della categoria d'imposta 'B' per lo split payment.
 
-[source, xml, indent=0]
-----
-include::../{snippet-dir}/Esempio-Fattura-Professionista-Ordinario-con-Cassa-Ritenuta-e-Scissione.xml[tags=split-payment-tax-total]
-----
-<1> Utilizzo della categoria d'imposta 'B' per lo split payment.

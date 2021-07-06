@@ -1,0 +1,10 @@
+
+= #Termini di Consegna# (estensione)
+
+Nei casi di fattura "accompagnatoria" i termini di consegna come la resa della merce possono essere forniti nell'elemento DeliveryTerms.
+
+.Esempio UBL completo per i termini di consegna (resa)
+[source, xml, indent=0]
+----
+include::../../../rules/snippets/agid-extensions.xml[tag=termini_consegna]
+----

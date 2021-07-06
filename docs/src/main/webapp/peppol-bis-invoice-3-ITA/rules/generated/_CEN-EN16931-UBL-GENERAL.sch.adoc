@@ -188,6 +188,8 @@
 | [BR-CL-24]-For Mime code in attribute use MIMEMediaType.
 | BR-CL-25 *(fatal)*
 | [BR-CL-25]-Endpoint identifier scheme identifier MUST belong to the CEF EAS code list
+| BR-CL-26 *(fatal)*
+| [BR-CL-26]-Delivery location identifier scheme identifier MUST belong to the ISO 6523 ICD code list
 | BR-CO-03 *(fatal)*
 | [BR-CO-03]-Value added tax point date (BT-7) and Value added tax point date code (BT-8) are mutually exclusive.
 | BR-CO-04 *(fatal)*

@@ -1064,7 +1064,7 @@
                      <td><a href="#">BR-IT-260</a><br><span class="message">[BR-IT-260] - Il gruppo di elementi BG-16 (Payment instructions) deve essere obbligatorio.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-IT-270" data-context="/*/cac:PaymentMeans" data-test="matches(cac:PayeeFinancialAccount/cbc:ID, '^[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9]{11,30}$')">
+                  <tr id="BR-IT-270" data-context="/*/cac:PaymentMeans" data-test="matches(cac:PayeeFinancialAccount/cbc:ID, '^[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9]{11,30}$') and (cbc:PaymentMeansCode='30' or cbc:PaymentMeansCode='58')">
                      <td><a href="#">BR-IT-270</a><br><span class="message">[BR-IT-270] - L'identificativo del pagamento BT-84 (Payment account identifier) deve essere un codice IBAN.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>

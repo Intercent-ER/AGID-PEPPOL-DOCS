@@ -132,7 +132,7 @@ Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore d
 	
 	<rule context="/*/cac:PaymentMeans" flag="fatal">
 		<assert test="." flag="fatal" id="BR-IT-260">[BR-IT-260] - Il gruppo di elementi BG-16 (Payment instructions) deve essere obbligatorio.</assert>
-		<assert test="matches(cac:PayeeFinancialAccount/cbc:ID, '^[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9]{11,30}$')" flag="fatal" id="BR-IT-270">[BR-IT-270] - L'identificativo del pagamento BT-84 (Payment account identifier) deve essere un codice IBAN.</assert>
+		<assert test="matches(cac:PayeeFinancialAccount/cbc:ID, '^[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9]{11,30}$') and (cbc:PaymentMeansCode='30' or cbc:PaymentMeansCode='58')" flag="fatal" id="BR-IT-270">[BR-IT-270] - L'identificativo del pagamento BT-84 (Payment account identifier) deve essere un codice IBAN.</assert>
 		<assert test="matches(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID, '^[A-Z]{6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3}){0,1}$') or not(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch)" flag="fatal" id="BR-IT-280">[BR-IT-280] - La lunghezza dell'elemento deve essere compresa fra 8 e 11 caratteri (BIC).</assert>
 	</rule>
 

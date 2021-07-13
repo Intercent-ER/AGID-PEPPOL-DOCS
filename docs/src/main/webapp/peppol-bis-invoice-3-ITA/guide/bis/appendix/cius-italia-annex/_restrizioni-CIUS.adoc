@@ -271,7 +271,7 @@ BT-141 Invoice line charge amount
 2.2.1.3.2 CodiceValore
 |La lunghezza dell'elemento non può superare i 35 caratteri
 
-|BR-IT-521
+|BR-IT-522
 |Add new non-conflicting business rule to existing element(s)
 |BT-47 Buyer legal registration identifier +
 BT-48 Buyer VAT identifier
@@ -280,12 +280,19 @@ BT-48 Buyer VAT identifier
 |Almeno uno degli elementi BT-48 (Buyer VAT identifier) o BT-47 (Buyer legal registration identifier) deve essere valorizzato.
 
 
-|BR-IT-522
+|BR-IT-523
 |Value domain for an element - Restrict  text or byte array length
 |BT-47 Buyer legal registration identifier +
 BT-47-1 Buyer legal registration identifier scheme identifier
 |1.4.1.2 CodiceFiscale
 |Se l'elemento BT-47-1 (Buyer legal registration identifier scheme identifier) contiene il valore "0210", l'elemento BT-47 (Buyer legal registration identifier) deve contenere un Codice Fiscale con lunghezza compresa fra 11 e 16 caratteri.
+
+
+|BR-IT-524
+|Value domain for an element - Restrict text or byte array length
+|BT-46 Buyer identifier
+|1.4.1.3.5 Codice EORI
+|Il Codice EORI (BT-46 Buyer identifier) deve essere preceduto dal prefisso 'EORI:' ed avere la lunghezza del codice compresa fra 13 e 17 caratteri alfanumerici.
 
 
 |====

@@ -153,8 +153,6 @@ Trattasi di CIUS domestica
 
 #Il numero del Codice EORI (Economic Operator Registration and Identification) basato sul Regolamento (CE) n. 312 del 16 aprile 2009 ed in vigore dal 1 luglio 2009, può essere anch'esso espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.#
 
-[NOTE]
-Trattasi di CIUS domestica 
 
 .Esempio UBL per esprimere il codice EORI
 [source, xml, indent=0]
@@ -256,8 +254,6 @@ Almeno uno tra Partita IVA e Codice Fiscale deve essere presente
 
 #Il Codice EORI può essere espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.#
 
-[NOTE]
-Trattasi di CIUS domestica
 
 .Esempio UBL per esprimere il codice EORI
 [source, xml, indent=0]
@@ -398,8 +394,6 @@ include::{snippet-dir}/Snippet-full.xml[tags=taxrep]
 
 #Il Codice EORI può essere espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.#
 
-[NOTE]
-Trattasi di CIUS domestica
 
 .Esempio UBL per esprimere il codice EORI
 [source, xml, indent=0]
@@ -440,10 +434,7 @@ Il Codice Fiscale può essere espresso all'interno del Party nell'elemento Party
 </cac:PartyIdentification>
 ----
 
-#Il Codice EORI può essere espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.#
-
-[NOTE]
-Trattasi di CIUS domestica
+Il Codice EORI può essere espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.
 
 .Esempio UBL per esprimere il codice EORI
 [source, xml, indent=0]

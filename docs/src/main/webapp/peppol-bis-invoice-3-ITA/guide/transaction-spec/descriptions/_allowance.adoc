@@ -7,13 +7,19 @@ Gli elementi informativi relativi agli sconti e maggiorazioni si trovano in tre 
 
 A livello di testata::
 
-a. _Applicato a tutta la fattura, ma incluso nel calcolo del suo totale._
+_Applicato a tutta la fattura, ma incluso nel calcolo del suo totale._
 * Possono essere indicati diversi sconti e maggiorazioni.
 * L’IVA relativa a sconti e maggiorazioni deve essere specificata attraverso l'elemento `cac:TaxCategory` e i suoi sotto elementi.
 * La somma di tutti gli sconti e maggiorazioni a livello di testata deve essere specificata rispettivamente in `cbc:AllowanceTotalAmount` e `cbc:ChargeTotalAmount`. Vedi <<totals>>
-* #Nel contesto nazionale la sezione è utilizzata solo per Bollo (vedi paragrafo 4.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 4.8).#
-+
-b. _#Applicato sul totale generale senza cambiare l’imponibile.#_
+
+[IMPORTANT]
+====
+Nel contesto nazionale la sezione è utilizzata solo per Bollo (vedi paragrafo 4.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 4.8).
+====
+
+
+_#Applicato sul totale generale senza cambiare l’imponibile.#_
+
 * #Il medesimo sconto usato in FatturaPA a livello di testata.#
 * #Espresso mediante estensione UBL.#
 * #Possono essere indicati diversi sconti e maggiorazioni, a catena.#
@@ -22,7 +28,7 @@ b. _#Applicato sul totale generale senza cambiare l’imponibile.#_
 
 [NOTE]
 ====
-L’importo complessivo di sconti e maggiorazioni va ricompreso nel valore inserito in cbc:PrepaidAmount. Si evidenzia che il cbc:PrepaidAmount non è supportato in FatturaPA ma viene utilizzato per valorizzare correttamente il dato cbc:PayableAmount (BT-115 Amount due for payment) che è obbligatorio per la EN 16931.
+La somma algebrica delle maggiorazioni (con segno meno) e degli sconti (con segno più) va ricompresa nel valore inserito in cbc:PrepaidAmount. Si evidenzia che il cbc:PrepaidAmount non è supportato in FatturaPA ma viene utilizzato per valorizzare correttamente il dato cbc:PayableAmount (BT-115 Amount due for payment) che è obbligatorio per la EN 16931.
 ====
 
 

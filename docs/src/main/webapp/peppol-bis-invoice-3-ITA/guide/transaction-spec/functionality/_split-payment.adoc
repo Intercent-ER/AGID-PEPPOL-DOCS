@@ -7,7 +7,7 @@ Per supportare questo particolare caso si valorizza il *cac:TaxCategory/cbc:ID* 
 
 [NOTE]
 ====
-Per evidenziare che il totale fattura non include l'IVA (a carico del committente), si deve utilizzare il *cbc:PrepaidAmount* indicando il valore delle tasse. Si evidenzia che il cbc:PrepaidAmount non è supportato in FatturaPA ma viene utilizzato solo per validare il calcolo del totale fattura.
+Il valore dell’IVA split va ricompreso nel valore inserito in cbc:PrepaidAmount. Si evidenzia che il cbc:PrepaidAmount non è supportato in FatturaPA ma viene utilizzato per valorizzare correttamente il dato cbc:PayableAmount (BT-115 Amount due for payment) che è obbligatorio per la EN 16931.
 ====
 
 

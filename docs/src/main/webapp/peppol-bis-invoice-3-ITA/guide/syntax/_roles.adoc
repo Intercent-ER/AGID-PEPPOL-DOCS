@@ -276,7 +276,7 @@ include::{snippet-dir}/Snippet-full.xml[tags=buyer]
 <3> Il codice fiscale è preceduto dall’attributo @schemeID valorizzato con “0210”
 
 
-[lime-background]#Nel contesto B2B o G2B, in base alla specifica della FatturaPA italiana, il Cliente può essere identificato mediante il Codice Destinatario.# 
+[lime-background]#Nel contesto B2B o G2B, il Cliente può essere identificato mediante il Codice Destinatario.# 
 
 
 [NOTE]

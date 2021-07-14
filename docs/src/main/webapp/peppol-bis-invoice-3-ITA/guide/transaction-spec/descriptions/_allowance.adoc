@@ -19,6 +19,13 @@ b. _#Applicato sul totale generale senza cambiare l’imponibile.#_
 * #Possono essere indicati diversi sconti e maggiorazioni, a catena.#
 * #Non modifica nè l'imponibile, nè l'IVA.#
 
+
+[NOTE]
+====
+L’importo complessivo di sconti e maggiorazioni va ricompreso nel valore inserito in cbc:PrepaidAmount. Si evidenzia che il cbc:PrepaidAmount non è supportato in FatturaPA ma viene utilizzato per valorizzare correttamente il dato cbc:PayableAmount (BT-115 Amount due for payment) che è obbligatorio per la EN 16931.
+====
+
+
 A livello di riga:: _Il livello di riga si applica alle sole righe ed è incluso nel calcolo dell’importo di riga._
 * Possono essere indicati diversi sconti e maggiorazioni.
 * L’IVA relativa a sconti e maggiorazioni non deve essere specificata, in quanto la categoria IVA fornita sulla stessa riga fattura si applica anche agli sconti/maggiorazioni della riga.
@@ -32,7 +39,7 @@ L'elemento Price all’interno del prezzo :: _Le informazioni sugli sconti e mag
 
 Dettagli ulteriori sul calcolo degli sconti/maggiorazioni sono disponibili presso <<allowance-calc>>
 
-include::../../syntax/_allowance.adoc[]
+//include::../../syntax/_allowance.adoc[]
 include::../../syntax/_allowance-line.adoc[]
 
 .#Esempio UBL per fornire lo sconto sul totale documento, mediante estensione#.

@@ -9,36 +9,52 @@ include::../../syntax/codelists/_vat-category.adoc[]
 
 I valori validi sono elencati nella tabella di seguito:
 
-[cols="1,4", options="header"]
+[cols="1s,3,3", options="header"]
 .Code list
 |===
-| Codice
-| Descrizione
+^.^| Codice
+^.^| Descrizione 
+^.^| Corrispondenza italiana
 
 | AE
 | Vat Reverse Charge
+| Inversione contabile
+
 
 | E
 | Exempt from Tax
+| Esente
 
 | S
 | Standard rate
+| Imposta standard
 
 | Z
 | Zero rated goods
+| Esclusa ex art. 15
 
 | G
 | Free export item, tax not charged
+| Non Imponibile (per le esportazioni)
 
 | O
 | Services outside scope of tax
+| Fuori campo IVA 
 
 | K
 | VAT exempt for EEA intra-community supply of goods and services
+| Non Imponibile (per le esportazioni intra-EEA)
 
 | L
 | Canary Islands general indirect tax
+| Imposta indiretta delle Isole Canarie
 
 | M
 | Tax for production, services and importation in Ceuta and Melilla
+| Imposta per la produzione, servizi e importazione in Ceuta e Melilla
+
+| B
+| Transferred (VAT), In Italy
+| Regime di Split Payment
+
 |===

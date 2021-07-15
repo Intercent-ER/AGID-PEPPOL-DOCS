@@ -1,8 +1,0 @@
-
-= Dati IVA
-
-La fattura viene utilizzata per trasmettere le informazioni relative all'IVA e per consentire all'acquirente ed al venditore di gestire correttamente la registrazione e la dichiarazione IVA. Una fattura dovrebbe contenere le informazioni sufficienti per consentire all'acquirente ed ai revisori di determinare se la fattura è corretta dal punto di vista fiscale.
-
-La fattura supporta la determinazione del regime IVA, il calcolo e le dichiarazioni relative, in conformità con la {VAT-dir} e le successive modifiche. Inoltre fornisce gli elementi necessari per i requisiti IVA nazionali.
-
-Per i requisiti di dettaglio si consiglia di consultare i <<vatreq>>

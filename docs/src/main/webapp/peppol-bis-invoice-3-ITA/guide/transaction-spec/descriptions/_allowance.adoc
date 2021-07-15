@@ -7,24 +7,37 @@ Gli elementi informativi relativi agli sconti e maggiorazioni si trovano in tre 
 
 A livello di testata::
 
-a. _Applicato a tutta la fattura, ma incluso nel calcolo del suo totale._
+_Applicato a tutta la fattura, ma incluso nel calcolo del suo totale._
 * Possono essere indicati diversi sconti e maggiorazioni.
 * L’IVA relativa a sconti e maggiorazioni deve essere specificata attraverso l'elemento `cac:TaxCategory` e i suoi sotto elementi.
 * La somma di tutti gli sconti e maggiorazioni a livello di testata deve essere specificata rispettivamente in `cbc:AllowanceTotalAmount` e `cbc:ChargeTotalAmount`. Vedi <<totals>>
-* #Nel contesto nazionale la sezione è utilizzata solo per Bollo (vedi paragrafo 4.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 4.8).#
-+
-b. _#Applicato sul totale generale senza cambiare l’imponibile.#_
+
+[IMPORTANT]
+====
+Nel contesto nazionale la sezione è utilizzata solo per Bollo (vedi paragrafo 4.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 4.8).
+====
+
+
+_#Applicato sul totale generale senza cambiare l’imponibile.#_
+
 * #Il medesimo sconto usato in FatturaPA a livello di testata.#
 * #Espresso mediante estensione UBL.#
 * #Possono essere indicati diversi sconti e maggiorazioni, a catena.#
 * #Non modifica nè l'imponibile, nè l'IVA.#
+
+
+[NOTE]
+====
+La somma algebrica delle maggiorazioni (con segno meno) e degli sconti (con segno più) va ricompresa nel valore inserito in cbc:PrepaidAmount. Si evidenzia che il cbc:PrepaidAmount non è supportato in FatturaPA ma viene utilizzato per valorizzare correttamente il dato cbc:PayableAmount (BT-115 Amount due for payment) che è obbligatorio per la EN 16931.
+====
+
 
 A livello di riga:: _Il livello di riga si applica alle sole righe ed è incluso nel calcolo dell’importo di riga._
 * Possono essere indicati diversi sconti e maggiorazioni.
 * L’IVA relativa a sconti e maggiorazioni non deve essere specificata, in quanto la categoria IVA fornita sulla stessa riga fattura si applica anche agli sconti/maggiorazioni della riga.
 * Quando si calcola il totale della riga fattura bisogna tenere conto della somma di tutti gli sconti e maggiorazioni sulla stessa riga e sottraendola o sommandola opportunamente. Questi sconti e maggiorazioni a livello di riga non devono essere calcolati a livello di testata.
 
-L'elemento Price all’interno del prezzo :: _Le informazioni sugli sconti e maggiorazioni a questo livello possono essere fornite per informare l’acquirente su come è composto il prezzo. E’ inoltre importante nel caso in cui il fornitore o l’acquirente desiderino importare le informazioni sugli sconti e maggiorazioni nel loro sistema contabile.  Il prezzo deve essere sempre netto, es. l’importo base ridotto/incrementato dal quello dello sconto/maggiorazione._
+All'interno del prezzo :: _Le informazioni sugli sconti e maggiorazioni a questo livello possono essere fornite per informare l’acquirente su come è composto il prezzo. E’ inoltre importante nel caso in cui il fornitore o l’acquirente desiderino importare le informazioni sugli sconti e maggiorazioni nel loro sistema contabile.  Il prezzo deve essere sempre netto, es. l’importo base ridotto/incrementato dal quello dello sconto/maggiorazione._
 * Solo un'occorrenza dello sconto è permessa.
 * L’IVA relativa a sconti non deve essere specificata.
 * Gli sconti relativi al prezzo (elemento Price) non dovranno essere parte di qualsiasi altro calcolo.
@@ -32,7 +45,7 @@ L'elemento Price all’interno del prezzo :: _Le informazioni sugli sconti e mag
 
 Dettagli ulteriori sul calcolo degli sconti/maggiorazioni sono disponibili presso <<allowance-calc>>
 
-include::../../syntax/_allowance.adoc[]
+//include::../../syntax/_allowance.adoc[]
 include::../../syntax/_allowance-line.adoc[]
 
 .#Esempio UBL per fornire lo sconto sul totale documento, mediante estensione#.

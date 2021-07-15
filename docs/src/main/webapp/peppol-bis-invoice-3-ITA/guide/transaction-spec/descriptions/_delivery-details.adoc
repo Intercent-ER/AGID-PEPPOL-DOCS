@@ -21,8 +21,8 @@ include::../../syntax/_delivery.adoc[]
 
 //include::_ext-vettore.adoc[]
 
-include::_ext-ritiro-merce.adoc[]
+//include::_ext-ritiro-merce.adoc[]
 
-include::_ext-spedizione.adoc[]
+//include::_ext-spedizione.adoc[]
 
 :leveloffset: -1

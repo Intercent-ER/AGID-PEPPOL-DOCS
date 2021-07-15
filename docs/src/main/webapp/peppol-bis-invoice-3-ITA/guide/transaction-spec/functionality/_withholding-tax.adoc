@@ -12,8 +12,10 @@ Il *tipo di ritenuta* applicata deve essere indicata in testata al documento in 
 
 Si raccomanda l'uso di questa estensione UBL per specificare esplicitamente il tipo di ritenuta/e ove applicate. +
 
-
-L'importo totale delle ritenute va inserito nel *cbc:PrepaidAmount*.
+[NOTE]
+====
+L’importo complessivo delle ritenute va ricompreso nel valore inserito in cbc:PrepaidAmount. Si evidenzia che il cbc:PrepaidAmount non è supportato in FatturaPA ma viene utilizzato per valorizzare correttamente il dato cbc:PayableAmount (BT-115 Amount due for payment) che è obbligatorio per la EN 16931.
+====
 
 L'ExtensionURI dovrà contenere il prefisso 'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta' e il numero di occorrenza della ritenuta '::n'.
 
@@ -24,7 +26,7 @@ include::../{snippet-dir}/agid-extensions.xml[tags=ext_TipoRitenuta]
 ----
 
 
-.Esempio UBL di ritenuta d'acconto nella fattura
+.Esempio UBL di ritenuta d'acconto nella testata della fattura
 Nella Fattura è possibile specificare una o più ritenute nell'elemento WithholdingTaxTotal a livello di testata, come nell'esempio riportato.
 
 [source, xml, indent=0]
@@ -45,6 +47,24 @@ Nella Fattura è possibile specificare una o più ritenute nell'elemento Withhol
 			</cac:TaxCategory>
 		</cac:TaxSubtotal>
 	</cac:WithholdingTaxTotal>
+----
+
+.Esempio UBL di ritenuta d'acconto nelle righe della fattura
+Nella Fattura è possibile specificare che una riga sia soggetta a ritenuta, come nell'esempio riportato.
+
+[source, xml, indent=0]
+----
+<cac:InvoiceLine>
+    <!-- ... -->
+    <cac:Item>
+        <!-- ... -->
+        <cac:AdditionalItemProperty>
+            <cbc:Name>RITENUTA</cbc:Name>
+            <cbc:Value>SI</cbc:Value>
+        </cac:AdditionalItemProperty>
+    </cac:Item>
+    <!-- ... -->
+</cac:InvoiceLine>
 ----
 
 .Esempio UBL di ritenuta d'acconto nella nota di credito

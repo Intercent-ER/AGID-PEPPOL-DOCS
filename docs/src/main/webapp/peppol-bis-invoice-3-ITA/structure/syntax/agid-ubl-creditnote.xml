@@ -486,7 +486,7 @@
 
 		<Include>part/agid-termini-di-consegna.xml</Include>
 
-        <Element cardinality="0..n">
+        <Element cardinality="1..n">
             <Term>cac:PaymentMeans</Term>
             <Name>PAYMENT INSTRUCTIONS</Name>
             <Description>A group of business terms providing information about the payment.</Description>
@@ -552,7 +552,7 @@
 
         </Element>
 
-        <Element cardinality="0..1">
+        <Element cardinality="1..1">
             <Term>cac:PaymentTerms</Term>
             <Name>PAYMENT TERMS</Name>
 

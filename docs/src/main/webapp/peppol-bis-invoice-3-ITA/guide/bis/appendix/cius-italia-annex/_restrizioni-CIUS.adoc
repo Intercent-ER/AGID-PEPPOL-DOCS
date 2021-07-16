@@ -148,6 +148,13 @@ BT-78 Deliver  to post code +
 |2.4 DatIPagamento
 |Il gruppo di elementi BG-16 Payment instructions  deve essere obbligatorio
 
+|BR-IT-261
+|Cardinality - Make a conditional element mandatory (0..x --> 1..x)
+|BT-20 Payment terms
+|2.4.1  CondizioniPagamento +
+2.4.2.4 GiorniTerminiPagamento
+|L'elemento BT-20 Payment Terms deve essere obbligatoriamente valorizzato
+
 |BR-IT-270
 |Business Terms - Make semantic definition narrower
 |BT-84 Payment account identifier

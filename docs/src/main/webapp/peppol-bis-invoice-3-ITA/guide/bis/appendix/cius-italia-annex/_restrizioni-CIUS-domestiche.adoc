@@ -109,13 +109,6 @@ BT-49-1 Buyer electronic address identification scheme
 |
 |Se l'elemento BT-40 Seller country code ha valore "IT e la fattura è soggetta alla marca da bollo, il motivo della maggiorazione deve essere posto a "BOLLO", la fattura non deve contenere IVA e l'importo deve essere superiore a 77.47 EURO. Se l'importo del bollo viene rifatturato al cliente, il suo valore deve essere posto a 2.00 EUR come operazione non imponibile IVA (TaxCategory/ID = 'Z') e il relativo riepilogo IVA deve riportare un imponibile di 2.00 EUR".
 
-|BR-IT-DC-510
-|
-|BT-98 Document level allowance reason code +
-BT-105 Document level charge reason code
-|
-|Se l'elemento BT-40 Seller country code ha valore "IT e la fattura è soggetta allo Split Payment questa deve esclusivamente utilizzare il TaxCategory = 'B' e deve indicare nei termini di pagamento "The total is without the VAT amount due to Split payment (ex art.17-ter del DPR 633/1972)".
-
 
 
 |====

@@ -21,9 +21,9 @@
 		<Value type="EXAMPLE">486.25</Value>
 	</Element>
 
-	<Element cardinality="1..2">
+	<Element cardinality="1..n">
 		<Term>cac:TaxSubtotal</Term>
-		<Name>Dettaglio Ritenuta - FPA 2.1.1.5 'DatiRitenuta'</Name>
+		<Name>Dettaglio Ritenuta</Name>
 		<Reference type="RULE">BR-IT-E11</Reference>
 
 		<Element cardinality="0..1">
@@ -61,7 +61,7 @@
 
 		<Element>
 			<Term>cac:TaxCategory</Term>
-			<Name>VAT CATEGORY</Name>
+			<Name>TAX CATEGORY</Name>
 			<Reference type="RULE">BR-IT-E13</Reference>
 
 			<Element>

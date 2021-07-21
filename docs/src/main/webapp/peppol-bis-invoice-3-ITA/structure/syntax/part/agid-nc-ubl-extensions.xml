@@ -65,7 +65,7 @@
 		<Element>
 			<Term>ext:ExtensionURI</Term>
 			<Name>URI dell'estensione</Name>
-			<Description>Per supportare una singola ritenuta è sufficiente indicare l'URI 'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta'. Per fare riferimento a più ritenute nello stesso documento aggiungere il suffisso '::n' indicante il numero di riga della ritenuta a cui si fa riferimento.</Description>
+			<Description>Per supportare una singola ritenuta è sufficiente indicare l'URI 'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta'. Per fare riferimento a più ritenute nello stesso documento aggiungere il suffisso '::n' indicante lo stesso progressivo fornito nell'estensione urn:fdc:agid.gov.it:fatturapa:Ritenuta.</Description>
 			<Value type="EXAMPLE">urn:fdc:agid.gov.it:fatturapa:TipoRitenuta</Value>
 			<Value type="EXAMPLE">urn:fdc:agid.gov.it:fatturapa:TipoRitenuta::2</Value>
 		</Element>

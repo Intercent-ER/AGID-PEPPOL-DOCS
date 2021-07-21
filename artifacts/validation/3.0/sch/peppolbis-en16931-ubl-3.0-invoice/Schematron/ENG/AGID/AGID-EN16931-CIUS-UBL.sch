@@ -5,7 +5,7 @@
 
 	<rule context="/*" flag="fatal">
 		<assert test="cac:PaymentMeans" flag="fatal" id="BR-IT-260">[BR-IT-260][FPA 2.4 DatiPagamento] - Il gruppo di elementi BG-16 (Payment instructions) deve essere obbligatorio.</assert>
-		<assert test="cac:PaymentTerms" flag="fatal" id="BR-IT-261">[BR-IT-261][FPA 2.4.1 CondizioniPagamento, 2.4.2.4 GiorniTerminiPagamento] - L'elemento BT-20 Payment Terms deve essere obbligatoriamente valorizzato.</assert>
+		<assert test="cac:PaymentTerms/cbc:Note" flag="fatal" id="BR-IT-261">[BR-IT-261][FPA 2.4.1 CondizioniPagamento, 2.4.2.4 GiorniTerminiPagamento] - L'elemento BT-20 Payment Terms deve essere obbligatoriamente valorizzato.</assert>
 	</rule>
 	
 	<rule context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode!='IT']" flag="fatal">

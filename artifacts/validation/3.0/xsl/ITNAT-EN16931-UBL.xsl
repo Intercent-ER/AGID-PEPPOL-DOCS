@@ -18748,9 +18748,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="cac:PaymentTerms"/>
+         <axsl:when test="cac:PaymentTerms/cbc:Note"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cac:PaymentTerms">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cac:PaymentTerms/cbc:Note">
                <axsl:attribute name="id">BR-IT-261</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">

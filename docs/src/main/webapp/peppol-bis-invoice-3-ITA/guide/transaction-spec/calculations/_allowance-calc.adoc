@@ -15,5 +15,7 @@ stem:["Amount" =  "Base amount" times ("Percentage" div 100)]
 [IMPORTANT]
 #Nel contesto nazionale la sezione è utilizzata solo per Bollo (vedi paragrafo 4.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 4.8).#
 
+#Tipico esempio di maggiorazione espressa con importo base e percentuale è la cassa previdenziale (vedi paragrafo 4.8).#
 
-include::../../syntax/_allowance-calc.adoc[]
+#Tipico esempio di sconto/maggiorazione con solo importo base è il bollo (vedi paragrafo 4.9).#
+

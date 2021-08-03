@@ -13,10 +13,10 @@ Ogni riga della fattura deve avere il codice della categoria IVA riferita alla v
 
 Ogni sconto o maggiorazione a livello di testata deve avere il codice di categoria IVA (BT-95 e BT-102). Per tutte le categorie IVA, eccetto "Non soggetto ad IVA" (O), deve essere fornita l'aliquota IVA.
 
-#Nel contesto nazionale la sezione è utilizzata solo per Bollo (vedi paragrafo 4.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 4.8).# 
+[IMPORTANT]
+#Per la fatturazione verso soggetti italiani la sezione è utilizzata solo per Bollo (vedi paragrafo 4.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 4.8).#
 
-#Per gli sconti e maggiorazioni a livello di testata di FatturaPA vedasi 10.5. Sconti e maggiorazioni.#
-
+#Per gli sconti e maggiorazioni a livello di testata che non incidono sull’imponibile vedasi 10.5. Sconti e maggiorazioni.#
 
 == Natura dell'operazione e Riepiloghi IVA
 

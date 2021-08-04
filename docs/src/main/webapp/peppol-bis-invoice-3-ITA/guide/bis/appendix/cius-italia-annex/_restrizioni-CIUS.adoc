@@ -251,18 +251,24 @@ BT-125 Attached document
 |2.2.1.15 RiferimentoAmministrazione
 |La lunghezza dell'elemento non può superare i 20 caratteri
 
-|BR-IT-421
-|Value domain for an element - Require defined structured values
-|BT-136 Invoice line allowance amount +
-BT-141 Invoice line charge amount
-|2.2.1.10.3 Importo
-|La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali
-
 |BR-IT-430
 |Value domain for an element - Require defined structured values
-|BT-146 Item net price
+|BT-148 Item gross price
 |2.2.1.9 PrezzoUnitario
 |La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento dovrà avere 8 cifre decimali
+
+|BR-IT-431
+|Cardinality - Make a conditional element mandatory (0..x --> 1..x)
+|BT-148 Item gross price
+|2.2.1.9 PrezzoUnitario
+|L'elemento 2.2.1.9 è obbligatorio in FatturaPA
+
+|BR-IT-432
+|Value domain for an element - Restrict text or byte array length
+|BT-147 Price price discount
+|2.2.1.10.3 Importo
+|La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento dovrà avere 8 cifre decimali
+
 
 |BR-IT-440
 |Value domain for an element - Restrict  text or byte array length

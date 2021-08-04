@@ -31,19 +31,13 @@ deve essere valorizzato come segue: +
 |Value domain for an element - Restrict text or byte array length
 |BT-29 Seller identifier
 |1.2.1.3.5 CodEORI +
-or +
-1.2.1.4 AlboProfessionale +
-1.2.1.6 NumeroIscrizioneAlbo +
-1.2.1.7 DataIscrizioneAlbo
 |Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT29 Seller identifier comincia con "EORI:", la sua lunghezza deve essere compresa fra 18 e 22 caratteri.
 
 
 |BR-IT-DC-100B
 |Value domain for an element - Restrict text or byte array length
 |BT-29 Seller identifier
-|1.2.1.3.5 CodEORI +
-or +
-1.2.1.4 AlboProfessionale +
+|1.2.1.4 AlboProfessionale +
 1.2.1.6 NumeroIscrizioneAlbo +
 1.2.1.7 DataIscrizioneAlbo
 |Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT29 Seller identifier comincia con "ALBO:", la sua lunghezza non può superare i 137 caratteri e può essere indicato come "ALBO:AlboProfessionale +
@@ -56,18 +50,13 @@ or +
 BT-30-1 Seller legal registration identifier scheme identifier
 |1.2.4.1 Ufficio +
 1.2.4.2 NumeroREA +
-or +
-1.2.1.2 CodiceFiscale
 |Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT-30 Seller legal registration identifier comincia con "REA:", la sua lunghezza deve essere compresa fra 8 e 27 caratteri e deve essere indicato come "REA:Ufficio#NumeroREA". +
 
 |BR-IT-DC-111B
 |Value domain for an element - Restrict text or byte array length
 |BT-30 Seller legal registration identifier +
 BT-30-1 Seller legal registration identifier scheme identifier
-|1.2.4.1 Ufficio +
-1.2.4.2 NumeroREA +
-or +
-1.2.1.2 CodiceFiscale
+|1.2.1.2 CodiceFiscale
 |Se il valore dell’elemento BT-40 (Seller country code) è "IT", se l'elemento BT-30-1 (Seller legal registration identifier scheme identifier) contiene il valore "0210", l'elemento BT-30 (Seller legal registration identifier) deve contenere un Codice Fiscale con lunghezza compresa fra 11 e 16 caratteri.
 
 |BR-IT-DC-122
@@ -95,7 +84,7 @@ BT-38 Seller post code
 |Se l'elemento BT-40 Seller country code ha valore "IT", per l'elemento  BT-39 Seller  country  subdivision deve  essere utilizzato uno dei valori della lista delle province italiane. Altrimenti l'informazione è riportata in allegato
 
 |BR-IT-DC-191
-|Value domain for an element - Require defined structured values
+|Cardinality - Make a conditional element mandatory (0..x --> 1..x)
 |BT-49 Buyer electroni caddress +
 BT-49-1 Buyer electronic address identification scheme
 |1.1.6 PECDestinatario +

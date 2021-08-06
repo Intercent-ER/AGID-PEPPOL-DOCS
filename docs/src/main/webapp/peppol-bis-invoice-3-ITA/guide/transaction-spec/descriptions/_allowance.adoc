@@ -48,7 +48,11 @@ A livello di riga:: _Il livello di riga si applica alle sole righe ed è incluso
 All'interno del prezzo :: _Le informazioni sugli sconti e maggiorazioni a questo livello possono essere fornite per informare l’acquirente su come è composto il prezzo. E’ inoltre importante nel caso in cui il fornitore o l’acquirente desiderino importare le informazioni sugli sconti e maggiorazioni nel loro sistema contabile._ 
 * Il prezzo netto (cbc:PriceAmount) deve essere sempre espresso 
 * #Il prezzo lordo (cbc:BaseAmount) deve essere sempre espresso.#
-* Gli sconti (ChargeIndicator>false</cbc:ChargeIndicator) e le maggiorazioni (ChargeIndicator>true</cbc:ChargeIndicator) relativi al prezzo devono specificare l’importo (AllowanceCharge/Amount).
+* #Il segmento cac:AllowanceCharge deve essere sempre espresso#
+* L'elemento cbc:ChargeIndicator deve essere sempre espresso e valorizzato con "false". 
+* #Per indicare uno sconto, fornire un importo positivo nel cac:AllowanceCharge/cbc:Amount. +
+Per indicare una maggiorazione, fornire un importo negativo nel cac:AllowanceCharge/cbc:Amount. +
+Se nessuno Sconto/Maggiorazione è applicato all'articolo, valorizzare cac:AllowanceCharge/cbc:Amount con "0".# 
 * Solo un'occorrenza dello sconto è permessa.
 * Non sono ammessi sconti/maggiorazioni in percentuale.
 * L’IVA relativa a sconti/maggiorazioni non deve essere specificata.

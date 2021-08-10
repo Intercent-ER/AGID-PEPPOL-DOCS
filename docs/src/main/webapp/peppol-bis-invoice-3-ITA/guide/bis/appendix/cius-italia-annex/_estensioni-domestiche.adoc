@@ -41,9 +41,17 @@
 |2.1.1.8 Sconto Maggiorazione
 |L'importo dello sconto/maggiorazione in  percentuale, se presente,  (cbcMultiplierFactorNumeric) deve  contenere da 4 fino a 6 caratteri incluso 2  cifre decimali
 
-|BR-IT-DE-009
+|BR-IT-DE-009NC1
 |2.1.1.5 Dati Ritenuta
-|L'estensione deve contenere un elemento cacWithholdingTaxTotal.
+|L'estensione deve contenere un elemento cac:WithholdingTaxTotal.
+
+|BR-IT-DE-009NC2
+|2.1.1.5 Dati Ritenuta
+|Il cac:WithholdingTaxTotal deve contenere almeno una ritenuta (cac:TaxSubtotal)
+
+|BR-IT-DE-009FT1
+|2.1.1.5 Dati Ritenuta
+|L'estensione deve contenere un elemento cac:WithholdingTaxTotal.
 
 |BR-IT-DE-010
 |2.1.1.5 Dati Ritenuta
@@ -51,7 +59,7 @@
 
 |BR-IT-DE-011
 |2.1.1.5 Dati Ritenuta
-|Possono essere incluse da 1 a massimo 2  ritenute (cacTaxSubtotal)
+|Il cac:WithholdingTaxTotal deve contenere almeno una ritenuta (cac:TaxSubtotal)
 
 |BR-IT-DE-012
 |2.1.1.5 Dati Ritenuta

@@ -52,11 +52,11 @@
 
 								</li>
 
-								<!--<li class="dropdown dropdown-agid">
+								<li class="dropdown dropdown-agid">
 									<a href="#" class="dropdown-toggle link-agid" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fogli di stile <span class="caret"></span>
 									</a>
 									<%@include file="../peppol-bis-invoice-3-ITA/menu/stylesheet-menu.html" %>
-								</li>-->
+								</li>
 
 								<li class="dropdown dropdown-agid">
 									<a href="https://peppol-validator.agid.gov.it/" class="dropdown-toggle link-agid" target="_blank" role="button" title="Piattaforma di Validazione PEPPOL (apre un link in nuova finestra)">

@@ -50,10 +50,10 @@
 					<dd>
 						<%@include file="../peppol-bis-invoice-3-ITA/menu/codelist-list.html" %>
 					</dd>
-					<!--<dt>Fogli di stile</dt>
+					<dt>Fogli di stile</dt>
 					<dd>
 						<%@include file="../peppol-bis-invoice-3-ITA/menu/stylesheet-list.html" %>
-					</dd>-->
+					</dd>
 					<dt>Downloads</dt>
 					<dd>
 						<%@include file="../peppol-bis-invoice-3-ITA/menu/download-list.html" %>

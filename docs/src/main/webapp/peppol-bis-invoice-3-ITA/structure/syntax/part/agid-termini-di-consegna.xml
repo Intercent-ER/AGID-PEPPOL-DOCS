@@ -10,7 +10,7 @@
 		<Name>Tipo Resa Merce - FPA 2.1.9.11 'TipoResa'</Name>
 		<Description>An identifier for this description of delivery terms. (e.g. ICC Incoterms 2000)</Description>
 		<DataType>Identifier</DataType>
-		<Reference type="RULE">BR-IT-262</Reference>
+		<Reference type="RULE">BR-IT-DE-036</Reference>
 
 		<Attribute usage="Optional">
 			<Term>schemeID</Term>

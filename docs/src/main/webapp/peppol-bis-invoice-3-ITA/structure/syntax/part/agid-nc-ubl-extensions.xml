@@ -45,7 +45,7 @@
 		<Element>
 			<Term>ext:ExtensionContent</Term>
 			<Name>Definizione del contenuto dell'estensione</Name>
-			<Reference type="RULE">BR-IT-E01</Reference>
+			<Reference type="RULE">BR-IT-DE-001</Reference>
 			<Element>
 				<Term>cbc:TypeCode</Term>
 				<Name>Soggetto Emittente</Name>
@@ -73,7 +73,7 @@
 		<Element>
 			<Term>ext:ExtensionContent</Term>
 			<Name>Definizione del contenuto dell'estensione</Name>
-			<Reference type="RULE">BR-IT-E03</Reference>
+			<Reference type="RULE">BR-IT-DE-003</Reference>
 			<Element>
 				<Term>cbc:TypeCode</Term>
 				<Name>Tipo Ritenuta</Name>
@@ -99,7 +99,7 @@
 		<Element>
 			<Term>ext:ExtensionContent</Term>
 			<Name>Definizione del contenuto dell'estensione</Name>
-			<Reference type="RULE">BR-IT-E04</Reference>
+			<Reference type="RULE">BR-IT-DE-004</Reference>
 			
 			<Element>
 				<Term>cbc:TypeCode</Term>
@@ -127,7 +127,7 @@
 		<Element>
 			<Term>ext:ExtensionContent</Term>
 			<Name>Definizione del contenuto dell'estensione</Name>
-			<Reference type="RULE">BR-IT-E05</Reference>
+			<Reference type="RULE">BR-IT-DE-005</Reference>
 			<Element>
 				<Term>cbc:Amount</Term>
 				<Name>Arrotondamento</Name>
@@ -163,7 +163,8 @@
 		<Element>
 			<Term>ext:ExtensionContent</Term>
 			<Name>Definizione del contenuto dell'estensione</Name>
-			<Reference type="RULE">BR-IT-E09</Reference>
+			<Reference type="RULE">BR-IT-DE-009NC1</Reference>
+			<Reference type="RULE">BR-IT-DE-009NC2</Reference>
 			
 			<Include>agid-ritenute.xml</Include>
 		</Element>
@@ -184,7 +185,7 @@
 		<Element>
 			<Term>ext:ExtensionContent</Term>
 			<Name>Definizione del contenuto dell'estensione</Name>
-			<Reference type="RULE">BR-IT-E06</Reference>
+			<Reference type="RULE">BR-IT-DE-006</Reference>
 
 			<Element cardinality="1..n">
 
@@ -206,7 +207,7 @@
                 calculate the document level allowance or charge amount. To state 20%, use value 20.
 					</Description>
 					<DataType>Percentage</DataType>
-					<Reference type="RULE">BR-IT-E08</Reference>
+					<Reference type="RULE">BR-IT-DE-008</Reference>
 					<Value type="EXAMPLE">20</Value>
 				</Element>
 
@@ -216,7 +217,7 @@
 					<Description>The amount of an allowance or a charge, without VAT. Must be rounded to maximum 2 decimals
 					</Description>
 					<DataType>Amount</DataType>
-					<Reference type="RULE">BR-IT-E07</Reference>
+					<Reference type="RULE">BR-IT-DE-007</Reference>
 
 					<Attribute>
 						<Term>currencyID</Term>

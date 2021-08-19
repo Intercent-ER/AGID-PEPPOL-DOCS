@@ -6,7 +6,7 @@
 	<agid:Extension>
 		<agid:ID>urn:www.agid.gov.it:trns:fattura:3.0</agid:ID>
 		<agid:Name>Struttura Fattura Elettronica 3.0 (Estensione Italiana della EN16931)</agid:Name>
-		<agid:Version>3.0.0</agid:Version>
+		<agid:Version>3.0</agid:Version>
 	</agid:Extension>
 
 	<Namespace prefix="ubl">urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</Namespace>
@@ -32,11 +32,11 @@
 			<Reference type="BUSINESS_TERM">BT-24</Reference>
 			<Reference type="RULE">PEPPOL-EN16931-R004</Reference>
 			<Reference type="RULE">BR-01</Reference>
-			<Reference type="RULE">BR-IT-001</Reference>
+			<Reference type="RULE">BR-IT-DC-002</Reference>
 			<Value type="FIXED">urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:www.agid.gov.it:trns:fattura:3.0</Value>
 		</Element>
 
-		<Element>
+		<Element agid:custom="rule">
 			<Term>cbc:ProfileID</Term>
 			<Name>Business process type</Name>
 			<Description>Identifies the business process context in which the transaction appears, to enable the Buyer to
@@ -45,6 +45,7 @@
 			<DataType>Text</DataType>
 			<Reference type="BUSINESS_TERM">BT-23</Reference>
 			<Reference type="RULE">PEPPOL-EN16931-R001</Reference>
+			<Reference type="RULE">BR-IT-001</Reference>
 			<Value type="DEFAULT">urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</Value>
 		</Element>
 
@@ -288,7 +289,8 @@
 					<Name>Numero Fattura Principale - FPA 2.1.10.1 'NumeroFatturaPrincipale'</Name>
 					<Description>Numero della fattura relativa al trasporto di beni, da indicare sulle fatture emesse dagli autotrasportatori per certificare le operazioni accessorie.</Description>
 					<DataType>Document Reference</DataType>
-					<Reference type="RULE">BR-IT-042</Reference>
+					<Reference type="RULE">BR-IT-DE-014</Reference>
+					<Reference type="RULE">BR-IT-DE-015</Reference>
 					<Value type="EXAMPLE">inv123</Value>
 				</Element>
 				<Element>
@@ -296,6 +298,7 @@
 					<Name>Data Fattura Principale - FPA 2.1.10.2 'DataFatturaPrincipale'</Name>
 					<Description>Data della fattura. Formato = "YYYY-MM-DD".</Description>
 					<DataType>Date</DataType>
+					<Reference type="RULE">BR-IT-DE-014</Reference>
 					<Value type="EXAMPLE">2020-09-15</Value>
 				</Element>
 				<Reference type="RULE">BR-IT-041</Reference>
@@ -322,7 +325,7 @@
 				<Name>Data DDT - FPA 2.1.8.2 'DataDDT'</Name>
 				<Description>Data della fattura. Formato = "YYYY-MM-DD".</Description>
 				<DataType>Date</DataType>
-				<Reference type="RULE">BR-IT-061</Reference>
+				<Reference type="RULE">BR-IT-DE-016</Reference>
 				<Value type="EXAMPLE">2020-09-15</Value>
 			</Element>
 		</Element>
@@ -470,6 +473,7 @@
 				<DataType>Text</DataType>
 				<!--Reference type="BUSINESS_TERM">BT-20</Reference-->
 				<Reference type="RULE">BR-CO-25</Reference>
+				<Reference type="RULE">BR-IT-261</Reference>
 				<Value type="EXAMPLE">Net within 30 days</Value>
 			</Element>
 
@@ -478,7 +482,7 @@
 				<Name>Sconto Pagamento Anticipato - FPA 2.4.2.17 'ScontoPagamentoAnticipato'</Name>
 				<Description>Ammontare dello sconto per pagamento anticipato.</Description>
 				<DataType>Amount</DataType>
-				<Reference type="RULE">BR-IT-281</Reference>
+				<Reference type="RULE">BR-IT-DE-037</Reference>
 
 				<Attribute>
 					<Term>currencyID</Term>
@@ -498,7 +502,7 @@
 				<Name>Importo penalità - FPA 2.4.2.19 'PenalitaPagamentiRitardati'</Name>
 				<Description>Ammontare della penalità dovuta per pagamenti ritardati.</Description>
 				<DataType>Amount</DataType>
-				<Reference type="RULE">BR-IT-282</Reference>
+				<Reference type="RULE">BR-IT-DE-038</Reference>
 
 				<Attribute>
 					<Term>currencyID</Term>
@@ -668,7 +672,7 @@
 						<Term>cbc:ID</Term>
 						<Name>Numero Ordine - FPA 2.1.2.2 'IdDocumento'</Name>
 						<DataType>Identifier</DataType>
-						<Reference type="RULE">BR-IT-401</Reference>
+						<Reference type="RULE">BR-IT-DE-039</Reference>
 						<Value type="EXAMPLE">33445566</Value>
 					</Element>
 
@@ -692,7 +696,7 @@
 					<Term>cbc:LineID</Term>
 					<Name>Riferimento ad una riga DDT dalla riga fattura. Non supportato da SDI. Valorizzarlo sempre con NA.</Name>
 					<DataType>Identifier</DataType>
-					<Reference type="RULE">BR-IT-402</Reference>
+					<Reference type="RULE">BR-IT-DE-040</Reference>
 					<Value type="FIXED">NA</Value>
 				</Element>
 
@@ -704,7 +708,7 @@
 						<Term>cbc:ID</Term>
 						<Name>Numero DDT - FPA 2.1.8.1 'NumeroDDT'</Name>
 						<DataType>Identifier</DataType>
-						<Reference type="RULE">BR-IT-403</Reference>
+						<Reference type="RULE">BR-IT-DE-041</Reference>
 						<Value type="EXAMPLE">33445566</Value>
 					</Element>
 
@@ -712,7 +716,7 @@
 						<Term>cbc:IssueDate</Term>
 						<Name>Data DDT - FPA 2.1.8.2 'DataDDT'</Name>
 						<DataType>Date</DataType>
-						<Reference type="RULE">BR-IT-404</Reference>
+						<Reference type="RULE">BR-IT-DE-042</Reference>
 						<Value type="EXAMPLE">2017-11-01</Value>
 					</Element>
 				</Element>

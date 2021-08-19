@@ -15,7 +15,7 @@
 	<Element>
 		<Term>cac:AgentParty</Term>
 		<Name>Il Rappresentante Fiscale che detiene questa procura per conto del Cessionario/Committente - FPA 1.4.4 'RappresentanteFiscale'</Name>
-		<Reference type="RULE">BR-IT-226</Reference>
+		<Reference type="RULE">BR-IT-DE-048</Reference>
 
 		<Element agid:custom="cardinality">
 			<Term>cac:PartyTaxScheme</Term>

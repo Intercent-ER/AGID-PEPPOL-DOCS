@@ -71,7 +71,7 @@
                     <Value type="EXAMPLE">Delivery Street 2</Value>
                 </Element>
 
-                <Element cardinality="0..1">
+                <Element cardinality="0..1" agid:custom="rule">
                     <Term>cbc:CityName</Term>
                     <Name>Deliver to city - FPA 2.1.9.12.4 'Comune'</Name>
                     <Description>The common name of the city, town or village, where the deliver to address is located.
@@ -82,7 +82,7 @@
                     <Value type="EXAMPLE">Malmö</Value>
                 </Element>
 
-                <Element cardinality="0..1">
+                <Element cardinality="0..1" agid:custom="rule">
                     <Term>cbc:PostalZone</Term>
                     <Name>Deliver to post code - FPA 2.1.12.3 'CAP'</Name>
                     <Description>The identifier for an addressable group of properties according to the relevant postal service.
@@ -93,7 +93,7 @@
                     <Value type="EXAMPLE">86756</Value>
                 </Element>
 
-                <Element cardinality="0..1">
+                <Element cardinality="0..1" agid:custom="rule">
                     <Term>cbc:CountrySubentity</Term>
                     <Name>Deliver to country subdivision - FPA 2.1.9.12.5 'Provincia'</Name>
                     <Description>The subdivision of a country.</Description>
@@ -153,8 +153,7 @@
                     <Name>Codice Fiscale - FPA 2.1.9.1.2 'CodiceFiscale'</Name>
                     <Description>Numero di Codice Fiscale. Utilizzare sempre il prefisso 'CF:'</Description>
                     <DataType>Identifier</DataType>
-					<Reference type="RULE">BR-IT-251</Reference>
-                    <Value type="EXAMPLE">CF:CXXNXX68M06E123H</Value>
+					<Reference type="RULE">BR-IT-DE-026A</Reference>
                 </Element>
             </Element>
 
@@ -168,7 +167,7 @@
                     <Description>Ditta, denominazione o ragione sociale (ditta, impresa, società, ente) che effettua il trasporto.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-70</Reference>
-					<Reference type="RULE">BR-IT-252</Reference>
+					<Reference type="RULE">BR-IT-DE-027</Reference>
                     <Value type="EXAMPLE">Super Cargo SpA</Value>
                 </Element>
             </Element>
@@ -191,7 +190,7 @@
                     <Reference type="RULE">BR-O-02</Reference>
                     <Reference type="RULE">BR-O-03</Reference>
                     <Reference type="RULE">BR-O-04</Reference>
-					<Reference type="RULE">BR-IT-253</Reference>
+					<Reference type="RULE">BR-IT-DE-028</Reference>
                 </Element>
 
                 <Element>
@@ -202,7 +201,7 @@
                         <Term>cbc:ID</Term>
                         <Description>Mandatory element. Use “VAT”</Description>
                         <DataType>Identifier</DataType>
-						<Reference type="RULE">BR-IT-254</Reference>
+						<Reference type="RULE">BR-IT-DE-029</Reference>
                         <Value type="DEFAULT">VAT</Value>
 
                     </Element>
@@ -212,7 +211,7 @@
            <Element cardinality="0..1">
                 <Term>cac:Person</Term>
                 <Name>Persona Fisica</Name>
-				<Reference type="RULE">BR-IT-252</Reference>
+				<Reference type="RULE">BR-IT-DE-027</Reference>
 
                 <Element>
                     <Term>cbc:FirstName</Term>
@@ -228,7 +227,7 @@
                 <Element cardinality="0..1">
                     <Term>cac:IdentityDocumentReference</Term>
                     <Name>Documento di identità</Name>
-					<Reference type="RULE">BR-IT-255</Reference>
+					<Reference type="RULE">BR-IT-DE-030</Reference>
 
                     <Element>
                         <Term>cbc:ID</Term>

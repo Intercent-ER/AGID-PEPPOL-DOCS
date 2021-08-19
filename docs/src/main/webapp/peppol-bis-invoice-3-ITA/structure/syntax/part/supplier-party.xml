@@ -42,8 +42,8 @@
                     <DataType>Identifier</DataType>
                     <Reference type="BUSINESS_TERM">BT-29, BT-90</Reference>
                     <Reference type="RULE">BR-CO-26</Reference>
-					<Reference type="RULE">BR-IT-100</Reference>
-					<Reference type="RULE">BR-IT-110</Reference>
+					<Reference type="RULE">BR-IT-DC-100A</Reference>
+					<Reference type="RULE">BR-IT-DC-100B</Reference>
 
                     <Attribute usage="Optional">
                         <Term>schemeID</Term>
@@ -94,6 +94,7 @@
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-35</Reference>
                     <Reference type="RULE">IT-R-002</Reference>
+					<Reference type="RULE">BR-IT-DC-140</Reference>
                     <Value type="EXAMPLE">Main Street 1</Value>
                 </Element>
 
@@ -113,6 +114,7 @@
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-37</Reference>
                     <Reference type="RULE">IT-R-003</Reference>
+					<Reference type="RULE">BR-IT-DC-140</Reference>
                     <Value type="EXAMPLE">London</Value>
                 </Element>
 
@@ -124,6 +126,7 @@
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-38</Reference>
                     <Reference type="RULE">IT-R-004</Reference>
+					<Reference type="RULE">BR-IT-DC-140</Reference>
                     <Value type="EXAMPLE">W1G 8LZ</Value>
                 </Element>
 
@@ -133,7 +136,7 @@
                     <Description>The subdivision of a country.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-39</Reference>
-					<Reference type="RULE">BR-IT-150</Reference>
+					<Reference type="RULE">BR-IT-DC-150</Reference>
                     <Value type="EXAMPLE">Region A</Value>
                 </Element>
 
@@ -226,7 +229,7 @@
                     <Name>Codice Regime Fiscale - FPA 1.2.1.8 'RegimeFiscale'</Name>
                     <Description>Il Regime Fiscale secondo la normativa italiana. Se non è specificato il regime è quello ordinario RF01.</Description>
                     <DataType>Code</DataType>
-                    <Reference type="RULE">BR-IT-121</Reference>
+                    <Reference type="RULE">BR-IT-DE-017</Reference>
                     <Value type="EXAMPLE">RF19</Value>
                 </Element>
 
@@ -273,6 +276,8 @@
                     <Reference type="RULE">DK-R-014</Reference>
                     <Reference type="RULE">SE-R-003</Reference>
                     <Reference type="RULE">SE-R-004</Reference>
+					<Reference type="RULE">BR-IT-DC-111A</Reference>
+					<Reference type="RULE">BR-IT-DC-111B</Reference>
                     <Attribute usage="Optional">
                         <Term>schemeID</Term>
                         <Name>Seller legal registration identifier identification scheme identifier</Name>
@@ -289,7 +294,7 @@
                     <Description>Additional legal information relevant for the Seller.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-33</Reference>
-					<Reference type="RULE">BR-IT-122</Reference>
+					<Reference type="RULE">BR-IT-DC-122</Reference>
                     <Value type="EXAMPLE">Share capital</Value>
                 </Element>
             </Element>

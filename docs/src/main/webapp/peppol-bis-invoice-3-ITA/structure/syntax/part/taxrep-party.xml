@@ -11,7 +11,7 @@
 		<Term>cac:PartyIdentification</Term>
 		<Name>PARTY IDENTIFICATION</Name>
 
-		<Element>
+		<Element agid:custom="rule">
 			<Term>cbc:ID</Term>
 			<Name>Identificativo del rappresentante fiscale</Name>
 			<Description>E' possibile indicare fino a due identificativi per il Rappresentante Fiscale:
@@ -22,9 +22,8 @@
 			Numero del Codice EORI (Economic Operator Registration and Identification) in base al Regolamento (CE) n. 312 del 16 aprile 2009. In vigore dal 1 luglio 2009. Utilizzare sempre il prefisso 'EORI:'
 			</Description>
 			<DataType>Identifier</DataType>
-			<Reference type="RULE">BR-IT-228</Reference>
-			<Reference type="RULE">BR-IT-229</Reference>
-			<Value type="EXAMPLE">CF:CXXNXX68M06E123H</Value>
+			<Reference type="RULE">BR-IT-DE-024A</Reference>
+			<Reference type="RULE">BR-IT-DE-025</Reference>
 			<Value type="EXAMPLE">EORI:12345678901</Value>
 		</Element>
 	</Element>
@@ -142,7 +141,7 @@
 		<Term>cac:PartyTaxScheme</Term>
 		<Name>PARTY VAT IDENTIFIER</Name>
 
-		<Element>
+		<Element agid:custom="rule">
 			<Term>cbc:CompanyID</Term>
 			<Name>Seller tax representative VAT identifier</Name>
 			<Description>The VAT identifier of the Seller's tax representative party.</Description>

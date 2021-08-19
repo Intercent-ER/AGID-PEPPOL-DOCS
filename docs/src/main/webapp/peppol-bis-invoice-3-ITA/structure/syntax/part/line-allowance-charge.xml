@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" cardinality="0..n">
+<Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" cardinality="0..n" xmlns:agid="urn:fdc:agid.gov.it:peppol:customization">
 
         <Term>cac:AllowanceCharge</Term>
         <Name>INVOICE LINE ALLOWANCES OR CHARGES - FPA 2.2.1.10 'ScontoMaggiorazione'</Name>
@@ -62,7 +62,7 @@
             <Value type="EXAMPLE">20</Value>
         </Element>
 
-        <Element>
+        <Element agid:custom="rule">
             <Term>cbc:Amount</Term>
             <Name>Importo dello sconto o della maggiorazione a livello di riga - FPA 2.2.1.10.3 'Importo'</Name>
             <Description>The amount of an allowance or a charge, without VAT. Must be rounded to maximum 2 decimals</Description>
@@ -74,7 +74,7 @@
             <Reference type="RULE">BR-DEC-24</Reference>
             <Reference type="RULE">BR-DEC-27</Reference>
             <Reference type="RULE">UBL-DT-01</Reference>
-			<Reference type="RULE">BR-IT-420</Reference>
+			<Reference type="RULE">BR-IT-421</Reference>
 
             <Attribute>
                 <Term>currencyID</Term>

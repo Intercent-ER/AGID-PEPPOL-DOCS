@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1">
+<Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" xmlns:agid="urn:fdc:agid.gov.it:peppol:customization">
 
 
         <Term>cac:Price</Term>
@@ -9,7 +9,7 @@
         </Description>
         <Reference type="BUSINESS_TERM">BG-29</Reference>
 
-        <Element>
+        <Element agid:custom="rule">
             <Term>cbc:PriceAmount</Term>
             <Name>Item net price - FPA 2.2.1.9 'PrezzoUnitario'</Name>
             <Description>The price of an item, exclusive of VAT, after subtracting item price discount. The Item net price has to be equal with the
@@ -59,7 +59,7 @@
             <Value type="EXAMPLE">1</Value>
         </Element>
 
-        <Element cardinality="0..1">
+        <Element cardinality="1..1" agid:custom="cardinality">
             <Term>cac:AllowanceCharge</Term>
             <Name>ALLOWANCE</Name>
 
@@ -89,13 +89,14 @@
                 <Value type="EXAMPLE">100</Value>
             </Element>
 
-            <Element cardinality="0..1">
+            <Element cardinality="1..1" agid:custom="cardinality,rule">
                 <Term>cbc:BaseAmount</Term>
                 <Name>Item gross price</Name>
                 <Description>The unit price, exclusive of VAT, before subtracting Item price discount, can not be negative</Description>
                 <DataType>Amount</DataType>
                 <Reference type="BUSINESS_TERM">BT-148</Reference>
                 <Reference type="RULE">BR-28</Reference>
+				<Reference type="RULE">BR-IT-480</Reference>
 
                 <Attribute>
                     <Term>currencyID</Term>

@@ -3,6 +3,7 @@
 
 	<Term>cac:WithholdingTaxTotal</Term>
 	<Name>Ritenuta d'acconto</Name>
+	<Reference type="RULE">BR-IT-DE-099FT1</Reference>
 
 	<Element>
 		<Term>cbc:TaxAmount</Term>
@@ -13,7 +14,7 @@
 			<Description>Mandatory attribute. Use BT-5 or BT-6.</Description>
 			<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
 			<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
-			<Reference type="RULE">BR-IT-E10</Reference>
+			<Reference type="RULE">BR-IT-DE-010</Reference>
 			<Reference type="CODE_LIST">ISO4217</Reference>
 			<Value type="EXAMPLE">EUR</Value>
 		</Attribute>
@@ -24,7 +25,7 @@
 	<Element cardinality="1..n">
 		<Term>cac:TaxSubtotal</Term>
 		<Name>Dettaglio Ritenuta</Name>
-		<Reference type="RULE">BR-IT-E11</Reference>
+		<Reference type="RULE">BR-IT-DE-011</Reference>
 
 		<Element cardinality="0..1">
 			<Term>cbc:TaxableAmount</Term>
@@ -46,7 +47,7 @@
 			<Term>cbc:TaxAmount</Term>
 			<Name>Importo Ritenuta - FPA 2.1.1.5.2 'ImportoRitenuta'</Name>
 			<DataType>Amount</DataType>
-			<Reference type="RULE">BR-IT-E12</Reference>
+			<Reference type="RULE">BR-IT-DE-012</Reference>
 
 			<Attribute>
 				<Term>currencyID</Term>
@@ -62,7 +63,7 @@
 		<Element>
 			<Term>cac:TaxCategory</Term>
 			<Name>TAX CATEGORY</Name>
-			<Reference type="RULE">BR-IT-E13</Reference>
+			<Reference type="RULE">BR-IT-DE-013</Reference>
 
 			<Element>
 				<Term>cbc:ID</Term>

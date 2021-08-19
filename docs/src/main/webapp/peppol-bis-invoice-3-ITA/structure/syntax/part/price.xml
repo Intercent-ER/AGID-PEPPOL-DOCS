@@ -21,7 +21,6 @@
 			<Reference type="RULE">BR-IT-430</Reference>
             <Reference type="RULE">PEPPOL-EN16931-R046</Reference>
 
-
             <Attribute>
                 <Term>currencyID</Term>
                 <Description>Mandatory attribute. Use BT-5</Description>
@@ -41,8 +40,6 @@
             <DataType>Quantity</DataType>
             <Reference type="BUSINESS_TERM">BT-149</Reference>
             <Reference type="RULE">PEPPOL-EN16931-R121</Reference>
-
-
 
             <Attribute usage="Optional">
                 <Term>unitCode</Term>
@@ -69,13 +66,14 @@
                 <Reference type="RULE">PEPPOL-EN16931-R044</Reference>
                 <Value type="FIXED">false</Value>
             </Element>
-            <Element>
+            <Element agid:custom="rule">
                 <Term>cbc:Amount</Term>
                 <Name>Item price discount</Name>
                 <Description>The total discount subtracted from the Item gross price to calculate the Item net price.
                 </Description>
                 <DataType>Amount</DataType>
                 <Reference type="BUSINESS_TERM">BT-147</Reference>
+				<Reference type="RULE">BR-IT-432</Reference>
 
                 <Attribute>
                     <Term>currencyID</Term>
@@ -96,7 +94,8 @@
                 <DataType>Amount</DataType>
                 <Reference type="BUSINESS_TERM">BT-148</Reference>
                 <Reference type="RULE">BR-28</Reference>
-				<Reference type="RULE">BR-IT-480</Reference>
+				<Reference type="RULE">BR-IT-431</Reference>
+				<Reference type="RULE">BR-IT-433</Reference>
 
                 <Attribute>
                     <Term>currencyID</Term>

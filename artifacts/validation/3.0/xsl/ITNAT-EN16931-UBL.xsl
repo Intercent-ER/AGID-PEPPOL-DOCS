@@ -2008,9 +2008,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="((//cac:TaxCategory/cbc:ID ='B' or //cac:ClassifiedTaxCategory/cbc:ID = 'B') and (not(//cac:TaxCategory/cbc:ID ='S' or //cac:ClassifiedTaxCategory/cbc:ID = 'S'))) or (not(//cac:TaxCategory/cbc:ID ='B' or //cac:ClassifiedTaxCategory/cbc:ID = 'B'))"/>
+         <axsl:when test="((//cac:AllowanceCharge/cac:TaxCategory/cbc:ID ='B' or //cac:ClassifiedTaxCategory/cbc:ID = 'B' or //cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID = 'B') and (not(//cac:AllowanceCharge/cac:TaxCategory/cbc:ID ='S' or //cac:ClassifiedTaxCategory/cbc:ID = 'S' or //cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID = 'S'))) or (not(//cac:AllowanceCharge/cac:TaxCategory/cbc:ID ='B' or //cac:ClassifiedTaxCategory/cbc:ID = 'B' or //cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID = 'B'))"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="((//cac:TaxCategory/cbc:ID ='B' or //cac:ClassifiedTaxCategory/cbc:ID = 'B') and (not(//cac:TaxCategory/cbc:ID ='S' or //cac:ClassifiedTaxCategory/cbc:ID = 'S'))) or (not(//cac:TaxCategory/cbc:ID ='B' or //cac:ClassifiedTaxCategory/cbc:ID = 'B'))">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="((//cac:AllowanceCharge/cac:TaxCategory/cbc:ID ='B' or //cac:ClassifiedTaxCategory/cbc:ID = 'B' or //cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID = 'B') and (not(//cac:AllowanceCharge/cac:TaxCategory/cbc:ID ='S' or //cac:ClassifiedTaxCategory/cbc:ID = 'S' or //cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID = 'S'))) or (not(//cac:AllowanceCharge/cac:TaxCategory/cbc:ID ='B' or //cac:ClassifiedTaxCategory/cbc:ID = 'B' or //cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID = 'B'))">
                <axsl:attribute name="id">BR-B-02</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -18726,7 +18726,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*" priority="1047" mode="M49">
+   <axsl:template match="/*" priority="1049" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*"/>
 
 		<!--ASSERT -->
@@ -18765,8 +18765,8 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode!='IT']" priority="1046" mode="M49">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode!='IT']"/>
+   <axsl:template match="/*[cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode!='IT']" priority="1048" mode="M49">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*[cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode!='IT']"/>
 
 		<!--ASSERT -->
 
@@ -18788,7 +18788,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cbc:ID" priority="1045" mode="M49">
+   <axsl:template match="/*/cbc:ID" priority="1047" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -18811,7 +18811,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:ProjectReference/cbc:ID" priority="1044" mode="M49">
+   <axsl:template match="/*/cac:ProjectReference/cbc:ID" priority="1046" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:ProjectReference/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -18834,7 +18834,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:ContractDocumentReference/cbc:ID" priority="1043" mode="M49">
+   <axsl:template match="/*/cac:ContractDocumentReference/cbc:ID" priority="1045" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:ContractDocumentReference/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -18857,7 +18857,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:OrderReference/cbc:ID" priority="1042" mode="M49">
+   <axsl:template match="/*/cac:OrderReference/cbc:ID" priority="1044" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:OrderReference/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -18880,7 +18880,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:ReceiptDocumentReference/cbc:ID" priority="1041" mode="M49">
+   <axsl:template match="/*/cac:ReceiptDocumentReference/cbc:ID" priority="1043" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:ReceiptDocumentReference/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -18903,7 +18903,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:DespatchDocumentReference" priority="1040" mode="M49">
+   <axsl:template match="/*/cac:DespatchDocumentReference" priority="1042" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:DespatchDocumentReference"/>
 
 		<!--ASSERT -->
@@ -18926,7 +18926,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:OriginatorDocumentReference/cbc:ID" priority="1039" mode="M49">
+   <axsl:template match="/*/cac:OriginatorDocumentReference/cbc:ID" priority="1041" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:OriginatorDocumentReference/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -18949,7 +18949,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cbc:AccountingCost" priority="1038" mode="M49">
+   <axsl:template match="/*/cbc:AccountingCost" priority="1040" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cbc:AccountingCost"/>
 
 		<!--ASSERT -->
@@ -18972,7 +18972,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID" priority="1037" mode="M49">
+   <axsl:template match="/*/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID" priority="1039" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -18995,7 +18995,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]" priority="1036" mode="M49">
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]" priority="1038" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]"/>
 
 		<!--ASSERT -->
@@ -19018,7 +19018,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'ALBO:')]" priority="1035" mode="M49">
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'ALBO:')]" priority="1037" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'ALBO:')]"/>
 
 		<!--ASSERT -->
@@ -19041,7 +19041,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyLegalEntity/cbc:CompanyID[starts-with(., 'REA:')]" priority="1034" mode="M49">
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyLegalEntity/cbc:CompanyID[starts-with(., 'REA:')]" priority="1036" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyLegalEntity/cbc:CompanyID[starts-with(., 'REA:')]"/>
 
 		<!--ASSERT -->
@@ -19064,7 +19064,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyLegalEntity/cbc:CompanyID[@schemeID='0210']" priority="1033" mode="M49">
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyLegalEntity/cbc:CompanyID[@schemeID='0210']" priority="1035" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyLegalEntity/cbc:CompanyID[@schemeID='0210']"/>
 
 		<!--ASSERT -->
@@ -19087,7 +19087,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID" priority="1032" mode="M49">
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID" priority="1034" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID"/>
 
 		<!--ASSERT -->
@@ -19110,7 +19110,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLegalForm" priority="1031" mode="M49">
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLegalForm" priority="1033" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLegalForm"/>
 
 		<!--ASSERT -->
@@ -19133,8 +19133,8 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']" priority="1030" mode="M49">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']"/>
+   <axsl:template match="/*[cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']" priority="1032" mode="M49">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*[cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']"/>
 
 		<!--ASSERT -->
 
@@ -19151,28 +19151,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
-         <axsl:when test="((not(contains(normalize-space(cac:PostalAddress/cbc:CountrySubentity),' ')) and contains(' AG AL AN AO AP AQ AR AT AV BA BG BI BL BN BO BR BS BT BZ CA CB CE CH CI CL CN CO CR CS CT CZ EN FC FE FG FI FM FR FU GE GO GR IM IS KR LC LE LI LO LT LU MB MC ME MI MN MO MS MT NA NO NU OG OR OT PA PC PD PE PG PI PL PN PO PR PT PU PV PZ RA RC RE RG RI RM RN RO SA SI SO SP SR SS SU SV TA TE TN TO TP TR TS TV UD VA VB VC VE VI VR VS VT VV ZA ',concat(' ',normalize-space(cac:PostalAddress/cbc:CountrySubentity),' '))))"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="((not(contains(normalize-space(cac:PostalAddress/cbc:CountrySubentity),' ')) and contains(' AG AL AN AO AP AQ AR AT AV BA BG BI BL BN BO BR BS BT BZ CA CB CE CH CI CL CN CO CR CS CT CZ EN FC FE FG FI FM FR FU GE GO GR IM IS KR LC LE LI LO LT LU MB MC ME MI MN MO MS MT NA NO NU OG OR OT PA PC PD PE PG PI PL PN PO PR PT PU PV PZ RA RC RE RG RI RM RN RO SA SI SO SP SR SS SU SV TA TE TN TO TP TR TS TV UD VA VB VC VE VI VR VS VT VV ZA ',concat(' ',normalize-space(cac:PostalAddress/cbc:CountrySubentity),' '))))">
-               <axsl:attribute name="id">BR-IT-DC-150</axsl:attribute>
-               <axsl:attribute name="flag">fatal</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </axsl:attribute>
-               <svrl:text>[BR-IT-DC-150][FPA 1.2.2.5 Provincia] - Se l'elemento BT-40 (Seller country code) ha valore "IT", per l'elemento BT-39 Seller country subdivision deve essere utilizzato uno dei valori della lista delle province italiane. Altrimenti l'informazione è riportata in allegato.</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
       <axsl:apply-templates select="@*|*" mode="M49"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress[cac:Country/cbc:IdentificationCode='IT']" priority="1029" mode="M49">
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress[cac:Country/cbc:IdentificationCode='IT']" priority="1031" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress[cac:Country/cbc:IdentificationCode='IT']"/>
 
 		<!--ASSERT -->
@@ -19211,7 +19195,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID" priority="1028" mode="M49">
+   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID" priority="1030" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID"/>
 
 		<!--ASSERT -->
@@ -19234,7 +19218,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0201']" priority="1027" mode="M49">
+   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0201']" priority="1029" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0201']"/>
 
 		<!--ASSERT -->
@@ -19257,7 +19241,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0205']" priority="1026" mode="M49">
+   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0205']" priority="1028" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0205']"/>
 
 		<!--ASSERT -->
@@ -19280,7 +19264,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0202']" priority="1025" mode="M49">
+   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0202']" priority="1027" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0202']"/>
 
 		<!--ASSERT -->
@@ -19303,7 +19287,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress[cac:Country/cbc:IdentificationCode='IT']" priority="1024" mode="M49">
+   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress[cac:Country/cbc:IdentificationCode='IT']" priority="1026" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress[cac:Country/cbc:IdentificationCode='IT']"/>
 
 		<!--ASSERT -->
@@ -19342,7 +19326,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:TaxRepresentativeParty/cac:PartyTaxScheme/cbc:CompanyID" priority="1023" mode="M49">
+   <axsl:template match="/*/cac:TaxRepresentativeParty/cac:PartyTaxScheme/cbc:CompanyID" priority="1025" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:TaxRepresentativeParty/cac:PartyTaxScheme/cbc:CompanyID"/>
 
 		<!--ASSERT -->
@@ -19365,7 +19349,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:Delivery/cac:DeliveryLocation/cac:Address[cac:Country/cbc:IdentificationCode='IT']" priority="1022" mode="M49">
+   <axsl:template match="/*/cac:Delivery/cac:DeliveryLocation/cac:Address[cac:Country/cbc:IdentificationCode='IT']" priority="1024" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:Delivery/cac:DeliveryLocation/cac:Address[cac:Country/cbc:IdentificationCode='IT']"/>
 
 		<!--ASSERT -->
@@ -19404,7 +19388,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:PaymentMeans" priority="1021" mode="M49">
+   <axsl:template match="/*/cac:PaymentMeans" priority="1023" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:PaymentMeans"/>
 
 		<!--ASSERT -->
@@ -19443,7 +19427,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AllowanceCharge/cbc:Amount" priority="1020" mode="M49">
+   <axsl:template match="/*/cac:AllowanceCharge/cbc:Amount" priority="1022" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AllowanceCharge/cbc:Amount"/>
 
 		<!--ASSERT -->
@@ -19466,7 +19450,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount" priority="1019" mode="M49">
+   <axsl:template match="/*/cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount" priority="1021" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount"/>
 
 		<!--ASSERT -->
@@ -19489,7 +19473,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:LegalMonetaryTotal/cbc:PayableRoundingAmount" priority="1018" mode="M49">
+   <axsl:template match="/*/cac:LegalMonetaryTotal/cbc:PayableRoundingAmount" priority="1020" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:LegalMonetaryTotal/cbc:PayableRoundingAmount"/>
 
 		<!--ASSERT -->
@@ -19512,7 +19496,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:LegalMonetaryTotal/cbc:PayableAmount" priority="1017" mode="M49">
+   <axsl:template match="/*/cac:LegalMonetaryTotal/cbc:PayableAmount" priority="1019" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:LegalMonetaryTotal/cbc:PayableAmount"/>
 
 		<!--ASSERT -->
@@ -19535,7 +19519,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxableAmount" priority="1016" mode="M49">
+   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxableAmount" priority="1018" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxableAmount"/>
 
 		<!--ASSERT -->
@@ -19558,7 +19542,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxAmount" priority="1015" mode="M49">
+   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxAmount" priority="1017" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxAmount"/>
 
 		<!--ASSERT -->
@@ -19581,7 +19565,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="//cac:TaxCategory/cbc:ID | //cac:ClassifiedTaxCategory/cbc:ID" priority="1014" mode="M49">
+   <axsl:template match="//cac:TaxCategory/cbc:ID | //cac:ClassifiedTaxCategory/cbc:ID" priority="1016" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:TaxCategory/cbc:ID | //cac:ClassifiedTaxCategory/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -19604,7 +19588,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="//cac:AdditionalDocumentReference[cbc:ID and not(cbc:DocumentTypeCode)]" priority="1013" mode="M49">
+   <axsl:template match="//cac:AdditionalDocumentReference[cbc:ID and not(cbc:DocumentTypeCode)]" priority="1015" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:AdditionalDocumentReference[cbc:ID and not(cbc:DocumentTypeCode)]"/>
 
 		<!--ASSERT -->
@@ -19627,7 +19611,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AllowanceCharge[cbc:AllowanceChargeReasonCode = 'SAE' and ../cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']]" priority="1012" mode="M49">
+   <axsl:template match="/*/cac:AllowanceCharge[cbc:AllowanceChargeReasonCode = 'SAE' and ../cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']]" priority="1014" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AllowanceCharge[cbc:AllowanceChargeReasonCode = 'SAE' and ../cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']]"/>
 
 		<!--ASSERT -->
@@ -19650,7 +19634,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party" priority="1011" mode="M49">
+   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party" priority="1013" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:Party"/>
 
 		<!--ASSERT -->
@@ -19689,7 +19673,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID[@schemeID='0210']" priority="1010" mode="M49">
+   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID[@schemeID='0210']" priority="1012" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID[@schemeID='0210']"/>
 
 		<!--ASSERT -->
@@ -19712,7 +19696,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingCustomerParty/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]" priority="1009" mode="M49">
+   <axsl:template match="/*/cac:AccountingCustomerParty/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]" priority="1011" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]"/>
 
 		<!--ASSERT -->
@@ -19735,7 +19719,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID" priority="1008" mode="M49">
+   <axsl:template match="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID" priority="1010" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -19758,7 +19742,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cbc:InvoicedQuantity" priority="1007" mode="M49">
+   <axsl:template match="/*/cac:InvoiceLine/cbc:InvoicedQuantity" priority="1009" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cbc:InvoicedQuantity"/>
 
 		<!--ASSERT -->
@@ -19781,7 +19765,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cbc:LineExtensionAmount" priority="1006" mode="M49">
+   <axsl:template match="/*/cac:InvoiceLine/cbc:LineExtensionAmount" priority="1008" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cbc:LineExtensionAmount"/>
 
 		<!--ASSERT -->
@@ -19804,7 +19788,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:OrderLineReference/cbc:LineID" priority="1005" mode="M49">
+   <axsl:template match="/*/cac:InvoiceLine/cac:OrderLineReference/cbc:LineID" priority="1007" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:OrderLineReference/cbc:LineID"/>
 
 		<!--ASSERT -->
@@ -19827,7 +19811,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cbc:AccountingCost" priority="1004" mode="M49">
+   <axsl:template match="/*/cac:InvoiceLine/cbc:AccountingCost" priority="1006" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cbc:AccountingCost"/>
 
 		<!--ASSERT -->
@@ -19850,7 +19834,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:AllowanceCharge/cbc:Amount" priority="1003" mode="M49">
+   <axsl:template match="/*/cac:InvoiceLine/cac:AllowanceCharge/cbc:Amount" priority="1005" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:AllowanceCharge/cbc:Amount"/>
 
 		<!--ASSERT -->
@@ -19873,7 +19857,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:Price/cbc:PriceAmount" priority="1002" mode="M49">
+   <axsl:template match="/*/cac:InvoiceLine/cac:Price/cbc:PriceAmount" priority="1004" mode="M49">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:Price/cbc:PriceAmount"/>
 
 		<!--ASSERT -->
@@ -19887,7 +19871,69 @@
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-430][FPA 2.2.1.9 PrezzoUnitario] - BT-146 (Item net price) maximum length shall be 21 chars and BT allowed fraction digits shall be 8 - La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento dovrà avere 8 cifre decimali.</svrl:text>
+               <svrl:text>[BR-IT-430] - BT-146 (Item net price) maximum length shall be 21 chars and BT allowed fraction digits shall be 8 - La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento dovrà avere 8 cifre decimali.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M49"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/cac:InvoiceLine/cac:Price/cac:AllowanceCharge/cbc:Amount" priority="1003" mode="M49">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:Price/cac:AllowanceCharge/cbc:Amount"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="matches(.,'^[\-]?\d{1,11}\.\d{2,8}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^[\-]?\d{1,11}\.\d{2,8}$')">
+               <axsl:attribute name="id">BR-IT-432</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-432][FPA 2.2.1.10.3 Importo] - La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento potrà avere fino a 8 cifre decimali.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M49"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/*/cac:InvoiceLine/cac:Price" priority="1002" mode="M49">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:Price"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="cac:AllowanceCharge/cbc:BaseAmount and matches(cac:AllowanceCharge/cbc:BaseAmount,'^[\-]?\d{1,11}\.\d{2,8}$')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cac:AllowanceCharge/cbc:BaseAmount and matches(cac:AllowanceCharge/cbc:BaseAmount,'^[\-]?\d{1,11}\.\d{2,8}$')">
+               <axsl:attribute name="id">BR-IT-431</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-431][FPA 2.2.1.9 PrezzoUnitario] -  Il BT-148 (Prezzo lordo) è obbligatorio in FatturaPA e la lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento potrà avere fino a 8 cifre decimali.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="xs:decimal(cac:AllowanceCharge/cbc:BaseAmount) = xs:decimal(cbc:PriceAmount) - (round(sum(cac:AllowanceCharge[cbc:ChargeIndicator=false()]/xs:decimal(cbc:Amount)) * 10 * 10) div 100)"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="xs:decimal(cac:AllowanceCharge/cbc:BaseAmount) = xs:decimal(cbc:PriceAmount) - (round(sum(cac:AllowanceCharge[cbc:ChargeIndicator=false()]/xs:decimal(cbc:Amount)) * 10 * 10) div 100)">
+               <axsl:attribute name="id">BR-IT-433</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-433][FPA 2.2.1.9 PrezzoUnitario, 2.2.1.10.3 Importo] - The BT-148 (Item gross price) must be the result of the sum of BT-146 (Item net price) with any applicable allowance. Its maximum length shall be 21 chars and BT allowed fraction digits shall be 8 - Il BT-148 (Prezzo lordo) deve essere il risultato del BT-146 (Prezzo netto) sommato ad eventuali sconti o maggiorazioni (BT-147).</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -19949,7 +19995,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:SoggettoEmittente']/ext:ExtensionContent" priority="1029" mode="M50">
+   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:SoggettoEmittente']/ext:ExtensionContent" priority="1030" mode="M50">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:SoggettoEmittente']/ext:ExtensionContent"/>
 
 		<!--ASSERT -->
@@ -19972,7 +20018,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:TipoDocumento']/ext:ExtensionContent" priority="1028" mode="M50">
+   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:TipoDocumento']/ext:ExtensionContent" priority="1029" mode="M50">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:TipoDocumento']/ext:ExtensionContent"/>
 
 		<!--ASSERT -->
@@ -19995,7 +20041,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI, 'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta')]/ext:ExtensionContent" priority="1027" mode="M50">
+   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI, 'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta')]/ext:ExtensionContent" priority="1028" mode="M50">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI, 'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta')]/ext:ExtensionContent"/>
 
 		<!--ASSERT -->
@@ -20018,7 +20064,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Art73']/ext:ExtensionContent" priority="1026" mode="M50">
+   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Art73']/ext:ExtensionContent" priority="1027" mode="M50">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Art73']/ext:ExtensionContent"/>
 
 		<!--ASSERT -->
@@ -20041,7 +20087,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI, 'urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento')]/ext:ExtensionContent" priority="1025" mode="M50">
+   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI, 'urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento')]/ext:ExtensionContent" priority="1026" mode="M50">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI, 'urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento')]/ext:ExtensionContent"/>
 
 		<!--ASSERT -->
@@ -20064,7 +20110,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']/ext:ExtensionContent" priority="1024" mode="M50">
+   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']/ext:ExtensionContent" priority="1025" mode="M50">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']/ext:ExtensionContent"/>
 
 		<!--ASSERT -->
@@ -20087,7 +20133,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']/ext:ExtensionContent/cac:AllowanceCharge" priority="1023" mode="M50">
+   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']/ext:ExtensionContent/cac:AllowanceCharge" priority="1024" mode="M50">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']/ext:ExtensionContent/cac:AllowanceCharge"/>
 
 		<!--ASSERT -->
@@ -20126,21 +20172,60 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Ritenuta']/ext:ExtensionContent" priority="1022" mode="M50">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Ritenuta']/ext:ExtensionContent"/>
+   <axsl:template match="/ubl-invoice:Invoice" priority="1023" mode="M50">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl-invoice:Invoice"/>
 
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="cac:WithholdingTaxTotal"/>
+         <axsl:when test="count(cac:WithholdingTaxTotal) &lt;= 1"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cac:WithholdingTaxTotal">
-               <axsl:attribute name="id">BR-IT-DE-009</axsl:attribute>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="count(cac:WithholdingTaxTotal) &lt;= 1">
+               <axsl:attribute name="id">BR-IT-DE-099FT1</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-DE-009][FPA 2.1.1.5 - Dati Ritenuta] - L'estensione deve contenere uno elemento cac:WithholdingTaxTotal.</svrl:text>
+               <svrl:text>[BR-IT-DE-099FT1][FPA 2.1.1.5 - Dati Ritenuta] - L'estensione deve contenere un elemento cac:WithholdingTaxTotal.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M50"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="/ubl-creditnote:CreditNote/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Ritenuta']/ext:ExtensionContent" priority="1022" mode="M50">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl-creditnote:CreditNote/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Ritenuta']/ext:ExtensionContent"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="count(cac:WithholdingTaxTotal) = 1"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="count(cac:WithholdingTaxTotal) = 1">
+               <axsl:attribute name="id">BR-IT-DE-009NC1</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-DE-009NC1][FPA 2.1.1.5 - Dati Ritenuta] - L'estensione deve contenere uno elemento cac:WithholdingTaxTotal.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="count(cac:WithholdingTaxTotal/cac:TaxSubtotal) &gt;= 1"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="count(cac:WithholdingTaxTotal/cac:TaxSubtotal) &gt;= 1">
+               <axsl:attribute name="id">BR-IT-DE-009NC2</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-DE-009NC2][FPA 2.1.1.5 - Dati Ritenuta] - Il cac:WithholdingTaxTotal deve contenere almeno una ritenuta (cac:TaxSubtotal).</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -20179,7 +20264,7 @@
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-DE-011][FPA 2.1.1.5 - Dati Ritenuta] - Possono essere incluse da 1 a massimo 2 ritenute (cac:TaxSubtotal).</svrl:text>
+               <svrl:text>[BR-IT-DE-011][FPA 2.1.1.5 - Dati Ritenuta] - Il cac:WithholdingTaxTotal deve contenere almeno una ritenuta (cac:TaxSubtotal).</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>

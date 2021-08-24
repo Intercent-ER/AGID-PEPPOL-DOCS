@@ -417,22 +417,31 @@ include::../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_for
 
 = #Il Terzo Intermediario o Soggetto Emittente del Fornitore (AccountingSupplierParty/ServiceProviderParty) - Estensione#
 
-Nel caso sia un soggetto terzo ad emettere fattura per conto del cedente / prestatore, si può specificare in fattura come parte dei dati del fornitore nell'elemento *cac:ServiceProviderParty*.
+Nel caso sia un soggetto terzo ad emettere fattura per conto del cedente / prestatore, si può specificare in fattura come parte dei dati del fornitore nell'elemento *cac:ServiceProviderParty*. +
+
+Il Codice Fiscale può essere espresso all'interno del Party nell'elemento PartyIdentification/ID inserendo l’attributo @schemeID valorizzato con il codice "0210", come nell'esempio di seguito. +
 
 .Esempio UBL per il terzo intermediario o soggetto emittente per conto del fornitore
 [source, xml, indent=0]
 ----
-include::{snippet-dir}/agid-extensions.xml[tag=terzo_intermediario]
+<cac:ServiceProviderParty>
+        <cac:Party>
+                <cac:PartyIdentification>
+                        <cbc:ID  schemeID="0210">CXXNXX68M06E123H</cbc:ID>
+                </cac:PartyIdentification>
+                <cac:PartyName>
+                        <cbc:Name>Terzo Intermediario Srl</cbc:Name>
+                </cac:PartyName>
+                <cac:PartyTaxScheme>
+                        <cbc:CompanyID>IT07643520567</cbc:CompanyID>
+                        <cac:TaxScheme>
+                                <cbc:ID>VAT</cbc:ID>
+                        </cac:TaxScheme>
+                </cac:PartyTaxScheme>
+        </cac:Party>
+</cac:ServiceProviderParty>
 ----
 
-Il Codice Fiscale può essere espresso all'interno del Party nell'elemento PartyIdentification/ID inserendo l’attributo @schemeID valorizzato con il codice "0210", come nell'esempio di seguito.
-
-[source, xml, indent=0]
-----
-<cac:PartyIdentification>
-    <cbc:ID schemeID="0210">CXXNXX68M06E123H</cbc:ID>
-</cac:PartyIdentification>
-----
 
 Il Codice EORI può essere espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.
 

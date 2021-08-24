@@ -19925,15 +19925,15 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="xs:decimal(cac:AllowanceCharge/cbc:BaseAmount) = xs:decimal(cbc:PriceAmount) - (round(sum(cac:AllowanceCharge[cbc:ChargeIndicator=false()]/xs:decimal(cbc:Amount)) * 10 * 10) div 100)"/>
+         <axsl:when test="xs:decimal(cac:AllowanceCharge/cbc:BaseAmount) = xs:decimal(cbc:PriceAmount) + (round(sum(cac:AllowanceCharge[cbc:ChargeIndicator=false()]/xs:decimal(cbc:Amount)) * 10 * 10) div 100)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="xs:decimal(cac:AllowanceCharge/cbc:BaseAmount) = xs:decimal(cbc:PriceAmount) - (round(sum(cac:AllowanceCharge[cbc:ChargeIndicator=false()]/xs:decimal(cbc:Amount)) * 10 * 10) div 100)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="xs:decimal(cac:AllowanceCharge/cbc:BaseAmount) = xs:decimal(cbc:PriceAmount) + (round(sum(cac:AllowanceCharge[cbc:ChargeIndicator=false()]/xs:decimal(cbc:Amount)) * 10 * 10) div 100)">
                <axsl:attribute name="id">BR-IT-433</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-433][FPA 2.2.1.9 PrezzoUnitario, 2.2.1.10.3 Importo] - The BT-148 (Item gross price) must be the result of the sum of BT-146 (Item net price) with any applicable allowance. Its maximum length shall be 21 chars and BT allowed fraction digits shall be 8 - Il BT-148 (Prezzo lordo) deve essere il risultato del BT-146 (Prezzo netto) sommato ad eventuali sconti o maggiorazioni (BT-147).</svrl:text>
+               <svrl:text>[BR-IT-433][FPA 2.2.1.9 PrezzoUnitario, 2.2.1.10.3 Importo] - The BT-148 (Item gross price) must be the result of the sum of BT-146 (Item net price) with any applicable allowance. - Il BT-148 (Prezzo lordo) deve essere il risultato del BT-146 (Prezzo netto) sommato ad eventuali sconti o maggiorazioni (BT-147).</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -20181,12 +20181,12 @@
          <axsl:when test="count(cac:WithholdingTaxTotal) &lt;= 1"/>
          <axsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="count(cac:WithholdingTaxTotal) &lt;= 1">
-               <axsl:attribute name="id">BR-IT-DE-099FT1</axsl:attribute>
+               <axsl:attribute name="id">BR-IT-DE-009FT1</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-DE-099FT1][FPA 2.1.1.5 - Dati Ritenuta] - L'estensione deve contenere un elemento cac:WithholdingTaxTotal.</svrl:text>
+               <svrl:text>[BR-IT-DE-009FT1][FPA 2.1.1.5 - Dati Ritenuta] - L'estensione deve contenere un elemento cac:WithholdingTaxTotal.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -20201,31 +20201,15 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="count(cac:WithholdingTaxTotal) = 1"/>
+         <axsl:when test="count(cac:WithholdingTaxTotal) = 1 and count(/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Ritenuta']) = 1"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="count(cac:WithholdingTaxTotal) = 1">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="count(cac:WithholdingTaxTotal) = 1 and count(/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Ritenuta']) = 1">
                <axsl:attribute name="id">BR-IT-DE-009NC1</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
                <svrl:text>[BR-IT-DE-009NC1][FPA 2.1.1.5 - Dati Ritenuta] - L'estensione deve contenere uno elemento cac:WithholdingTaxTotal.</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
-         <axsl:when test="count(cac:WithholdingTaxTotal/cac:TaxSubtotal) &gt;= 1"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="count(cac:WithholdingTaxTotal/cac:TaxSubtotal) &gt;= 1">
-               <axsl:attribute name="id">BR-IT-DE-009NC2</axsl:attribute>
-               <axsl:attribute name="flag">fatal</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </axsl:attribute>
-               <svrl:text>[BR-IT-DE-009NC2][FPA 2.1.1.5 - Dati Ritenuta] - Il cac:WithholdingTaxTotal deve contenere almeno una ritenuta (cac:TaxSubtotal).</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -20256,9 +20240,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="count(cac:TaxSubtotal) &gt;= 1 and count(cac:TaxSubtotal) &lt;= 2"/>
+         <axsl:when test="count(cac:TaxSubtotal) &gt;= 1"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="count(cac:TaxSubtotal) &gt;= 1 and count(cac:TaxSubtotal) &lt;= 2">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="count(cac:TaxSubtotal) &gt;= 1">
                <axsl:attribute name="id">BR-IT-DE-011</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">

@@ -45,10 +45,6 @@
 |2.1.1.5 Dati Ritenuta
 |L'estensione deve contenere un elemento cac:WithholdingTaxTotal.
 
-|BR-IT-DE-009NC2
-|2.1.1.5 Dati Ritenuta
-|Il cac:WithholdingTaxTotal deve contenere almeno una ritenuta (cac:TaxSubtotal)
-
 |BR-IT-DE-009FT1
 |2.1.1.5 Dati Ritenuta
 |L'estensione deve contenere un elemento cac:WithholdingTaxTotal.

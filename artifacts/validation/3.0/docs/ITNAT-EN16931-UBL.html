@@ -1224,7 +1224,7 @@
                            registration identifier) deve contenere un Codice Fiscale con lunghezza compresa fra 11 e 16 caratteri.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-IT-DC-122" data-context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLegalForm" data-test="string-length(.) <= 21 and matches(.,'^([1-9]+\d{0,2}(\.\d{3})*|([1-9]+\d*))*(#SU|SM)*(#LS|LN)$')">
+                  <tr id="BR-IT-DC-122" data-context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLegalForm" data-test="string-length(.) <= 21 and matches(.,'^([0-9]+\d{0,2}(\.\d{3})*|([0-9]+\d*))?(#(SU|SM))?(#(LS|LN))?$')">
                      <td><a href="#">BR-IT-DC-122</a><br><span class="message">[BR-IT-DC-122][FPA 1.2.4.3 CapitaleSociale, 1.2.4.4 SocioUnico, 1.2.4.5 StatoLiquidazione] - La lunghezza dell'elemento non
                            pu&ograve; superare i 21 caratteri.</span></td>
                      <td style="width: 5%;">fatal</td>

@@ -70,10 +70,6 @@ con @schemeID = AVV
 `cac:AdditionalDocumentReference/cbc:ID` (0.n) +
 con @schemeID = AOR
 
-A livello di riga +
-`cac:InvoiceLine/cac:DocumentReference/cbc:ID` (0..n) +
-con @schemeID = AOR
-
 
 
 |====

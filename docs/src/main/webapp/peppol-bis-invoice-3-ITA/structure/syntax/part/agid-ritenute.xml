@@ -27,7 +27,7 @@
 		<Name>Dettaglio Ritenuta</Name>
 		<Reference type="RULE">BR-IT-DE-011</Reference>
 
-		<Element cardinality="0..1">
+		<!--Element cardinality="0..1">
 			<Term>cbc:TaxableAmount</Term>
 			<Name>Imponibile Ritenuta</Name>
 			<DataType>Amount</DataType>
@@ -41,7 +41,7 @@
 				<Value type="EXAMPLE">EUR</Value>
 			</Attribute>
 			<Value type="EXAMPLE">1000.00</Value>
-		</Element>
+		</Element-->
 		
 		<Element>
 			<Term>cbc:TaxAmount</Term>

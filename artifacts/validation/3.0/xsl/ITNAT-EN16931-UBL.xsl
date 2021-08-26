@@ -19024,9 +19024,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="matches(.,'^ALBO:[a-zA-Z]+:[A-Z0-9]+$') and string-length(.) &gt;= 1 and string-length(.) &lt;= 137"/>
+         <axsl:when test="matches(.,'^ALBO:[a-zA-Z]+(#[A-Z0-9]+)*$') and string-length(.) &gt;= 1 and string-length(.) &lt;= 137"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^ALBO:[a-zA-Z]+:[A-Z0-9]+$') and string-length(.) &gt;= 1 and string-length(.) &lt;= 137">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^ALBO:[a-zA-Z]+(#[A-Z0-9]+)*$') and string-length(.) &gt;= 1 and string-length(.) &lt;= 137">
                <axsl:attribute name="id">BR-IT-DC-100B</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -19047,9 +19047,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="matches(.,'^REA:[a-zA-Z0-9]+:[A-Z0-9]+$') and string-length(.) &gt;= 8 and string-length(.) &lt;= 27"/>
+         <axsl:when test="matches(.,'^REA:[a-zA-Z0-9]+#[A-Z0-9]+$') and string-length(.) &gt;= 8 and string-length(.) &lt;= 27"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^REA:[a-zA-Z0-9]+:[A-Z0-9]+$') and string-length(.) &gt;= 8 and string-length(.) &lt;= 27">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^REA:[a-zA-Z0-9]+#[A-Z0-9]+$') and string-length(.) &gt;= 8 and string-length(.) &lt;= 27">
                <axsl:attribute name="id">BR-IT-DC-111A</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -19116,9 +19116,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="string-length(.) &lt;= 21"/>
+         <axsl:when test="string-length(.) &lt;= 21 and matches(.,'^([1-9]+\d{0,2}(\.\d{3})*|([1-9]+\d*))*(#SU|SM)*(#LS|LN)$')"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="string-length(.) &lt;= 21">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="string-length(.) &lt;= 21 and matches(.,'^([1-9]+\d{0,2}(\.\d{3})*|([1-9]+\d*))*(#SU|SM)*(#LS|LN)$')">
                <axsl:attribute name="id">BR-IT-DC-122</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">

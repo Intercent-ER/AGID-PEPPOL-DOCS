@@ -29,7 +29,7 @@ include::../{snippet-dir}/CreditNote-snippets.xml[tags=project ]
 <2> L'identificatore del riferimento al progetto
 
 
-Per riferirsi a più progetti (CUP) dalle righe di fattura è necessario utilizzare *cac:DocumentReference* con il codice tipo documento = 130.
+#Per riferirsi a più progetti (CUP) dalle righe di fattura è necessario utilizzare *cac:DocumentReference* con il codice tipo documento = 130.#
 
 .Esempio UBL per il riferimento al progetto (CUP) dalle righe fattura
 [source, xml, indent=0]

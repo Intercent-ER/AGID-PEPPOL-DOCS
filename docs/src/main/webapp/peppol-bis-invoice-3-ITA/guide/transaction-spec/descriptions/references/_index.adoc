@@ -12,11 +12,12 @@ Le transazioni su fatture e note di credito supportano i seguenti riferimenti al
 include::_order.adoc[]
 include::_buyer.adoc[]
 include::_invoiced-object.adoc[]
-include::_attachments.adoc[]
 include::../../../syntax/references/_index.adoc[]
 
 include::_ext-fattura-principale.adoc[]
 
 include::_riepilogo_riferimenti.adoc[]
+
+include::_attachments.adoc[]
 
 :leveloffset: -1

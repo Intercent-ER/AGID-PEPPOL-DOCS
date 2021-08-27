@@ -36,14 +36,14 @@ include::../../../syntax/references/_order.adoc[]
 #Si evidenzia che, ove la fattura non sia stata emessa a fronte di un processo di Ordinazione elettronica e, perciò, non è legata ad alcun Ordine o Ordine pre-concordato rilevante per il sistema NSO:#
 
 a. #se la fornitura non promana da alcun processo di ordinazione (elettronico o tradizionale), è sufficiente non compilare i campi sopra menzionati;#
-b. #se la fornitura promana da un processo di ordinazione tradizionale (ad esempio, via lettera, fax, ecc.), ovvero non gestito tramite NSO, per dare maggior evidenza a tale circostanza si può indicare l’identificativo dell’ordine emesso nelle forme tradizionali nei campi di cui al precedente punto e valorizzare i campi di cui al precedente punto con il testo "&#x0023;NO&#x0023;".# +
+b. #se la fornitura promana da un processo di ordinazione tradizionale (ad esempio, via lettera, fax, ecc.), ovvero non gestito tramite NSO, per dare maggior evidenza a tale circostanza si può indicare l’identificativo dell’ordine emesso nelle forme tradizionali nei campi di cui al precedente punto e valorizzare i campi di cui al precedente punto con il testo "&#x0023;NO&#x0023;".# 
 
 
-A livello di riga::
+*A livello di riga*
 
 #Il riferimento ad un ordine sulle righe di fattura avviene utilizzando l'elemento cac:OrderLineReference.# +
 
-* Riferimento all'intero ordine sulla riga di fattura
+[blue]#_Riferimento all'intero ordine sulla riga di fattura_#
 
 #Se la riga si riferisce genericamente all'ordine senza specificare la riga dell'ordine, si procede come da esempio:#
 
@@ -72,17 +72,16 @@ A livello di riga::
 	</cac:OrderReference>
 </cac:OrderLineReference>
 <cac:DocumentReference>
-    <cbc:ID>110#2018-01-30#aaaaaa</cbc:ID>
+    <cbc:ID schemeID="ON">110#2018-01-30#aaaaaa</cbc:ID>
     <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
 </cac:DocumentReference>
 ----
 
-
-* Riferimento alla riga d'ordine sulla riga di fattura
+[blue]#_Riferimento alla riga d'ordine sulla riga di fattura_#
 
 #Se la riga si riferisce specificamente ad una riga d'ordine, si procede con le seguenti modalità alternative:# +
 
-.#Esempio UBL con riferimento implicito all’Ordine fornito a livello testata#
+.Esempio UBL con riferimento implicito all’Ordine fornito a livello testata
 [source, xml, indent=0]
 ----
 <cac:OrderLineReference>
@@ -90,7 +89,7 @@ A livello di riga::
 </cac:OrderLineReference>
 ----
 
-.#Esempio UBL con riferimento esplicito alla riga di un Ordine a livello di riga fattura#
+.Esempio UBL con riferimento esplicito alla riga di un Ordine a livello di riga fattura
 [source, xml, indent=0]
 ----
 <cac:OrderLineReference>
@@ -115,7 +114,7 @@ A livello di riga::
 	</cac:OrderReference>
 </cac:OrderLineReference>
 <cac:DocumentReference>
-    <cbc:ID>123#2020-10-01#aaaaaa</cbc:ID>
+    <cbc:ID schemeID="ON">123#2020-10-01#aaaaaa</cbc:ID>
     <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
 </cac:DocumentReference>
 ----

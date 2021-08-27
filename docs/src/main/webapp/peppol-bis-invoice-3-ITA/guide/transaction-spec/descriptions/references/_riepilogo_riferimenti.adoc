@@ -8,6 +8,19 @@
 ^.^|Campo Fattura PA
 ^.^|Dove usarlo
 
+|*ORDINE*
+|Ordine cartaceo o elettronico
+|2.1.2.2 <IdDocumento> +
+2.1.2.3 <Data> +
+2.1.2.5 <CodiceCommessaConvenzione>
+|In testata si usa +
+`cac:OrderReference` (0.1) e `cbc:BuyerReference` (0.1) +
+
+A livello di riga +
+`cac:InvoiceLine/cac:OrderLineReference/cac:OrderReference` (0..n) e `cac:InvoiceLine/cac:DocumentReference/cbc:ID` (0..n) +
+con @schemeID = ON
+
+
 |*CONTRATTO*
 |Estremi Contratto
 |2.1.3.2 IdDocumento

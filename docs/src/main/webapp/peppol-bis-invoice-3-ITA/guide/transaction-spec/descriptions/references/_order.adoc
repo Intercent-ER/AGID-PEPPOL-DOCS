@@ -41,7 +41,7 @@ b. #se la fornitura promana da un processo di ordinazione tradizionale (ad esemp
 
 *A livello di riga*
 
-#Il riferimento ad un ordine sulle righe di fattura avviene utilizzando l'elemento cac:OrderLineReference.# +
+#Il riferimento ad un ordine sulle righe di fattura avviene utilizzando gli elementi cac:OrderLineReference e cac:DocumentReference.# +
 
 [blue]#_Riferimento all'intero ordine sulla riga di fattura_#
 
@@ -72,7 +72,7 @@ b. #se la fornitura promana da un processo di ordinazione tradizionale (ad esemp
 	</cac:OrderReference>
 </cac:OrderLineReference>
 <cac:DocumentReference>
-    <cbc:ID schemeID="ON">110#2018-01-30#aaaaaa</cbc:ID>
+    <cbc:ID schemeID="ON">123#2020-10-01#aaaaaa</cbc:ID>
     <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
 </cac:DocumentReference>
 ----

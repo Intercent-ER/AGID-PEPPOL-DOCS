@@ -14,10 +14,13 @@
 2.1.2.3 <Data> +
 2.1.2.5 <CodiceCommessaConvenzione>
 |In testata si usa +
-`cac:OrderReference` (0.1) e `cbc:BuyerReference` (0.1) +
+`cac:OrderReference` (0.1) e +
+`cbc:BuyerReference` (0.1) +
 
 A livello di riga +
-`cac:InvoiceLine/cac:OrderLineReference/cac:OrderReference` (0..n) e `cac:InvoiceLine/cac:DocumentReference/cbc:ID` (0..n) +
+`cac:InvoiceLine/cac:OrderLineReference/cac:OrderReference` (0..n) +
+e +
+`cac:InvoiceLine/cac:DocumentReference/cbc:ID` (0..n) +
 con @schemeID = ON
 
 

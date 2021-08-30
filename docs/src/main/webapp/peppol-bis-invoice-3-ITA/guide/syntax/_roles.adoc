@@ -48,9 +48,9 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 
 #Se il Fornitore è un’amministrazione pubblica, il campo *EndpointID/@schemeID* deve essere valorizzato con “0201:” seguito dal Codice UFE della PA.#
 
-#La Partita IVA va indicata nel *cac:PartyTaxScheme/cbc:CompanyID*.#
+#La Partita IVA deve essere indicata nel *cac:PartyTaxScheme/cbc:CompanyID*.#
 
-#Il Codice Fiscale va indicato nel *cac:PartyLegalEntity/cbc:CompanyID*, valorizzando l’attributo @schemeID con “0210”.#
+#Il Codice Fiscale deve essere indicato nel *cac:PartyLegalEntity/cbc:CompanyID*, valorizzando l’attributo @schemeID con “0210”.#
 
 .Esempio di indicazione della Partita Iva e del Codice Fiscale
 [source, xml, indent=0]
@@ -128,7 +128,7 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 </cac:AccountingSupplierParty>
 ----
 
-#Le informazioni relative all'Albo vengono fornite nel *cac:PartyIdentification/cbc:ID* concatenando il Nome Albo, il numero e la data iscrizione con il simbolo "&#x0023;", preceduti dalla stringa "ALBO:".#
+#Le informazioni relative all'Albo possono essere fornite nel *cac:PartyIdentification/cbc:ID* concatenando il Nome Albo, il numero e la data iscrizione con il simbolo "&#x0023;" omettendo l'attributo @schemeID ma includendo il prefisso "ALBO:" come nell'esempio di seguito.#
 
 [NOTE]
 Trattasi di CIUS domestica
@@ -161,7 +161,7 @@ Trattasi di CIUS domestica
 ----
 
 
-#Infine, il campo *cac:PartyIdentification/cbc:ID* può essere usato per indicare anche le informazioni relative a FPA 1.2.4.1 Ufficio e FPA 1.2.4.2 Numero REA  concatenando i due dati con il "&#x0023;", preceduti dalla stringa "REA:".#
+#Infine, il campo *cac:PartyIdentification/cbc:ID* può essere usato per indicare anche le informazioni relative a FPA 1.2.4.1 Ufficio e FPA 1.2.4.2 Numero REA  omettendo l'attributo @schemeID, includendo il prefisso "REA:" e concatenando i due dati con il "&#x0023;", come nell'esempio di seguito.#
 
 [NOTE]
 Trattasi di CIUS domestica 

@@ -648,7 +648,7 @@
 
 
 
-			<Element cardinality="0..n" agid:custom="rule,cardinality">
+			<Element cardinality="0..1" agid:custom="rule">
 				<Term>cac:OrderLineReference</Term>
 				<Name>ORDER LINE REFERENCE</Name>
 

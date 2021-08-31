@@ -264,7 +264,7 @@ BT-125 Attached document
 |La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento potrà avere fino a 8 cifre decimali.
 
 |BR-IT-432
-|Value domain for an element - Restrict text or byte array length
+|Cardinality - Make a conditional element mandatory (0..x --> 1..x)
 |BT-148 Item gross price
 |2.2.1.9 PrezzoUnitario
 |Il BT-148 Item gross price deve essere obbligatoriamente valorizzato

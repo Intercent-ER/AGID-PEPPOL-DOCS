@@ -1,26 +1,26 @@
 
 [[media-type]]
-= Media type code per i documenti allegati
+= Media type code of attached document
 
-Subset della codifica {IANA} Media Types.
+Subset of {IANA} Media Types.
 
 include::../../syntax/codelists/_mime-code.adoc[]
 
-I valori validi sono elencati nella tabella di seguito.
+Valid values are listed in the table below.
 
 [cols="1,4"]
 .Code list
 |===
 
-.1+h| Documenti
+.1+h| Documents
 | application/pdf
 
-.2+h| Imagini
+.2+h| Images
 | image/png
 | image/jpeg
 
 
-.1+h| Testo
+.1+h| Text
 | text/csv
 
 .2+h| Spreadsheet

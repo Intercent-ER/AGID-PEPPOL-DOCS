@@ -11,7 +11,7 @@ include::../../syntax/codelists/_inv-type.adoc[]
 .Codifica
 |===
 | Codice
-| Nome
+| None
 | Descrizione
 | Sinonimo di
 | Tipo messaggio UBL
@@ -19,76 +19,76 @@ include::../../syntax/codelists/_inv-type.adoc[]
 
 | 380
 | Commercial invoice
-| Documento/messaggio richiedente il pagamento per beni e servizi forniti alle condizioni accordate tra Fornitore e Cliente.
+| Document/message claiming payment for goods or services supplied under conditions agreed between seller and buyer.
 |
 | Invoice
 
 
 | 393
 | Factored invoice
-| Fattura assegnata ad una terza parte per la raccolta.
+| Invoice assigned to a third party for collection.
 | 380
 | Invoice
 
 
 | 82
 | Metered services invoice
-| Documento/messaggio richiedente il pagamento per la fornitura di servizi a tariffa (e.g., gas, elettricità, etc.) forniti con una tariffa fissa ed il quale consumo è misurato in un periodo di tempo.
+| Document/message claiming payment for the supply of metered services (e.g., gas, electricity, etc.) supplied to a fixed meter whose consumption is measured over a period of time.
 | 380
 | Invoice
 
 
 | 80
 | Debit note related to goods or services
-| Informazione di addebito relativa ad una transazione di beni e servizi.
+| Debit information related to a transaction for goods or services to the relevant party.
 | 380
 | Invoice
 
 
 | 84
 | Debit note related to financial adjustments
-| Documento/messaggio per fornire informazioni di addebito relative ad aggiustamenti finanziari. 
+| Document/message for providing debit information related to financial adjustments to the relevant party.
 | 380
 | Invoice
 
 
 | 395
 | Consignment invoice
-| Fattura commerciale che copre una transazione che non riguardi una vendita.
+| Commercial invoice that covers a transaction other than one involving a sale.
 | 380
 | Invoice
 
 
 | 575
 | Insurer's invoice
-| Documento/messaggio rilasciato da un assicuratore specificando il costo di un'assicurazione che è stata effettuata e per la quale si richiede il pagamento.  
+| Document/message issued by an insurer specifying the cost of an insurance which has been effected and claiming payment therefore
 | 380
 | Invoice
 
 
 | 623
 | Forwarder's invoice
-| Fattura emessa da uno speditore merci specificante i servizi forniti ed i costi incorsi e richiedente quindi il pagamento.
+| Invoice issued by a freight forwarder specifying services rendered and costs incurred and claiming payment therefore.
 | 380
 | Invoice
 
 
 | 780
 | Freight invoice
-| Documento/messaggio emesso circa un'operazione di trasporto specificante le spese di trasporto e le maggiorazioni incorse per il trasporto e dichiarante delle condizioni di pagamento.
+| Document/message issued by a transport operation specifying freight costs and charges incurred for a transport operation and stating conditions of payment.
 | 380
 | Invoice
 
 |383
 |Debit note
-| Documento/messaggio per fornire informazioni di addebito alla parte interessata.
+| Document/message for providing debit information to the relevant party.
 | 380
 | Invoice
 
 
 |386
 |Prepayment invoice
-|Un fattura per pagare un ammontare per beni e servizi in anticipo; questi importi verranno sottratti dalla fattura finale.
+|An invoice to pay amounts for goods and services in advance; these amounts will be subtracted from the final invoice.
 | 380
 | Invoice
 

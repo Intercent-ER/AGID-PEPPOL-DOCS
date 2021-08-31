@@ -1,6 +1,6 @@
 
 = Charge reason codes
 
-Tutti i codici di maggiorazione devono essere espressi secondo la codifica {UNCL7161}
+Any charge reason code shall be from {UNCL7161}
 
 include::../../syntax/codelists/_charge.adoc[]

@@ -7,5 +7,5 @@
 
 | Electronic address identifier (Endpoint)
 | cbc:EndpointID/@schemeID
-a| link:../../../../../../xml/ITA/peppol-bis-3/codelist/eas.html[Codifica EAS]
+a| {eas}
 |===

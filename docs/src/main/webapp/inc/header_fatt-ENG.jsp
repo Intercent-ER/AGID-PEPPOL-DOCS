@@ -59,13 +59,7 @@
 								</li>
 
 								<li class="dropdown dropdown-agid">
-									<a href="https://peppol-validator.agid.gov.it/" class="dropdown-toggle link-agid" target="_blank" role="button" title="Validation Platform (it opens a link in a new tab)">
-										Validator
-									</a>
-								</li>
-
-								<li class="dropdown dropdown-agid">
-									<a href="#" class="dropdown-toggle link-agid" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">EN<span class="caret"></span>
+									<a href="#" class="dropdown-toggle link-agid" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin-left: 150px">EN<span class="caret"></span>
 									</a>
 									<ul class="dropdown-menu">
 										<li><a href="<%=request.getContextPath()%>/my_index_fatt.jsp">IT</a></li>

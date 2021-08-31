@@ -1,6 +1,6 @@
 
 [[allowance-calc]]
-= Calcolo dell'importo degli sconti/maggiorazioni
+= Calcolo dell'importo sconto/maggiorazione
 
 Gli sconti e le maggiorazioni a livello di testata e a livello di riga consistono di elementi informativi che specificano sia l'importo base dello sconto/maggiorazione che la percentuale. Se presenti in fattura, questi sono usati per calcolare l'importo di sconto/maggiorazione.
 
@@ -11,9 +11,6 @@ Il calcolo dell'importo è quindi:
 ====
 stem:["Amount" =  "Base amount" times ("Percentage" div 100)]
 ====
-
-[IMPORTANT]
-#Nel contesto nazionale la sezione è utilizzata solo per Bollo (vedi paragrafo 4.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 4.8).#
 
 
 include::../../syntax/_allowance-calc.adoc[]

@@ -2,7 +2,7 @@
 = Calcoli a livello di riga
 
 [[price-calc]]
-== Prezzo netto dell'articolo (BT-146)
+== Prezzo netto del'articolo (BT-146)
 
 Se è presente il prezzo lordo e lo sconto, il prezzo netto dell'articolo deve essere uguale al prezzo lordo dell'articolo meno lo sconto sul prezzo.
 
@@ -11,32 +11,14 @@ Formula di calcolo:
 stem:["Item net price" = "Item gross price (BT-148)" - "Item price discount (BT-147)"]
 ====
 
-.Esempio di sconto sul prezzo dell'articolo
-[source, xml, indent=0]
-----
-<cac:InvoiceLine>
-....
-    <cac:Price>
-        <cbc:PriceAmount currencyID="EUR">410</cbc:PriceAmount><3> 
-        <cbc:BaseQuantity unitCode="C62">1</cbc:BaseQuantity>
-        <cac:AllowanceCharge>
-            <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-            <cbc:Amount currencyID="EUR">40</cbc:Amount><2>
-            <cbc:BaseAmount currencyID="EUR">450</cbc:BaseAmount><1>  
-        </cac:AllowanceCharge>
-    </cac:Price>
-</cac:InvoiceLine>
-----
-<1> Prezzo lordo dell'articolo
-<2> Sconto sul prezzo dell'articolo
-<3> Prezzo netto dell'articolo (Importo base - Sconto)
+include::../../syntax/_priceamount.adoc[]
 
 
 
 [[lineamount-calc]]
 == Importo netto della riga fattura (BT-131)
 
-L'importo netto della riga fattura (BT-131) è l'importo *netto* senza IVA incluso gli sconti e le maggiorazioni di riga.
+L'importo netto delle riga fattura (BT-131) è, come il suo nome lo implica, l'importo *netto* senza IVA inclusivo degli sconti e maggiorazioni di riga.
 
 La formula per calcolare l'importo netto di riga è:
 
@@ -46,66 +28,9 @@ stem:[times ("Invoiced Quantity (BT-129)")] +
 stem:[+ "Invoice line charge amount (BT-141)" - "Invoice line allowance amount (BT-136)"]
 ====
 
-IMPORTANT: L'importo netto di riga deve essere arrotondato a due decimali, pertanto, bisogna prestare attenzione ad +
-arrotondare le diverse parti del calcolo separatamente. +
+IMPORTANT: Siccome l'importo netto di riga deve essere arrotondato a due decimali, bisogna prestare attenzione ad arrotondare le diverse parti del calcolo separatamente. +
 Es. il risultato di
 stem:["Item line net amount" = (("Item net price (BT-146)" div "Item price base quantity (BT-149)") times ("Invoiced Quantity (BT-129)")]
 deve essere arrontondato a due decimali e gli sconti/maggiorazionisono anch'essi arrotondati separatamente.
 
-
-.Esempio di importo netto di riga fattura senza sconti e/o maggiorazioni
-[source, xml, indent=0]
-----
-<cac:InvoiceLine>
-...
-    <cbc:InvoicedQuantity unitCode="C62">10</cbc:InvoicedQuantity><3>
-    <cbc:LineExtensionAmount currencyID="EUR">1000.00</cbc:LineExtensionAmount><4>
-...
-    <cac:Price>
-        <cbc:PriceAmount currencyID="EUR">200</cbc:PriceAmount><1>
-        <cbc:BaseQuantity unitCode="C62">2</cbc:BaseQuantity><2> 
-    </cac:Price>
-</cac:InvoiceLine>
-----
-<1> Prezzo netto dell'articolo
-<2> Quantità base del prezzo dell'articolo
-<3> Quantità fatturata
-<4> Importo netto della riga = ((Item net price ÷ Item price base quantity) × (Invoiced Quantity)
-
-
-
-
-.Esempio di importo netto di riga fattura con sconti e maggiorazioni
-[source, xml, indent=0]
-----
-<cac:InvoiceLine>
-...
-    <cbc:InvoicedQuantity unitCode="C62">10</cbc:InvoicedQuantity><4>
-    <cbc:LineExtensionAmount currencyID="EUR">900.00</cbc:LineExtensionAmount><5>
-    ...
-    <cac:AllowanceCharge>
-        <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
-        <cbc:AllowanceChargeReasonCode>CG</cbc:AllowanceChargeReasonCode>
-        <cbc:AllowanceChargeReason>Charge</cbc:AllowanceChargeReason>
-        <cbc:MultiplierFactorNumeric>1</cbc:MultiplierFactorNumeric>
-        <cbc:Amount currencyID="EUR">1</cbc:Amount><2>
-        <cbc:BaseAmount currencyID="EUR">100</cbc:BaseAmount>
-    </cac:AllowanceCharge>
-    <cac:AllowanceCharge>
-        <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-        <cbc:AllowanceChargeReasonCode>95</cbc:AllowanceChargeReasonCode>
-        <cbc:AllowanceChargeReason>Discount</cbc:AllowanceChargeReason>
-        <cbc:Amount currencyID="EUR">101</cbc:Amount><3>
-    </cac:AllowanceCharge>
-    ...
-    <cac:Price>
-        <cbc:PriceAmount currencyID="EUR">100</cbc:PriceAmount><1>
-    </cac:Price>
-</cac:InvoiceLine>
-----
-<1> Prezzo netto dell'articolo
-<2> Maggiorazioni sulla riga
-<3> Sconti sulla riga
-<4> Quantità fatturata
-<5> Importo netto della riga = (Item net price × Invoiced Quantity) + line charge amount − line allowance amount
-
+include::../../syntax/_lineamount.adoc[]

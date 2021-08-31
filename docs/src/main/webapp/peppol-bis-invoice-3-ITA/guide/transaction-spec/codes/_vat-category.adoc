@@ -1,19 +1,17 @@
 
 = VAT category codes
 
-[[anchor-17]]
-
-Un sottoinsieme di valori della codifica {UNCL5305} deve essere usato.
+A subset of values from {UNCL5305} shall be used.
 
 include::../../syntax/codelists/_vat-category.adoc[]
 
-I valori validi sono elencati nella tabella di seguito:
+Valid values are listed in the table below:
 
 [cols="1,4", options="header"]
 .Code list
 |===
-| Codice
-| Descrizione
+| Code
+| Description
 
 | AE
 | Vat Reverse Charge

@@ -1,12 +1,12 @@
 [[uom]]
-= Unità di misura
+= Unit of measure
 
-I codici validi devono essere espressi secondo la codifica {UNRec20}. A meno che i codici per l'unità di misura non siano normalmente usati, gli implementatori dovrebbero, ove necessario, fornire una funzionalità per chiarire il codice quando le fatture vengono visualizzate.
+Valid unit codes shall be from {UNRec20}. Unless codes for unit of measure are not in common daily use, implementers should as necessary provide a function for clarification of codes when invoices are visualised.
 
 
 ****
-NOTE: I codici per l'unità di confezionamento secondo la codifica UNECE Recommendation No. 21, possono essere usati in accordo con la descrizione presente nella sezione "Intro" della {UNRec20}: +
-_"I codici alfanumerici a 2 caratteri della UNECE Recommendation 21 sono utilizzati. Per evitare duplicazioni con i codici esistenti nella UNECE Recommendation No. 20, ciascun codice della UNECE Recommendation 21 deve avere come pregisso “X”, così che risulti come un codice alfanumerico a 3 caratteri quando usato come unità di misura."_
+NOTE: Codes for unit of packaging from UNECE Recommendation No. 21 can be used in accordance with the descriptions in the "Intro" section of {UNRec20}: +
+_The 2 character alphanumeric code values in UNECE Recommendation 21 shall be used. To avoid duplication with existing code values in UNECE Recommendation No. 20, each code value from UNECE Recommendation 21 shall be prefixed with an “X”, resulting in a 3 alphanumeric code when used as a unit of measure._
 ****
 
 include::../../syntax/codelists/_uom.adoc[]

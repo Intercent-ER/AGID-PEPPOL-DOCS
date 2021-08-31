@@ -112,6 +112,8 @@ Se trattasi di consegna domiciliare (ad esempio, all’indirizzo di un paziente)
 <cac:Delivery>
     <cac:DeliveryLocation>
         <cbc:ID>Consegna domiciliare</cbc:ID>
+        <Name>Entrata lato portineria</Name>
+        <cac:Address>
             <cbc:StreetName>Via Attanasio Soldati 80</cbc:StreetName>
             <cbc:AdditionalStreetName>Località La Rustica</cbc:AdditionalStreetName>
             <cbc:CityName>Roma</cbc:CityName>

@@ -1,37 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:fdc:difi.no:2017:vefa:structure:CodeList-1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-	<xs:element name="CodeList">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element type="xs:string" name="Title"/>
-				<xs:element type="xs:string" name="Identifier"/>
-				<xs:element type="xs:string" name="Version"/>
-				<xs:element type="xs:string" name="Agency"/>
-				<xs:element name="Code" maxOccurs="unbounded" minOccurs="0">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element type="xs:string" name="Id"/>
-							<xs:element type="xs:string" name="Name"/>
-							<xs:element type="xs:string" name="Description"/>
-							<xs:element type="xs:string" name="LocalId" minOccurs="0"/>
-							<xs:element type="xs:string" name="LocalName" minOccurs="0"/>
-							<xs:element type="xs:string" name="LocalDescription" minOccurs="0"/>
-							<xs:element type="xs:string" name="LocalUsageNotes" minOccurs="0"/>
-							<xs:element ref="LocalCode" maxOccurs="unbounded" minOccurs="0"/>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-
-	<xs:element name="LocalCode">
-		<xs:complexType>
-			<xs:sequence>
-				<xs:element type="xs:string" name="LocalId"/>
-				<xs:element type="xs:string" name="LocalName"/>
-			</xs:sequence>
-		</xs:complexType>
-	</xs:element>
-
+    <xs:element name="CodeList">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="xs:string" name="Title"/>
+                <xs:element type="xs:string" name="Identifier"/>
+                <xs:element type="xs:string" name="Version"/>
+                <xs:element type="xs:string" name="Agency"/>
+                <xs:element name="Code" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="Id"/>
+                            <xs:element type="xs:string" name="Name"/>
+                            <xs:element type="xs:string" name="Description"/>
+                            <xs:element type="xs:string" name="LocalId"/>
+                            <xs:element type="xs:string" name="LocalName"/>
+                            <xs:element type="xs:string" name="LocalDescription"/>
+                            <xs:element type="xs:string" name="LocalUsageNotes"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>

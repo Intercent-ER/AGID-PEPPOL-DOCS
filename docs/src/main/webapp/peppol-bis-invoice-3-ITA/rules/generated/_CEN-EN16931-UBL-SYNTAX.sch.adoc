@@ -1336,22 +1336,6 @@
 | [UBL-CR-671]-A UBL invoice should not include a Price Allowance Multiplier Factor
 | UBL-CR-672 *(warning)*
 | [UBL-CR-672]-A UBL credit note should not include the CreditNoteTypeCode listID
-| UBL-CR-673 *(warning)*
-| [UBL-CR-673]-A UBL invoice shall not include an AdditionalDocumentReference simultaneously referring an Invoice Object Identifier and an Document Description
-| UBL-CR-674 *(warning)*
-| [UBL-CR-674]-A UBL invoice should not include the PrimaryAccountNumber schemeID
-| UBL-CR-675 *(warning)*
-| [UBL-CR-675]-A UBL invoice should not include the NetworkID schemeID
-| UBL-CR-676 *(warning)*
-| [UBL-CR-676]-A UBL invoice should not include the PaymentMandate/ID schemeID
-| UBL-CR-677 *(warning)*
-| [UBL-CR-677]-A UBL invoice should not include the PayerFinancialAccount/ID schemeID
-| UBL-CR-678 *(warning)*
-| [UBL-CR-678]-A UBL invoice should not include the TaxCategory/ID schemeID
-| UBL-CR-679 *(warning)*
-| [UBL-CR-679]-A UBL invoice should not include the ClassifiedTaxCategory/ID schemeID
-| UBL-CR-680 *(warning)*
-| [UBL-CR-680]-A UBL invoice should not include the PaymentMeans/PayerFinancialAccount
 | UBL-DT-01 *(fatal)*
 | [UBL-DT-01]-Amounts shall be decimal up to two fraction digits
 | UBL-DT-06 *(fatal)*

@@ -1,17 +1,17 @@
 
-= Codice Esigibilità IVA 
+= Value added tax point date code
 
-Un sottoinsieme di valori della codifica {UNCL2005} deve essere usato.
+A subset of values from {UNCL2005} shall be used.
 
 include::../../syntax/codelists/_taxpoint-date.adoc[]
 
-I valori validi sono elencati nella tabella di seguito:
+Valid values are listed in the table below:
 
 [cols="1,4", options="header"]
 .Code list
 |===
-| Codice
-| Descrizione
+| Code
+| Description
 
 | 3
 | Invoice document issue date time

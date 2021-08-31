@@ -18,14 +18,14 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li class="btn-group" id="peppol-bis">
-							<button type="button" class="btn btn-primary btn-agid" style="margin-top: 8px;">PEPPOL BIS 3 (fatturazione)</button>
+							<button type="button" class="btn btn-primary btn-agid" style="margin-top: 8px;">PEPPOL BIS Fatturazione 3</button>
 							<button type="button" class="btn btn-primary dropdown-toggle btn-agid dropdown-alignment" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 8px;">
 								<span class="caret"></span>
 								<span class="sr-only">Toggle Dropdown</span>
 							</button>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="<%=request.getContextPath()%>/my_index_fatt.jsp">PEPPOL BIS 3 (fatturazione)</a>
+									<a href="<%=request.getContextPath()%>/my_index_fatt.jsp">PEPPOL BIS Fatturazione 3</a>
 									</li>
 									<li>
 										<a href="<%=request.getContextPath()%>/my_index.jsp">PEPPOL BIS 3 (altri processi)</a>
@@ -52,20 +52,14 @@
 
 								</li>
 
-								<!--<li class="dropdown dropdown-agid">
+								<li class="dropdown dropdown-agid">
 									<a href="#" class="dropdown-toggle link-agid" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Fogli di stile <span class="caret"></span>
 									</a>
 									<%@include file="../peppol-bis-invoice-3-ITA/menu/stylesheet-menu.html" %>
-								</li>-->
-
-								<li class="dropdown dropdown-agid">
-									<a href="https://peppol-validator.agid.gov.it/" class="dropdown-toggle link-agid" target="_blank" role="button" title="Piattaforma di Validazione PEPPOL (apre un link in nuova finestra)">
-										Validatore
-									</a>
 								</li>
 
 								<li class="dropdown dropdown-agid">
-									<a href="#" class="dropdown-toggle link-agid" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">IT<span class="caret"></span>
+									<a href="#" class="dropdown-toggle link-agid" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin-left: 150px">IT<span class="caret"></span>
 									</a>
 									<ul class="dropdown-menu">
 										<li><a href="<%=request.getContextPath()%>/my_index_fatt.jsp">IT</a></li>

@@ -1,0 +1,40 @@
+
+
+.Esempio UBL di fattura che deve essere corretta
+[source, xml, indent=0]
+----
+include::{snippet-dir}/base-example.xml[tags=negative]
+----
+<1> Importo della maggiorazione
+<2> Riga 1 della fattura con quantità positiva e importo di riga positivo
+<3> Riga 2 della fattura con quantità negativa e importo di riga negativo
+
+== Accredito tramite nota di credito
+
+La funzione di accredito o addebito è controllata semplicemente dal tipo di documento commerciale (e.g. 380 o 381) mentre la rappresentazione dell'importo, incluso il suo segno, non è influenzata.
+
+.Esempio UBL di una nota di credito che corregge la fattura presente nell’esempio precedente
+[source, xml, indent=0]
+----
+include::{snippet-dir}/base-creditnote-correction.xml[tags=negative]
+----
+<1> Codice 381 indica una nota di credito
+<2> Importo della maggiorazione
+<3> Riga 1 della fattura con quantità positiva e importo di riga positivo
+<4> Riga 2 della fattura con quantità negativa e importo di riga negativo
+
+== Accredito tramite fattura negativa
+
+La funzione di accredito o addebito è controllata semplicemente dal segno (cioè segno più o segno meno) dell'importo in questione, mentre il tipo di documento commerciale (ad esempio 380) non ha alcuna rilevanza sull'operazione ("accreditare") stessa.
+
+.Esempio UBL di fattura negativa che corregge la fattura presente nell’esempio precedente
+[source, xml, indent=0]
+----
+include::{snippet-dir}/base-negative-inv-correction.xml[tags=negative]
+----
+<1> Codice 380 indica una fattura
+<2> L'importo della maggiorazione è negativa per correggere la fattura originale
+<3> Tutti gli importi a livello di documento sono negativi
+<4> Fattura linea 1 con quantità originariamente positiva e importo di riga entrambi negativi
+<5> L'importo del prezzo deve essere sempre positivo e non modificato
+<6> Fattura linea 2 con quantità originariamente negativa e importo di riga positiva

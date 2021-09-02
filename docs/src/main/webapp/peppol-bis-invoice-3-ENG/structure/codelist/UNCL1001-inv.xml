@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeList xmlns="urn:fdc:difi.no:2017:vefa:structure:CodeList-1">
+
+    <Title>Invoice type code (UNCL1001 subset)</Title>
+    <Identifier>UNCL1001-inv</Identifier>
+    <Version>D.16B</Version>
+    <Agency>UN/CEFACT</Agency>
+    <Subset>openPEPPOL</Subset>
+
+   
+ 
+    <Code>
+        <Id>80</Id>
+        <Name>Debit note related to goods or services</Name>
+        <Description>Debit information related to a transaction for goods or
+            services to the relevant party.
+        </Description>
+        <Nome>Nota di addebito relativa a beni o servizi</Nome>
+        <LocalDescription>Informazioni di addebito relative a una transazione per beni o servizi alla parte interessata.</LocalDescription>
+    </Code>
+   
+    <Code>
+        <Id>82</Id>
+        <Name>Metered services invoice</Name>
+        <Description>Document/message claiming payment for the supply of
+            metered services (e.g., gas, electricity, etc.) supplied
+            to a fixed meter whose consumption is measured over a
+            period of time.
+        </Description>
+        <Nome>Fattura dei servizi con contatore</Nome>
+        <LocalDescription>Documento / messaggio che richiede il pagamento per la fornitura di servizi misurati (ad es. Gas, elettricità, ecc.) Forniti a un contatore fisso il cui consumo è misurato su un periodo di tempo.</LocalDescription>
+    </Code>
+   
+    <Code>
+        <Id>84</Id>
+        <Name>Debit note related to financial adjustments</Name>
+        <Description>Document/message for providing debit information related
+            to financial adjustments to the relevant party.
+        </Description>
+        <Nome>Nota di addebito relativa agli adeguamenti finanziari</Nome>
+        <LocalDescription>Documento / messaggio per fornire informazioni di addebito relative agli adeguamenti finanziari alla parte interessata.</LocalDescription>
+    </Code>
+ 
+   
+    <Code>
+        <Id>380</Id>
+        <Name>Commercial invoice</Name>
+        <Description>(1334) Document/message claiming payment for goods or
+            services supplied under conditions agreed between seller
+            and buyer.
+        </Description>
+        <Nome>Fattura commerciale</Nome>
+        <LocalCode>
+            <LocalId>TD01</LocalId>
+            <LocalName>Fattura</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD06</LocalId>
+            <LocalName>Parcella</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD16</LocalId>
+            <LocalName>Integrazione fattura reverse charge interno</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD17</LocalId>
+            <LocalName>Integrazione/autofattura per acquisto servizi dall'estero</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD18</LocalId>
+            <LocalName>Integrazione per acquisto di beni intracomunitari</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD19</LocalId>
+            <LocalName>Integrazione/autofattura per acquisto di beni ex art.17 c.2 DPR 633/72</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD20</LocalId>
+            <LocalName>Autofattura per regolarizzazione e integrazione delle fatture (ex art.6 c.8 d.lgs. 471/97  o  art.46 c.5 D.L. 331/93)</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD21</LocalId>
+            <LocalName>Autofattura per splafonamento</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD22</LocalId>
+            <LocalName>Estrazione beni da Deposito IVA</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD23</LocalId>
+            <LocalName>Estrazione beni da Deposito IVA con versamento dell'IVA</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD24</LocalId>
+            <LocalName>Fattura differita di cui all'art. 21, comma 4, lett. a)</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD25</LocalId>
+            <LocalName>Fattura differita di cui all'art. 21, comma 4, terzo periodo lett. b)</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD26</LocalId>
+            <LocalName>Cessione di beni ammortizzabili e per passaggi interni (ex art.36 DPR 633/72)</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD27</LocalId>
+            <LocalName>Fattura per autoconsumo o per cessioni gratuite senza rivalsa</LocalName>
+        </LocalCode>
+    </Code>
+  
+    <Code>
+        <Id>383</Id>
+        <Name>Debit note</Name>
+        <Description>Document/message for providing debit information to the
+            relevant party.
+        </Description>
+        <Nome>Nota di debito</Nome>
+        <LocalId>TD05</LocalId>
+        <LocalName>Nota di debito</LocalName>
+        <LocalDescription>Documento / messaggio per fornire informazioni di addebito alla parte interessata. Supportata dallo SDI.</LocalDescription>
+    </Code>
+   
+    <Code>
+        <Id>386</Id>
+        <Name>Prepayment invoice</Name>
+        <Description>An invoice to pay amounts for goods and services in
+            advance; these amounts will be subtracted from the final
+            invoice.
+        </Description>
+        <Nome>Fattura di pagamento anticipato</Nome>
+        <LocalDescription>Fattura per pagare anticipatamente i beni e i servizi; questi importi saranno sottratti dalla fattura finale. Codifica utile per supportare acconto/anticipo su fattura (e parcella)</LocalDescription>
+        <LocalCode>
+            <LocalId>TD02</LocalId>
+            <LocalName>Acconto/anticipo su fattura</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD03</LocalId>
+            <LocalName>Acconto/anticipo su parcella</LocalName>
+        </LocalCode>
+    </Code>
+   
+    <Code>
+        <Id>393</Id>
+        <Name>Factored invoice</Name>
+        <Description>Invoice assigned to a third party for collection.</Description>
+        <Nome>Fattura fattorizzata</Nome>
+        <LocalDescription>Fattura assegnata a terzi per la raccolta. Non supportata dallo SDI.</LocalDescription>
+    </Code>
+  
+    <Code>
+        <Id>395</Id>
+        <Name>Consignment invoice</Name>
+        <Description>Commercial invoice that covers a transaction other than
+            one involving a sale.
+        </Description>
+        <Nome>Fattura di consegna</Nome>
+        <LocalDescription>Fattura commerciale che copre una transazione diversa da quella che comporta una vendita.</LocalDescription>
+    </Code>
+  
+    <Code>
+        <Id>575</Id>
+        <Name>Insurer's invoice</Name>
+        <Description>Document/message issued by an insurer specifying the
+            cost of an insurance which has been effected and
+            claiming payment therefore.
+        </Description>
+        <Nome>Fattura dell'assicuratore</Nome>
+        <LocalDescription>Documento / messaggio rilasciato da un assicuratore che specifica il costo di un'assicurazione che è stata effettuata e che richiede quindi il pagamento.</LocalDescription>
+    </Code>
+  
+    <Code>
+        <Id>623</Id>
+        <Name>Forwarder's invoice</Name>
+        <Description>Invoice issued by a freight forwarder specifying
+            services rendered and costs incurred and claiming
+            payment therefore.
+        </Description>
+        <Nome>Fattura dello spedizioniere</Nome>
+        <LocalDescription>Fattura emessa da uno spedizioniere che specifica i servizi resi e i costi sostenuti e la richiesta di pagamento.</LocalDescription>
+    </Code>
+    
+    <Code>
+        <Id>780</Id>
+        <Name>Freight invoice</Name>
+        <Description>Document/message issued by a transport operation
+            specifying freight costs and charges incurred for a
+            transport operation and stating conditions of payment.
+        </Description>
+        <Nome>Fattura per il trasporto</Nome>
+        <LocalDescription>Documento / messaggio emessa da un'operazione di trasporto che specifica i costi e gli oneri di trasporto sostenuti per un'operazione di trasporto e indica le condizioni di pagamento.</LocalDescription>
+    </Code>
+   
+</CodeList>

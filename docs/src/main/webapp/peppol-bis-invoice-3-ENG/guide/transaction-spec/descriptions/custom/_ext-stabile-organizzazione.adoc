@@ -1,0 +1,22 @@
+
+= #La Stabile Organizzazione del fornitore (AccountingSupplierParty/Party/AgentParty)#
+
+Nella fatturazione tra privati (B2B), se il cedente/prestatore non residente ha una stabile organizzazione in Italia, si può specificare in fattura come parte dei dati del fornitore nell'elemento AgentParty.
+
+.Esempio UBL per la stabile organizzazione del fornitore
+[source, xml, indent=0]
+----
+include::../../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_fornitore]
+----
+
+
+= #La Stabile Organizzazione del cliente (AccountingCustomerParty/Party/AgentParty)#
+
+Nella fatturazione tra privati (B2B), se il cessionario/committente non residente ha una stabile organizzazione in Italia, si può specificare in fattura come parte dei dati del cliente nell'elemento AgentParty.
+
+
+.Esempio UBL per la stabile organizzazione del cliente
+[source, xml, indent=0]
+----
+include::../../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_cliente]
+----

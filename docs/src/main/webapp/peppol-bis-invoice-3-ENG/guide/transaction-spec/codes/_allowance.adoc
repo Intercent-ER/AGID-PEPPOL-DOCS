@@ -1,18 +1,18 @@
 
 = Allowance reason codes
 
-Any allowance reason codes shall be from {UNCL5189}
+Tutti i codici di sconto devono essere espressi secondo la codifica {UNCL5189}
 
 
 include::../../syntax/codelists/_allowance.adoc[]
 
-Valid values are listed in the table below:
+I valori validi sono elencati nella tabella di seguito:
 
 [cols="1,4", options="header"]
 .Code list
 |===
-| Code
-| Description
+| Codice
+| Descrizione
 
 
 | 41

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" xmlns:agid="urn:fdc:agid.gov.it:peppol:customization" cardinality="0..1" agid:custom="extension">
+
+	<Term>cac:Despatch</Term>
+	<Name>Ritiro merce (Pickup)</Name>
+	<Description>Il ritiro della merce e l'inizio del trasporto.</Description>
+
+	<Element cardinality="0..1">
+		<Term>cbc:Instructions</Term>
+		<Name>Causale Trasporto - FPA 2.1.9.3 'CausaleTrasporto'</Name>
+		<DataType>Text</DataType>
+		<Reference type="RULE">BR-IT-DE-035</Reference>
+		<Value type="EXAMPLE">Vendita</Value>
+
+	</Element>
+
+	<Element cardinality="0..1">
+		<Term>cbc:RequestedDespatchDate</Term>
+		<Name>Data Ritiro - FPA 2.1.9.9 'DataOraRitiro'</Name>
+		<Description>Data del ritiro della merce (YYYY-MM-DD).</Description>
+		<DataType>Date</DataType>
+		<Value type="EXAMPLE">2017-11-01</Value>
+	</Element>
+
+	<Element cardinality="0..1">
+		<Term>cbc:RequestedDespatchTime</Term>
+		<Name>Ora Ritiro - FPA 2.1.9.9 'DataOraRitiro'</Name>
+		<Description>Ora del ritiro della merce (HH:MM:SS).</Description>
+		<DataType>Time</DataType>
+		<Value type="EXAMPLE">10:00:00</Value>
+	</Element>
+
+	<Element cardinality="0..1">
+		<Term>cbc:ActualDespatchDate</Term>
+		<Name>Data Inizio Trasporto - FPA 2.1.9.10 'DataInizioTrasporto'</Name>
+		<Description>Data di inizio del trasporto (YYYY-MM-DD)</Description>
+		<DataType>Date</DataType>
+		<Value type="EXAMPLE">2017-11-01</Value>
+	</Element>
+
+</Element>

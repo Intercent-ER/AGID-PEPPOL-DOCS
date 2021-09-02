@@ -114,6 +114,10 @@
 | [BR-64]-The Item standard identifier (BT-157) shall have a Scheme identifier.
 | BR-65 *(fatal)*
 | [BR-65]-The Item classification identifier (BT-158) shall have a Scheme identifier.
+| BR-66 *(fatal)*
+| [BR-66]-An Invoice shall contain maximum one Payment Card account (BG-18).
+| BR-67 *(fatal)*
+| [BR-67]-An Invoice shall contain maximum one Payment Mandate (BG-19).
 | BR-AE-01 *(fatal)*
 | [BR-AE-01]-An Invoice that contains an Invoice line (BG-25), a Document level allowance (BG-20) or a Document level charge (BG-21) where the VAT category code (BT-151, BT-95 or BT-102) is "Reverse charge" shall contain in the VAT Breakdown (BG-23) exactly one VAT category code (BT-118) equal with "VAT reverse charge".
 | BR-AE-02 *(fatal)*
@@ -134,6 +138,10 @@
 | [BR-AE-09]-The VAT category tax amount (BT-117) in a VAT breakdown (BG-23) where the VAT category code (BT-118) is "Reverse charge" shall be 0 (zero).
 | BR-AE-10 *(fatal)*
 | [BR-AE-10]-A VAT breakdown (BG-23) with VAT Category code (BT-118) "Reverse charge" shall have a VAT exemption reason code (BT-121), meaning "Reverse charge" or the VAT exemption reason text (BT-120) "Reverse charge" (or the equivalent standard text in another language).
+| BR-B-01 *(fatal)*
+| [BR-B-01]-An Invoice where the VAT category code (BT-151, BT-95 or BT-102) is “Split payment” shall be a domestic Italian invoice.
+| BR-B-02 *(fatal)*
+| [BR-B-02]-An Invoice that contains an Invoice line (BG-25), a Document level allowance (BG-20) or a Document level charge (BG-21) where the VAT category code (BT-151, BT-95 or BT-102) is “Split payment" shall not contain an invoice line (BG-25), a Document level allowance (BG-20) or a Document level charge (BG-21) where the VAT category code (BT-151, BT-95 or BT-102) is “Standard rated”.
 | BR-CL-01 *(fatal)*
 | [BR-CL-01]-The document type code MUST be coded by the invoice and credit note related code lists of UNTDID 1001.
 | BR-CL-03 *(fatal)*
@@ -180,6 +188,8 @@
 | [BR-CL-24]-For Mime code in attribute use MIMEMediaType.
 | BR-CL-25 *(fatal)*
 | [BR-CL-25]-Endpoint identifier scheme identifier MUST belong to the CEF EAS code list
+| BR-CL-26 *(fatal)*
+| [BR-CL-26]-Delivery location identifier scheme identifier MUST belong to the ISO 6523 ICD code list
 | BR-CO-03 *(fatal)*
 | [BR-CO-03]-Value added tax point date (BT-7) and Value added tax point date code (BT-8) are mutually exclusive.
 | BR-CO-04 *(fatal)*

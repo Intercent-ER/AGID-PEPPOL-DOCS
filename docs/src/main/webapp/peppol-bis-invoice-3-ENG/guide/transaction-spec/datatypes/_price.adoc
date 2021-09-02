@@ -1,0 +1,19 @@
+
+= Unit Price Amount
+
+Un importo unitario del prezzo indica un valore numerico monetario per gli elementi di dati che contengono i prezzi degli articoli che possono essere moltiplicati per le loro quantità. La valuta dell’importo è definita come un termine finanziario distinto.
+
+IMPORTANT: #L’importo unitario del prezzo può essere espresso fino ad 8 cifre decimali in conformità al formato FatturaPA italiano.#
+
+[cols="1s,1,1,1", options="header"]
+|===
+|Componente
+|Uso
+|Tipo primitivo
+|Esempio
+
+|Contenuto
+|Obbligatorio
+|Decimal
+|10000.12345678
+|===

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" xmlns:agid="urn:fdc:agid.gov.it:peppol:customization" cardinality="0..1" agid:custom="extension">
+
+	<Term>ext:UBLExtensions</Term>
+	<Name>Estensioni UBL</Name>
+	<Description>Un contenitore per tutte le estensioni UBL presenti nel documento.</Description>
+
+	<Element cardinality="0..1">
+		<Term>ext:UBLExtension</Term>
+		<Name>Estensione Sistema Emittente - FPA attributo '@SistemaEmittente'</Name>
+		<Description>Da valorizzare opzionalmente per fornire la denominazione del sistema emittente.</Description>
+		
+		<Element>
+			<Term>ext:ExtensionURI</Term>
+			<Name>URI dell'estensione</Name>
+			<Value type="FIXED">urn:fdc:agid.gov.it:fatturapa:SistemaEmittente</Value>
+		</Element>
+
+		<Element>
+			<Term>ext:ExtensionContent</Term>
+			<Name>Definizione del contenuto dell'estensione</Name>
+			
+			<Element>
+				<Term>cbc:Description</Term>
+				<Name>Sistema Emittente</Name>
+				<DataType>Text</DataType>
+				<Value type="EXAMPLE">B2Brouter</Value>
+			</Element>
+			
+		</Element>
+
+	</Element>
+	
+	<Element cardinality="0..1">
+		<Term>ext:UBLExtension</Term>
+		<Name>Estensione Soggetto Emittente - FPA 1.6 'SoggettoEmittente'</Name>
+		<Description>Da valorizzare in tutti i casi in cui la fattura è emessa da un soggetto diverso dal cedente/prestatore; indica se la fattura è emessa dal cessionario/committente (CC) oppure da un terzo per conto del cedente/prestatore (TZ).</Description>
+		
+		<Element>
+			<Term>ext:ExtensionURI</Term>
+			<Name>URI dell'estensione</Name>
+			<Value type="FIXED">urn:fdc:agid.gov.it:fatturapa:SoggettoEmittente</Value>
+		</Element>
+
+		<Element>
+			<Term>ext:ExtensionContent</Term>
+			<Name>Definizione del contenuto dell'estensione</Name>
+			<Reference type="RULE">BR-IT-DE-001</Reference>
+			<Element>
+				<Term>cbc:TypeCode</Term>
+				<Name>Soggetto Emittente</Name>
+				<DataType>Code</DataType>
+				<Value type="EXAMPLE">TZ</Value>
+			</Element>
+			
+		</Element>
+
+	</Element>
+	
+	<Element cardinality="0..1">
+		<Term>ext:UBLExtension</Term>
+		<Name>Estensione Tipo Ritenuta - FPA 2.1.1.5.1 'TipoRitenuta'</Name>
+		<Description>Tipologia della ritenuta.</Description>
+		
+		<Element>
+			<Term>ext:ExtensionURI</Term>
+			<Name>URI dell'estensione</Name>
+			<Description>Per supportare una singola ritenuta è sufficiente indicare l'URI 'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta'. Per fare riferimento a più ritenute nello stesso documento aggiungere il suffisso '::n' indicante lo stesso progressivo fornito nell'estensione urn:fdc:agid.gov.it:fatturapa:Ritenuta.</Description>
+			<Value type="EXAMPLE">urn:fdc:agid.gov.it:fatturapa:TipoRitenuta</Value>
+			<Value type="EXAMPLE">urn:fdc:agid.gov.it:fatturapa:TipoRitenuta::2</Value>
+		</Element>
+
+		<Element>
+			<Term>ext:ExtensionContent</Term>
+			<Name>Definizione del contenuto dell'estensione</Name>
+			<Reference type="RULE">BR-IT-DE-003</Reference>
+			<Element>
+				<Term>cbc:TypeCode</Term>
+				<Name>Tipo Ritenuta</Name>
+				<DataType>Code</DataType>
+				<Value type="EXAMPLE">RT04</Value>
+			</Element>
+			
+		</Element>
+
+	</Element>
+
+	<Element cardinality="0..1">
+		<Term>ext:UBLExtension</Term>
+		<Name>Estensione Articolo 73 del DPR 633/72 - FPA 2.1.1.12 'Art73'</Name>
+		<Description>Indica se il documento è stato emesso secondo modalità e termini stabiliti con decreto ministeriale ai sensi dell'articolo 73 del DPR 633/72 (ciò consente al cedente/prestatore l'emissione nello stesso anno di più documenti aventi stesso numero).</Description>
+		
+		<Element>
+			<Term>ext:ExtensionURI</Term>
+			<Name>URI dell'estensione</Name>
+			<Value type="FIXED">urn:fdc:agid.gov.it:fatturapa:Art73</Value>
+		</Element>
+
+		<Element>
+			<Term>ext:ExtensionContent</Term>
+			<Name>Definizione del contenuto dell'estensione</Name>
+			<Reference type="RULE">BR-IT-DE-004</Reference>
+			
+			<Element>
+				<Term>cbc:TypeCode</Term>
+				<Name>Art 73 del DPR 633/72</Name>
+				<DataType>Code</DataType>
+				<Value type="FIXED">SI</Value>
+			</Element>
+			
+		</Element>
+
+	</Element>
+	
+	<Element cardinality="0..1">
+		<Term>ext:UBLExtension</Term>
+		<Name>Estensione Arrotondamento Imponibile Riepilogo IVA - FPA 2.2.2.4 'Arrotondamento'</Name>
+		<Description>Importo dell'arrotondamento eventualmente applicato alle somme dei dati di dettaglio per riportarle al centesimo di euro, come espresse nell'elemento 2.2.2.5 'ImponibileImporto'.</Description>
+		
+		<Element>
+			<Term>ext:ExtensionURI</Term>
+			<Name>URI dell'estensione</Name>
+			<Description>Indicare l'URI 'urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento' seguito dal suffisso '::n' indicante il numero di riga del riepilogo IVA a cui si fa riferimento.</Description>
+			<Value type="EXAMPLE">urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento::1</Value>
+		</Element>
+
+		<Element>
+			<Term>ext:ExtensionContent</Term>
+			<Name>Definizione del contenuto dell'estensione</Name>
+			<Reference type="RULE">BR-IT-DE-005</Reference>
+			<Element>
+				<Term>cbc:Amount</Term>
+				<Name>Arrotondamento</Name>
+				<DataType>Amount</DataType>
+				
+				<Attribute>
+					<Term>currencyID</Term>
+					<Description>Mandatory attribute. Use BT-5</Description>
+					<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
+					<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
+					<Reference type="CODE_LIST">ISO4217</Reference>
+					<Value type="EXAMPLE">EUR</Value>
+				</Attribute>
+				
+				<Value type="EXAMPLE">0.20</Value>
+			</Element>
+			
+		</Element>
+
+	</Element>
+	
+	<Element cardinality="0..1">
+		<Term>ext:UBLExtension</Term>
+		<Name>Estensione Ritenuta - FPA 2.1.1.5 'DatiRitenuta'</Name>
+		<Description>Dati Ritenuta.</Description>
+		
+		<Element>
+			<Term>ext:ExtensionURI</Term>
+			<Name>URI dell'estensione</Name>
+			<Value type="FIXED">urn:fdc:agid.gov.it:fatturapa:Ritenuta</Value>
+		</Element>
+
+		<Element>
+			<Term>ext:ExtensionContent</Term>
+			<Name>Definizione del contenuto dell'estensione</Name>
+			<Reference type="RULE">BR-IT-DE-009NC1</Reference>
+			<Reference type="RULE">BR-IT-DE-009NC2</Reference>
+			
+			<Include>agid-ritenute.xml</Include>
+		</Element>
+
+	</Element>
+	
+	<Element cardinality="0..1">
+		<Term>ext:UBLExtension</Term>
+		<Name>Estensione per lo Sconto o Maggiorazione sul Totale Documento - FPA 2.1.1.8 'ScontoMaggiorazione'</Name>
+		<Description>Questa estensione deve essere usata per esprimere uno sconto o maggiorazione applicato sul totale generale ma che non modifica l’imponibile.</Description>
+
+		<Element>
+			<Term>ext:ExtensionURI</Term>
+			<Name>URI dell'estensione</Name>
+			<Value type="FIXED">urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione</Value>
+		</Element>
+
+		<Element>
+			<Term>ext:ExtensionContent</Term>
+			<Name>Definizione del contenuto dell'estensione</Name>
+			<Reference type="RULE">BR-IT-DE-006</Reference>
+
+			<Element cardinality="1..n">
+
+				<Term>cac:AllowanceCharge</Term>
+				<Name>Sconto o Maggiorazione sul Totale Documento</Name>
+
+				<Element>
+					<Term>cbc:ChargeIndicator</Term>
+					<Name>Tipo (Sconto o Maggiorazione) - FPA 2.1.1.8.1 'Tipo'</Name>
+					<Description>Usare "true" per indicare una Maggiorazione e "false" per uno Sconto.
+					</Description>
+					<Value type="EXAMPLE">false</Value>
+				</Element>
+
+				<Element cardinality="0..1">
+					<Term>cbc:MultiplierFactorNumeric</Term>
+					<Name>Percentuale dello sconto o della maggiorazione a livello documento - FPA 2.1.1.8.2 'Percentuale'</Name>
+					<Description>The percentage that may be used, in conjunction with the document level allowance base amount, to
+                calculate the document level allowance or charge amount. To state 20%, use value 20.
+					</Description>
+					<DataType>Percentage</DataType>
+					<Reference type="RULE">BR-IT-DE-008</Reference>
+					<Value type="EXAMPLE">20</Value>
+				</Element>
+
+				<Element>
+					<Term>cbc:Amount</Term>
+					<Name>Importo dello sconto o della maggiorazione a livello documento - FPA 2.1.1.8.3 'Importo'</Name>
+					<Description>The amount of an allowance or a charge, without VAT. Must be rounded to maximum 2 decimals
+					</Description>
+					<DataType>Amount</DataType>
+					<Reference type="RULE">BR-IT-DE-007</Reference>
+
+					<Attribute>
+						<Term>currencyID</Term>
+						<Description>Mandatory attribute. Use BT-5</Description>
+						<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
+						<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
+						<Reference type="CODE_LIST">ISO4217</Reference>
+						<Value type="EXAMPLE">EUR</Value>
+					</Attribute>
+					<Value type="EXAMPLE">200</Value>
+				</Element>
+
+			</Element>
+
+		</Element>
+
+	</Element>
+
+</Element>

@@ -1,0 +1,10 @@
+
+= #Riferimento alla Fattura Principale# (estensione)
+
+Nei casi di fatture per operazioni accessorie, emesse dagli 'autotrasportatori' per usufruire delle agevolazioni in materia di registrazione e pagamento dell'IVA, è possibile riferirsi alla fattura principale relativa al trasporto di beni per certificare le operazioni accessorie.
+
+.Esempio UBL per il riferimento alla fattura principale
+[source, xml, indent=0]
+----
+include::../../../../rules/snippets/agid-extensions.xml[tag=rif_fattura_principale]
+----

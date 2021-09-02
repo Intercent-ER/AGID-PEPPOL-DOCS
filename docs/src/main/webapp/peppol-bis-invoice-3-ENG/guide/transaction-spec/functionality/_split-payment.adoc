@@ -1,0 +1,40 @@
+
+= #Scissione dei pagamenti - Split payment# (CIUS domestica)
+
+La scissione dei pagamenti o split payment è un regime particolare che stabilisce che il debitore dell'IVA sia il cessionario/committente anziché, come avviene normalmente, il cedente/prestatore.
+
+Per supportare questo particolare caso si valorizza il *cac:TaxCategory/cbc:ID* (BT-118 VAT Category code) utilizzando il TaxCategory 'B' (Transferred VAT) secondo la codifica UN/ECE 5305.
+
+[NOTE]
+====
+Il valore dell’IVA split va ricompreso nel valore inserito in cbc:PrepaidAmount. Si evidenzia che il cbc:PrepaidAmount non è supportato in FatturaPA ma viene utilizzato per valorizzare correttamente il dato cbc:PayableAmount (BT-115 Amount due for payment) che è obbligatorio per la EN 16931.
+====
+
+
+.Esempio di Scissione dei pagamenti
+L'esempio riportato è relativo alla fattura emessa ad una PA soggetta alla scissione pagamento.
+
+[source, xml, indent=0]
+----
+<cac:TaxTotal>
+  <cbc:TaxAmount currencyID="EUR">22.00</cbc:TaxAmount>
+  <cac:TaxSubtotal>
+    <cbc:TaxableAmount currencyID="EUR">100.00</cbc:TaxableAmount>
+    <cbc:TaxAmount currencyID="EUR">22.00</cbc:TaxAmount>
+    <cac:TaxCategory>
+      <cbc:ID>B</cbc:ID>
+      <cbc:Percent>22</cbc:Percent>
+    </cac:TaxCategory>
+    <cac:TaxScheme>
+      <cbc:ID>VAT</cbc:ID>
+    </cac:TaxScheme>
+  </cac:TaxSubtotal>
+</cac:TaxTotal>
+<cac:LegalMonetaryTotal>
+  <cbc:TaxExclusiveAmount currencyID="EUR">100.00</cbc:TaxExclusiveAmount>
+  <cbc:TaxInclusiveAmount currencyID="EUR">122.00</cbc:TaxInclusiveAmount>
+  <cbc:PrepaidAmount currencyID="EUR">22.00</cbc:PrepaidAmount>
+  <cbc:PayableAmount currencyID="EUR">100.00</cbc:PayableAmount>
+</cac:LegalMonetaryTotal>
+----
+

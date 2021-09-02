@@ -1,0 +1,21 @@
+
+= #Arrotondamento imponibile IVA nel riepilogo# (estensione)
+
+Eventuali arrotondamenti necessari a riportare al centesimo di euro le somme dei dati di dettaglio (imponibile) nel riepilogo IVA, possono essere forniti come estensione UBL in testata alla fattura.
+
+.Esempio UBL per fornire l'arrotondamento di un imponibile nel riepilogo IVA
+[source, xml, indent=0]
+----
+<ext:UBLExtension>
+    <ext:ExtensionURI>urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento::1</ext:ExtensionURI>
+    <ext:ExtensionContent>
+        <cbc:Amount currencyID="EUR">0.5</cbc:Amount>
+    </ext:ExtensionContent>
+</ext:UBLExtension>
+<ext:UBLExtension>
+    <ext:ExtensionURI>urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento::2</ext:ExtensionURI>
+    <ext:ExtensionContent>
+        <cbc:Amount currencyID="EUR">0.8</cbc:Amount>
+    </ext:ExtensionContent>
+</ext:UBLExtension>
+----

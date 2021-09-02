@@ -1,4 +1,4 @@
-.3+| PEPPOL-COMMON-R040 *(warning)*
+.3+| PEPPOL-COMMON-R040 *(fatal)*
 | GLN must have a valid format according to GS1 rules.
 | cbc:EndpointID[@schemeID = '0088'] \| cac:PartyIdentification/cbc:ID[@schemeID = '0088'] \| cbc:CompanyID[@schemeID = '0088']
 | matches(normalize-space(), '^[0-9]+$') and u:gln(normalize-space())
@@ -13,40 +13,71 @@
 .3+| PEPPOL-EN16931-CL001 *(fatal)*
 | Mime code must be according to subset of IANA code list.
 | cbc:EmbeddedDocumentBinaryObject[@mimeCode]
-|            some $code in $MIMECODE             satisfies @mimeCode = $code
+| some $code in $MIMECODE satisfies @mimeCode = $code
 .3+| PEPPOL-EN16931-CL002 *(fatal)*
 | Reason code MUST be according to subset of UNCL 5189 D.16B.
 | cac:AllowanceCharge[cbc:ChargeIndicator = 'false']/cbc:AllowanceChargeReasonCode
-|            some $code in $UNCL5189             satisfies normalize-space(text()) = $code
+| some $code in $UNCL5189             satisfies normalize-space(text()) = $code
 .3+| PEPPOL-EN16931-CL003 *(fatal)*
 | Reason code MUST be according to UNCL 7161 D.16B.
 | cac:AllowanceCharge[cbc:ChargeIndicator = 'true']/cbc:AllowanceChargeReasonCode
-|            some $code in $UNCL7161             satisfies normalize-space(text()) = $code
+| some $code in $UNCL7161 satisfies normalize-space(text()) = $code
 .3+| PEPPOL-EN16931-CL006 *(fatal)*
 | Invoice period description code must be according to UNCL 2005 D.16B.
 | cac:InvoicePeriod/cbc:DescriptionCode
-|            some $code in $UNCL2005             satisfies normalize-space(text()) = $code
+| some $code in $UNCL2005 satisfies normalize-space(text()) = $code
 .3+| PEPPOL-EN16931-CL007 *(fatal)*
 | Currency code must be according to ISO 4217:2005
 | cbc:Amount \| cbc:BaseAmount \| cbc:PriceAmount \| cbc:TaxAmount \| cbc:TaxableAmount \| cbc:LineExtensionAmount \| cbc:TaxExclusiveAmount \| cbc:TaxInclusiveAmount \| cbc:AllowanceTotalAmount \| cbc:ChargeTotalAmount \| cbc:PrepaidAmount \| cbc:PayableRoundingAmount \| cbc:PayableAmount
-|            some $code in $ISO4217             satisfies @currencyID = $code
+|  some $code in $ISO4217 satisfies @currencyID = $code
 .3+| PEPPOL-EN16931-CL008 *(fatal)*
 | Electronic address identifier scheme must be from the codelist "Electronic Address Identifier Scheme"
 | cbc:EndpointID[@schemeID]
-|          some $code in $eaid         satisfies @schemeID = $code
+| some $code in $eaid satisfies @schemeID = $code
 .3+| PEPPOL-EN16931-F001 *(fatal)*
-| A date
-        MUST be formatted YYYY-MM-DD.
+| A date MUST be formatted YYYY-MM-DD.
 | cbc:IssueDate \| cbc:DueDate \| cbc:TaxPointDate \| cbc:StartDate \| cbc:EndDate \| cbc:ActualDeliveryDate
 | string-length(text()) = 10 and (string(.) castable as xs:date)
 .3+| PEPPOL-EN16931-P0100 *(fatal)*
 | Invoice type code MUST be set according to the profile.
 | cbc:InvoiceTypeCode
-|            $profile != '01' or (some $code in tokenize('380 383 386 393 82 80 84 395 575 623 780', '\s')             satisfies normalize-space(text()) = $code)
+| $profile != '01' or (some $code in tokenize('380 383 386 393 82 80 84 395 575 623 780', '\s') satisfies normalize-space(text()) = $code)
 .3+| PEPPOL-EN16931-P0101 *(fatal)*
 | Credit note type code MUST be set according to the profile.
 | cbc:CreditNoteTypeCode
-|            $profile != '01' or (some $code in tokenize('381 396 81 83 532', '\s')             satisfies normalize-space(text()) = $code)
+| $profile != '01' or (some $code in tokenize('381 396 81 83 532', '\s') satisfies normalize-space(text()) = $code)
+.3+| PEPPOL-EN16931-P0104 *(fatal)*
+| Tax Category G MUST be used when exemption reason code is VATEX-EU-G
+| cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-G']
+| normalize-space(cbc:ID)='G'
+.3+| PEPPOL-EN16931-P0105 *(fatal)*
+| Tax Category O MUST be used when exemption reason code is VATEX-EU-O
+| cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-O']
+| normalize-space(cbc:ID)='O'
+.3+| PEPPOL-EN16931-P0106 *(fatal)*
+| Tax Category K MUST be used when exemption reason code is VATEX-EU-IC
+| cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-IC']
+| normalize-space(cbc:ID)='K'
+.3+| PEPPOL-EN16931-P0107 *(fatal)*
+| Tax Category AE MUST be used when exemption reason code is VATEX-EU-AE
+| cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-AE']
+| normalize-space(cbc:ID)='AE'
+.3+| PEPPOL-EN16931-P0108 *(fatal)*
+| Tax Category E MUST be used when exemption reason code is VATEX-EU-D
+| cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-D']
+| normalize-space(cbc:ID)='E'
+.3+| PEPPOL-EN16931-P0109 *(fatal)*
+| Tax Category E MUST be used when exemption reason code is VATEX-EU-F
+| cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-F']
+| normalize-space(cbc:ID)='E'
+.3+| PEPPOL-EN16931-P0110 *(fatal)*
+| Tax Category E MUST be used when exemption reason code is VATEX-EU-I
+| cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-I']
+| normalize-space(cbc:ID)='E'
+.3+| PEPPOL-EN16931-P0111 *(fatal)*
+| Tax Category E MUST be used when exemption reason code is VATEX-EU-J
+| cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-J']
+| normalize-space(cbc:ID)='E'
 .3+| PEPPOL-EN16931-R001 *(fatal)*
 | Business process MUST be provided.
 | ubl-creditnote:CreditNote \| ubl-invoice:Invoice
@@ -90,7 +121,7 @@
 .3+| PEPPOL-EN16931-R040 *(fatal)*
 | Allowance/charge amount must equal base amount * percentage/100 if base amount and percentage exists
 | ubl-invoice:Invoice/cac:AllowanceCharge \| ubl-invoice:Invoice/cac:InvoiceLine/cac:AllowanceCharge \| ubl-creditnote:CreditNote/cac:AllowanceCharge \| ubl-creditnote:CreditNote/cac:CreditNoteLine/cac:AllowanceCharge
-|            not(cbc:MultiplierFactorNumeric and cbc:BaseAmount) or u:slack(if (cbc:Amount) then             cbc:Amount           else             0, (xs:decimal(cbc:BaseAmount) * xs:decimal(cbc:MultiplierFactorNumeric)) div 100, 0.02)
+|            not(cbc:MultiplierFactorNumeric and cbc:BaseAmount) or u:slack(if (cbc:Amount) then cbc:Amount else 0, (xs:decimal(cbc:BaseAmount) * xs:decimal(cbc:MultiplierFactorNumeric)) div 100, 0.02)
 .3+| PEPPOL-EN16931-R041 *(fatal)*
 | Allowance/charge base amount MUST be provided when allowance/charge percentage is provided.
 | ubl-invoice:Invoice/cac:AllowanceCharge[cbc:MultiplierFactorNumeric and not(cbc:BaseAmount)] \| ubl-invoice:Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:MultiplierFactorNumeric and not(cbc:BaseAmount)] \| ubl-creditnote:CreditNote/cac:AllowanceCharge[cbc:MultiplierFactorNumeric and not(cbc:BaseAmount)] \| ubl-creditnote:CreditNote/cac:CreditNoteLine/cac:AllowanceCharge[cbc:MultiplierFactorNumeric and not(cbc:BaseAmount)]
@@ -129,7 +160,7 @@
 | not(cbc:TaxCurrencyCode) or (cac:TaxTotal/cbc:TaxAmount[@currencyID=normalize-space(../../cbc:TaxCurrencyCode)] <= 0 and cac:TaxTotal/cbc:TaxAmount[@currencyID=normalize-space(../../cbc:DocumentCurrencyCode)] <= 0) or (cac:TaxTotal/cbc:TaxAmount[@currencyID=normalize-space(../../cbc:TaxCurrencyCode)] >= 0 and cac:TaxTotal/cbc:TaxAmount[@currencyID=normalize-space(../../cbc:DocumentCurrencyCode)] >= 0) 
 .3+| PEPPOL-EN16931-R061 *(fatal)*
 | Mandate reference MUST be provided for direct debit.
-|          cac:PaymentMeans[some $code in tokenize('49 59', '\s')           satisfies normalize-space(cbc:PaymentMeansCode) = $code]
+| cac:PaymentMeans[some $code in tokenize('49 59', '\s')satisfies normalize-space(cbc:PaymentMeansCode) = $code]
 | cac:PaymentMandate/cbc:ID
 .3+| PEPPOL-EN16931-R080 *(fatal)*
 | Only one project reference is allowed on document level

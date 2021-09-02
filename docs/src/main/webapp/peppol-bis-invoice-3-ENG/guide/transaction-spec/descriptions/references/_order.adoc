@@ -4,12 +4,119 @@
 
 L'ordine di acquisto è **facoltativo**. Se esiste un riferimento all'ordine bisogna utilizzarlo, altrimenti utilizzare il riferimento dell'acquirente (vedi <<buyerref>>).
 
-Il cliente emetterà un ordine con un identificativo di ordine univoco. Questo identificativo di ordine di acquisto univoco deve essere fornito come ordine di riferimento nella fattura.
+Il cliente deve emettere un ordine caratterizzato da un identificativo univoco che deve essere fornito come ordine di riferimento nella fattura. +
+
+A livello di testata::
 
 Se il riferimento dell'ordine è indicato a livello di testata, è possibile utilizzare l'elemento di riferimento all'ordine a livello di riga per specificare i numeri di riga dell'ordine.
-
-Un ordine di vendita è emesso dal venditore, confermando la vendita di prodotti specificati.
 
 IMPORTANT: Nella fattura è possibile fornire sia un ordine di acquisto che un riferimento all'ordine di vendita, ma tenendo presente che un'istanza della fattura non può avere un riferimento dell'ordine di vendita, senza il corrispondente riferimento dell'ordine di acquisto.
 
 include::../../../syntax/references/_order.adoc[]
+
+#Se la fattura viene messa nell'ambito di un processo di Ordinazione Semplice o Ordinazione Completa rilevante ai fini del sistema NSO, occorre riportare il riferimento all'ordine ("tripletta") nel seguente modo:#
+
+1.	#Nel *cac:OrderReference/cbc:ID*  (BT-13 Purchase order reference) riportare il solo identificativo dell’ordine, come nel seguente esempio (dove è riportata anche la data dell'ordine):#
++
+[source, xml, indent=0]
+----
+<cac:OrderReference>
+    <cbc:ID>110</cbc:ID>
+    <cbc:IssueDate>2018-01-30</cbc:IssueDate>
+</cac:OrderReference>
+----
+
+2.	#Nel *cbc:BuyerReference* (BT-10 Buyer reference) riportare la Tripletta di identificazione completa separando i componenti (Id, data e Endpoint) con il carattere &#x0023; senza interposizione di spazi, come nel seguente esempio:#
++
+[source, xml, indent=0]
+----
+<cbc:BuyerReference>110#2018-01-30#aaaaaa</cbc:BuyerReference>
+----
+
+#Si evidenzia che, ove la fattura non sia stata emessa a fronte di un processo di Ordinazione elettronica e, perciò, non è legata ad alcun Ordine o Ordine pre-concordato rilevante per il sistema NSO:#
+
+a. #se la fornitura non promana da alcun processo di ordinazione (elettronico o tradizionale), è sufficiente non compilare i campi sopra menzionati;#
+b. #se la fornitura promana da un processo di ordinazione tradizionale (ad esempio, via lettera, fax, ecc.), ovvero non gestito tramite NSO, per dare maggior evidenza a tale circostanza si può indicare l’identificativo dell’ordine emesso nelle forme tradizionali nei campi di cui al precedente punto e valorizzare i campi di cui al precedente punto con il testo "&#x0023;NO&#x0023;".# 
+
+
+*A livello di riga*
+
+#Il riferimento ad un ordine sulle righe di fattura avviene utilizzando gli elementi cac:OrderLineReference e cac:DocumentReference.# +
+
+[blue]#_Riferimento all'intero ordine sulla riga di fattura_#
+
+#Se la riga si riferisce genericamente all'ordine senza specificare la riga dell'ordine, si procede come da esempio:#
+
+.Esempio UBL con riferimento esplicito ad un Ordine completo a livello di riga fattura
+[source, xml, indent=0]
+----
+<cac:OrderLineReference>
+	<cbc:LineID>NA</cbc:LineID>
+	<cac:OrderReference>
+		<cbc:ID>123</cbc:ID>
+		<cbc:IssueDate>2020-10-01</cbc:IssueDate>
+	</cac:OrderReference>
+</cac:OrderLineReference>
+----
+
+#Se la fattura viene messa nell'ambito di un processo di Ordinazione Semplice o Ordinazione Completa rilevante ai fini del sistema NSO, occorre riportare il riferimento all'ordine ("tripletta") nel seguente modo:#
+
+.Esempio UBL con riferimento esplicito ad un Ordine inviato a mezzo NSO
+[source, xml, indent=0]
+----
+<cac:OrderLineReference>
+	<cbc:LineID>NA</cbc:LineID>
+	<cac:OrderReference>
+		<cbc:ID>123</cbc:ID>
+		<cbc:IssueDate>2020-10-01</cbc:IssueDate>
+	</cac:OrderReference>
+</cac:OrderLineReference>
+<cac:DocumentReference>
+    <cbc:ID schemeID="ON">123#2020-10-01#aaaaaa</cbc:ID>
+    <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
+</cac:DocumentReference>
+----
+
+[blue]#_Riferimento alla riga d'ordine sulla riga di fattura_#
+
+#Se la riga si riferisce specificamente ad una riga d'ordine, si procede con le seguenti modalità alternative:# +
+
+.Esempio UBL con riferimento implicito all’Ordine fornito a livello testata
+[source, xml, indent=0]
+----
+<cac:OrderLineReference>
+	<cbc:LineID>3</cbc:LineID>
+</cac:OrderLineReference>
+----
+
+.Esempio UBL con riferimento esplicito alla riga di un Ordine a livello di riga fattura
+[source, xml, indent=0]
+----
+<cac:OrderLineReference>
+	<cbc:LineID>4</cbc:LineID>
+	<cac:OrderReference>
+		<cbc:ID>123</cbc:ID>
+		<cbc:IssueDate>2020-10-01</cbc:IssueDate>
+	</cac:OrderReference>
+</cac:OrderLineReference>
+----
+
+#Se la fattura viene messa nell'ambito di un processo di Ordinazione Semplice o Ordinazione Completa rilevante ai fini del sistema NSO, occorre riportare il riferimento all'ordine ("tripletta") nel seguente modo:# +
+
+.Esempio UBL con riferimento esplicito alla riga di un Ordine inviato a mezzo NSO a livello di riga fattura
+[source, xml, indent=0]
+----
+<cac:OrderLineReference>
+	<cbc:LineID>4</cbc:LineID>
+	<cac:OrderReference>
+		<cbc:ID>123</cbc:ID>
+		<cbc:IssueDate>2020-10-01</cbc:IssueDate>
+	</cac:OrderReference>
+</cac:OrderLineReference>
+<cac:DocumentReference>
+    <cbc:ID schemeID="ON">123#2020-10-01#aaaaaa</cbc:ID>
+    <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
+</cac:DocumentReference>
+----
+
+

@@ -3,11 +3,11 @@
 [[requirements]]
 = Requisiti di business di fatture e note di credito
 
-La tabella seguente fornisce una panoramica dei requisiti di business elaborati dal {tc434} supportati in questa BIS:
+La tabella seguente fornisce una panoramica dei requisiti di business elaborati dal https://standards.cen.eu/dyn/www/f?p=204:7:0::::FSP_ORG_ID:1883209&cs=1E81C9C833655EEDC7010C8D0A2FB786C[CEN TC434] supportati in questa BIS:
 
 ====
-Legend::
-I requisiti con un id *R__nn__* provengono dalla norma {EN16931} (Esempio R19).
+Legenda::
+I requisiti che iniziano con un ID *R__nn__* provengono dalla norma https://standards.cen.eu/dyn/www/f?p=204:110:0::::FSP_PROJECT:60602&cs=1B61B766636F9FB34B7DBD72CE9026C72[EN16931] (Esempio R19).
 ====
 
 include::_accounting.adoc[]

@@ -1,0 +1,26 @@
+Una fattura può supportare funzioni relative a più processi di business (interni) correlati. Questa BIS PEPPOL supporta le seguenti funzioni:
+
+* Contabilità
+* Verifica della fattura in base al contratto, l'ordine di acquisto ed i beni e servizi consegnati
+* Resoconto IVA
+* Revisione Contabile
+* Pagamento
+
+#In aggiunta alle funzioni core sono disponibili specifiche funzionalità domestiche necessarie alle imprese individuali e professionisti, tra cui le principali sono:#
+
+* #Ritenuta d'acconto#
+* #Rivalsa Cassa previdenziale#
+* #Marca da Bollo#
+* #Scissione dei pagamenti (Split payment)#
+
+Nei seguenti capitoli viene effettuata una valutazione di quali sono le informazioni necessarie per ciascuna delle funzioni sopra elencate e se queste rientrano nell'ambito o meno di questa PEPPOL BIS.
+
+Per ulteriori dettagli, si consiglia di consultare anche i <<requirements>>.
+
+Il supporto esplicito alle seguenti funzioni è fuori dal campo di applicazione di questa PEPPOL BIS:
+
+* Gestione inventario;
+* Processi di consegna;
+* Sdoganamento;
+* Marketing;
+* Reportistica.

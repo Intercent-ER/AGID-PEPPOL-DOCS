@@ -1,5 +1,7 @@
 [preface]
-= Introduzione a openPEPPOL e alla BIS
+= Introduction to openPEPPOL and BIS
+
+This {peppol} BIS provides a set of specifications for implementing a {peppol} business process.
 
 Questa Business Interoperability Specification (BIS) fornisce un insieme di specifiche per l'implementanzione della fatturazione elettronica e pubblicato come parte delle specifiche https://docs.peppol.eu/poacc/billing/3.0/[Peppol].
 
@@ -19,35 +21,27 @@ Questa specifica è composta da: +
 
 #Per ulteriori dettagli vedi anche i paragrafi 12.2 e Appendix A.#
 
-*L’obiettivo* di questo documento è facilitare un’efficiente implementazione e diffusione delle transazioni elettroniche per il processo di fatturazione.
+The *purpose* of this document is to facilitate an efficient implementation and increased use of electronic collaboration regarding the billing process.
 
-== Struttura del documento
+== Document Structure
 
-Questo documento è strutturato come segue:
+This document is structured as follows:
 
-* *Capitolo 1 - 5*: informazioni generali sui processi di business, i requisiti e le funzionalità
+*	*Chapters 1 - 5* gives general information on the business processes, requirements and functionalities
+*	*Chapter 6* describes the semantical data types
+*	*Chapters 7 - 9* describes VAT, calculations and rounding.
+*	*Chapter 10* provides examples of selected parts of the invoice
+*	*Chapter 11* gives details and links to all code lists used
+* *Chapter 12* gives information on PEPPOL identifiers
+*	*Chapter 13* describes in detail central information elements.
+*	*Chapters 14 and 15* provides information on validation and validation rules
+*	*Annexes* give information on restrictions according to {EN16931}, use of Cross Industry Invoice syntax and national and syntax rules.
 
-* *Capitolo 6*: semantica dei tipi di dato
-
-* *Capitoli 7 - 9*: imposta sul valore aggiunto (IVA), calcoli e arrotondamenti
-
-* *Capitoli 10*: descrizione di parti selezionate della fattura
-
-* *Capitolo 11*: dettagli e link alle codifiche utilizzate
-
-* *Capitolo 12*: informazioni sugli identificatori PEPPOL
-
-* *Capitolo 13*: schemi UBL e spazi dei nomi
-
-* *Capitolo 14 e 15*: regole di business e validazione per la fattura e nota di credito
-
-* *Allegati*: restrizioni secondo la {EN16931} e l'uso della sintassi Cross Industry Invoice (CII) e le regole nazionali e sintattiche.
-
-== Ambito
+== Scope
 
 Questo documento  fornisce le linee guida per il supporto e l'implementazione delle transazioni relative a fatture e note di credito.
 
-//Questo BIS non impone l'utilizzo di dati specifici per gli approvvigionamenti ma supporta diversi modi di riferirsi al processo dell'ordine. L'uso selettivo di questi riferimenti può essere la base per l'elaborazione automatizzata delle fatture.
+This document is concerned with clarifying requirements for ensuring interoperability  and provides guidelines for the support and implementation of these requirements. This document will also provide a detailed implementation guideline for the invoice and credit note transactions.
 
 #Sono supportati specificatamente i seguenti scenari di business:#
 
@@ -58,19 +52,19 @@ Questo documento  fornisce le linee guida per il supporto e l'implementazione de
 * [lime-background]#G2B – Government to Business#
 * [lime-background]#G2C – Government to Consumer#
 
-== A chi si rivolge
+== Audience
 
-Questo documento si rivolge alle organizzazioni che intendono utilizzare PEPPOL per scambiare fatture e note di credito elettroniche e/o ai loro fornitori ICT. Queste organizzazioni potrebbero essere:
+The audience for this document is organisations wishing to be PEPPOL enabled for exchanging electronic invoices, and/or their ICT-suppliers. These organisations may be:
 
-     * Fornitori di Servizi ICT (SP)
-     * Autorità appaltanti (CA)
-     * Operatori Economici (EO)
-     * Sviluppatori Software
+     * Service providers
+     * Contracting Authorities (CA)
+     * Economic Operators (EO)
+     * Software Developers
 
-Più specificatamente, i ruoli affrontati sono i seguenti:
+More specifically, roles addressed are the following:
 
-    * Architetti ICT
-    * Sviluppatori ICT
-    * Esperti di Business
+    * ICT Architects
+    * ICT Developers
+    * Business Experts
 
-Per ulteriori informazioni su PEPPOL/OpenPEPPOL, leggere {common}
+For further information on PEPPOL/OpenPEPPOL, please see {common}

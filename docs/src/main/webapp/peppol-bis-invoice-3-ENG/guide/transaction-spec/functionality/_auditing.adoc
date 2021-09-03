@@ -1,13 +1,13 @@
 
-= Revisione Contabile
+= Auditing
 
-Le società revisionano se stesse come mezzo di controllo interno o possono essere revisionate da parti esterne come parte di un obbligo legale. La contabilità è un processo regolare e continuo mentre una revisione è un processo di controllo distinto per garantire che la contabilità sia stata tenuta correttamente. Il processo di revisione richiede determinati requisiti informativi di una fattura. Questi requisiti sono principalmente correlati alla verifica dell'autenticità e dell'integrità della transazione contabile.
+Companies audit themselves as means of internal control or they may be audited by external parties as part of a legal obligation. Accounting is a regular, ongoing process whereas an audit is a separate review process to ensure that the accounting has been carried out correctly. The auditing process places certain information requirements on an invoice. These requirements are mainly related to enable verification of authenticity and integrity of the accounting transaction.
 
-Le fatture conformi a questa specifica PEPPOL BIS supportano il processo di revisione contabile fornendo informazioni sufficienti per
+Invoices, conformant to this PEPPOL BIS support the auditing process by providing sufficient information for:
 
-*	Identificazione delle parti interessate (acquirente e venditore).
-*	Identificazione dei beni e/o servizi commercializzati, inclusa la loro descrizione, valore e quantità.
-*	Informazioni per correlare la fattura ai suoi pagamenti.
-*	Informazioni per correlare la fattura ai documenti rilevanti come i contratti e gli ordini d'acquisto.
+* identification of the relevant Buyer and Seller
+* identification of the products and services traded, including description, value and quantity
+* information for connecting the invoice to its payment
+* information for connecting the invoice to relevant documents such as a contract and a purchase order
 
-Per i requisiti dettagliati a supporto della revisione contabile, si consiglia di consultare i <<auditingreq>>
+Detailed requirements for supporing accounting functionality can be found at <<auditingreq>>

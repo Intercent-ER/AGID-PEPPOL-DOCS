@@ -1,12 +1,13 @@
 [[benefits]]
-= Benefici
+= Benefits
 
-La fattura e la nota di credito forniscono un supporto semplice per le casistiche di fatturazione complessa, laddove è necessaria la nota di credito in aggiunta alla fattura. Altri potenziali benefici sono:
+The invoice and credit note provides simple support for complex invoicing, where there is a need for credit note in addition
+to an invoice. Other potential benefits are, among others:
 
-* può essere resa obbligatoria per iniziative di fatturazione elettronica nazionale o regionale;
-* le stazioni appaltanti possono usarla come base per gestire l'intero processo di fatturazione in formato elettronico. La flessibilità delle specifiche permette agli acquirenti di automatizzare gradualmente l’elaborazione delle fatture, mediante diversi set di identificatori o riferimenti, e basandosi su un approccio costi/benefici;
-* le PMI possono offrire ai loro partner commerciali l’opzione di scambiare documenti standardizzati in un modo uniforme e quindi gestire tutte le fatture/n.c. in formato elettronico;
-* le grandi aziende possono implementare queste transazioni come documenti standardizzati per l’operatività generale e implementare transazioni bilaterali customizzate verso partner commerciali più grandi;
-* supportare i clienti che hanno necessità di interazioni più complesse;
-* può essere utilizzato come base per reingegnerizzare i processi interni di fatturazione;
-* la stazione appaltante può realizzare un notevole risparmio automatizzando e razionalizzando i suoi processi interni. La contabilità può essere automatizzata in modo significativo, il ciclo di approvazione può essere semplificato e razionalizzato, i pagamenti possono essere accelerati.
+* Can be mandated as a basis for national or regional eInvoicing initiatives.
+* Procurement agencies can use them as basis for moving all invoices into electronic form. The flexibility of the specifications allows the buyers to automate processing of invoices gradually, based on different sets of identifiers or references, based on a cost/benefit approach.
+* SME can offer their trading partners the option of exchanging standardised documents in a uniform way and thereby move all invoices/credit notes into electronic form.
+* Large companies can implement these transactions as standardised documents for general operations and implement custom designed bi-lateral connections for large trading partners.
+* Supports customers with need for more complex interactions.
+* Can be used as basis for restructuring of in-house processes of invoices.
+* Significant saving can be realised by the procuring agency by automating and streamlining in-house processing. The accounting can be automated significantly, approval processes simplified and streamlined, payment scheduled timely and auditing automated.

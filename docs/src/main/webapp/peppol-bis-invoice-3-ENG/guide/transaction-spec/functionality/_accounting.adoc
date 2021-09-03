@@ -1,6 +1,6 @@
 
-= Contabilità
+= Accounting
 
-Registrare una fattura in contabilità è uno dei principali obiettivi della fatturazione. Secondo una buona prassi in materia di contabilità finanziaria e regole IVA, ogni soggetto deve avere una contabilità sufficientemente dettagliata per l'applicazione dell'IVA e la sua applicazione deve essere controllata dalle autorità fiscali. Per questo motivo, una fattura deve fornire quelle informazioni sia di testata sia a livello di riga che consentano di effettuare registrazioni contabili di debito e di credito.
+Recording a business transaction into the financial accounts of an organization is one of the main objectives of the invoice. According to financial accounting best practice and VAT rules every Taxable person shall keep accounts in sufficient detail for VAT to be applied and its application checked by the tax authorities. For that reason, an invoice shall provide for the information at document and line level that enables booking on both the debit and the credit side.
 
-Per i requisiti dettagliati al supporto della funzione di contabilità, si consiglia di consultare i <<accountingreq>>
+Detailed requirements for supporing accounting functionality can be found at <<accountingreq>>

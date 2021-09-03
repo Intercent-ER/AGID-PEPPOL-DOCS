@@ -1,5 +1,5 @@
 
-= Known Issues for profile 01 - Billing
+= Problematiche conosciute per il profilo 01 - Billing
 
 
 [cols="1s,2s,4,3", options="header"]

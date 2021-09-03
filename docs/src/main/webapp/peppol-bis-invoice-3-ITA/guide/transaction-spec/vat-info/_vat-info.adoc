@@ -1,17 +1,17 @@
 
-= Imposta sul valore aggiunto (IVA)
+= Value added tax (VAT)
 
-I capitoli seguenti descrivono le diverse informazioni in materia dell'IVA che possono essere fornite in una fattura o in una nota di credito {peppol}.
+The chapters below describe the different VAT informations that can be provided in a {peppol} invoice or credit note.
 
-Si consiglia di consultare anche i <<anchor-17, VAT category codes>> per dettagli sulla codifica delle categorie IVA e il <<anchor-42, Calcolo dell'IVA>> per una rappresentazione più dettagliata ed esempi su come eseguire i calcoli nel riepilogo IVA.
+Please also see <<VAT category codes>> for details on the VAT category code list, and <<Calculation of VAT>> for detailed explanation and example on how to perform the calculations for VAT Breakdown.
 
-== Informazioni IVA su riga
+== Line VAT Information
 
-Ogni riga della fattura deve avere il codice della categoria IVA riferita alla voce fatturata (BT-151) e per tutte le categorie IVA, eccetto "Non soggetto ad IVA" (O), deve essere fornita l'aliquota IVA.
+Each invoice line shall have the invoiced item VAT category code (BT-151), and for all VAT categories except "Not subject to VAT" (O), the VAT rate shall be provided.
 
-== Sconti e maggiorazioni a livello di testata
+== Document level allowance or charge
 
-Ogni sconto o maggiorazione a livello di testata deve avere il codice di categoria IVA (BT-95 e BT-102). Per tutte le categorie IVA, eccetto "Non soggetto ad IVA" (O), deve essere fornita l'aliquota IVA.
+Each document level charge or allowance must have the Document level allowance or charge VAT category code (BT-95 and BT-102), and for all VAT categories except "Not subject to VAT" (O), the VAT rate shall be provided.
 
 [IMPORTANT]
 #Per la fatturazione verso soggetti italiani la sezione è utilizzata solo per Bollo (vedi paragrafo 4.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 4.8).#
@@ -34,9 +34,9 @@ Trattasi di CIUS domestica (DC)
 .Tabella di relazione tra natura, VAT Category Code e VAT exemption reason code
 image::../../../images/vatex-table.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
 
-Deve essere fornito un solo riepilogo IVA per ogni combinazione distinta di categoria e aliquota IVA sia a livello di riga che negli sconti e maggiorazioni a livello di testata. Per alcune categorie IVA, l'aliquota deve essere posta a zero e quindi non viene utilizzata in questi casi per raggruppare il riepilogo IVA.
+One VAT Breakdown shall be provided for each distinct combination of VAT category code and VAT rate found in either the line VAT information or the Document level allowance or charges. For some VAT categories, the VAT rate shall be zero, and hence the rate is not needed in order to group the VAT Breakdown for these.
 
-Si consiglia di osservare che per l'aliquota dell'IVA dovrebbero essere considerati solo i decimali significativi, ovvero qualsiasi differenza nei decimali non deve determinare differenti riepiloghi IVA.
+Please note that for the VAT rate, only significant decimals should be considered, i.e any difference in trailing zeros should not result in different VAT breakdowns.
 
 [IMPORTANT]
 #Non è possibile inserire nella medesima fattura operazioni con il medesimo Tax Category ID (BT-118 VAT category code) e natura differente.#
@@ -137,10 +137,9 @@ Per altri dettagli vedi anche il paragrafo <<anchor-11,9.4. Calcolo dell’IVA>>
   </cac:Price>
 </cac:InvoiceLine>
 ----
-== Totale IVA 
+== Invoice total VAT amount
 
-Il totale IVA *cbc:TaxAmount* (BT-110) è la somma delle imposte dei singoli riepiloghi *cbc:TaxAmount* (BT-117)
-
+The invoice total VAT amount (BT-110) is the sum of all VAT Category VAT amounts (BT-117)
 
 == #Data operazione ed esigibilità IVA#
 

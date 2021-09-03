@@ -1,14 +1,14 @@
 
-= Restrizioni ai processi supportati
+= Restrictions on the supported processes
 
-Il capitolo 5.2 nella {EN16931} definisce i processi di business supportati dalla {EN16931}.
+Chapter 5.2 in the {EN16931} defines the business processes supported by the {EN16931}.
 
-Questa {CIUS} ha applicato delle restrizioni per non supportare esplicitamente i seguenti processi di business:
+This {CIUS} has made restrictions to not explicitly support the following business processes:
 
-P10 - Fattura correttiva::
-Il processo descritto per la fatturazione correttiva è stato visto come non chiaro rispetto alla distinzione tra una fattura correttiva e una nota di credito, e questo processo è stato per questo definito fuori ambito.
+P10 - Corrective invoicing::
+The process as descibed for corrective invoicing was seen as unclear as to the  differentiating between a corrective invoice and a credit note, and this process was set to be out of scope.
 
-P11 - Fatturazione parziale e finale::
-A causa del fatto che le fatture parziali e finali non richiedono tutte le informazioni richieste, questo processo non rientra nell'ambito di questa BIS PEPPOL.
+P11 - Partial and final invoicing::
+Due to the fact that partial and final invoices does not require all information that is mandated, this process is out of scope for this PEPPOL BIS.
 
-P12 - Auto fatturazione:: La Direttiva 2006/112/CE (Articolo 224) richiede che venga osservato un processo specifico, che preveda un accordo preliminare e una procedura in cui il fornitore deve accettare ciascuna fattura. L'auto-fatturazione richiede una configurazione specifica a causa dei requisiti presenti nell'accordo preliminare e nella procedura per l'accettazione di ogni auto-fattura. Specifici traguardi dovranno essere osservati nel momento in cui sarà configurata e durante la sua messa in produzione.
+P12 - Self billing:: Directive 2006/112/EC (Article 224) requires a specific process to be observed, involving prior agreement and a procedure where the supplier is to accept each invoice. Self-billing requires a specific set-up due to the requirements for prior agreement and procedure for the acceptance of each self-bill. Specific milestones have to be observed at time of setting it up as well as in the operation of self-billing.

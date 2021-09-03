@@ -1,15 +1,15 @@
 
-= Restrizioni al profilo 01 - Fatturazione (Billing)
+= Restrictions for profile 01 - Billing
 
 
 [cols="1s,2s,2,4,1", options="header"]
 |====
 
 | BT-ID
-| Termine di Business
-| Tipo Restrizione
-| Descrizione
-| Regola
+| Business Term
+| Restrition Type
+| Description
+| Rule
 
 | BT-3
 | Invoice type code

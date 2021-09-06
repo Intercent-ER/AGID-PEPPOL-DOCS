@@ -8,15 +8,15 @@ When used in an instance of an invoice, each data element will contain data. In 
 
 :leveloffset: +1
 
-include::amount.adoc[]
-include::price.adoc[]
-include::percentage.adoc[]
-include::quantities.adoc[]
-include::codes.adoc[]
-include::identifier.adoc[]
-include::date.adoc[]
-include::doc-reference.adoc[]
-include::text.adoc[]
-include::binary.adoc[]
+include::_amount.adoc[]
+include::_price.adoc[]
+include::_percentage.adoc[]
+include::_quantities.adoc[]
+include::_codes.adoc[]
+include::_identifier.adoc[]
+include::_date.adoc[]
+include::_doc-reference.adoc[]
+include::_text.adoc[]
+include::_binary.adoc[]
 
 :leveloffset: -1

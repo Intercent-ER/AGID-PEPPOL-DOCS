@@ -1,5 +1,5 @@
 
-= Funzionalità della fattura
+= Invoice functionality
 
 :leveloffset: +1
 

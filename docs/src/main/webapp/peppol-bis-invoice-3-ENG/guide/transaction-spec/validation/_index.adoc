@@ -1,9 +1,10 @@
 
-= Validazione
+= Validation
 
-Per rendere flessibile il processo di validazione, ogni documento PEPPOL viene validato in diverse fasi spostando l'attenzione su ciascuna di esse. +
+To optimize the flexibility in the validation process, each PEPPOL document is validated in different stages with shifting focus in every stage. +
 
-Il diagramma seguente illustra le diverse fasi:
+The diagram below illustrates the different stages:
+
 
 image::../../shared/images/validation-new.png[Validation stages, align="left",width=100%, pdfwidth=100%, scaledwidth=100%]
 

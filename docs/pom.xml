@@ -229,7 +229,7 @@
 						</configuration>
 					</execution>
 					
-					<!-- SCHEMATRON -->
+					<!-- SCHEMATRON ITA-->
 					<execution>
 						<id>apply-xslt-sch</id>
 						<phase>package</phase>
@@ -282,6 +282,7 @@
 						</configuration>
 					</execution>
 					
+					<!-- SCHEMATRON ENG-->
 					<execution>
 						<id>apply-xslt-sch-ENG</id>
 						<phase>package</phase>
@@ -306,7 +307,30 @@
 							</transformationSets>
 						</configuration>
 					</execution>
-					
+					<execution>
+						<id>apply-xslt-sch-invoice-ENG</id>
+						<phase>package</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${project.build.directory}/${project.build.finalName}/sch/</dir>
+									<includes>
+										<include>**/peppolbis-en16931-ubl-3.0-invoice/**/ENG/**/**.sch</include>
+									</includes>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ENG/agid-peppol-bis-rules-invoice-v1.2.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ENG/sch</outputDir>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.html</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
 					
 					<!-- INVOICE TRASFORMAZIONE SCHEMATRON IN REGOLE (per la sezione delle specifiche)-->
 					
@@ -448,6 +472,24 @@
 							<preserveDirectories>true</preserveDirectories>
 						</configuration>
 					</execution>
+					
+					<execution>
+						<id>output-html-billing-rules-ENG</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<backend>html5</backend>
+							<sourceDirectory>${basedir}/../artifacts/validation/3.0/sch/peppolbis-en16931-ubl-3.0-invoice/Schematron/ENG</sourceDirectory>
+							<outputDirectory>${project.build.directory}/generated-docs/ENG/invoice/generated-rules</outputDirectory>
+							<relativeBaseDir>true</relativeBaseDir>
+							<preserveDirectories>true</preserveDirectories>
+						</configuration>
+					</execution>
+					
+					
+					
 					
 					
 					<!-- ENG -->

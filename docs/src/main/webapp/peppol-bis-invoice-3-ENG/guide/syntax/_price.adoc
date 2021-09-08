@@ -1,17 +1,17 @@
 
 
-.Esempio UBL con il prezzo scontato
+.UBL example of price with price discount
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/price.xml[tags=price]
 ----
-<1> Prezzo lordo dell'articolo
-<2> Sconto sul prezzo dell'articolo
-<3> Quantità base per il prezzo dell'articolo
-<4> Il prezzo netto dell'articolo deve essere uguale al prezzo lordo (cbc:BaseAmount - Item Gross price) - lo sconto sul prezzo (cbc:Amount - Item price discount), se questi sono utilizzati.
+<1> Item gross price
+<2> Item price discount
+<3> Item price base quantity
+<4> Item net price, must be equal to Item Gross price - item price discount (if these elements are used)
 
 
-.Esempio UBL senza il prezzo scontato
+.UBL example of price without price discount
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/price.xml[tags=simple-price]

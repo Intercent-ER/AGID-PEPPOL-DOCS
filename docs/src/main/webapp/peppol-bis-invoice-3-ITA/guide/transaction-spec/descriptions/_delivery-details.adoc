@@ -7,7 +7,7 @@ Luogo e data di consegna sono raccomandati e devono essere inviati a meno che le
 
 L'elemento 'cac:Delivery' contiene informazioni su nome, indirizzo e identificatore del luogo di consegna ('cac:Delivery/cac:DeliveryLocation/cbc:ID') che possono essere utilizzati se il luogo di consegna è definito attraverso un identificatore.
 
-In italia, in seguito alle Regole Tecniche NSO, l'identificativo del luogo di consegna per le PA segue la codifica https://www.puntidiconsegna-nso.it/[Punti di consegna]. +
+#In italia, in seguito alle Regole Tecniche NSO, l'identificativo del luogo di consegna per le PA segue la codifica https://www.puntidiconsegna-nso.it/[Punti di consegna].# +
 
 Altri esempi dell'identificativo del luogo di consegna sono GLN (Global Location Number) oppure  GSRN (Global Service Relationship Number) entrambi emessi da GS1. +
 

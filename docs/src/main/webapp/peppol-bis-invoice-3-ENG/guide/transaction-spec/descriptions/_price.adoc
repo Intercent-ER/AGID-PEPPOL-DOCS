@@ -1,7 +1,8 @@
-= Informazioni del prezzo
+= Price information
 
-Una fattura deve contenere le informazioni sul prezzo netto dell'articolo e ulteriori informazioni come il prezzo lordo, la quantità base e lo sconto del prezzo possono essere aggiunti.
 
-Per i dettagli sul calcolo del prezzo si veda <<price-calc>>.
+An invoice must contain information about the item net price and additional information such as gross price, item price base quantity and price discount may be added.
+
+For details on calculating price see <<price-calc>>.
 
 include::../../syntax/_price.adoc[]

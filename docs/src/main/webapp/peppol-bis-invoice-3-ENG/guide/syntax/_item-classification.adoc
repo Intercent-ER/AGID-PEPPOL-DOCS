@@ -1,16 +1,17 @@
-.Esempio UBL per l'uso del CPV
+.UBL example of using CPV
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/item.xml[tags=cpv]
 ----
-<1> Il listID deve essere fra quelli della codifica UNCL7143 e il codice STI indica che questo è una classificazione CPV.
+<1> listID must be from UNCL7143 code list, and code STI indicates this is a CPV classification.
 
-.Esempio UBL di UNSPSC (United Nation Standard Products and Services Code) 
+.UBL example of UNSPSC
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/item.xml[tags=unspsc]
 ----
-<1> Il listID deve essere fra quelli della codifica UNCL7143 e il codice TST indica che questo è una classificazione UNSPSC, mentre il listVersionID è opzionale, ma può essere usato per specificare la versione di UNSPSC. Notare che nelle versioni precedenti il codice MP era usato come soluzione temporanea per identificare UNSPSC. Nella fall release 2019 è stato sostituito con il nuovo codice TST 7143 che è specifico per UNSPSC.
+<1> listID must be from UNCL7143 code list, and code TST indicates this is a UNSPSC classification, listVersionID is optional, but can be used to specify the version of UNSPSC. NOTE, in previous versions code MP was used as temporary workaround to identify UNSPSC. In fall release 2019 it is replaced with the new 7143 code TST that is specific for UNSPSC.
+
 
 .Esempio UBL di Dispositivo medico
 #In questo esempio viene fornito il numero di registrazione attribuito al dispositivo medico nella Banca dati e Repertorio Dispositivi Medici dal Ministero della Salute.#

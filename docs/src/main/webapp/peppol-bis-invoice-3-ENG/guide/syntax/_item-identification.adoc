@@ -1,10 +1,11 @@
 
-.Esempio UBL di identificatori per l'articolo
+.UBL example of item identifiers
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/item.xml[tags=item]
 ----
-<1> 0160 è il valore ICD per l'identificatore GTIN
+<1> 0160 is the ICD value for a GTIN identifier
+
 
 #In coerenza con quanto previsto per l’ordine, la gestione dell’AICFarmaco è operata a mezzo del *cac:SellersItemIdentification/cbc:ID* (BT-155 Item Seller's Identifier) in cui viene inserito il codice AICFarmaco stesso preceduto dalla stringa “AICFARMACO:”.#
 

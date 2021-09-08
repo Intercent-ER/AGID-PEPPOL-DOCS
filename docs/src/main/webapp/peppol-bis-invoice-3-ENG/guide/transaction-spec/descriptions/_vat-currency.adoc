@@ -1,12 +1,17 @@
 
-= Valuta della contabilità IVA
+= VAT accounting currency
 
-L'articolo 230 della {VAT-dir} recita:
+Article 230 of {VAT-dir} states:
 [quote]
 ____
-Gli importi che figurano sulla fattura possono essere espressi in qualsiasi valuta, a condizione che l'importo dovuto dell'IVA sia espresso nella valuta nazionale dello Stato membro in cui avviene la cessione di beni o servizi, utilizzando il meccanismo di conversione di cui all'articolo 91.
+The amounts which appear on the invoice may be expressed in
+any currency, provided that the amount of VAT payable is
+expressed in the national currency of the Member State in which
+the supply of goods or services takes place, using the conversion
+mechanism laid down in Article 91.
 ____
 
-Se la valuta della fattura è differente da quella nazionale, questa viene espressa nella fattura indicando la valuta nazionale nell'elemento VAT accounting currency (BT-6) e l'importo dell'IVA pagabile nella valuta nazionale è indicato nell'elemento importo totale IVA della fattura (BT-111) nella valuta della contabilità IVA. Il tasso di cambio da utilizzare per il calcolo è descritto all'articolo 91 della {VAT-dir}. Il tasso di cambio non è specificato nell'istanza della fattura e quindi questo calcolo non viene validato.
+
+If the invoice currency is different from the national currency, this is expressed in the invoice by stating the national currency in the element VAT accounting currency (BT-6), and the amount of VAT payable in national currency is stated in the element Invoice total VAT amount in accounting currency (BT-111). The exchange rate to use for calculating is described in Article 91 of {VAT-dir}. The exchange rate is not specified in the invoice instance, and hence this calculation is not validated.
 
 include::../../syntax/_vat-currency.adoc[]

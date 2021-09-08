@@ -1,10 +1,10 @@
 
 [[buyerref]]
-= Riferimento dell'acquirente (BuyerReference)
+= Buyer reference
 
-Il riferimento dell'acquirente è **facoltativo**. Una fattura deve avere il riferimento dell'acquirente o il riferimento dell'ordine (vedi <<orderref>>). 
+The buyer reference, known as Your ref, is **conditional**. An invoice shall have either the buyer reference or the order reference (see <<orderref>>)
 
-L'elemento è utilizzato come riferimento per chi ha ordinato  prodotti/servizi. L'esempio è dato dal nome della persona che ordina, il numero del dipendente o un codice che identifica questa persona o dipartimento/gruppo. Il loro riferimento viene spesso utilizzato per lo smistamento interno al beneficiario, quindi è importante valorizzare questo elemento con i valori corretti in base alle necessità del beneficiario.
+The element is used for the reference of who ordered the products/services. Example being the name of the person ordering, employee number or a code identifying this person or department/group. Your ref is often used for internal routing at recipient, and hence it is important to fill this element with the correct values according to the need of the recipient.
 
 #Se la fattura viene messa nell'ambito di un processo di Ordinazione Semplice o Ordinazione Completa rilevante ai fini del sistema NSO, occorre riportare nel *cbc:BuyerReference* (BT-10 Buyer reference) la Tripletta di identificazione completa separando i componenti (Id, data e Endpoint) con il carattere &#x0023; senza interposizione di spazi, come nel seguente esempio:#
 

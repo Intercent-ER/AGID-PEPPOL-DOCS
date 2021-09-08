@@ -1,9 +1,8 @@
 
 
-= Il Fornitore (AccountingSupplierParty)
+= Seller (AccountingSupplierParty)
 
-Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è obbligatorio in quanto è il emittente del documento, inoltre è obbligatorio includere l’EndpointID (ParticipantID) con il quale è registrato su PEPPOL.
-
+Seller is mandatory information and provided in element `cac:AccountingSupplierParty`
 
 .Esempio di informazioni per un fornitore italiano con indicazione della Partita Iva nell'Endpoint
 [source, xml, indent=0]
@@ -230,9 +229,10 @@ Trattasi di CIUS domestica
 
 
 
-= Il Cliente (AccountingCustomerParty)
 
-Il Cliente, detto anche Cessionario o Committente, è la persona o organizzazione che acquisisce la proprietà di un prodotto o di un servizio in base ad un prezzo concordato e a dei termini di pagamento. +
+= Buyer (AccountingCustomerParty)
+
+Buyer is mandatory information and provided in element `cac:AccountingCustomerParty`. +
 
 #Il cliente può essere una PA, un operatore economico, un cittadino o un soggetto residente, non residente, non stabilito/identificato in Italia.#
 
@@ -343,21 +343,17 @@ Trattasi di CIUS domestica valida per la fatturazione verso privati
 ----
 
 
-= Il Beneficiario (PayeeParty)
+= Payment receiver (PayeeParty)
 
-Il beneficiario è una persona, istituto bancario o entità di business alla quale si effettua il pagamento.
+Payment receiver is optional information. If this information is not supplied, the seller is the payment receiver. When payee information is sent this is indicating that a factoring situation is being documented.
 
-Il beneficiario è una informazione facoltativa. Se questa informazione non è fornita, il fornitore/venditore è anche il beneficiario del pagamento.
+To reflect the assignment of an Invoice to a factor there is a need to:
 
-Quando vengono fornite le informazioni del beneficiario significa che si evidenzia un caso di factoring.
+. have a disclaimer (notification notice) on the Invoice that the Invoice has been assigned to a factor. The disclaimer should be given using the Invoice note (BT-22) on document level.
 
-Per riflettere l'assegnazione di una Fattura ad un factor è necessario:
+. identify the Factor as the Payee
 
-. avere una dichiarazione di esclusione di responsabilità (avviso) sulla fattura che questa è stata assegnata ad un factor. La dichiarazione di esclusione di responsabilità dovrebbe essere fornita nella Invoice note (BT-22) a livello di testata.
-
-. identificare il Factor con il Beneficiario
-
-. modificare le coordinate bancarie a favore del Factor.
+. to have the bank account changed to favour of a Factor.
 
 
 .Esempio UBL per le informazioni del beneficiario
@@ -380,12 +376,12 @@ I rappresentanti fiscali sono responsabili per la gestione corretta e la regolar
 #Il Codice Fiscale può essere espresso all'interno del Party nell'elemento *cac:PartyIdentification/cbc:ID* inserendo l’attributo @schemeID valorizzato con il codice "0210", come nell'esempio di seguito.#
 
 
-.Esempio UBL per le informazioni del rappresentante fiscale
+.UBL example of tax representative information
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/Snippet-full.xml[tags=taxrep]
 ----
-<1> Gli identificatori per il VAT/IVA devono incudere il prefisso del codice paese
+<1> VAT identifiers shall be prefixed with the country code
 
 #Il campo *cac:PartyName/cbc:Name* può essere usato per indicare il dato FPA 1.3.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.3.1.3.2 Nome e 1.3.1.3.3 Cognome preceduti dalla stringa "Nome&Cognome:" e concatenati dal simbolo "&#x0023;".#
 

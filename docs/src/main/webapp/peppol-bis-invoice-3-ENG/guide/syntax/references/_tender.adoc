@@ -1,12 +1,12 @@
 
-= Riferimento alla Gara (CIG)
+= Tender reference (CIG)
 
-Per identificare il bando di gara o il lotto al quale la fattura si riferisce, utilizzare il 'OriginatorDocumentReference'. L'identificatore è il Codice Identificativo Gara (CIG).
+To identify the call for tender or lot the invoice relates to, use the 'OriginatorDocumentReference'. The identifier is, in most cases, the Procurement Procedure Identifier.
 
 #L'indicazione del codice CIG è obbligatoria nei contesti in cui questo è richiesto, ed è necessario al fine dei processi di verifica, riconciliazione e approvazione al pagamento delle fatture.#
 
 
-.Esempio UBL per il riferimento alla gara (CIG)
+.UBL example of tender reference (CIG)
 [source, xml, indent=0]
 ----
 include::../{snippet-dir}/Snippet-refs.xml[tags=tender]

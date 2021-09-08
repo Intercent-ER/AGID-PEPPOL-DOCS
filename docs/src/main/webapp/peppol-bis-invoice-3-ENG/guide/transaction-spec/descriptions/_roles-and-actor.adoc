@@ -1,9 +1,9 @@
 
-= Parti di business
+= Parties
 
-I seguenti ruoli posso essere specificati. Lo stesso attore può giocare diversi ruoli a seconda del caso.
+The following roles may be specified. The same actor may play more than one role depending on the handling routine.
 
-Ulteriori dettagli su parti/ruoli sono riportati in <<roles>>.
+Further details on the roles/actors can be found in <<roles>>.
 
 :leveloffset: +1
 

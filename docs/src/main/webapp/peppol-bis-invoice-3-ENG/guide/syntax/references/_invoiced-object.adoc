@@ -1,10 +1,11 @@
 
-Il riferimento all'oggetto fatturato viene fornito utilizzando l'elemento 'cac:AdditionalDocumentReference' con il codice tipo documento = 130
+The invoiced object reference is provided by using the element `cac:AdditionalDocumentReference` with the document type code = 130
 
-.Esempio UBL di identificatore per l'oggetto principale della fattura
+.UBL example of invoiced object identifier
 [source, xml, indent=0]
 ----
 include::../{snippet-dir}/Snippet-refs.xml[tags=object]
 ----
-<1> Identificatore dello schema dalla <<id_schemes, UN/CEFACT 1153 code list>>
-<2> Il codice tipo documento deve essere '130' per indicare un oggetto fatturato
+<1> Scheme identifier from <<id_schemes, UN/CEFACT 1153 code list>>
+<2> Document type code shall be ´130´ to indicate Invoiced object
+

@@ -1,15 +1,15 @@
 
-= Riferimenti al Documento di Trasporto (DDT) e ricezione
+= Despatch and receipt advice references
 
-Per fare riferimento o riconciliare una fattura al DDT o all'avviso di ricezione utilizzare i seguenti elementi:
+To reference or match an invoice to a despatch or receipt advice use the following elements:
 
-.Esempio di Documento di Trasporto (DDT) e ricezione
+.UBL example of despatch and receipt advice
 [source, xml, indent=0]
 ----
 include::../{snippet-dir}/Snippet-refs.xml[tags=desp-rec]
 ----
-<1> Documento di Trasporto (DDT)
-<2> Avviso di ricezione
+<1> Despatch advice (DDT)
+<2> Receipt advice
 
 
 #Per fare riferimento a più DDT dalle righe di fattura è possibile utilizzare *cac:DespatchLineReference*, come nel seguente esempio:#

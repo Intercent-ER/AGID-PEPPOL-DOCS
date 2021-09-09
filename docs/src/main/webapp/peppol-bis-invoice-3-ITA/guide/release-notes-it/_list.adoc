@@ -7,11 +7,10 @@
 ^.^| Cosa è cambiato
 
 
-| 3.0.11.1(IT)
-a| 01/07/2021
+.2+| 3.0.11.1(IT)
+.2+| #01/07/2021#
 a|La presente specifica implementa le nuove "Regole tecniche relative alla gestione delle fatture europee – versione 2.0 in vigore dal 1° luglio 2021", pubblicate il 27/05/2021, in relazione al “Provvedimento del 18/04/2019 - pubblicato il 18/04/2019" (disponibile presso il seguente https://www.agenziaentrate.gov.it/portale/web/guest/normativa-e-prassi/provvedimenti/2019/aprile-2019-provvedimenti/provvedimento-18042019-fatturazione-elettronica-europea[link]), e fornisce indicazioni sulla gestione della fatturazione verso privati
-
-
+a| Aggiornamento alle specifiche PEPPOL BIS Billing 3.0.10 e 3.0.11 hotfix.
 
 | 3.0.9.1(IT)
 a| 13/11/2020

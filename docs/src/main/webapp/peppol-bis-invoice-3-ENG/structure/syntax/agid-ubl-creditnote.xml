@@ -8,7 +8,7 @@
     </Description>
     <agid:Extension>
 		<agid:ID>urn:www.agid.gov.it:trns:nota_credito:3.0</agid:ID>
-		<agid:Name>Struttura Nota di Credito Elettronica 3.0 (Estensione Italiana della EN16931)</agid:Name>
+		<agid:Name>PEPPOL BIS Credit Note 3.0 Structure (Italian extension to EN16931)</agid:Name>
 		<agid:Version>3.0</agid:Version>
     </agid:Extension>
 

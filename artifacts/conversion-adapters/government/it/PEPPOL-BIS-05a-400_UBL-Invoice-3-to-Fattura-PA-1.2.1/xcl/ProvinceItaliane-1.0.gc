@@ -1,0 +1,910 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/">
+	<Identification>
+		<ShortName>ProvinceItaliane</ShortName>
+		<LongName xml:lang="it">Province Italiane</LongName>
+		<LongName Identifier="listID">ProvinceItaliane</LongName>
+		<Version>1.0</Version>
+		<CanonicalUri>urn:www.ubl-italia.org:spec:fatturapa:codelist:gc:ProvinceItaliane</CanonicalUri>
+		<Agency>
+			<LongName xml:lang="it">UBL Italia</LongName>
+			<Identifier>UBL-ITALIA</Identifier>
+		</Agency>
+	</Identification>
+	<ColumnSet>
+		<Column Id="name" Use="optional">
+			<ShortName>Name</ShortName>
+			<Data Type="string"/>
+		</Column>
+		<Column Id="code" Use="required">
+			<ShortName>Code</ShortName>
+			<Data Type="normalizedString"/>
+		</Column>
+		<Key Id="codeKey">
+			<ShortName>CodeKey</ShortName>
+			<ColumnRef Ref="code"/>
+		</Key>
+	</ColumnSet>
+	<SimpleCodeList>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Agrigento</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>AG</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Alessandria</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>AL</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Ancona</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>AN</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Aosta</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>AO</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Arezzo</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>AR</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Ascoli Piceno</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>AP</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Asti</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>AT</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Avellino</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>AV</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Bari</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>BA</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Barletta-Andria-Trani</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>BT</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Belluno</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>BL</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Benevento</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>BN</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Bergamo</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>BG</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Biella</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>BI</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Bologna</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>BO</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Bolzano</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>BZ</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Brescia</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>BS</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Brindisi</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>BR</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Cagliari</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>CA</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Caltanissetta</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>CL</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Campobasso</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>CB</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Carbonia-Iglesias</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>CI</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Caserta</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>CE</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Catania</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>CT</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Catanzaro</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>CZ</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Chieti</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>CH</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Como</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>CO</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Cosenza</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>CS</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Cremona</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>CR</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Crotone</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>KR</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Cuneo</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>CN</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Enna</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>EN</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Fermo</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>FM</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Ferrara</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>FE</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Firenze</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>FI</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Foggia</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>FG</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Forlì-Cesena</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>FC</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Frosinone</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>FR</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Genova</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>GE</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Gorizia</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>GO</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Grosseto</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>GR</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Imperia</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>IM</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Isernia</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>IS</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>La Spezia</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>SP</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>L'Aquila</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>AQ</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Latina</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>LT</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Lecce</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>LE</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Lecco</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>LC</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Livorno</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>LI</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Lodi</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>LO</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Lucca</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>LU</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Macerata</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>MC</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Mantova</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>MN</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Massa-Carrara</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>MS</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Matera</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>MT</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Messina</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>ME</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Milano</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>MI</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Modena</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>MO</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Monza</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>MB</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Napoli</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>NA</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Novara</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>NO</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Nuoro</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>NU</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Olbia-Tempio</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>OT</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Oristano</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>OR</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Padova</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>PD</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Palermo</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>PA</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Parma</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>PR</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Pavia</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>PV</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Perugia</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>PG</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Pesaro e Urbino</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>PU</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Pescara</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>PE</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Piacenza</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>PC</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Pisa</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>PI</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Pistoia</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>PT</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Pordenone</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>PN</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Potenza</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>PZ</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Prato</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>PO</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Ragusa</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>RG</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Ravenna</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>RA</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Reggio Calabria</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>RC</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Reggio Emilia</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>RE</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Rieti</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>RI</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Rimini</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>RN</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Roma</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>RM</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Rovigo</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>RO</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Salerno</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>SA</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Medio Campidano</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>VS</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Sassari</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>SS</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Savona</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>SV</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Siena</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>SI</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Siracusa</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>SR</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Sondrio</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>SO</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Taranto</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>TA</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Teramo</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>TE</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Terni</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>TR</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Torino</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>TO</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Ogliastra</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>OG</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Trapani</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>TP</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Trento</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>TN</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Treviso</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>TV</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Trieste</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>TS</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Udine</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>UD</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Varese</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>VA</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Venezia</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>VE</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Verbano-Cusio-Ossola</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>VB</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Vercelli</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>VC</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Verona</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>VR</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Vibo Valentia</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>VV</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Vicenza</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>VI</SimpleValue>
+			</Value>
+		</Row>
+		<Row>
+			<Value ColumnRef="name">
+				<SimpleValue>Viterbo</SimpleValue>
+			</Value>
+			<Value ColumnRef="code">
+				<SimpleValue>VT</SimpleValue>
+			</Value>
+		</Row>
+	</SimpleCodeList>
+</gc:CodeList>

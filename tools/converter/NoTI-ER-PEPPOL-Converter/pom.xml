@@ -29,7 +29,7 @@
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${basedir}/target/xsl/3.0/PEPPOL/</outputDirectory>
+							<outputDirectory>${basedir}/target/xsl/PEPPOL/3.0/</outputDirectory>
 							<resources>          
 								<resource>
 									<directory>${basedir}/../../../artifacts/validation/3.0/xsl</directory>
@@ -47,7 +47,7 @@
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${basedir}/target/xsl/2.0/PEPPOL/</outputDirectory>
+							<outputDirectory>${basedir}/target/xsl/PEPPOL/2.0/</outputDirectory>
 							<resources>          
 								<resource>
 									<directory>${basedir}/../../../artifacts/validation/2.0/xsl</directory>

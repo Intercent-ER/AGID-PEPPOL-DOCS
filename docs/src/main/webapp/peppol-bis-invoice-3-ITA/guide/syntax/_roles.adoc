@@ -416,7 +416,7 @@ include::../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_for
 
 Nel caso sia un soggetto terzo ad emettere fattura per conto del cedente / prestatore, si può specificare in fattura come parte dei dati del fornitore nell'elemento *cac:ServiceProviderParty*. +
 
-Il Codice Fiscale deve essere espresso all'interno del Party nell'elemento PartyIdentification/ID inserendo l’attributo @schemeID valorizzato con il codice "0210", come nell'esempio di seguito. +
+Nel caso in cui il soggetto terzo sia italiano, il Codice Fiscale deve essere espresso all'interno del Party nell'elemento PartyIdentification/ID inserendo l’attributo @schemeID valorizzato con il codice "0210", come nell'esempio di seguito. +
 
 .Esempio UBL per il terzo intermediario o soggetto emittente per conto del fornitore
 [source, xml, indent=0]

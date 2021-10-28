@@ -282,17 +282,13 @@ Trattasi di CIUS domestica valida per la fatturazione verso privati
 .Esempio di un soggetto (non persona fisica) in possesso del Codice Destinatario accreditato presso l’Agenzia delle Entrate.
 [source, xml, indent=0]
 ----
-<cac:EndPointID>
-    <cbc:ID schemeID="0205">L0U7KO4</cbc:ID>
-</cac:EndPointID>
+<cbc:EndpointID schemeID="0205">L0U7KO4</cbc:EndpointID>
 ----
 
 .Esempio di un soggetto (non persona fisica) non residente, non stabilito o identificato in Italia, privo di Codice e Destinatario e di PEC.
 [source, xml, indent=0]
 ----
-<cac:EndPointID>
-    <cbc:ID schemeID="0205">XXXXXXX</cbc:ID>
-</cac:EndPointID>
+<cbc:EndpointID schemeID="0205">XXXXXXX</cbc:EndpointID>
 ----
 
 [lime-background]#Nel contesto B2C e G2C il Cliente è una persona fisica.#
@@ -337,9 +333,7 @@ Trattasi di CIUS domestica valida per la fatturazione verso privati
 .Esempio di un soggetto residente privo di Codice Destinatario e di PEC:
 [source, xml, indent=0]
 ----
-<cac:EndPointID>
-    <cbc:ID schemeID="0205">0000000</cbc:ID>
-</cac:EndPointID>
+<cbc:EndpointID schemeID="0205">0000000</cbc:EndpointID>
 ----
 
 

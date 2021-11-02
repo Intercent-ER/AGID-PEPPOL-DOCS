@@ -25,7 +25,17 @@
 				Numero del Codice EORI (Economic Operator Registration and Identification) in base al Regolamento (CE) n. 312 del 16 aprile 2009. In vigore dal 1 luglio 2009. Utilizzare sempre il prefisso 'EORI:'
 				</Description>
 				<DataType>Identifier</DataType>
-				<Value type="EXAMPLE">CF:CXXNXX68M06E123H</Value>
+				<Reference type="RULE">BR-IT-DE-049</Reference>
+                <Attribute usage="Optional">
+                    <Term>schemeID</Term>
+                    <Name>Service Provider Party identification scheme identifier</Name>
+                    <Description>The identification scheme identifier of the Service Provider Party identifier.</Description>
+                    <Reference type="RULE">BR-CL-10</Reference>
+                    <Reference type="CODE_LIST">ICD</Reference>
+                    <Value type="EXAMPLE">0210</Value>
+                </Attribute>
+				
+				<Value type="EXAMPLE">CXXNXX68M06E123H</Value>
 				<Value type="EXAMPLE">EORI:12345678901</Value>
 			</Element>
 		</Element>

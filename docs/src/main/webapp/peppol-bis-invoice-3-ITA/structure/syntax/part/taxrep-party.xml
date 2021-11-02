@@ -24,6 +24,15 @@
 			<DataType>Identifier</DataType>
 			<Reference type="RULE">BR-IT-DE-024A</Reference>
 			<Reference type="RULE">BR-IT-DE-025</Reference>
+            <Attribute usage="Optional">
+                <Term>schemeID</Term>
+                <Name>Tax Representative Party identification scheme identifier</Name>
+                <Description>The identification scheme identifier of the Tax Representative Party identifier.</Description>
+                <Reference type="RULE">BR-CL-10</Reference>
+                <Reference type="CODE_LIST">ICD</Reference>
+                <Value type="EXAMPLE">0210</Value>
+            </Attribute>
+				
 			<Value type="EXAMPLE">EORI:12345678901</Value>
 		</Element>
 	</Element>

@@ -59,6 +59,73 @@
       <value-of select="number($val) &gt; 0 and (11 - ($weightedSum mod 11)) mod 11 = number(substring($val, $length + 1, 1))"/>
 	
    </function>
+   <function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:mod97-0208" as="xs:boolean">
+    
+      <param name="val"/>
+    
+      <variable name="checkdigits" select="substring($val,9,2)"/>
+    
+      <variable name="calculated_digits" select="xs:string(97 - (xs:integer(substring($val,1,8)) mod 97))"/>
+    
+      <value-of select="number($checkdigits) = number($calculated_digits)"/>
+  
+   </function>
+   <function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:checkCodiceIPA" as="xs:boolean">
+    
+      <param name="arg" as="xs:string?"/>
+    
+      <variable name="allowed-characters">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</variable>
+    
+      <sequence select="if ( (string-length(translate($arg, $allowed-characters, '')) = 0) and (string-length($arg) = 6) ) then true() else false()"/>
+  
+   </function>
+   <function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:checkCF" as="xs:boolean">
+    
+      <param name="arg" as="xs:string?"/>
+    
+      <sequence select="   if ( (string-length($arg) = 16) or (string-length($arg) = 11) )      then    (    if ((string-length($arg) = 16))     then    (     if (u:checkCF16($arg))      then     (      true()     )     else     (      false()     )    )    else    (     if(($arg castable as xsd:integer)) then true() else false()       )   )   else   (    false()   )   "/>
+  
+   </function>
+   <function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:checkCF16" as="xs:boolean">
+    
+      <param name="arg" as="xs:string?"/>
+    
+      <variable name="allowed-characters">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz</variable>
+    
+      <sequence select="     if (  (string-length(translate(substring($arg,1,6), $allowed-characters, '')) = 0) and         (substring($arg,7,2) castable as xsd:integer) and        (string-length(translate(substring($arg,9,1), $allowed-characters, '')) = 0) and        (substring($arg,10,2) castable as xsd:integer) and         (substring($arg,12,3) castable as xsd:string) and        (substring($arg,15,1) castable as xsd:integer) and         (string-length(translate(substring($arg,16,1), $allowed-characters, '')) = 0)      )      then true()     else false()     "/>
+  
+   </function>
+   <function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:checkPIVAseIT" as="xs:boolean">
+    
+      <param name="arg" as="xs:string"/>
+    
+      <variable name="paese" select="substring($arg,1,2)"/>
+    
+      <variable name="codice" select="substring($arg,3)"/>
+    
+      <sequence select="       if ( $paese = 'IT' or $paese = 'it' )    then    (     if ( ( string-length($codice) = 11 ) and ( if (u:checkPIVA($codice)!=0) then false() else true() ))     then      (      true()     )     else     (      false()     )    )    else    (     true()    )      "/>
+  
+   </function>
+   <function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:checkPIVA" as="xs:integer">
+    
+      <param name="arg" as="xs:string?"/>
+    
+      <sequence select="     if (not($arg castable as xsd:integer))       then 1      else ( u:addPIVA($arg,xs:integer(0)) mod 10 )"/>
+  
+   </function>
+   <function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:addPIVA" as="xs:integer">
+    
+      <param name="arg" as="xs:string"/>
+    
+      <param name="pari" as="xs:integer"/>
+    
+      <variable name="tappo" select="if (not($arg castable as xsd:integer)) then 0 else 1"/>
+    
+      <variable name="mapper" select="if ($tappo = 0) then 0 else                    ( if ($pari = 1)                     then ( xs:integer(substring('0246813579', ( xs:integer(substring($arg,1,1)) +1 ) ,1)) )                     else ( xs:integer(substring($arg,1,1) ) )                   )"/>
+    
+      <sequence select="if ($tappo = 0) then $mapper else ( xs:integer($mapper) + u:addPIVA(substring(xs:string($arg),2), (if($pari=0) then 1 else 0) ) )"/>
+  
+   </function>
    <function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:TinVerification" as="xs:boolean">
 		
       <param name="val" as="xs:string"/>
@@ -232,7 +299,7 @@
             <axsl:attribute name="name">UBL-model</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M24"/>
+         <axsl:apply-templates select="/" mode="M25"/>
          <svrl:active-pattern>
             <axsl:attribute name="document">
                <axsl:value-of select="document-uri(/)"/>
@@ -241,7 +308,7 @@
             <axsl:attribute name="name">UBL-syntax</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M25"/>
+         <axsl:apply-templates select="/" mode="M26"/>
          <svrl:active-pattern>
             <axsl:attribute name="document">
                <axsl:value-of select="document-uri(/)"/>
@@ -250,7 +317,7 @@
             <axsl:attribute name="name">Codesmodel</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M26"/>
+         <axsl:apply-templates select="/" mode="M27"/>
          <svrl:active-pattern>
             <axsl:attribute name="document">
                <axsl:value-of select="document-uri(/)"/>
@@ -259,7 +326,7 @@
             <axsl:attribute name="name">OP-empty-elements</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M34"/>
+         <axsl:apply-templates select="/" mode="M42"/>
          <svrl:active-pattern>
             <axsl:attribute name="document">
                <axsl:value-of select="document-uri(/)"/>
@@ -268,7 +335,7 @@
             <axsl:attribute name="name">OP-transaction-rules</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M35"/>
+         <axsl:apply-templates select="/" mode="M43"/>
          <svrl:active-pattern>
             <axsl:attribute name="document">
                <axsl:value-of select="document-uri(/)"/>
@@ -277,7 +344,7 @@
             <axsl:attribute name="name">OP-Norway-rules</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M36"/>
+         <axsl:apply-templates select="/" mode="M44"/>
          <svrl:active-pattern>
             <axsl:attribute name="document">
                <axsl:value-of select="document-uri(/)"/>
@@ -286,7 +353,7 @@
             <axsl:attribute name="name">OP-Denmark-rules</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M37"/>
+         <axsl:apply-templates select="/" mode="M45"/>
          <svrl:active-pattern>
             <axsl:attribute name="document">
                <axsl:value-of select="document-uri(/)"/>
@@ -295,7 +362,7 @@
             <axsl:attribute name="name">OP-Italy-rules</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M38"/>
+         <axsl:apply-templates select="/" mode="M46"/>
          <svrl:active-pattern>
             <axsl:attribute name="document">
                <axsl:value-of select="document-uri(/)"/>
@@ -304,7 +371,7 @@
             <axsl:attribute name="name">OP-Sweden-rules</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M39"/>
+         <axsl:apply-templates select="/" mode="M47"/>
          <svrl:active-pattern>
             <axsl:attribute name="document">
                <axsl:value-of select="document-uri(/)"/>
@@ -313,7 +380,7 @@
             <axsl:attribute name="name">OP-Greece-sender-rules</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M45"/>
+         <axsl:apply-templates select="/" mode="M53"/>
          <svrl:active-pattern>
             <axsl:attribute name="document">
                <axsl:value-of select="document-uri(/)"/>
@@ -322,7 +389,7 @@
             <axsl:attribute name="name">OP-Greece-sender-receiver-rules</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M46"/>
+         <axsl:apply-templates select="/" mode="M54"/>
          <svrl:active-pattern>
             <axsl:attribute name="document">
                <axsl:value-of select="document-uri(/)"/>
@@ -331,7 +398,16 @@
             <axsl:attribute name="name">OP-Iceland-rules</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M47"/>
+         <axsl:apply-templates select="/" mode="M55"/>
+         <svrl:active-pattern>
+            <axsl:attribute name="document">
+               <axsl:value-of select="document-uri(/)"/>
+            </axsl:attribute>
+            <axsl:attribute name="id">OP-Netherlands-rules</axsl:attribute>
+            <axsl:attribute name="name">OP-Netherlands-rules</axsl:attribute>
+            <axsl:apply-templates/>
+         </svrl:active-pattern>
+         <axsl:apply-templates select="/" mode="M56"/>
          <svrl:active-pattern>
             <axsl:attribute name="document">
                <axsl:value-of select="document-uri(/)"/>
@@ -340,7 +416,7 @@
             <axsl:attribute name="name">OP-cl-formatting-rules</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M48"/>
+         <axsl:apply-templates select="/" mode="M57"/>
          <svrl:active-pattern>
             <axsl:attribute name="document">
                <axsl:value-of select="document-uri(/)"/>
@@ -349,7 +425,7 @@
             <axsl:attribute name="name">Italy-CIUS-rules</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M49"/>
+         <axsl:apply-templates select="/" mode="M58"/>
          <svrl:active-pattern>
             <axsl:attribute name="document">
                <axsl:value-of select="document-uri(/)"/>
@@ -358,7 +434,7 @@
             <axsl:attribute name="name">Italy-EXTENSION-rules</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M50"/>
+         <axsl:apply-templates select="/" mode="M59"/>
       </svrl:schematron-output>
    </axsl:template>
 
@@ -371,7 +447,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AdditionalDocumentReference" priority="1066" mode="M24">
+   <axsl:template match="cac:AdditionalDocumentReference" priority="1066" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AdditionalDocumentReference"/>
 
 		<!--ASSERT -->
@@ -389,12 +465,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount" priority="1065" mode="M24">
+   <axsl:template match="/ubl:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount" priority="1065" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount"/>
 
 		<!--ASSERT -->
@@ -412,12 +488,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AccountingCustomerParty/cac:Party/cbc:EndpointID" priority="1064" mode="M24">
+   <axsl:template match="cac:AccountingCustomerParty/cac:Party/cbc:EndpointID" priority="1064" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AccountingCustomerParty/cac:Party/cbc:EndpointID"/>
 
 		<!--ASSERT -->
@@ -435,12 +511,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AccountingCustomerParty/cac:Party/cac:PostalAddress" priority="1063" mode="M24">
+   <axsl:template match="cac:AccountingCustomerParty/cac:Party/cac:PostalAddress" priority="1063" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AccountingCustomerParty/cac:Party/cac:PostalAddress"/>
 
 		<!--ASSERT -->
@@ -458,12 +534,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:PaymentMeans/cac:CardAccount" priority="1062" mode="M24">
+   <axsl:template match="cac:PaymentMeans/cac:CardAccount" priority="1062" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:PaymentMeans/cac:CardAccount"/>
 
 		<!--ASSERT -->
@@ -481,12 +557,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:Delivery/cac:DeliveryLocation/cac:Address" priority="1061" mode="M24">
+   <axsl:template match="cac:Delivery/cac:DeliveryLocation/cac:Address" priority="1061" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:Delivery/cac:DeliveryLocation/cac:Address"/>
 
 		<!--ASSERT -->
@@ -504,12 +580,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Invoice/cac:AllowanceCharge[cbc:ChargeIndicator = false()] | /cn:CreditNote/cac:AllowanceCharge[cbc:ChargeIndicator = false()]" priority="1060" mode="M24">
+   <axsl:template match="/ubl:Invoice/cac:AllowanceCharge[cbc:ChargeIndicator = false()] | /cn:CreditNote/cac:AllowanceCharge[cbc:ChargeIndicator = false()]" priority="1060" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Invoice/cac:AllowanceCharge[cbc:ChargeIndicator = false()] | /cn:CreditNote/cac:AllowanceCharge[cbc:ChargeIndicator = false()]"/>
 
 		<!--ASSERT -->
@@ -623,12 +699,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Invoice/cac:AllowanceCharge[cbc:ChargeIndicator = true()] | /cn:CreditNote/cac:AllowanceCharge[cbc:ChargeIndicator = true()]" priority="1059" mode="M24">
+   <axsl:template match="/ubl:Invoice/cac:AllowanceCharge[cbc:ChargeIndicator = true()] | /cn:CreditNote/cac:AllowanceCharge[cbc:ChargeIndicator = true()]" priority="1059" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Invoice/cac:AllowanceCharge[cbc:ChargeIndicator = true()] | /cn:CreditNote/cac:AllowanceCharge[cbc:ChargeIndicator = true()]"/>
 
 		<!--ASSERT -->
@@ -742,12 +818,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:LegalMonetaryTotal" priority="1058" mode="M24">
+   <axsl:template match="cac:LegalMonetaryTotal" priority="1058" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:LegalMonetaryTotal"/>
 
 		<!--ASSERT -->
@@ -1021,12 +1097,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Invoice | /cn:CreditNote" priority="1057" mode="M24">
+   <axsl:template match="/ubl:Invoice | /cn:CreditNote" priority="1057" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Invoice | /cn:CreditNote"/>
 
 		<!--ASSERT -->
@@ -1320,9 +1396,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="every $Currency in cbc:DocumentCurrencyCode satisfies (count(//cac:TaxTotal/xs:decimal(cbc:TaxAmount[@currencyID=$Currency])) eq 1) and (cac:LegalMonetaryTotal/xs:decimal(cbc:TaxInclusiveAmount) = round( (cac:LegalMonetaryTotal/xs:decimal(cbc:TaxExclusiveAmount) + cac:TaxTotal/xs:decimal(cbc:TaxAmount[@currencyID=$Currency])) * 10 * 10) div 100)"/>
+         <axsl:when test="every $Currency in cbc:DocumentCurrencyCode satisfies (count(cac:TaxTotal/xs:decimal(cbc:TaxAmount[@currencyID=$Currency])) eq 1) and (cac:LegalMonetaryTotal/xs:decimal(cbc:TaxInclusiveAmount) = round( (cac:LegalMonetaryTotal/xs:decimal(cbc:TaxExclusiveAmount) + cac:TaxTotal/xs:decimal(cbc:TaxAmount[@currencyID=$Currency])) * 10 * 10) div 100)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="every $Currency in cbc:DocumentCurrencyCode satisfies (count(//cac:TaxTotal/xs:decimal(cbc:TaxAmount[@currencyID=$Currency])) eq 1) and (cac:LegalMonetaryTotal/xs:decimal(cbc:TaxInclusiveAmount) = round( (cac:LegalMonetaryTotal/xs:decimal(cbc:TaxExclusiveAmount) + cac:TaxTotal/xs:decimal(cbc:TaxAmount[@currencyID=$Currency])) * 10 * 10) div 100)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="every $Currency in cbc:DocumentCurrencyCode satisfies (count(cac:TaxTotal/xs:decimal(cbc:TaxAmount[@currencyID=$Currency])) eq 1) and (cac:LegalMonetaryTotal/xs:decimal(cbc:TaxInclusiveAmount) = round( (cac:LegalMonetaryTotal/xs:decimal(cbc:TaxExclusiveAmount) + cac:TaxTotal/xs:decimal(cbc:TaxAmount[@currencyID=$Currency])) * 10 * 10) div 100)">
                <axsl:attribute name="id">BR-CO-15</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -2020,12 +2096,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:InvoiceLine | cac:CreditNoteLine" priority="1056" mode="M24">
+   <axsl:template match="cac:InvoiceLine | cac:CreditNoteLine" priority="1056" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:InvoiceLine | cac:CreditNoteLine"/>
 
 		<!--ASSERT -->
@@ -2187,12 +2263,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="//cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator = false()] | //cac:CreditNoteLine/cac:AllowanceCharge[cbc:ChargeIndicator = false()]" priority="1055" mode="M24">
+   <axsl:template match="//cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator = false()] | //cac:CreditNoteLine/cac:AllowanceCharge[cbc:ChargeIndicator = false()]" priority="1055" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator = false()] | //cac:CreditNoteLine/cac:AllowanceCharge[cbc:ChargeIndicator = false()]"/>
 
 		<!--ASSERT -->
@@ -2290,12 +2366,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="//cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator = true()] | //cac:CreditNoteLine/cac:AllowanceCharge[cbc:ChargeIndicator = true()]" priority="1054" mode="M24">
+   <axsl:template match="//cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator = true()] | //cac:CreditNoteLine/cac:AllowanceCharge[cbc:ChargeIndicator = true()]" priority="1054" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator = true()] | //cac:CreditNoteLine/cac:AllowanceCharge[cbc:ChargeIndicator = true()]"/>
 
 		<!--ASSERT -->
@@ -2393,12 +2469,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:InvoiceLine/cac:InvoicePeriod | cac:CreditNoteLine/cac:InvoicePeriod" priority="1053" mode="M24">
+   <axsl:template match="cac:InvoiceLine/cac:InvoicePeriod | cac:CreditNoteLine/cac:InvoicePeriod" priority="1053" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:InvoiceLine/cac:InvoicePeriod | cac:CreditNoteLine/cac:InvoicePeriod"/>
 
 		<!--ASSERT -->
@@ -2432,12 +2508,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:InvoicePeriod" priority="1052" mode="M24">
+   <axsl:template match="cac:InvoicePeriod" priority="1052" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:InvoicePeriod"/>
 
 		<!--ASSERT -->
@@ -2471,12 +2547,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="//cac:AdditionalItemProperty" priority="1051" mode="M24">
+   <axsl:template match="//cac:AdditionalItemProperty" priority="1051" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:AdditionalItemProperty"/>
 
 		<!--ASSERT -->
@@ -2494,12 +2570,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode | cac:CreditNoteLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode" priority="1050" mode="M24">
+   <axsl:template match="cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode | cac:CreditNoteLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode" priority="1050" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode | cac:CreditNoteLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode"/>
 
 		<!--ASSERT -->
@@ -2517,12 +2593,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:InvoiceLine/cac:Item/cac:StandardItemIdentification/cbc:ID | cac:CreditNoteLine/cac:Item/cac:StandardItemIdentification/cbc:ID" priority="1049" mode="M24">
+   <axsl:template match="cac:InvoiceLine/cac:Item/cac:StandardItemIdentification/cbc:ID | cac:CreditNoteLine/cac:Item/cac:StandardItemIdentification/cbc:ID" priority="1049" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:InvoiceLine/cac:Item/cac:StandardItemIdentification/cbc:ID | cac:CreditNoteLine/cac:Item/cac:StandardItemIdentification/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -2540,12 +2616,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Invoice/cbc:Note | /cn:CreditNote/cbc:Note" priority="1048" mode="M24">
+   <axsl:template match="/ubl:Invoice/cbc:Note | /cn:CreditNote/cbc:Note" priority="1048" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Invoice/cbc:Note | /cn:CreditNote/cbc:Note"/>
 
 		<!--ASSERT -->
@@ -2563,12 +2639,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:PayeeParty" priority="1047" mode="M24">
+   <axsl:template match="cac:PayeeParty" priority="1047" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:PayeeParty"/>
 
 		<!--ASSERT -->
@@ -2586,12 +2662,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:PaymentMeans[cbc:PaymentMeansCode='30' or cbc:PaymentMeansCode='58']/cac:PayeeFinancialAccount" priority="1046" mode="M24">
+   <axsl:template match="cac:PaymentMeans[cbc:PaymentMeansCode='30' or cbc:PaymentMeansCode='58']/cac:PayeeFinancialAccount" priority="1046" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:PaymentMeans[cbc:PaymentMeansCode='30' or cbc:PaymentMeansCode='58']/cac:PayeeFinancialAccount"/>
 
 		<!--ASSERT -->
@@ -2609,12 +2685,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:PaymentMeans" priority="1045" mode="M24">
+   <axsl:template match="cac:PaymentMeans" priority="1045" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:PaymentMeans"/>
 
 		<!--ASSERT -->
@@ -2648,12 +2724,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:BillingReference" priority="1044" mode="M24">
+   <axsl:template match="cac:BillingReference" priority="1044" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:BillingReference"/>
 
 		<!--ASSERT -->
@@ -2671,12 +2747,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AccountingSupplierParty" priority="1043" mode="M24">
+   <axsl:template match="cac:AccountingSupplierParty" priority="1043" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AccountingSupplierParty"/>
 
 		<!--ASSERT -->
@@ -2694,12 +2770,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AccountingSupplierParty/cac:Party/cbc:EndpointID" priority="1042" mode="M24">
+   <axsl:template match="cac:AccountingSupplierParty/cac:Party/cbc:EndpointID" priority="1042" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AccountingSupplierParty/cac:Party/cbc:EndpointID"/>
 
 		<!--ASSERT -->
@@ -2717,12 +2793,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AccountingSupplierParty/cac:Party/cac:PostalAddress" priority="1041" mode="M24">
+   <axsl:template match="cac:AccountingSupplierParty/cac:Party/cac:PostalAddress" priority="1041" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AccountingSupplierParty/cac:Party/cac:PostalAddress"/>
 
 		<!--ASSERT -->
@@ -2740,12 +2816,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:TaxRepresentativeParty" priority="1040" mode="M24">
+   <axsl:template match="cac:TaxRepresentativeParty" priority="1040" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:TaxRepresentativeParty"/>
 
 		<!--ASSERT -->
@@ -2795,12 +2871,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:TaxRepresentativeParty/cac:PostalAddress" priority="1039" mode="M24">
+   <axsl:template match="cac:TaxRepresentativeParty/cac:PostalAddress" priority="1039" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:TaxRepresentativeParty/cac:PostalAddress"/>
 
 		<!--ASSERT -->
@@ -2818,12 +2894,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Invoice/cac:TaxTotal | /cn:CreditNote/cac:TaxTotal" priority="1038" mode="M24">
+   <axsl:template match="/ubl:Invoice/cac:TaxTotal | /cn:CreditNote/cac:TaxTotal" priority="1038" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Invoice/cac:TaxTotal | /cn:CreditNote/cac:TaxTotal"/>
 
 		<!--ASSERT -->
@@ -2841,12 +2917,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:TaxTotal/cac:TaxSubtotal" priority="1037" mode="M24">
+   <axsl:template match="cac:TaxTotal/cac:TaxSubtotal" priority="1037" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:TaxTotal/cac:TaxSubtotal"/>
 
 		<!--ASSERT -->
@@ -2960,12 +3036,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="//cac:PartyTaxScheme[cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1036" mode="M24">
+   <axsl:template match="//cac:PartyTaxScheme[cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1036" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:PartyTaxScheme[cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -2983,12 +3059,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1035" mode="M24">
+   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1035" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3038,12 +3114,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1034" mode="M24">
+   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1034" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3061,12 +3137,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1033" mode="M24">
+   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1033" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3084,12 +3160,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1032" mode="M24">
+   <axsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1032" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'AE'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3107,12 +3183,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1031" mode="M24">
+   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1031" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3162,12 +3238,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1030" mode="M24">
+   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1030" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3185,12 +3261,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1029" mode="M24">
+   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1029" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3208,12 +3284,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1028" mode="M24">
+   <axsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1028" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3231,12 +3307,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'G'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1027" mode="M24">
+   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'G'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1027" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'G'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3286,12 +3362,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='G'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1026" mode="M24">
+   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='G'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1026" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='G'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3309,12 +3385,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='G'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1025" mode="M24">
+   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='G'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1025" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='G'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3332,12 +3408,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'G'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'G'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1024" mode="M24">
+   <axsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'G'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'G'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1024" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'G'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'G'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3355,12 +3431,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'K'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1023" mode="M24">
+   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'K'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1023" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'K'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3410,12 +3486,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='K'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1022" mode="M24">
+   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='K'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1022" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='K'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3433,12 +3509,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='K'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1021" mode="M24">
+   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='K'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1021" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='K'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3456,12 +3532,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'K'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'K'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1020" mode="M24">
+   <axsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'K'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'K'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1020" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'K'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'K'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3479,12 +3555,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'L'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1019" mode="M24">
+   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'L'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1019" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'L'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3534,12 +3610,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='L'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1018" mode="M24">
+   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='L'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1018" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='L'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3557,12 +3633,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='L'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1017" mode="M24">
+   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='L'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1017" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='L'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3580,12 +3656,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'L'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']| cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'L'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1016" mode="M24">
+   <axsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'L'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']| cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'L'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1016" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'L'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']| cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'L'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3603,12 +3679,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'M'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1015" mode="M24">
+   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'M'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1015" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'M'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3658,12 +3734,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='M'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1014" mode="M24">
+   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='M'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1014" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='M'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3681,12 +3757,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='M'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1013" mode="M24">
+   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='M'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1013" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='M'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3704,12 +3780,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'M'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']| cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'M'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1012" mode="M24">
+   <axsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'M'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']| cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'M'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1012" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'M'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']| cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'M'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3727,12 +3803,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1011" mode="M24">
+   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1011" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3782,12 +3858,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1010" mode="M24">
+   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1010" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3805,12 +3881,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1009" mode="M24">
+   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1009" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3828,12 +3904,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1008" mode="M24">
+   <axsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1008" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'O'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3851,12 +3927,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1007" mode="M24">
+   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1007" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3906,12 +3982,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1006" mode="M24">
+   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1006" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3929,12 +4005,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1005" mode="M24">
+   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1005" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3952,12 +4028,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1004" mode="M24">
+   <axsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1004" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'S'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -3975,12 +4051,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1003" mode="M24">
+   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1003" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[normalize-space(cbc:ID) = 'Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -4030,12 +4106,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1002" mode="M24">
+   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1002" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge[cbc:ChargeIndicator=false()]/cac:TaxCategory[normalize-space(cbc:ID)='Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -4053,12 +4129,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1001" mode="M24">
+   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1001" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge[cbc:ChargeIndicator=true()]/cac:TaxCategory[normalize-space(cbc:ID)='Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -4076,12 +4152,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1000" mode="M24">
+   <axsl:template match="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']" priority="1000" mode="M25">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'Z'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
 
 		<!--ASSERT -->
@@ -4099,11 +4175,11 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M24"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M24">
-      <axsl:apply-templates select="@*|*" mode="M24"/>
+   <axsl:template match="text()" priority="-1" mode="M25"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M25">
+      <axsl:apply-templates select="@*|*" mode="M25"/>
    </axsl:template>
 
 <!--PATTERN UBL-syntax-->
@@ -4111,7 +4187,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AccountingSupplierParty/cac:Party" priority="1013" mode="M25">
+   <axsl:template match="cac:AccountingSupplierParty/cac:Party" priority="1013" mode="M26">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AccountingSupplierParty/cac:Party"/>
 
 		<!--ASSERT -->
@@ -4129,12 +4205,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M25"/>
+      <axsl:apply-templates select="@*|*" mode="M26"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AdditionalDocumentReference" priority="1012" mode="M25">
+   <axsl:template match="cac:AdditionalDocumentReference" priority="1012" mode="M26">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AdditionalDocumentReference"/>
 
 		<!--ASSERT -->
@@ -4168,12 +4244,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M25"/>
+      <axsl:apply-templates select="@*|*" mode="M26"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="//*[ends-with(name(), 'Amount') and not(ends-with(name(),'PriceAmount')) and not(ancestor::cac:Price/cac:AllowanceCharge)]" priority="1011" mode="M25">
+   <axsl:template match="//*[ends-with(name(), 'Amount') and not(ends-with(name(),'PriceAmount')) and not(ancestor::cac:Price/cac:AllowanceCharge)]" priority="1011" mode="M26">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//*[ends-with(name(), 'Amount') and not(ends-with(name(),'PriceAmount')) and not(ancestor::cac:Price/cac:AllowanceCharge)]"/>
 
 		<!--ASSERT -->
@@ -4191,12 +4267,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M25"/>
+      <axsl:apply-templates select="@*|*" mode="M26"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="//*[ends-with(name(), 'BinaryObject')]" priority="1010" mode="M25">
+   <axsl:template match="//*[ends-with(name(), 'BinaryObject')]" priority="1010" mode="M26">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//*[ends-with(name(), 'BinaryObject')]"/>
 
 		<!--ASSERT -->
@@ -4230,12 +4306,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M25"/>
+      <axsl:apply-templates select="@*|*" mode="M26"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:Delivery" priority="1009" mode="M25">
+   <axsl:template match="cac:Delivery" priority="1009" mode="M26">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:Delivery"/>
 
 		<!--ASSERT -->
@@ -4253,12 +4329,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M25"/>
+      <axsl:apply-templates select="@*|*" mode="M26"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator = false()]" priority="1008" mode="M25">
+   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator = false()]" priority="1008" mode="M26">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge[cbc:ChargeIndicator = false()]"/>
 
 		<!--ASSERT -->
@@ -4276,12 +4352,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M25"/>
+      <axsl:apply-templates select="@*|*" mode="M26"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator = true()]" priority="1007" mode="M25">
+   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator = true()]" priority="1007" mode="M26">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge[cbc:ChargeIndicator = true()]"/>
 
 		<!--ASSERT -->
@@ -4299,12 +4375,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M25"/>
+      <axsl:apply-templates select="@*|*" mode="M26"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Invoice | /cn:CreditNote" priority="1006" mode="M25">
+   <axsl:template match="/ubl:Invoice | /cn:CreditNote" priority="1006" mode="M26">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Invoice | /cn:CreditNote"/>
 
 		<!--ASSERT -->
@@ -4630,9 +4706,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not(cac:OrderReference/cbc:DocumentReference)"/>
+         <axsl:when test="not(cac:OrderReference/cac:DocumentReference)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:OrderReference/cbc:DocumentReference)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:OrderReference/cac:DocumentReference)">
                <axsl:attribute name="id">UBL-CR-022</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -4726,9 +4802,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not(cac:BillingReference/cac:InvoiceDocumentReference/cbc:Xpath)"/>
+         <axsl:when test="not(cac:BillingReference/cac:InvoiceDocumentReference/cbc:XPath)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:BillingReference/cac:InvoiceDocumentReference/cbc:Xpath)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:BillingReference/cac:InvoiceDocumentReference/cbc:XPath)">
                <axsl:attribute name="id">UBL-CR-028</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -5062,9 +5138,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not(cac:DespatchDocumentReference/cbc:Xpath)"/>
+         <axsl:when test="not(cac:DespatchDocumentReference/cbc:XPath)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:DespatchDocumentReference/cbc:Xpath)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:DespatchDocumentReference/cbc:XPath)">
                <axsl:attribute name="id">UBL-CR-051</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -5318,9 +5394,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not(cac:ReceiptDocumentReference/cbc:Xpath)"/>
+         <axsl:when test="not(cac:ReceiptDocumentReference/cbc:XPath)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:ReceiptDocumentReference/cbc:Xpath)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:ReceiptDocumentReference/cbc:XPath)">
                <axsl:attribute name="id">UBL-CR-067</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -5590,9 +5666,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not(cac:OriginatorDocumentReference/cbc:Xpath)"/>
+         <axsl:when test="not(cac:OriginatorDocumentReference/cbc:XPath)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:OriginatorDocumentReference/cbc:Xpath)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:OriginatorDocumentReference/cbc:XPath)">
                <axsl:attribute name="id">UBL-CR-084</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -5846,9 +5922,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not(cac:ContractDocumentReference/cbc:Xpath)"/>
+         <axsl:when test="not(cac:ContractDocumentReference/cbc:XPath)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:ContractDocumentReference/cbc:Xpath)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:ContractDocumentReference/cbc:XPath)">
                <axsl:attribute name="id">UBL-CR-100</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -6086,9 +6162,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not(cac:AdditionalDocumentReference/cbc:Xpath)"/>
+         <axsl:when test="not(cac:AdditionalDocumentReference/cbc:XPath)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:AdditionalDocumentReference/cbc:Xpath)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:AdditionalDocumentReference/cbc:XPath)">
                <axsl:attribute name="id">UBL-CR-115</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -7142,9 +7218,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CorporationStockAmount)"/>
+         <axsl:when test="not(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CorporateStockAmount)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CorporationStockAmount)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CorporateStockAmount)">
                <axsl:attribute name="id">UBL-CR-183</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -8134,9 +8210,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CorporationStockAmount)"/>
+         <axsl:when test="not(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CorporateStockAmount)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CorporationStockAmount)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CorporateStockAmount)">
                <axsl:attribute name="id">UBL-CR-247</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -8662,9 +8738,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not(cac:PayeeParty/cac:PartyLegalEntity/cbc:CorporationStockAmount)"/>
+         <axsl:when test="not(cac:PayeeParty/cac:PartyLegalEntity/cbc:CorporateStockAmount)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:PayeeParty/cac:PartyLegalEntity/cbc:CorporationStockAmount)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:PayeeParty/cac:PartyLegalEntity/cbc:CorporateStockAmount)">
                <axsl:attribute name="id">UBL-CR-282</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -9862,9 +9938,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not(cac:Delivery/cac:DeliveryLocation/cac:ValidationPeriod)"/>
+         <axsl:when test="not(cac:Delivery/cac:DeliveryLocation/cac:ValidityPeriod)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:Delivery/cac:DeliveryLocation/cac:ValidationPeriod)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:Delivery/cac:DeliveryLocation/cac:ValidityPeriod)">
                <axsl:attribute name="id">UBL-CR-358</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -10278,9 +10354,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not(cac:Delivery/cac:PromisedDeliveryPeriod)"/>
+         <axsl:when test="not(cac:Delivery/cac:EstimatedDeliveryPeriod)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:Delivery/cac:PromisedDeliveryPeriod)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:Delivery/cac:EstimatedDeliveryPeriod)">
                <axsl:attribute name="id">UBL-CR-384</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -10694,9 +10770,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not(cac:PaymentMeans/cbc:InstructionID)"/>
+         <axsl:when test="not(cac:PaymentMeans/cbc:InstructionNote)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:PaymentMeans/cbc:InstructionID)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:PaymentMeans/cbc:InstructionNote)">
                <axsl:attribute name="id">UBL-CR-414</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -10774,9 +10850,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not(cac:PaymentMeans/cac:CardAccount/cbc:IssuerNumberID)"/>
+         <axsl:when test="not(cac:PaymentMeans/cac:CardAccount/cbc:IssueNumberID)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:PaymentMeans/cac:CardAccount/cbc:IssuerNumberID)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:PaymentMeans/cac:CardAccount/cbc:IssueNumberID)">
                <axsl:attribute name="id">UBL-CR-419</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -12182,9 +12258,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cac:JurisdiccionRegionAddress)"/>
+         <axsl:when test="not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cac:JurisdictionRegionAddress)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cac:JurisdiccionRegionAddress)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cac:JurisdictionRegionAddress)">
                <axsl:attribute name="id">UBL-CR-512</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -12534,9 +12610,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:DocumentReference/cbc:Xpath)"/>
+         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:DocumentReference/cbc:XPath)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:DocumentReference/cbc:Xpath)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:DocumentReference/cbc:XPath)">
                <axsl:attribute name="id">UBL-CR-538</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -13078,9 +13154,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cbc:BareCodeSymbologyID)"/>
+         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cbc:BarecodeSymbologyID)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cbc:BareCodeSymbologyID)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cbc:BarecodeSymbologyID)">
                <axsl:attribute name="id">UBL-CR-572</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -13158,9 +13234,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cbc:BareCodeSymbologyID)"/>
+         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cbc:BarecodeSymbologyID)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cbc:BareCodeSymbologyID)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cbc:BarecodeSymbologyID)">
                <axsl:attribute name="id">UBL-CR-577</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -13254,9 +13330,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cbc:BareCodeSymbologyID)"/>
+         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cbc:BarecodeSymbologyID)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cbc:BareCodeSymbologyID)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cbc:BarecodeSymbologyID)">
                <axsl:attribute name="id">UBL-CR-583</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -13638,9 +13714,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:ClassifiedTaxCategory/cac:TaxScheme/cac:JurisdiccionRegionAddress)"/>
+         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:ClassifiedTaxCategory/cac:TaxScheme/cac:JurisdictionRegionAddress)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:ClassifiedTaxCategory/cac:TaxScheme/cac:JurisdiccionRegionAddress)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:ClassifiedTaxCategory/cac:TaxScheme/cac:JurisdictionRegionAddress)">
                <axsl:attribute name="id">UBL-CR-607</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -13926,9 +14002,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:PriceChangeReason)"/>
+         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:PriceChangeReason)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:PriceChangeReason)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:PriceChangeReason)">
                <axsl:attribute name="id">UBL-CR-625</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -13942,9 +14018,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:PriceTypeCode)"/>
+         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:PriceTypeCode)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:PriceTypeCode)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:PriceTypeCode)">
                <axsl:attribute name="id">UBL-CR-626</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -13958,9 +14034,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:PriceType)"/>
+         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:PriceType)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:PriceType)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:PriceType)">
                <axsl:attribute name="id">UBL-CR-627</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -13974,9 +14050,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:OrderableUnitFactorRate)"/>
+         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:OrderableUnitFactorRate)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:OrderableUnitFactorRate)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:OrderableUnitFactorRate)">
                <axsl:attribute name="id">UBL-CR-628</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -13990,9 +14066,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:ValidityPeriod)"/>
+         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:ValidityPeriod)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:ValidityPeriod)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:ValidityPeriod)">
                <axsl:attribute name="id">UBL-CR-629</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -14006,9 +14082,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:PriceList)"/>
+         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:PriceList)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:PriceList)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:PriceList)">
                <axsl:attribute name="id">UBL-CR-630</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -14022,9 +14098,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:OrderableUnitFactorRate)"/>
+         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:OrderableUnitFactorRate)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:OrderableUnitFactorRate)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:OrderableUnitFactorRate)">
                <axsl:attribute name="id">UBL-CR-631</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -14038,9 +14114,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:ID)"/>
+         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:ID)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:ID)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:ID)">
                <axsl:attribute name="id">UBL-CR-632</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -14054,9 +14130,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:AllowanceChargeReasonCode)"/>
+         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:AllowanceChargeReasonCode)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:AllowanceChargeReasonCode)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:AllowanceChargeReasonCode)">
                <axsl:attribute name="id">UBL-CR-633</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -14070,9 +14146,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:AllowanceChargeReason)"/>
+         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:AllowanceChargeReason)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:AllowanceChargeReason)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:AllowanceChargeReason)">
                <axsl:attribute name="id">UBL-CR-634</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -14086,9 +14162,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:MultiplierFactorNumeric)"/>
+         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:MultiplierFactorNumeric)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:MultiplierFactorNumeric)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:MultiplierFactorNumeric)">
                <axsl:attribute name="id">UBL-CR-635</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -14102,9 +14178,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:PrepaidIndicator)"/>
+         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:PrepaidIndicator)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:PrepaidIndicator)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:PrepaidIndicator)">
                <axsl:attribute name="id">UBL-CR-636</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -14118,9 +14194,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:SequenceNumeric)"/>
+         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:SequenceNumeric)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:SequenceNumeric)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:SequenceNumeric)">
                <axsl:attribute name="id">UBL-CR-637</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -14134,9 +14210,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:AccountingCostCode)"/>
+         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:AccountingCostCode)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:AccountingCostCode)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:AccountingCostCode)">
                <axsl:attribute name="id">UBL-CR-638</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -14150,9 +14226,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:AccountingCost)"/>
+         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:AccountingCost)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:AccountingCost)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:AccountingCost)">
                <axsl:attribute name="id">UBL-CR-639</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -14166,9 +14242,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:PerUnitAmount)"/>
+         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:PerUnitAmount)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:PerUnitAmount)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:PerUnitAmount)">
                <axsl:attribute name="id">UBL-CR-640</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -14182,9 +14258,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cac:TaxCategory)"/>
+         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cac:TaxCategory)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cac:TaxCategory)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cac:TaxCategory)">
                <axsl:attribute name="id">UBL-CR-641</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -14198,9 +14274,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cac:TaxTotal)"/>
+         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cac:TaxTotal)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cac:TaxTotal)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cac:TaxTotal)">
                <axsl:attribute name="id">UBL-CR-642</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -14214,9 +14290,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cac:PaymentMeans)"/>
+         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cac:PaymentMeans)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cac:PaymentMeans)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cac:PaymentMeans)">
                <axsl:attribute name="id">UBL-CR-643</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -14230,9 +14306,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:PricingExchangeRate)"/>
+         <axsl:when test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:PricingExchangeRate)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:PricingExchangeRate)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:PricingExchangeRate)">
                <axsl:attribute name="id">UBL-CR-644</axsl:attribute>
                <axsl:attribute name="flag">warning</axsl:attribute>
                <axsl:attribute name="location">
@@ -15238,22 +15314,6 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="(count(cac:InvoiceDocumentReference) &lt;= 1)"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(count(cac:InvoiceDocumentReference) &lt;= 1)">
-               <axsl:attribute name="id">UBL-SR-06</axsl:attribute>
-               <axsl:attribute name="flag">fatal</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </axsl:attribute>
-               <svrl:text>[UBL-SR-06]-Preceding invoice reference shall occur maximum once</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
          <axsl:when test="(count(cac:InvoicePeriod) &lt;= 1)"/>
          <axsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(count(cac:InvoicePeriod) &lt;= 1)">
@@ -15570,12 +15630,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M25"/>
+      <axsl:apply-templates select="@*|*" mode="M26"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:InvoiceLine | cac:CreditNoteLine" priority="1005" mode="M25">
+   <axsl:template match="cac:InvoiceLine | cac:CreditNoteLine" priority="1005" mode="M26">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:InvoiceLine | cac:CreditNoteLine"/>
 
 		<!--ASSERT -->
@@ -15629,22 +15689,6 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="(count(cac:Item/cac:ClassifiedTaxCategory/cbc:TaxExemptionReason) &lt;= 1)"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(count(cac:Item/cac:ClassifiedTaxCategory/cbc:TaxExemptionReason) &lt;= 1)">
-               <axsl:attribute name="id">UBL-SR-38</axsl:attribute>
-               <axsl:attribute name="flag">fatal</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </axsl:attribute>
-               <svrl:text>[UBL-SR-38]-Invoiced item VAT exemption reason text shall occur maximum once</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
          <axsl:when test="count(cac:Item/cac:ClassifiedTaxCategory) = 1"/>
          <axsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="count(cac:Item/cac:ClassifiedTaxCategory) = 1">
@@ -15673,12 +15717,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M25"/>
+      <axsl:apply-templates select="@*|*" mode="M26"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:PayeeParty" priority="1004" mode="M25">
+   <axsl:template match="cac:PayeeParty" priority="1004" mode="M26">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:PayeeParty"/>
 
 		<!--ASSERT -->
@@ -15728,12 +15772,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M25"/>
+      <axsl:apply-templates select="@*|*" mode="M26"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:PaymentMeans" priority="1003" mode="M25">
+   <axsl:template match="cac:PaymentMeans" priority="1003" mode="M26">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:PaymentMeans"/>
 
 		<!--ASSERT -->
@@ -15755,9 +15799,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="(count(cbc:InstructionNote) &lt;= 1)"/>
+         <axsl:when test="(count(cbc:PaymentMeansCode) &lt;= 1)"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(count(cbc:InstructionNote) &lt;= 1)">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(count(cbc:PaymentMeansCode) &lt;= 1)">
                <axsl:attribute name="id">UBL-SR-27</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -15783,13 +15827,29 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M25"/>
+      <axsl:apply-templates select="@*|*" mode="M26"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:BillingReference" priority="1002" mode="M25">
+   <axsl:template match="cac:BillingReference" priority="1002" mode="M26">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:BillingReference"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="(count(cac:InvoiceDocumentReference) &lt;= 1)"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(count(cac:InvoiceDocumentReference) &lt;= 1)">
+               <axsl:attribute name="id">UBL-SR-06</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[UBL-SR-06]-Preceding invoice reference shall occur maximum once</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
 
 		<!--ASSERT -->
 
@@ -15806,12 +15866,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M25"/>
+      <axsl:apply-templates select="@*|*" mode="M26"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:TaxRepresentativeParty" priority="1001" mode="M25">
+   <axsl:template match="cac:TaxRepresentativeParty" priority="1001" mode="M26">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:TaxRepresentativeParty"/>
 
 		<!--ASSERT -->
@@ -15845,12 +15905,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M25"/>
+      <axsl:apply-templates select="@*|*" mode="M26"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:TaxSubtotal" priority="1000" mode="M25">
+   <axsl:template match="cac:TaxSubtotal" priority="1000" mode="M26">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:TaxSubtotal"/>
 
 		<!--ASSERT -->
@@ -15868,11 +15928,11 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M25"/>
+      <axsl:apply-templates select="@*|*" mode="M26"/>
    </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M25"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M25">
-      <axsl:apply-templates select="@*|*" mode="M25"/>
+   <axsl:template match="text()" priority="-1" mode="M26"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M26">
+      <axsl:apply-templates select="@*|*" mode="M26"/>
    </axsl:template>
 
 <!--PATTERN Codesmodel-->
@@ -15880,7 +15940,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="cbc:InvoiceTypeCode | cbc:CreditNoteTypeCode" priority="1021" mode="M26">
+   <axsl:template match="cbc:InvoiceTypeCode | cbc:CreditNoteTypeCode" priority="1021" mode="M27">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:InvoiceTypeCode | cbc:CreditNoteTypeCode"/>
 
 		<!--ASSERT -->
@@ -15898,12 +15958,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M26"/>
+      <axsl:apply-templates select="@*|*" mode="M27"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cbc:Amount | cbc:BaseAmount | cbc:PriceAmount | cbc:TaxAmount | cbc:TaxableAmount | cbc:LineExtensionAmount | cbc:TaxExclusiveAmount | cbc:TaxInclusiveAmount | cbc:AllowanceTotalAmount | cbc:ChargeTotalAmount | cbc:PrepaidAmount | cbc:PayableRoundingAmount | cbc:PayableAmount" priority="1020" mode="M26">
+   <axsl:template match="cbc:Amount | cbc:BaseAmount | cbc:PriceAmount | cbc:TaxAmount | cbc:TaxableAmount | cbc:LineExtensionAmount | cbc:TaxExclusiveAmount | cbc:TaxInclusiveAmount | cbc:AllowanceTotalAmount | cbc:ChargeTotalAmount | cbc:PrepaidAmount | cbc:PayableRoundingAmount | cbc:PayableAmount" priority="1020" mode="M27">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:Amount | cbc:BaseAmount | cbc:PriceAmount | cbc:TaxAmount | cbc:TaxableAmount | cbc:LineExtensionAmount | cbc:TaxExclusiveAmount | cbc:TaxInclusiveAmount | cbc:AllowanceTotalAmount | cbc:ChargeTotalAmount | cbc:PrepaidAmount | cbc:PayableRoundingAmount | cbc:PayableAmount"/>
 
 		<!--ASSERT -->
@@ -15921,12 +15981,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M26"/>
+      <axsl:apply-templates select="@*|*" mode="M27"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cbc:DocumentCurrencyCode" priority="1019" mode="M26">
+   <axsl:template match="cbc:DocumentCurrencyCode" priority="1019" mode="M27">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:DocumentCurrencyCode"/>
 
 		<!--ASSERT -->
@@ -15944,12 +16004,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M26"/>
+      <axsl:apply-templates select="@*|*" mode="M27"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cbc:TaxCurrencyCode" priority="1018" mode="M26">
+   <axsl:template match="cbc:TaxCurrencyCode" priority="1018" mode="M27">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:TaxCurrencyCode"/>
 
 		<!--ASSERT -->
@@ -15967,12 +16027,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M26"/>
+      <axsl:apply-templates select="@*|*" mode="M27"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:InvoicePeriod/cbc:DescriptionCode" priority="1017" mode="M26">
+   <axsl:template match="cac:InvoicePeriod/cbc:DescriptionCode" priority="1017" mode="M27">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:InvoicePeriod/cbc:DescriptionCode"/>
 
 		<!--ASSERT -->
@@ -15990,12 +16050,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M26"/>
+      <axsl:apply-templates select="@*|*" mode="M27"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AdditionalDocumentReference[cbc:DocumentTypeCode = '130']/cbc:ID[@schemeID] | cac:DocumentReference[cbc:DocumentTypeCode = '130']/cbc:ID[@schemeID]" priority="1016" mode="M26">
+   <axsl:template match="cac:AdditionalDocumentReference[cbc:DocumentTypeCode = '130']/cbc:ID[@schemeID] | cac:DocumentReference[cbc:DocumentTypeCode = '130']/cbc:ID[@schemeID]" priority="1016" mode="M27">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AdditionalDocumentReference[cbc:DocumentTypeCode = '130']/cbc:ID[@schemeID] | cac:DocumentReference[cbc:DocumentTypeCode = '130']/cbc:ID[@schemeID]"/>
 
 		<!--ASSERT -->
@@ -16013,12 +16073,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M26"/>
+      <axsl:apply-templates select="@*|*" mode="M27"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:PartyIdentification/cbc:ID[@schemeID]" priority="1015" mode="M26">
+   <axsl:template match="cac:PartyIdentification/cbc:ID[@schemeID]" priority="1015" mode="M27">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:PartyIdentification/cbc:ID[@schemeID]"/>
 
 		<!--ASSERT -->
@@ -16036,12 +16096,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M26"/>
+      <axsl:apply-templates select="@*|*" mode="M27"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:PartyLegalEntity/cbc:CompanyID[@schemeID]" priority="1014" mode="M26">
+   <axsl:template match="cac:PartyLegalEntity/cbc:CompanyID[@schemeID]" priority="1014" mode="M27">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:PartyLegalEntity/cbc:CompanyID[@schemeID]"/>
 
 		<!--ASSERT -->
@@ -16059,12 +16119,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M26"/>
+      <axsl:apply-templates select="@*|*" mode="M27"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:CommodityClassification/cbc:ItemClassificationCode[@listID]" priority="1013" mode="M26">
+   <axsl:template match="cac:CommodityClassification/cbc:ItemClassificationCode[@listID]" priority="1013" mode="M27">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:CommodityClassification/cbc:ItemClassificationCode[@listID]"/>
 
 		<!--ASSERT -->
@@ -16083,12 +16143,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M26"/>
+      <axsl:apply-templates select="@*|*" mode="M27"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:Country/cbc:IdentificationCode" priority="1012" mode="M26">
+   <axsl:template match="cac:Country/cbc:IdentificationCode" priority="1012" mode="M27">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:Country/cbc:IdentificationCode"/>
 
 		<!--ASSERT -->
@@ -16106,12 +16166,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M26"/>
+      <axsl:apply-templates select="@*|*" mode="M27"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:OriginCountry/cbc:IdentificationCode" priority="1011" mode="M26">
+   <axsl:template match="cac:OriginCountry/cbc:IdentificationCode" priority="1011" mode="M27">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:OriginCountry/cbc:IdentificationCode"/>
 
 		<!--ASSERT -->
@@ -16129,12 +16189,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M26"/>
+      <axsl:apply-templates select="@*|*" mode="M27"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:PaymentMeans/cbc:PaymentMeansCode" priority="1010" mode="M26">
+   <axsl:template match="cac:PaymentMeans/cbc:PaymentMeansCode" priority="1010" mode="M27">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:PaymentMeans/cbc:PaymentMeansCode"/>
 
 		<!--ASSERT -->
@@ -16152,12 +16212,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M26"/>
+      <axsl:apply-templates select="@*|*" mode="M27"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:TaxCategory/cbc:ID" priority="1009" mode="M26">
+   <axsl:template match="cac:TaxCategory/cbc:ID" priority="1009" mode="M27">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:TaxCategory/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -16175,12 +16235,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M26"/>
+      <axsl:apply-templates select="@*|*" mode="M27"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:ClassifiedTaxCategory/cbc:ID" priority="1008" mode="M26">
+   <axsl:template match="cac:ClassifiedTaxCategory/cbc:ID" priority="1008" mode="M27">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:ClassifiedTaxCategory/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -16198,12 +16258,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M26"/>
+      <axsl:apply-templates select="@*|*" mode="M27"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator = false()]/cbc:AllowanceChargeReasonCode" priority="1007" mode="M26">
+   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator = false()]/cbc:AllowanceChargeReasonCode" priority="1007" mode="M27">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge[cbc:ChargeIndicator = false()]/cbc:AllowanceChargeReasonCode"/>
 
 		<!--ASSERT -->
@@ -16221,12 +16281,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M26"/>
+      <axsl:apply-templates select="@*|*" mode="M27"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator = true()]/cbc:AllowanceChargeReasonCode" priority="1006" mode="M26">
+   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator = true()]/cbc:AllowanceChargeReasonCode" priority="1006" mode="M27">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge[cbc:ChargeIndicator = true()]/cbc:AllowanceChargeReasonCode"/>
 
 		<!--ASSERT -->
@@ -16244,12 +16304,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M26"/>
+      <axsl:apply-templates select="@*|*" mode="M27"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:StandardItemIdentification/cbc:ID[@schemeID]" priority="1005" mode="M26">
+   <axsl:template match="cac:StandardItemIdentification/cbc:ID[@schemeID]" priority="1005" mode="M27">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:StandardItemIdentification/cbc:ID[@schemeID]"/>
 
 		<!--ASSERT -->
@@ -16267,12 +16327,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M26"/>
+      <axsl:apply-templates select="@*|*" mode="M27"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cbc:TaxExemptionReasonCode" priority="1004" mode="M26">
+   <axsl:template match="cbc:TaxExemptionReasonCode" priority="1004" mode="M27">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:TaxExemptionReasonCode"/>
 
 		<!--ASSERT -->
@@ -16290,12 +16350,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M26"/>
+      <axsl:apply-templates select="@*|*" mode="M27"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cbc:InvoicedQuantity[@unitCode] | cbc:BaseQuantity[@unitCode] | cbc:CreditedQuantity[@unitCode]" priority="1003" mode="M26">
+   <axsl:template match="cbc:InvoicedQuantity[@unitCode] | cbc:BaseQuantity[@unitCode] | cbc:CreditedQuantity[@unitCode]" priority="1003" mode="M27">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:InvoicedQuantity[@unitCode] | cbc:BaseQuantity[@unitCode] | cbc:CreditedQuantity[@unitCode]"/>
 
 		<!--ASSERT -->
@@ -16314,12 +16374,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M26"/>
+      <axsl:apply-templates select="@*|*" mode="M27"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cbc:EmbeddedDocumentBinaryObject[@mimeCode]" priority="1002" mode="M26">
+   <axsl:template match="cbc:EmbeddedDocumentBinaryObject[@mimeCode]" priority="1002" mode="M27">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:EmbeddedDocumentBinaryObject[@mimeCode]"/>
 
 		<!--ASSERT -->
@@ -16337,12 +16397,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M26"/>
+      <axsl:apply-templates select="@*|*" mode="M27"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cbc:EndpointID[@schemeID]" priority="1001" mode="M26">
+   <axsl:template match="cbc:EndpointID[@schemeID]" priority="1001" mode="M27">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:EndpointID[@schemeID]"/>
 
 		<!--ASSERT -->
@@ -16360,12 +16420,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M26"/>
+      <axsl:apply-templates select="@*|*" mode="M27"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:DeliveryLocation/cbc:ID[@schemeID]" priority="1000" mode="M26">
+   <axsl:template match="cac:DeliveryLocation/cbc:ID[@schemeID]" priority="1000" mode="M27">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:DeliveryLocation/cbc:ID[@schemeID]"/>
 
 		<!--ASSERT -->
@@ -16383,11 +16443,11 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M26"/>
+      <axsl:apply-templates select="@*|*" mode="M27"/>
    </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M26"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M26">
-      <axsl:apply-templates select="@*|*" mode="M26"/>
+   <axsl:template match="text()" priority="-1" mode="M27"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M27">
+      <axsl:apply-templates select="@*|*" mode="M27"/>
    </axsl:template>
    <axsl:param name="profile" select="       if (/*/cbc:ProfileID and matches(normalize-space(/*/cbc:ProfileID), 'urn:fdc:peppol.eu:2017:poacc:billing:([0-9]{2}):1.0')) then         tokenize(normalize-space(/*/cbc:ProfileID), ':')[7]       else         'Unknown'"/>
    <axsl:param name="supplierCountry" select="       if (/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2)) then         upper-case(normalize-space(/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2)))       else         if (/*/cac:TaxRepresentativeParty/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2)) then           upper-case(normalize-space(/*/cac:TaxRepresentativeParty/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2)))         else           if (/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode) then             upper-case(normalize-space(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode))           else             'XX'"/>
@@ -16399,7 +16459,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="//*[not(*) and not(normalize-space())]" priority="1000" mode="M34">
+   <axsl:template match="//*[not(*) and not(normalize-space())]" priority="1000" mode="M42">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//*[not(*) and not(normalize-space())]"/>
 
 		<!--ASSERT -->
@@ -16417,11 +16477,11 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M34"/>
+      <axsl:apply-templates select="@*|*" mode="M42"/>
    </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M34"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M34">
-      <axsl:apply-templates select="@*|*" mode="M34"/>
+   <axsl:template match="text()" priority="-1" mode="M42"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M42">
+      <axsl:apply-templates select="@*|*" mode="M42"/>
    </axsl:template>
 
 <!--PATTERN OP-transaction-rules-->
@@ -16429,7 +16489,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="ubl-creditnote:CreditNote | ubl-invoice:Invoice" priority="1016" mode="M35">
+   <axsl:template match="ubl-creditnote:CreditNote | ubl-invoice:Invoice" priority="1022" mode="M43">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="ubl-creditnote:CreditNote | ubl-invoice:Invoice"/>
 
 		<!--ASSERT -->
@@ -16591,12 +16651,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M35"/>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cbc:TaxCurrencyCode" priority="1015" mode="M35">
+   <axsl:template match="cbc:TaxCurrencyCode" priority="1021" mode="M43">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:TaxCurrencyCode"/>
 
 		<!--ASSERT -->
@@ -16614,12 +16674,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M35"/>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AccountingCustomerParty/cac:Party" priority="1014" mode="M35">
+   <axsl:template match="cac:AccountingCustomerParty/cac:Party" priority="1020" mode="M43">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AccountingCustomerParty/cac:Party"/>
 
 		<!--ASSERT -->
@@ -16637,12 +16697,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M35"/>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AccountingSupplierParty/cac:Party" priority="1013" mode="M35">
+   <axsl:template match="cac:AccountingSupplierParty/cac:Party" priority="1019" mode="M43">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AccountingSupplierParty/cac:Party"/>
 
 		<!--ASSERT -->
@@ -16660,12 +16720,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M35"/>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="ubl-invoice:Invoice/cac:AllowanceCharge[cbc:MultiplierFactorNumeric and not(cbc:BaseAmount)] | ubl-invoice:Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:MultiplierFactorNumeric and not(cbc:BaseAmount)] | ubl-creditnote:CreditNote/cac:AllowanceCharge[cbc:MultiplierFactorNumeric and not(cbc:BaseAmount)] | ubl-creditnote:CreditNote/cac:CreditNoteLine/cac:AllowanceCharge[cbc:MultiplierFactorNumeric and not(cbc:BaseAmount)]" priority="1012" mode="M35">
+   <axsl:template match="ubl-invoice:Invoice/cac:AllowanceCharge[cbc:MultiplierFactorNumeric and not(cbc:BaseAmount)] | ubl-invoice:Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:MultiplierFactorNumeric and not(cbc:BaseAmount)] | ubl-creditnote:CreditNote/cac:AllowanceCharge[cbc:MultiplierFactorNumeric and not(cbc:BaseAmount)] | ubl-creditnote:CreditNote/cac:CreditNoteLine/cac:AllowanceCharge[cbc:MultiplierFactorNumeric and not(cbc:BaseAmount)]" priority="1018" mode="M43">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="ubl-invoice:Invoice/cac:AllowanceCharge[cbc:MultiplierFactorNumeric and not(cbc:BaseAmount)] | ubl-invoice:Invoice/cac:InvoiceLine/cac:AllowanceCharge[cbc:MultiplierFactorNumeric and not(cbc:BaseAmount)] | ubl-creditnote:CreditNote/cac:AllowanceCharge[cbc:MultiplierFactorNumeric and not(cbc:BaseAmount)] | ubl-creditnote:CreditNote/cac:CreditNoteLine/cac:AllowanceCharge[cbc:MultiplierFactorNumeric and not(cbc:BaseAmount)]"/>
 
 		<!--ASSERT -->
@@ -16683,12 +16743,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M35"/>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="ubl-invoice:Invoice/cac:AllowanceCharge[not(cbc:MultiplierFactorNumeric) and cbc:BaseAmount] | ubl-invoice:Invoice/cac:InvoiceLine/cac:AllowanceCharge[not(cbc:MultiplierFactorNumeric) and cbc:BaseAmount] | ubl-creditnote:CreditNote/cac:AllowanceCharge[not(cbc:MultiplierFactorNumeric) and cbc:BaseAmount] | ubl-creditnote:CreditNote/cac:CreditNoteLine/cac:AllowanceCharge[not(cbc:MultiplierFactorNumeric) and cbc:BaseAmount]" priority="1011" mode="M35">
+   <axsl:template match="ubl-invoice:Invoice/cac:AllowanceCharge[not(cbc:MultiplierFactorNumeric) and cbc:BaseAmount] | ubl-invoice:Invoice/cac:InvoiceLine/cac:AllowanceCharge[not(cbc:MultiplierFactorNumeric) and cbc:BaseAmount] | ubl-creditnote:CreditNote/cac:AllowanceCharge[not(cbc:MultiplierFactorNumeric) and cbc:BaseAmount] | ubl-creditnote:CreditNote/cac:CreditNoteLine/cac:AllowanceCharge[not(cbc:MultiplierFactorNumeric) and cbc:BaseAmount]" priority="1017" mode="M43">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="ubl-invoice:Invoice/cac:AllowanceCharge[not(cbc:MultiplierFactorNumeric) and cbc:BaseAmount] | ubl-invoice:Invoice/cac:InvoiceLine/cac:AllowanceCharge[not(cbc:MultiplierFactorNumeric) and cbc:BaseAmount] | ubl-creditnote:CreditNote/cac:AllowanceCharge[not(cbc:MultiplierFactorNumeric) and cbc:BaseAmount] | ubl-creditnote:CreditNote/cac:CreditNoteLine/cac:AllowanceCharge[not(cbc:MultiplierFactorNumeric) and cbc:BaseAmount]"/>
 
 		<!--ASSERT -->
@@ -16706,12 +16766,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M35"/>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="ubl-invoice:Invoice/cac:AllowanceCharge | ubl-invoice:Invoice/cac:InvoiceLine/cac:AllowanceCharge | ubl-creditnote:CreditNote/cac:AllowanceCharge | ubl-creditnote:CreditNote/cac:CreditNoteLine/cac:AllowanceCharge" priority="1010" mode="M35">
+   <axsl:template match="ubl-invoice:Invoice/cac:AllowanceCharge | ubl-invoice:Invoice/cac:InvoiceLine/cac:AllowanceCharge | ubl-creditnote:CreditNote/cac:AllowanceCharge | ubl-creditnote:CreditNote/cac:CreditNoteLine/cac:AllowanceCharge" priority="1016" mode="M43">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="ubl-invoice:Invoice/cac:AllowanceCharge | ubl-invoice:Invoice/cac:InvoiceLine/cac:AllowanceCharge | ubl-creditnote:CreditNote/cac:AllowanceCharge | ubl-creditnote:CreditNote/cac:CreditNoteLine/cac:AllowanceCharge"/>
 
 		<!--ASSERT -->
@@ -16745,12 +16805,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M35"/>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="         cac:PaymentMeans[some $code in tokenize('49 59', '\s')           satisfies normalize-space(cbc:PaymentMeansCode) = $code]" priority="1009" mode="M35">
+   <axsl:template match="         cac:PaymentMeans[some $code in tokenize('49 59', '\s')           satisfies normalize-space(cbc:PaymentMeansCode) = $code]" priority="1015" mode="M43">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="         cac:PaymentMeans[some $code in tokenize('49 59', '\s')           satisfies normalize-space(cbc:PaymentMeansCode) = $code]"/>
 
 		<!--ASSERT -->
@@ -16768,12 +16828,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M35"/>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cbc:Amount | cbc:BaseAmount | cbc:PriceAmount | cac:TaxTotal[cac:TaxSubtotal]/cbc:TaxAmount | cbc:TaxableAmount | cbc:LineExtensionAmount | cbc:TaxExclusiveAmount | cbc:TaxInclusiveAmount | cbc:AllowanceTotalAmount | cbc:ChargeTotalAmount | cbc:PrepaidAmount | cbc:PayableRoundingAmount | cbc:PayableAmount" priority="1008" mode="M35">
+   <axsl:template match="cbc:Amount | cbc:BaseAmount | cbc:PriceAmount | cac:TaxTotal[cac:TaxSubtotal]/cbc:TaxAmount | cbc:TaxableAmount | cbc:LineExtensionAmount | cbc:TaxExclusiveAmount | cbc:TaxInclusiveAmount | cbc:AllowanceTotalAmount | cbc:ChargeTotalAmount | cbc:PrepaidAmount | cbc:PayableRoundingAmount | cbc:PayableAmount" priority="1014" mode="M43">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:Amount | cbc:BaseAmount | cbc:PriceAmount | cac:TaxTotal[cac:TaxSubtotal]/cbc:TaxAmount | cbc:TaxableAmount | cbc:LineExtensionAmount | cbc:TaxExclusiveAmount | cbc:TaxInclusiveAmount | cbc:AllowanceTotalAmount | cbc:ChargeTotalAmount | cbc:PrepaidAmount | cbc:PayableRoundingAmount | cbc:PayableAmount"/>
 
 		<!--ASSERT -->
@@ -16791,12 +16851,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M35"/>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="ubl-invoice:Invoice[cac:InvoicePeriod/cbc:StartDate]/cac:InvoiceLine/cac:InvoicePeriod/cbc:StartDate | ubl-creditnote:CreditNote[cac:InvoicePeriod/cbc:StartDate]/cac:CreditNoteLine/cac:InvoicePeriod/cbc:StartDate" priority="1007" mode="M35">
+   <axsl:template match="ubl-invoice:Invoice[cac:InvoicePeriod/cbc:StartDate]/cac:InvoiceLine/cac:InvoicePeriod/cbc:StartDate | ubl-creditnote:CreditNote[cac:InvoicePeriod/cbc:StartDate]/cac:CreditNoteLine/cac:InvoicePeriod/cbc:StartDate" priority="1013" mode="M43">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="ubl-invoice:Invoice[cac:InvoicePeriod/cbc:StartDate]/cac:InvoiceLine/cac:InvoicePeriod/cbc:StartDate | ubl-creditnote:CreditNote[cac:InvoicePeriod/cbc:StartDate]/cac:CreditNoteLine/cac:InvoicePeriod/cbc:StartDate"/>
 
 		<!--ASSERT -->
@@ -16814,12 +16874,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M35"/>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="ubl-invoice:Invoice[cac:InvoicePeriod/cbc:EndDate]/cac:InvoiceLine/cac:InvoicePeriod/cbc:EndDate | ubl-creditnote:CreditNote[cac:InvoicePeriod/cbc:EndDate]/cac:CreditNoteLine/cac:InvoicePeriod/cbc:EndDate" priority="1006" mode="M35">
+   <axsl:template match="ubl-invoice:Invoice[cac:InvoicePeriod/cbc:EndDate]/cac:InvoiceLine/cac:InvoicePeriod/cbc:EndDate | ubl-creditnote:CreditNote[cac:InvoicePeriod/cbc:EndDate]/cac:CreditNoteLine/cac:InvoicePeriod/cbc:EndDate" priority="1012" mode="M43">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="ubl-invoice:Invoice[cac:InvoicePeriod/cbc:EndDate]/cac:InvoiceLine/cac:InvoicePeriod/cbc:EndDate | ubl-creditnote:CreditNote[cac:InvoicePeriod/cbc:EndDate]/cac:CreditNoteLine/cac:InvoicePeriod/cbc:EndDate"/>
 
 		<!--ASSERT -->
@@ -16837,12 +16897,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M35"/>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:InvoiceLine | cac:CreditNoteLine" priority="1005" mode="M35">
+   <axsl:template match="cac:InvoiceLine | cac:CreditNoteLine" priority="1011" mode="M43">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:InvoiceLine | cac:CreditNoteLine"/>
       <axsl:variable name="lineExtensionAmount" select="           if (cbc:LineExtensionAmount) then             xs:decimal(cbc:LineExtensionAmount)           else             0"/>
       <axsl:variable name="quantity" select="           if (/ubl-invoice:Invoice) then             (if (cbc:InvoicedQuantity) then               xs:decimal(cbc:InvoicedQuantity)             else               1)           else             (if (cbc:CreditedQuantity) then               xs:decimal(cbc:CreditedQuantity)             else               1)"/>
@@ -16898,12 +16958,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M35"/>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:Price/cac:AllowanceCharge" priority="1004" mode="M35">
+   <axsl:template match="cac:Price/cac:AllowanceCharge" priority="1010" mode="M43">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:Price/cac:AllowanceCharge"/>
 
 		<!--ASSERT -->
@@ -16937,12 +16997,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M35"/>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:Price/cbc:BaseQuantity[@unitCode]" priority="1003" mode="M35">
+   <axsl:template match="cac:Price/cbc:BaseQuantity[@unitCode]" priority="1009" mode="M43">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:Price/cbc:BaseQuantity[@unitCode]"/>
       <axsl:variable name="hasQuantity" select="../../cbc:InvoicedQuantity or ../../cbc:CreditedQuantity"/>
       <axsl:variable name="quantity" select="           if (/ubl-invoice:Invoice) then             ../../cbc:InvoicedQuantity           else             ../../cbc:CreditedQuantity"/>
@@ -16962,12 +17022,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M35"/>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cbc:EndpointID[@schemeID = '0088'] | cac:PartyIdentification/cbc:ID[@schemeID = '0088'] | cbc:CompanyID[@schemeID = '0088']" priority="1002" mode="M35">
+   <axsl:template match="cbc:EndpointID[@schemeID = '0088'] | cac:PartyIdentification/cbc:ID[@schemeID = '0088'] | cbc:CompanyID[@schemeID = '0088']" priority="1008" mode="M43">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:EndpointID[@schemeID = '0088'] | cac:PartyIdentification/cbc:ID[@schemeID = '0088'] | cbc:CompanyID[@schemeID = '0088']"/>
 
 		<!--ASSERT -->
@@ -16985,12 +17045,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M35"/>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cbc:EndpointID[@schemeID = '0192'] | cac:PartyIdentification/cbc:ID[@schemeID = '0192'] | cbc:CompanyID[@schemeID = '0192']" priority="1001" mode="M35">
+   <axsl:template match="cbc:EndpointID[@schemeID = '0192'] | cac:PartyIdentification/cbc:ID[@schemeID = '0192'] | cbc:CompanyID[@schemeID = '0192']" priority="1007" mode="M43">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:EndpointID[@schemeID = '0192'] | cac:PartyIdentification/cbc:ID[@schemeID = '0192'] | cbc:CompanyID[@schemeID = '0192']"/>
 
 		<!--ASSERT -->
@@ -17008,12 +17068,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M35"/>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cbc:EndpointID[@schemeID = '0184'] | cac:PartyIdentification/cbc:ID[@schemeID = '0184'] | cbc:CompanyID[@schemeID = '0184']" priority="1000" mode="M35">
+   <axsl:template match="cbc:EndpointID[@schemeID = '0184'] | cac:PartyIdentification/cbc:ID[@schemeID = '0184'] | cbc:CompanyID[@schemeID = '0184']" priority="1006" mode="M43">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:EndpointID[@schemeID = '0184'] | cac:PartyIdentification/cbc:ID[@schemeID = '0184'] | cbc:CompanyID[@schemeID = '0184']"/>
 
 		<!--ASSERT -->
@@ -17031,11 +17091,149 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M35"/>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
    </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M35"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M35">
-      <axsl:apply-templates select="@*|*" mode="M35"/>
+
+	<!--RULE -->
+
+   <axsl:template match="cbc:EndpointID[@schemeID = '0208'] | cac:PartyIdentification/cbc:ID[@schemeID = '0208'] | cbc:CompanyID[@schemeID = '0208']" priority="1005" mode="M43">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:EndpointID[@schemeID = '0208'] | cac:PartyIdentification/cbc:ID[@schemeID = '0208'] | cbc:CompanyID[@schemeID = '0208']"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="matches(normalize-space(), '^[0-9]{10}$') and u:mod97-0208(normalize-space())"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(normalize-space(), '^[0-9]{10}$') and u:mod97-0208(normalize-space())">
+               <axsl:attribute name="id">PEPPOL-COMMON-R043</axsl:attribute>
+               <axsl:attribute name="flag">warning</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>Belgian enterprise number MUST be stated in the correct format.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="cbc:EndpointID[@schemeID = '0201'] | cac:PartyIdentification/cbc:ID[@schemeID = '0201'] | cbc:CompanyID[@schemeID = '0201']" priority="1004" mode="M43">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:EndpointID[@schemeID = '0201'] | cac:PartyIdentification/cbc:ID[@schemeID = '0201'] | cbc:CompanyID[@schemeID = '0201']"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="u:checkCodiceIPA(normalize-space())"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="u:checkCodiceIPA(normalize-space())">
+               <axsl:attribute name="id">PEPPOL-COMMON-R044</axsl:attribute>
+               <axsl:attribute name="flag">warning</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>IPA Code (Codice Univoco Unità Organizzativa) must be stated in the correct format</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="cbc:EndpointID[@schemeID = '0210'] | cac:PartyIdentification/cbc:ID[@schemeID = '0210'] | cbc:CompanyID[@schemeID = '0210']" priority="1003" mode="M43">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:EndpointID[@schemeID = '0210'] | cac:PartyIdentification/cbc:ID[@schemeID = '0210'] | cbc:CompanyID[@schemeID = '0210']"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="u:checkCF(normalize-space())"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="u:checkCF(normalize-space())">
+               <axsl:attribute name="id">PEPPOL-COMMON-R045</axsl:attribute>
+               <axsl:attribute name="flag">warning</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>Tax Code (Codice Fiscale) must be stated in the correct format</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="cbc:EndpointID[@schemeID = '9907']" priority="1002" mode="M43">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:EndpointID[@schemeID = '9907']"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="u:checkCF(normalize-space())"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="u:checkCF(normalize-space())">
+               <axsl:attribute name="id">PEPPOL-COMMON-R046</axsl:attribute>
+               <axsl:attribute name="flag">warning</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>Tax Code (Codice Fiscale) must be stated in the correct format</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="cbc:EndpointID[@schemeID = '0211'] | cac:PartyIdentification/cbc:ID[@schemeID = '0211'] | cbc:CompanyID[@schemeID = '0211']" priority="1001" mode="M43">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:EndpointID[@schemeID = '0211'] | cac:PartyIdentification/cbc:ID[@schemeID = '0211'] | cbc:CompanyID[@schemeID = '0211']"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="u:checkPIVAseIT(normalize-space())"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="u:checkPIVAseIT(normalize-space())">
+               <axsl:attribute name="id">PEPPOL-COMMON-R047</axsl:attribute>
+               <axsl:attribute name="flag">warning</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>Italian VAT Code (Partita Iva) must be stated in the correct format</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="cbc:EndpointID[@schemeID = '9906']" priority="1000" mode="M43">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:EndpointID[@schemeID = '9906']"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="u:checkPIVAseIT(normalize-space())"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="u:checkPIVAseIT(normalize-space())">
+               <axsl:attribute name="id">PEPPOL-COMMON-R048</axsl:attribute>
+               <axsl:attribute name="flag">warning</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>Italian VAT Code (Partita Iva) must be stated in the correct format</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
+   </axsl:template>
+   <axsl:template match="text()" priority="-1" mode="M43"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M43">
+      <axsl:apply-templates select="@*|*" mode="M43"/>
    </axsl:template>
 
 <!--PATTERN OP-Norway-rules-->
@@ -17043,7 +17241,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AccountingSupplierParty/cac:Party[$supplierCountry = 'NO']" priority="1000" mode="M36">
+   <axsl:template match="cac:AccountingSupplierParty/cac:Party[$supplierCountry = 'NO']" priority="1000" mode="M44">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AccountingSupplierParty/cac:Party[$supplierCountry = 'NO']"/>
 
 		<!--ASSERT -->
@@ -17080,11 +17278,11 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M36"/>
+      <axsl:apply-templates select="@*|*" mode="M44"/>
    </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M36"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M36">
-      <axsl:apply-templates select="@*|*" mode="M36"/>
+   <axsl:template match="text()" priority="-1" mode="M44"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M44">
+      <axsl:apply-templates select="@*|*" mode="M44"/>
    </axsl:template>
 
 <!--PATTERN OP-Denmark-rules-->
@@ -17094,7 +17292,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK'] | ubl-invoice:Invoice[$DKSupplierCountry = 'DK']" priority="1004" mode="M37">
+   <axsl:template match="ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK'] | ubl-invoice:Invoice[$DKSupplierCountry = 'DK']" priority="1004" mode="M45">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK'] | ubl-invoice:Invoice[$DKSupplierCountry = 'DK']"/>
 
 		<!--ASSERT -->
@@ -17160,12 +17358,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M37"/>
+      <axsl:apply-templates select="@*|*" mode="M45"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification | ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification | ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification | ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification" priority="1003" mode="M37">
+   <axsl:template match="ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification | ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification | ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification | ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification" priority="1003" mode="M45">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification | ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification | ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification | ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification"/>
 
 		<!--ASSERT -->
@@ -17183,12 +17381,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M37"/>
+      <axsl:apply-templates select="@*|*" mode="M45"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:PaymentMeans" priority="1002" mode="M37">
+   <axsl:template match="ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:PaymentMeans" priority="1002" mode="M45">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:PaymentMeans"/>
 
 		<!--ASSERT -->
@@ -17302,12 +17500,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M37"/>
+      <axsl:apply-templates select="@*|*" mode="M45"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:CreditNoteLine | ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:InvoiceLine" priority="1001" mode="M37">
+   <axsl:template match="ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:CreditNoteLine | ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:InvoiceLine" priority="1001" mode="M45">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:CreditNoteLine | ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:InvoiceLine"/>
 
 		<!--ASSERT -->
@@ -17325,12 +17523,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M37"/>
+      <axsl:apply-templates select="@*|*" mode="M45"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AllowanceCharge[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']" priority="1000" mode="M37">
+   <axsl:template match="cac:AllowanceCharge[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']" priority="1000" mode="M45">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']"/>
 
 		<!--ASSERT -->
@@ -17348,11 +17546,11 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M37"/>
+      <axsl:apply-templates select="@*|*" mode="M45"/>
    </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M37"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M37">
-      <axsl:apply-templates select="@*|*" mode="M37"/>
+   <axsl:template match="text()" priority="-1" mode="M45"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M45">
+      <axsl:apply-templates select="@*|*" mode="M45"/>
    </axsl:template>
 
 <!--PATTERN OP-Italy-rules-->
@@ -17360,7 +17558,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AccountingSupplierParty/cac:Party[$supplierCountry = 'IT']/cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) != 'VAT']" priority="1001" mode="M38">
+   <axsl:template match="cac:AccountingSupplierParty/cac:Party[$supplierCountry = 'IT']/cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) != 'VAT']" priority="1001" mode="M46">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AccountingSupplierParty/cac:Party[$supplierCountry = 'IT']/cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) != 'VAT']"/>
 
 		<!--ASSERT -->
@@ -17378,12 +17576,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M38"/>
+      <axsl:apply-templates select="@*|*" mode="M46"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AccountingSupplierParty/cac:Party[$supplierCountry = 'IT']" priority="1000" mode="M38">
+   <axsl:template match="cac:AccountingSupplierParty/cac:Party[$supplierCountry = 'IT']" priority="1000" mode="M46">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AccountingSupplierParty/cac:Party[$supplierCountry = 'IT']"/>
 
 		<!--ASSERT -->
@@ -17433,11 +17631,11 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M38"/>
+      <axsl:apply-templates select="@*|*" mode="M46"/>
    </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M38"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M38">
-      <axsl:apply-templates select="@*|*" mode="M38"/>
+   <axsl:template match="text()" priority="-1" mode="M46"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M46">
+      <axsl:apply-templates select="@*|*" mode="M46"/>
    </axsl:template>
 
 <!--PATTERN OP-Sweden-rules-->
@@ -17445,7 +17643,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE' and cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2) = 'SE']" priority="1007" mode="M39">
+   <axsl:template match="//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE' and cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2) = 'SE']" priority="1007" mode="M47">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE' and cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2) = 'SE']"/>
 
 		<!--ASSERT -->
@@ -17479,12 +17677,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M39"/>
+      <axsl:apply-templates select="@*|*" mode="M47"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="//cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity[../cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE' and cbc:CompanyID]" priority="1006" mode="M39">
+   <axsl:template match="//cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity[../cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE' and cbc:CompanyID]" priority="1006" mode="M47">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity[../cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE' and cbc:CompanyID]"/>
 
 		<!--ASSERT -->
@@ -17518,12 +17716,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M39"/>
+      <axsl:apply-templates select="@*|*" mode="M47"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE' and exists(cac:PartyLegalEntity/cbc:CompanyID)]/cac:PartyTaxScheme[normalize-space(upper-case(cac:TaxScheme/cbc:ID)) != 'VAT']/cbc:CompanyID" priority="1005" mode="M39">
+   <axsl:template match="//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE' and exists(cac:PartyLegalEntity/cbc:CompanyID)]/cac:PartyTaxScheme[normalize-space(upper-case(cac:TaxScheme/cbc:ID)) != 'VAT']/cbc:CompanyID" priority="1005" mode="M47">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE' and exists(cac:PartyLegalEntity/cbc:CompanyID)]/cac:PartyTaxScheme[normalize-space(upper-case(cac:TaxScheme/cbc:ID)) != 'VAT']/cbc:CompanyID"/>
 
 		<!--ASSERT -->
@@ -17541,12 +17739,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M39"/>
+      <axsl:apply-templates select="@*|*" mode="M47"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="//cac:TaxCategory[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE' and cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2) = 'SE'] and cbc:ID = 'S'] | //cac:ClassifiedTaxCategory[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE' and cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2) = 'SE'] and cbc:ID = 'S']" priority="1004" mode="M39">
+   <axsl:template match="//cac:TaxCategory[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE' and cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2) = 'SE'] and cbc:ID = 'S'] | //cac:ClassifiedTaxCategory[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE' and cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2) = 'SE'] and cbc:ID = 'S']" priority="1004" mode="M47">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:TaxCategory[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE' and cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2) = 'SE'] and cbc:ID = 'S'] | //cac:ClassifiedTaxCategory[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE' and cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2) = 'SE'] and cbc:ID = 'S']"/>
 
 		<!--ASSERT -->
@@ -17564,12 +17762,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M39"/>
+      <axsl:apply-templates select="@*|*" mode="M47"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="//cac:PaymentMeans[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE'] and normalize-space(cbc:PaymentMeansCode) = '30' and normalize-space(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID) = 'SE:PLUSGIRO']/cac:PayeeFinancialAccount/cbc:ID" priority="1003" mode="M39">
+   <axsl:template match="//cac:PaymentMeans[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE'] and normalize-space(cbc:PaymentMeansCode) = '30' and normalize-space(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID) = 'SE:PLUSGIRO']/cac:PayeeFinancialAccount/cbc:ID" priority="1003" mode="M47">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:PaymentMeans[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE'] and normalize-space(cbc:PaymentMeansCode) = '30' and normalize-space(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID) = 'SE:PLUSGIRO']/cac:PayeeFinancialAccount/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -17603,12 +17801,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M39"/>
+      <axsl:apply-templates select="@*|*" mode="M47"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="//cac:PaymentMeans[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE'] and normalize-space(cbc:PaymentMeansCode) = '30' and normalize-space(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID) = 'SE:BANKGIRO']/cac:PayeeFinancialAccount/cbc:ID" priority="1002" mode="M39">
+   <axsl:template match="//cac:PaymentMeans[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE'] and normalize-space(cbc:PaymentMeansCode) = '30' and normalize-space(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID) = 'SE:BANKGIRO']/cac:PayeeFinancialAccount/cbc:ID" priority="1002" mode="M47">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:PaymentMeans[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE'] and normalize-space(cbc:PaymentMeansCode) = '30' and normalize-space(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID) = 'SE:BANKGIRO']/cac:PayeeFinancialAccount/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -17642,12 +17840,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M39"/>
+      <axsl:apply-templates select="@*|*" mode="M47"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="//cac:PaymentMeans[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE'] and (cbc:PaymentMeansCode = normalize-space('50') or cbc:PaymentMeansCode = normalize-space('56'))]" priority="1001" mode="M39">
+   <axsl:template match="//cac:PaymentMeans[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE'] and (cbc:PaymentMeansCode = normalize-space('50') or cbc:PaymentMeansCode = normalize-space('56'))]" priority="1001" mode="M47">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:PaymentMeans[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE'] and (cbc:PaymentMeansCode = normalize-space('50') or cbc:PaymentMeansCode = normalize-space('56'))]"/>
 
 		<!--ASSERT -->
@@ -17665,12 +17863,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M39"/>
+      <axsl:apply-templates select="@*|*" mode="M47"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="//cac:PaymentMeans[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE']  and //cac:AccountingCustomerParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE'] and (cbc:PaymentMeansCode = normalize-space('31'))]" priority="1000" mode="M39">
+   <axsl:template match="//cac:PaymentMeans[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE']  and //cac:AccountingCustomerParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE'] and (cbc:PaymentMeansCode = normalize-space('31'))]" priority="1000" mode="M47">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:PaymentMeans[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE']  and //cac:AccountingCustomerParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE'] and (cbc:PaymentMeansCode = normalize-space('31'))]"/>
 
 		<!--ASSERT -->
@@ -17688,11 +17886,11 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M39"/>
+      <axsl:apply-templates select="@*|*" mode="M47"/>
    </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M39"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M39">
-      <axsl:apply-templates select="@*|*" mode="M39"/>
+   <axsl:template match="text()" priority="-1" mode="M47"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M47">
+      <axsl:apply-templates select="@*|*" mode="M47"/>
    </axsl:template>
    <axsl:param name="isGreekSender" select="($supplierCountry ='GR') or ($supplierCountry ='EL')"/>
    <axsl:param name="isGreekReceiver" select="($customerCountry ='GR') or ($customerCountry ='EL')"/>
@@ -17707,7 +17905,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl-invoice:Invoice/cbc:ID[$isGreekSender] | /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]" priority="1008" mode="M45">
+   <axsl:template match="/ubl-invoice:Invoice/cbc:ID[$isGreekSender] | /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]" priority="1008" mode="M53">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl-invoice:Invoice/cbc:ID[$isGreekSender] | /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]"/>
       <axsl:variable name="IdSegments" select="tokenize(.,'\|')"/>
 
@@ -17823,12 +18021,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M45"/>
+      <axsl:apply-templates select="@*|*" mode="M53"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AccountingSupplierParty[$isGreekSender]/cac:Party" priority="1007" mode="M45">
+   <axsl:template match="cac:AccountingSupplierParty[$isGreekSender]/cac:Party" priority="1007" mode="M53">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AccountingSupplierParty[$isGreekSender]/cac:Party"/>
 
 		<!--ASSERT -->
@@ -17862,12 +18060,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M45"/>
+      <axsl:apply-templates select="@*|*" mode="M53"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:TaxRepresentativeParty[$isGreekSender]" priority="1006" mode="M45">
+   <axsl:template match="cac:TaxRepresentativeParty[$isGreekSender]" priority="1006" mode="M53">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:TaxRepresentativeParty[$isGreekSender]"/>
 
 		<!--ASSERT -->
@@ -17901,12 +18099,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M45"/>
+      <axsl:apply-templates select="@*|*" mode="M53"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AccountingSupplierParty[$isGreekSender]/cac:Party/cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID" priority="1005" mode="M45">
+   <axsl:template match="cac:AccountingSupplierParty[$isGreekSender]/cac:Party/cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID" priority="1005" mode="M53">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AccountingSupplierParty[$isGreekSender]/cac:Party/cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID"/>
 
 		<!--ASSERT -->
@@ -17924,12 +18122,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M45"/>
+      <axsl:apply-templates select="@*|*" mode="M53"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl-invoice:Invoice[$isGreekSender] | /ubl-creditnote:CreditNote[$isGreekSender]" priority="1004" mode="M45">
+   <axsl:template match="/ubl-invoice:Invoice[$isGreekSender] | /ubl-creditnote:CreditNote[$isGreekSender]" priority="1004" mode="M53">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl-invoice:Invoice[$isGreekSender] | /ubl-creditnote:CreditNote[$isGreekSender]"/>
 
 		<!--ASSERT -->
@@ -17979,12 +18177,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M45"/>
+      <axsl:apply-templates select="@*|*" mode="M53"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AdditionalDocumentReference[$isGreekSender and cbc:DocumentDescription = '##M.AR.K##']/cbc:ID" priority="1003" mode="M45">
+   <axsl:template match="cac:AdditionalDocumentReference[$isGreekSender and cbc:DocumentDescription = '##M.AR.K##']/cbc:ID" priority="1003" mode="M53">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AdditionalDocumentReference[$isGreekSender and cbc:DocumentDescription = '##M.AR.K##']/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -18002,12 +18200,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M45"/>
+      <axsl:apply-templates select="@*|*" mode="M53"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AdditionalDocumentReference[$isGreekSender and cbc:DocumentDescription = '##INVOICE-URL##']" priority="1002" mode="M45">
+   <axsl:template match="cac:AdditionalDocumentReference[$isGreekSender and cbc:DocumentDescription = '##INVOICE-URL##']" priority="1002" mode="M53">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AdditionalDocumentReference[$isGreekSender and cbc:DocumentDescription = '##INVOICE-URL##']"/>
 
 		<!--ASSERT -->
@@ -18025,12 +18223,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M45"/>
+      <axsl:apply-templates select="@*|*" mode="M53"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AccountingCustomerParty[$isGreekSender]/cac:Party" priority="1001" mode="M45">
+   <axsl:template match="cac:AccountingCustomerParty[$isGreekSender]/cac:Party" priority="1001" mode="M53">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AccountingCustomerParty[$isGreekSender]/cac:Party"/>
 
 		<!--ASSERT -->
@@ -18048,12 +18246,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M45"/>
+      <axsl:apply-templates select="@*|*" mode="M53"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AccountingSupplierParty/cac:Party[$accountingSupplierCountry='GR' or $accountingSupplierCountry='EL']/cbc:EndpointID" priority="1000" mode="M45">
+   <axsl:template match="cac:AccountingSupplierParty/cac:Party[$accountingSupplierCountry='GR' or $accountingSupplierCountry='EL']/cbc:EndpointID" priority="1000" mode="M53">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AccountingSupplierParty/cac:Party[$accountingSupplierCountry='GR' or $accountingSupplierCountry='EL']/cbc:EndpointID"/>
 
 		<!--ASSERT -->
@@ -18071,11 +18269,11 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M45"/>
+      <axsl:apply-templates select="@*|*" mode="M53"/>
    </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M45"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M45">
-      <axsl:apply-templates select="@*|*" mode="M45"/>
+   <axsl:template match="text()" priority="-1" mode="M53"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M53">
+      <axsl:apply-templates select="@*|*" mode="M53"/>
    </axsl:template>
 
 <!--PATTERN OP-Greece-sender-receiver-rules-->
@@ -18083,7 +18281,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AccountingCustomerParty[$isGreekSenderandReceiver]/cac:Party" priority="1001" mode="M46">
+   <axsl:template match="cac:AccountingCustomerParty[$isGreekSenderandReceiver]/cac:Party" priority="1001" mode="M54">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AccountingCustomerParty[$isGreekSenderandReceiver]/cac:Party"/>
 
 		<!--ASSERT -->
@@ -18101,12 +18299,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M46"/>
+      <axsl:apply-templates select="@*|*" mode="M54"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AccountingCustomerParty[$isGreekSenderandReceiver]/cac:Party/cbc:EndpointID" priority="1000" mode="M46">
+   <axsl:template match="cac:AccountingCustomerParty[$isGreekSenderandReceiver]/cac:Party/cbc:EndpointID" priority="1000" mode="M54">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AccountingCustomerParty[$isGreekSenderandReceiver]/cac:Party/cbc:EndpointID"/>
 
 		<!--ASSERT -->
@@ -18124,11 +18322,11 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M46"/>
+      <axsl:apply-templates select="@*|*" mode="M54"/>
    </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M46"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M46">
-      <axsl:apply-templates select="@*|*" mode="M46"/>
+   <axsl:template match="text()" priority="-1" mode="M54"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M54">
+      <axsl:apply-templates select="@*|*" mode="M54"/>
    </axsl:template>
 
 <!--PATTERN OP-Iceland-rules-->
@@ -18138,7 +18336,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="ubl-creditnote:CreditNote[$SupplierCountry = 'IS'] | ubl-invoice:Invoice[$SupplierCountry = 'IS']" priority="1001" mode="M47">
+   <axsl:template match="ubl-creditnote:CreditNote[$SupplierCountry = 'IS'] | ubl-invoice:Invoice[$SupplierCountry = 'IS']" priority="1001" mode="M55">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="ubl-creditnote:CreditNote[$SupplierCountry = 'IS'] | ubl-invoice:Invoice[$SupplierCountry = 'IS']"/>
 
 		<!--ASSERT -->
@@ -18192,7 +18390,7 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="exists(cac:PaymentMeans[cbc:PaymentMeansCode = '9']/cac:PayeeFinancialAccount/cbc:ID)         and string-length(normalize-space(cac:PaymentMeans[cbc:PaymentMeansCode = '9']/cac:PayeeFinancialAccount/cbc:ID)) = 12        or not(exists(cac:PaymentMeans[cbc:PaymentMeansCode = '9']))"/>
+         <axsl:when test="exists(cac:PaymentMeans[cbc:PaymentMeansCode = '9']/cac:PayeeFinancialAccount/cbc:ID) and string-length(normalize-space(cac:PaymentMeans[cbc:PaymentMeansCode = '9']/cac:PayeeFinancialAccount/cbc:ID)) = 12 or not(exists(cac:PaymentMeans[cbc:PaymentMeansCode = '9']))"/>
          <axsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="exists(cac:PaymentMeans[cbc:PaymentMeansCode = '9']/cac:PayeeFinancialAccount/cbc:ID) and string-length(normalize-space(cac:PaymentMeans[cbc:PaymentMeansCode = '9']/cac:PayeeFinancialAccount/cbc:ID)) = 12 or not(exists(cac:PaymentMeans[cbc:PaymentMeansCode = '9']))">
                <axsl:attribute name="id">IS-R-006</axsl:attribute>
@@ -18200,7 +18398,7 @@
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[IS-R-006]-If seller is icelandic and payment means code is 9 then a 12 digit account id must exist  — Ef seljandi er íslenskur og greiðslumáti (BT-81) er millifærsla (kóti 9) þá skal koma fram 12 stafa reikningnúmer (BT-84)</svrl:text>
+               <svrl:text>[IS-R-006]-If seller is icelandic and payment means code is 9 then a 12 digit account id must exist — Ef seljandi er íslenskur og greiðslumáti (BT-81) er krafa (kóti 9) þá skal koma fram 12 stafa númer (bankanúmer, höfuðbók 66 og reikningsnúmer) (BT-84)</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -18208,7 +18406,7 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="exists(cac:PaymentMeans[cbc:PaymentMeansCode = '42']/cac:PayeeFinancialAccount/cbc:ID)         and string-length(normalize-space(cac:PaymentMeans[cbc:PaymentMeansCode = '42']/cac:PayeeFinancialAccount/cbc:ID)) = 12        or not(exists(cac:PaymentMeans[cbc:PaymentMeansCode = '42']))"/>
+         <axsl:when test="exists(cac:PaymentMeans[cbc:PaymentMeansCode = '42']/cac:PayeeFinancialAccount/cbc:ID) and string-length(normalize-space(cac:PaymentMeans[cbc:PaymentMeansCode = '42']/cac:PayeeFinancialAccount/cbc:ID)) = 12 or not(exists(cac:PaymentMeans[cbc:PaymentMeansCode = '42']))"/>
          <axsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="exists(cac:PaymentMeans[cbc:PaymentMeansCode = '42']/cac:PayeeFinancialAccount/cbc:ID) and string-length(normalize-space(cac:PaymentMeans[cbc:PaymentMeansCode = '42']/cac:PayeeFinancialAccount/cbc:ID)) = 12 or not(exists(cac:PaymentMeans[cbc:PaymentMeansCode = '42']))">
                <axsl:attribute name="id">IS-R-007</axsl:attribute>
@@ -18268,12 +18466,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M47"/>
+      <axsl:apply-templates select="@*|*" mode="M55"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="ubl-creditnote:CreditNote[$SupplierCountry = 'IS' and $CustomerCountry = 'IS']/cac:AccountingCustomerParty | ubl-invoice:Invoice[$SupplierCountry = 'IS' and $CustomerCountry = 'IS']/cac:AccountingCustomerParty" priority="1000" mode="M47">
+   <axsl:template match="ubl-creditnote:CreditNote[$SupplierCountry = 'IS' and $CustomerCountry = 'IS']/cac:AccountingCustomerParty | ubl-invoice:Invoice[$SupplierCountry = 'IS' and $CustomerCountry = 'IS']/cac:AccountingCustomerParty" priority="1000" mode="M55">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="ubl-creditnote:CreditNote[$SupplierCountry = 'IS' and $CustomerCountry = 'IS']/cac:AccountingCustomerParty | ubl-invoice:Invoice[$SupplierCountry = 'IS' and $CustomerCountry = 'IS']/cac:AccountingCustomerParty"/>
 
 		<!--ASSERT -->
@@ -18307,11 +18505,228 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M47"/>
+      <axsl:apply-templates select="@*|*" mode="M55"/>
    </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M47"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M47">
-      <axsl:apply-templates select="@*|*" mode="M47"/>
+   <axsl:template match="text()" priority="-1" mode="M55"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M55">
+      <axsl:apply-templates select="@*|*" mode="M55"/>
+   </axsl:template>
+
+<!--PATTERN OP-Netherlands-rules-->
+
+   <axsl:variable name="supplierCountryIsNL" select="(upper-case(normalize-space(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode)) = 'NL')"/>
+   <axsl:variable name="customerCountryIsNL" select="(upper-case(normalize-space(/*/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode)) = 'NL')"/>
+   <axsl:variable name="taxRepresentativeCountryIsNL" select="(upper-case(normalize-space(/*/cac:TaxRepresentativeParty/cac:PostalAddress/cac:Country/cbc:IdentificationCode)) = 'NL')"/>
+
+	<!--RULE -->
+
+   <axsl:template match="cbc:CreditNoteTypeCode[$supplierCountryIsNL]" priority="1008" mode="M56">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:CreditNoteTypeCode[$supplierCountryIsNL]"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="/*/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="/*/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID">
+               <axsl:attribute name="id">NL-R-001</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[NL-R-001] For suppliers in the Netherlands, if the document is a creditnote, the document MUST contain an invoice reference (cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID)</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M56"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="cac:AccountingSupplierParty/cac:Party/cac:PostalAddress[$supplierCountryIsNL]" priority="1007" mode="M56">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AccountingSupplierParty/cac:Party/cac:PostalAddress[$supplierCountryIsNL]"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="cbc:StreetName and cbc:CityName and cbc:PostalZone"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cbc:StreetName and cbc:CityName and cbc:PostalZone">
+               <axsl:attribute name="id">NL-R-002</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[NL-R-002] For suppliers in the Netherlands the supplier's address (cac:AccountingSupplierParty/cac:Party/cac:PostalAddress) MUST contain street name (cbc:StreetName), city (cbc:CityName) and post code (cbc:PostalZone)</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M56"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID[$supplierCountryIsNL]" priority="1006" mode="M56">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID[$supplierCountryIsNL]"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="(contains(concat(' ', string-join(@schemeID, ' '), ' '), ' 0106 ') or contains(concat(' ', string-join(@schemeID, ' '), ' '), ' 0190 ')) and (normalize-space(.) != '')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(contains(concat(' ', string-join(@schemeID, ' '), ' '), ' 0106 ') or contains(concat(' ', string-join(@schemeID, ' '), ' '), ' 0190 ')) and (normalize-space(.) != '')">
+               <axsl:attribute name="id">NL-R-003</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[NL-R-003] For suppliers in the Netherlands, the legal entity identifier MUST be either a KVK or OIN number (schemeID 0106 or 0190)</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M56"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="cac:AccountingCustomerParty/cac:Party/cac:PostalAddress[$supplierCountryIsNL and $customerCountryIsNL]" priority="1005" mode="M56">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AccountingCustomerParty/cac:Party/cac:PostalAddress[$supplierCountryIsNL and $customerCountryIsNL]"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="cbc:StreetName and cbc:CityName and cbc:PostalZone"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cbc:StreetName and cbc:CityName and cbc:PostalZone">
+               <axsl:attribute name="id">NL-R-004</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[NL-R-004] For suppliers in the Netherlands, if the customer is in the Netherlands, the customer address (cac:AccountingCustomerParty/cac:Party/cac:PostalAddress) MUST contain the street name (cbc:StreetName), the city (cbc:CityName) and post code (cbc:PostalZone)</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M56"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID[$supplierCountryIsNL and $customerCountryIsNL]" priority="1004" mode="M56">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID[$supplierCountryIsNL and $customerCountryIsNL]"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="(contains(concat(' ', string-join(@schemeID, ' '), ' '), ' 0106 ') or contains(concat(' ', string-join(@schemeID, ' '), ' '), ' 0190 ')) and (normalize-space(.) != '')"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="(contains(concat(' ', string-join(@schemeID, ' '), ' '), ' 0106 ') or contains(concat(' ', string-join(@schemeID, ' '), ' '), ' 0190 ')) and (normalize-space(.) != '')">
+               <axsl:attribute name="id">NL-R-005</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[NL-R-005] For suppliers in the Netherlands, if the customer is in the Netherlands, the customer's legal entity identifier MUST be either a KVK or OIN number (schemeID 0106 or 0190)</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M56"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="cac:TaxRepresentativeParty/cac:PostalAddress[$supplierCountryIsNL and $taxRepresentativeCountryIsNL]" priority="1003" mode="M56">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:TaxRepresentativeParty/cac:PostalAddress[$supplierCountryIsNL and $taxRepresentativeCountryIsNL]"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="cbc:StreetName and cbc:CityName and cbc:PostalZone"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cbc:StreetName and cbc:CityName and cbc:PostalZone">
+               <axsl:attribute name="id">NL-R-006</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[NL-R-006] For suppliers in the Netherlands, if the fiscal representative is in the Netherlands, the representative's address (cac:TaxRepresentativeParty/cac:PostalAddress) MUST contain street name (cbc:StreetName), city (cbc:CityName) and post code (cbc:PostalZone)</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M56"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="cac:LegalMonetaryTotal[$supplierCountryIsNL]" priority="1002" mode="M56">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:LegalMonetaryTotal[$supplierCountryIsNL]"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="xs:decimal(cbc:PayableAmount) &lt;= 0.0 or (//cac:PaymentMeans)"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="xs:decimal(cbc:PayableAmount) &lt;= 0.0 or (//cac:PaymentMeans)">
+               <axsl:attribute name="id">NL-R-007</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[NL-R-007] For suppliers in the Netherlands, the supplier MUST provide a means of payment (cac:PaymentMeans) if the payment is from customer to supplier</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M56"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="cac:PaymentMeans[$supplierCountryIsNL]" priority="1001" mode="M56">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:PaymentMeans[$supplierCountryIsNL]"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="normalize-space(cbc:PaymentMeansCode) = '30' or         normalize-space(cbc:PaymentMeansCode) = '48' or         normalize-space(cbc:PaymentMeansCode) = '49' or         normalize-space(cbc:PaymentMeansCode) = '57' or         normalize-space(cbc:PaymentMeansCode) = '58' or         normalize-space(cbc:PaymentMeansCode) = '59'"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="normalize-space(cbc:PaymentMeansCode) = '30' or normalize-space(cbc:PaymentMeansCode) = '48' or normalize-space(cbc:PaymentMeansCode) = '49' or normalize-space(cbc:PaymentMeansCode) = '57' or normalize-space(cbc:PaymentMeansCode) = '58' or normalize-space(cbc:PaymentMeansCode) = '59'">
+               <axsl:attribute name="id">NL-R-008</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[NL-R-008] For suppliers in the Netherlands, the payment means code (cac:PaymentMeans/cbc:PaymentMeansCode) MUST be one of 30, 48, 49, 57, 58 or 59</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M56"/>
+   </axsl:template>
+
+	<!--RULE -->
+
+   <axsl:template match="cac:OrderLineReference/cbc:LineID[$supplierCountryIsNL]" priority="1000" mode="M56">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:OrderLineReference/cbc:LineID[$supplierCountryIsNL]"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="exists(/*/cac:OrderReference/cbc:ID)"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="exists(/*/cac:OrderReference/cbc:ID)">
+               <axsl:attribute name="id">NL-R-009</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[NL-R-009] For suppliers in the Netherlands, if an order line reference (cac:OrderLineReference/cbc:LineID) is used, there must be an order reference on the document level (cac:OrderReference/cbc:ID)</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M56"/>
+   </axsl:template>
+   <axsl:template match="text()" priority="-1" mode="M56"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M56">
+      <axsl:apply-templates select="@*|*" mode="M56"/>
    </axsl:template>
 
 <!--PATTERN OP-cl-formatting-rules-->
@@ -18327,7 +18742,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="cbc:EmbeddedDocumentBinaryObject[@mimeCode]" priority="1016" mode="M48">
+   <axsl:template match="cbc:EmbeddedDocumentBinaryObject[@mimeCode]" priority="1016" mode="M57">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:EmbeddedDocumentBinaryObject[@mimeCode]"/>
 
 		<!--ASSERT -->
@@ -18345,12 +18760,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M48"/>
+      <axsl:apply-templates select="@*|*" mode="M57"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator = 'false']/cbc:AllowanceChargeReasonCode" priority="1015" mode="M48">
+   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator = 'false']/cbc:AllowanceChargeReasonCode" priority="1015" mode="M57">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge[cbc:ChargeIndicator = 'false']/cbc:AllowanceChargeReasonCode"/>
 
 		<!--ASSERT -->
@@ -18368,12 +18783,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M48"/>
+      <axsl:apply-templates select="@*|*" mode="M57"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator = 'true']/cbc:AllowanceChargeReasonCode" priority="1014" mode="M48">
+   <axsl:template match="cac:AllowanceCharge[cbc:ChargeIndicator = 'true']/cbc:AllowanceChargeReasonCode" priority="1014" mode="M57">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:AllowanceCharge[cbc:ChargeIndicator = 'true']/cbc:AllowanceChargeReasonCode"/>
 
 		<!--ASSERT -->
@@ -18391,12 +18806,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M48"/>
+      <axsl:apply-templates select="@*|*" mode="M57"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:InvoicePeriod/cbc:DescriptionCode" priority="1013" mode="M48">
+   <axsl:template match="cac:InvoicePeriod/cbc:DescriptionCode" priority="1013" mode="M57">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:InvoicePeriod/cbc:DescriptionCode"/>
 
 		<!--ASSERT -->
@@ -18414,12 +18829,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M48"/>
+      <axsl:apply-templates select="@*|*" mode="M57"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cbc:Amount | cbc:BaseAmount | cbc:PriceAmount | cbc:TaxAmount | cbc:TaxableAmount | cbc:LineExtensionAmount | cbc:TaxExclusiveAmount | cbc:TaxInclusiveAmount | cbc:AllowanceTotalAmount | cbc:ChargeTotalAmount | cbc:PrepaidAmount | cbc:PayableRoundingAmount | cbc:PayableAmount" priority="1012" mode="M48">
+   <axsl:template match="cbc:Amount | cbc:BaseAmount | cbc:PriceAmount | cbc:TaxAmount | cbc:TaxableAmount | cbc:LineExtensionAmount | cbc:TaxExclusiveAmount | cbc:TaxInclusiveAmount | cbc:AllowanceTotalAmount | cbc:ChargeTotalAmount | cbc:PrepaidAmount | cbc:PayableRoundingAmount | cbc:PayableAmount" priority="1012" mode="M57">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:Amount | cbc:BaseAmount | cbc:PriceAmount | cbc:TaxAmount | cbc:TaxableAmount | cbc:LineExtensionAmount | cbc:TaxExclusiveAmount | cbc:TaxInclusiveAmount | cbc:AllowanceTotalAmount | cbc:ChargeTotalAmount | cbc:PrepaidAmount | cbc:PayableRoundingAmount | cbc:PayableAmount"/>
 
 		<!--ASSERT -->
@@ -18437,12 +18852,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M48"/>
+      <axsl:apply-templates select="@*|*" mode="M57"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cbc:InvoiceTypeCode" priority="1011" mode="M48">
+   <axsl:template match="cbc:InvoiceTypeCode" priority="1011" mode="M57">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:InvoiceTypeCode"/>
 
 		<!--ASSERT -->
@@ -18460,12 +18875,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M48"/>
+      <axsl:apply-templates select="@*|*" mode="M57"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cbc:CreditNoteTypeCode" priority="1010" mode="M48">
+   <axsl:template match="cbc:CreditNoteTypeCode" priority="1010" mode="M57">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:CreditNoteTypeCode"/>
 
 		<!--ASSERT -->
@@ -18483,12 +18898,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M48"/>
+      <axsl:apply-templates select="@*|*" mode="M57"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cbc:IssueDate | cbc:DueDate | cbc:TaxPointDate | cbc:StartDate | cbc:EndDate | cbc:ActualDeliveryDate" priority="1009" mode="M48">
+   <axsl:template match="cbc:IssueDate | cbc:DueDate | cbc:TaxPointDate | cbc:StartDate | cbc:EndDate | cbc:ActualDeliveryDate" priority="1009" mode="M57">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:IssueDate | cbc:DueDate | cbc:TaxPointDate | cbc:StartDate | cbc:EndDate | cbc:ActualDeliveryDate"/>
 
 		<!--ASSERT -->
@@ -18507,12 +18922,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M48"/>
+      <axsl:apply-templates select="@*|*" mode="M57"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cbc:EndpointID[@schemeID]" priority="1008" mode="M48">
+   <axsl:template match="cbc:EndpointID[@schemeID]" priority="1008" mode="M57">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cbc:EndpointID[@schemeID]"/>
 
 		<!--ASSERT -->
@@ -18530,12 +18945,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M48"/>
+      <axsl:apply-templates select="@*|*" mode="M57"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-G']" priority="1007" mode="M48">
+   <axsl:template match="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-G']" priority="1007" mode="M57">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-G']"/>
 
 		<!--ASSERT -->
@@ -18553,12 +18968,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M48"/>
+      <axsl:apply-templates select="@*|*" mode="M57"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-O']" priority="1006" mode="M48">
+   <axsl:template match="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-O']" priority="1006" mode="M57">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-O']"/>
 
 		<!--ASSERT -->
@@ -18576,12 +18991,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M48"/>
+      <axsl:apply-templates select="@*|*" mode="M57"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-IC']" priority="1005" mode="M48">
+   <axsl:template match="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-IC']" priority="1005" mode="M57">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-IC']"/>
 
 		<!--ASSERT -->
@@ -18599,12 +19014,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M48"/>
+      <axsl:apply-templates select="@*|*" mode="M57"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-AE']" priority="1004" mode="M48">
+   <axsl:template match="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-AE']" priority="1004" mode="M57">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-AE']"/>
 
 		<!--ASSERT -->
@@ -18622,12 +19037,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M48"/>
+      <axsl:apply-templates select="@*|*" mode="M57"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-D']" priority="1003" mode="M48">
+   <axsl:template match="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-D']" priority="1003" mode="M57">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-D']"/>
 
 		<!--ASSERT -->
@@ -18645,12 +19060,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M48"/>
+      <axsl:apply-templates select="@*|*" mode="M57"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-F']" priority="1002" mode="M48">
+   <axsl:template match="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-F']" priority="1002" mode="M57">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-F']"/>
 
 		<!--ASSERT -->
@@ -18668,12 +19083,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M48"/>
+      <axsl:apply-templates select="@*|*" mode="M57"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-I']" priority="1001" mode="M48">
+   <axsl:template match="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-I']" priority="1001" mode="M57">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-I']"/>
 
 		<!--ASSERT -->
@@ -18691,12 +19106,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M48"/>
+      <axsl:apply-templates select="@*|*" mode="M57"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-J']" priority="1000" mode="M48">
+   <axsl:template match="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-J']" priority="1000" mode="M57">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:TaxCategory[upper-case(cbc:TaxExemptionReasonCode)='VATEX-EU-J']"/>
 
 		<!--ASSERT -->
@@ -18714,11 +19129,11 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M48"/>
+      <axsl:apply-templates select="@*|*" mode="M57"/>
    </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M48"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M48">
-      <axsl:apply-templates select="@*|*" mode="M48"/>
+   <axsl:template match="text()" priority="-1" mode="M57"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M57">
+      <axsl:apply-templates select="@*|*" mode="M57"/>
    </axsl:template>
 
 <!--PATTERN Italy-CIUS-rules-->
@@ -18726,7 +19141,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*" priority="1049" mode="M49">
+   <axsl:template match="/*" priority="1049" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*"/>
 
 		<!--ASSERT -->
@@ -18760,12 +19175,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*[cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode!='IT']" priority="1048" mode="M49">
+   <axsl:template match="/*[cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode!='IT']" priority="1048" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*[cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode!='IT']"/>
 
 		<!--ASSERT -->
@@ -18783,12 +19198,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cbc:ID" priority="1047" mode="M49">
+   <axsl:template match="/*/cbc:ID" priority="1047" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -18806,12 +19221,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:ProjectReference/cbc:ID" priority="1046" mode="M49">
+   <axsl:template match="/*/cac:ProjectReference/cbc:ID" priority="1046" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:ProjectReference/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -18829,12 +19244,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:ContractDocumentReference/cbc:ID" priority="1045" mode="M49">
+   <axsl:template match="/*/cac:ContractDocumentReference/cbc:ID" priority="1045" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:ContractDocumentReference/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -18852,12 +19267,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:OrderReference/cbc:ID" priority="1044" mode="M49">
+   <axsl:template match="/*/cac:OrderReference/cbc:ID" priority="1044" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:OrderReference/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -18875,12 +19290,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:ReceiptDocumentReference/cbc:ID" priority="1043" mode="M49">
+   <axsl:template match="/*/cac:ReceiptDocumentReference/cbc:ID" priority="1043" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:ReceiptDocumentReference/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -18898,12 +19313,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:DespatchDocumentReference" priority="1042" mode="M49">
+   <axsl:template match="/*/cac:DespatchDocumentReference" priority="1042" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:DespatchDocumentReference"/>
 
 		<!--ASSERT -->
@@ -18921,12 +19336,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:OriginatorDocumentReference/cbc:ID" priority="1041" mode="M49">
+   <axsl:template match="/*/cac:OriginatorDocumentReference/cbc:ID" priority="1041" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:OriginatorDocumentReference/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -18944,12 +19359,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cbc:AccountingCost" priority="1040" mode="M49">
+   <axsl:template match="/*/cbc:AccountingCost" priority="1040" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cbc:AccountingCost"/>
 
 		<!--ASSERT -->
@@ -18967,12 +19382,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID" priority="1039" mode="M49">
+   <axsl:template match="/*/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID" priority="1039" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -18990,12 +19405,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]" priority="1038" mode="M49">
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]" priority="1038" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]"/>
 
 		<!--ASSERT -->
@@ -19013,12 +19428,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'ALBO:')]" priority="1037" mode="M49">
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'ALBO:')]" priority="1037" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'ALBO:')]"/>
 
 		<!--ASSERT -->
@@ -19036,12 +19451,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'REA:')]" priority="1036" mode="M49">
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'REA:')]" priority="1036" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'REA:')]"/>
 
 		<!--ASSERT -->
@@ -19059,12 +19474,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyLegalEntity" priority="1035" mode="M49">
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyLegalEntity" priority="1035" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyLegalEntity"/>
 
 		<!--ASSERT -->
@@ -19098,12 +19513,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID" priority="1034" mode="M49">
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID" priority="1034" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID"/>
 
 		<!--ASSERT -->
@@ -19121,12 +19536,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLegalForm" priority="1033" mode="M49">
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLegalForm" priority="1033" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLegalForm"/>
 
 		<!--ASSERT -->
@@ -19144,12 +19559,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*[cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']" priority="1032" mode="M49">
+   <axsl:template match="/*[cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']" priority="1032" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*[cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']"/>
 
 		<!--ASSERT -->
@@ -19167,12 +19582,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress[cac:Country/cbc:IdentificationCode='IT']" priority="1031" mode="M49">
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress[cac:Country/cbc:IdentificationCode='IT']" priority="1031" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress[cac:Country/cbc:IdentificationCode='IT']"/>
 
 		<!--ASSERT -->
@@ -19206,12 +19621,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID" priority="1030" mode="M49">
+   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID" priority="1030" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID"/>
 
 		<!--ASSERT -->
@@ -19229,12 +19644,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0201']" priority="1029" mode="M49">
+   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0201']" priority="1029" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0201']"/>
 
 		<!--ASSERT -->
@@ -19252,12 +19667,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0205']" priority="1028" mode="M49">
+   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0205']" priority="1028" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0205']"/>
 
 		<!--ASSERT -->
@@ -19275,20 +19690,20 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0202']" priority="1027" mode="M49">
+   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0202']" priority="1027" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0202']"/>
 
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="matches(.,'^[a-zA-Z0-9]{7,256}$')"/>
+         <axsl:when test="matches(.,'^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$') and matches(.,'^.{7,256}$')"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^[a-zA-Z0-9]{7,256}$')">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$') and matches(.,'^.{7,256}$')">
                <axsl:attribute name="id">BR-IT-DC-203</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
@@ -19298,12 +19713,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress[cac:Country/cbc:IdentificationCode='IT']" priority="1026" mode="M49">
+   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress[cac:Country/cbc:IdentificationCode='IT']" priority="1026" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress[cac:Country/cbc:IdentificationCode='IT']"/>
 
 		<!--ASSERT -->
@@ -19337,12 +19752,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:TaxRepresentativeParty/cac:PartyTaxScheme/cbc:CompanyID" priority="1025" mode="M49">
+   <axsl:template match="/*/cac:TaxRepresentativeParty/cac:PartyTaxScheme/cbc:CompanyID" priority="1025" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:TaxRepresentativeParty/cac:PartyTaxScheme/cbc:CompanyID"/>
 
 		<!--ASSERT -->
@@ -19360,12 +19775,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:Delivery/cac:DeliveryLocation/cac:Address[cac:Country/cbc:IdentificationCode='IT']" priority="1024" mode="M49">
+   <axsl:template match="/*/cac:Delivery/cac:DeliveryLocation/cac:Address[cac:Country/cbc:IdentificationCode='IT']" priority="1024" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:Delivery/cac:DeliveryLocation/cac:Address[cac:Country/cbc:IdentificationCode='IT']"/>
 
 		<!--ASSERT -->
@@ -19399,12 +19814,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:PaymentMeans" priority="1023" mode="M49">
+   <axsl:template match="/*/cac:PaymentMeans" priority="1023" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:PaymentMeans"/>
 
 		<!--ASSERT -->
@@ -19438,12 +19853,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AllowanceCharge/cbc:Amount" priority="1022" mode="M49">
+   <axsl:template match="/*/cac:AllowanceCharge/cbc:Amount" priority="1022" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AllowanceCharge/cbc:Amount"/>
 
 		<!--ASSERT -->
@@ -19461,12 +19876,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount" priority="1021" mode="M49">
+   <axsl:template match="/*/cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount" priority="1021" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount"/>
 
 		<!--ASSERT -->
@@ -19484,12 +19899,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:LegalMonetaryTotal/cbc:PayableRoundingAmount" priority="1020" mode="M49">
+   <axsl:template match="/*/cac:LegalMonetaryTotal/cbc:PayableRoundingAmount" priority="1020" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:LegalMonetaryTotal/cbc:PayableRoundingAmount"/>
 
 		<!--ASSERT -->
@@ -19507,12 +19922,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:LegalMonetaryTotal/cbc:PayableAmount" priority="1019" mode="M49">
+   <axsl:template match="/*/cac:LegalMonetaryTotal/cbc:PayableAmount" priority="1019" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:LegalMonetaryTotal/cbc:PayableAmount"/>
 
 		<!--ASSERT -->
@@ -19530,12 +19945,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxableAmount" priority="1018" mode="M49">
+   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxableAmount" priority="1018" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxableAmount"/>
 
 		<!--ASSERT -->
@@ -19553,12 +19968,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxAmount" priority="1017" mode="M49">
+   <axsl:template match="/*/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxAmount" priority="1017" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxAmount"/>
 
 		<!--ASSERT -->
@@ -19576,12 +19991,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="//cac:TaxCategory/cbc:ID | //cac:ClassifiedTaxCategory/cbc:ID" priority="1016" mode="M49">
+   <axsl:template match="//cac:TaxCategory/cbc:ID | //cac:ClassifiedTaxCategory/cbc:ID" priority="1016" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:TaxCategory/cbc:ID | //cac:ClassifiedTaxCategory/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -19599,12 +20014,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="//cac:AdditionalDocumentReference[cbc:ID and not(cbc:DocumentTypeCode)]" priority="1015" mode="M49">
+   <axsl:template match="//cac:AdditionalDocumentReference[cbc:ID and not(cbc:DocumentTypeCode)]" priority="1015" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:AdditionalDocumentReference[cbc:ID and not(cbc:DocumentTypeCode)]"/>
 
 		<!--ASSERT -->
@@ -19622,12 +20037,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AllowanceCharge[cbc:AllowanceChargeReasonCode = 'SAE' and ../cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']]" priority="1014" mode="M49">
+   <axsl:template match="/*/cac:AllowanceCharge[cbc:AllowanceChargeReasonCode = 'SAE' and ../cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']]" priority="1014" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AllowanceCharge[cbc:AllowanceChargeReasonCode = 'SAE' and ../cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']]"/>
 
 		<!--ASSERT -->
@@ -19645,12 +20060,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party" priority="1013" mode="M49">
+   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party" priority="1013" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:Party"/>
 
 		<!--ASSERT -->
@@ -19684,12 +20099,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID[@schemeID='0210']" priority="1012" mode="M49">
+   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID[@schemeID='0210']" priority="1012" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID[@schemeID='0210']"/>
 
 		<!--ASSERT -->
@@ -19707,12 +20122,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingCustomerParty/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]" priority="1011" mode="M49">
+   <axsl:template match="/*/cac:AccountingCustomerParty/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]" priority="1011" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]"/>
 
 		<!--ASSERT -->
@@ -19730,12 +20145,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID" priority="1010" mode="M49">
+   <axsl:template match="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID" priority="1010" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -19753,12 +20168,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cbc:InvoicedQuantity" priority="1009" mode="M49">
+   <axsl:template match="/*/cac:InvoiceLine/cbc:InvoicedQuantity" priority="1009" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cbc:InvoicedQuantity"/>
 
 		<!--ASSERT -->
@@ -19776,12 +20191,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cbc:LineExtensionAmount" priority="1008" mode="M49">
+   <axsl:template match="/*/cac:InvoiceLine/cbc:LineExtensionAmount" priority="1008" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cbc:LineExtensionAmount"/>
 
 		<!--ASSERT -->
@@ -19799,12 +20214,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:OrderLineReference/cbc:LineID" priority="1007" mode="M49">
+   <axsl:template match="/*/cac:InvoiceLine/cac:OrderLineReference/cbc:LineID" priority="1007" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:OrderLineReference/cbc:LineID"/>
 
 		<!--ASSERT -->
@@ -19822,12 +20237,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cbc:AccountingCost" priority="1006" mode="M49">
+   <axsl:template match="/*/cac:InvoiceLine/cbc:AccountingCost" priority="1006" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cbc:AccountingCost"/>
 
 		<!--ASSERT -->
@@ -19845,12 +20260,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:AllowanceCharge/cbc:Amount" priority="1005" mode="M49">
+   <axsl:template match="/*/cac:InvoiceLine/cac:AllowanceCharge/cbc:Amount" priority="1005" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:AllowanceCharge/cbc:Amount"/>
 
 		<!--ASSERT -->
@@ -19868,12 +20283,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:Price/cbc:PriceAmount" priority="1004" mode="M49">
+   <axsl:template match="/*/cac:InvoiceLine/cac:Price/cbc:PriceAmount" priority="1004" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:Price/cbc:PriceAmount"/>
 
 		<!--ASSERT -->
@@ -19891,12 +20306,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:Price/cac:AllowanceCharge/cbc:Amount" priority="1003" mode="M49">
+   <axsl:template match="/*/cac:InvoiceLine/cac:Price/cac:AllowanceCharge/cbc:Amount" priority="1003" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:Price/cac:AllowanceCharge/cbc:Amount"/>
 
 		<!--ASSERT -->
@@ -19914,12 +20329,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:Price" priority="1002" mode="M49">
+   <axsl:template match="/*/cac:InvoiceLine/cac:Price" priority="1002" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:Price"/>
 
 		<!--ASSERT -->
@@ -19953,12 +20368,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:Item/cac:SellersItemIdentification/cbc:ID" priority="1001" mode="M49">
+   <axsl:template match="/*/cac:InvoiceLine/cac:Item/cac:SellersItemIdentification/cbc:ID" priority="1001" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:Item/cac:SellersItemIdentification/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -19976,12 +20391,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode" priority="1000" mode="M49">
+   <axsl:template match="/*/cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode" priority="1000" mode="M58">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode"/>
 
 		<!--ASSERT -->
@@ -19999,11 +20414,11 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M49"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M49">
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+   <axsl:template match="text()" priority="-1" mode="M58"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M58">
+      <axsl:apply-templates select="@*|*" mode="M58"/>
    </axsl:template>
 
 <!--PATTERN Italy-EXTENSION-rules-->
@@ -20011,7 +20426,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:SoggettoEmittente']/ext:ExtensionContent" priority="1030" mode="M50">
+   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:SoggettoEmittente']/ext:ExtensionContent" priority="1030" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:SoggettoEmittente']/ext:ExtensionContent"/>
 
 		<!--ASSERT -->
@@ -20029,12 +20444,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:TipoDocumento']/ext:ExtensionContent" priority="1029" mode="M50">
+   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:TipoDocumento']/ext:ExtensionContent" priority="1029" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:TipoDocumento']/ext:ExtensionContent"/>
 
 		<!--ASSERT -->
@@ -20052,12 +20467,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI, 'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta')]/ext:ExtensionContent" priority="1028" mode="M50">
+   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI, 'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta')]/ext:ExtensionContent" priority="1028" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI, 'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta')]/ext:ExtensionContent"/>
 
 		<!--ASSERT -->
@@ -20075,12 +20490,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Art73']/ext:ExtensionContent" priority="1027" mode="M50">
+   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Art73']/ext:ExtensionContent" priority="1027" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Art73']/ext:ExtensionContent"/>
 
 		<!--ASSERT -->
@@ -20098,12 +20513,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI, 'urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento')]/ext:ExtensionContent" priority="1026" mode="M50">
+   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI, 'urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento')]/ext:ExtensionContent" priority="1026" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI, 'urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento')]/ext:ExtensionContent"/>
 
 		<!--ASSERT -->
@@ -20121,12 +20536,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']/ext:ExtensionContent" priority="1025" mode="M50">
+   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']/ext:ExtensionContent" priority="1025" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']/ext:ExtensionContent"/>
 
 		<!--ASSERT -->
@@ -20144,12 +20559,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']/ext:ExtensionContent/cac:AllowanceCharge" priority="1024" mode="M50">
+   <axsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']/ext:ExtensionContent/cac:AllowanceCharge" priority="1024" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']/ext:ExtensionContent/cac:AllowanceCharge"/>
 
 		<!--ASSERT -->
@@ -20183,12 +20598,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl-invoice:Invoice" priority="1023" mode="M50">
+   <axsl:template match="/ubl-invoice:Invoice" priority="1023" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl-invoice:Invoice"/>
 
 		<!--ASSERT -->
@@ -20206,12 +20621,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl-creditnote:CreditNote/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Ritenuta']/ext:ExtensionContent" priority="1022" mode="M50">
+   <axsl:template match="/ubl-creditnote:CreditNote/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Ritenuta']/ext:ExtensionContent" priority="1022" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl-creditnote:CreditNote/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Ritenuta']/ext:ExtensionContent"/>
 
 		<!--ASSERT -->
@@ -20229,12 +20644,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="//cac:WithholdingTaxTotal" priority="1021" mode="M50">
+   <axsl:template match="//cac:WithholdingTaxTotal" priority="1021" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:WithholdingTaxTotal"/>
 
 		<!--ASSERT -->
@@ -20268,12 +20683,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="//cac:WithholdingTaxTotal/cac:TaxSubtotal" priority="1020" mode="M50">
+   <axsl:template match="//cac:WithholdingTaxTotal/cac:TaxSubtotal" priority="1020" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:WithholdingTaxTotal/cac:TaxSubtotal"/>
 
 		<!--ASSERT -->
@@ -20291,12 +20706,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="//cac:WithholdingTaxTotal/cac:TaxSubtotal/cac:TaxCategory" priority="1019" mode="M50">
+   <axsl:template match="//cac:WithholdingTaxTotal/cac:TaxSubtotal/cac:TaxCategory" priority="1019" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="//cac:WithholdingTaxTotal/cac:TaxSubtotal/cac:TaxCategory"/>
 
 		<!--ASSERT -->
@@ -20314,12 +20729,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:BillingReference/cac:AdditionalDocumentReference" priority="1018" mode="M50">
+   <axsl:template match="/*/cac:BillingReference/cac:AdditionalDocumentReference" priority="1018" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:BillingReference/cac:AdditionalDocumentReference"/>
 
 		<!--ASSERT -->
@@ -20353,12 +20768,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:DespatchDocumentReference" priority="1017" mode="M50">
+   <axsl:template match="/*/cac:DespatchDocumentReference" priority="1017" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:DespatchDocumentReference"/>
 
 		<!--ASSERT -->
@@ -20376,12 +20791,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:TaxLevelCode" priority="1016" mode="M50">
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:TaxLevelCode" priority="1016" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:TaxLevelCode"/>
 
 		<!--ASSERT -->
@@ -20399,12 +20814,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party/cac:AgentParty/cac:PostalAddress" priority="1015" mode="M50">
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party/cac:AgentParty/cac:PostalAddress" priority="1015" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party/cac:AgentParty/cac:PostalAddress"/>
 
 		<!--ASSERT -->
@@ -20486,12 +20901,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty/cac:Party" priority="1014" mode="M50">
+   <axsl:template match="/*/cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty/cac:Party" priority="1014" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty/cac:Party"/>
 
 		<!--ASSERT -->
@@ -20509,12 +20924,28 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+
+		<!--ASSERT -->
+
+      <axsl:choose>
+         <axsl:when test="not(starts-with(upper-case(cac:PartyTaxScheme/cbc:CompanyID), 'IT')) or (cac:PartyIdentification/cbc:ID[@schemeID='0210'] and matches(cac:PartyIdentification/cbc:ID,'^[A-Z0-9]{11,16}$'))"/>
+         <axsl:otherwise>
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(starts-with(upper-case(cac:PartyTaxScheme/cbc:CompanyID), 'IT')) or (cac:PartyIdentification/cbc:ID[@schemeID='0210'] and matches(cac:PartyIdentification/cbc:ID,'^[A-Z0-9]{11,16}$'))">
+               <axsl:attribute name="id">BR-IT-DE-049</axsl:attribute>
+               <axsl:attribute name="flag">fatal</axsl:attribute>
+               <axsl:attribute name="location">
+                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
+               </axsl:attribute>
+               <svrl:text>[BR-IT-DE-049][FPA 1.5.1.2 - Codice Fiscale] - Se il Terzo Intermediario o Soggetto Emittente è italiano, deve essere fornito il suo Codice Fiscale (cac:PartyIdentification/cbc:ID) qualificato dall'attributo @schemeID con il valore "0210" e la lunghezza del codice deve essere compresa fra 11 e 16 caratteri alfanumerici.</svrl:text>
+            </svrl:failed-assert>
+         </axsl:otherwise>
+      </axsl:choose>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:TaxRepresentativeParty/cac:PartyIdentification/cbc:ID[@schemeID='0210']" priority="1013" mode="M50">
+   <axsl:template match="/*/cac:TaxRepresentativeParty/cac:PartyIdentification/cbc:ID[@schemeID='0210']" priority="1013" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:TaxRepresentativeParty/cac:PartyIdentification/cbc:ID[@schemeID='0210']"/>
 
 		<!--ASSERT -->
@@ -20532,12 +20963,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:TaxRepresentativeParty/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]" priority="1012" mode="M50">
+   <axsl:template match="/*/cac:TaxRepresentativeParty/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]" priority="1012" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:TaxRepresentativeParty/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]"/>
 
 		<!--ASSERT -->
@@ -20555,12 +20986,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:Delivery/cac:CarrierParty" priority="1011" mode="M50">
+   <axsl:template match="/*/cac:Delivery/cac:CarrierParty" priority="1011" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:Delivery/cac:CarrierParty"/>
 
 		<!--ASSERT -->
@@ -20642,12 +21073,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:Delivery/cac:Shipment" priority="1010" mode="M50">
+   <axsl:template match="/*/cac:Delivery/cac:Shipment" priority="1010" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:Delivery/cac:Shipment"/>
 
 		<!--ASSERT -->
@@ -20713,12 +21144,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:Despatch" priority="1009" mode="M50">
+   <axsl:template match="/*/cac:Despatch" priority="1009" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:Despatch"/>
 
 		<!--ASSERT -->
@@ -20736,12 +21167,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:DeliveryTerms/cbc:ID" priority="1008" mode="M50">
+   <axsl:template match="/*/cac:DeliveryTerms/cbc:ID" priority="1008" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:DeliveryTerms/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -20759,12 +21190,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:PaymentTerms/cbc:SettlementDiscountAmount" priority="1007" mode="M50">
+   <axsl:template match="/*/cac:PaymentTerms/cbc:SettlementDiscountAmount" priority="1007" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:PaymentTerms/cbc:SettlementDiscountAmount"/>
 
 		<!--ASSERT -->
@@ -20782,12 +21213,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:PaymentTerms/cbc:PenaltyAmount" priority="1006" mode="M50">
+   <axsl:template match="/*/cac:PaymentTerms/cbc:PenaltyAmount" priority="1006" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:PaymentTerms/cbc:PenaltyAmount"/>
 
 		<!--ASSERT -->
@@ -20805,12 +21236,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:OrderLineReference/cac:OrderReference/cbc:ID" priority="1005" mode="M50">
+   <axsl:template match="/*/cac:InvoiceLine/cac:OrderLineReference/cac:OrderReference/cbc:ID" priority="1005" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:OrderLineReference/cac:OrderReference/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -20828,12 +21259,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:DespatchLineReference/cbc:LineID" priority="1004" mode="M50">
+   <axsl:template match="/*/cac:InvoiceLine/cac:DespatchLineReference/cbc:LineID" priority="1004" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:DespatchLineReference/cbc:LineID"/>
 
 		<!--ASSERT -->
@@ -20851,12 +21282,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference/cbc:ID" priority="1003" mode="M50">
+   <axsl:template match="/*/cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference/cbc:ID" priority="1003" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -20874,12 +21305,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference" priority="1002" mode="M50">
+   <axsl:template match="/*/cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference" priority="1002" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference"/>
 
 		<!--ASSERT -->
@@ -20897,12 +21328,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cac:AgentParty/cac:PostalAddress" priority="1001" mode="M50">
+   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cac:AgentParty/cac:PostalAddress" priority="1001" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:Party/cac:AgentParty/cac:PostalAddress"/>
 
 		<!--ASSERT -->
@@ -20984,12 +21415,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cac:PowerOfAttorney/cac:AgentParty" priority="1000" mode="M50">
+   <axsl:template match="/*/cac:AccountingCustomerParty/cac:Party/cac:PowerOfAttorney/cac:AgentParty" priority="1000" mode="M59">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:AccountingCustomerParty/cac:Party/cac:PowerOfAttorney/cac:AgentParty"/>
 
 		<!--ASSERT -->
@@ -21007,10 +21438,10 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M50"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M50">
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+   <axsl:template match="text()" priority="-1" mode="M59"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M59">
+      <axsl:apply-templates select="@*|*" mode="M59"/>
    </axsl:template>
 </axsl:stylesheet>

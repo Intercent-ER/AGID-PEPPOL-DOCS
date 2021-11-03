@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>  
-<schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:u="utils" schemaVersion="iso" queryBinding="xslt2">
-	<title>Regole di business estensione italiana</title>											  
 <pattern id="Italy-EXTENSION-rules" xmlns="http://purl.oclc.org/dsdl/schematron">
 
 	<!-- UBL Extensions -->
@@ -79,6 +77,7 @@
 		
 	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty/cac:Party" flag="fatal">
 		<assert test="cac:PartyTaxScheme/cbc:CompanyID and cac:PartyTaxScheme/cac:TaxScheme/cbc:ID = 'VAT' and (cac:PartyName/cbc:Name or (cac:Person/cbc:FirstName and cac:Person/cbc:FamilyName))" flag="fatal" id="BR-IT-DE-023">[BR-IT-DE-023][FPA 1.5 - Terzo Intermediario] - Il Terzo Intermediario o Soggetto Emittente deve contenere la P.IVA, lo schema fiscale = 'VAT', la ragione sociale o una persona fisica (nome e cognome).</assert>
+		<assert test="not(starts-with(upper-case(cac:PartyTaxScheme/cbc:CompanyID), 'IT')) or (cac:PartyIdentification/cbc:ID[@schemeID='0210'] and matches(cac:PartyIdentification/cbc:ID,'^[A-Z0-9]{11,16}$'))" flag="fatal" id="BR-IT-DE-049">[BR-IT-DE-049][FPA 1.5.1.2 - Codice Fiscale] - Se il Terzo Intermediario o Soggetto Emittente è italiano, deve essere fornito il suo Codice Fiscale (cac:PartyIdentification/cbc:ID) qualificato dall'attributo @schemeID con il valore "0210" e la lunghezza del codice deve essere compresa fra 11 e 16 caratteri alfanumerici.</assert>
 	</rule>
 
 	<rule context="/*/cac:TaxRepresentativeParty/cac:PartyIdentification/cbc:ID[@schemeID='0210']" flag="fatal">
@@ -152,4 +151,3 @@
 	
 </pattern>
 
-</schema>

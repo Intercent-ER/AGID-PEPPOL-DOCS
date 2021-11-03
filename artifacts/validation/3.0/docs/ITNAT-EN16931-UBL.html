@@ -537,7 +537,7 @@
                      <td><a href="#">BR-CO-14</a><br><span class="message">[BR-CO-14]-Invoice total VAT amount (BT-110) = &#931; VAT category tax amount (BT-117).</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-CO-15" data-context="/ubl:Invoice | /cn:CreditNote" data-test="every $Currency in cbc:DocumentCurrencyCode satisfies (count(//cac:TaxTotal/xs:decimal(cbc:TaxAmount[@currencyID=$Currency])) eq 1) and (cac:LegalMonetaryTotal/xs:decimal(cbc:TaxInclusiveAmount) = round( (cac:LegalMonetaryTotal/xs:decimal(cbc:TaxExclusiveAmount) + cac:TaxTotal/xs:decimal(cbc:TaxAmount[@currencyID=$Currency])) * 10 * 10) div 100)">
+                  <tr id="BR-CO-15" data-context="/ubl:Invoice | /cn:CreditNote" data-test="every $Currency in cbc:DocumentCurrencyCode satisfies (count(cac:TaxTotal/xs:decimal(cbc:TaxAmount[@currencyID=$Currency])) eq 1) and (cac:LegalMonetaryTotal/xs:decimal(cbc:TaxInclusiveAmount) = round( (cac:LegalMonetaryTotal/xs:decimal(cbc:TaxExclusiveAmount) + cac:TaxTotal/xs:decimal(cbc:TaxAmount[@currencyID=$Currency])) * 10 * 10) div 100)">
                      <td><a href="#">BR-CO-15</a><br><span class="message">[BR-CO-15]-Invoice total amount with VAT (BT-112) = Invoice total amount without VAT (BT-109) + Invoice total VAT amount (BT-110).</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
@@ -1255,7 +1255,7 @@
                            a 7 caratteri.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-IT-DC-203" data-context="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0202']" data-test="matches(.,'^[a-zA-Z0-9]{7,256}$')">
+                  <tr id="BR-IT-DC-203" data-context="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0202']" data-test="matches(.,'^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$') and matches(.,'^.{7,256}$')">
                      <td><a href="#">BR-IT-DC-203</a><br><span class="message">[BR-IT-DC-203][FPA 1.1.6 PECDestinatario] - Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier)
                            contiene il valore "0202", l'elemento BT-49 deve contenere un indirizzo PEC di lunghezza compresa fra 7 e 256.</span></td>
                      <td style="width: 5%;">fatal</td>
@@ -1490,6 +1490,12 @@
                   <tr id="BR-IT-DE-048" data-context="/*/cac:AccountingCustomerParty/cac:Party/cac:PowerOfAttorney/cac:AgentParty" data-test="cac:PartyTaxScheme/cbc:CompanyID and cac:PartyTaxScheme/cac:TaxScheme/cbc:ID = 'VAT' and cac:PartyLegalEntity/cbc:RegistrationName and (not(cac:Person) or (cac:Person/cbc:FirstName and cac:Person/cbc:FamilyName))">
                      <td><a href="#">BR-IT-DE-048</a><br><span class="message">[BR-IT-DE-048][FPA 1.4.4 - Rappresentante Fiscale del Cliente] - Il Rappresentante Fiscale del Cliente deve contenere la P.IVA,
                            lo schema fiscale = 'VAT', la ragione sociale e se viene specificata una persona fisica, il nome e cognome.</span></td>
+                     <td style="width: 5%;">fatal</td>
+                  </tr>
+                  <tr id="BR-IT-DE-049" data-context="/*/cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty/cac:Party" data-test="not(starts-with(upper-case(cac:PartyTaxScheme/cbc:CompanyID), 'IT')) or (cac:PartyIdentification/cbc:ID[@schemeID='0210'] and matches(cac:PartyIdentification/cbc:ID,'^[A-Z0-9]{11,16}$'))">
+                     <td><a href="#">BR-IT-DE-049</a><br><span class="message">[BR-IT-DE-049][FPA 1.5.1.2 - Codice Fiscale] - Se il Terzo Intermediario o Soggetto Emittente &egrave; italiano, deve essere fornito
+                           il suo Codice Fiscale (cac:PartyIdentification/cbc:ID) qualificato dall'attributo @schemeID con il valore "0210" e la lunghezza
+                           del codice deve essere compresa fra 11 e 16 caratteri alfanumerici.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="BR-O-01" data-context="/ubl:Invoice | /cn:CreditNote" data-test="((exists(//cac:TaxCategory[cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']/cbc:ID[normalize-space(.) = 'O']) or exists(//cac:ClassifiedTaxCategory[cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']/cbc:ID[normalize-space(.) = 'O'])) and (count(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']/cbc:ID[normalize-space(.) = 'O']) = 1)) or (not(//cac:TaxCategory[cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']/cbc:ID[normalize-space(.) = 'O']) and not(//cac:ClassifiedTaxCategory[cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']/cbc:ID[normalize-space(.) = 'O']))">
@@ -1858,12 +1864,12 @@
                            &#8212; Ef seljandi og kaupandi eru &iacute;slenskir &thorn;&aacute; skal heimilisfang kaupanda innihalda g&ouml;tuheiti og p&oacute;stn&uacute;mer (BT-50 og BT-53)</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="IS-R-006" data-context="ubl-creditnote:CreditNote[$SupplierCountry = 'IS'] | ubl-invoice:Invoice[$SupplierCountry = 'IS']" data-test="exists(cac:PaymentMeans[cbc:PaymentMeansCode = '9']/cac:PayeeFinancialAccount/cbc:ID)         and string-length(normalize-space(cac:PaymentMeans[cbc:PaymentMeansCode = '9']/cac:PayeeFinancialAccount/cbc:ID)) = 12        or not(exists(cac:PaymentMeans[cbc:PaymentMeansCode = '9']))">
-                     <td><a href="#">IS-R-006</a><br><span class="message">[IS-R-006]-If seller is icelandic and payment means code is 9 then a 12 digit account id must exist  &#8212; Ef seljandi er &iacute;slenskur
-                           og grei&eth;slum&aacute;ti (BT-81) er millif&aelig;rsla (k&oacute;ti 9) &thorn;&aacute; skal koma fram 12 stafa reikningn&uacute;mer (BT-84)</span></td>
+                  <tr id="IS-R-006" data-context="ubl-creditnote:CreditNote[$SupplierCountry = 'IS'] | ubl-invoice:Invoice[$SupplierCountry = 'IS']" data-test="exists(cac:PaymentMeans[cbc:PaymentMeansCode = '9']/cac:PayeeFinancialAccount/cbc:ID) and string-length(normalize-space(cac:PaymentMeans[cbc:PaymentMeansCode = '9']/cac:PayeeFinancialAccount/cbc:ID)) = 12 or not(exists(cac:PaymentMeans[cbc:PaymentMeansCode = '9']))">
+                     <td><a href="#">IS-R-006</a><br><span class="message">[IS-R-006]-If seller is icelandic and payment means code is 9 then a 12 digit account id must exist &#8212; Ef seljandi er &iacute;slenskur
+                           og grei&eth;slum&aacute;ti (BT-81) er krafa (k&oacute;ti 9) &thorn;&aacute; skal koma fram 12 stafa n&uacute;mer (bankan&uacute;mer, h&ouml;fu&eth;b&oacute;k 66 og reikningsn&uacute;mer) (BT-84)</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="IS-R-007" data-context="ubl-creditnote:CreditNote[$SupplierCountry = 'IS'] | ubl-invoice:Invoice[$SupplierCountry = 'IS']" data-test="exists(cac:PaymentMeans[cbc:PaymentMeansCode = '42']/cac:PayeeFinancialAccount/cbc:ID)         and string-length(normalize-space(cac:PaymentMeans[cbc:PaymentMeansCode = '42']/cac:PayeeFinancialAccount/cbc:ID)) = 12        or not(exists(cac:PaymentMeans[cbc:PaymentMeansCode = '42']))">
+                  <tr id="IS-R-007" data-context="ubl-creditnote:CreditNote[$SupplierCountry = 'IS'] | ubl-invoice:Invoice[$SupplierCountry = 'IS']" data-test="exists(cac:PaymentMeans[cbc:PaymentMeansCode = '42']/cac:PayeeFinancialAccount/cbc:ID) and string-length(normalize-space(cac:PaymentMeans[cbc:PaymentMeansCode = '42']/cac:PayeeFinancialAccount/cbc:ID)) = 12 or not(exists(cac:PaymentMeans[cbc:PaymentMeansCode = '42']))">
                      <td><a href="#">IS-R-007</a><br><span class="message">[IS-R-007]-If seller is icelandic and payment means code is 42 then a 12 digit account id must exist  &#8212; Ef seljandi er &iacute;slenskur
                            og grei&eth;slum&aacute;ti (BT-81) er millif&aelig;rsla (k&oacute;ti 42) &thorn;&aacute; skal koma fram 12 stafa reikningn&uacute;mer (BT-84)</span></td>
                      <td style="width: 5%;">fatal</td>
@@ -1904,6 +1910,52 @@
                            devono indicare il CAP di residenza.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
+                  <tr id="NL-R-001" data-context="cbc:CreditNoteTypeCode[$supplierCountryIsNL]" data-test="/*/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID">
+                     <td><a href="#">NL-R-001</a><br><span class="message">[NL-R-001] For suppliers in the Netherlands, if the document is a creditnote, the document MUST contain an invoice reference
+                           (cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID)</span></td>
+                     <td style="width: 5%;">fatal</td>
+                  </tr>
+                  <tr id="NL-R-002" data-context="cac:AccountingSupplierParty/cac:Party/cac:PostalAddress[$supplierCountryIsNL]" data-test="cbc:StreetName and cbc:CityName and cbc:PostalZone">
+                     <td><a href="#">NL-R-002</a><br><span class="message">[NL-R-002] For suppliers in the Netherlands the supplier's address (cac:AccountingSupplierParty/cac:Party/cac:PostalAddress)
+                           MUST contain street name (cbc:StreetName), city (cbc:CityName) and post code (cbc:PostalZone)</span></td>
+                     <td style="width: 5%;">fatal</td>
+                  </tr>
+                  <tr id="NL-R-003" data-context="cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID[$supplierCountryIsNL]" data-test="(contains(concat(' ', string-join(@schemeID, ' '), ' '), ' 0106 ') or contains(concat(' ', string-join(@schemeID, ' '), ' '), ' 0190 ')) and (normalize-space(.) != '')">
+                     <td><a href="#">NL-R-003</a><br><span class="message">[NL-R-003] For suppliers in the Netherlands, the legal entity identifier MUST be either a KVK or OIN number (schemeID 0106
+                           or 0190)</span></td>
+                     <td style="width: 5%;">fatal</td>
+                  </tr>
+                  <tr id="NL-R-004" data-context="cac:AccountingCustomerParty/cac:Party/cac:PostalAddress[$supplierCountryIsNL and $customerCountryIsNL]" data-test="cbc:StreetName and cbc:CityName and cbc:PostalZone">
+                     <td><a href="#">NL-R-004</a><br><span class="message">[NL-R-004] For suppliers in the Netherlands, if the customer is in the Netherlands, the customer address (cac:AccountingCustomerParty/cac:Party/cac:PostalAddress)
+                           MUST contain the street name (cbc:StreetName), the city (cbc:CityName) and post code (cbc:PostalZone)</span></td>
+                     <td style="width: 5%;">fatal</td>
+                  </tr>
+                  <tr id="NL-R-005" data-context="cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID[$supplierCountryIsNL and $customerCountryIsNL]" data-test="(contains(concat(' ', string-join(@schemeID, ' '), ' '), ' 0106 ') or contains(concat(' ', string-join(@schemeID, ' '), ' '), ' 0190 ')) and (normalize-space(.) != '')">
+                     <td><a href="#">NL-R-005</a><br><span class="message">[NL-R-005] For suppliers in the Netherlands, if the customer is in the Netherlands, the customer's legal entity identifier
+                           MUST be either a KVK or OIN number (schemeID 0106 or 0190)</span></td>
+                     <td style="width: 5%;">fatal</td>
+                  </tr>
+                  <tr id="NL-R-006" data-context="cac:TaxRepresentativeParty/cac:PostalAddress[$supplierCountryIsNL and $taxRepresentativeCountryIsNL]" data-test="cbc:StreetName and cbc:CityName and cbc:PostalZone">
+                     <td><a href="#">NL-R-006</a><br><span class="message">[NL-R-006] For suppliers in the Netherlands, if the fiscal representative is in the Netherlands, the representative's address
+                           (cac:TaxRepresentativeParty/cac:PostalAddress) MUST contain street name (cbc:StreetName), city (cbc:CityName) and post code
+                           (cbc:PostalZone)</span></td>
+                     <td style="width: 5%;">fatal</td>
+                  </tr>
+                  <tr id="NL-R-007" data-context="cac:LegalMonetaryTotal[$supplierCountryIsNL]" data-test="xs:decimal(cbc:PayableAmount) <= 0.0 or (//cac:PaymentMeans)">
+                     <td><a href="#">NL-R-007</a><br><span class="message">[NL-R-007] For suppliers in the Netherlands, the supplier MUST provide a means of payment (cac:PaymentMeans) if the payment
+                           is from customer to supplier</span></td>
+                     <td style="width: 5%;">fatal</td>
+                  </tr>
+                  <tr id="NL-R-008" data-context="cac:PaymentMeans[$supplierCountryIsNL]" data-test="normalize-space(cbc:PaymentMeansCode) = '30' or         normalize-space(cbc:PaymentMeansCode) = '48' or         normalize-space(cbc:PaymentMeansCode) = '49' or         normalize-space(cbc:PaymentMeansCode) = '57' or         normalize-space(cbc:PaymentMeansCode) = '58' or         normalize-space(cbc:PaymentMeansCode) = '59'">
+                     <td><a href="#">NL-R-008</a><br><span class="message">[NL-R-008] For suppliers in the Netherlands, the payment means code (cac:PaymentMeans/cbc:PaymentMeansCode) MUST be one of
+                           30, 48, 49, 57, 58 or 59</span></td>
+                     <td style="width: 5%;">fatal</td>
+                  </tr>
+                  <tr id="NL-R-009" data-context="cac:OrderLineReference/cbc:LineID[$supplierCountryIsNL]" data-test="exists(/*/cac:OrderReference/cbc:ID)">
+                     <td><a href="#">NL-R-009</a><br><span class="message">[NL-R-009] For suppliers in the Netherlands, if an order line reference (cac:OrderLineReference/cbc:LineID) is used, there
+                           must be an order reference on the document level (cac:OrderReference/cbc:ID)</span></td>
+                     <td style="width: 5%;">fatal</td>
+                  </tr>
                   <tr id="NO-R-001" data-context="cac:AccountingSupplierParty/cac:Party[$supplierCountry = 'NO']" data-test="cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/substring(cbc:CompanyID, 1, 2)='NO' and matches(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/substring(cbc:CompanyID,3), '^[0-9]{9}MVA$')            and u:mod11(substring(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID, 3, 9)) or not(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/substring(cbc:CompanyID, 1, 2)='NO')">
                      <td><a href="#">NO-R-001</a><br><span class="message">For Norwegian suppliers, a VAT number MUST be the country code prefix NO followed by a valid Norwegian organization number
                            (nine numbers) followed by the letters MVA.</span></td>
@@ -1927,6 +1979,30 @@
                   <tr id="PEPPOL-COMMON-R042" data-context="cbc:EndpointID[@schemeID = '0184'] | cac:PartyIdentification/cbc:ID[@schemeID = '0184'] | cbc:CompanyID[@schemeID = '0184']" data-test="(string-length(text()) = 10) and (substring(text(), 1, 2) = 'DK') and (string-length(translate(substring(text(), 3, 8), '1234567890', '')) = 0)">
                      <td><a href="#">PEPPOL-COMMON-R042</a><br><span class="message">Danish organization number (CVR) MUST be stated in the correct format.</span></td>
                      <td style="width: 5%;">fatal</td>
+                  </tr>
+                  <tr id="PEPPOL-COMMON-R043" data-context="cbc:EndpointID[@schemeID = '0208'] | cac:PartyIdentification/cbc:ID[@schemeID = '0208'] | cbc:CompanyID[@schemeID = '0208']" data-test="matches(normalize-space(), '^[0-9]{10}$') and u:mod97-0208(normalize-space())">
+                     <td><a href="#">PEPPOL-COMMON-R043</a><br><span class="message">Belgian enterprise number MUST be stated in the correct format.</span></td>
+                     <td style="width: 5%;">warning</td>
+                  </tr>
+                  <tr id="PEPPOL-COMMON-R044" data-context="cbc:EndpointID[@schemeID = '0201'] | cac:PartyIdentification/cbc:ID[@schemeID = '0201'] | cbc:CompanyID[@schemeID = '0201']" data-test="u:checkCodiceIPA(normalize-space())">
+                     <td><a href="#">PEPPOL-COMMON-R044</a><br><span class="message">IPA Code (Codice Univoco Unit&agrave; Organizzativa) must be stated in the correct format</span></td>
+                     <td style="width: 5%;">warning</td>
+                  </tr>
+                  <tr id="PEPPOL-COMMON-R045" data-context="cbc:EndpointID[@schemeID = '0210'] | cac:PartyIdentification/cbc:ID[@schemeID = '0210'] | cbc:CompanyID[@schemeID = '0210']" data-test="u:checkCF(normalize-space())">
+                     <td><a href="#">PEPPOL-COMMON-R045</a><br><span class="message">Tax Code (Codice Fiscale) must be stated in the correct format</span></td>
+                     <td style="width: 5%;">warning</td>
+                  </tr>
+                  <tr id="PEPPOL-COMMON-R046" data-context="cbc:EndpointID[@schemeID = '9907']" data-test="u:checkCF(normalize-space())">
+                     <td><a href="#">PEPPOL-COMMON-R046</a><br><span class="message">Tax Code (Codice Fiscale) must be stated in the correct format</span></td>
+                     <td style="width: 5%;">warning</td>
+                  </tr>
+                  <tr id="PEPPOL-COMMON-R047" data-context="cbc:EndpointID[@schemeID = '0211'] | cac:PartyIdentification/cbc:ID[@schemeID = '0211'] | cbc:CompanyID[@schemeID = '0211']" data-test="u:checkPIVAseIT(normalize-space())">
+                     <td><a href="#">PEPPOL-COMMON-R047</a><br><span class="message">Italian VAT Code (Partita Iva) must be stated in the correct format</span></td>
+                     <td style="width: 5%;">warning</td>
+                  </tr>
+                  <tr id="PEPPOL-COMMON-R048" data-context="cbc:EndpointID[@schemeID = '9906']" data-test="u:checkPIVAseIT(normalize-space())">
+                     <td><a href="#">PEPPOL-COMMON-R048</a><br><span class="message">Italian VAT Code (Partita Iva) must be stated in the correct format</span></td>
+                     <td style="width: 5%;">warning</td>
                   </tr>
                   <tr id="PEPPOL-EN16931-CL001" data-context="cbc:EmbeddedDocumentBinaryObject[@mimeCode]" data-test="           some $code in $MIMECODE             satisfies @mimeCode = $code">
                      <td><a href="#">PEPPOL-EN16931-CL001</a><br><span class="message">Mime code must be according to subset of IANA code list.</span></td>
@@ -2240,7 +2316,7 @@
                      <td><a href="#">UBL-CR-021</a><br><span class="message">[UBL-CR-021]-A UBL invoice should not include the OrderReference OrderTypeCode</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-022" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:OrderReference/cbc:DocumentReference)">
+                  <tr id="UBL-CR-022" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:OrderReference/cac:DocumentReference)">
                      <td><a href="#">UBL-CR-022</a><br><span class="message">[UBL-CR-022]-A UBL invoice should not include the OrderReference DocumentReference</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
@@ -2264,7 +2340,7 @@
                      <td><a href="#">UBL-CR-027</a><br><span class="message">[UBL-CR-027]-A UBL invoice should not include the BillingReference DocumentType</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-028" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:BillingReference/cac:InvoiceDocumentReference/cbc:Xpath)">
+                  <tr id="UBL-CR-028" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:BillingReference/cac:InvoiceDocumentReference/cbc:XPath)">
                      <td><a href="#">UBL-CR-028</a><br><span class="message">[UBL-CR-028]-A UBL invoice should not include the BillingReference Xpath</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
@@ -2348,7 +2424,7 @@
                      <td><a href="#">UBL-CR-050</a><br><span class="message">[UBL-CR-050]-A UBL invoice should not include the DespatchDocumentReference DocumentType</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-051" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:DespatchDocumentReference/cbc:Xpath)">
+                  <tr id="UBL-CR-051" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:DespatchDocumentReference/cbc:XPath)">
                      <td><a href="#">UBL-CR-051</a><br><span class="message">[UBL-CR-051]-A UBL invoice should not include the DespatchDocumentReference Xpath</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
@@ -2412,7 +2488,7 @@
                      <td><a href="#">UBL-CR-066</a><br><span class="message">[UBL-CR-066]-A UBL invoice should not include the ReceiptDocumentReference DocumentType</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-067" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:ReceiptDocumentReference/cbc:Xpath)">
+                  <tr id="UBL-CR-067" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:ReceiptDocumentReference/cbc:XPath)">
                      <td><a href="#">UBL-CR-067</a><br><span class="message">[UBL-CR-067]-A UBL invoice should not include the ReceiptDocumentReference Xpath</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
@@ -2480,7 +2556,7 @@
                      <td><a href="#">UBL-CR-083</a><br><span class="message">[UBL-CR-083]-A UBL invoice should not include the OriginatorDocumentReference DocumentType</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-084" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:OriginatorDocumentReference/cbc:Xpath)">
+                  <tr id="UBL-CR-084" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:OriginatorDocumentReference/cbc:XPath)">
                      <td><a href="#">UBL-CR-084</a><br><span class="message">[UBL-CR-084]-A UBL invoice should not include the OriginatorDocumentReference Xpath</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
@@ -2544,7 +2620,7 @@
                      <td><a href="#">UBL-CR-099</a><br><span class="message">[UBL-CR-099]-A UBL invoice should not include the ContractDocumentReference DocumentType</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-100" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:ContractDocumentReference/cbc:Xpath)">
+                  <tr id="UBL-CR-100" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:ContractDocumentReference/cbc:XPath)">
                      <td><a href="#">UBL-CR-100</a><br><span class="message">[UBL-CR-100]-A UBL invoice should not include the ContractDocumentReference Xpath</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
@@ -2604,7 +2680,7 @@
                      <td><a href="#">UBL-CR-114</a><br><span class="message">[UBL-CR-114]-A UBL invoice should not include the AdditionalDocumentReference DocumentType</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-115" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:AdditionalDocumentReference/cbc:Xpath)">
+                  <tr id="UBL-CR-115" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:AdditionalDocumentReference/cbc:XPath)">
                      <td><a href="#">UBL-CR-115</a><br><span class="message">[UBL-CR-115]-A UBL invoice should not include the AdditionalDocumentReference Xpath</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
@@ -2868,7 +2944,7 @@
                      <td><a href="#">UBL-CR-182</a><br><span class="message">[UBL-CR-182]-A UBL invoice should not include the AccountingSupplierParty Party PartyLegalEntity CompanyLiquidationStatusCode</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-183" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CorporationStockAmount)">
+                  <tr id="UBL-CR-183" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CorporateStockAmount)">
                      <td><a href="#">UBL-CR-183</a><br><span class="message">[UBL-CR-183]-A UBL invoice should not include the AccountingSupplierParty Party PartyLegalEntity CorporationStockAmount</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
@@ -3116,7 +3192,7 @@
                      <td><a href="#">UBL-CR-246</a><br><span class="message">[UBL-CR-246]-A UBL invoice should not include the AccountingCustomerParty Party PartyLegalEntity CompanyLiquidationStatusCode</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-247" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CorporationStockAmount)">
+                  <tr id="UBL-CR-247" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CorporateStockAmount)">
                      <td><a href="#">UBL-CR-247</a><br><span class="message">[UBL-CR-247]-A UBL invoice should not include the AccountingCustomerParty Party PartyLegalEntity CorporationStockAmount</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
@@ -3248,7 +3324,7 @@
                      <td><a href="#">UBL-CR-281</a><br><span class="message">[UBL-CR-281]-A UBL invoice should not include the PayeeParty PartyLegalEntity CompanyLiquidationStatusCode</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-282" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:PayeeParty/cac:PartyLegalEntity/cbc:CorporationStockAmount)">
+                  <tr id="UBL-CR-282" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:PayeeParty/cac:PartyLegalEntity/cbc:CorporateStockAmount)">
                      <td><a href="#">UBL-CR-282</a><br><span class="message">[UBL-CR-282]-A UBL invoice should not include the PayeeParty PartyLegalEntity CorporationStockAmount</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
@@ -3548,7 +3624,7 @@
                      <td><a href="#">UBL-CR-357</a><br><span class="message">[UBL-CR-357]-A UBL invoice should not include the Delivery DeliveryLocation Name</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-358" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:Delivery/cac:DeliveryLocation/cac:ValidationPeriod)">
+                  <tr id="UBL-CR-358" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:Delivery/cac:DeliveryLocation/cac:ValidityPeriod)">
                      <td><a href="#">UBL-CR-358</a><br><span class="message">[UBL-CR-358]-A UBL invoice should not include the Delivery DeliveryLocation ValidationPeriod</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
@@ -3652,7 +3728,7 @@
                      <td><a href="#">UBL-CR-383</a><br><span class="message">[UBL-CR-383]-A UBL invoice should not include the Delivery RequestedDeliveryPeriod</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-384" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:Delivery/cac:PromisedDeliveryPeriod)">
+                  <tr id="UBL-CR-384" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:Delivery/cac:EstimatedDeliveryPeriod)">
                      <td><a href="#">UBL-CR-384</a><br><span class="message">[UBL-CR-384]-A UBL invoice should not include the Delivery PromisedDeliveryPeriod</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
@@ -3756,7 +3832,7 @@
                      <td><a href="#">UBL-CR-413</a><br><span class="message">[UBL-CR-413]-A UBL invoice should not include the PaymentMeans PaymentChannelCode</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-414" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:PaymentMeans/cbc:InstructionID)">
+                  <tr id="UBL-CR-414" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:PaymentMeans/cbc:InstructionNote)">
                      <td><a href="#">UBL-CR-414</a><br><span class="message">[UBL-CR-414]-A UBL invoice should not include the PaymentMeans InstructionID</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
@@ -3776,7 +3852,7 @@
                      <td><a href="#">UBL-CR-418</a><br><span class="message">[UBL-CR-418]-A UBL invoice should not include the PaymentMeans CardAccount IssuerID</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-419" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:PaymentMeans/cac:CardAccount/cbc:IssuerNumberID)">
+                  <tr id="UBL-CR-419" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:PaymentMeans/cac:CardAccount/cbc:IssueNumberID)">
                      <td><a href="#">UBL-CR-419</a><br><span class="message">[UBL-CR-419]-A UBL invoice should not include the PaymentMeans CardAccount IssuerNumberID</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
@@ -4130,7 +4206,7 @@
                      <td><a href="#">UBL-CR-511</a><br><span class="message">[UBL-CR-511]-A UBL invoice should not include the TaxTotal TaxSubtotal TaxCategory TaxScheme CurrencyCode</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-512" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cac:JurisdiccionRegionAddress)">
+                  <tr id="UBL-CR-512" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cac:JurisdictionRegionAddress)">
                      <td><a href="#">UBL-CR-512</a><br><span class="message">[UBL-CR-512]-A UBL invoice should not include the TaxTotal TaxSubtotal TaxCategory TaxScheme JurisdiccionRegionAddress</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
@@ -4218,7 +4294,7 @@
                      <td><a href="#">UBL-CR-537</a><br><span class="message">[UBL-CR-537]-A UBL invoice should not include the InvoiceLine DocumentReference DocumentType</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-538" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:DocumentReference/cbc:Xpath)">
+                  <tr id="UBL-CR-538" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:DocumentReference/cbc:XPath)">
                      <td><a href="#">UBL-CR-538</a><br><span class="message">[UBL-CR-538]-A UBL invoice should not include the InvoiceLine DocumentReference Xpath</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
@@ -4354,7 +4430,7 @@
                      <td><a href="#">UBL-CR-571</a><br><span class="message">[UBL-CR-571]-A UBL invoice should not include the InvoiceLine Item BuyersItemIdentification ExtendedID</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-572" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cbc:BareCodeSymbologyID)">
+                  <tr id="UBL-CR-572" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cbc:BarecodeSymbologyID)">
                      <td><a href="#">UBL-CR-572</a><br><span class="message">[UBL-CR-572]-A UBL invoice should not include the InvoiceLine Item BuyersItemIdentification BareCodeSymbologyID</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
@@ -4374,7 +4450,7 @@
                      <td><a href="#">UBL-CR-576</a><br><span class="message">[UBL-CR-576]-A UBL invoice should not include the InvoiceLine Item SellersItemIdentification ExtendedID</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-577" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cbc:BareCodeSymbologyID)">
+                  <tr id="UBL-CR-577" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cbc:BarecodeSymbologyID)">
                      <td><a href="#">UBL-CR-577</a><br><span class="message">[UBL-CR-577]-A UBL invoice should not include the InvoiceLine Item SellersItemIdentification BareCodeSymbologyID</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
@@ -4398,7 +4474,7 @@
                      <td><a href="#">UBL-CR-582</a><br><span class="message">[UBL-CR-582]-A UBL invoice should not include the InvoiceLine Item StandardItemIdentification ExtendedID</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-583" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cbc:BareCodeSymbologyID)">
+                  <tr id="UBL-CR-583" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cbc:BarecodeSymbologyID)">
                      <td><a href="#">UBL-CR-583</a><br><span class="message">[UBL-CR-583]-A UBL invoice should not include the InvoiceLine Item StandardItemIdentification BareCodeSymbologyID</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
@@ -4494,7 +4570,7 @@
                      <td><a href="#">UBL-CR-606</a><br><span class="message">[UBL-CR-606]-A UBL invoice should not include the InvoiceLine Item ClassifiedTaxCategory TaxScheme CurrencyCode</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-607" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:ClassifiedTaxCategory/cac:TaxScheme/cac:JurisdiccionRegionAddress)">
+                  <tr id="UBL-CR-607" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:ClassifiedTaxCategory/cac:TaxScheme/cac:JurisdictionRegionAddress)">
                      <td><a href="#">UBL-CR-607</a><br><span class="message">[UBL-CR-607]-A UBL invoice should not include the InvoiceLine Item ClassifiedTaxCategory TaxScheme JurisdiccionRegionAddress</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
@@ -4566,83 +4642,83 @@
                      <td><a href="#">UBL-CR-624</a><br><span class="message">[UBL-CR-624]-A UBL invoice should not include the InvoiceLine Item Dimension</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-625" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:PriceChangeReason)">
+                  <tr id="UBL-CR-625" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:PriceChangeReason)">
                      <td><a href="#">UBL-CR-625</a><br><span class="message">[UBL-CR-625]-A UBL invoice should not include the InvoiceLine Item Price PriceChangeReason</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-626" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:PriceTypeCode)">
+                  <tr id="UBL-CR-626" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:PriceTypeCode)">
                      <td><a href="#">UBL-CR-626</a><br><span class="message">[UBL-CR-626]-A UBL invoice should not include the InvoiceLine Item Price PriceTypeCode</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-627" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:PriceType)">
+                  <tr id="UBL-CR-627" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:PriceType)">
                      <td><a href="#">UBL-CR-627</a><br><span class="message">[UBL-CR-627]-A UBL invoice should not include the InvoiceLine Item Price PriceType</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-628" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:OrderableUnitFactorRate)">
+                  <tr id="UBL-CR-628" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:OrderableUnitFactorRate)">
                      <td><a href="#">UBL-CR-628</a><br><span class="message">[UBL-CR-628]-A UBL invoice should not include the InvoiceLine Item Price OrderableUnitFactorRate</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-629" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:ValidityPeriod)">
+                  <tr id="UBL-CR-629" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:ValidityPeriod)">
                      <td><a href="#">UBL-CR-629</a><br><span class="message">[UBL-CR-629]-A UBL invoice should not include the InvoiceLine Item Price ValidityPeriod</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-630" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:PriceList)">
+                  <tr id="UBL-CR-630" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:PriceList)">
                      <td><a href="#">UBL-CR-630</a><br><span class="message">[UBL-CR-630]-A UBL invoice should not include the InvoiceLine Item Price PriceList</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-631" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cbc:OrderableUnitFactorRate)">
+                  <tr id="UBL-CR-631" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:OrderableUnitFactorRate)">
                      <td><a href="#">UBL-CR-631</a><br><span class="message">[UBL-CR-631]-A UBL invoice should not include the InvoiceLine Item Price OrderableUnitFactorRate</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-632" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:ID)">
+                  <tr id="UBL-CR-632" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:ID)">
                      <td><a href="#">UBL-CR-632</a><br><span class="message">[UBL-CR-632]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge ID</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-633" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:AllowanceChargeReasonCode)">
+                  <tr id="UBL-CR-633" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:AllowanceChargeReasonCode)">
                      <td><a href="#">UBL-CR-633</a><br><span class="message">[UBL-CR-633]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge AllowanceChargeReasonCode</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-634" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:AllowanceChargeReason)">
+                  <tr id="UBL-CR-634" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:AllowanceChargeReason)">
                      <td><a href="#">UBL-CR-634</a><br><span class="message">[UBL-CR-634]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge AllowanceChargeReason</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-635" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:MultiplierFactorNumeric)">
+                  <tr id="UBL-CR-635" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:MultiplierFactorNumeric)">
                      <td><a href="#">UBL-CR-635</a><br><span class="message">[UBL-CR-635]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge MultiplierFactorNumeric</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-636" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:PrepaidIndicator)">
+                  <tr id="UBL-CR-636" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:PrepaidIndicator)">
                      <td><a href="#">UBL-CR-636</a><br><span class="message">[UBL-CR-636]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge PrepaidIndicator</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-637" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:SequenceNumeric)">
+                  <tr id="UBL-CR-637" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:SequenceNumeric)">
                      <td><a href="#">UBL-CR-637</a><br><span class="message">[UBL-CR-637]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge SequenceNumeric</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-638" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:AccountingCostCode)">
+                  <tr id="UBL-CR-638" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:AccountingCostCode)">
                      <td><a href="#">UBL-CR-638</a><br><span class="message">[UBL-CR-638]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge AccountingCostCode</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-639" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:AccountingCost)">
+                  <tr id="UBL-CR-639" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:AccountingCost)">
                      <td><a href="#">UBL-CR-639</a><br><span class="message">[UBL-CR-639]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge AccountingCost</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-640" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cbc:PerUnitAmount)">
+                  <tr id="UBL-CR-640" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:PerUnitAmount)">
                      <td><a href="#">UBL-CR-640</a><br><span class="message">[UBL-CR-640]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge PerUnitAmount</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-641" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cac:TaxCategory)">
+                  <tr id="UBL-CR-641" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cac:TaxCategory)">
                      <td><a href="#">UBL-CR-641</a><br><span class="message">[UBL-CR-641]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge TaxCategory</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-642" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cac:TaxTotal)">
+                  <tr id="UBL-CR-642" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cac:TaxTotal)">
                      <td><a href="#">UBL-CR-642</a><br><span class="message">[UBL-CR-642]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge TaxTotal</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-643" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:AllowanceCharge/cac:PaymentMeans)">
+                  <tr id="UBL-CR-643" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cac:PaymentMeans)">
                      <td><a href="#">UBL-CR-643</a><br><span class="message">[UBL-CR-643]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge PaymentMeans</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
-                  <tr id="UBL-CR-644" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:Price/cac:PricingExchangeRate)">
+                  <tr id="UBL-CR-644" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:PricingExchangeRate)">
                      <td><a href="#">UBL-CR-644</a><br><span class="message">[UBL-CR-644]-A UBL invoice should not include the InvoiceLine Item Price PricingExchangeRate</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
@@ -4908,7 +4984,7 @@
                      <td><a href="#">UBL-SR-05</a><br><span class="message">[UBL-SR-05]-Payment terms shall occur maximum once</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="UBL-SR-06" data-context="/ubl:Invoice | /cn:CreditNote" data-test="(count(cac:InvoiceDocumentReference) <= 1)">
+                  <tr id="UBL-SR-06" data-context="cac:BillingReference" data-test="(count(cac:InvoiceDocumentReference) <= 1)">
                      <td><a href="#">UBL-SR-06</a><br><span class="message">[UBL-SR-06]-Preceding invoice reference shall occur maximum once</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
@@ -4992,7 +5068,7 @@
                      <td><a href="#">UBL-SR-26</a><br><span class="message">[UBL-SR-26]-Payment reference shall occur maximum once</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="UBL-SR-27" data-context="cac:PaymentMeans" data-test="(count(cbc:InstructionNote) <= 1)">
+                  <tr id="UBL-SR-27" data-context="cac:PaymentMeans" data-test="(count(cbc:PaymentMeansCode) <= 1)">
                      <td><a href="#">UBL-SR-27</a><br><span class="message">[UBL-SR-27]-Payment means text shall occur maximum once</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
@@ -5030,10 +5106,6 @@
                   </tr>
                   <tr id="UBL-SR-37" data-context="cac:InvoiceLine | cac:CreditNoteLine" data-test="(count(cac:Price/cac:AllowanceCharge/cbc:Amount) <= 1)">
                      <td><a href="#">UBL-SR-37</a><br><span class="message">[UBL-SR-37]-Item price discount shall occur maximum once</span></td>
-                     <td style="width: 5%;">fatal</td>
-                  </tr>
-                  <tr id="UBL-SR-38" data-context="cac:InvoiceLine | cac:CreditNoteLine" data-test="(count(cac:Item/cac:ClassifiedTaxCategory/cbc:TaxExemptionReason) <= 1)">
-                     <td><a href="#">UBL-SR-38</a><br><span class="message">[UBL-SR-38]-Invoiced item VAT exemption reason text shall occur maximum once</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
                   <tr id="UBL-SR-39" data-context="/ubl:Invoice | /cn:CreditNote" data-test="(count(cac:ProjectReference/cbc:ID) <= 1)">

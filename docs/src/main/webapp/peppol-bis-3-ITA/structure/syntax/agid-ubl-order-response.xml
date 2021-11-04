@@ -115,7 +115,7 @@
 			<Term>cac:SellerSupplierParty</Term>
 			<Name>Seller information - Dati del Fornitore</Name>
 			<Description>Contiene le informazioni relative al soggetto che deve eseguire la fornitura (riceve l’Ordine).</Description>
-			<Element cardinality="0..1">
+			<Element cardinality="1..1">
 				<Term>cac:Party</Term>
 				<Name>Party information - Informazioni della parte</Name>
 				<Element>

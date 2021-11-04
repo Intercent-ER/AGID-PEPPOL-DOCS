@@ -242,9 +242,9 @@
                         <Name>Buyer legal registration identifier identification scheme identifier</Name>
                         <Description>The identification scheme identifier of the Buyer legal registration identifier.</Description>
                         <Reference type="CODE_LIST">ICD</Reference>
-                        <Value type="EXAMPLE">0088</Value>
+                        <Value type="EXAMPLE">0007</Value>
                     </Attribute>
-                    <Value type="EXAMPLE">7300010000001</Value>
+                    <Value type="EXAMPLE">5560104525</Value>
                 </Element>
             </Element>
 
@@ -281,10 +281,10 @@
                     <Value type="EXAMPLE">jens.j@buyer.se</Value>
                 </Element>
             </Element>
-			
+
 			<Include>agid-stabile-organizzazione-cessionario-committente.xml</Include>
-		
+
 			<Include>agid-rappresentante-fiscale-cessionario-committente.xml</Include>
-			
+
         </Element>
     </Element>

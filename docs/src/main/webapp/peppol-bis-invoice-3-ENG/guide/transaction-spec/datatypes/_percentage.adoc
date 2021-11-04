@@ -15,5 +15,5 @@ IMPORTANT:  No restriction on number of decimals for percentages.
 |Content
 |Mandatory
 |Decimal
-|34.7812
+|34,7812
 |===

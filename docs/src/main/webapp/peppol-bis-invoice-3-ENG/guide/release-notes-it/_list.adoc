@@ -15,8 +15,9 @@ a| _Update to https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3
 [red]#Changes to BIS document (Documentation)#
 
 * Corrected references to the business term numbers in chapter 9.4 Calculation of VAT. [POACC-439]
-* Use of the business term names rather than the UBL element names in the chapter 12.1 Profiles and messages. [POACC-439]
-* Editorial change in chapter 6.2.3 Percentage (use of period sign instead of comma). [POACC-439]
+
+[red]#Changes to syntax#
+
 * Incorrect rule reference in the syntax reports (Invoice and CreditNote) for rule BR-CL-11 (no change to the schematron rule, only editorial in the documentation). [POACC-425]
 * Updated example to a more appropriate value for LegalEntity/CompanyID in the syntax reports. [POACC-432]
 * Description of cac-CardAccount/cbc-NetworkID/ syntax required element changed to prevent incorrect interpretation that this is a business term [POACC-429]

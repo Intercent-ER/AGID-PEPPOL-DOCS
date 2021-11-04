@@ -14,9 +14,7 @@ a| _Update to https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3
 
 [red]#Cambiamenti alla specifica (Documentazione)#
 
-* Corretto il riferimento al numero dei business terms nel paragrafo 9.4 Calcolo dell’IVA; 
-* Uso dei nomi dei business terms piuttosto che il nome degli elementi UBL nel paragrafo 12.1 Profili e messaggi;
-* Modifica editoriale nel paragrafo 6.2.3 Percentuale (uso del punto invece che la virgola)
+* Corretto il riferimento al numero dei business terms nel paragrafo 9.4 Calcolo dell’IVA.
 
 [red]#Cambiamenti alla sintassi#
 

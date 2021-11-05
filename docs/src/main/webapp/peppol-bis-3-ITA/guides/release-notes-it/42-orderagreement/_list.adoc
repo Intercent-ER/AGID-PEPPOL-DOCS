@@ -9,15 +9,12 @@
 
 | 3.0.0.2(IT)
 a| 05/11/2021
-a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3.0.8 - Spring release 2021]_. +
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3.0.8 - Fall release 2021]_. +
 
 [red]#Cambiamenti alla specifica (Documentazione)#
 
 * Aggiornamento editoriale sulla descrizione dell’utilizzo della tassazione a livello di riga, paragrafo "6.11 Categoria imposte su riga".
 
-[red]#Cambiamenti ai documenti di supporto#
-
-* Aggiornati i test files con numeri GLN validi in modo da passare il processo di validazione, in accordo alle regole di validazione aggiornate per il GLN, introdotte con la versione 3.0.3.
 
 [red]#Cambiamenti alle code lists e ai tool di validazione#
 

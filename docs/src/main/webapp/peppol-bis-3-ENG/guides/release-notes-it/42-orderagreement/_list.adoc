@@ -19,7 +19,7 @@ a|  _Update to https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 
 [red]#Changes to code lists and validation artefacts#
 
 * Added rule (severity warning) for validation of format for Belgian organisation numbers (ICD:0208). Rule is planned to be changed to severity fatal in 2022 spring release. [POACC-408]
-* Added rule (severity warning) for validation of format for Italian identifiers (ICD:0201, 0210, 0211 and EAS 9906 and 9907). Rules are planned to be changed to severity fatal in 2022 spring release. [POACC-423]
+* Added rule (severity warning) for validation of format for Italian identifiers (ICD/EAS:0201, 0210, 0211 and EAS 9906 and 9907). Rules are planned to be changed to severity fatal in 2022 spring release. [POACC-423]
 * Added transport handling unit (tir16-085) and packaging type (tir16-090) codes to align with CEF listing of codes. (O1, O2, O3, O4, O5, O6, O7, O8, O9, OG, OH, OI, OJ, OL, OM, ON, OP, OQ, OR, OS, OV, OW, OX, OY, OZ, P1, P3, P4, SX). [POACC-427]
 * Added UOM codes IUG, KWN, KWS, ODG, ODK, ODM, Q41, Q42, XZZ to aling with CEF listing of codes. [POACC-427]
 

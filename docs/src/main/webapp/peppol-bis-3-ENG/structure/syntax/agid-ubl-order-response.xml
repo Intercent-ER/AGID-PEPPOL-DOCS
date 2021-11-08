@@ -116,7 +116,7 @@
 			<Term>cac:SellerSupplierParty</Term>
 			<Name>Seller information</Name>
 			<Description>It contains the information about the subject who sells the goods or services to the buyer (receives the Order)</Description>
-			<Element cardinality="0..1">
+			<Element cardinality="1..1">
 				<Term>cac:Party</Term>
 				<Name>Party information</Name>
 				<Element>

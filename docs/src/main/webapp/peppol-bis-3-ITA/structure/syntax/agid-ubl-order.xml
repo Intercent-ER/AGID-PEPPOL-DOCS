@@ -597,14 +597,14 @@
 						<Name>Seller legal registration name - Denominazione legale del Fornitore</Name>
 						<Description>Denominazione legale del Fornitore.</Description>
 						<DataType>Text</DataType>
-						<Reference type="BUSINESS_TERM">tir01-044</Reference>
+						<Reference type="BUSINESS_TERM">tir01-p038</Reference>
 					</Element>
 					<Element cardinality="0..1" agid:custom="rule">
 						<Term>cbc:CompanyID</Term>
 						<Name>Seller legal registration identifier - Identificativo di registrazione legale Fornitore</Name>
 						<Description>Contiene l'identificativo di registrazione legale del Fornitore.</Description>
 						<DataType>Identifier</DataType>
-						<Reference type="BUSINESS_TERM">tir01-043</Reference>
+						<Reference type="BUSINESS_TERM">tir01-p039</Reference>
                                                 <Reference type="RULE">NSO_010</Reference>
 						<Attribute usage="Optional">
 							<Term>schemeID</Term>
@@ -623,7 +623,7 @@
 							<Name>Sellers legal registration address city name - Città sede legale</Name>
 							<Description>Nome città della sede legale.</Description>
 							<DataType>Text</DataType>
-							<Reference type="BUSINESS_TERM">tir01-045</Reference>
+							<Reference type="BUSINESS_TERM">tir01-p040</Reference>
 						</Element>
 						<Element>
 							<Term>cac:Country</Term>
@@ -633,7 +633,7 @@
 								<Name>Country code - Codice nazione</Name>
 								<Description>Codice identificativo della nazione.</Description>
 								<DataType>Code</DataType>
-								<Reference type="BUSINESS_TERM">tir01-046</Reference>
+								<Reference type="BUSINESS_TERM">tir01-p041</Reference>
 								<Reference type="CODE_LIST">ISO3166</Reference>
 								<Value type="EXAMPLE">NL</Value>
 							</Element>

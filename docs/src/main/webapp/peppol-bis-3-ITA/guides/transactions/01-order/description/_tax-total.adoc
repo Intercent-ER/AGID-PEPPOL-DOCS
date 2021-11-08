@@ -1,7 +1,8 @@
 [[tax-total]]
 = Totale imposte
 
-E’ possibile fornire il totale delle imposte dell’ordine a livello di testata.
+E’ possibile fornire il totale delle imposte dell’ordine a livello di testata (tax total) e anche a livello di riga (taxCategory and rate).
+
 
 .Livello di testata:
 [source, xml, indent=0]

@@ -584,7 +584,7 @@
 	</function>
 
 	<!-- Controllo della PIVA secondo le regole https://databularium.com/it/2015/08/21/come-controllare-la-correttezza-della-partita-iva/ -->
-    <function name="u:checkPIVA" as="xs:integer"
+    <!--function name="u:checkPIVA" as="xs:integer"
 			  xmlns="http://www.w3.org/1999/XSL/Transform">
 
         <param name="arg" as="xs:string?"/>
@@ -594,10 +594,10 @@
 					then 1
 					else ( u:addPIVA($arg,xs:integer(0)) mod 10 )" />
 
-    </function>
+    </function-->
 
 	<!-- Funzione di utilità per il controllo della PIVA -->
-	<function name="u:addPIVA" as="xs:integer"
+	<!--function name="u:addPIVA" as="xs:integer"
 			  xmlns="http://www.w3.org/1999/XSL/Transform">
 
 		<param name="arg" as="xs:string"/>
@@ -613,10 +613,10 @@
 
 		<sequence select="if ($tappo = 0) then $mapper else ( xs:integer($mapper) + u:addPIVA(substring(xs:string($arg),2), (if($pari=0) then 1 else 0) ) )"/>
 
-	</function>
+	</function-->
 
 	<!-- Funzione di utilità per il controllo del EndpointID -->
-	<function name="u:checkPIVAseIT" as="xs:boolean"
+	<!--function name="u:checkPIVAseIT" as="xs:boolean"
 			  xmlns="http://www.w3.org/1999/XSL/Transform">
 
 		<param name="arg" as="xs:string"/>
@@ -646,10 +646,10 @@
 
 		"/>
 
-	</function>
+	</function-->
 
 	<!-- Controllo Codice Fiscale-->
-    <function name="u:checkCF" as="xs:boolean"
+    <!--function name="u:checkCF" as="xs:boolean"
 			  xmlns="http://www.w3.org/1999/XSL/Transform">
 
         <param name="arg" as="xs:string?"/>
@@ -683,10 +683,10 @@
 			)
 			"/>
 
-    </function>
+    </function-->
 
 	<!-- Controllo Codice Fiscale 16 -->
-    <function name="u:checkCF16" as="xs:boolean"
+    <!--function name="u:checkCF16" as="xs:boolean"
 			  xmlns="http://www.w3.org/1999/XSL/Transform">
 
         <param name="arg" as="xs:string?"/>
@@ -706,7 +706,7 @@
 					else false()
 					" />
 
-    </function>
+    </function-->
 
 	<!-- Controllo Codice Fiscale 11 -->
     <function name="u:checkCF11" as="xs:boolean"
@@ -723,7 +723,7 @@
     </function>
 
 	<!-- Controllo Codice IPA -->
-    <function name="u:checkCodiceIPA" as="xs:boolean"
+    <!--function name="u:checkCodiceIPA" as="xs:boolean"
 			  xmlns="http://www.w3.org/1999/XSL/Transform">
 
         <param name="arg" as="xs:string?"/>
@@ -732,7 +732,7 @@
 
 		<sequence select="if ( (string-length(translate($arg, $allowed-characters, '')) = 0) and (string-length($arg) = 6) ) then true() else false()"/>
 
-    </function>
+    </function-->
 
     <!-- DEFINIZIONE PHASE -->
     <phase id="underConstruction">

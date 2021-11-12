@@ -338,72 +338,6 @@
       </for-each>        
     
    </function>
-   <function xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:xi="http://www.w3.org/2001/XInclude" name="u:checkPIVA" as="xs:integer">
-
-        
-      <param name="arg" as="xs:string?"/>
-		
-		
-      <sequence select="     if (not($arg castable as xsd:integer))       then 1      else ( u:addPIVA($arg,xs:integer(0)) mod 10 )"/>
-		
-    
-   </function>
-   <function xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:xi="http://www.w3.org/2001/XInclude" name="u:addPIVA" as="xs:integer">
-		
-		
-      <param name="arg" as="xs:string"/>
-		
-      <param name="pari" as="xs:integer"/>
-
-		
-      <variable name="tappo" select="if (not($arg castable as xsd:integer)) then 0 else 1"/>
-		
-		
-      <variable name="mapper" select="if ($tappo = 0) then 0 else                    ( if ($pari = 1)                     then ( xs:integer(substring('0246813579', ( xs:integer(substring($arg,1,1)) +1 ) ,1)) )                     else ( xs:integer(substring($arg,1,1) ) )                   )"/>
-			
-		
-      <sequence select="if ($tappo = 0) then $mapper else ( xs:integer($mapper) + u:addPIVA(substring(xs:string($arg),2), (if($pari=0) then 1 else 0) ) )"/>
-		
-	
-   </function>
-   <function xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:xi="http://www.w3.org/2001/XInclude" name="u:checkPIVAseIT" as="xs:boolean">
-		
-		
-      <param name="arg" as="xs:string"/>
-
-		
-      <variable name="paese" select="substring($arg,1,2)"/>
-		
-      <variable name="codice" select="substring($arg,3)"/>
-
-        
-      <sequence select="     if ( $paese = 'IT' or $paese = 'it' )    then    (     if ( ( string-length($codice) = 11 ) and ( if (u:checkPIVA($codice)!=0) then false() else true() ))     then      (      true()     )     else     (      false()     )    )    else    (     true()    )    "/>
-			
-	
-   </function>
-   <function xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:xi="http://www.w3.org/2001/XInclude" name="u:checkCF" as="xs:boolean">
-
-        
-      <param name="arg" as="xs:string?"/>
-		
-		
-      <sequence select="    if ( (string-length($arg) = 16) or (string-length($arg) = 11) )       then     (     if ((string-length($arg) = 16))      then     (      if (u:checkCF16($arg))       then      (       true()      )      else      (       false()      )     )     else     (      if(($arg castable as xsd:integer)) then true() else false()       )    )    else    (     false()    )    "/>
-		
-    
-   </function>
-   <function xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:xi="http://www.w3.org/2001/XInclude" name="u:checkCF16" as="xs:boolean">
-
-        
-      <param name="arg" as="xs:string?"/>
-		
-		
-      <variable name="allowed-characters">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz</variable>
-		
-		
-      <sequence select="      if (  (string-length(translate(substring($arg,1,6), $allowed-characters, '')) = 0) and                (substring($arg,7,2) castable as xsd:integer) and         (string-length(translate(substring($arg,9,1), $allowed-characters, '')) = 0) and         (substring($arg,10,2) castable as xsd:integer) and          (substring($arg,12,3) castable as xsd:string) and         (substring($arg,15,1) castable as xsd:integer) and          (string-length(translate(substring($arg,16,1), $allowed-characters, '')) = 0)       )       then true()      else false()      "/>
-					
-    
-   </function>
    <function xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:xi="http://www.w3.org/2001/XInclude" name="u:checkCF11" as="xs:boolean">
 
         
@@ -412,19 +346,6 @@
 		
       <sequence select="      if ( ($arg castable as xsd:integer) and (string-length($arg) = 11) )       then true()      else false()      "/>
 					
-    
-   </function>
-   <function xmlns="http://www.w3.org/1999/XSL/Transform" xmlns:xi="http://www.w3.org/2001/XInclude" name="u:checkCodiceIPA" as="xs:boolean">
-
-        
-      <param name="arg" as="xs:string?"/>
-		
-		
-      <variable name="allowed-characters">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</variable>
-
-		
-      <sequence select="if ( (string-length(translate($arg, $allowed-characters, '')) = 0) and (string-length($arg) = 6) ) then true() else false()"/>
-		
     
    </function>
 
@@ -611,7 +532,7 @@
             <axsl:attribute name="name">getAbstractTipoOrdine</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M45"/>
+         <axsl:apply-templates select="/" mode="M39"/>
          <svrl:active-pattern>
             <axsl:attribute name="document">
                <axsl:value-of select="document-uri(/)"/>
@@ -620,7 +541,7 @@
             <axsl:attribute name="name">verificaID</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M46"/>
+         <axsl:apply-templates select="/" mode="M40"/>
          <svrl:active-pattern>
             <axsl:attribute name="document">
                <axsl:value-of select="document-uri(/)"/>
@@ -629,7 +550,7 @@
             <axsl:attribute name="name">verificaLineeOrdine</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M47"/>
+         <axsl:apply-templates select="/" mode="M41"/>
          <svrl:active-pattern>
             <axsl:attribute name="document">
                <axsl:value-of select="document-uri(/)"/>
@@ -638,7 +559,7 @@
             <axsl:attribute name="name">verificaCIG</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M48"/>
+         <axsl:apply-templates select="/" mode="M42"/>
          <svrl:active-pattern>
             <axsl:attribute name="document">
                <axsl:value-of select="document-uri(/)"/>
@@ -647,7 +568,7 @@
             <axsl:attribute name="name">verificaPIVA</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M49"/>
+         <axsl:apply-templates select="/" mode="M43"/>
          <svrl:active-pattern>
             <axsl:attribute name="document">
                <axsl:value-of select="document-uri(/)"/>
@@ -656,7 +577,7 @@
             <axsl:attribute name="name">verificaCodiceIPA</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M50"/>
+         <axsl:apply-templates select="/" mode="M44"/>
          <svrl:active-pattern>
             <axsl:attribute name="document">
                <axsl:value-of select="document-uri(/)"/>
@@ -665,7 +586,7 @@
             <axsl:attribute name="name">verificaCF</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M51"/>
+         <axsl:apply-templates select="/" mode="M45"/>
          <svrl:active-pattern>
             <axsl:attribute name="document">
                <axsl:value-of select="document-uri(/)"/>
@@ -674,7 +595,7 @@
             <axsl:attribute name="name">verificaBuyer</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M52"/>
+         <axsl:apply-templates select="/" mode="M46"/>
          <svrl:active-pattern>
             <axsl:attribute name="document">
                <axsl:value-of select="document-uri(/)"/>
@@ -683,7 +604,7 @@
             <axsl:attribute name="name">IT-UBL-T01</axsl:attribute>
             <axsl:apply-templates/>
          </svrl:active-pattern>
-         <axsl:apply-templates select="/" mode="M53"/>
+         <axsl:apply-templates select="/" mode="M47"/>
       </svrl:schematron-output>
    </axsl:template>
 
@@ -8163,9 +8084,9 @@
 
 <!--PATTERN getAbstractTipoOrdine-->
 
-   <axsl:template match="text()" priority="-1" mode="M45"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M45">
-      <axsl:apply-templates select="@*|*" mode="M45"/>
+   <axsl:template match="text()" priority="-1" mode="M39"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M39">
+      <axsl:apply-templates select="@*|*" mode="M39"/>
    </axsl:template>
 
 <!--PATTERN verificaID-->
@@ -8173,7 +8094,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order" priority="1001" mode="M46">
+   <axsl:template match="/ubl:Order" priority="1001" mode="M40">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order"/>
       <axsl:variable name="tipologia_ordine_ristretta" select="         if (/ubl:Order/cac:OrderDocumentReference)      then     (         if (count(/ubl:Order/cac:OrderDocumentReference) = 1)       then        (        u:tipoOrdine(/ubl:Order/cac:OrderDocumentReference/cbc:ID)       )       else        (        'ERRORE_NSO45'       )     )     else     (       'INIZ'     )         "/>
 
@@ -8236,12 +8157,12 @@
       <axsl:variable name="CANC" select="if ($tipologia_ordine_ristretta = 'CANC') then true() else false()"/>
       <axsl:variable name="CONF" select="if ($tipologia_ordine_ristretta = 'CONF') then true() else false()"/>
       <axsl:variable name="INVO" select="if ($tipologia_ordine_ristretta = 'INVO') then true() else false()"/>
-      <axsl:apply-templates select="@*|*" mode="M46"/>
+      <axsl:apply-templates select="@*|*" mode="M40"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="cac:OrderDocumentReference/cbc:ID" priority="1000" mode="M46">
+   <axsl:template match="cac:OrderDocumentReference/cbc:ID" priority="1000" mode="M40">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="cac:OrderDocumentReference/cbc:ID"/>
       <axsl:variable name="tipologia_ordine_ristretta" select="         if (/ubl:Order/cac:OrderDocumentReference)      then     (         if (count(/ubl:Order/cac:OrderDocumentReference) = 1)       then        (        u:tipoOrdine(/ubl:Order/cac:OrderDocumentReference/cbc:ID)       )       else        (        'ERRORE_NSO45'       )     )     else     (       'INIZ'     )         "/>
 
@@ -8355,11 +8276,11 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M46"/>
+      <axsl:apply-templates select="@*|*" mode="M40"/>
    </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M46"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M46">
-      <axsl:apply-templates select="@*|*" mode="M46"/>
+   <axsl:template match="text()" priority="-1" mode="M40"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M40">
+      <axsl:apply-templates select="@*|*" mode="M40"/>
    </axsl:template>
 
 <!--PATTERN verificaLineeOrdine-->
@@ -8367,7 +8288,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order" priority="1002" mode="M47">
+   <axsl:template match="/ubl:Order" priority="1002" mode="M41">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order"/>
       <axsl:variable name="tipologia_ordine_ristretta" select="         if (/ubl:Order/cac:OrderDocumentReference)      then     (         if (count(/ubl:Order/cac:OrderDocumentReference) = 1)       then        (        u:tipoOrdine(/ubl:Order/cac:OrderDocumentReference/cbc:ID)       )       else        (        'ERRORE_NSO45'       )     )     else     (       'INIZ'     )         "/>
 
@@ -8447,12 +8368,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M47"/>
+      <axsl:apply-templates select="@*|*" mode="M41"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order/cac:OrderLine" priority="1001" mode="M47">
+   <axsl:template match="/ubl:Order/cac:OrderLine" priority="1001" mode="M41">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order/cac:OrderLine"/>
       <axsl:variable name="tipologia_ordine_ristretta" select="         if (/ubl:Order/cac:OrderDocumentReference)      then     (         if (count(/ubl:Order/cac:OrderDocumentReference) = 1)       then        (        u:tipoOrdine(/ubl:Order/cac:OrderDocumentReference/cbc:ID)       )       else        (        'ERRORE_NSO45'       )     )     else     (       'INIZ'     )         "/>
 
@@ -8532,12 +8453,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M47"/>
+      <axsl:apply-templates select="@*|*" mode="M41"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order/cac:OrderLine/cac:LineItem" priority="1000" mode="M47">
+   <axsl:template match="/ubl:Order/cac:OrderLine/cac:LineItem" priority="1000" mode="M41">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order/cac:OrderLine/cac:LineItem"/>
       <axsl:variable name="tipologia_ordine_ristretta" select="         if (/ubl:Order/cac:OrderDocumentReference)      then     (         if (count(/ubl:Order/cac:OrderDocumentReference) = 1)       then        (        u:tipoOrdine(/ubl:Order/cac:OrderDocumentReference/cbc:ID)       )       else        (        'ERRORE_NSO45'       )     )     else     (       'INIZ'     )         "/>
 
@@ -8668,11 +8589,11 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M47"/>
+      <axsl:apply-templates select="@*|*" mode="M41"/>
    </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M47"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M47">
-      <axsl:apply-templates select="@*|*" mode="M47"/>
+   <axsl:template match="text()" priority="-1" mode="M41"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M41">
+      <axsl:apply-templates select="@*|*" mode="M41"/>
    </axsl:template>
 
 <!--PATTERN verificaCIG-->
@@ -8680,7 +8601,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order" priority="1002" mode="M48">
+   <axsl:template match="/ubl:Order" priority="1002" mode="M42">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order"/>
       <axsl:variable name="tipologia_ordine_ristretta" select="         if (/ubl:Order/cac:OrderDocumentReference)      then     (         if (count(/ubl:Order/cac:OrderDocumentReference) = 1)       then        (        u:tipoOrdine(/ubl:Order/cac:OrderDocumentReference/cbc:ID)       )       else        (        'ERRORE_NSO45'       )     )     else     (       'INIZ'     )         "/>
 
@@ -8811,12 +8732,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M48"/>
+      <axsl:apply-templates select="@*|*" mode="M42"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order/cac:OriginatorDocumentReference" priority="1001" mode="M48">
+   <axsl:template match="/ubl:Order/cac:OriginatorDocumentReference" priority="1001" mode="M42">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order/cac:OriginatorDocumentReference"/>
       <axsl:variable name="tipologia_ordine_ristretta" select="         if (/ubl:Order/cac:OrderDocumentReference)      then     (         if (count(/ubl:Order/cac:OrderDocumentReference) = 1)       then        (        u:tipoOrdine(/ubl:Order/cac:OrderDocumentReference/cbc:ID)       )       else        (        'ERRORE_NSO45'       )     )     else     (       'INIZ'     )         "/>
 
@@ -8896,12 +8817,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M48"/>
+      <axsl:apply-templates select="@*|*" mode="M42"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:ItemSpecificationDocumentReference" priority="1000" mode="M48">
+   <axsl:template match="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:ItemSpecificationDocumentReference" priority="1000" mode="M42">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:ItemSpecificationDocumentReference"/>
       <axsl:variable name="tipologia_ordine_ristretta" select="         if (/ubl:Order/cac:OrderDocumentReference)      then     (         if (count(/ubl:Order/cac:OrderDocumentReference) = 1)       then        (        u:tipoOrdine(/ubl:Order/cac:OrderDocumentReference/cbc:ID)       )       else        (        'ERRORE_NSO45'       )     )     else     (       'INIZ'     )         "/>
 
@@ -8981,11 +8902,11 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M48"/>
+      <axsl:apply-templates select="@*|*" mode="M42"/>
    </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M48"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M48">
-      <axsl:apply-templates select="@*|*" mode="M48"/>
+   <axsl:template match="text()" priority="-1" mode="M42"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M42">
+      <axsl:apply-templates select="@*|*" mode="M42"/>
    </axsl:template>
 
 <!--PATTERN verificaPIVA-->
@@ -8993,7 +8914,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order/cac:SellerSupplierParty/cac:Party/cbc:EndpointID" priority="1003" mode="M49">
+   <axsl:template match="/ubl:Order/cac:SellerSupplierParty/cac:Party/cbc:EndpointID" priority="1003" mode="M43">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order/cac:SellerSupplierParty/cac:Party/cbc:EndpointID"/>
 
 		<!--ASSERT -->
@@ -9012,12 +8933,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order/cac:BuyerCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID" priority="1002" mode="M49">
+   <axsl:template match="/ubl:Order/cac:BuyerCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID" priority="1002" mode="M43">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order/cac:BuyerCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID"/>
 
 		<!--ASSERT -->
@@ -9036,12 +8957,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID" priority="1001" mode="M49">
+   <axsl:template match="/ubl:Order/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID" priority="1001" mode="M43">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID"/>
 
 		<!--ASSERT -->
@@ -9060,12 +8981,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order/cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID" priority="1000" mode="M49">
+   <axsl:template match="/ubl:Order/cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID" priority="1000" mode="M43">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order/cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID"/>
 
 		<!--ASSERT -->
@@ -9084,11 +9005,11 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+      <axsl:apply-templates select="@*|*" mode="M43"/>
    </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M49"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M49">
-      <axsl:apply-templates select="@*|*" mode="M49"/>
+   <axsl:template match="text()" priority="-1" mode="M43"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M43">
+      <axsl:apply-templates select="@*|*" mode="M43"/>
    </axsl:template>
 
 <!--PATTERN verificaCodiceIPA-->
@@ -9096,7 +9017,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order/cac:BuyerCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID" priority="1013" mode="M50">
+   <axsl:template match="/ubl:Order/cac:BuyerCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID" priority="1013" mode="M44">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order/cac:BuyerCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -9115,12 +9036,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M44"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order/cac:BuyerCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID" priority="1012" mode="M50">
+   <axsl:template match="/ubl:Order/cac:BuyerCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID" priority="1012" mode="M44">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order/cac:BuyerCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID"/>
 
 		<!--ASSERT -->
@@ -9139,12 +9060,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M44"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order/cac:BuyerCustomerParty/cac:Party/cbc:EndpointID" priority="1011" mode="M50">
+   <axsl:template match="/ubl:Order/cac:BuyerCustomerParty/cac:Party/cbc:EndpointID" priority="1011" mode="M44">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order/cac:BuyerCustomerParty/cac:Party/cbc:EndpointID"/>
 
 		<!--ASSERT -->
@@ -9163,12 +9084,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M44"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order/cac:SellerSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID" priority="1010" mode="M50">
+   <axsl:template match="/ubl:Order/cac:SellerSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID" priority="1010" mode="M44">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order/cac:SellerSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -9187,12 +9108,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M44"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order/cac:SellerSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID" priority="1009" mode="M50">
+   <axsl:template match="/ubl:Order/cac:SellerSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID" priority="1009" mode="M44">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order/cac:SellerSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID"/>
 
 		<!--ASSERT -->
@@ -9211,12 +9132,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M44"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order/cac:SellerSupplierParty/cac:Party/cbc:EndpointID" priority="1008" mode="M50">
+   <axsl:template match="/ubl:Order/cac:SellerSupplierParty/cac:Party/cbc:EndpointID" priority="1008" mode="M44">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order/cac:SellerSupplierParty/cac:Party/cbc:EndpointID"/>
 
 		<!--ASSERT -->
@@ -9235,12 +9156,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M44"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order/cac:OriginatorCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID" priority="1007" mode="M50">
+   <axsl:template match="/ubl:Order/cac:OriginatorCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID" priority="1007" mode="M44">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order/cac:OriginatorCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -9259,12 +9180,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M44"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID" priority="1006" mode="M50">
+   <axsl:template match="/ubl:Order/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID" priority="1006" mode="M44">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -9283,12 +9204,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M44"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID" priority="1005" mode="M50">
+   <axsl:template match="/ubl:Order/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID" priority="1005" mode="M44">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID"/>
 
 		<!--ASSERT -->
@@ -9307,12 +9228,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M44"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID" priority="1004" mode="M50">
+   <axsl:template match="/ubl:Order/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID" priority="1004" mode="M44">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID"/>
 
 		<!--ASSERT -->
@@ -9331,12 +9252,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M44"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order/cac:Delivery/cac:DeliveryLocation/cbc:ID" priority="1003" mode="M50">
+   <axsl:template match="/ubl:Order/cac:Delivery/cac:DeliveryLocation/cbc:ID" priority="1003" mode="M44">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order/cac:Delivery/cac:DeliveryLocation/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -9355,12 +9276,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M44"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order/cac:Delivery/cac:DeliveryParty/cac:PartyIdentification/cbc:ID" priority="1002" mode="M50">
+   <axsl:template match="/ubl:Order/cac:Delivery/cac:DeliveryParty/cac:PartyIdentification/cbc:ID" priority="1002" mode="M44">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order/cac:Delivery/cac:DeliveryParty/cac:PartyIdentification/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -9379,12 +9300,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M44"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order/cac:OrderLine/cac:LineItem/cac:OriginatorParty/cac:PartyIdentification/cbc:ID" priority="1001" mode="M50">
+   <axsl:template match="/ubl:Order/cac:OrderLine/cac:LineItem/cac:OriginatorParty/cac:PartyIdentification/cbc:ID" priority="1001" mode="M44">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:OriginatorParty/cac:PartyIdentification/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -9403,12 +9324,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M44"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:StandardItemIdentification/cbc:ID" priority="1000" mode="M50">
+   <axsl:template match="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:StandardItemIdentification/cbc:ID" priority="1000" mode="M44">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order/cac:OrderLine/cac:LineItem/cac:Item/cac:StandardItemIdentification/cbc:ID"/>
 
 		<!--ASSERT -->
@@ -9427,11 +9348,11 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+      <axsl:apply-templates select="@*|*" mode="M44"/>
    </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M50"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M50">
-      <axsl:apply-templates select="@*|*" mode="M50"/>
+   <axsl:template match="text()" priority="-1" mode="M44"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M44">
+      <axsl:apply-templates select="@*|*" mode="M44"/>
    </axsl:template>
 
 <!--PATTERN verificaCF-->
@@ -9439,7 +9360,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order/cac:SellerSupplierParty/cac:Party/cbc:EndpointID" priority="1001" mode="M51">
+   <axsl:template match="/ubl:Order/cac:SellerSupplierParty/cac:Party/cbc:EndpointID" priority="1001" mode="M45">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order/cac:SellerSupplierParty/cac:Party/cbc:EndpointID"/>
 
 		<!--ASSERT -->
@@ -9458,12 +9379,12 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M51"/>
+      <axsl:apply-templates select="@*|*" mode="M45"/>
    </axsl:template>
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID" priority="1000" mode="M51">
+   <axsl:template match="/ubl:Order/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID" priority="1000" mode="M45">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID"/>
 
 		<!--ASSERT -->
@@ -9482,11 +9403,11 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M51"/>
+      <axsl:apply-templates select="@*|*" mode="M45"/>
    </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M51"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M51">
-      <axsl:apply-templates select="@*|*" mode="M51"/>
+   <axsl:template match="text()" priority="-1" mode="M45"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M45">
+      <axsl:apply-templates select="@*|*" mode="M45"/>
    </axsl:template>
 
 <!--PATTERN verificaBuyer-->
@@ -9494,7 +9415,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order/cac:BuyerCustomerParty/cac:Party/cbc:EndpointID" priority="1000" mode="M52">
+   <axsl:template match="/ubl:Order/cac:BuyerCustomerParty/cac:Party/cbc:EndpointID" priority="1000" mode="M46">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order/cac:BuyerCustomerParty/cac:Party/cbc:EndpointID"/>
 
 		<!--ASSERT -->
@@ -9513,11 +9434,11 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M52"/>
+      <axsl:apply-templates select="@*|*" mode="M46"/>
    </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M52"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M52">
-      <axsl:apply-templates select="@*|*" mode="M52"/>
+   <axsl:template match="text()" priority="-1" mode="M46"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M46">
+      <axsl:apply-templates select="@*|*" mode="M46"/>
    </axsl:template>
 
 <!--PATTERN IT-UBL-T01-->
@@ -9525,7 +9446,7 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/ubl:Order" priority="1000" mode="M53">
+   <axsl:template match="/ubl:Order" priority="1000" mode="M47">
       <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/ubl:Order"/>
 
 		<!--ASSERT -->
@@ -9543,10 +9464,10 @@
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
-      <axsl:apply-templates select="@*|*" mode="M53"/>
+      <axsl:apply-templates select="@*|*" mode="M47"/>
    </axsl:template>
-   <axsl:template match="text()" priority="-1" mode="M53"/>
-   <axsl:template match="@*|node()" priority="-2" mode="M53">
-      <axsl:apply-templates select="@*|*" mode="M53"/>
+   <axsl:template match="text()" priority="-1" mode="M47"/>
+   <axsl:template match="@*|node()" priority="-2" mode="M47">
+      <axsl:apply-templates select="@*|*" mode="M47"/>
    </axsl:template>
 </axsl:stylesheet>

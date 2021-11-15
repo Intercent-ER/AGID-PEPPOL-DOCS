@@ -1239,7 +1239,7 @@
 			
 	</function>
 	
-    <function name="u:checkCodiceIPA" as="xs:boolean"
+    <!--function name="u:checkCodiceIPA" as="xs:boolean"
 			  xmlns="http://www.w3.org/1999/XSL/Transform">
 
         <param name="arg" as="xs:string?"/>
@@ -1248,9 +1248,9 @@
 
 		<sequence select="if ( (string-length(translate($arg, $allowed-characters, '')) = 0) and (string-length($arg) = 6) ) then true() else false()"/>
 		
-    </function>
+    </function-->
 
-    <function name="u:checkCF" as="xs:boolean"
+    <!--function name="u:checkCF" as="xs:boolean"
 			  xmlns="http://www.w3.org/1999/XSL/Transform">
 
         <param name="arg" as="xs:string?"/>
@@ -1306,7 +1306,7 @@
 					else false()
 					" />
 					
-    </function>
+    </function-->
 	
     <function name="u:checkCF11" as="xs:boolean"
 			  xmlns="http://www.w3.org/1999/XSL/Transform">
@@ -1321,7 +1321,7 @@
 					
     </function>
 	
-    <function name="u:checkPIVA" as="xs:integer"
+    <!--function name="u:checkPIVA" as="xs:integer"
 			  xmlns="http://www.w3.org/1999/XSL/Transform">
 
         <param name="arg" as="xs:string?"/>
@@ -1331,9 +1331,9 @@
 					then 1
 					else ( u:addPIVA($arg,xs:integer(0)) mod 10 )" />
 		
-    </function>
+    </function-->
 	
-	<function name="u:addPIVA" as="xs:integer" 
+	<!--function name="u:addPIVA" as="xs:integer" 
 			  xmlns="http://www.w3.org/1999/XSL/Transform">
 		
 		<param name="arg" as="xs:string"/>
@@ -1349,9 +1349,9 @@
 			
 		<sequence select="if ($tappo = 0) then $mapper else ( xs:integer($mapper) + u:addPIVA(substring(xs:string($arg),2), (if($pari=0) then 1 else 0) ) )"/>
 		
-	</function>
+	</function-->
 
-	<function name="u:checkPIVAseIT" as="xs:boolean" 
+	<!--function name="u:checkPIVAseIT" as="xs:boolean" 
 			  xmlns="http://www.w3.org/1999/XSL/Transform">
 		
 		<param name="arg" as="xs:string"/>
@@ -1381,7 +1381,7 @@
 
 		"/>
 			
-	</function>	
+	</function-->	
 
 	<function name="u:verificaCIG" as="xs:boolean"
               xmlns="http://www.w3.org/1999/XSL/Transform">

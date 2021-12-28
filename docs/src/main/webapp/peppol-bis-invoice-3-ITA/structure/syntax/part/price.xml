@@ -11,7 +11,7 @@
 
         <Element agid:custom="rule">
             <Term>cbc:PriceAmount</Term>
-            <Name>Item net price - FPA 2.2.1.9 'PrezzoUnitario'</Name>
+            <Name>Item net price</Name>
             <Description>The price of an item, exclusive of VAT, after subtracting item price discount. The Item net price has to be equal with the
                 Item gross price less the Item price discount, if they are both provided. Item price can not be negative.</Description>
             <DataType>Amount</DataType>
@@ -68,7 +68,7 @@
             </Element>
             <Element agid:custom="rule">
                 <Term>cbc:Amount</Term>
-                <Name>Item price discount</Name>
+                <Name>Item price discount - FPA 2.2.1.10.1 'Tipo' e FPA 2.2.1.10.3 'Importo'</Name>
                 <Description>The total discount subtracted from the Item gross price to calculate the Item net price.
                 </Description>
                 <DataType>Amount</DataType>
@@ -89,7 +89,7 @@
 
             <Element cardinality="1..1" agid:custom="cardinality,rule">
                 <Term>cbc:BaseAmount</Term>
-                <Name>Item gross price</Name>
+                <Name>Item gross price - FPA 2.2.1.9 'PrezzoUnitario'</Name>
                 <Description>The unit price, exclusive of VAT, before subtracting Item price discount, can not be negative</Description>
                 <DataType>Amount</DataType>
                 <Reference type="BUSINESS_TERM">BT-148</Reference>

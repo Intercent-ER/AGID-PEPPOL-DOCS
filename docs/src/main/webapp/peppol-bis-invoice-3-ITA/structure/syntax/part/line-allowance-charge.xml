@@ -2,7 +2,7 @@
 <Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" cardinality="0..n" xmlns:agid="urn:fdc:agid.gov.it:peppol:customization">
 
         <Term>cac:AllowanceCharge</Term>
-        <Name>INVOICE LINE ALLOWANCES OR CHARGES - FPA 2.2.1.10 'ScontoMaggiorazione'</Name>
+        <Name>INVOICE LINE ALLOWANCES OR CHARGES</Name>
         <Description>A group of business terms providing information about allowances or charges applicable to the individual
             Invoice line.
         </Description>
@@ -10,9 +10,7 @@
 
         <Element>
             <Term>cbc:ChargeIndicator</Term>
-			<Name>Tipo (Sconto o Maggiorazione) - FPA 2.2.1.10.1 'Tipo'</Name>
-            <Description>Usare "true" per indicare una Maggiorazione e "false" per uno Sconto.
-            </Description>
+            <Description>Use “true” when informing about Charges and “false” when informing about Allowances</Description>
             <Value type="EXAMPLE">false</Value>
         </Element>
 
@@ -52,7 +50,7 @@
 
         <Element cardinality="0..1">
             <Term>cbc:MultiplierFactorNumeric</Term>
-            <Name>Percentuale dello sconto o della maggiorazione a livello di riga - FPA 2.2.1.10.2 'Percentuale'</Name>
+            <Name>Line level allowance or charge percentage</Name>
             <Description>The percentage that may be used, in conjunction with the line level allowance base amount, to
                 calculate the line level allowance or charge amount.
             </Description>
@@ -64,7 +62,7 @@
 
         <Element agid:custom="rule">
             <Term>cbc:Amount</Term>
-            <Name>Importo dello sconto o della maggiorazione a livello di riga - FPA 2.2.1.10.3 'Importo'</Name>
+            <Name>Line level allowance or charge amount</Name>
             <Description>The amount of an allowance or a charge, without VAT. Must be rounded to maximum 2 decimals</Description>
             <DataType>Amount</DataType>
             <Reference type="BUSINESS_TERM">BT-136,BT-141</Reference>

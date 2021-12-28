@@ -238,7 +238,7 @@
 				<Reference type="BUSINESS_TERM">BT-14</Reference>
 				<Value type="EXAMPLE">112233</Value>
 			</Element>
-			
+
             <Element cardinality="0..1" agid:custom="extension">
                 <Term>cbc:IssueDate</Term>
                 <Name>Purchase order issue date</Name>
@@ -654,7 +654,7 @@
 
 				<Element>
 					<Term>cbc:LineID</Term>
-					<Name>Referenced purchase order line reference - FPA 2.1.2.4 'NumItem'</Name>
+					<Name>Referenced purchase order line reference - FPA 2.1.2.4 'NumItem' e FPA 2.1.4.4 'NumItem'</Name>
 					<Description>Il riferimento ad una riga d'ordine. Se non viene specificato l'ordine al quale si fa riferimento aggiungendo di seguito un cac:OrderReference, la riga d'ordine farà riferimento all'ordine indicato in testata in cac:OrderReference.
 					Indicare 'NA' se ci si riferisce ad un ordine intero aggiungendo di seguito un cac:OrderReference.</Description>
 					<DataType>Identifier</DataType>
@@ -728,21 +728,21 @@
 
 				<Element agid:custom="rule">
 					<Term>cbc:ID</Term>
-					<Name>Invoice line object identifier</Name>
-					<Description>An identifier for an object on which the invoice line is based, given by the Seller.</Description>
+					<Name>Invoice line object identifier - Identificativo documento di riga</Name>
+					<Description>Identificativo di un documento che si riferisce alla Fattura.</Description>
 					<DataType>Identifier</DataType>
 					<Reference type="BUSINESS_TERM">BT-128</Reference>
 					<Reference type="RULE">BR-IT-370</Reference>
 
 					<Attribute usage="Optional">
 						<Term>schemeID</Term>
-						<Name>Invoice line object identifier identification scheme identifier</Name>
-						<Description>The identification scheme identifier of the Invoice line object identifier.
-						Per la fatturazione verso la PA gli schemi per riferimenti più comuni sono i seguenti:
+						<Name>Invoice line object identifier identification scheme identifier - Schema identificativo documento</Name>
+						<Description>Il riferimento ad altri documenti a livello di riga si attua attraverso l'uso di uno dei seguenti scheme identifier:
+						* ON = Order document identifier (Tripletta: FPA 2.1.2.5 'CodiceCommessaConvenzione')
 						* CT = Contract number (Contratto: FPA 2.1.3.2 'IdDocumento')
 						* AEP = Project number (CUP: FPA 2.1.3.6 'CodiceCUP')
 						* AGB = Contract party reference number (CIG: FPA 2.1.3.7 'CodiceCIG')
-						* AVV = Framework Agreement Number (Convenzione: FPA 2.1.2.5 'CodiceCommessaConvenzione')</Description>
+						* AVV = Framework Agreement Number (Convenzione: FPA 2.1.4.2 'IdDocumento')</Description>
 						<Reference type="CODE_LIST">UNCL1153</Reference>
 						<Value type="EXAMPLE">AVV</Value>
 					</Attribute>

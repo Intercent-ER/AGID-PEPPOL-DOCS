@@ -69,7 +69,7 @@ con @schemeID = AEP
 
 |*CONVENZIONE*
 |Estremi Convenzione
-|2.1.4.5 CodiceCommessaConvenzione
+|2.1.4.2 IdDocumento
 |In testata si usa +
 `cac:AdditionalDocumentReference/cbc:ID` (0.n) +
 con @schemeID = AVV

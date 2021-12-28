@@ -59,6 +59,7 @@
                     <Value type="EXAMPLE">5060012349998</Value>
 					<Value type="EXAMPLE">EORI:1234567890</Value>
 					<Value type="EXAMPLE">ALBO:GEOMETRI:12345</Value>
+          <Value type="EXAMPLE">REA:MI#1713601</Value>
 
                 </Element>
 

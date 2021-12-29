@@ -77,7 +77,7 @@
 
             <Element>
                 <Term>cbc:TaxAmount</Term>
-                <Name>VAT category tax amount - FPA 2.2.6 'Imposta'</Name>
+                <Name>VAT category tax amount - FPA 2.2.2.6 'Imposta'</Name>
                 <Description>The total VAT amount for a given VAT category. Must be rounded to maximum 2 decimals.</Description>
                 <DataType>Amount</DataType>
                 <Reference type="BUSINESS_TERM">BT-117</Reference>
@@ -163,7 +163,7 @@
 
                 <Element cardinality="0..1">
                     <Term>cbc:TaxExemptionReason</Term>
-                    <Name>VAT exemption reason text - FPA 2.2.2.8 'RiferimentoNormativo'</Name>
+                    <Name>VAT exemption reason text</Name>
                     <Description>A textual statement of the reason why the amount is exempted from VAT or why no VAT is being
                         charged.
                     </Description>

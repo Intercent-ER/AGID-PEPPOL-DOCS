@@ -72,7 +72,7 @@
 
 	<Element>
 		<Term>cbc:Amount</Term>
-		<Name>Importo dello sconto o della maggiorazione a livello documento - FPA 2.1.1.7.3 'ImportoContributoCassa', FPA 2.1.1.6.2 'ImportoBollo'</Name>
+		<Name>Importo dello sconto o della maggiorazione a livello documento</Name>
 		<Description>The amount of an allowance or a charge, without VAT. Must be rounded to maximum 2 decimals
 		</Description>
 		<DataType>Amount</DataType>

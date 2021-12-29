@@ -129,7 +129,7 @@
 			<Term>ext:ExtensionContent</Term>
 			<Name>Definizione del contenuto dell'estensione</Name>
 			<Reference type="RULE">BR-IT-DE-004</Reference>
-			
+
 			<Element>
 				<Term>cbc:TypeCode</Term>
 				<Name>Art 73 del DPR 633/72</Name>
@@ -211,9 +211,7 @@
 				<Element cardinality="0..1">
 					<Term>cbc:MultiplierFactorNumeric</Term>
 					<Name>Percentuale dello sconto o della maggiorazione a livello documento - FPA 2.1.1.8.2 'Percentuale'</Name>
-					<Description>The percentage that may be used, in conjunction with the document level allowance base amount, to
-                calculate the document level allowance or charge amount. To state 20%, use value 20.
-					</Description>
+					<Description>Percentuale di sconto o di maggiorazione.</Description>
 					<DataType>Percentage</DataType>
 					<Reference type="RULE">BR-IT-DE-008</Reference>
 					<Value type="EXAMPLE">20</Value>
@@ -222,8 +220,7 @@
 				<Element>
 					<Term>cbc:Amount</Term>
 					<Name>Importo dello sconto o della maggiorazione a livello documento - FPA 2.1.1.8.3 'Importo'</Name>
-					<Description>The amount of an allowance or a charge, without VAT. Must be rounded to maximum 2 decimals
-					</Description>
+					<Description>Importo dello sconto o della maggiorazione</Description>
 					<DataType>Amount</DataType>
 					<Reference type="RULE">BR-IT-DE-007</Reference>
 

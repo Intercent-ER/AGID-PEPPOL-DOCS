@@ -14,7 +14,7 @@
 
             <Element>
                 <Term>cbc:ID</Term>
-                <Name>Payee identifier or bank assigned creditor identifier</Name>
+                <Name>Payee identifier or bank assigned creditor identifier - FPA 2.4.2.8 'CognomeQuietanzante' e FPA 2.4.2.9 'NomeQuietanzante'</Name>
                 <Description>This element is used for both the identification of the Payee, or the unique banking reference identifier of Payee (assigned by the Payee bank.) For payee identification use ICD code list, for SEPA bank assigned creditor reference, use SEPA.</Description>
                 <DataType>Text</DataType>
                 <Reference type="BUSINESS_TERM">BT-60, BT-90</Reference>

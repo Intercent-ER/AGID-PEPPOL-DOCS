@@ -46,7 +46,7 @@
 
             <Element>
                 <Term>cbc:ID</Term>
-                <Name>Item Seller's identifier</Name>
+                <Name>Item Seller's identifier - FPA 2.2.1.3.1 'CodiceTipo' e FPA 2.2.1.3.2 'CodiceValore'</Name>
                 <Description>An identifier, assigned by the Seller, for the item.</Description>
                 <DataType>Identifier</DataType>
                 <Reference type="BUSINESS_TERM">BT-155</Reference>
@@ -61,7 +61,7 @@
 
             <Element>
                 <Term>cbc:ID</Term>
-                <Name>Item standard identifier</Name>
+                <Name>Item standard identifier - FPA 2.2.1.3.2 'CodiceValore'</Name>
                 <Description>An item identifier based on a registered scheme.</Description>
                 <DataType>Identifier</DataType>
                 <Reference type="BUSINESS_TERM">BT-157</Reference>
@@ -69,7 +69,7 @@
 
                 <Attribute>
                     <Term>schemeID</Term>
-                    <Name>Item standard identifier identification scheme identifier</Name>
+                    <Name>Item standard identifier identification scheme identifier - FPA 2.2.1.3.1 'CodiceTipo'</Name>
                     <Description>The identification scheme identifier of the Item standard identifier</Description>
                     <Reference type="CODE_LIST">ICD</Reference>
                     <Value type="EXAMPLE">0160</Value>
@@ -102,7 +102,7 @@
 
             <Element agid:custom="rule">
                 <Term>cbc:ItemClassificationCode</Term>
-                <Name>Item classification identifier</Name>
+                <Name>Item classification identifier - FPA 2.2.1.3.2 'CodiceValore'</Name>
                 <Description>A code for classifying the item by its type or nature.</Description>
                 <DataType>Identifier</DataType>
                 <Reference type="BUSINESS_TERM">BT-158</Reference>
@@ -111,7 +111,7 @@
 
                 <Attribute>
                     <Term>listID</Term>
-                    <Name>Item classification identifier identification scheme identifier</Name>
+                    <Name>Item classification identifier identification scheme identifier - FPA 2.2.1.3.1 'CodiceTipo'</Name>
                     <Description>The identification scheme identifier of the Item classification identifier</Description>
                     <Reference type="RULE">BR-CL-13</Reference>
                     <Reference type="CODE_LIST">UNCL7143</Reference>

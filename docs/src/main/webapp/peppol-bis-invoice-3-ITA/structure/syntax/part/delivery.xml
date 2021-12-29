@@ -52,7 +52,7 @@
 
                 <Element cardinality="0..1">
                     <Term>cbc:StreetName</Term>
-                    <Name>Deliver to address line 1 - FPA 2.1.12.1 'Indirizzo'</Name>
+                    <Name>Deliver to address line 1 - FPA 2.1.9.12.1 'Indirizzo'</Name>
                     <Description>The main address line in an address.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-75</Reference>
@@ -62,7 +62,7 @@
 
                 <Element cardinality="0..1">
                     <Term>cbc:AdditionalStreetName</Term>
-                    <Name>Deliver to address line 2 - FPA 2.1.12.2 'NumeroCivico'</Name>
+                    <Name>Deliver to address line 2 - FPA 2.1.9.12.2 'NumeroCivico'</Name>
                     <Description>An additional address line in an address that can be used to give further details supplementing the
                         main line.
                     </Description>
@@ -84,7 +84,7 @@
 
                 <Element cardinality="0..1" agid:custom="rule">
                     <Term>cbc:PostalZone</Term>
-                    <Name>Deliver to post code - FPA 2.1.12.3 'CAP'</Name>
+                    <Name>Deliver to post code - FPA 2.1.9.12.3 'CAP'</Name>
                     <Description>The identifier for an addressable group of properties according to the relevant postal service.
                     </Description>
                     <DataType>Text</DataType>

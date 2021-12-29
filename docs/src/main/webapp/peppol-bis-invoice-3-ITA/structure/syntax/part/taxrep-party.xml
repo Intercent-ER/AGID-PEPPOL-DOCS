@@ -17,7 +17,7 @@
 			<Description>E' possibile indicare fino a due identificativi per il Rappresentante Fiscale:
 
 			* Codice Fiscale (FPA 1.3.1.2 'CodiceFiscale') +
-			Numero di Codice Fiscale. Utilizzare sempre il prefisso 'CF:'
+			Numero di Codice Fiscale. Utilizzare sempre lo @scheme = 0210
 			* Codice EORI (FPA 1.3.1.3.5 'CodEORI') +
 			Numero del Codice EORI (Economic Operator Registration and Identification) in base al Regolamento (CE) n. 312 del 16 aprile 2009. In vigore dal 1 luglio 2009. Utilizzare sempre il prefisso 'EORI:'
 			</Description>
@@ -32,7 +32,7 @@
                 <Reference type="CODE_LIST">ICD</Reference>
                 <Value type="EXAMPLE">0210</Value>
             </Attribute>
-				
+
 			<Value type="EXAMPLE">EORI:12345678901</Value>
 		</Element>
 	</Element>
@@ -152,7 +152,7 @@
 
 		<Element agid:custom="rule">
 			<Term>cbc:CompanyID</Term>
-			<Name>Seller tax representative VAT identifier</Name>
+			<Name>Seller tax representative VAT identifier - FPA 1.3.1.1.1 'IdPaese' e FPA 1.3.1.1.2 'IdCodice'</Name>
 			<Description>The VAT identifier of the Seller's tax representative party.</Description>
 			<DataType>Identifier</DataType>
 			<Reference type="BUSINESS_TERM">BT-63</Reference>

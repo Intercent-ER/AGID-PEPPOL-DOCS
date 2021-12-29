@@ -24,7 +24,7 @@
 
 	<Element cardinality="1..n">
 		<Term>cac:TaxSubtotal</Term>
-		<Name>Dettaglio Ritenuta</Name>
+		<Name>Dettaglio Ritenuta - FPA 2.1.1.5 'DatiRitenuta'</Name>
 		<Reference type="RULE">BR-IT-DE-011</Reference>
 
 		<!--Element cardinality="0..1">
@@ -42,7 +42,7 @@
 			</Attribute>
 			<Value type="EXAMPLE">1000.00</Value>
 		</Element-->
-		
+
 		<Element>
 			<Term>cbc:TaxAmount</Term>
 			<Name>Importo Ritenuta - FPA 2.1.1.5.2 'ImportoRitenuta'</Name>

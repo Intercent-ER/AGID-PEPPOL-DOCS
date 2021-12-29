@@ -28,10 +28,10 @@
                     <Name>Buyer electronic address identification scheme identifier</Name>
                     <Description>The identification scheme identifier of the Buyer electronic address.</Description>
                     <Reference type="CODE_LIST">eas</Reference>
-                    <Value type="EXAMPLE">0192</Value>
+                    <Value type="EXAMPLE">0201</Value>
                 </Attribute>
 
-                <Value type="EXAMPLE">987654321</Value>
+                <Value type="EXAMPLE">ABCDEF</Value>
 
             </Element>
 
@@ -56,7 +56,6 @@
                         <Reference type="CODE_LIST">ICD</Reference>
                         <Value type="EXAMPLE">0088</Value>
                     </Attribute>
-                    <Value type="EXAMPLE">SE8765456787</Value>
 					<Value type="EXAMPLE">EORI:1234567890</Value>
                 </Element>
             </Element>
@@ -175,7 +174,7 @@
 
                 <Element agid:custom="rule">
                     <Term>cbc:CompanyID</Term>
-                    <Name>Buyer VAT identifier</Name>
+                    <Name>Buyer VAT identifier - FPA 1.4.1.1.1 'IdPaese' e FPA 1.4.1.1.2 'IdCodice'</Name>
                     <Description>The Buyer's VAT identifier (also known as Buyer VAT identification number).</Description>
                     <DataType>Identifier</DataType>
                     <Reference type="BUSINESS_TERM">BT-48</Reference>
@@ -191,7 +190,7 @@
                     <Reference type="RULE">BR-O-04</Reference>
 					<Reference type="RULE">BR-IT-180</Reference>
 					<Reference type="RULE">BR-IT-520A</Reference>
-                    <Value type="EXAMPLE">SE8765456787</Value>
+                    <Value type="EXAMPLE">IT01598570354</Value>
                 </Element>
 
                 <Element>
@@ -242,9 +241,9 @@
                         <Name>Buyer legal registration identifier identification scheme identifier</Name>
                         <Description>The identification scheme identifier of the Buyer legal registration identifier.</Description>
                         <Reference type="CODE_LIST">ICD</Reference>
-                        <Value type="EXAMPLE">0007</Value>
+                        <Value type="EXAMPLE">0210</Value>
                     </Attribute>
-                    <Value type="EXAMPLE">5560104525</Value>
+                    <Value type="EXAMPLE">01598570354</Value>
                 </Element>
             </Element>
 

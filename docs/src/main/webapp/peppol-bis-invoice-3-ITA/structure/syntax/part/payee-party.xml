@@ -2,7 +2,7 @@
 <Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" cardinality="0..1">
 
         <Term>cac:PayeeParty</Term>
-        <Name>PAYEE</Name>
+        <Name>PAYEE - Beneficiario</Name>
         <Description>Il beneficiario è una persona, istituto bancario o entità di business alla quale si effettua il pagamento.</Description>
         <Reference type="BUSINESS_TERM">BG-10</Reference>
 
@@ -64,8 +64,8 @@
 
                 <Attribute usage="Optional">
                     <Term>schemeID</Term>
-                    <Name>Scheme identifier</Name>
-                    <Description>Indica lo scheme identifier dell'identificativo di registrazione legale Fornitore.</Description>
+                    <Name>Payee legal registration identifier identification scheme identifier</Name>
+                    <Description>Indica lo scheme identifier dell'identificativo di registrazione legale Beneficiario.</Description>
                     <Reference type="RULE">BR-CL-10</Reference>
                     <Reference type="CODE_LIST">ICD</Reference>
                     <Value type="EXAMPLE">0210</Value>

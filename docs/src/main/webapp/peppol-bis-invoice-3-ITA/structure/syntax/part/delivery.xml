@@ -145,7 +145,7 @@
 
             <Element cardinality="0..1">
                 <Term>cac:PartyIdentification</Term>
-                <Name>PARTY IDENTIFICATION</Name>
+                <Name>PARTY IDENTIFICATION - Identificativo della parte</Name>
 
                 <Element>
                     <Term>cbc:ID</Term>
@@ -252,7 +252,7 @@
 
             <Element>
                 <Term>cac:PartyName</Term>
-                <Name>PARTY NAME</Name>
+                <Name>PARTY NAME - Nome della parte</Name>
 
                 <Element>
                     <Term>cbc:Name</Term>

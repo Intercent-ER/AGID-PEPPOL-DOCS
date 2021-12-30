@@ -11,7 +11,7 @@
 		<DataType>Amount</DataType>
 		<Attribute>
 			<Term>currencyID</Term>
-			<Description>Identificativo valuta.</Description>
+			<Description>Mandatory attribute. Use BT-5 or BT-6. Identificativo valuta.</Description>
 			<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
 			<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
 			<Reference type="RULE">BR-IT-DE-010</Reference>
@@ -51,7 +51,7 @@
 
 			<Attribute>
 				<Term>currencyID</Term>
-				<Description>Mandatory attribute. Use BT-5</Description>
+				<Description>Mandatory attribute. Use BT-5. Identificativo valuta.</Description>
 				<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
 				<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
 				<Reference type="CODE_LIST">ISO4217</Reference>

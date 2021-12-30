@@ -33,6 +33,7 @@
                     <Reference type="CODE_LIST">ICD</Reference>
                     <Value type="EXAMPLE">0210</Value>
                 </Attribute>
+				<Value type="EXAMPLE">CXXNXX68M06E123H</Value>
 				<Value type="EXAMPLE">EORI:12345678901</Value>
 			</Element>
 		</Element>

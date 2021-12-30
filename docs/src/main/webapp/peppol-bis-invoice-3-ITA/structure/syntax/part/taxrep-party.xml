@@ -3,19 +3,18 @@
 
 	<Term>cac:TaxRepresentativeParty</Term>
 	<Name>SELLER TAX REPRESENTATIVE PARTY - FPA 1.3 'RappresentanteFiscale'</Name>
-	<Description>A group of business terms providing information about the Seller's tax representative.
+	<Description>A group of business terms providing information about the Seller's tax representative. Blocco da valorizzare nei casi in cui il cedente / prestatore si avvalga di un rappresentante fiscale in Italia.
 	</Description>
 	<Reference type="BUSINESS_TERM">BG-11</Reference>
 
 	<Element cardinality="0..2" agid:custom="extension">
 		<Term>cac:PartyIdentification</Term>
-		<Name>PARTY IDENTIFICATION</Name>
+		<Name>PARTY IDENTIFICATION - Identificativo della parte</Name>
 
 		<Element agid:custom="rule">
 			<Term>cbc:ID</Term>
 			<Name>Identificativo del rappresentante fiscale</Name>
 			<Description>E' possibile indicare fino a due identificativi per il Rappresentante Fiscale:
-
 			* Codice Fiscale (FPA 1.3.1.2 'CodiceFiscale') +
 			Numero di Codice Fiscale. Utilizzare sempre lo @scheme = 0210
 			* Codice EORI (FPA 1.3.1.3.5 'CodEORI') +
@@ -26,8 +25,8 @@
 			<Reference type="RULE">BR-IT-DE-025</Reference>
             <Attribute usage="Optional">
                 <Term>schemeID</Term>
-                <Name>Tax Representative Party identification scheme identifier</Name>
-                <Description>The identification scheme identifier of the Tax Representative Party identifier.</Description>
+                <Name>Scheme identifier</Name>
+                <Description>Scheme identifier dell'identificativo del Rappresentante Fiscale.</Description>
                 <Reference type="RULE">BR-CL-10</Reference>
                 <Reference type="CODE_LIST">ICD</Reference>
                 <Value type="EXAMPLE">0210</Value>
@@ -39,24 +38,23 @@
 
 	<Element>
 		<Term>cac:PartyName</Term>
-		<Name>PARTY NAME</Name>
+		<Name>PARTY NAME - Denominazione della parte</Name>
 
 		<Element>
 			<Term>cbc:Name</Term>
-			<Name>Seller tax representative name</Name>
-			<Description>The full name of the Seller's tax representative party.</Description>
+			<Name>Seller tax representative name - Nome Rappresentante Fiscale</Name>
+			<Description>Nome completo Rappresentante Fiscale del fornitore.</Description>
 			<DataType>Text</DataType>
 			<Reference type="BUSINESS_TERM">BT-62</Reference>
 			<Reference type="RULE">BR-18</Reference>
-			<Value type="EXAMPLE">Tax Representative Name AS</Value>
+			<Value type="EXAMPLE">Commercialista Snc</Value>
 		</Element>
 	</Element>
 
 	<Element>
 		<Term>cac:PostalAddress</Term>
-		<Name>SELLER TAX REPRESENTATIVE POSTAL ADDRESS</Name>
-		<Description>A group of business terms providing information about the postal address for the tax representative
-                party. Sufficient components of the address are to be filled to comply with legal requirements.
+		<Name>SELLER TAX REPRESENTATIVE POSTAL ADDRESS - Indirizzo Rappresentante Fiscale</Name>
+		<Description>Contiene informazioni relative all’indirizzo del Rappresentante Fiscale.
 		</Description>
 		<Reference type="BUSINESS_TERM">BG-12</Reference>
 		<Reference type="RULE">BR-19</Reference>
@@ -64,8 +62,8 @@
 
 		<Element cardinality="0..1">
 			<Term>cbc:StreetName</Term>
-			<Name>Tax representative address line 1</Name>
-			<Description>The main address line in an address.</Description>
+			<Name>Tax representative address line 1 - Indirizzo </Name>
+			<Description>Strada, via, piazza ecc. e numero civico.</Description>
 			<DataType>Text</DataType>
 			<Reference type="BUSINESS_TERM">BT-64</Reference>
 			<Value type="EXAMPLE">Lille gatan 545</Value>
@@ -73,10 +71,8 @@
 
 		<Element cardinality="0..1">
 			<Term>cbc:AdditionalStreetName</Term>
-			<Name>Tax representative address line 2</Name>
-			<Description>An additional address line in an address that can be used to give further details supplementing the
-                    main line.
-			</Description>
+			<Name>Tax representative address line 2 - Informazioni addizionali indirizzo</Name>
+			<Description>Informazioni addizionali indirizzo.</Description>
 			<DataType>Text</DataType>
 			<Reference type="BUSINESS_TERM">BT-65</Reference>
 			<Value type="EXAMPLE">Po Box 987</Value>
@@ -84,9 +80,8 @@
 
 		<Element cardinality="0..1">
 			<Term>cbc:CityName</Term>
-			<Name>Tax representative city</Name>
-			<Description>The common name of the city, town or village, where the tax representative address is located.
-			</Description>
+			<Name>Tax representative city - Città</Name>
+			<Description>Nome della città</Description>
 			<DataType>Text</DataType>
 			<Reference type="BUSINESS_TERM">BT-66</Reference>
 			<Value type="EXAMPLE">Göteborg</Value>
@@ -94,8 +89,8 @@
 
 		<Element cardinality="0..1">
 			<Term>cbc:PostalZone</Term>
-			<Name>Tax representative post code</Name>
-			<Description>The identifier for an addressable group of properties according to the relevant postal service.
+			<Name>Tax representative post code - CAP</Name>
+			<Description>Codice Postale
 			</Description>
 			<DataType>Text</DataType>
 			<Reference type="BUSINESS_TERM">BT-67</Reference>
@@ -104,8 +99,8 @@
 
 		<Element cardinality="0..1">
 			<Term>cbc:CountrySubentity</Term>
-			<Name>Tax representative country subdivision</Name>
-			<Description>The subdivision of a country.</Description>
+			<Name>Tax representative country subdivision - Provincia</Name>
+			<Description>Provincia.</Description>
 			<DataType>Text</DataType>
 			<Reference type="BUSINESS_TERM">BT-68</Reference>
 			<Value type="EXAMPLE">Region Vest</Value>
@@ -118,10 +113,8 @@
 
 			<Element>
 				<Term>cbc:Line</Term>
-				<Name>Tax representative address line 3</Name>
-				<Description>An additional address line in an address that can be used to give further details supplementing the
-                        main line.
-				</Description>
+				<Name>Tax representative address line 3 - Ulteriori informazioni indirizzo</Name>
+				<Description>Ulteriori informazioni indirizzo</Description>
 				<DataType>Text</DataType>
 				<Reference type="BUSINESS_TERM">BT-164</Reference>
 				<Value type="EXAMPLE">A87</Value>
@@ -134,26 +127,26 @@
 
 			<Element>
 				<Term>cbc:IdentificationCode</Term>
-				<Name>Tax representative country code</Name>
-				<Description>A code that identifies the country.</Description>
+				<Name>Tax representative country code - Codice nazione</Name>
+				<Description>Codice identificativo della nazione.</Description>
 				<DataType>Code</DataType>
 				<Reference type="BUSINESS_TERM">BT-69</Reference>
 				<Reference type="RULE">BR-20</Reference>
 				<Reference type="RULE">BR-CL-14</Reference>
 				<Reference type="CODE_LIST">ISO3166</Reference>
-				<Value type="EXAMPLE">SE</Value>
+				<Value type="EXAMPLE">IT</Value>
 			</Element>
 		</Element>
 	</Element>
 
 	<Element>
 		<Term>cac:PartyTaxScheme</Term>
-		<Name>PARTY VAT IDENTIFIER</Name>
+		<Name>PARTY VAT IDENTIFIER - Informazioni fiscali Rappresentante Fiscale</Name>
 
 		<Element agid:custom="rule">
 			<Term>cbc:CompanyID</Term>
 			<Name>Seller tax representative VAT identifier - FPA 1.3.1.1.1 'IdPaese' e FPA 1.3.1.1.2 'IdCodice'</Name>
-			<Description>The VAT identifier of the Seller's tax representative party.</Description>
+			<Description>The VAT identifier of the Seller's tax representative party. Numero di identificazione fiscale ai fini IVA; i primi due caratteri rappresentano il paese ( IT, DE, ES …..) ed i restanti (fino ad un massimo di 28) il codice vero e proprio che, per i residenti in Italia, corrisponde al numero di partita IVA.</Description>
 			<DataType>Identifier</DataType>
 			<Reference type="BUSINESS_TERM">BT-63</Reference>
 			<Reference type="RULE">BR-56</Reference>
@@ -186,7 +179,7 @@
 			<Reference type="RULE">BR-IP-03</Reference>
 			<Reference type="RULE">BR-IP-04</Reference>
 			<Reference type="RULE">BR-IT-230</Reference>
-			<Value type="EXAMPLE">FR932874294</Value>
+			<Value type="EXAMPLE">IT07643520567</Value>
 		</Element>
 
 		<Element>

@@ -4,14 +4,14 @@
 	<Term>cac:PowerOfAttorney</Term>
 	<Name>La procura per la rappresentanza fiscale associata al Cessionario/Committente</Name>
 	<Description>Elemento da valorizzare se il Cessionario/Committente si avvale di un rappresentante fiscale in Italia.</Description>
-	
+
 	<Element>
 		<Term>cbc:Description</Term>
 		<Name>Denominazione della procura</Name>
 		<DataType>Text</DataType>
         <Value type="FIXED">Rappresentante Fiscale</Value>
 	</Element>
-	
+
 	<Element>
 		<Term>cac:AgentParty</Term>
 		<Name>Il Rappresentante Fiscale che detiene questa procura per conto del Cessionario/Committente - FPA 1.4.4 'RappresentanteFiscale'</Name>
@@ -61,6 +61,7 @@
 				<Reference type="RULE">SE-R-001</Reference>
 				<Reference type="RULE">SE-R-002</Reference>
 				<Reference type="RULE">SE-R-005</Reference>
+				<Value type="EXAMPLE">IT01598570354</Value>
 			</Element>
 
 			<Element>
@@ -82,13 +83,14 @@
 			<Element>
 				<Term>cbc:RegistrationName</Term>
 				<Name>Ragione Sociale - FPA 1.4.4.2 'Denominazione'</Name>
+				<Description>Ditta, denominazione o ragione sociale (ditta, impresa, società, ente).</Description>
 				<DataType>Text</DataType>
 				<Reference type="RULE">BR-06</Reference>
 				<Value type="EXAMPLE">Rappresentante Fiscale Srl</Value>
 			</Element>
 
 		</Element>
-		
+
 		<Element cardinality="0..1">
 			<Term>cac:Person</Term>
 			<Name>Persona Fisica</Name>
@@ -105,6 +107,6 @@
 			</Element>
 
 		</Element>
-		
+
 	</Element>
 </Element>

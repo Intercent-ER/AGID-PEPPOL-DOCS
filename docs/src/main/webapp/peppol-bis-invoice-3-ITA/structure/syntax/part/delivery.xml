@@ -4,14 +4,14 @@
         <Term>cac:Delivery</Term>
         <Name>DELIVERY INFORMATION - FPA 2.1.9 'DatiTrasporto'</Name>
         <Description>A group of business terms providing information about where and when the goods and services
-            invoiced are delivered.
+            invoiced are delivered. Blocco valorizzabile nei casi di fattura "accompagnatoria" per inserire informazioni relative al trasporto.
         </Description>
         <Reference type="BUSINESS_TERM">BG-13</Reference>
 
         <Element cardinality="0..1">
             <Term>cbc:ActualDeliveryDate</Term>
             <Name>Actual delivery date - FPA 2.1.9.13 'DataOraConsegna'</Name>
-            <Description>The date on which the supply of goods or services was made or completed. Format = "YYYY-MM-DD"</Description>
+            <Description>The date on which the supply of goods or services was made or completed. Data e ora della consegna della merce (secondo il formato "YYYY-MM-DD").</Description>
             <DataType>Date</DataType>
             <Reference type="BUSINESS_TERM">BT-72</Reference>
             <Reference type="RULE">BR-IC-11</Reference>
@@ -25,15 +25,15 @@
 
             <Element cardinality="0..1">
                 <Term>cbc:ID</Term>
-                <Name>Deliver to location identifier</Name>
-                <Description>An identifier for the location at which the goods and services are delivered.</Description>
+                <Name>Deliver to location identifier - ID Luogo della consegna</Name>
+                <Description>Indica il codice attribuito al luogo in cui deve essere eseguita la fornitura.</Description>
                 <DataType>Identifier</DataType>
                 <Reference type="BUSINESS_TERM">BT-71</Reference>
 
                 <Attribute usage="Optional">
                     <Term>schemeID</Term>
-                    <Name>Deliver to location identifier identification scheme identifier</Name>
-                    <Description>The identification scheme identifier of the Deliver to location identifier.</Description>
+                    <Name>Deliver to location identifier identification scheme identifier - Scheme identifier identificativo luogo di consegna</Name>
+                    <Description>Indica lo scheme identifier dell'identificativo del luogo di consegna.</Description>
                     <Reference type="CODE_LIST">ICD</Reference>
                     <Value type="EXAMPLE">0088</Value>
                 </Attribute>
@@ -46,14 +46,14 @@
                 <Term>cac:Address</Term>
                 <Name>DELIVER TO ADDRESS - FPA 2.1.9.12 'IndirizzoResa'</Name>
                 <Description>A group of business terms providing information about the address to which goods and services
-                    invoiced were or are delivered.
+                    invoiced were or are delivered. Dati dell'indirizzo di resa.
                 </Description>
                 <Reference type="BUSINESS_TERM">BG-15</Reference>
 
                 <Element cardinality="0..1">
                     <Term>cbc:StreetName</Term>
                     <Name>Deliver to address line 1 - FPA 2.1.9.12.1 'Indirizzo'</Name>
-                    <Description>The main address line in an address.</Description>
+                    <Description>The main address line in an address. Dati dell'indirizzo di resa.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-75</Reference>
 					<Reference type="RULE">BR-IT-240</Reference>
@@ -64,7 +64,7 @@
                     <Term>cbc:AdditionalStreetName</Term>
                     <Name>Deliver to address line 2 - FPA 2.1.9.12.2 'NumeroCivico'</Name>
                     <Description>An additional address line in an address that can be used to give further details supplementing the
-                        main line.
+                        main line. Numero civico riferito all'indirizzo di resa.
                     </Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-76</Reference>
@@ -74,7 +74,7 @@
                 <Element cardinality="0..1" agid:custom="rule">
                     <Term>cbc:CityName</Term>
                     <Name>Deliver to city - FPA 2.1.9.12.4 'Comune'</Name>
-                    <Description>The common name of the city, town or village, where the deliver to address is located.
+                    <Description>The common name of the city, town or village, where the deliver to address is located. Comune ove ha sede l'indirizzo di resa.
                     </Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-77</Reference>
@@ -85,7 +85,7 @@
                 <Element cardinality="0..1" agid:custom="rule">
                     <Term>cbc:PostalZone</Term>
                     <Name>Deliver to post code - FPA 2.1.9.12.3 'CAP'</Name>
-                    <Description>The identifier for an addressable group of properties according to the relevant postal service.
+                    <Description>The identifier for an addressable group of properties according to the relevant postal service. Codice Avviamento Postale dell'indirizzo di resa.
                     </Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-78</Reference>
@@ -96,7 +96,7 @@
                 <Element cardinality="0..1" agid:custom="rule">
                     <Term>cbc:CountrySubentity</Term>
                     <Name>Deliver to country subdivision - FPA 2.1.9.12.5 'Provincia'</Name>
-                    <Description>The subdivision of a country.</Description>
+                    <Description>The subdivision of a country. Codice Avviamento Postale dell'indirizzo di resa.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-79</Reference>
 					<Reference type="RULE">BR-IT-250</Reference>
@@ -109,9 +109,8 @@
 
                     <Element>
                         <Term>cbc:Line</Term>
-                        <Name>Deliver to address line 3</Name>
-                        <Description>An additional address line in an address that can be used to give further details supplementing the
-                            main line.
+                        <Name>Deliver to address line 3 - Ulteriori informazioni indirizzo</Name>
+                        <Description>Riga addizionale che può essere utilizzata per fornire ulteriori informazioni sull'indirizzo.
                         </Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">BT-165</Reference>
@@ -121,19 +120,19 @@
 
                 <Element>
                     <Term>cac:Country</Term>
-                    <Name>COUNTRY</Name>
+                    <Name>COUNTRY - Nazione</Name>
 
                     <Element>
                         <Term>cbc:IdentificationCode</Term>
                         <Name>Deliver to country code - FPA 2.1.9.12.6 'Nazione'</Name>
-                        <Description>A code that identifies the country.</Description>
+                        <Description>A code that identifies the country. Codice della nazione espresso secondo lo standard ISO 3166-1 alpha-2 code.</Description>
                         <DataType>Code</DataType>
                         <Reference type="BUSINESS_TERM">BT-80</Reference>
                         <Reference type="RULE">BR-57</Reference>
                         <Reference type="RULE">BR-CL-14</Reference>
                         <Reference type="RULE">BR-IC-12</Reference>
                         <Reference type="CODE_LIST">ISO3166</Reference>
-                        <Value type="EXAMPLE">SE</Value>
+                        <Value type="EXAMPLE">IT</Value>
                     </Element>
                 </Element>
             </Element>
@@ -151,7 +150,7 @@
                 <Element>
                     <Term>cbc:ID</Term>
                     <Name>Codice Fiscale - FPA 2.1.9.1.2 'CodiceFiscale'</Name>
-                    <Description>Numero di Codice Fiscale. Utilizzare sempre il prefisso 'CF:'</Description>
+                    <Description>Numero di Codice Fiscale.</Description>
                     <DataType>Identifier</DataType>
 					<Reference type="RULE">BR-IT-DE-026A</Reference>
                 </Element>
@@ -159,7 +158,7 @@
 
             <Element cardinality="0..1">
                 <Term>cac:PartyName</Term>
-                <Name>PARTY NAME</Name>
+                <Name>PARTY NAME - Nome della parte</Name>
 
                 <Element>
                     <Term>cbc:Name</Term>
@@ -174,7 +173,7 @@
 
            <Element>
                 <Term>cac:PartyTaxScheme</Term>
-                <Name>PARTY VAT IDENTIFIER</Name>
+                <Name>PARTY VAT IDENTIFIER - Informazioni fiscali Vettore</Name>
 
                 <Element>
                     <Term>cbc:CompanyID</Term>
@@ -199,7 +198,7 @@
 
                     <Element>
                         <Term>cbc:ID</Term>
-                        <Description>Mandatory element. Use “VAT”</Description>
+                        <Description>Elemento obbligatorio (ad esempio "VAT" o "GST").</Description>
                         <DataType>Identifier</DataType>
 						<Reference type="RULE">BR-IT-DE-029</Reference>
                         <Value type="DEFAULT">VAT</Value>
@@ -232,6 +231,7 @@
                     <Element>
                         <Term>cbc:ID</Term>
                         <Name>Numero Licenza Guida - FPA 2.1.9.1.4 'NumeroLicenzaGuida'</Name>
+                        <Description>Numero identificativo della licenza di guida (es. numero patente)</Description>
                         <DataType>Identifier</DataType>
                     </Element>
 
@@ -248,7 +248,7 @@
 
         <Element cardinality="0..1">
             <Term>cac:DeliveryParty</Term>
-            <Name>DELIVER PARTY</Name>
+            <Name>DELIVER PARTY - Beneficiario della fornitura</Name>
 
             <Element>
                 <Term>cac:PartyName</Term>
@@ -256,11 +256,11 @@
 
                 <Element>
                     <Term>cbc:Name</Term>
-                    <Name>Deliver to party name</Name>
-                    <Description>The name of the party to which the goods and services are delivered.</Description>
+                    <Name>Deliver to party name - Denominazione</Name>
+                    <Description>Indica la denominazione del beneficiario della fornitura.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-70</Reference>
-                    <Value type="EXAMPLE">Deliver name</Value>
+                    <Value type="EXAMPLE">Dipartimento chirurgia</Value>
                 </Element>
             </Element>
         </Element>

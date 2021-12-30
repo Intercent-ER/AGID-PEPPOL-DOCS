@@ -3,33 +3,31 @@
 
         <Term>cac:PayeeParty</Term>
         <Name>PAYEE</Name>
-        <Description>A group of business terms providing information about the Payee, i.e. the role that receives the
-            payment.  Shall be used when the Payee is different from the Seller.
-        </Description>
+        <Description>Il beneficiario è una persona, istituto bancario o entità di business alla quale si effettua il pagamento.</Description>
         <Reference type="BUSINESS_TERM">BG-10</Reference>
 
         <Element cardinality="0..1">
             <Term>cac:PartyIdentification</Term>
-            <Name>PARTY IDENTIFICATION</Name>
+            <Name>PARTY IDENTIFICATION - Identificativo della parte</Name>
 
             <Element>
                 <Term>cbc:ID</Term>
                 <Name>Payee identifier or bank assigned creditor identifier - FPA 2.4.2.8 'CognomeQuietanzante' e FPA 2.4.2.9 'NomeQuietanzante'</Name>
-                <Description>This element is used for both the identification of the Payee, or the unique banking reference identifier of Payee (assigned by the Payee bank.) For payee identification use ICD code list, for SEPA bank assigned creditor reference, use SEPA.</Description>
+                <Description>This element is used for both the identification of the Payee, or the unique banking reference identifier of Payee (assigned by the Payee bank.) For payee identification use ICD code list, for SEPA bank assigned creditor reference, use SEPA. Cognome e Nome quietanzante.</Description>
                 <DataType>Text</DataType>
                 <Reference type="BUSINESS_TERM">BT-60, BT-90</Reference>
 
                 <Attribute usage="Optional">
                     <Term>schemeID</Term>
-                    <Name>Payee or bank assigned creditor identifier identification scheme identifier</Name>
-                    <Description>The identification scheme identifier of the payee identifier. For bank assigned creditor identifier (BT-90), value MUST be "SEPA"</Description>
+                    <Name>Scheme identifier</Name>
+                    <Description>Scheme identifier dell'identificativo del Beneficiario</Description>
                     <Reference type="RULE">BR-CL-10</Reference>
                     <Reference type="CODE_LIST">ICD</Reference>
                     <Reference type="CODE_LIST">SEPA</Reference>
-                    <Value type="EXAMPLE">SEPA</Value>
+                    <Value type="EXAMPLE">0211</Value>
                 </Attribute>
 
-                <Value type="EXAMPLE">FR932874294</Value>
+                <Value type="EXAMPLE">IT01598570354</Value>
 
             </Element>
 
@@ -37,12 +35,12 @@
 
         <Element>
             <Term>cac:PartyName</Term>
-            <Name>PARTY NAME</Name>
+            <Name>PARTY NAME - Nome della parte</Name>
 
             <Element>
                 <Term>cbc:Name</Term>
                 <Name>Payee name - FPA 2.4.2.1 'Beneficiario'</Name>
-                <Description>The name of the Payee.</Description>
+                <Description>The name of the Payee. Beneficiario del pagamento (utilizzabile se si intende indicare un beneficiario diverso dal cedente/prestatore).</Description>
                 <DataType>Text</DataType>
                 <Reference type="BUSINESS_TERM">BT-59</Reference>
                 <Reference type="RULE">BR-17</Reference>
@@ -58,7 +56,7 @@
                 <Term>cbc:CompanyID</Term>
                 <Name>Payee legal registration identifier - FPA 2.4.2.10 'CFQuietanzante'</Name>
                 <Description>An identifier issued by an official registrar that identifies the Payee as a legal entity or
-                    person.
+                    person. Codice fiscale del quietanzante.
                 </Description>
                 <DataType>Identifier</DataType>
                 <Reference type="BUSINESS_TERM">BT-61</Reference>
@@ -66,14 +64,14 @@
 
                 <Attribute usage="Optional">
                     <Term>schemeID</Term>
-                    <Name>Payee legal registration identifier identification scheme identifier</Name>
-                    <Description>The identification scheme identifier of the Payee legal registration identifier.</Description>
+                    <Name>Scheme identifier</Name>
+                    <Description>Indica lo scheme identifier dell'identificativo di registrazione legale Fornitore.</Description>
                     <Reference type="RULE">BR-CL-10</Reference>
                     <Reference type="CODE_LIST">ICD</Reference>
-                    <Value type="EXAMPLE">0002</Value>
+                    <Value type="EXAMPLE">0210</Value>
                 </Attribute>
 
-                <Value type="EXAMPLE">FR932874294</Value>
+                <Value type="EXAMPLE">CXXNXX68M06E123H</Value>
 
             </Element>
         </Element>

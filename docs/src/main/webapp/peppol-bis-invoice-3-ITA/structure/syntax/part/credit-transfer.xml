@@ -10,7 +10,7 @@
             <Term>cbc:ID</Term>
             <Name>Payment account identifier - FPA 2.4.2.13 'IBAN'</Name>
             <Description>A unique identifier of the financial payment account, at a payment service provider, to which
-                payment should be made. Such as IBAN or BBAN.
+                payment should be made. Such as IBAN or BBAN. International Bank Account Number (coordinata bancaria internazionale che consente di identificare, in maniera standard, il conto corrente del beneficiario ).
             </Description>
             <DataType>Identifier</DataType>
             <Reference type="BUSINESS_TERM">BT-84</Reference>
@@ -38,7 +38,7 @@
                 <Term>cbc:ID</Term>
                 <Name>Payment service provider identifier - FPA 2.4.2.16 'BIC'</Name>
                 <Description>An identifier for the payment service provider where a payment account is located.
-                    Such as a BIC or a national clearing code where required. No identification scheme Identifier to be used.</Description>
+                    Such as a BIC or a national clearing code where required. No identification scheme Identifier to be used. Bank Identifier Code (codice che identifica la banca del beneficiario).</Description>
                 <DataType>Identifier</DataType>
                 <Reference type="BUSINESS_TERM">BT-86</Reference>
 				<Reference type="RULE">BR-IT-280</Reference>

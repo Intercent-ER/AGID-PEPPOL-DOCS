@@ -3,7 +3,7 @@
 
 	<Term>cac:Shipment</Term>
 	<Name>Spedizione</Name>
-	<Description>The shipment being delivered.</Description>
+	<Description>Contiene ulteriori indicazioni relative all’esecuzione della fornitura.</Description>
 
 	<Element>
 		<Term>cbc:ID</Term>
@@ -18,7 +18,7 @@
 	<Element cardinality="0..1">
 		<Term>cbc:GrossWeightMeasure</Term>
 		<Name>Peso Lordo - FPA 2.1.9.7 'PesoLordo'</Name>
-		<Description>The total gross weight of a shipment; the weight of the goods plus packaging plus transport equipment.</Description>
+		<Description>The total gross weight of a shipment; the weight of the goods plus packaging plus transport equipment. Peso lordo della merce.</Description>
 		<DataType>Measure</DataType>
 		<Reference type="RULE">BR-IT-DE-031</Reference>
 		<Value type="EXAMPLE">10.0</Value>
@@ -26,6 +26,7 @@
 		<Attribute>
 			<Term>unitCode</Term>
 			<Name>Unità di misura - FPA 2.1.9.6 'UnitaMisuraPeso'</Name>
+			<Description>Unità di misura riferita al peso della merce</Description>
 			<DataType>Code</DataType>
 			<Reference type="RULE">BR-23</Reference>
 			<Reference type="CODE_LIST">UNECERec20</Reference>
@@ -38,7 +39,7 @@
 	<Element cardinality="0..1">
 		<Term>cbc:NetWeightMeasure</Term>
 		<Name>Peso Netto - FPA 2.1.9.8 'PesoNetto'</Name>
-		<Description>The net weight of this shipment, excluding packaging.</Description>
+		<Description>The net weight of this shipment, excluding packaging. Peso netto della merce.</Description>
 		<DataType>Measure</DataType>
 		<Reference type="RULE">BR-IT-DE-031</Reference>
 		<Value type="EXAMPLE">8.0</Value>
@@ -46,6 +47,7 @@
 		<Attribute>
 			<Term>unitCode</Term>
 			<Name>Unità di misura - FPA 2.1.9.6 'UnitaMisuraPeso'</Name>
+			<Description>Unità di misura riferita al peso della merce</Description>			
 			<DataType>Code</DataType>
 			<Reference type="RULE">BR-23</Reference>
 			<Reference type="CODE_LIST">UNECERec20</Reference>

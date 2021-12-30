@@ -3,12 +3,12 @@
 
 	<Term>cac:DeliveryTerms</Term>
 	<Name>Termini di Consegna</Name>
-	<Description>A set of delivery terms associated with this document.</Description>
+	<Description>Un set di termini di consegna associato a questo documento.</Description>
 
 	<Element>
 		<Term>cbc:ID</Term>
 		<Name>Tipo Resa Merce - FPA 2.1.9.11 'TipoResa'</Name>
-		<Description>An identifier for this description of delivery terms. (e.g. ICC Incoterms 2000)</Description>
+		<Description>An identifier for this description of delivery terms. (e.g. ICC Incoterms 2000). Codifica del termine di resa espresso secondo lo standard ICC-Camera di Commercio Internazionale (Incoterms).</Description>
 		<DataType>Identifier</DataType>
 		<Reference type="RULE">BR-IT-DE-036</Reference>
 

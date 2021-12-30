@@ -33,7 +33,7 @@
             <Term>cac:TaxSubtotal</Term>
             <Name>VAT BREAKDOWN - FPA 2.2.2 'DatiRiepilogo'</Name>
             <Description>A group of business terms providing information about VAT breakdown by different categories, rates
-                and exemption reasons. Blocco obbligatorio, gli elementi informativi che lo compongono riepilogano le informazioni di dettaglio, aggregandole per aliquota IVA distinta oppure per aliquota IVA nulla e <Natura> distinta oppure, a parità di questi elementi, per valore distinto di 'Esigbilità'
+                and exemption reasons. Blocco obbligatorio, gli elementi informativi che lo compongono riepilogano le informazioni di dettaglio, aggregandole per aliquota IVA distinta oppure per aliquota IVA nulla e 'Natura' distinta oppure, a parità di questi elementi, per valore distinto di 'Esigbilità'
             </Description>
             <Reference type="BUSINESS_TERM">BG-23</Reference>
             <Reference type="RULE">PEPPOL-EN16931-R053</Reference>

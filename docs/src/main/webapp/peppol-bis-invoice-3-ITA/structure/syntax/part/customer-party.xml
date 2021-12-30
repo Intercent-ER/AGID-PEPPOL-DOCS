@@ -128,7 +128,7 @@
                 <Element cardinality="0..1" agid:custom="rule">
                     <Term>cbc:CountrySubentity</Term>
                     <Name>Buyer country subdivision - FPA 1.4.2.5 'Provincia'</Name>
-                    <Description>The subdivision of a country. Sigla della provincia di appartenenza del comune indicato nell'elemento informativo 1.4.2.4 <Comune>. Da valorizzare se l'elemento informativo 1.4.2,6 <Nazione> è uguale a IT.</Description>
+                    <Description>The subdivision of a country. Sigla della provincia di appartenenza del comune indicato nell'elemento informativo 1.4.2.4 'Comune'. Da valorizzare se l'elemento informativo 1.4.2.6 'Nazione' è uguale a IT.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-54</Reference>
 					<Reference type="RULE">BR-IT-220</Reference>

@@ -138,7 +138,7 @@
                 <Element cardinality="0..1">
                     <Term>cbc:CountrySubentity</Term>
                     <Name>Seller country subdivision - FPA 1.2.2.5 'Provincia'</Name>
-                    <Description>The subdivision of a country. Sigla della provincia di appartenenza del comune indicato nell'elemento informativo 1.2.3.4 <Comune>. Da valorizzare se l'elemento informativo 1.2.3.6 <Nazione> è uguale a IT.</Description>
+                    <Description>The subdivision of a country. Sigla della provincia di appartenenza del comune indicato nell'elemento informativo 1.2.3.4 'Comune'. Da valorizzare se l'elemento informativo 1.2.3.6 'Nazione' è uguale a IT.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-39</Reference>
 					<Reference type="RULE">BR-IT-DC-150</Reference>

@@ -213,8 +213,8 @@
 
                 <Element>
                     <Term>cbc:RegistrationName</Term>
-                    <Name>Buyer name - Denominazione legale del Cliente</Name>
-                    <Description>Denominazione legale del Cliente</Description>
+                    <Name>Buyer name - FPA 1.4.1.3.1 ‘Denominazione’ o FPA 1.4.1.3.2 ‘Nome’ e FPA 1.4.1.3.3 ‘Cognome’</Name>
+                    <Description>The full name of the Buyer. Ditta, denominazione o ragione sociale (ditta, impresa, società, ente) o Nome e Cognome della persona fisica.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-44</Reference>
                     <Reference type="RULE">BR-07</Reference>

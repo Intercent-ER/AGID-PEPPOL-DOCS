@@ -2,11 +2,8 @@
 <Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" cardinality="0..n" xmlns:agid="urn:fdc:agid.gov.it:peppol:customization" agid:custom="rule">
 
 	<Term>cac:AllowanceCharge</Term>
-	<Name>DOCUMENT LEVEL ALLOWANCES AND CHARGES</Name>
-	<Description>A group of business terms providing information about allowances applicable to the Invoice as a
-            whole. A group of business terms providing information about charges and taxes other than VAT, applicable
-            to the Invoice as a whole.
-	</Description>
+	<Name>DOCUMENT LEVEL ALLOWANCES AND CHARGES - Sconto/Maggiorazione a livello di testata</Name>
+	<Description>Per la fatturazione verso soggetti italiani la sezione è utilizzata solo per Bollo (vedi paragrafo 4.9 della Documentazione) e Rivalsa Cassa Previdenziale (vedi paragrafo 4.8 della Documentazione).</Description>
 	<Reference type="BUSINESS_TERM">BG-20, BG-21</Reference>
 	<Reference type="RULE">BR-IT-DC-480</Reference>
 
@@ -14,16 +11,14 @@
 	<Element>
 		<Term>cbc:ChargeIndicator</Term>
 		<Name>Tipo (Sconto o Maggiorazione)</Name>
-		<Description>Usare "true" per indicare una Maggiorazione e "false" per uno Sconto.
-		</Description>
+		<Description>se “true” when informing about Charges and “false” when informing about Allowances. Usare "true" per indicare una Maggiorazione e "false" per uno Sconto.</Description>
 		<Value type="EXAMPLE">false</Value>
 	</Element>
 
 	<Element cardinality="0..1">
 		<Term>cbc:AllowanceChargeReasonCode</Term>
-		<Name>Document level allowance or charge reason code</Name>
-		<Description>The reason for the document level allowance or charge, expressed as a code. For allowances a subset of codelist UNCL5189 is to be used, and for charges codelist UNCL7161 applies.
-                The Document level allowance reason code and the Document level allowance reason shall indicate the same allowance reason</Description>
+		<Name>Document level allowance or charge reason code - FPA 2.1.1.6 'BolloVirtuale'</Name>
+		<Description>The reason for the document level allowance or charge, expressed as a code. For allowances a subset of codelist UNCL5189 is to be used, and for charges codelist UNCL7161 applies. The Document level allowance reason code and the Document level allowance reason shall indicate the same allowance reason. Bollo assolto ai sensi del decreto MEF 17 giugno 2014 (art. 6).</Description>
 		<DataType>Code</DataType>
 		<Reference type="BUSINESS_TERM">BT-98, BT-105</Reference>
 		<Reference type="CODE_LIST">UNCL5189</Reference>
@@ -42,9 +37,8 @@
 
 	<Element cardinality="0..1">
 		<Term>cbc:AllowanceChargeReason</Term>
-		<Name>Document level allowance or charge reason</Name>
-		<Description>The reason for the document level allowance or charge, expressed as text.
-                The Document level allowance reason code and the Document level allowance reason shall indicate the same allowance reason</Description>
+		<Name>Document level allowance or charge reason - FPA 2.1.1.7.1 ‘TipoCassa’ e FPA 2.1.1.7.6 ‘Ritenuta’ e FPA 2.1.1.7.7 ‘Natura’</Name>
+		<Description>The reason for the document level allowance or charge, expressed as text. The Document level allowance reason code and the Document level allowance reason shall indicate the same allowance reason. Tipologia cassa previdenziale di appartenenza. Indica se il contributo cassa è soggetto a ritenuta. Nei casi di AliquotaIVA (elemento informativo 2.1.1.7.5 'AliquotaIVA') pari a zero.</Description>
 		<DataType>Text</DataType>
 		<Reference type="BUSINESS_TERM">BT-97, BT-104</Reference>
 		<Reference type="RULE">BR-33</Reference>
@@ -60,9 +54,10 @@
 
 	<Element cardinality="0..1">
 		<Term>cbc:MultiplierFactorNumeric</Term>
-		<Name>Percentuale dello sconto o della maggiorazione a livello documento</Name>
+		<Name>Document level allowance or charge percentage - FPA 2.1.1.7.2 'AlCassa'</Name>
 		<Description>The percentage that may be used, in conjunction with the document level allowance base amount, to
                 calculate the document level allowance or charge amount. To state 20%, use value 20.
+								Aliquota (%) del contributo, se previsto, per la cassa di appartenenza.
 		</Description>
 		<DataType>Percentage</DataType>
 		<Reference type="BUSINESS_TERM">BT-94,BT-101</Reference>
@@ -72,8 +67,8 @@
 
 	<Element>
 		<Term>cbc:Amount</Term>
-		<Name>Importo dello sconto o della maggiorazione a livello documento</Name>
-		<Description>The amount of an allowance or a charge, without VAT. Must be rounded to maximum 2 decimals
+		<Name>Document level allowance or charge amount - FPA 2.1.1.6.2 'ImportoBollo' o FPA 2.1.1.7.3 'ImportoContributoCassa'</Name>
+		<Description>The amount of an allowance or a charge, without VAT. Must be rounded to maximum 2 decimals. Vedi "Documentazione" per istruzioni sulla compilazione del campo.
 		</Description>
 		<DataType>Amount</DataType>
 		<Reference type="BUSINESS_TERM">BT-92,BT-99</Reference>
@@ -87,7 +82,7 @@
 
 		<Attribute>
 			<Term>currencyID</Term>
-			<Description>Mandatory attribute. Use BT-5</Description>
+			<Description>Mandatory attribute. Use BT-5. Identificativo valuta.</Description>
 			<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
 			<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
 			<Reference type="CODE_LIST">ISO4217</Reference>
@@ -98,10 +93,9 @@
 
 	<Element cardinality="0..1">
 		<Term>cbc:BaseAmount</Term>
-		<Name>Document level allowance or charge base amount</Name>
+		<Name>Document level allowance or charge base amount - FPA 2.1.1.7.4 'ImponibileCassa'</Name>
 		<Description>The base amount that may be used, in conjunction with the document level allowance or charge percentage, to
-                calculate the document level allowance or charge amount. Must be rounded to maximum 2 decimals
-		</Description>
+                calculate the document level allowance or charge amount. Must be rounded to maximum 2 decimals. Importo sul quale applicare il contributo cassa previdenziale.</Description>
 		<DataType>Amount</DataType>
 		<Reference type="BUSINESS_TERM">BT-93,BT-100</Reference>
 		<Reference type="RULE">PEPPOL-EN16931-R041</Reference>
@@ -112,7 +106,7 @@
 
 		<Attribute>
 			<Term>currencyID</Term>
-			<Description>Mandatory attribute. Use BT-5</Description>
+			<Description>Mandatory attribute. Use BT-5. Identificativo valuta.</Description>
 			<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
 			<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
 			<Reference type="CODE_LIST">ISO4217</Reference>
@@ -125,12 +119,12 @@
 
 	<Element>
 		<Term>cac:TaxCategory</Term>
-		<Name>TAX CATEGORY</Name>
+		<Name>TAX CATEGORY - Tipo dell’imposta applicata</Name>
 
 		<Element agid:custom="rule">
 			<Term>cbc:ID</Term>
-			<Name>Document level allowance or charge VAT category code</Name>
-			<Description>A coded identification of what VAT category applies to the document level allowance or charge.</Description>
+			<Name>Document level allowance or charge VAT category code - Codice della natura dell’imposta</Name>
+			<Description>Indica il codice associato alla natura dell’imposta.</Description>
 			<DataType>Code</DataType>
 			<Reference type="BUSINESS_TERM">BT-95,BT-102</Reference>
 			<Reference type="RULE">BR-32</Reference>
@@ -146,8 +140,8 @@
 
 		<Element cardinality="0..1">
 			<Term>cbc:Percent</Term>
-			<Name>Document level allowance or charge VAT rate</Name>
-			<Description>The VAT rate, represented as percentage that applies to the document level allowance or charge.</Description>
+			<Name>Document level allowance or charge VAT rate - FPA 2.1.1.7.5 'AliquotaIVA'</Name>
+			<Description>The VAT rate, represented as percentage that applies to the document level allowance or charge. Aliquota (%) IVA applicata.</Description>
 			<DataType>Percentage</DataType>
 			<Reference type="BUSINESS_TERM">BT-96,BT-103</Reference>
 			<Reference type="RULE">BR-S-06</Reference>
@@ -179,7 +173,7 @@
 
 			<Element>
 				<Term>cbc:ID</Term>
-				<Description>Mandatory element. Use “VAT”</Description>
+				<Description>Elemento obbligatiorio. Utilizzare “VAT”</Description>
 				<Value type="DEFAULT">VAT</Value>
 			</Element>
 		</Element>

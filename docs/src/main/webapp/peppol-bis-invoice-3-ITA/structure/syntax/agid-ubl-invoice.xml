@@ -73,7 +73,7 @@
 			<Term>cbc:DueDate</Term>
 			<Name>Payment due date - FPA 2.4.2.5 'DataScadenzaPagamento'</Name>
 			<Description>The date when the payment is due.Format "YYYY-MM-DD". In case the Amount due for payment (BT-115) is positive, either the Payment due date (BT-9) or the Payment terms (BT-20) shall be present.
-			Data di scadenza del pagamento (secondo il formato ISO 8601:2004) da indicare nei casi in cui ha senso sulla bese delle condizioni di pagamento previste)</Description>
+			Data di scadenza del pagamento (secondo il formato ISO 8601:2004) da indicare nei casi in cui ha senso sulla bese delle condizioni di pagamento previste).</Description>
 			<DataType>Date</DataType>
 			<Reference type="BUSINESS_TERM">BT-9</Reference>
 			<Reference type="RULE">PEPPOL-EN16931-F001</Reference>
@@ -84,7 +84,7 @@
 		<Element>
 			<Term>cbc:InvoiceTypeCode</Term>
 			<Name>Invoice type code - Codifica per il tipo di fattura</Name>
-			<Description>A code specifying the functional type of the Invoice.</Description>
+			<Description>Codice che specifica il tipo di Fattura.</Description>
 			<DataType>Code</DataType>
 			<Reference type="BUSINESS_TERM">BT-3</Reference>
 			<Reference type="RULE">BR-04</Reference>
@@ -180,7 +180,7 @@
 			<Element cardinality="0..1">
 				<Term>cbc:StartDate</Term>
 				<Name>Invoicing period start date - Data inizio periodo fatturazione</Name>
-				<Description>La data in cui il periodo di fatturazione inizia. Format = "YYYY-MM-DD".</Description>
+				<Description>La data in cui il periodo di fatturazione inizia. Formato = "YYYY-MM-DD".</Description>
 				<DataType>Date</DataType>
 				<Reference type="BUSINESS_TERM">BT-73</Reference>
 				<Reference type="RULE">BR-CO-19</Reference>
@@ -191,7 +191,7 @@
 			<Element cardinality="0..1">
 				<Term>cbc:EndDate</Term>
 				<Name>Invoicing period end date - Data fine periodo fatturazione</Name>
-				<Description>La data in cui il periodo di fatturazione finisce. Format = "YYYY-MM-DD".</Description>
+				<Description>La data in cui il periodo di fatturazione finisce. Formato = "YYYY-MM-DD".</Description>
 				<DataType>Date</DataType>
 				<Reference type="BUSINESS_TERM">BT-74</Reference>
 				<Reference type="RULE">PEPPOL-EN16931-F001</Reference>
@@ -203,7 +203,7 @@
 			<Element cardinality="0..1">
 				<Term>cbc:DescriptionCode</Term>
 				<Name>Value added tax point date code - FPA 2.2.2.7 'EsigibilitaIVA'</Name>
-				<Description>The code of the date when the VAT becomes accountable for the Seller and for the Buyer. L'elemento esprime il momento nel quale l'IVA diventa esigibile (immediata  ai sensi dell'Art. 6 comma 5 del DPR 633 1972, oppure differita) oppure il fatto che le modalità di versamento dell'imposta sono differenti da quelle ordinarie (scissione dei pagamenti).</Description>
+				<Description>The code of the date when the VAT becomes accountable for the Seller and for the Buyer. L'elemento esprime il momento nel quale l'IVA diventa esigibile (immediata  ai sensi dell'Art. 6 comma 5 del DPR 633 1972, oppure differita) oppure il fatto che le modalità di versamento dell'imposta sono differenti da quelle ordinarie (scissione dei pagamenti). Vedi "Documentazione" per istruzioni sulla compilazione del campo.</Description>
 				<DataType>Code</DataType>
 				<Reference type="BUSINESS_TERM">BT-8</Reference>
 				<Reference type="RULE">BR-CO-03</Reference>
@@ -215,7 +215,8 @@
 
 		<Element cardinality="0..1">
 			<Term>cac:OrderReference</Term>
-			<Name>ORDER AND SALES ORDER REFERENCE - Riferimento all'Ordine</Name>
+			<Name>ORDER AND SALES ORDER REFERENCE - Riferimento all'Ordine d’acquisto e di vendita
+</Name>
 
 			<Element agid:custom="rule">
 				<Term>cbc:ID</Term>
@@ -230,7 +231,7 @@
 
 			<Element cardinality="0..1">
 				<Term>cbc:SalesOrderID</Term>
-				<Name>Sales order reference</Name>
+				<Name>Sales order reference - Riferimento all'ordine di vendita</Name>
 				<Description>Identificativo ordine di vendita, rilasciato dal Fornitore.</Description>
 				<DataType>Document Reference</DataType>
 				<Reference type="BUSINESS_TERM">BT-14</Reference>
@@ -254,7 +255,7 @@
 
 			<Element>
 				<Term>cac:InvoiceDocumentReference</Term>
-				<Name>INVOICE DOCUMENT REFERENCE</Name>
+				<Name>INVOICE DOCUMENT REFERENCE - Riferimento alla Fattura Principale</Name>
 
 				<Element agid:custom="rule">
 					<Term>cbc:ID</Term>
@@ -305,7 +306,7 @@
 
 		<Element cardinality="0..1">
 			<Term>cac:DespatchDocumentReference</Term>
-			<Name>DESPATCH ADVICE REFERENCE</Name>
+			<Name>DESPATCH ADVICE REFERENCE - Riferimento al Documento di Trasporto (DDT)</Name>
 
 			<Element agid:custom="rule">
 				<Term>cbc:ID</Term>
@@ -330,7 +331,7 @@
 
 		<Element cardinality="0..1">
 			<Term>cac:ReceiptDocumentReference</Term>
-			<Name>RECEIPT ADVICE REFERENCE</Name>
+			<Name>RECEIPT ADVICE REFERENCE - Riferimento all’avviso di ricezione</Name>
 
 			<Element agid:custom="rule">
 				<Term>cbc:ID</Term>
@@ -346,7 +347,7 @@
 
 		<Element cardinality="0..1">
 			<Term>cac:OriginatorDocumentReference</Term>
-			<Name>TENDER OR LOT REFERENCE</Name>
+			<Name>TENDER OR LOT REFERENCE - Riferimento alla Gara (CIG)</Name>
 
 			<Element agid:custom="rule">
 				<Term>cbc:ID</Term>
@@ -362,7 +363,7 @@
 
 		<Element cardinality="0..1">
 			<Term>cac:ContractDocumentReference</Term>
-			<Name>CONTRACT REFERENCE</Name>
+			<Name>CONTRACT REFERENCE - Riferimento al Contratto</Name>
 
 			<Element agid:custom="rule">
 				<Term>cbc:ID</Term>
@@ -383,7 +384,7 @@
 
 		<Element cardinality="0..1">
 			<Term>cac:ProjectReference</Term>
-			<Name>PROJECT REFERENCE</Name>
+			<Name>PROJECT REFERENCE - Riferimento al Progetto (CUP)</Name>
 
 			<Element agid:custom="rule">
 				<Term>cbc:ID</Term>
@@ -464,13 +465,14 @@
 
 		<Element cardinality="1..1" agid:custom="cardinality">
 			<Term>cac:PaymentTerms</Term>
-			<Name>PAYMENT TERMS</Name>
+			<Name>PAYMENT TERMS - Termini di pagamento</Name>
 
 			<Element>
 				<Term>cbc:Note</Term>
 				<Name>Payment terms - FPA 2.4.1 'CondizioniPagamento' e FPA 2.4.2.4 'GiorniTerminiPagamento'</Name>
 				<Description>A textual description of the payment terms that apply to the amount due for payment (Including
                     description of possible penalties). In case the Amount due for payment (BT-115) is positive, either the Payment due date (BT-9) or the Payment terms (BT-20) shall be present.
+										Condizioni di pagamento. Termini di pagamento espressi in giorni a partire dalla data di riferimento di cui all'elemento informativo precedente 2.4.2.3 'DataRiferimentoTerminiPagamento' (vale 0 per pagamenti a vista )
 				</Description>
 				<DataType>Text</DataType>
 				<!--Reference type="BUSINESS_TERM">BT-20</Reference-->
@@ -488,7 +490,7 @@
 
 				<Attribute>
 					<Term>currencyID</Term>
-					<Description>Identificativo valuta</Description>
+					<Description>Mandatory attribute. Use BT-5. Identificativo valuta.</Description>
 					<Reference type="BUSINESS_TERM">BT-20</Reference>
 					<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
 					<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
@@ -508,7 +510,7 @@
 
 				<Attribute>
 					<Term>currencyID</Term>
-					<Description>Identificativo valuta</Description>
+					<Description>Mandatory attribute. Use BT-5. Identificativo valuta</Description>
 					<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
 					<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
 					<Reference type="CODE_LIST">ISO4217</Reference>
@@ -525,7 +527,7 @@
 				<Element cardinality="0..1">
 					<Term>cbc:EndDate</Term>
 					<Name>Data limite pagamento anticipato - FPA 2.4.2.18 'DataLimitePagamentoAnticipato'</Name>
-					<Description>Data limite stabilita per il pagamento anticipato (secondo il formato YYYY-MM-DD")</Description>
+					<Description>Data limite stabilita per il pagamento anticipato (secondo il formato "YYYY-MM-DD")</Description>
 					<DataType>Date</DataType>
 					<Value type="EXAMPLE">2020-10-31</Value>
 				</Element>
@@ -539,7 +541,7 @@
 				<Element cardinality="0..1">
 					<Term>cbc:StartDate</Term>
 					<Name>Data decorrenza penale - FPA 2.4.2.20 'DataDecorrenzaPenale'</Name>
-					<Description>Data di decorrenza della penale (secondo il formato YYYY-MM-DD")</Description>
+					<Description>Data di decorrenza della penale (secondo il formato "YYYY-MM-DD")</Description>
 					<DataType>Date</DataType>
 					<Value type="EXAMPLE">2020-10-01</Value>
 				</Element>
@@ -627,7 +629,7 @@
 
 				<Attribute>
 					<Term>currencyID</Term>
-					<Description>Identificativo valuta.</Description>
+					<Description>Mandatory attribute. Use BT-5. Identificativo valuta.</Description>
 					<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
 					<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
 					<Reference type="CODE_LIST">ISO4217</Reference>
@@ -758,7 +760,7 @@
 				<Element>
 					<Term>cbc:DocumentTypeCode</Term>
 					<Name>Document type code</Name>
-					<Description>Code "130" MUST be used to indicate an invoice object reference. Not used for other additional documents</Description>
+					<Description>Valorizzare con "130" in caso lo @schemeID sia valorizzato con ON, CT, AEP, AGB o AVV.</Description>
 					<DataType>Code</DataType>
 					<Reference type="BUSINESS_TERM">BT-128</Reference>
 					<Value type="DEFAULT">130</Value>

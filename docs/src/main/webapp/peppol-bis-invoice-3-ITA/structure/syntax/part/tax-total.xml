@@ -116,8 +116,8 @@ l'ammontare degli importi, se il riepilogo riguarda le operazioni per le quali l
 
                 <Element agid:custom="rule">
                     <Term>cbc:ID</Term>
-                    <Name>VAT category code - Codice della natura dell’imposta</Name>
-                    <Description>Coded identification of a VAT category. Indica il codice associato alla natura dell’imposta.</Description>
+                    <Name>VAT category code - FPA 2.2.2.7 ‘EsigibilitaIVA’ o FPA 2.2.2.2 ‘Natura’ e FPA 2.2.2.8  ‘RiferimentoNormativo’</Name>
+                    <Description>Coded identification of a VAT category. Vedi "Documentazione" per istruzioni sulla compilazione del campo.</Description>
                     <DataType>Code</DataType>
                     <Reference type="BUSINESS_TERM">BT-118</Reference>
                     <Reference type="CODE_LIST">UNCL5305</Reference>

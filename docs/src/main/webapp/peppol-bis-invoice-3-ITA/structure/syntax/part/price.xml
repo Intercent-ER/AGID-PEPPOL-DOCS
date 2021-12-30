@@ -21,7 +21,7 @@
 
             <Attribute>
                 <Term>currencyID</Term>
-                <Description>Identificativo valuta.</Description>
+                <Description>Mandatory attribute. Use BT-5. Identificativo valuta.</Description>
                 <Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
                 <Reference type="RULE">PEPPOL-EN16931-R051</Reference>
                 <Reference type="CODE_LIST">ISO4217</Reference>
@@ -67,7 +67,7 @@
             <Element agid:custom="rule">
                 <Term>cbc:Amount</Term>
                 <Name>Item price discount - FPA 2.2.1.10.1 'Tipo' e FPA 2.2.1.10.3 'Importo'</Name>
-                <Description>Importo Sconto/Maggiorazione.
+                <Description>Importo Sconto/Maggiorazione. Vedi "Documentazione" per istruzioni sulla compilazione del campo.
                 </Description>
                 <DataType>Amount</DataType>
                 <Reference type="BUSINESS_TERM">BT-147</Reference>
@@ -75,7 +75,7 @@
 
                 <Attribute>
                     <Term>currencyID</Term>
-                    <Description>Identificativo valuta</Description>
+                    <Description>Mandatory attribute. Use BT-5. Identificativo valuta</Description>
                     <Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
                     <Reference type="RULE">PEPPOL-EN16931-R051</Reference>
                     <Reference type="CODE_LIST">ISO4217</Reference>
@@ -97,7 +97,7 @@
 
                 <Attribute>
                     <Term>currencyID</Term>
-                    <Description>Identificativo valuta</Description>
+                    <Description>Mandatory attribute. Use BT-5. Identificativo valuta</Description>
                     <Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
                     <Reference type="RULE">PEPPOL-EN16931-R051</Reference>
                     <Reference type="CODE_LIST">ISO4217</Reference>

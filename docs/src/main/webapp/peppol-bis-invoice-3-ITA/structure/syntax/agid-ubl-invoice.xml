@@ -25,9 +25,7 @@
 		<Element agid:custom="fixed-value">
 			<Term>cbc:CustomizationID</Term>
 			<Name>Specification identifier</Name>
-			<Description>An identification of the specification containing the total set of rules regarding semantic
-                content, cardinalities and business rules to which the data contained in the instance document conforms.
-			</Description>
+			<Description>Indica il tipo di Documento.</Description>
 			<DataType>Identifier</DataType>
 			<Reference type="BUSINESS_TERM">BT-24</Reference>
 			<Reference type="RULE">PEPPOL-EN16931-R004</Reference>
@@ -39,9 +37,7 @@
 		<Element agid:custom="rule">
 			<Term>cbc:ProfileID</Term>
 			<Name>Business process type</Name>
-			<Description>Identifies the business process context in which the transaction appears, to enable the Buyer to
-                process the Invoice in an appropriate way.
-			</Description>
+			<Description>Indica il tipo di processo adottato.</Description>
 			<DataType>Text</DataType>
 			<Reference type="BUSINESS_TERM">BT-23</Reference>
 			<Reference type="RULE">PEPPOL-EN16931-R001</Reference>
@@ -53,7 +49,8 @@
 			<Term>cbc:ID</Term>
 			<Name>Invoice number - FPA 2.1.1.4 'Numero'</Name>
 			<Description>A unique identification of the Invoice. The sequential number required in Article 226(2) of the directive 2006/112/EC [2], to uniquely identify the Invoice
-                within the business context, time-frame, operating systems and records of the Seller. No identification scheme is to be used.</Description>
+                within the business context, time-frame, operating systems and records of the Seller. No identification scheme is to be used.
+							Numero della fattura (art. 21, comma 2, lettera b DPR 633/1972).</Description>
 			<DataType>Identifier</DataType>
 			<Reference type="BUSINESS_TERM">BT-1</Reference>
 			<Reference type="RULE">BR-02</Reference>
@@ -63,8 +60,8 @@
 
 		<Element>
 			<Term>cbc:IssueDate</Term>
-			<Name>Invoice issue date</Name>
-			<Description>The date when the Invoice was issued. Format "YYYY-MM-DD"</Description>
+			<Name>Invoice issue date - FPA 2.1.1.3 'Data'</Name>
+			<Description>Data del documento (secondo il formato "YYYY-MM-DD").</Description>
 			<DataType>Date</DataType>
 			<Reference type="BUSINESS_TERM">BT-2</Reference>
 			<Reference type="RULE">BR-03</Reference>
@@ -75,7 +72,8 @@
 		<Element cardinality="0..1">
 			<Term>cbc:DueDate</Term>
 			<Name>Payment due date - FPA 2.4.2.5 'DataScadenzaPagamento'</Name>
-			<Description>The date when the payment is due.Format "YYYY-MM-DD". In case the Amount due for payment (BT-115) is positive, either the Payment due date (BT-9) or the Payment terms (BT-20) shall be present.</Description>
+			<Description>The date when the payment is due.Format "YYYY-MM-DD". In case the Amount due for payment (BT-115) is positive, either the Payment due date (BT-9) or the Payment terms (BT-20) shall be present.
+			Data di scadenza del pagamento (secondo il formato ISO 8601:2004) da indicare nei casi in cui ha senso sulla bese delle condizioni di pagamento previste)</Description>
 			<DataType>Date</DataType>
 			<Reference type="BUSINESS_TERM">BT-9</Reference>
 			<Reference type="RULE">PEPPOL-EN16931-F001</Reference>
@@ -85,7 +83,7 @@
 
 		<Element>
 			<Term>cbc:InvoiceTypeCode</Term>
-			<Name>Invoice type code</Name>
+			<Name>Invoice type code - Codifica per il tipo di fattura</Name>
 			<Description>A code specifying the functional type of the Invoice.</Description>
 			<DataType>Code</DataType>
 			<Reference type="BUSINESS_TERM">BT-3</Reference>
@@ -97,10 +95,8 @@
 
 		<Element cardinality="0..1">
 			<Term>cbc:Note</Term>
-			<Name>Invoice note</Name>
-			<Description>A textual note that gives unstructured information that is relevant to the Invoice as a whole.Such as the reason for any correction or
-                assignment note in case the invoice has been factored.
-			</Description>
+			<Name>Invoice note - FPA 2.1.1.11 'Causale'</Name>
+			<Description>A textual note that gives unstructured information that is relevant to the Invoice as a whole.Such as the reason for any correction or assignment note in case the invoice has been factored. Descrizione della causale del documento.</Description>
 			<DataType>Text</DataType>
 			<Reference type="BUSINESS_TERM">BT-22</Reference>
 			<Reference type="RULE">PEPPOL-EN16931-R002</Reference>
@@ -109,7 +105,7 @@
 
 		<Element cardinality="0..1">
 			<Term>cbc:TaxPointDate</Term>
-			<Name>Value added tax point date</Name>
+			<Name>Value added tax point date - Data esigibilità IVA</Name>
 			<Description>The date when the VAT becomes accountable for the Seller and for the Buyer in so far as that date
                 can be determined and differs from the date of issue of the invoice, according to the VAT directive.This element is required if the Value added tax point date is different from the Invoice issue date.
 			</Description>
@@ -124,6 +120,7 @@
 			<Name>Invoice currency code - FPA 2.1.1.2 'Divisa'</Name>
 			<Description>The currency in which all Invoice amounts are given, except for the Total VAT amount in accounting
                 currency. Only one currency shall be used in the Invoice, except for the VAT accounting currency code (BT-6) and the invoice total VAT amount in accounting currency (BT-111).
+								Codice (espresso secondo lo standard ISO 4217 alpha-3:2001) della valuta utilizzata per l'indicazione degli importi.
 			</Description>
 			<DataType>Code</DataType>
 			<Reference type="BUSINESS_TERM">BT-5</Reference>
@@ -135,7 +132,7 @@
 
 		<Element cardinality="0..1">
 			<Term>cbc:TaxCurrencyCode</Term>
-			<Name>VAT accounting currency code</Name>
+			<Name>VAT accounting currency code - Valuta contabile dell'IVA</Name>
 			<Description>The currency used for VAT accounting and reporting purposes as accepted or required in the country
                 of the Seller. Shall be used in combination with the Invoice total VAT amount in accounting currency (BT-111), when the VAT accounting currency code differs from the
                 Invoice currency code.
@@ -152,7 +149,7 @@
 			<Term>cbc:AccountingCost</Term>
 			<Name>Buyer accounting reference - FPA 1.2.6 'RiferimentoAmministrazione'</Name>
 			<Description>A textual value that specifies where to book the relevant data into the Buyer's financial
-                accounts.
+                accounts. Codice identificativo del cedente / prestatore ai fini amministrativo-contabili.
 			</Description>
 			<DataType>Text</DataType>
 			<Reference type="BUSINESS_TERM">BT-19</Reference>
@@ -163,8 +160,9 @@
 
 		<Element cardinality="0..1">
 			<Term>cbc:BuyerReference</Term>
-			<Name>Buyer reference</Name>
-			<Description>An identifier assigned by the Buyer used for internal routing purposes. An invoice must have buyer reference or purchase order reference (BT-13).</Description>
+			<Name>Buyer reference - FPA 2.1.2.5 'CodiceCommessaConvenzione'</Name>
+			<Description>An identifier assigned by the Buyer used for internal routing purposes. An invoice must have buyer reference or purchase order reference (BT-13).
+				Si inserisce la tripletta NSO tra due # per gli ordini elettronici. Si inserisce #NO# per gli ordini cartacei.</Description>
 			<DataType>Text</DataType>
 			<Reference type="BUSINESS_TERM">BT-10</Reference>
 			<Reference type="RULE">PEPPOL-EN16931-R003</Reference>
@@ -173,7 +171,7 @@
 
 		<Element cardinality="0..1">
 			<Term>cac:InvoicePeriod</Term>
-			<Name>DELIVERY OR INVOICE PERIOD</Name>
+			<Name>DELIVERY OR INVOICE PERIOD - Periodo rilevante fattura</Name>
 			<Description>A group of business terms providing information on the invoice period. Also called delivery period.
                 If the group is used, the invoiceing period start date and/or end date must be used.</Description>
 			<Reference type="BUSINESS_TERM">BG-14</Reference>
@@ -181,8 +179,8 @@
 
 			<Element cardinality="0..1">
 				<Term>cbc:StartDate</Term>
-				<Name>Invoicing period start date</Name>
-				<Description>The date when the Invoice period starts. Format = "YYYY-MM-DD".</Description>
+				<Name>Invoicing period start date - Data inizio periodo fatturazione</Name>
+				<Description>La data in cui il periodo di fatturazione inizia. Format = "YYYY-MM-DD".</Description>
 				<DataType>Date</DataType>
 				<Reference type="BUSINESS_TERM">BT-73</Reference>
 				<Reference type="RULE">BR-CO-19</Reference>
@@ -192,8 +190,8 @@
 
 			<Element cardinality="0..1">
 				<Term>cbc:EndDate</Term>
-				<Name>Invoicing period end date</Name>
-				<Description>The date when the Invoice period ends. Format = "YYYY-MM-DD".</Description>
+				<Name>Invoicing period end date - Data fine periodo fatturazione</Name>
+				<Description>La data in cui il periodo di fatturazione finisce. Format = "YYYY-MM-DD".</Description>
 				<DataType>Date</DataType>
 				<Reference type="BUSINESS_TERM">BT-74</Reference>
 				<Reference type="RULE">PEPPOL-EN16931-F001</Reference>
@@ -204,8 +202,8 @@
 
 			<Element cardinality="0..1">
 				<Term>cbc:DescriptionCode</Term>
-				<Name>Value added tax point date code</Name>
-				<Description>The code of the date when the VAT becomes accountable for the Seller and for the Buyer.</Description>
+				<Name>Value added tax point date code - FPA 2.2.2.7 'EsigibilitaIVA'</Name>
+				<Description>The code of the date when the VAT becomes accountable for the Seller and for the Buyer. L'elemento esprime il momento nel quale l'IVA diventa esigibile (immediata  ai sensi dell'Art. 6 comma 5 del DPR 633 1972, oppure differita) oppure il fatto che le modalità di versamento dell'imposta sono differenti da quelle ordinarie (scissione dei pagamenti).</Description>
 				<DataType>Code</DataType>
 				<Reference type="BUSINESS_TERM">BT-8</Reference>
 				<Reference type="RULE">BR-CO-03</Reference>
@@ -217,12 +215,12 @@
 
 		<Element cardinality="0..1">
 			<Term>cac:OrderReference</Term>
-			<Name>ORDER AND SALES ORDER REFERENCE</Name>
+			<Name>ORDER AND SALES ORDER REFERENCE - Riferimento all'Ordine</Name>
 
 			<Element agid:custom="rule">
 				<Term>cbc:ID</Term>
-				<Name>Purchase order reference</Name>
-				<Description>An identifier of a referenced purchase order, issued by the Buyer.An invoice must have buyer reference (BT-10) or purchase order reference.</Description>
+				<Name>Purchase order reference - FPA 2.1.2.2 'IdDocumento'</Name>
+				<Description>An identifier of a referenced purchase order, issued by the Buyer.An invoice must have buyer reference (BT-10) or purchase order reference. Identificativo ordine di acquisto.</Description>
 				<DataType>Document Reference</DataType>
 				<Reference type="BUSINESS_TERM">BT-13</Reference>
 				<Reference type="RULE">PEPPOL-EN16931-R003</Reference>
@@ -233,7 +231,7 @@
 			<Element cardinality="0..1">
 				<Term>cbc:SalesOrderID</Term>
 				<Name>Sales order reference</Name>
-				<Description>An identifier of a referenced sales order, issued by the Seller.</Description>
+				<Description>Identificativo ordine di vendita, rilasciato dal Fornitore.</Description>
 				<DataType>Document Reference</DataType>
 				<Reference type="BUSINESS_TERM">BT-14</Reference>
 				<Value type="EXAMPLE">112233</Value>
@@ -241,8 +239,8 @@
 
             <Element cardinality="0..1" agid:custom="extension">
                 <Term>cbc:IssueDate</Term>
-                <Name>Purchase order issue date</Name>
-                <Description>The date on which the referenced Order was issued. Format = "YYYY-MM-DD".</Description>
+                <Name>Purchase order issue date - FPA 2.1.2.3 'Data'</Name>
+                <Description>The date on which the referenced Order was issued. Data del documento (secondo il formato "YYYY-MM-DD").</Description>
                 <DataType>Date</DataType>
                 <Value type="EXAMPLE">2017-09-15</Value>
             </Element>
@@ -251,7 +249,7 @@
 		<Element cardinality="0..n">
 			<Term>cac:BillingReference</Term>
 			<Name>PRECEDING INVOICE REFERENCE - FPA 2.1.6 'DatiFattureCollegate'</Name>
-			<Description>A group of business terms providing information on one or more preceding Invoices.</Description>
+			<Description>A group of business terms providing information on one or more preceding Invoices. Blocco contenente le informazioni relative alle fatture precedentemente trasmesse e alle quali si collega il documento presente; riguarda i casi di invio di nota di credito e/o di fatture di conguaglio a fronte di precedenti fatture di acconto.</Description>
 			<Reference type="BUSINESS_TERM">BG-3</Reference>
 
 			<Element>
@@ -261,7 +259,7 @@
 				<Element agid:custom="rule">
 					<Term>cbc:ID</Term>
 					<Name>Preceding Invoice number - FPA 2.1.6.2 'IdDocumento'</Name>
-					<Description>The identification of an Invoice that was previously sent by the Seller.</Description>
+					<Description>The identification of an Invoice that was previously sent by the Seller. Numero del documento.</Description>
 					<DataType>Document Reference</DataType>
 					<Reference type="BUSINESS_TERM">BT-25</Reference>
 					<Reference type="RULE">BR-55</Reference>
@@ -271,8 +269,7 @@
 				<Element cardinality="0..1">
 					<Term>cbc:IssueDate</Term>
 					<Name>Preceding Invoice issue date - FPA 2.1.6.3 'Data'</Name>
-					<Description>The date when the Preceding Invoice was issued.Shall be
-                        provided in case the Preceding Invoice identifier is not unique. Format = "YYYY-MM-DD".</Description>
+					<Description>The date when the Preceding Invoice was issued.Shall be provided in case the Preceding Invoice identifier is not unique. Data del documento (secondo il formato "YYYY-MM-DD").</Description>
 					<DataType>Date</DataType>
 					<Reference type="BUSINESS_TERM">BT-26</Reference>
 					<Reference type="RULE">PEPPOL-EN16931-F001</Reference>
@@ -296,7 +293,7 @@
 				<Element>
 					<Term>cbc:IssueDate</Term>
 					<Name>Data Fattura Principale - FPA 2.1.10.2 'DataFatturaPrincipale'</Name>
-					<Description>Data della fattura. Formato = "YYYY-MM-DD".</Description>
+					<Description>Data della fattura di cui all'elemento informativo 2.1.10.1 'NumeroFatturaPrincipale' (secondo il formato "YYYY-MM-DD").</Description>
 					<DataType>Date</DataType>
 					<Reference type="RULE">BR-IT-DE-014</Reference>
 					<Value type="EXAMPLE">2020-09-15</Value>
@@ -313,7 +310,8 @@
 			<Element agid:custom="rule">
 				<Term>cbc:ID</Term>
 				<Name>Numero DDT - FPA 2.1.8.1 'NumeroDDT'</Name>
-				<Description>An identifier of a referenced despatch advice.</Description>
+				<Description>An identifier of a referenced despatch advice.
+				Numero del documento di trasporto.</Description>
 				<DataType>Document Reference</DataType>
 				<Reference type="BUSINESS_TERM">BT-16</Reference>
 				<Reference type="RULE">BR-IT-060</Reference>
@@ -323,7 +321,7 @@
 			<Element agid:custom="extension">
 				<Term>cbc:IssueDate</Term>
 				<Name>Data DDT - FPA 2.1.8.2 'DataDDT'</Name>
-				<Description>Data della fattura. Formato = "YYYY-MM-DD".</Description>
+				<Description>Data del documento di trasporto (secondo il formato "YYYY-MM-DD").</Description>
 				<DataType>Date</DataType>
 				<Reference type="RULE">BR-IT-DE-016</Reference>
 				<Value type="EXAMPLE">2020-09-15</Value>
@@ -337,7 +335,8 @@
 			<Element agid:custom="rule">
 				<Term>cbc:ID</Term>
 				<Name>Receiving advice reference - FPA 2.1.5.2 'IdDocumento'</Name>
-				<Description>An identifier of a referenced receiving advice.</Description>
+				<Description>An identifier of a referenced receiving advice.
+				Numero del documento.</Description>
 				<DataType>Document Reference</DataType>
 				<Reference type="BUSINESS_TERM">BT-15</Reference>
 				<Reference type="RULE">BR-IT-050</Reference>
@@ -352,7 +351,8 @@
 			<Element agid:custom="rule">
 				<Term>cbc:ID</Term>
 				<Name>Tender or lot reference - FPA 2.1.3.7 'CodiceCIG'</Name>
-				<Description>The identification of the call for tender or lot the invoice relates to.</Description>
+				<Description>The identification of the call for tender or lot the invoice relates to.
+				Rappresenta il Codice Identificativo della Gara.</Description>
 				<DataType>Document Reference</DataType>
 				<Reference type="BUSINESS_TERM">BT-17</Reference>
 				<Reference type="RULE">BR-IT-070</Reference>
@@ -366,8 +366,9 @@
 
 			<Element agid:custom="rule">
 				<Term>cbc:ID</Term>
-				<Name>Contract reference</Name>
-				<Description>The identification of a contract.</Description>
+				<Name>Contract reference - FPA 2.1.3.2 'IdDocumento'</Name>
+				<Description>The identification of a contract.
+				Numero del documento.</Description>
 				<DataType>Document Reference</DataType>
 				<Reference type="BUSINESS_TERM">BT-12</Reference>
 				<Reference type="RULE">BR-IT-030</Reference>
@@ -387,7 +388,8 @@
 			<Element agid:custom="rule">
 				<Term>cbc:ID</Term>
 				<Name>Project reference - FPA 2.1.3.6 'CodiceCUP'</Name>
-				<Description>The identification of the project the invoice refers to.</Description>
+				<Description>The identification of the project the invoice refers to.
+				Rappresenta il codice gestito dal CIPE che caratterizza ogni progetto di investimento pubblico (Codice Unitario Progetto).</Description>
 				<DataType>Document Reference</DataType>
 				<Reference type="BUSINESS_TERM">BT-11</Reference>
 				<Reference type="RULE">BR-IT-020</Reference>
@@ -411,14 +413,14 @@
 		<Element cardinality="1..n" agid:custom="cardinality">
 			<Term>cac:PaymentMeans</Term>
 			<Name>PAYMENT INSTRUCTIONS - FPA 2.4 'DatiPagamento'</Name>
-			<Description>A group of business terms providing information about the payment.</Description>
+			<Description>A group of business terms providing information about the payment. Dati di dettaglio del pagamento.</Description>
 			<Reference type="BUSINESS_TERM">BG-16</Reference>
 			<Reference type="RULE">BR-IT-260</Reference>
 
 			<Element>
 				<Term>cbc:PaymentMeansCode</Term>
 				<Name>Payment means type code - FPA 2.4.2.2 'ModalitaPagamento'</Name>
-				<Description>The means, expressed as code, for how a payment is expected to be or has been settled.
+				<Description>The means, expressed as code, for how a payment is expected to be or has been settled. Modalità di pagamento.
 				</Description>
 				<DataType>Code</DataType>
 				<Reference type="BUSINESS_TERM">BT-81</Reference>
@@ -429,8 +431,8 @@
 
 				<Attribute usage="Optional">
 					<Term>name</Term>
-					<Name>Payment means text</Name>
-					<Description>The means, expressed as text, for how a payment is expected to be or has been settled.
+					<Name>Payment means text - Testo modalità pagamento</Name>
+					<Description>Il mezzo, espresso come testo, attraverso il quale un pagamento dovrebbe essere o è stato regolato.
 					</Description>
 					<DataType>Text</DataType>
 					<Reference type="BUSINESS_TERM">BT-82</Reference>
@@ -445,7 +447,7 @@
 				<Term>cbc:PaymentID</Term>
 				<Name>Remittance information - FPA 2.4.2.21 'CodicePagamento'</Name>
 				<Description>A textual value used to establish a link between the payment and the Invoice, issued by the
-                    Seller. Used for creditor's critical reconciliation information. This information element helps the Seller to assign an incoming payment to the relevant payment process.
+                    Seller. Used for creditor's critical reconciliation information. This information element helps the Seller to assign an incoming payment to the relevant payment process. Codice per la riconciliazione degli incassi da parte del cedente/prestatore.
 				</Description>
 				<DataType>Text</DataType>
 				<Reference type="BUSINESS_TERM">BT-83</Reference>
@@ -466,7 +468,7 @@
 
 			<Element>
 				<Term>cbc:Note</Term>
-				<Name>Payment terms</Name>
+				<Name>Payment terms - FPA 2.4.1 'CondizioniPagamento' e FPA 2.4.2.4 'GiorniTerminiPagamento'</Name>
 				<Description>A textual description of the payment terms that apply to the amount due for payment (Including
                     description of possible penalties). In case the Amount due for payment (BT-115) is positive, either the Payment due date (BT-9) or the Payment terms (BT-20) shall be present.
 				</Description>
@@ -474,7 +476,7 @@
 				<!--Reference type="BUSINESS_TERM">BT-20</Reference-->
 				<Reference type="RULE">BR-CO-25</Reference>
 				<Reference type="RULE">BR-IT-261</Reference>
-				<Value type="EXAMPLE">Net within 30 days</Value>
+				<Value type="EXAMPLE">Sconto per pagamento anticipato</Value>
 			</Element>
 
 			<Element cardinality="0..1" agid:custom="extension">
@@ -486,7 +488,7 @@
 
 				<Attribute>
 					<Term>currencyID</Term>
-					<Description>Mandatory attribute. Use BT-5</Description>
+					<Description>Identificativo valuta</Description>
 					<Reference type="BUSINESS_TERM">BT-20</Reference>
 					<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
 					<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
@@ -506,7 +508,7 @@
 
 				<Attribute>
 					<Term>currencyID</Term>
-					<Description>Mandatory attribute. Use BT-5</Description>
+					<Description>Identificativo valuta</Description>
 					<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
 					<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
 					<Reference type="CODE_LIST">ISO4217</Reference>
@@ -523,6 +525,7 @@
 				<Element cardinality="0..1">
 					<Term>cbc:EndDate</Term>
 					<Name>Data limite pagamento anticipato - FPA 2.4.2.18 'DataLimitePagamentoAnticipato'</Name>
+					<Description>Data limite stabilita per il pagamento anticipato (secondo il formato YYYY-MM-DD")</Description>
 					<DataType>Date</DataType>
 					<Value type="EXAMPLE">2020-10-31</Value>
 				</Element>
@@ -536,6 +539,7 @@
 				<Element cardinality="0..1">
 					<Term>cbc:StartDate</Term>
 					<Name>Data decorrenza penale - FPA 2.4.2.20 'DataDecorrenzaPenale'</Name>
+					<Description>Data di decorrenza della penale (secondo il formato YYYY-MM-DD")</Description>
 					<DataType>Date</DataType>
 					<Value type="EXAMPLE">2020-10-01</Value>
 				</Element>
@@ -555,15 +559,15 @@
 		<Element cardinality="1..n">
 			<Term>cac:InvoiceLine</Term>
 			<Name>INVOICE LINE - FPA 2.2.1 'DettaglioLinee'</Name>
-			<Description>A group of business terms providing information on individual Invoice lines.</Description>
+			<Description>A group of business terms providing information on individual Invoice lines. Blocco contenente le linee di dettaglio del documento (gli elementi informativi del blocco si ripetono per ogni riga di dettaglio).</Description>
 			<Reference type="BUSINESS_TERM">BG-25</Reference>
 			<Reference type="RULE">BR-16</Reference>
 
 
 			<Element>
 				<Term>cbc:ID</Term>
-				<Name>Invoice line identifier</Name>
-				<Description>A unique identifier for the individual line within the Invoice.</Description>
+				<Name>Invoice line identifier - Identificativo della riga di fattura</Name>
+				<Description>Indica il numero della riga di fattura.</Description>
 				<DataType>Identifier</DataType>
 				<Reference type="BUSINESS_TERM">BT-126</Reference>
 				<Reference type="RULE">BR-21</Reference>
@@ -572,9 +576,8 @@
 
 			<Element cardinality="0..1">
 				<Term>cbc:Note</Term>
-				<Name>Invoice line note</Name>
-				<Description>A textual note that gives unstructured information that is relevant to the Invoice line.
-				</Description>
+				<Name>Invoice line note - Note alla riga di fattura</Name>
+				<Description>Riporta informazioni in testo libero (non strutturate) rilevanti per la riga di fattura.</Description>
 				<DataType>Text</DataType>
 				<Reference type="BUSINESS_TERM">BT-127</Reference>
 				<Value type="EXAMPLE">New article number 12345</Value>
@@ -583,7 +586,7 @@
 			<Element agid:custom="rule">
 				<Term>cbc:InvoicedQuantity</Term>
 				<Name>Invoiced quantity - FPA 2.2.1.5 'Quantita'</Name>
-				<Description>The quantity of items (goods or services) that is charged in the Invoice line.</Description>
+				<Description>The quantity of items (goods or services) that is charged in the Invoice line. Numero di unità cedute / erogate.</Description>
 				<DataType>Quantity</DataType>
 				<Reference type="BUSINESS_TERM">BT-129</Reference>
 				<Reference type="RULE">BR-22</Reference>
@@ -595,6 +598,7 @@
 					<Description>The unit of measure that applies to the invoiced quantity.
                         Codes for unit of packaging from UNECE Recommendation No. 21 can be used in accordance with the descriptions in the "Intro" section of UN/ECE Recommendation 20, Revision 11 (2015):
                         The 2 character alphanumeric code values in UNECE Recommendation 21 shall be used. To avoid duplication with existing code values in UNECE Recommendation No. 20, each code value from UNECE Recommendation 21 shall be prefixed with an “X”, resulting in a 3 alphanumeric code when used as a unit of measure.
+												Unità di misura riferita alla quantità.
 					</Description>
 					<DataType>Code</DataType>
 					<Reference type="BUSINESS_TERM">BT-130</Reference>
@@ -611,7 +615,8 @@
 				<Name>Invoice line net amount - FPA 2.2.1.11 'PrezzoTotale'</Name>
 				<Description>The total amount of the Invoice line.
                     The amount is “net” without VAT, i.e. inclusive of line level allowances and charges as well as other relevant taxes.
-                    Must be rounded to maximum 2 decimals.</Description>
+                    Must be rounded to maximum 2 decimals.
+									Importo totale del bene/servizio (che tiene conto di eventuali sconti / maggiorazioni applicati al prezzo unitario) IVA esclusa.</Description>
 				<DataType>Amount</DataType>
 				<Reference type="BUSINESS_TERM">BT-131</Reference>
 				<Reference type="RULE">BR-24</Reference>
@@ -622,7 +627,7 @@
 
 				<Attribute>
 					<Term>currencyID</Term>
-					<Description>Mandatory attribute. Use BT-5</Description>
+					<Description>Identificativo valuta.</Description>
 					<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
 					<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
 					<Reference type="CODE_LIST">ISO4217</Reference>
@@ -637,6 +642,7 @@
 				<Name>Invoice line Buyer accounting reference - FPA 2.2.1.15 'RiferimentoAmministrazione'</Name>
 				<Description>A textual value that specifies where to book the relevant data into the Buyer's financial
                     accounts.
+										Codice identificativo ai fini amministrativo-contabili.
 				</Description>
 				<DataType>Identifier</DataType>
 				<Reference type="BUSINESS_TERM">BT-133</Reference>
@@ -666,7 +672,7 @@
 				<Element cardinality="0..1" agid:custom="extension">
 					<Term>cac:OrderReference</Term>
 					<Name>Il riferimento all'ordine che contiene la riga alla quale si fa riferimento - FPA 2.1.2 'DatiOrdineAcquisto'</Name>
-					<Description>A reference to the Order containing the referenced order line.</Description>
+					<Description>A reference to the Order containing the referenced order line. Blocco contenente le informazioni relative all'ordine di acquisto.</Description>
 
 					<Element>
 						<Term>cbc:ID</Term>

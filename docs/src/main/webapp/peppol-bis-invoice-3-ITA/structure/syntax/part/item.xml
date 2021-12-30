@@ -4,13 +4,14 @@
         <Term>cac:Item</Term>
         <Name>ITEM INFORMATION - FPA 2.2.1.3 'CodiceArticolo'</Name>
         <Description>A group of business terms providing information about the goods and services invoiced.
+          Eventuale codifica dell'articolo (la molteplicità N del blocco consente di gestire la presenza di più codifiche per la medesima riga).
         </Description>
         <Reference type="BUSINESS_TERM">BG-31</Reference>
 
         <Element cardinality="0..1">
             <Term>cbc:Description</Term>
-            <Name>Item description</Name>
-            <Description>A description for an item.The item description allows for describing the item and its features in more detail than the Item name.</Description>
+            <Name>Item description - Descrizione del bene/servizio</Name>
+            <Description>Riporta in testo libero la descrizione estesa del bene o del servizio.</Description>
             <DataType>Text</DataType>
             <Reference type="BUSINESS_TERM">BT-154</Reference>
             <Value type="EXAMPLE">Long description of the item on the invoice line</Value>
@@ -19,7 +20,7 @@
         <Element>
             <Term>cbc:Name</Term>
             <Name>Item name - FPA 2.2.1.4 'Descrizione'</Name>
-            <Description>A name for an item.</Description>
+            <Description>A name for an item. Natura e qualità dell'oggetto della cessione/prestazione; può fare anche riferimento a cessioni/prestazioni già oggetto di un precedente documento emesso a titolo di 'anticipo/acconto' , nel qual caso il valore dell'elemento informativo 2.2.1.9 PrezzoUnitario e 2.2.1.11 PrezzoTotale potranno essere valorizzati con segno negativo</Description>
             <DataType>Text</DataType>
             <Reference type="BUSINESS_TERM">BT-153</Reference>
             <Reference type="RULE">BR-25</Reference>
@@ -28,12 +29,12 @@
 
         <Element cardinality="0..1">
             <Term>cac:BuyersItemIdentification</Term>
-            <Name>BUYERS ITEM IDENTIFICATION</Name>
+            <Name>BUYERS ITEM IDENTIFICATION - Identificativo prodotto attribuito dal Cliente</Name>
 
             <Element>
                 <Term>cbc:ID</Term>
-                <Name>Item Buyer's identifier</Name>
-                <Description>An identifier, assigned by the Buyer, for the item.</Description>
+                <Name>Item Buyer's identifier - Identificativo prodotto attribuito dal Cliente</Name>
+                <Description>Indica l’identificativo del bene o del servizio assegnato dal Cliente.</Description>
                 <DataType>Identifier</DataType>
                 <Reference type="BUSINESS_TERM">BT-156</Reference>
                 <Value type="EXAMPLE">123455</Value>
@@ -42,7 +43,7 @@
 
         <Element cardinality="0..1" agid:custom="rule">
             <Term>cac:SellersItemIdentification</Term>
-            <Name>SELLERS ITEM IDENTIFICATION</Name>
+            <Name>SELLERS ITEM IDENTIFICATION - Identificativo prodotto attribuito dal Fornitore</Name>
 
             <Element>
                 <Term>cbc:ID</Term>
@@ -57,12 +58,12 @@
 
         <Element cardinality="0..1">
             <Term>cac:StandardItemIdentification</Term>
-            <Name>STANDARD ITEM IDENTIFICATION</Name>
+            <Name>STANDARD ITEM IDENTIFICATION - Identificativo standard prodotto</Name>
 
             <Element>
                 <Term>cbc:ID</Term>
                 <Name>Item standard identifier - FPA 2.2.1.3.2 'CodiceValore'</Name>
-                <Description>An item identifier based on a registered scheme.</Description>
+                <Description>An item identifier based on a registered scheme. Indica il valore del codice articolo corrispondente alla tipologia riportata nell'elemento informativo 2.2.1.3.1 'CodiceTipo'.</Description>
                 <DataType>Identifier</DataType>
                 <Reference type="BUSINESS_TERM">BT-157</Reference>
                 <Reference type="RULE">BR-64</Reference>
@@ -70,7 +71,7 @@
                 <Attribute>
                     <Term>schemeID</Term>
                     <Name>Item standard identifier identification scheme identifier - FPA 2.2.1.3.1 'CodiceTipo'</Name>
-                    <Description>The identification scheme identifier of the Item standard identifier</Description>
+                    <Description>The identification scheme identifier of the Item standard identifier. Indica la tipologia di codice articolo (per esempio, TARIC, CPV, EAN, SSC, ...).</Description>
                     <Reference type="CODE_LIST">ICD</Reference>
                     <Value type="EXAMPLE">0160</Value>
 
@@ -82,12 +83,12 @@
 
         <Element cardinality="0..1">
             <Term>cac:OriginCountry</Term>
-            <Name>ORIGIN COUNTRY</Name>
+            <Name>ORIGIN COUNTRY - Paese di origine</Name>
 
             <Element>
                 <Term>cbc:IdentificationCode</Term>
                 <Name>Item country of origin</Name>
-                <Description>The code identifying the country from which the item originates.</Description>
+                <Description>Il codice identificativo del paese di origine del prodotto.</Description>
                 <DataType>Code</DataType>
                 <Reference type="BUSINESS_TERM">BT-159</Reference>
                 <Reference type="RULE">BR-CL-15</Reference>
@@ -98,12 +99,12 @@
 
         <Element cardinality="0..n">
             <Term>cac:CommodityClassification</Term>
-            <Name>COMMODITY CLASSIFICATION</Name>
+            <Name>COMMODITY CLASSIFICATION - Classificazione prodotto</Name>
 
             <Element agid:custom="rule">
                 <Term>cbc:ItemClassificationCode</Term>
                 <Name>Item classification identifier - FPA 2.2.1.3.2 'CodiceValore'</Name>
-                <Description>A code for classifying the item by its type or nature.</Description>
+                <Description>A code for classifying the item by its type or nature. Indica il valore del codice articolo corrispondente alla tipologia riportata nell'elemento informativo 2.2.1.3.1 'CodiceTipo'.</Description>
                 <DataType>Identifier</DataType>
                 <Reference type="BUSINESS_TERM">BT-158</Reference>
                 <Reference type="RULE">BR-65</Reference>
@@ -112,7 +113,7 @@
                 <Attribute>
                     <Term>listID</Term>
                     <Name>Item classification identifier identification scheme identifier - FPA 2.2.1.3.1 'CodiceTipo'</Name>
-                    <Description>The identification scheme identifier of the Item classification identifier</Description>
+                    <Description>The identification scheme identifier of the Item classification identifier. Indica la tipologia di codice articolo (per esempio, TARIC, CPV, EAN, SSC, ...).</Description>
                     <Reference type="RULE">BR-CL-13</Reference>
                     <Reference type="CODE_LIST">UNCL7143</Reference>
                     <Value type="EXAMPLE">STI</Value>
@@ -120,8 +121,8 @@
 
                 <Attribute usage="Optional">
                     <Term>listVersionID</Term>
-                    <Name>Item classification identifier version identification scheme identifier</Name>
-                    <Description>The identification scheme version identifier of the Item classification identifier</Description>
+                    <Name>Item classification identifier version identification scheme identifier -  Versione dello scheme identifier</Name>
+                    <Description>Versione dello scheme identifier</Description>
                     <Reference type="RULE">DK-R-003</Reference>
                 </Attribute>
 
@@ -132,16 +133,14 @@
 
         <Element>
             <Term>cac:ClassifiedTaxCategory</Term>
-            <Name>LINE VAT INFORMATION</Name>
-            <Description>A group of business terms providing information about the VAT applicable for the goods and services
-                invoiced on the Invoice line.
-            </Description>
+            <Name>LINE VAT INFORMATION - Informazioni sull’IVA a livello di riga</Name>
+            <Description>Informazioni relative all'IVA applicabile al bene o al servizio fatturato nella riga di fattura.</Description>
             <Reference type="BUSINESS_TERM">BG-30</Reference>
 
             <Element>
                 <Term>cbc:ID</Term>
-                <Name>Invoiced item VAT category code</Name>
-                <Description>The VAT category code for the invoiced item.</Description>
+                <Name>Invoiced item VAT category code - Identificativo della natura dell’imposta</Name>
+                <Description>Indica la natura dell’IVA applicata alla cessione del bene o alla prestazione del servizio.</Description>
                 <DataType>Code</DataType>
                 <Reference type="BUSINESS_TERM">BT-151</Reference>
                 <Reference type="RULE">BR-CO-04</Reference>
@@ -154,7 +153,7 @@
             <Element cardinality="0..1">
                 <Term>cbc:Percent</Term>
                 <Name>Invoiced item VAT rate - FPA 2.2.1.12 'AliquotaIVA'</Name>
-                <Description>The VAT rate, represented as percentage that applies to the invoiced item.</Description>
+                <Description>The VAT rate, represented as percentage that applies to the invoiced item. Aliquota (%) IVA applicata al bene/servizio.</Description>
                 <DataType>Percentage</DataType>
                 <Reference type="BUSINESS_TERM">BT-152</Reference>
                 <Reference type="RULE">BR-S-05</Reference>
@@ -172,11 +171,11 @@
 
             <Element>
                 <Term>cac:TaxScheme</Term>
-                <Name>TAX SCHEME</Name>
+                <Name>TAX SCHEME - Tipo di imposta</Name>
 
                 <Element>
                     <Term>cbc:ID</Term>
-                    <Description>Mandatory element. Use “VAT”</Description>
+                    <Description>Elemento obbligatorio (ad esempio "VAT" o "GST")</Description>
                     <Value type="DEFAULT">VAT</Value>
                 </Element>
             </Element>
@@ -184,15 +183,15 @@
 
         <Element cardinality="0..n">
             <Term>cac:AdditionalItemProperty</Term>
-            <Name>ITEM ATTRIBUTES</Name>
-            <Description>A group of business terms providing information about properties of the goods and services
-                invoiced.
+            <Name>ITEM ATTRIBUTES - Ulteriori proprietà</Name>
+            <Description>Contiene l’indicazione di ulteriori caratteristiche del bene o del servizio fatturato.
             </Description>
             <Reference type="BUSINESS_TERM">BG-32</Reference>
             <Element>
                 <Term>cbc:Name</Term>
-                <Name>Item attribute name - FPA 2.2.16.1 'TipoDato'</Name>
-                <Description>The name of the attribute or property of the item.</Description>
+                <Name>Item attribute name - FPA 2.2.1.16.1 'TipoDato'</Name>
+                <Description>The name of the attribute or property of the item. Codice che identifica la tipologia di informazione.
+</Description>
                 <DataType>Text</DataType>
                 <Reference type="BUSINESS_TERM">BT-160</Reference>
                 <Reference type="RULE">BR-54</Reference>
@@ -200,8 +199,8 @@
             </Element>
             <Element>
                 <Term>cbc:Value</Term>
-                <Name>Item attribute value</Name>
-                <Description>The value of the attribute or property of the item.</Description>
+                <Name>Item attribute value - Valore della proprietà</Name>
+                <Description>Indica il valore della caratteristica del bene o del servizio.</Description>
                 <DataType>Text</DataType>
                 <Reference type="BUSINESS_TERM">BT-161</Reference>
                 <Reference type="RULE">BR-54</Reference>

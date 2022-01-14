@@ -10,7 +10,7 @@
 
         <Element cardinality="0..1">
             <Term>cbc:ActualDeliveryDate</Term>
-            <Name>Actual delivery date - FPA 2.1.9.13 'DataOraConsegna' e/o FPA 2.1.1.3 'Data'<Data></Name>
+            <Name>Actual delivery date - FPA 2.1.9.13 'DataOraConsegna' e/o FPA 2.1.1.3 'Data'</Name>
             <Description>The date on which the supply of goods or services was made or completed. Data e ora della consegna della merce (secondo il formato "YYYY-MM-DD").
             Vedi "Documentazione" per istruzioni sulla compilazione del campo.</Description>
             <DataType>Date</DataType>

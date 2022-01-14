@@ -170,48 +170,48 @@
 		
 	<!-- Line Level -->
 	
-	<rule context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID" flag="fatal">
+	<rule context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID | /*/cac:CreditNoteLine/cac:DocumentReference/cbc:ID" flag="fatal">
 		<assert test="matches(.,'^(\p{IsBasicLatin}){0,100}$')" flag="fatal" id="BR-IT-370">[BR-IT-370][FPA 2.2.1.3.2 CodiceValore] - BT-128 (Invoice line object identifier) maximum lenght shall be 100 chars - La lunghezza dell'elemento non può superare i 100 caratteri.</assert>
 	</rule>
 	
-	<rule context="/*/cac:InvoiceLine/cbc:InvoicedQuantity" flag="fatal">
+	<rule context="/*/cac:InvoiceLine/cbc:InvoicedQuantity | /*/cac:CreditNoteLine/cbc:CreditedQuantity" flag="fatal">
 		<assert test="matches(.,'^\d{1,12}\.\d{2,8}$')" flag="fatal" id="BR-IT-380">[BR-IT-380][FPA 2.2.1.5 Quantita] - BT-129 (Invoiced quantity) maximum lenght shall be 21 chars and BT allowed fraction digits shall be 8 - La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento dovrà avere 8 cifre decimali.</assert>
 	</rule>
 	
-	<rule context="/*/cac:InvoiceLine/cbc:LineExtensionAmount" flag="fatal">
+	<rule context="/*/cac:InvoiceLine/cbc:LineExtensionAmount | /*/cac:CreditNoteLine/cbc:LineExtensionAmount" flag="fatal">
 		<assert test="matches(.,'^\d*(\.\d{0,2})?$') and string-length(.) &gt;= 1 and string-length(.) &lt;= 15" flag="fatal" id="BR-IT-390">[BR-IT-390][FPA 2.2.1.11 PrezzoTotale] - BT-131 (Invoice line net amount) BT maximum length shall be 15, including two fraction digits - La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
 	</rule>
 	
-	<rule context="/*/cac:InvoiceLine/cac:OrderLineReference/cbc:LineID" flag="fatal">
+	<rule context="/*/cac:InvoiceLine/cac:OrderLineReference/cbc:LineID | /*/cac:CreditNoteLine/cac:OrderLineReference/cbc:LineID" flag="fatal">
 		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-400">[BR-IT-400][FPA 2.1.2.4 NumItem] - BT-132 (Referenced purchase order line reference) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
 	</rule>
 	
-	<rule context="/*/cac:InvoiceLine/cbc:AccountingCost" flag="fatal">
+	<rule context="/*/cac:InvoiceLine/cbc:AccountingCost | /*/cac:CreditNoteLine/cbc:AccountingCost" flag="fatal">
 		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-410">[BR-IT-410][FPA 2.2.1.15 RiferimentoAmministrazione] - BT-133 (Invoice line Buyer accounting reference) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
 	</rule>
 	
-	<rule context="/*/cac:InvoiceLine/cac:AllowanceCharge/cbc:Amount" flag="fatal">
+	<rule context="/*/cac:InvoiceLine/cac:AllowanceCharge/cbc:Amount | /*/cac:CreditNoteLine/cac:AllowanceCharge/cbc:Amount" flag="fatal">
 		<assert test="matches(.,'^\d*(\.\d{0,2})?$') and string-length(.) &gt;= 1 and string-length(.) &lt;= 15" flag="fatal" id="BR-IT-421">[BR-IT-421][FPA 2.2.1.10.3 - Importo] - La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
 	</rule>
 	
-	<rule context="/*/cac:InvoiceLine/cac:Price/cbc:PriceAmount" flag="fatal">
+	<rule context="/*/cac:InvoiceLine/cac:Price/cbc:PriceAmount | /*/cac:CreditNoteLine/cac:Price/cbc:PriceAmount" flag="fatal">
 		<assert test="matches(.,'^[\-]?\d{1,11}\.\d{2,8}$')" flag="fatal" id="BR-IT-430">[BR-IT-430] - BT-146 (Item net price) maximum length shall be 21 chars and BT allowed fraction digits shall be 8 - La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento dovrà avere 8 cifre decimali.</assert>
 	</rule>
 
-	<rule context="/*/cac:InvoiceLine/cac:Price/cac:AllowanceCharge/cbc:Amount" flag="fatal">
+	<rule context="/*/cac:InvoiceLine/cac:Price/cac:AllowanceCharge/cbc:Amount | /*/cac:CreditNoteLine/cac:Price/cac:AllowanceCharge/cbc:Amount" flag="fatal">
 		<assert test="matches(.,'^[\-]?\d{1,11}\.\d{2,8}$')" flag="fatal" id="BR-IT-431">[BR-IT-431][FPA 2.2.1.10.3 Importo] - La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento potrà avere fino a 8 cifre decimali.</assert>
 	</rule>
 	
-	<rule context="/*/cac:InvoiceLine/cac:Price" flag="fatal">
+	<rule context="/*/cac:InvoiceLine/cac:Price | /*/cac:CreditNoteLine/cac:Price" flag="fatal">
 		<assert test="cac:AllowanceCharge/cbc:BaseAmount" flag="fatal" id="BR-IT-432">[BR-IT-432][FPA 2.2.1.9 PrezzoUnitario] -  Il BT-148 (Item gross price) deve essere obbligatoriamente valorizzato.</assert>
 		<assert test="matches(cac:AllowanceCharge/cbc:BaseAmount,'^[\-]?\d{1,11}\.\d{2,8}$')" flag="fatal" id="BR-IT-433">[BR-IT-433][FPA 2.2.1.9 PrezzoUnitario] - La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento potrà avere fino a 8 cifre decimali.</assert>
 	</rule>	
 	
-	<rule context="/*/cac:InvoiceLine/cac:Item/cac:SellersItemIdentification/cbc:ID" flag="fatal">
+	<rule context="/*/cac:InvoiceLine/cac:Item/cac:SellersItemIdentification/cbc:ID | /*/cac:CreditNoteLine/cac:Item/cac:SellersItemIdentification/cbc:ID" flag="fatal">
 		<assert test="matches(.,'^(\p{IsBasicLatin}){0,35}$')" flag="fatal" id="BR-IT-440">[BR-IT-440][FPA 2.2.1.3.1 Codice Tipo, 2.2.1.3.2 CodiceValore] - BT-155 (Item Seller's identifier) maximum lenght shall be 35 chars - La lunghezza dell'elemento non può superare i 35 caratteri.</assert>
 	</rule>
 	
-	<rule context="/*/cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode" flag="fatal">
+	<rule context="/*/cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode | /*/cac:CreditNoteLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode" flag="fatal">
 		<assert test="matches(.,'^(\p{IsBasicLatin}){0,35}$')" flag="fatal" id="BR-IT-470">[BR-IT-470][FPA 2.2.1.3.1 Codice Tipo, 2.2.1.3.2 CodiceValore] - BT-158 (Item classification identifier) maximum lenght shall be 35 chars - La lunghezza dell'elemento non può superare i 35 caratteri.</assert>
 	</rule>
 

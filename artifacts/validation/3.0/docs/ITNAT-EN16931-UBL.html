@@ -1119,60 +1119,60 @@
                            location e BT-125 Attached document.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-IT-370" data-context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID" data-test="matches(.,'^(\p{IsBasicLatin}){0,100}$')">
+                  <tr id="BR-IT-370" data-context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID | /*/cac:CreditNoteLine/cac:DocumentReference/cbc:ID" data-test="matches(.,'^(\p{IsBasicLatin}){0,100}$')">
                      <td><a href="#">BR-IT-370</a><br><span class="message">[BR-IT-370][FPA 2.2.1.3.2 CodiceValore] - BT-128 (Invoice line object identifier) maximum lenght shall be 100 chars - La lunghezza
                            dell'elemento non pu&ograve; superare i 100 caratteri.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-IT-380" data-context="/*/cac:InvoiceLine/cbc:InvoicedQuantity" data-test="matches(.,'^\d{1,12}\.\d{2,8}$')">
+                  <tr id="BR-IT-380" data-context="/*/cac:InvoiceLine/cbc:InvoicedQuantity | /*/cac:CreditNoteLine/cbc:CreditedQuantity" data-test="matches(.,'^\d{1,12}\.\d{2,8}$')">
                      <td><a href="#">BR-IT-380</a><br><span class="message">[BR-IT-380][FPA 2.2.1.5 Quantita] - BT-129 (Invoiced quantity) maximum lenght shall be 21 chars and BT allowed fraction digits
                            shall be 8 - La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento dovr&agrave; avere 8 cifre decimali.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-IT-390" data-context="/*/cac:InvoiceLine/cbc:LineExtensionAmount" data-test="matches(.,'^\d*(\.\d{0,2})?$') and string-length(.) &gt;= 1 and string-length(.) <= 15">
+                  <tr id="BR-IT-390" data-context="/*/cac:InvoiceLine/cbc:LineExtensionAmount | /*/cac:CreditNoteLine/cbc:LineExtensionAmount" data-test="matches(.,'^\d*(\.\d{0,2})?$') and string-length(.) &gt;= 1 and string-length(.) <= 15">
                      <td><a href="#">BR-IT-390</a><br><span class="message">[BR-IT-390][FPA 2.2.1.11 PrezzoTotale] - BT-131 (Invoice line net amount) BT maximum length shall be 15, including two fraction
                            digits - La lunghezza dell'elemento non pu&ograve; superare i 15 caratteri incluso 2 cifre decimali.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-IT-400" data-context="/*/cac:InvoiceLine/cac:OrderLineReference/cbc:LineID" data-test="matches(.,'^(\p{IsBasicLatin}){0,20}$')">
+                  <tr id="BR-IT-400" data-context="/*/cac:InvoiceLine/cac:OrderLineReference/cbc:LineID | /*/cac:CreditNoteLine/cac:OrderLineReference/cbc:LineID" data-test="matches(.,'^(\p{IsBasicLatin}){0,20}$')">
                      <td><a href="#">BR-IT-400</a><br><span class="message">[BR-IT-400][FPA 2.1.2.4 NumItem] - BT-132 (Referenced purchase order line reference) maximum lenght shall be 20 chars - La
                            lunghezza dell'elemento non pu&ograve; superare i 20 caratteri.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-IT-410" data-context="/*/cac:InvoiceLine/cbc:AccountingCost" data-test="matches(.,'^(\p{IsBasicLatin}){0,20}$')">
+                  <tr id="BR-IT-410" data-context="/*/cac:InvoiceLine/cbc:AccountingCost | /*/cac:CreditNoteLine/cbc:AccountingCost" data-test="matches(.,'^(\p{IsBasicLatin}){0,20}$')">
                      <td><a href="#">BR-IT-410</a><br><span class="message">[BR-IT-410][FPA 2.2.1.15 RiferimentoAmministrazione] - BT-133 (Invoice line Buyer accounting reference) maximum lenght shall
                            be 20 chars - La lunghezza dell'elemento non pu&ograve; superare i 20 caratteri.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-IT-421" data-context="/*/cac:InvoiceLine/cac:AllowanceCharge/cbc:Amount" data-test="matches(.,'^\d*(\.\d{0,2})?$') and string-length(.) &gt;= 1 and string-length(.) <= 15">
+                  <tr id="BR-IT-421" data-context="/*/cac:InvoiceLine/cac:AllowanceCharge/cbc:Amount | /*/cac:CreditNoteLine/cac:AllowanceCharge/cbc:Amount" data-test="matches(.,'^\d*(\.\d{0,2})?$') and string-length(.) &gt;= 1 and string-length(.) <= 15">
                      <td><a href="#">BR-IT-421</a><br><span class="message">[BR-IT-421][FPA 2.2.1.10.3 - Importo] - La lunghezza dell'elemento non pu&ograve; superare i 15 caratteri incluso 2 cifre decimali.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-IT-430" data-context="/*/cac:InvoiceLine/cac:Price/cbc:PriceAmount" data-test="matches(.,'^[\-]?\d{1,11}\.\d{2,8}$')">
+                  <tr id="BR-IT-430" data-context="/*/cac:InvoiceLine/cac:Price/cbc:PriceAmount | /*/cac:CreditNoteLine/cac:Price/cbc:PriceAmount" data-test="matches(.,'^[\-]?\d{1,11}\.\d{2,8}$')">
                      <td><a href="#">BR-IT-430</a><br><span class="message">[BR-IT-430] - BT-146 (Item net price) maximum length shall be 21 chars and BT allowed fraction digits shall be 8 - La lunghezza
                            dell'elemento non deve essere superiore a 21 caratteri e l'elemento dovr&agrave; avere 8 cifre decimali.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-IT-431" data-context="/*/cac:InvoiceLine/cac:Price/cac:AllowanceCharge/cbc:Amount" data-test="matches(.,'^[\-]?\d{1,11}\.\d{2,8}$')">
+                  <tr id="BR-IT-431" data-context="/*/cac:InvoiceLine/cac:Price/cac:AllowanceCharge/cbc:Amount | /*/cac:CreditNoteLine/cac:Price/cac:AllowanceCharge/cbc:Amount" data-test="matches(.,'^[\-]?\d{1,11}\.\d{2,8}$')">
                      <td><a href="#">BR-IT-431</a><br><span class="message">[BR-IT-431][FPA 2.2.1.10.3 Importo] - La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento potr&agrave;
                            avere fino a 8 cifre decimali.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-IT-432" data-context="/*/cac:InvoiceLine/cac:Price" data-test="cac:AllowanceCharge/cbc:BaseAmount">
+                  <tr id="BR-IT-432" data-context="/*/cac:InvoiceLine/cac:Price | /*/cac:CreditNoteLine/cac:Price" data-test="cac:AllowanceCharge/cbc:BaseAmount">
                      <td><a href="#">BR-IT-432</a><br><span class="message">[BR-IT-432][FPA 2.2.1.9 PrezzoUnitario] -  Il BT-148 (Item gross price) deve essere obbligatoriamente valorizzato.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-IT-433" data-context="/*/cac:InvoiceLine/cac:Price" data-test="matches(cac:AllowanceCharge/cbc:BaseAmount,'^[\-]?\d{1,11}\.\d{2,8}$')">
+                  <tr id="BR-IT-433" data-context="/*/cac:InvoiceLine/cac:Price | /*/cac:CreditNoteLine/cac:Price" data-test="matches(cac:AllowanceCharge/cbc:BaseAmount,'^[\-]?\d{1,11}\.\d{2,8}$')">
                      <td><a href="#">BR-IT-433</a><br><span class="message">[BR-IT-433][FPA 2.2.1.9 PrezzoUnitario] - La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento
                            potr&agrave; avere fino a 8 cifre decimali.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-IT-440" data-context="/*/cac:InvoiceLine/cac:Item/cac:SellersItemIdentification/cbc:ID" data-test="matches(.,'^(\p{IsBasicLatin}){0,35}$')">
+                  <tr id="BR-IT-440" data-context="/*/cac:InvoiceLine/cac:Item/cac:SellersItemIdentification/cbc:ID | /*/cac:CreditNoteLine/cac:Item/cac:SellersItemIdentification/cbc:ID" data-test="matches(.,'^(\p{IsBasicLatin}){0,35}$')">
                      <td><a href="#">BR-IT-440</a><br><span class="message">[BR-IT-440][FPA 2.2.1.3.1 Codice Tipo, 2.2.1.3.2 CodiceValore] - BT-155 (Item Seller's identifier) maximum lenght shall be
                            35 chars - La lunghezza dell'elemento non pu&ograve; superare i 35 caratteri.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-IT-470" data-context="/*/cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode" data-test="matches(.,'^(\p{IsBasicLatin}){0,35}$')">
+                  <tr id="BR-IT-470" data-context="/*/cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode | /*/cac:CreditNoteLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode" data-test="matches(.,'^(\p{IsBasicLatin}){0,35}$')">
                      <td><a href="#">BR-IT-470</a><br><span class="message">[BR-IT-470][FPA 2.2.1.3.1 Codice Tipo, 2.2.1.3.2 CodiceValore] - BT-158 (Item classification identifier) maximum lenght shall
                            be 35 chars - La lunghezza dell'elemento non pu&ograve; superare i 35 caratteri.</span></td>
                      <td style="width: 5%;">fatal</td>
@@ -1492,7 +1492,7 @@
                            lo schema fiscale = 'VAT', la ragione sociale e se viene specificata una persona fisica, il nome e cognome.</span></td>
                      <td style="width: 5%;">fatal</td>
                   </tr>
-                  <tr id="BR-IT-DE-049" data-context="/*/cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty/cac:Party" data-test="not(starts-with(upper-case(cac:PartyTaxScheme/cbc:CompanyID), 'IT')) or (cac:PartyIdentification/cbc:ID[@schemeID='0210'] and matches(cac:PartyIdentification/cbc:ID,'^[A-Z0-9]{11,16}$'))">
+                  <tr id="BR-IT-DE-049" data-context="/*/cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty/cac:Party" data-test="not(starts-with(upper-case(cac:PartyTaxScheme/cbc:CompanyID), 'IT')) or (cac:PartyIdentification/cbc:ID[@schemeID='0210'] and matches(cac:PartyIdentification/cbc:ID[@schemeID='0210'],'^[A-Z0-9]{11,16}$'))">
                      <td><a href="#">BR-IT-DE-049</a><br><span class="message">[BR-IT-DE-049][FPA 1.5.1.2 - Codice Fiscale] - Se il Terzo Intermediario o Soggetto Emittente &egrave; italiano, deve essere fornito
                            il suo Codice Fiscale (cac:PartyIdentification/cbc:ID) qualificato dall'attributo @schemeID con il valore "0210" e la lunghezza
                            del codice deve essere compresa fra 11 e 16 caratteri alfanumerici.</span></td>
@@ -2298,10 +2298,6 @@
                   </tr>
                   <tr id="UBL-CR-017" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:OrderReference/cbc:UUID)">
                      <td><a href="#">UBL-CR-017</a><br><span class="message">[UBL-CR-017]-A UBL invoice should not include the OrderReference UUID</span></td>
-                     <td style="width: 5%;">warning</td>
-                  </tr>
-                  <tr id="UBL-CR-018" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:OrderReference/cbc:IssueDate)">
-                     <td><a href="#">UBL-CR-018</a><br><span class="message">[UBL-CR-018]-A UBL invoice should not include the OrderReference IssueDate</span></td>
                      <td style="width: 5%;">warning</td>
                   </tr>
                   <tr id="UBL-CR-019" data-context="/ubl:Invoice | /cn:CreditNote" data-test="not(cac:OrderReference/cbc:IssueTime)">

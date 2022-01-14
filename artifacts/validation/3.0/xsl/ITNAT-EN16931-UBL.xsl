@@ -4642,22 +4642,6 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not(cac:OrderReference/cbc:IssueDate)"/>
-         <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:OrderReference/cbc:IssueDate)">
-               <axsl:attribute name="id">UBL-CR-018</axsl:attribute>
-               <axsl:attribute name="flag">warning</axsl:attribute>
-               <axsl:attribute name="location">
-                  <axsl:apply-templates select="." mode="schematron-select-full-path"/>
-               </axsl:attribute>
-               <svrl:text>[UBL-CR-018]-A UBL invoice should not include the OrderReference IssueDate</svrl:text>
-            </svrl:failed-assert>
-         </axsl:otherwise>
-      </axsl:choose>
-
-		<!--ASSERT -->
-
-      <axsl:choose>
          <axsl:when test="not(cac:OrderReference/cbc:IssueTime)"/>
          <axsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(cac:OrderReference/cbc:IssueTime)">
@@ -20150,8 +20134,8 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID" priority="1010" mode="M58">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID"/>
+   <axsl:template match="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID | /*/cac:CreditNoteLine/cac:DocumentReference/cbc:ID" priority="1010" mode="M58">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID | /*/cac:CreditNoteLine/cac:DocumentReference/cbc:ID"/>
 
 		<!--ASSERT -->
 
@@ -20173,8 +20157,8 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cbc:InvoicedQuantity" priority="1009" mode="M58">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cbc:InvoicedQuantity"/>
+   <axsl:template match="/*/cac:InvoiceLine/cbc:InvoicedQuantity | /*/cac:CreditNoteLine/cbc:CreditedQuantity" priority="1009" mode="M58">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cbc:InvoicedQuantity | /*/cac:CreditNoteLine/cbc:CreditedQuantity"/>
 
 		<!--ASSERT -->
 
@@ -20196,8 +20180,8 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cbc:LineExtensionAmount" priority="1008" mode="M58">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cbc:LineExtensionAmount"/>
+   <axsl:template match="/*/cac:InvoiceLine/cbc:LineExtensionAmount | /*/cac:CreditNoteLine/cbc:LineExtensionAmount" priority="1008" mode="M58">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cbc:LineExtensionAmount | /*/cac:CreditNoteLine/cbc:LineExtensionAmount"/>
 
 		<!--ASSERT -->
 
@@ -20219,8 +20203,8 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:OrderLineReference/cbc:LineID" priority="1007" mode="M58">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:OrderLineReference/cbc:LineID"/>
+   <axsl:template match="/*/cac:InvoiceLine/cac:OrderLineReference/cbc:LineID | /*/cac:CreditNoteLine/cac:OrderLineReference/cbc:LineID" priority="1007" mode="M58">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:OrderLineReference/cbc:LineID | /*/cac:CreditNoteLine/cac:OrderLineReference/cbc:LineID"/>
 
 		<!--ASSERT -->
 
@@ -20242,8 +20226,8 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cbc:AccountingCost" priority="1006" mode="M58">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cbc:AccountingCost"/>
+   <axsl:template match="/*/cac:InvoiceLine/cbc:AccountingCost | /*/cac:CreditNoteLine/cbc:AccountingCost" priority="1006" mode="M58">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cbc:AccountingCost | /*/cac:CreditNoteLine/cbc:AccountingCost"/>
 
 		<!--ASSERT -->
 
@@ -20265,8 +20249,8 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:AllowanceCharge/cbc:Amount" priority="1005" mode="M58">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:AllowanceCharge/cbc:Amount"/>
+   <axsl:template match="/*/cac:InvoiceLine/cac:AllowanceCharge/cbc:Amount | /*/cac:CreditNoteLine/cac:AllowanceCharge/cbc:Amount" priority="1005" mode="M58">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:AllowanceCharge/cbc:Amount | /*/cac:CreditNoteLine/cac:AllowanceCharge/cbc:Amount"/>
 
 		<!--ASSERT -->
 
@@ -20288,8 +20272,8 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:Price/cbc:PriceAmount" priority="1004" mode="M58">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:Price/cbc:PriceAmount"/>
+   <axsl:template match="/*/cac:InvoiceLine/cac:Price/cbc:PriceAmount | /*/cac:CreditNoteLine/cac:Price/cbc:PriceAmount" priority="1004" mode="M58">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:Price/cbc:PriceAmount | /*/cac:CreditNoteLine/cac:Price/cbc:PriceAmount"/>
 
 		<!--ASSERT -->
 
@@ -20311,8 +20295,8 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:Price/cac:AllowanceCharge/cbc:Amount" priority="1003" mode="M58">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:Price/cac:AllowanceCharge/cbc:Amount"/>
+   <axsl:template match="/*/cac:InvoiceLine/cac:Price/cac:AllowanceCharge/cbc:Amount | /*/cac:CreditNoteLine/cac:Price/cac:AllowanceCharge/cbc:Amount" priority="1003" mode="M58">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:Price/cac:AllowanceCharge/cbc:Amount | /*/cac:CreditNoteLine/cac:Price/cac:AllowanceCharge/cbc:Amount"/>
 
 		<!--ASSERT -->
 
@@ -20334,8 +20318,8 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:Price" priority="1002" mode="M58">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:Price"/>
+   <axsl:template match="/*/cac:InvoiceLine/cac:Price | /*/cac:CreditNoteLine/cac:Price" priority="1002" mode="M58">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:Price | /*/cac:CreditNoteLine/cac:Price"/>
 
 		<!--ASSERT -->
 
@@ -20373,8 +20357,8 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:Item/cac:SellersItemIdentification/cbc:ID" priority="1001" mode="M58">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:Item/cac:SellersItemIdentification/cbc:ID"/>
+   <axsl:template match="/*/cac:InvoiceLine/cac:Item/cac:SellersItemIdentification/cbc:ID | /*/cac:CreditNoteLine/cac:Item/cac:SellersItemIdentification/cbc:ID" priority="1001" mode="M58">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:Item/cac:SellersItemIdentification/cbc:ID | /*/cac:CreditNoteLine/cac:Item/cac:SellersItemIdentification/cbc:ID"/>
 
 		<!--ASSERT -->
 
@@ -20396,8 +20380,8 @@
 
 	<!--RULE -->
 
-   <axsl:template match="/*/cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode" priority="1000" mode="M58">
-      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode"/>
+   <axsl:template match="/*/cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode | /*/cac:CreditNoteLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode" priority="1000" mode="M58">
+      <svrl:fired-rule xmlns:svrl="http://purl.oclc.org/dsdl/svrl" context="/*/cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode | /*/cac:CreditNoteLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode"/>
 
 		<!--ASSERT -->
 
@@ -20928,9 +20912,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="not(starts-with(upper-case(cac:PartyTaxScheme/cbc:CompanyID), 'IT')) or (cac:PartyIdentification/cbc:ID[@schemeID='0210'] and matches(cac:PartyIdentification/cbc:ID,'^[A-Z0-9]{11,16}$'))"/>
+         <axsl:when test="not(starts-with(upper-case(cac:PartyTaxScheme/cbc:CompanyID), 'IT')) or (cac:PartyIdentification/cbc:ID[@schemeID='0210'] and matches(cac:PartyIdentification/cbc:ID[@schemeID='0210'],'^[A-Z0-9]{11,16}$'))"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(starts-with(upper-case(cac:PartyTaxScheme/cbc:CompanyID), 'IT')) or (cac:PartyIdentification/cbc:ID[@schemeID='0210'] and matches(cac:PartyIdentification/cbc:ID,'^[A-Z0-9]{11,16}$'))">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="not(starts-with(upper-case(cac:PartyTaxScheme/cbc:CompanyID), 'IT')) or (cac:PartyIdentification/cbc:ID[@schemeID='0210'] and matches(cac:PartyIdentification/cbc:ID[@schemeID='0210'],'^[A-Z0-9]{11,16}$'))">
                <axsl:attribute name="id">BR-IT-DE-049</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">

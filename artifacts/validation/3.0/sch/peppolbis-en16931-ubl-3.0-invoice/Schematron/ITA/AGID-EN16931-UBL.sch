@@ -449,7 +449,7 @@
       <assert id="UBL-CR-015" flag="warning" test="not(cac:InvoicePeriod/cbc:Description)">[UBL-CR-015]-A UBL invoice should not include the InvoicePeriod Description</assert>
       <assert id="UBL-CR-016" flag="warning" test="not(cac:OrderReference/cbc:CopyIndicator)">[UBL-CR-016]-A UBL invoice should not include the OrderReference CopyIndicator</assert>
       <assert id="UBL-CR-017" flag="warning" test="not(cac:OrderReference/cbc:UUID)">[UBL-CR-017]-A UBL invoice should not include the OrderReference UUID</assert>
-      <assert id="UBL-CR-018" flag="warning" test="not(cac:OrderReference/cbc:IssueDate)">[UBL-CR-018]-A UBL invoice should not include the OrderReference IssueDate</assert>
+      <!--assert id="UBL-CR-018" flag="warning" test="not(cac:OrderReference/cbc:IssueDate)">[UBL-CR-018]-A UBL invoice should not include the OrderReference IssueDate</assert-->
       <assert id="UBL-CR-019" flag="warning" test="not(cac:OrderReference/cbc:IssueTime)">[UBL-CR-019]-A UBL invoice should not include the OrderReference IssueTime</assert>
       <assert id="UBL-CR-020" flag="warning" test="not(cac:OrderReference/cbc:CustomerReference)">[UBL-CR-020]-A UBL invoice should not include the OrderReference CustomerReference</assert>
       <assert id="UBL-CR-021" flag="warning" test="not(cac:OrderReference/cbc:OrderTypeCode)">[UBL-CR-021]-A UBL invoice should not include the OrderReference OrderTypeCode</assert>

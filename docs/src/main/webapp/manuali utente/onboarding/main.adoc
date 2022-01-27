@@ -1,0 +1,23 @@
+:doctype: book
+:icons: font
+:stem:
+:lang: it
+:toc: left
+:toclevels: 2
+:source-highlighter: coderay
+:source-language: xml
+:sectanchors:
+:sectnums:
+
+= [black]#Manuale utente Piattaforma di Onboarding#
+
+
+:leveloffset: +1
+
+include::introduction/_index.adoc[]
+
+include::sessione/_index.adoc[]
+
+include::test/_index.adoc[]
+
+:leveloffset: -1

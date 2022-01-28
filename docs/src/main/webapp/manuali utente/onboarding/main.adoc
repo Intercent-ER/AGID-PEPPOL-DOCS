@@ -35,6 +35,10 @@ include::interfaccia_web/selezione_test.adoc[]
 
 include::interfaccia_web/dati_sessione_test.adoc[]
 
+== Sessione di Test ==
+
+include::TestSuite/Sessione_di_test.adoc[]
+
 == Casi di Test ==
 === Test di Invio ===
 

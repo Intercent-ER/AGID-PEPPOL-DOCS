@@ -57,6 +57,12 @@
 									</a>
 									<%@include file="../peppol-bis-3-ITA/menu/stylesheet-menu.html" %>
 								</li>
+								
+								<li class="dropdown dropdown-agid">
+									<a href="https://peppol-validator.agid.gov.it/" class="dropdown-toggle link-agid" target="_blank" role="button" title="Piattaforma di Validazione PEPPOL (apre un link in nuova finestra)">
+										Validatore
+									</a>
+								</li>
 
 								<li class="dropdown dropdown-agid">
 									<a href="#" class="dropdown-toggle link-agid" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin-left: 150px">IT<span class="caret"></span>

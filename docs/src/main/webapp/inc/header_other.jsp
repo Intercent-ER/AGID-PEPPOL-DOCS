@@ -65,7 +65,7 @@
 								</li>
 
 								<li class="dropdown dropdown-agid">
-									<a href="#" class="dropdown-toggle link-agid" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin-left: 150px">IT<span class="caret"></span>
+									<a href="#" class="dropdown-toggle link-agid" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">IT<span class="caret"></span>
 									</a>
 									<ul class="dropdown-menu">
 										<li><a href="<%=request.getContextPath()%>/my_index.jsp">IT</a></li>

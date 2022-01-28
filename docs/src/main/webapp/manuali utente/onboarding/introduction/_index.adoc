@@ -1,3 +1,10 @@
-= Presentazione della piattaforma di onboarding
+=== Obbiettivi del Documento
 
-Lorem ipsum...
+Il presente documento ha l’obiettivo di guidare l’utente attraverso l’interfaccia grafica piattaforma di Onboarding che consente di automatizzare la fase di effettuazione dei test, parte integrante del processo di accreditamento da parte di AgID dei Service Provider che richiedono l’accreditamento nel dominio italiano per la trasmissione e la ricezione dei documenti elettronici (ordine, ddt, fattura, risposta all'ordine, ordine preconcordato e nota di credito) attraverso l’infrastruttura di rete Peppol.
+
+
+
+La piattaforma gestisce l’esecuzione dei test e delle verifiche di interoperabilità, al completamento dei quali sarà possibile inviare automaticamente alla Peppol Authority Nazionale l’elenco dei test superati. 
+In tal modo la Peppol Authority potrà effettuare una verifica e certificare il completamento effettivo della procedura di accreditamento, autorizzando il Service Provider alla richiesta dei certificati digitali per l’ambiente di produzione.
+Si riporta il workflow che sintetizza il processo di funzionamento del sistema, evidenziando gli attori coinvolti e le principali attività svolte.
+

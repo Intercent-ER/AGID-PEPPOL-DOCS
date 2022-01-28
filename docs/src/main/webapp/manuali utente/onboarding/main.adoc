@@ -14,10 +14,38 @@
 
 :leveloffset: +1
 
+== Introduzione ==
+
 include::introduction/_index.adoc[]
 
-include::sessione/_index.adoc[]
+== Accesso alla piattaforma ==
 
-include::test/_index.adoc[]
+include::accesso_piattaforma/accesso_piattaforma.adoc[]
+
+== Interfaccia web ==
+=== Home Page ===
+
+include::interfaccia_web/home_page.adoc[]
+
+=== Selezione casi di Test ===
+
+include::interfaccia_web/selezione_test.adoc[]
+
+=== Inserimento dati  Sessione di Test ===
+
+include::interfaccia_web/dati_sessione_test.adoc[]
+
+== Casi di Test ==
+=== Test di Invio ===
+
+include::casi_test/invio.adoc[]
+
+=== Test di Ricezione ===
+include::casi_test/ricezione.adoc[]
+
+== Certificazioni ==
+
+include::certificati/certificati.adoc[]
+
 
 :leveloffset: -1

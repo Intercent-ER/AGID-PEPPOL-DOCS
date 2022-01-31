@@ -1,3 +1,11 @@
-= Presentazione della piattaforma di onboarding
+Superati tutti i test previsti dalla sessione di test, nella home page della piattaforma, nella sezione relativa al dettaglio, verrà specificato che la sessione di test è stata completata (indicando la data e l’ora di completamento) e verranno abilitati i bottoni:
 
-Lorem ipsum...
+•	“Invio test report”: per inviare in automatico l’esito della sessione di test alla Peppol Authority;
+
+__ TODO __ immagine
+
+•	“Download test report”: per effettuare il download del file .pdf relativo del report di test inviato.
+
+__ TODO __ immagine
+
+Cliccando sul bottone “Invio test report”, verrà inviato automaticamente il documento contenete l’esito dei test della sessione di test eseguita alla Peppol Authority.

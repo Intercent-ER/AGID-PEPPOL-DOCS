@@ -1,3 +1,26 @@
-= Presentazione della piattaforma di onboarding
+Una volta espanso il caso di test viene visualizzata la descrizione del test.
 
-Lorem ipsum...
+image::CATTURE/Invio_pre.png[]
+[.text-center]
+_fig.n:_
+
+Per completare il test l'Access Point del Service Provider dovrà inviare alla piattaforma la tipologia di documento associata al test case.
+A quel punto la Piattaforma di Onboarding rimarrà per un'ora in attesa del documento nel caso in cui il documento non sia stato ricevuto entro i tempi previsti (1 ora) verrà modificato lo stato del test case in "Fallito" e nella sezione “Descrizione” verrà indicata la motivazione del fallimento (“Timeout - Mancata ricezione del documento entro i tempi previsti”) e il link per visualizzare il report degli errori;
+
+__ TODO __ manca img errore
+
+Per notificare al sistema di iniziare il test e avviare il countdown di un ora per restare in attesa del documento
+
+
+image::CATTURE/Avvia_esp.png[]
+[.text-center]
+_fig.n:_
+
+Una volta avviato il test apparirà la casella di test adibita all'inserimento dell'instance identifier del documento.
+
+image::CATTURE/invio_mid_rosso.png[]
+[.text-center]
+_fig.n:_
+
+
+__ TODO __ manca risultato del test, caso successo e fallimento.

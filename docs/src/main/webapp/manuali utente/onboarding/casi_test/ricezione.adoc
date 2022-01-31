@@ -33,7 +33,7 @@ __ TODO __ Serve immagine messaggio errore vuoto
 
 __ TODO __ Serve immagine rigenera domande
 
-Prima che il caso di test venga considerato fallito sono disponibili 3 tentativi di rispondere al set di 5 domande. Al fallimento del 3 tentativo lo stato del caso di test diventerà *fallito* e anche lo stato del test suite di conseguenza verrà aggiornato a *fallito*
+Prima che il caso di test venga considerato fallito sono disponibili 3 tentativi di rispondere al set di 5 domande. Al fallimento del 3 tentativo lo stato del caso di test diventerà *fallito* e anche lo stato del test suite di conseguenza verrà aggiornato a *fallito*.
 
 __ TODO __ Immagine del Fallito
 

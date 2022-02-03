@@ -49,7 +49,7 @@
 
 			<Element>
 				<Term>cbc:TypeCode</Term>
-				<Name>Soggetto Emittente</Name>
+				<Name>Soggetto Emittente - FPA 1.6 'SoggettoEmittente'</Name>
 				<DataType>Code</DataType>
 				<Value type="EXAMPLE">TZ</Value>
 			</Element>

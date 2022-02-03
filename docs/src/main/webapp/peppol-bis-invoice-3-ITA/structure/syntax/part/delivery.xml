@@ -154,6 +154,17 @@
                     <Description>Numero di Codice Fiscale.</Description>
                     <DataType>Identifier</DataType>
 					<Reference type="RULE">BR-IT-DE-026A</Reference>
+
+                    <Attribute usage="Optional">
+                        <Term>schemeID</Term>
+                        <Name>Scheme identifier</Name>
+                        <Description>Scheme identifier dell'identificativo della parte.</Description>
+                        <Reference type="RULE">BR-CL-10</Reference>
+                        <Reference type="RULE">DK-R-013</Reference>
+                        <Reference type="CODE_LIST">ICD</Reference>
+                        <Reference type="CODE_LIST">SEPA</Reference>
+                    </Attribute>
+
                 </Element>
             </Element>
 

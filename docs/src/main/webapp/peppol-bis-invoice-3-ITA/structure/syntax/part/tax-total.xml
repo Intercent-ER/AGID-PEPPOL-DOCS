@@ -149,7 +149,7 @@ l'ammontare degli importi, se il riepilogo riguarda le operazioni per le quali l
                 <Element cardinality="0..1">
                     <Term>cbc:TaxExemptionReasonCode</Term>
                     <Name>VAT exemption reason code</Name>
-                    <Description>A coded statement of the reason for why the amount is exempted from VAT.</Description>
+                    <Description>Codifica della motivazione per l’esenzione/la non imponibilità ai fini IVA (vedi tabella VATEX)</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-121</Reference>
                     <Reference type="RULE">BR-CL-22</Reference>
@@ -166,7 +166,7 @@ l'ammontare degli importi, se il riepilogo riguarda le operazioni per le quali l
 
                 <Element cardinality="0..1">
                     <Term>cbc:TaxExemptionReason</Term>
-                    <Name>VAT exemption reason text</Name>
+                    <Name>VAT exemption reason text - FPA 2.2.2.2 'Natura'</Name>
                     <Description>A textual statement of the reason why the amount is exempted from VAT or why no VAT is being
                         charged.
                     </Description>

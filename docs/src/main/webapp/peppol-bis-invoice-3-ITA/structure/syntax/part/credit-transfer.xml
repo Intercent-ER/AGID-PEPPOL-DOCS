@@ -3,7 +3,7 @@
 
         <Term>cac:PayeeFinancialAccount</Term>
         <Name>CREDIT TRANSFER</Name>
-        <Description>A group of business terms to specify credit transfer payments.</Description>
+        <Description>Insieme di informazioni relative ai pagamenti tramite bonifico bancario.</Description>
         <Reference type="BUSINESS_TERM">BG-17</Reference>
 
         <Element>
@@ -23,8 +23,7 @@
         <Element cardinality="0..1">
             <Term>cbc:Name</Term>
             <Name>Payment account name</Name>
-            <Description>The name of the payment account, at a payment service provider, to which payment should be made.
-            </Description>
+            <Description>Nominativo dell’intestatario del conto a cui deve essere effettuato il bonifico bancario.</Description>
             <DataType>Text</DataType>
             <Reference type="BUSINESS_TERM">BT-85</Reference>
             <Value type="EXAMPLE">Payment Account</Value>

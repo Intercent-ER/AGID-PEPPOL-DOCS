@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>  
+<schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:u="utils" schemaVersion="iso" queryBinding="xslt2">
+	<title>Regole di business estensione italiana</title>		
 <pattern id="Italy-EXTENSION-rules" xmlns="http://purl.oclc.org/dsdl/schematron">
 
 	<!-- UBL Extensions -->
@@ -150,4 +152,4 @@
 	</rule>
 	
 </pattern>
-
+</schema>

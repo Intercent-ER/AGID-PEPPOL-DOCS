@@ -19642,12 +19642,12 @@
          <axsl:when test="matches(.,'^[a-zA-Z0-9]{6}$')"/>
          <axsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(.,'^[a-zA-Z0-9]{6}$')">
-               <axsl:attribute name="id">BR-IT-201</axsl:attribute>
+               <axsl:attribute name="id">BR-IT-200</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-201][FPA 1.1.4  CodiceDestinatario] - Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0201", l'elemento BT-49 (Buyer electronic address) deve contenere un codice IPA con lunghezza pari a 6 caratteri.</svrl:text>
+               <svrl:text>[BR-IT-200][FPA 1.1.4  CodiceDestinatario] - Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0201", l'elemento BT-49 (Buyer electronic address) deve contenere un codice IPA con lunghezza pari a 6 caratteri.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>

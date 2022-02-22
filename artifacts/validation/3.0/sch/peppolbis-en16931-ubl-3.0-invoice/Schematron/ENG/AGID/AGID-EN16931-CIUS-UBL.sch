@@ -89,7 +89,7 @@
 	</rule>
 
 	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0201']" flag="fatal">
-		<assert test="matches(.,'^[a-zA-Z0-9]{6}$')" flag="fatal" id="BR-IT-201">[BR-IT-201][FPA 1.1.4  CodiceDestinatario] - Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0201", l'elemento BT-49 (Buyer electronic address) deve contenere un codice IPA con lunghezza pari a 6 caratteri.</assert>
+		<assert test="matches(.,'^[a-zA-Z0-9]{6}$')" flag="fatal" id="BR-IT-200">[BR-IT-200][FPA 1.1.4  CodiceDestinatario] - Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0201", l'elemento BT-49 (Buyer electronic address) deve contenere un codice IPA con lunghezza pari a 6 caratteri.</assert>
 	</rule>
 	
 	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0205']" flag="fatal">

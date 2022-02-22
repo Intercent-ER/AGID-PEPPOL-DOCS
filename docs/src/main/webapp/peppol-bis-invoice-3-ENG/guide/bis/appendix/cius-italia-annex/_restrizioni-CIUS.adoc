@@ -94,7 +94,7 @@ valorizzato come segue: +
 1.4.1.1.2 IdCodice
 |La lunghezza dell'elemento non può superare i 30 caratteri
 
-|BR-IT-201
+|BR-IT-200
 |Value domain for an element - Restrict  text or byte array length
 |BT-49 Buyer electronic address +
 BT-49-1 Buyer electronic address identification scheme 

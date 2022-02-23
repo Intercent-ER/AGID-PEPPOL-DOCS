@@ -1,12 +1,12 @@
 Una volta espanso il caso di test viene visualizzata la descrizione del test.
 
-image::CATTURE/ric_pre.png[]
+image::../CATTURE/ric_pre.PNG[]
 [.text-center]
 _fig.n:_
 
 All'avvio del test la Piattafoma di Onboarding si occuperà della creazione del documento in funzione della tipologia richiesta dal test e dell'invio dello stesso all'Access Point indicato dall’utente Service Provider in fase di creazione della sessione di test;
 
-image::CATTURE/ric_avvia.png[]
+image::../CATTURE/ric_avvia.png[]
 [.text-center]
 _fig.n:_
 
@@ -36,20 +36,3 @@ __ TODO __ Serve immagine rigenera domande
 Prima che il caso di test venga considerato fallito sono disponibili 3 tentativi di rispondere al set di 5 domande. Al fallimento del 3 tentativo lo stato del caso di test diventerà *fallito* e anche lo stato del test suite di conseguenza verrà aggiornato a *fallito*.
 
 __ TODO __ Immagine del Fallito
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

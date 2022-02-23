@@ -1,55 +1,53 @@
 Una volta compilati i dati e premuto il bottone "Crea" la finestra modale sparisce e all'interno della Home Page notiamo che è stata creata la sessione di test.
 
-image::CATTURE/Ts.png[] 
+image::../CATTURE/Ts.PNG[]
 [.text-center]
 _fig.n:_
 
 È possibile cancellare la sessione creata tramite l' icona "Elimina".
 
-image::CATTURE/cestino.png[]
+image::../CATTURE/cestino.png[]
 [.text-center]
 _fig.n:_
 
 Lo stato della sessione viene sempre riportato in grafica.
 
-image::CATTURE/stato_ts.png[]
+image::../CATTURE/stato_ts.png[]
 [.text-center]
 _fig.n:_
 
 Possiamo espandere o ridurre la sessione attraverso l'utilizzo dell'icona di "espansione/riduzione"
 
-image::CATTURE/expand_TS.png[]
+image::../CATTURE/expand_TS.png[]
 [.text-center]
 _fig.n:_
 
 Una volta espanso è possibile interagire con i test case precedentemente selezionati nella fase di creazione.
 
-image::CATTURE/TestSuite.png[]
+image::../CATTURE/TestSuite.PNG[]
 [.text-center]
 _fig.n:_
 
 All'interno del caso di test vengono indicati la tipologia:
 
-image::CATTURE/tipoTest.png[]
+image::../CATTURE/tipoTest.png[]
 [.text-center]
 _fig.n:_
 
 e lo stato del test:
 
-image:CATTURE/da_avviare.png[]
+image:../CATTURE/da_avviare.png[]
 [.text-center]
 _fig.n:_
 
 Possiamo avviare il test tramite la pressione del tasto "Avvia".
 
-image:CATTURE/Avvia.png[]
+image:../CATTURE/Avvia.png[]
 [.text-center]
 _fig.n:_
 
 Possiamo espandere o ridurre il caso di test attraverso l'utilizzo dell'icona di "espansione/riduzione"
 
-image:CATTURE/espandi.png[]
+image:../CATTURE/espandi.png[]
 [.text-center]
 _fig.n:_
-
-

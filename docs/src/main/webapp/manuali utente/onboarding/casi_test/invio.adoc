@@ -1,6 +1,6 @@
 Una volta espanso il caso di test viene visualizzata la descrizione del test.
 
-image::CATTURE/Invio_pre.png[]
+image::../CATTURE/Invio_pre.PNG[]
 [.text-center]
 _fig.n:_
 
@@ -12,13 +12,13 @@ __ TODO __ manca img errore
 Per notificare al sistema di iniziare il test e avviare il countdown di un ora per restare in attesa del documento
 
 
-image::CATTURE/Avvia_esp.png[]
+image::../CATTURE/avvia_esp.png[]
 [.text-center]
 _fig.n:_
 
 Una volta avviato il test apparirà la casella di test adibita all'inserimento dell'instance identifier del documento.
 
-image::CATTURE/invio_mid_rosso.png[]
+image::../CATTURE/invio_mid_rosso.png[]
 [.text-center]
 _fig.n:_
 
@@ -26,4 +26,3 @@ _fig.n:_
 __ TODO __ manca risultato del test, caso successo e fallimento.
 
 Nel caso l'instance identifier fosse errato lo stato del caso di test verrà aggiornato a *fallito* e lo stato del test suite di conseguenza verrà aggiornato a *fallito*.
-

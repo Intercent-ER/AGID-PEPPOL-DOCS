@@ -6,9 +6,9 @@ The *Endpoint ID* is specified in the document to maintain information about the
 
 The types of identifier used in Italy and recognized by Peppol are:
 
-* *0211* for the VAT number (that will replace compulsorily the temporary code 9906 starting from 15/11/2021);
+* *0211* for the VAT number;
 
-* *0210* for the Fiscal code, of legal person or entity (that will replace compulsorily the temporary code 9907 starting from 15/11/2021);
+* *0210* for the Fiscal code, of legal person or entity;
 
 * *0201* for the Codice Univoco Ufficio (so-called "iPA code", from Indice delle Pubbliche Amministrazioni). +
 

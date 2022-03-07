@@ -12,7 +12,7 @@
 ^.^|Elemento in XML PA
 ^.^|Descrizione regola
 
-|BR-IT-001
+|BR-IT-001*
 |Value domain for an element - Require defined structured values
 |BT-24 Specification Identifier + 
 BT-40 Seller country code
@@ -148,7 +148,7 @@ BT-78 Deliver  to post code +
 |2.4 DatIPagamento
 |Il gruppo di elementi BG-16 Payment instructions  deve essere obbligatorio
 
-|BR-IT-261
+|BR-IT-261*
 |Cardinality - Make a conditional element mandatory (0..x --> 1..x)
 |BT-20 Payment terms
 |2.4.1  CondizioniPagamento +
@@ -251,25 +251,19 @@ BT-125 Attached document
 |2.2.1.15 RiferimentoAmministrazione
 |La lunghezza dell'elemento non può superare i 20 caratteri
 
-|BR-IT-430
-|Value domain for an element - Require defined structured values
-|BT-146 Item net price
-|
-|La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento potrà avere fino a 8 cifre decimali
-
-|BR-IT-431
+|BR-IT-431*
 |Value domain for an element - Restrict text or byte array length
 |BT-147 Item price discount
 |2.2.1.10.3 Importo
 |La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento potrà avere fino a 8 cifre decimali.
 
-|BR-IT-432
+|BR-IT-432*
 |Cardinality - Make a conditional element mandatory (0..x --> 1..x)
 |BT-148 Item gross price
 |2.2.1.9 PrezzoUnitario
 |Il BT-148 Item gross price deve essere obbligatoriamente valorizzato
 
-|BR-IT-433
+|BR-IT-433*
 |Value domain for an element - Restrict text or byte array length
 |BT-148 Item gross price
 |2.2.1.9 PrezzoUnitario
@@ -290,7 +284,7 @@ BT-125 Attached document
 2.2.1.3.2 CodiceValore
 |La lunghezza dell'elemento non può superare i 35 caratteri
 
-|BR-IT-520A
+|BR-IT-520A*
 |Add new non-conflicting business rule to existing element(s)
 |BT-47 Buyer legal registration identifier +
 BT-48 Buyer VAT identifier
@@ -299,7 +293,7 @@ BT-48 Buyer VAT identifier
 |Almeno uno degli elementi BT-48 (Buyer VAT identifier) o BT-47 (Buyer legal registration identifier) deve essere valorizzato.
 
 
-|BR-IT-520B
+|BR-IT-520B*
 |Value domain for an element - Restrict  text or byte array length
 |BT-47 Buyer legal registration identifier +
 BT-47-1 Buyer legal registration identifier scheme identifier
@@ -315,3 +309,4 @@ BT-47-1 Buyer legal registration identifier scheme identifier
 
 
 |====
+(*) _national Peppol authority rule that integrates the AdE technical specifications_ 

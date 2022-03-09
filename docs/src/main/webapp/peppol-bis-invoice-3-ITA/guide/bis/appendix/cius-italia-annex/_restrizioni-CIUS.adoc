@@ -3,7 +3,7 @@
 = #CIUS#
 
 
-[cols="3s,2,3,3,3", options="header"]
+[cols="3s,3,3,4,5", options="header"]
 |====
 
 ^.^|CIUS ID
@@ -17,12 +17,10 @@
 |BT-24 Specification Identifier + 
 BT-40 Seller country code
 |
-|Se il valore dell’elemento BT-40 (Seller country +
-code) è diverso da "IT", il BT-24 deve essere +
+|Se il valore dell’elemento BT-40 (Seller country 
+code) è diverso da "IT", il BT-24 deve essere
 valorizzato come segue: + 
-*urn:cen.eu:en16931:2017#compliant#urn:fdc +
-:peppol.eu:2017:poacc:billing:3.0#compliant +
-#urn:www.agid.gov.it:trns:fattura:3*
+*urn:cen.eu:en16931:2017#compliant# urn:fdc:peppol.eu:2017:poacc: billing:3.0#compliant #urn:www.agid.gov.it:trns:fattura:3*
 
 (rimuovere gli spazi prima dell'utilizzo)
 
@@ -93,6 +91,14 @@ valorizzato come segue: +
 |1.4.1.1.1 IdPaese +
 1.4.1.1.2 IdCodice
 |La lunghezza dell'elemento non può superare i 30 caratteri
+
+|BR-IT-190A*
+|Cardinality - Make a conditional element mandatory (0..x --> 1..x)
+|BT-49 Buyer electroni caddress +
+BT-49-1 Buyer electronic address identification scheme
+|1.1.6 PECDestinatario +
+1.1.4  CodiceDestinatario
+|L'elemento BT-49 (Buyer electronic address) deve contenere il Codice IPA, la PEC del destinatario della fattura oppure il Codice Destinatario. Di conseguenza, per l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) sono previsti rispettivamente i valori 0201, 0202 oppure 0205
 
 |BR-IT-200
 |Value domain for an element - Restrict  text or byte array length

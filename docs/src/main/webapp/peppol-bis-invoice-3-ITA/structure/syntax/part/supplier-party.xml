@@ -277,8 +277,8 @@
                     <Reference type="RULE">DK-R-014</Reference>
                     <Reference type="RULE">SE-R-003</Reference>
                     <Reference type="RULE">SE-R-004</Reference>
-					<Reference type="RULE">BR-IT-DC-111A</Reference>
-					<Reference type="RULE">BR-IT-DC-111B</Reference>
+					<Reference type="RULE">BR-IT-DC-110A</Reference>
+					<Reference type="RULE">BR-IT-DC-110B</Reference>
                     <Attribute usage="Optional">
                         <Term>schemeID</Term>
                         <Name>Seller legal registration identifier identification scheme identifier</Name>

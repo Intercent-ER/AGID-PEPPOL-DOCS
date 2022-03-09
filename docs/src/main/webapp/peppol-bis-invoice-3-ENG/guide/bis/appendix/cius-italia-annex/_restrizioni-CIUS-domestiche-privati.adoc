@@ -3,7 +3,7 @@
 = [lime-background]#CIUS Domestiche (fatturazione verso privati)#
 
 
-[cols="2s,2,3,3,4", options="header"]
+[cols="3s,3,3,4,5", options="header"]
 |====
 
 ^.^|CIUS ID

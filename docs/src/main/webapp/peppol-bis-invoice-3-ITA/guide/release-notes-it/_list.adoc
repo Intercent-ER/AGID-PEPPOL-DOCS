@@ -8,7 +8,7 @@
 
 .2+| 3.0.12.1(IT)
 .2+| #XX/01/2022#
-a|La presente specifica implementa le nuove "Regole tecniche relative alla gestione delle fatture europee – versione 2.0 in vigore dal 1° luglio 2021", pubblicate il 27/05/2021, in relazione al “Provvedimento del 18/04/2019 - pubblicato il 18/04/2019" (disponibile presso il seguente https://www.agenziaentrate.gov.it/portale/web/guest/normativa-e-prassi/provvedimenti/2019/aprile-2019-provvedimenti/provvedimento-18042019-fatturazione-elettronica-europea[link]), e fornisce indicazioni sulla gestione della fatturazione verso privati
+a|La presente specifica implementa le nuove Regole tecniche relative alla gestione delle fatture europee - versione 2.1 pubblicate il xx/03/2022, in relazione al Provvedimento 99370 pubblicato il 18/04/2019 (disponibile presso il seguente https://www.agenziaentrate.gov.it/portale/web/guest/normativa-e-prassi/provvedimenti/2019/aprile-2019-provvedimenti/provvedimento-18042019-fatturazione-elettronica-europea[link]) fornendo inoltre indicazioni sulla gestione della fatturazione verso privati. Nel testo viene data apposita evidenza ad alcune modifiche, già concordate con Agenzia delle Entrate, che saranno accolte in una successiva versione delle regole tecniche.
 a| La versione è allineata alla release Peppol BIS Billing 3.0.12 (Fall release 2021).
 
 | 3.0.9.1(IT)

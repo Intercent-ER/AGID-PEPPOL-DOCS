@@ -19472,12 +19472,12 @@
          <axsl:when test="cbc:CompanyID[@schemeID='0210']"/>
          <axsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cbc:CompanyID[@schemeID='0210']">
-               <axsl:attribute name="id">BR-IT-DC-111A</axsl:attribute>
+               <axsl:attribute name="id">BR-IT-DC-110A</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-DC-111A][FPA 1.2.1.2 CodiceFiscale] - Se il valore dell’elemento BT-40 Seller country code è “IT”, gli elementi devono essere obbligatoriamente valorizzati.</svrl:text>
+               <svrl:text>[BR-IT-DC-110A][FPA 1.2.1.2 CodiceFiscale] - Se il valore dell’elemento BT-40 Seller country code è “IT”, gli elementi devono essere obbligatoriamente valorizzati.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -19488,12 +19488,12 @@
          <axsl:when test="matches(cbc:CompanyID,'^[A-Z0-9]{11,16}$')"/>
          <axsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="matches(cbc:CompanyID,'^[A-Z0-9]{11,16}$')">
-               <axsl:attribute name="id">BR-IT-DC-111B</axsl:attribute>
+               <axsl:attribute name="id">BR-IT-DC-110B</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-DC-111B][FPA 1.2.1.2 CodiceFiscale] - Se il valore dell’elemento BT-40 (Seller country code) è "IT", se l'elemento BT-30-1 (Seller legal registration identifier scheme identifier) contiene il valore "0210", l'elemento BT-30 (Seller legal registration identifier) deve contenere un Codice Fiscale con lunghezza compresa fra 11 e 16 caratteri.</svrl:text>
+               <svrl:text>[BR-IT-DC-110B][FPA 1.2.1.2 CodiceFiscale] - Se il valore dell’elemento BT-40 (Seller country code) è "IT", se l'elemento BT-30-1 (Seller legal registration identifier scheme identifier) contiene il valore "0210", l'elemento BT-30 (Seller legal registration identifier) deve contenere un Codice Fiscale con lunghezza compresa fra 11 e 16 caratteri.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>
@@ -20058,12 +20058,12 @@
          <axsl:when test="cbc:EndpointID[@schemeID='0201' or @schemeID='0202' or @schemeID='0205']"/>
          <axsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="cbc:EndpointID[@schemeID='0201' or @schemeID='0202' or @schemeID='0205']">
-               <axsl:attribute name="id">BR-IT-DC-191</axsl:attribute>
+               <axsl:attribute name="id">BR-IT-190A</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">
                   <axsl:apply-templates select="." mode="schematron-select-full-path"/>
                </axsl:attribute>
-               <svrl:text>[BR-IT-DC-191][FPA 1.1.6 PECDestinatario, 1.1.4  CodiceDestinatario] - L'elemento BT-49 (Buyer electronic address) deve contenere il Codice IPA, la PEC del destinatario della fattura oppure il Codice Destinatario. Di conseguenza, per l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) sono previsti rispettivamente i valori 0201, 0202 oppure 0205.</svrl:text>
+               <svrl:text>[BR-IT-190A][FPA 1.1.6 PECDestinatario, 1.1.4  CodiceDestinatario] - L'elemento BT-49 (Buyer electronic address) deve contenere il Codice IPA, la PEC del destinatario della fattura oppure il Codice Destinatario. Di conseguenza, per l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) sono previsti rispettivamente i valori 0201, 0202 oppure 0205.</svrl:text>
             </svrl:failed-assert>
          </axsl:otherwise>
       </axsl:choose>

@@ -3,7 +3,7 @@
 = #CIUS Domestiche#
 
 
-[cols="2s,3,3,4,5", options="header"]
+[cols="3s,3,3,4,5", options="header"]
 |====
 
 ^.^|CIUS ID
@@ -17,13 +17,10 @@
 |BT-24 Specification Identifier +
 BT-40 Seller country code
 |
-|Se il valore dell’elemento BT-40 (Seller + 
-country code) è uguale a "IT", il BT-24 +
-deve essere valorizzato come segue: +
-*urn:cen.eu:en16931:2017#compliant* +
-*#urn:fdc:peppol.eu:2017:poacc* +
-*:billing:3.0#conformant#urn:www.* +
-*agid.gov.it:trns:fattura:3*
+|Se il valore dell’elemento BT-40 (Seller
+country code) è uguale a "IT", il BT-24 
+deve essere valorizzato come segue: 
+*urn:cen.eu:en16931:2017# compliant#urn:fdc:peppol.eu :2017:poacc:billing:3.0#conformant #urn:www.agid.gov.it:trns :fattura:3*
 
 (rimuovere gli spazi prima dell'utilizzo)
 
@@ -52,14 +49,14 @@ deve essere valorizzato come segue: +
 |Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT-29 Seller identifier comincia con "REA:", la sua lunghezza deve essere compresa fra 8 e 27 caratteri e deve essere indicato come "REA:Ufficio#NumeroREA".
 
 
-|BR-IT-DC-111A*
+|BR-IT-DC-110A*
 |Cardinality - Make a conditional element mandatory (0..x --> 1..x)
 |BT-30 Seller legal registration identifier +
 BT-30-1 Seller legal registration identifier scheme identifier
 |1.2.1.2 CodiceFiscale
 |Se il valore dell’elemento BT-40 Seller country code è “IT”, gli elementi devono essere obbligatoriamente valorizzati.
 
-|BR-IT-DC-111B*
+|BR-IT-DC-110B*
 |Value domain for an element - Restrict text or byte array length
 |BT-30 Seller legal registration identifier +
 BT-30-1 Seller legal registration identifier scheme identifier
@@ -89,15 +86,6 @@ BT-38 Seller post code
 |BT-39 Seller country subdivision
 |1.2.2.5 Provincia
 |Se l'elemento BT-40 Seller country code ha valore "IT", per l'elemento  BT-39 Seller  country  subdivision deve  essere utilizzato uno dei valori della lista delle province italiane. Altrimenti l'informazione è riportata in allegato
-
-|BR-IT-DC-191
-|Cardinality - Make a conditional element mandatory (0..x --> 1..x)
-|BT-49 Buyer electroni caddress +
-BT-49-1 Buyer electronic address identification scheme
-|1.1.6 PECDestinatario +
-1.1.4  CodiceDestinatario
-|L'elemento BT-49 (Buyer electronic address) deve contenere il Codice IPA, la PEC del destinatario della fattura oppure il Codice Destinatario. Di conseguenza, per l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) sono previsti rispettivamente i valori 0201, 0202 oppure 0205
-
 
 |BR-IT-DC-480
 |

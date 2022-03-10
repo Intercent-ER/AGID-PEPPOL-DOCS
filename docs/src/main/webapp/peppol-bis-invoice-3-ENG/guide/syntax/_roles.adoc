@@ -163,7 +163,8 @@ Trattasi di CIUS domestica
 #Infine, il campo *cac:PartyIdentification/cbc:ID* può essere usato per indicare anche le informazioni relative a FPA 1.2.4.1 Ufficio e FPA 1.2.4.2 Numero REA  omettendo l'attributo @schemeID, includendo il prefisso "REA:" e concatenando i due dati con il "&#x0023;", come nell'esempio di seguito.#
 
 [NOTE]
-Trattasi di CIUS domestica 
+Trattasi di CIUS domestica. +
+La specifica è già concordata con Agenzia delle Entrate, che ne darà evidenza in una successiva versione delle regole tecniche.
 
 
 .Esempio UBL per esprimere informazioni relative al numero REA

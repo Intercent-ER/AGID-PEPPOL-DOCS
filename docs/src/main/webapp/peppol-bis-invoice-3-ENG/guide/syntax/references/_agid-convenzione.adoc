@@ -16,3 +16,6 @@ Per riferirsi a più convenzioni dalle righe di fattura è necessario utilizzare
 ----
 include::../{snippet-dir}/Snippet-refs.xml[tags=convenzione_riga]
 ----
+
+[NOTE]
+La specifica è già concordata con Agenzia delle Entrate, che ne darà evidenza in una successiva versione delle regole tecniche.

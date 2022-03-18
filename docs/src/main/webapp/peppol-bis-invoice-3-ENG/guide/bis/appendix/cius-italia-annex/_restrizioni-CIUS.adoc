@@ -86,7 +86,7 @@ valorizzato come segue: +
 |La lunghezza dell'elemento non può superare i 30 caratteri
 
 |BR-IT-160*
-|Cardinality - Make a conditional element mandatory (0..x -→ 1..x)
+|Add new non-conflicting business rule for existing element(s)
 |BT-46 Buyer identifier +
 BT-48 Buyer VAT identifier
 |1.4.1.2 CodiceFiscale +

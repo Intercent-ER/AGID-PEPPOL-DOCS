@@ -85,14 +85,6 @@ valorizzato come segue: +
 1.2.1.1.2 IdCodice
 |La lunghezza dell'elemento non può superare i 30 caratteri
 
-|BR-IT-160*
-|Add new non-conflicting business rule for existing element(s)
-|BT-46 Buyer identifier +
-BT-48 Buyer VAT identifier
-|1.4.1.2 CodiceFiscale +
-1.4.1.1 IdFiscaleIVA
-|Almeno uno degli elementi  BT-48 Buyer VAT identifier e BT46 Buyer identifier deve essere valorizzato.
-
 |BR-IT-180
 |Value domain for an element - Restrict  text or byte array length
 |BT-48 Buyer VAT identifier

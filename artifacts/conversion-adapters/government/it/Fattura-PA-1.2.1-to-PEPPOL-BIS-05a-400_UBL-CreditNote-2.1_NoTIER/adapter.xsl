@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--Stylesheet synthesized using Javest A2A Mapper environment.-->
-
 <xsl:stylesheet xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
                 xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
                 xmlns:in="http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2"
@@ -2070,86 +2069,103 @@ the root node.
          </cac:AllowanceCharge>
       </xsl:if>
    </xsl:template>
-   <xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[1]"
-                 mode="OrderReference">
-      <xsl:param name="CN" select="."/>
-      <xsl:param name="CNP" select="1"/>
-																 
-         <cac:OrderReference>
-            <cbc:ID>
-               <xsl:value-of select="IdDocumento"/>
-            </cbc:ID>
-            <xsl:if test="Data">
-               <cbc:IssueDate>
-                  <xsl:value-of select="Data"/>
-               </cbc:IssueDate>
-            </xsl:if>
-         </cac:OrderReference>
-			   
-   </xsl:template>
-   <xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto/CodiceCIG"
-                 mode="CIG">
-      <xsl:param name="CN" select="."/>
-      <xsl:param name="CNP" select="1"/>
-      <cac:AdditionalDocumentReference>
-         <cbc:ID>
-            <xsl:value-of select="../CodiceCIG"/>
-         </cbc:ID>
-         <cbc:DocumentType>
-            <xsl:text>CIG</xsl:text>
-         </cbc:DocumentType>
-      </cac:AdditionalDocumentReference>
-   </xsl:template>
    
-   <xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto/CodiceCUP"
-                 mode="CUP">
-      <xsl:param name="CN" select="."/>
-      <xsl:param name="CNP" select="1"/>
-      <cac:AdditionalDocumentReference>
-         <cbc:ID>
-            <xsl:value-of select="../CodiceCUP"/>
-         </cbc:ID>
-         <cbc:DocumentType>
-            <xsl:text>CUP</xsl:text>
-         </cbc:DocumentType>
-      </cac:AdditionalDocumentReference>
-   </xsl:template>
-   
-   <xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto/CodiceCommessaConvenzione"
-                 mode="CodiceCommessaConvenzione">
-      <xsl:param name="CN" select="."/>
-      <xsl:param name="CNP" select="1"/>
-      <cac:AdditionalDocumentReference>
-         <cbc:ID>
-            <xsl:value-of select="../CodiceCommessaConvenzione"/>
-         </cbc:ID>
-         <cbc:DocumentType>
-            <xsl:text>CommessaConvenzione</xsl:text>
-         </cbc:DocumentType>
-      </cac:AdditionalDocumentReference>
-   </xsl:template>
-   
-   <xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[position() &gt; 1]"
-                 mode="AdditionalOrders">
-      <xsl:param name="CN" select="."/>
-      <xsl:param name="CNP" select="1"/>
-																 
-         <cac:AdditionalDocumentReference>
-            <cbc:ID>
-               <xsl:value-of select="IdDocumento"/>
-            </cbc:ID>
-            <xsl:if test="Data">
-               <cbc:IssueDate>
-                  <xsl:value-of select="Data"/>
-               </cbc:IssueDate>
-            </xsl:if>
-            <cbc:DocumentType>
-               <xsl:text>OrdineAggiuntivo</xsl:text>
-            </cbc:DocumentType>
-         </cac:AdditionalDocumentReference>
-			   
-   </xsl:template>
-   
+	<xsl:template match="FatturaElettronicaBody/DatiGenerali" mode="OrderReference">								   
+		<xsl:param name="CN" select="."/>
+		<xsl:param name="CNP" select="1"/>
+		<xsl:for-each select="./DatiOrdineAcquisto[(not(./RiferimentoNumeroLinea)) or not(./RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea)]">
+			<xsl:choose>
+				<xsl:when test="position() = 1">
+					<cac:OrderReference>
+						<cbc:ID>
+							<xsl:value-of select="IdDocumento"/>
+						</cbc:ID>
+						<xsl:if test="Data">
+							<cbc:IssueDate>
+								<xsl:value-of select="Data"/>
+							</cbc:IssueDate>
+						</xsl:if>
+					</cac:OrderReference>
+				</xsl:when>
+				<xsl:otherwise>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:for-each>
+	</xsl:template>
+	
+	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto/CodiceCIG" mode="CIG">
+		<xsl:param name="CN" select="."/>
+		<xsl:param name="CNP" select="1"/>
+	  <xsl:variable name="riferimento" select="../RiferimentoNumeroLinea"/>
+      <xsl:if test="(../IdDocumento and not(../RiferimentoNumeroLinea)) or not (/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee[NumeroLinea = $riferimento])">
+		<cac:AdditionalDocumentReference>
+			<cbc:ID>
+				<xsl:value-of select="."/>
+			</cbc:ID>
+			<cbc:DocumentType>
+				<xsl:text>CIG</xsl:text>
+			</cbc:DocumentType>
+		</cac:AdditionalDocumentReference>
+	</xsl:if>
+	</xsl:template>
+	
+	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto/CodiceCUP" mode="CUP">
+		<xsl:param name="CN" select="."/>
+		<xsl:param name="CNP" select="1"/>
+		<xsl:variable name="riferimento" select="../RiferimentoNumeroLinea"/>
+		<xsl:if test="(../IdDocumento and not(../RiferimentoNumeroLinea)) or not (/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee[NumeroLinea = $riferimento])">
+		<cac:AdditionalDocumentReference>
+			<cbc:ID>
+				<xsl:value-of select="."/>
+			</cbc:ID>
+			<cbc:DocumentType>
+				<xsl:text>CUP</xsl:text>
+			</cbc:DocumentType>
+		</cac:AdditionalDocumentReference>
+	</xsl:if>
+	</xsl:template>
+	
+	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto/CodiceCommessaConvenzione" mode="CodiceCommessaConvenzione">
+		<xsl:param name="CN" select="."/>
+		<xsl:param name="CNP" select="1"/>
+		<xsl:variable name="riferimento" select="../RiferimentoNumeroLinea"/>
+		<xsl:if test="(../IdDocumento and not(../RiferimentoNumeroLinea)) or not (/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee[NumeroLinea = $riferimento])">
+		<cac:AdditionalDocumentReference>
+			<cbc:ID>
+				<xsl:value-of select="."/>
+			</cbc:ID>
+			<cbc:DocumentType>
+				<xsl:text>CommessaConvenzione</xsl:text>
+			</cbc:DocumentType>
+		</cac:AdditionalDocumentReference>
+	</xsl:if>
+	</xsl:template>
+	
+	<xsl:template match="FatturaElettronicaBody/DatiGenerali" mode="AdditionalOrders">
+		<xsl:param name="CN" select="."/>
+		<xsl:param name="CNP" select="1"/>
+		<xsl:for-each select="./DatiOrdineAcquisto[(not(./RiferimentoNumeroLinea)) or not(./RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea)]">
+			<xsl:choose>
+				<xsl:when test="position() != 1">
+					<cac:AdditionalDocumentReference>
+						<cbc:ID>
+							<xsl:value-of select="IdDocumento"/>
+						</cbc:ID>
+						<xsl:if test="Data">
+							<cbc:IssueDate>
+								<xsl:value-of select="Data"/>
+							</cbc:IssueDate>
+						</xsl:if>
+						<cbc:DocumentType>
+							<xsl:text>OrdineAggiuntivo</xsl:text>
+						</cbc:DocumentType>
+					</cac:AdditionalDocumentReference>
+				</xsl:when>
+				<xsl:otherwise>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:for-each>
+	</xsl:template>
    <xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiRicezione">
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
@@ -2813,7 +2829,7 @@ the root node.
          <cbc:DocumentCurrencyCode listID="ISO4217">
             <xsl:value-of select="FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Divisa"/>
          </cbc:DocumentCurrencyCode>
-         <xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[1]"
+         <xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali"
                               mode="OrderReference">
             <xsl:with-param name="CN" select="current()"/>
             <xsl:with-param name="CNP" select="position()"/>
@@ -2927,7 +2943,7 @@ the root node.
             <xsl:with-param name="CN" select="current()"/>
             <xsl:with-param name="CNP" select="position()"/>
          </xsl:apply-templates>
-         <xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[position() &gt; 1]"
+         <xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali"
                               mode="AdditionalOrders">
             <xsl:with-param name="CN" select="current()"/>
             <xsl:with-param name="CNP" select="position()"/>

@@ -1,14 +1,14 @@
 A seguito della validazione del certificato associato all’utente, sarà visualizzata l’home page del sistema, nel caso fosse la prima volta che si accede alla piattaforma non sarà presente nessuna sessione di test.
 
 .Home Page
-image::images\home_page-1c070.png[align=center]
+image::../CATTURE/home_page-1c070.png[align=center]
 
 In alto a destra vengono riportati i dati relativi all'utente che vuole effettuare i test.
 
 .Verifica dell'autenticazione dalla Home
-image::images\home_page-7c652.png[align=center]
+image::../CATTURE/home_page-7c652.png[align=center]
 
 Per creare una nuova sesione di test è necessario cliccare sul bottone "Aggiungi".
 
 .Creazione di una nuova sessione di test
-image::images\home_page-f544a.png[align=center]
+image::../CATTURE/home_page-f544a.png[align=center]

@@ -1,40 +1,40 @@
 Una volta espanso il caso di test viene visualizzata la descrizione del test.
 
 .Test di ricezione
-image::images\ricezione-9d39e.png[align=center]
+image::../CATTURE/ricezione-9d39e.png[align=center]
 
 All'avvio del test la Piattafoma di Onboarding si occuperà della creazione del documento in funzione della tipologia richiesta dal test e dell'invio dello stesso all'Access Point indicato dall’utente Service Provider in fase di creazione della sessione di test;
 
 .Avvio del test di ricezione
-image::images\ricezione-c3dd9.png[align=center]
+image::../CATTURE/ricezione-c3dd9.png[align=center]
 
 
 •	l'Access Point del Service Provider a seguito della ricezione del documento dovrà inviare alla Piattaforma di Onboarding il MDN.
 
 .Esempio di errore a seguito dell'avvio del test di ricezione
-image::images\ricezione-69ea4.png[align=center]
+image::../CATTURE/ricezione-69ea4.png[align=center]
 
 -	nel caso in cui il MDN verrà ricevuto, la Piattaforma di Onboarding mostrerà all'utente Service Provider 5 quesiti random sul documento ricevuto.
 
 .Esempio di quesiti per la verifica della ricezione
-image::images\ricezione-cfa6f.png[align=center]
+image::../CATTURE/ricezione-cfa6f.png[align=center]
 
 È necessario rispondere alle 5 domande presentate e premere il tasto "Invia Risposte" per proseguire.
 
 .Tasto Invia Risposte
-image::images\ricezione-3789b.png[align=center]
+image::../CATTURE/ricezione-3789b.png[align=center]
 
 Il test viene considerato superato solo quando tutte e 5 le risposte saranno corrette, non è prevista la possibilità di lasciare una risposta vuota, il sistema notificherà questa occorrenza con il seguente messaggio:
 
 .Warning sul non completamento delle risposte
-image::images\ricezione-14ed4.png[align=center]
+image::../CATTURE/ricezione-14ed4.png[align=center]
 
 È importante rispettare gli stessi spazi e uso di eventali maiuscole dei campi presenti nel documento ricevuto al fine di inviare la risposta corretta, nel caso una o più domande fossero errate, a seguito della pressione del tasto "Invia Risposte" verranno sottolineate in rosso le risposte errate, a questo punto è possibile generare un nuovo set di 5 domande e riprovare il test utilizzando sempre lo stesso documento ricevuto all'avvio del test.
 
 .Set di risposte fallito, generazione di nuove domande
-image::images\ricezione-64741.png[align=center]
+image::../CATTURE/ricezione-64741.png[align=center]
 
 Prima che il caso di test venga considerato fallito sono disponibili 3 tentativi di rispondere al set di 5 domande. Al fallimento del 3 tentativo lo stato del caso di test diventerà *fallito* e anche lo stato del test suite di conseguenza verrà aggiornato a *fallito*.
 
 .Fallimento del test di ricezione
-image::images\ricezione-6cf16.png[align=center]
+image::../CATTURE/ricezione-6cf16.png[align=center]

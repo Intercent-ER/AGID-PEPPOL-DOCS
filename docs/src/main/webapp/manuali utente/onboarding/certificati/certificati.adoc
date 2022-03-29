@@ -3,11 +3,11 @@ Superati tutti i test previsti dalla sessione di test, nella home page della pia
 •	“Invio test report”: per inviare in automatico l’esito della sessione di test alla Peppol Authority;
 
 .Invio del report alla Peppol Authority
-image::images\certificati-be485.png[align=center]
+image::../CATTURE/certificati-be485.png[align=center]
 
 •	“Download test report”: per effettuare il download del file .pdf relativo del report di test inviato.
 
 .Download del report della sessione
-image::images\certificati-9f644.png[align=center]
+image::../CATTURE/certificati-9f644.png[align=center]
 
 Cliccando sul bottone “Invio test report”, verrà inviato automaticamente il documento contenete l’esito dei test della sessione di test eseguita alla Peppol Authority.

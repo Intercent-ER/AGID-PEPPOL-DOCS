@@ -1,21 +1,18 @@
 Una volta cliccato il bottone per aggiungere una nuova sessione di test, si aprirà una finestra modale che permette di scegliere i test da effettuare all'interno di quella specifica sessione di test.
 
-image::../CATTURE/modale_selezione.PNG[]
-[.text-center]
-_fig.n:_
+.Selezione dei casi di test
+image::images\selezione_test-588ba.png[align=center
 
 I test sono tutti già selezionati di default, nel caso si voglia effettuare solo alcuni dei test è necessario deselezionare le checkbox.
 
 Per annullare la creazione di una nuova sessione di test è necessario cliccare il bottone "Annulla".
 
-image::../CATTURE/annulla1.png[]
-[.text-center]
-_fig.n:_
+.Annullare la creazione di una nuova sessione
+image::images\selezione_test-a74c2.png[align=center]
 
 Per proseguire nella creazione di una nuova sessione di test è necessario cliccare il bottone "Avanti".
 
-image::../CATTURE/avanti.png[]
-[.text-center]
-_fig.n:_
+.Proseguire nella creazione di una sessione
+image::images\selezione_test-ed686.png[align=center]
 
 Si ricorda che per effettuare la certificazione *tutti* i test devono essere completati con successo.

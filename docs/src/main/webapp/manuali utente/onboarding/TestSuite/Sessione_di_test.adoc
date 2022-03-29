@@ -1,53 +1,44 @@
 Una volta compilati i dati e premuto il bottone "Crea" la finestra modale sparisce e all'interno della Home Page notiamo che è stata creata la sessione di test.
 
-image::../CATTURE/Ts.PNG[]
-[.text-center]
-_fig.n:_
+.Sessione di testce
+image::images\Sessione_di_test-21107.png[align=center]
 
 È possibile cancellare la sessione creata tramite l' icona "Elimina".
 
-image::../CATTURE/cestino.png[]
-[.text-center]
-_fig.n:_
+.Elimizione sessione di test
+image::images\Sessione_di_test-8e3bd.png[align=center]
 
 Lo stato della sessione viene sempre riportato in grafica.
 
-image::../CATTURE/stato_ts.png[]
-[.text-center]
-_fig.n:_
+.Stato della sessione
+image::images\Sessione_di_test-9a053.png[align=center]
 
 Possiamo espandere o ridurre la sessione attraverso l'utilizzo dell'icona di "espansione/riduzione"
 
-image::../CATTURE/expand_TS.png[]
-[.text-center]
-_fig.n:_
+.Espansione della sessione
+image::images\Sessione_di_test-4a225.png[align=center]
 
 Una volta espanso è possibile interagire con i test case precedentemente selezionati nella fase di creazione.
 
-image::../CATTURE/TestSuite.PNG[]
-[.text-center]
-_fig.n:_
+.Sessione di test completa
+image::images\Sessione_di_test-783e9.png[align=center]
 
 All'interno del caso di test vengono indicati la tipologia:
 
-image::../CATTURE/tipoTest.png[]
-[.text-center]
-_fig.n:_
+.Tipologia del test
+image::images\Sessione_di_test-97a8b.png[align=center]
 
 e lo stato del test:
 
-image:../CATTURE/da_avviare.png[]
-[.text-center]
-_fig.n:_
+.Stato del test
+image::images\Sessione_di_test-4982b.png[align=center]
 
 Possiamo avviare il test tramite la pressione del tasto "Avvia".
 
-image:../CATTURE/Avvia.png[]
-[.text-center]
-_fig.n:_
+.Avvio del test
+image::images\Sessione_di_test-35947.png[align=center]
 
 Possiamo espandere o ridurre il caso di test attraverso l'utilizzo dell'icona di "espansione/riduzione"
 
-image:../CATTURE/espandi.png[]
-[.text-center]
-_fig.n:_
+.Espansione del test
+image::images\Sessione_di_test-b6e52.png[align=center]

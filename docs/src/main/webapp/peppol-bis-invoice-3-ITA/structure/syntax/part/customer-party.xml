@@ -236,7 +236,7 @@
 					<Reference type="RULE">BR-IT-520A</Reference>
 					<Reference type="RULE">BR-IT-520B</Reference>
 
-                    <Attribute usage="Optional">
+                    <Attribute usage="Mandatory">
                         <Term>schemeID</Term>
                         <Name>Buyer legal registration identifier identification scheme identifier</Name>
                         <Description>Indica lo scheme identifier dell'identificativo di registrazione legale del Cliente. Utilizzare "0210" per il Codice Fiscale.</Description>

@@ -301,10 +301,15 @@ BT-48 Buyer VAT identifier
 
 |BR-IT-520B*
 |Value domain for an element - Restrict  text or byte array length
-|BT-47 Buyer legal registration identifier +
-BT-47-1 Buyer legal registration identifier scheme identifier
+|BT-47 Buyer legal registration identifier 
 |1.4.1.2 CodiceFiscale
-|Se l'elemento BT-47-1 (Buyer legal registration identifier scheme identifier) contiene il valore "0210", l'elemento BT-47 (Buyer legal registration identifier) deve contenere un Codice Fiscale con lunghezza compresa fra 11 e 16 caratteri.
+|La lunghezza dell'elemento è compresa fra 11 e 16 caratteri.
+
+|BR-IT-520C*
+|Cardinality - Make a  conditional element mandatory (0..x -- > 1..x)
+|BT-47-1 Buyer legal registration identifier scheme identifier
+|1.4.1.2 CodiceFiscale
+|L'elemento BT-47-1 (Buyer legal registration identifier scheme identifier) è obbligatorio e contiene il valore "0210".
 
 
 |BR-IT-521

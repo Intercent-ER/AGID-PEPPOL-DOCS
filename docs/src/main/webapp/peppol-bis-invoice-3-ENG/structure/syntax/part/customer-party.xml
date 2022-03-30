@@ -237,7 +237,7 @@
 					<Reference type="RULE">BR-IT-520A</Reference>
 					<Reference type="RULE">BR-IT-520B</Reference>
 
-                    <Attribute usage="Optional">
+                    <Attribute usage="Mandatory">
                         <Term>schemeID</Term>
                         <Name>Buyer legal registration identifier identification scheme identifier</Name>
                         <Description>The identification scheme identifier of the Buyer legal registration identifier.</Description>

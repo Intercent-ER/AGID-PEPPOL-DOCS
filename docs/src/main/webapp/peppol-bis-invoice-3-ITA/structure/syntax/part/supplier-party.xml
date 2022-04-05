@@ -266,7 +266,7 @@
                     <Value type="EXAMPLE">Full Formal Seller Name LTD.</Value>
                 </Element>
 
-                <Element cardinality="1..1">
+                <Element cardinality="1..1" agid:custom="cardinality">
                     <Term>cbc:CompanyID</Term>
                     <Name>Seller legal registration identifier - Identificativo di registrazione legale Fornitore - FPA 1.2.1.2 'CodiceFiscale'</Name>
                     <Description>Identificativo rilasciato da un'Agenzia ufficiale che identifica il venditore come entità legale o persona.</Description>

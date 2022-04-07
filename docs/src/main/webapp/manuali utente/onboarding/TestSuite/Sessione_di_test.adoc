@@ -5,7 +5,7 @@ image::../CATTURE/Sessione_di_test-21107.png[align=center]
 
 È possibile cancellare la sessione creata tramite l' icona "Elimina".
 
-.Elimizione sessione di test
+.Eliminazione sessione di test
 image::../CATTURE/Sessione_di_test-8e3bd.png[align=center]
 
 Lo stato della sessione viene sempre riportato in grafica.
@@ -13,7 +13,7 @@ Lo stato della sessione viene sempre riportato in grafica.
 .Stato della sessione
 image::../CATTURE/Sessione_di_test-9a053.png[align=center]
 
-Possiamo espandere o ridurre la sessione attraverso l'utilizzo dell'icona di "espansione/riduzione"
+Possiamo espandere o ridurre la sessione attraverso l’utilizzo dell’icona di "espansione/riduzione" così da visualizzare l’elenco dei test che la compongono.
 
 .Espansione della sessione
 image::../CATTURE/Sessione_di_test-4a225.png[align=center]
@@ -23,7 +23,7 @@ Una volta espanso è possibile interagire con i test case precedentemente selezi
 .Sessione di test completa
 image::../CATTURE/Sessione_di_test-783e9.png[align=center]
 
-All'interno del caso di test vengono indicati la tipologia:
+Per ogni caso di test viene indicata la tipologia:
 
 .Tipologia del test
 image::../CATTURE/Sessione_di_test-97a8b.png[align=center]
@@ -42,3 +42,8 @@ Possiamo espandere o ridurre il caso di test attraverso l'utilizzo dell'icona di
 
 .Espansione del test
 image::../CATTURE/Sessione_di_test-b6e52.png[align=center]
+
+Una volta espanso il caso di test viene visualizzata la descrizione del test.
+
+.Descrizione del test
+image::../CATTURE/invio-06cf5.png[align=center]

@@ -1,6 +1,7 @@
-=== Obbiettivi del Documento
+=== Obiettivi del Documento
 
-Il presente documento ha l’obiettivo di guidare l’utente attraverso l’interfaccia grafica piattaforma di Onboarding che consente di automatizzare la fase di effettuazione dei test, parte integrante del processo di accreditamento da parte di AgID dei Service Provider che richiedono l’accreditamento nel dominio italiano per la trasmissione e la ricezione dei documenti elettronici (ordine, ddt, fattura, risposta all'ordine, ordine preconcordato e nota di credito) attraverso l’infrastruttura di rete Peppol.
+Il presente documento ha l’obiettivo di guidare l’utente nell’utilizzo dell’interfaccia grafica della piattaforma di Onboarding degli Access Point Peppol. 
+L’utilizzo della piattaforma consente di automatizzare la fase di esecuzione dei test, parte integrante del processo di accreditamento definito da AgID per i Service Provider che richiedono l’accreditamento nel dominio italiano per la trasmissione e la ricezione dei documenti elettronici (ordine, risposta all’ordine, ordine pre-concordato, ddt, fattura e nota di credito) attraverso l’infrastruttura di rete Peppol.
 
 
 

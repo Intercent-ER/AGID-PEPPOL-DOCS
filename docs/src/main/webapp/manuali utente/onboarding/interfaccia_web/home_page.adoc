@@ -1,4 +1,5 @@
-A seguito della validazione del certificato associato all’utente, sarà visualizzata l’home page del sistema, nel caso fosse la prima volta che si accede alla piattaforma non sarà presente nessuna sessione di test.
+A seguito della validazione del certificato associato all’utente, sarà visualizzata l’home page del sistema e l’elenco delle sessioni di test precedentemente effettuate. 
+Nel caso fosse la prima volta che si accede alla piattaforma non sarà presente nessuna sessione di test.
 
 .Home Page
 image::../CATTURE/home_page-1c070.png[align=center]

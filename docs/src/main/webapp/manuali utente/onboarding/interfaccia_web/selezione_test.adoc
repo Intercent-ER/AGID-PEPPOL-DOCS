@@ -1,9 +1,16 @@
-Una volta cliccato il bottone per aggiungere una nuova sessione di test, si aprirà una finestra modale che permette di scegliere i test da effettuare all'interno di quella specifica sessione di test.
+Una volta cliccato il bottone per aggiungere una nuova sessione di test, si aprirà una finestra modale che permette di scegliere i test da effettuare all’interno di quella specifica sessione di test. +
+I test sono tutti già selezionati di default, nel caso si voglia effettuare solo alcuni dei test è possibile deselezionare i test non richiesti dalla checkbox.
+
+Si ricorda che per certificare il completamento della procedura di accreditamento da parte della Peppol Authority, è necessario che il Service Provider superi con successo una sessione di test completa di tutti i casi di test previsti dal processo di accreditamento definito da AgID.
 
 .Selezione dei casi di test
-image::../CATTURE/selezione_test-588ba.png[align=center
+image::../CATTURE/selezione_test-588ba.png[align=center]
 
-I test sono tutti già selezionati di default, nel caso si voglia effettuare solo alcuni dei test è necessario deselezionare le checkbox.
+Il Service provider può creare una sessione di test in cui non siano presenti tutti i test previsti nella checkbox deselezionando specifici casi. +
+In caso di deselezione di anche un solo caso di test, il sistema restituisce il seguente avviso.
+
+.Disclaimer in caso di sessioni di test con casi di test deselezionati
+image::../CATTURE/Disclaimer_deselezione_casi.png[align=center]
 
 Per annullare la creazione di una nuova sessione di test è necessario cliccare il bottone "Annulla".
 
@@ -14,5 +21,3 @@ Per proseguire nella creazione di una nuova sessione di test è necessario clicc
 
 .Proseguire nella creazione di una sessione
 image::../CATTURE/selezione_test-ed686.png[align=center]
-
-Si ricorda che per effettuare la certificazione *tutti* i test devono essere completati con successo.

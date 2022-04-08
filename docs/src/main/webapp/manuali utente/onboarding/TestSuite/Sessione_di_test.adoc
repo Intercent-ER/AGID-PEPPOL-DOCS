@@ -3,7 +3,7 @@ Una volta compilati i dati e premuto il bottone "Crea" la finestra modale sparis
 .Sessione di testce
 image::../CATTURE/Sessione_di_test-21107.png[align=center]
 
-È possibile cancellare la sessione creata tramite l' icona "Elimina".
+È possibile cancellare la sessione creata tramite l'icona "Elimina".
 
 .Eliminazione sessione di test
 image::../CATTURE/Sessione_di_test-8e3bd.png[align=center]

@@ -33,7 +33,7 @@ A questo punto è possibile generare un nuovo set di 5 domande (diverse dalle pr
 .Set di risposte fallito, generazione di nuove domande
 image::../CATTURE/ricezione-64741.png[align=center]
 
-Al fallimento del 3 tentativo, lo stato del caso di test verrà aggiornato a *fallito* e anche lo stato della sessione di test di conseguenza verrà aggiornato a *fallito*.
+Al fallimento del 3 tentativo, lo stato del caso di test verrà aggiornato a fallito e anche lo stato della sessione di test di conseguenza verrà aggiornato a fallito.
 
 .Fallimento del test di ricezione
 image::../CATTURE/ricezione-6cf16.png[align=center]

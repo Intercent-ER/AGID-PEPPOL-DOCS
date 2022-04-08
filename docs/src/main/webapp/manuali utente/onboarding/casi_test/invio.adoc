@@ -8,12 +8,12 @@ Una volta avviato il test, apparirà la casella adibita all’inserimento dell�
 .Inserimento Instance Identifier
 image::../CATTURE/invio-e244d.png[align=center]
 
-Nel caso l’instance identifier inserito sia corretto, la Piattaforma con conclude il test con successo.
+Nel caso l’instance identifier inserito sia corretto, la Piattaforma conclude il test con successo.
 
 .Superamento del test
 image::../CATTURE/invio-e688e.png[align=center]
 
-Nel caso l'instance identifier fosse errato lo stato del caso di test verrà aggiornato a *fallito* e lo stato della sessione d test, di conseguenza, verrà aggiornato a *fallito*.
+Nel caso l'instance identifier fosse errato lo stato del caso di test verrà aggiornato a fallito e lo stato della sessione di test, di conseguenza, verrà aggiornato a fallito.
 
 .Fallimento del test
 image::../CATTURE/invio-4a139.png[align=center]

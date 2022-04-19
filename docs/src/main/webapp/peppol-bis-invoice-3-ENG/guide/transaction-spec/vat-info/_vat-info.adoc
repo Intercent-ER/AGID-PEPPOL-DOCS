@@ -29,6 +29,9 @@ Each document level charge or allowance must have the Document level allowance o
 .Tabella di relazione tra natura, VAT Category Code e VAT exemption reason code
 image::../../../images/vatex-table-cross-border.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
 
+[IMPORTANT]
+La fattura non può contenere più di un TaxSubtotal
+
 === Regole per la fatturazione domestica
 
 #La gestione della natura dell'operazione (FPA 2.2.2.2 Natura) per le fatture domestiche (BT-40 Seller country code pari a IT e BT-55 Buyer country code pari a IT) è operata a mezzo dell’utilizzo di:# +
@@ -63,7 +66,7 @@ Questo dovrebbe originare un singolo riepilogo IVA.
 
 Per altri dettagli vedi anche il paragrafo <<anchor-11,9.4. Calcolo dell’IVA>>.
 
-=== #Caso 1 - natura diversa da N1 – esempio riferito ad un’operazione in regime di reverse charge#
+==== #Caso 1 - natura diversa da N1 – esempio riferito ad un’operazione in regime di reverse charge#
 
 [source, xml, indent=0]
 ----
@@ -106,7 +109,7 @@ Per altri dettagli vedi anche il paragrafo <<anchor-11,9.4. Calcolo dell’IVA>>
   </cac:Price>
 ----
 
-=== #Caso 2 - natura N1 – esempio riferito ad un’operazione esclusa#
+==== #Caso 2 - natura N1 – esempio riferito ad un’operazione esclusa#
 
 [source, xml, indent=0]
 ----

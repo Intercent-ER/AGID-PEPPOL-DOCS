@@ -20,7 +20,18 @@ Ogni sconto o maggiorazione a livello di testata deve avere il codice di categor
 
 == Natura dell'operazione e Riepiloghi IVA
 
-#La gestione della natura dell'operazione (FPA 2.2.2.2 Natura) è operata a mezzo dell’utilizzo di:# +
+=== Regole per la fatturazione cross-border
+
+#La gestione della natura dell’operazione (FPA 2.2.2.2 Natura) per le fatture cross-border (BT-40 Seller country code diverso da IT e BT-55 Buyer country code pari a IT)  è operata a mezzo dell’utilizzo di:#
+
+1.	#*cac:TaxCategory/cbc:ID* (BT-118 VAT category code) per i riepiloghi IVA e *cac:Item/cac:TaxCategory/cbc:ID* (BT-151 VAT category code) per le righe di fattura.#
+
+.Tabella di relazione tra natura, VAT Category Code e VAT exemption reason code
+image::../../../images/vatex-table-cross-border.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
+
+=== Regole per la fatturazione domestica
+
+#La gestione della natura dell'operazione (FPA 2.2.2.2 Natura) per le fatture domestiche (BT-40 Seller country code pari a IT e BT-55 Buyer country code pari a IT) è operata a mezzo dell’utilizzo di:# +
 
 1.	#*cac:TaxCategory/cbc:ID* (BT-118 VAT category code) per i riepiloghi IVA e *cac:Item/cac:TaxCategory/cbc:ID* (BT-151 VAT category code) per le righe di fattura;#
 2.	#*cbc:TaxExemptionReason* (BT-120 VAT exemption reason text) per i riepiloghi IVA, in cui viene inserita il codice natura secondo le specifiche FatturaPA ed il Riferimento Normativo;#
@@ -137,7 +148,7 @@ Per altri dettagli vedi anche il paragrafo <<anchor-11,9.4. Calcolo dell’IVA>>
   </cac:Price>
 </cac:InvoiceLine>
 ----
-== Totale IVA 
+== Totale IVA
 
 Il totale IVA *cbc:TaxAmount* (BT-110) è la somma delle imposte dei singoli riepiloghi *cbc:TaxAmount* (BT-117)
 
@@ -148,7 +159,7 @@ La gestione della data operazione e dell’esigibilità IVA è operata a mezzo d
 
 1.	*cbc:IssueDate* (BT-2 Invoice issue date);
 2.	*cac:InvoicePeriod/cbc:DescriptionCode* (BT-8 Value added tax point date code);
-3.	*cbc:ActualDeliveryDate* (BT-72 Actual delivery date); 
+3.	*cbc:ActualDeliveryDate* (BT-72 Actual delivery date);
 4.	*cac:TaxCategory/cbc:ID* (BT-118 VAT category code); +
 
 Si evidenziano 6 casi distinti.
@@ -180,7 +191,7 @@ In questo caso il *cbc:IssueDate* (BT-2 Invoice issue date) viene valorizzato co
 ----
 
 
-=== Caso 2 - Esigibilità immediata, data fattura non coincidente con data operazione 
+=== Caso 2 - Esigibilità immediata, data fattura non coincidente con data operazione
 
 In questo caso il *cbc:IssueDate* (BT-2 Invoice issue date) viene valorizzato con data fattura, il *cac:InvoicePeriod/cbc:DescriptionCode* (BT-8 Value added tax point date code) viene valorizzato con “35” (ovvero Delivery date, actual) ed il *cbc:ActualDeliveryDate* (BT-72 Actual delivery date) viene valorizzato con la data operazione.
 
@@ -334,4 +345,3 @@ In questo caso il *cbc:IssueDate* (BT-2 Invoice issue date) viene valorizzato co
   </cac:TaxSubtotal>
 </cac:TaxTotal>
 ----
-

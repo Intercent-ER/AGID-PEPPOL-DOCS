@@ -21,6 +21,7 @@
 		<validator.version>2.3.0</validator.version>
 		<converter.version>2.4.4</converter.version>
 		<schematron.version>2.3.0</schematron.version>
+		<mapping.version>3.2</mapping.version>
 	</properties>
 	<build>
 		<plugins>
@@ -40,7 +41,7 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>xml-maven-plugin</artifactId>
 				<executions>
-				
+
 					<!-- ITA -->
 					<execution>
 						<id>apply-xslt-others-ITA</id>
@@ -134,7 +135,7 @@
 							</transformationSets>
 						</configuration>
 					</execution>
-					
+
 					<!-- ENG -->
 					<execution>
 						<id>apply-xslt-others-ENG</id>
@@ -228,7 +229,7 @@
 							</transformationSets>
 						</configuration>
 					</execution>
-					
+
 					<!-- SCHEMATRON ITA-->
 					<execution>
 						<id>apply-xslt-sch</id>
@@ -281,7 +282,7 @@
 							</transformationSets>
 						</configuration>
 					</execution>
-					
+
 					<!-- SCHEMATRON ENG-->
 					<execution>
 						<id>apply-xslt-sch-ENG</id>
@@ -331,9 +332,9 @@
 							</transformationSets>
 						</configuration>
 					</execution>
-					
+
 					<!-- INVOICE TRASFORMAZIONE SCHEMATRON IN REGOLE (per la sezione delle specifiche)-->
-					
+
 					<!--<execution>
 						<id>schematron-to-asciidoc-ph1</id>
 						<phase>generate-resources</phase>
@@ -409,7 +410,7 @@
 							</transformationSets>
 						</configuration>
 					</execution>-->
-					
+
 				</executions>
 
 				<dependencies>
@@ -426,7 +427,7 @@
 				<artifactId>asciidoctor-maven-plugin</artifactId>
 				<version>1.5.6</version>
 				<executions>
-				
+
 					<!-- ITA -->
 					<execution>
 						<id>output-html-others-ITA</id>
@@ -456,7 +457,7 @@
 							<preserveDirectories>true</preserveDirectories>
 						</configuration>
 					</execution>
-					
+
 					<!-- BILLING generazione html (per le regole in homepage) a partire dagli schematron -->
 					<execution>
 						<id>output-html-billing-rules-ITA</id>
@@ -472,7 +473,7 @@
 							<preserveDirectories>true</preserveDirectories>
 						</configuration>
 					</execution>
-					
+
 					<execution>
 						<id>output-html-billing-rules-ENG</id>
 						<phase>generate-resources</phase>
@@ -487,11 +488,11 @@
 							<preserveDirectories>true</preserveDirectories>
 						</configuration>
 					</execution>
-					
-					
-					
-					
-					
+
+
+
+
+
 					<!-- ENG -->
 					<execution>
 						<id>output-html-others-ENG</id>
@@ -521,7 +522,7 @@
 							<preserveDirectories>true</preserveDirectories>
 						</configuration>
 					</execution>
-					
+
 
 				</executions>
 			</plugin>
@@ -585,6 +586,10 @@
 						<replacement>
 							<token>(#link_to_converter#)</token>
 							<value>AGID-PEPPOL-Converter-${converter.version}.zip</value>
+						</replacement>
+						<replacement>
+							<token>(#link_to_mapping#)</token>
+							<value>Mapping_UBL-Fattura-3.0-FatturaPA_V${mapping.version}.xlsx</value>
 						</replacement>
 					</replacements>
 				</configuration>
@@ -654,7 +659,7 @@
 								</artifactItem>
 							</artifactItems>
 							<outputDirectory>${project.build.directory}/${project.build.finalName}/attachments</outputDirectory>
-						</configuration>            
+						</configuration>
 					</execution>
 					<execution>
 						<id>copy-converter-zip</id>

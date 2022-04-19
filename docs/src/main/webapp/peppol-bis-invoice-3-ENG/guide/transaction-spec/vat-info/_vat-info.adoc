@@ -27,7 +27,7 @@ Each document level charge or allowance must have the Document level allowance o
 1.	#*cac:TaxCategory/cbc:ID* (BT-118 VAT category code) per i riepiloghi IVA e *cac:Item/cac:TaxCategory/cbc:ID* (BT-151 VAT category code) per le righe di fattura.#
 
 .Tabella di relazione tra natura, VAT Category Code e VAT exemption reason code
-image::../../../images/vatex-table-cross-table.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
+image::../../../images/vatex-table-cross-border.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
 
 === Regole per la fatturazione domestica
 

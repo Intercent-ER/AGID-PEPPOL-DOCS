@@ -7,7 +7,45 @@ Please also see <<VAT category codes>> for details on the VAT category code list
 
 == Line VAT Information
 
-Each invoice line shall have the invoiced item VAT category code (BT-151), and for all VAT categories except "Not subject to VAT" (O), the VAT rate shall be provided.
+=== Cross-border billing rules
+
+Each line of the invoice must have the VAT category code referring to the invoiced item (BT-151 VAT category code cac: ClassifiedTaxCategory / cbc: ID).+
+If the VAT category is Z or E or G or K or AE, the BT-152 Invoiced item VAT rate (cac:ClassifiedTaxCategory/cbc:Percent) should be set equal to 0.
+
+=== Rules for domestic billing
+
+#Each line of the invoice must have the VAT category code referring to the invoiced item (BT-151 VAT category code cac:ClassifiedTaxCategory/cbc: ID).#+
+#If the VAT category is S or B, the VAT rate must be entered in BT-152 Invoiced item VAT rate (cac:ClassifiedTaxCategory/cbc:Percent).#
+
+#For domestic invoices (BT-40 Seller country code equal to IT and BT-55 Buyer country code equal to IT) the management of the Nature of the line is carried out by using *cac:AdditionalItemProperty/cbc:Name* (BT-160) and *cac:AdditionalItemProperty/cbc:Value* (BT-161) to indicate nature at the invoice line level.# +
+#The item attribute name is enhanced with the string "NATURA", the item attribute value with the nature code according to the FatturaPA specifications.#
+
+[source, xml, indent=0]
+----
+<cac:InvoiceLine>
+  <cbc:ID>1</cbc:ID>
+  <cbc:InvoicedQuantity unitCode="C62">5</cbc:InvoicedQuantity>
+  <cbc:LineExtensionAmount currencyID="EUR">100.00</cbc:LineExtensionAmount>
+  <cac:Item>
+    <cbc:Name>Importo degli imballaggi</cbc:Name>
+    <cac:ClassifiedTaxCategory>
+      <cbc:ID>Z</cbc:ID>
+      <cbc:Percent>0</cbc:Percent>
+      <cac:TaxScheme>
+        <cbc:ID>VAT</cbc:ID>
+      </cac:TaxScheme>
+    </cac:ClassifiedTaxCategory>
+    <cac:AdditionalItemProperty>
+      <cbc:Name>NATURA</cbc:Name>
+      <cbc:Value>N1</cbc:Value>
+    </cac:AdditionalItemProperty>
+  </cac:Item>
+  <cac:Price>
+    <cbc:PriceAmount currencyID="EUR">20.00</cbc:PriceAmount>
+    <cbc:BaseQuantity unitCode="C62">1</cbc:BaseQuantity>
+  </cac:Price>
+</cac:InvoiceLine>
+----
 
 == Document level allowance or charge
 
@@ -18,13 +56,14 @@ Each document level charge or allowance must have the Document level allowance o
 
 #Per gli sconti e maggiorazioni a livello di testata che non incidono sull’imponibile vedasi 10.5. Sconti e maggiorazioni.#
 
-== Natura dell'operazione e Riepiloghi IVA
+== Nature of the transaction and VAT summaries
 
-=== Regole per la fatturazione cross-border
+=== Cross-border billing rules
 
-#La gestione della natura dell’operazione (FPA 2.2.2.2 Natura) per le fatture cross-border (BT-40 Seller country code diverso da IT e BT-55 Buyer country code pari a IT)  è operata a mezzo dell’utilizzo di:#
-
-1.	#*cac:TaxCategory/cbc:ID* (BT-118 VAT category code) per i riepiloghi IVA e *cac:Item/cac:TaxCategory/cbc:ID* (BT-151 VAT category code) per le righe di fattura.#
+364 / 5.000
+Risultati della traduzione
+The management of the nature of the operation (FPA 2.2.2.2 Nature) for cross-border invoices (BT-40 Seller country code other than IT and BT-55 Buyer country code equal to IT)
+is operated by using the *cac:TaxCategory/cbc:ID* (BT-118 VAT category code) for VAT summaries and *cac:Subtotal/cbc:TaxExemptionReasonCode* (BT-121 VAT VAT exemption reason code).
 
 .Tabella di relazione tra natura, VAT Category Code e VAT exemption reason code
 image::../../../images/vatex-table-cross-border.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
@@ -40,7 +79,6 @@ La fattura non può contenere più di un TaxSubtotal
 1.	#*cac:TaxCategory/cbc:ID* (BT-118 VAT category code) per i riepiloghi IVA e *cac:Item/cac:TaxCategory/cbc:ID* (BT-151 VAT category code) per le righe di fattura;#
 2.	#*cbc:TaxExemptionReason* (BT-120 VAT exemption reason text) per i riepiloghi IVA, in cui viene inserita il codice natura secondo le specifiche FatturaPA ed il Riferimento Normativo;#
 3.	#*cbc:TaxExemptionReasonCode* (BT-121 VAT exemption reason code) per i riepiloghi IVA, cosiddetta tabella VATEX;#
-4.	#*cac:AdditionalItemProperty/cbc:Name* (BT-160) e *cac:AdditionalItemProperty/cbc:Value* (BT-161) per indicare la natura a livello di riga di fattura . L’item attribute name viene valorizzato con la stringa “NATURA”, l’item attribute value con il codice natura secondo le specifiche FatturaPA.# +
 
 [NOTE]
 Trattasi di CIUS domestica (DC)

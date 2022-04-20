@@ -1,24 +1,26 @@
 
-= Value added tax (VAT)
+= Imposta sul valore aggiunto (IVA)
 
-The chapters below describe the different VAT informations that can be provided in a {peppol} invoice or credit note.
+I capitoli seguenti descrivono le diverse informazioni in materia dell'IVA che possono essere fornite in una fattura o in una nota di credito {peppol}.
 
-Please also see <<VAT category codes>> for details on the VAT category code list, and <<Calculation of VAT>> for detailed explanation and example on how to perform the calculations for VAT Breakdown.
+Si consiglia di consultare anche i <<anchor-17, VAT category codes>> per dettagli sulla codifica delle categorie IVA e il <<anchor-42, Calcolo dell'IVA>> per una rappresentazione più dettagliata ed esempi su come eseguire i calcoli nel riepilogo IVA.
 
-== Line VAT Information
+== Informazioni IVA su riga
 
-=== Cross-border billing rules
+=== Regole per la fatturazione dall'estero (cross-border)
 
-Each line of the invoice must have the VAT category code referring to the invoiced item (BT-151 VAT category code cac: ClassifiedTaxCategory / cbc: ID).+
-If the VAT category is Z or E or G or K or AE, the BT-152 Invoiced item VAT rate (cac:ClassifiedTaxCategory/cbc:Percent) should be set equal to 0.
+Per ogni riga della fattura deve essere indicato il codice della categoria IVA nel cac:ClassifiedTaxCategory/cbc:ID (BT-151 VAT category code). +
+Per le categorie IVA è Z, E, G, K e AE il cac:ClassifiedTaxCategory/cbc:Percent (BT-152 Invoiced item VAT rate) va posto uguale a 0.
 
-=== Rules for domestic billing
+=== Regole per la fatturazione domestica
 
-#Each line of the invoice must have the VAT category code referring to the invoiced item (BT-151 VAT category code cac:ClassifiedTaxCategory/cbc: ID).#+
-#If the VAT category is S or B, the VAT rate must be entered in BT-152 Invoiced item VAT rate (cac:ClassifiedTaxCategory/cbc:Percent).#
+#Per ogni riga della fattura deve essere indicato il codice della categoria IVA nel cac:ClassifiedTaxCategory/cbc:ID (BT-151 VAT category code).#
 
-#For domestic invoices (BT-40 Seller country code equal to IT and BT-55 Buyer country code equal to IT) the management of the Nature of the line is carried out by using *cac:AdditionalItemProperty/cbc:Name* (BT-160) and *cac:AdditionalItemProperty/cbc:Value* (BT-161) to indicate nature at the invoice line level.# +
-#The item attribute name is enhanced with the string "NATURA", the item attribute value with the nature code according to the FatturaPA specifications.#
+#Per le categorie IVA Z, E, G, K e AE il cac:ClassifiedTaxCategory/cbc:Percent (BT-152 Invoiced item VAT rate) va posto uguale a 0.#
+
+#Per le categorie IVA S e B l’aliquota IVA va inserita nel cac:ClassifiedTaxCategory/cbc:Percent (BT-152 Invoiced item VAT rate).#
+
+#La gestione della natura della riga è operata a mezzo dell’utilizzo del *cac:AdditionalItemProperty/cbc:Name* (BT-160) e *cac:AdditionalItemProperty/cbc:Value* (BT-161), valorizzando il cbc:name con la stringa “NATURA” ed il cbc:value con il codice natura secondo le specifiche FatturaPA.#
 
 [source, xml, indent=0]
 ----
@@ -47,49 +49,53 @@ If the VAT category is Z or E or G or K or AE, the BT-152 Invoiced item VAT rate
 </cac:InvoiceLine>
 ----
 
-== Document level allowance or charge
+=== Indicazioni per l’esterometro nella fatturazione verso l’estero
 
-Each document level charge or allowance must have the Document level allowance or charge VAT category code (BT-95 and BT-102), and for all VAT categories except "Not subject to VAT" (O), the VAT rate shall be provided.
+Ai fini dell’esterometro, la gestione è analoga a quanto previsto per le fatture verso l’estero (vedi paragrafo 7.1.1).
+
+== Sconti e maggiorazioni a livello di testata
+
+Per ogni sconto/maggiorazione deve essere indicato il codice della categoria IVA nel cac:ClassifiedTaxCategory/cbc:ID (BT-151 VAT category code). +
+Per le categorie IVA è Z, E, G, K e AE il cac:ClassifiedTaxCategory/cbc:Percent (BT-152 Invoiced item VAT rate) va posto uguale a 0.
+
+Per le categorie IVA S e B, l’aliquota IVA va inserita nel cac:ClassifiedTaxCategory/cbc:Percent (BT-152 Invoiced item VAT rate).
 
 [IMPORTANT]
-#Per la fatturazione verso soggetti italiani la sezione è utilizzata solo per Bollo (vedi paragrafo 4.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 4.8).#
+#La sezione è utilizzata solo per la fatturazione domestica per Bollo (vedi paragrafo 4.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 4.8).#
+#Per gli sconti e maggiorazioni a livello di testata che non incidono sull’imponibile vedasi 10.5.Sconti e maggiorazioni.#
 
-#Per gli sconti e maggiorazioni a livello di testata che non incidono sull’imponibile vedasi 10.5. Sconti e maggiorazioni.#
+== Riepiloghi IVA
 
-== Nature of the transaction and VAT summaries
+=== Regole per la fatturazione dall’estero (cross-border)
 
-=== Cross-border billing rules
+La gestione della natura dell’operazione (FPA 2.2.2.2 Natura) per le fatture dall’estero è operata a mezzo dell’utilizzo di:
 
-364 / 5.000
-Risultati della traduzione
-The management of the nature of the operation (FPA 2.2.2.2 Nature) for cross-border invoices (BT-40 Seller country code other than IT and BT-55 Buyer country code equal to IT)
-is operated by using the *cac:TaxCategory/cbc:ID* (BT-118 VAT category code) for VAT summaries and *cac:Subtotal/cbc:TaxExemptionReasonCode* (BT-121 VAT VAT exemption reason code).
+1. *cac:TaxCategory/cbc:ID* (BT-118 VAT category code);
+2. *cbc:TaxExemptionReasonCode* (BT-121 VAT exemption reason code);
 
 .Tabella di relazione tra natura, VAT Category Code e VAT exemption reason code
 image::../../../images/vatex-table-cross-border.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
 
 [IMPORTANT]
-La fattura non può contenere più di un TaxSubtotal
+La fattura non può contenere più di un TaxSubtotal.
 
 === Regole per la fatturazione domestica
 
-#La gestione della natura dell'operazione (FPA 2.2.2.2 Natura) per le fatture domestiche (BT-40 Seller country code pari a IT e BT-55 Buyer country code pari a IT) è operata a mezzo dell’utilizzo di:# +
+#La gestione della natura dell'operazione (FPA 2.2.2.2 Natura) per le fatture domestiche è operata a mezzo dell’utilizzo di:# +
 
-
-1.	#*cac:TaxCategory/cbc:ID* (BT-118 VAT category code) per i riepiloghi IVA e *cac:Item/cac:TaxCategory/cbc:ID* (BT-151 VAT category code) per le righe di fattura;#
-2.	#*cbc:TaxExemptionReason* (BT-120 VAT exemption reason text) per i riepiloghi IVA, in cui viene inserita il codice natura secondo le specifiche FatturaPA ed il Riferimento Normativo;#
-3.	#*cbc:TaxExemptionReasonCode* (BT-121 VAT exemption reason code) per i riepiloghi IVA, cosiddetta tabella VATEX;#
+1. #*cac:TaxCategory/cbc:ID* (BT-118 VAT category code);#
+2. #*cbc:TaxExemptionReasonCode* (BT-121 VAT exemption reason code);#
+3. #*cbc:TaxExemptionReason* (BT-120 VAT exemption reason text), in cui viene inserita il codice natura secondo le specifiche FatturaPA ed il Riferimento Normativo.#
 
 [NOTE]
 Trattasi di CIUS domestica (DC)
 
 
-.Tabella di relazione tra natura, VAT Category Code e VAT exemption reason code
+.Tabella di relazione tra natura, VAT Category Code, VAT exemption reason code e VAT exemption reason text.
 image::../../../images/vatex-table.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
 
-One VAT Breakdown shall be provided for each distinct combination of VAT category code and VAT rate found in either the line VAT information or the Document level allowance or charges. For some VAT categories, the VAT rate shall be zero, and hence the rate is not needed in order to group the VAT Breakdown for these.
-
-Please note that for the VAT rate, only significant decimals should be considered, i.e any difference in trailing zeros should not result in different VAT breakdowns.
+#Deve essere fornito un solo riepilogo IVA per ogni combinazione distinta di categoria e aliquota IVA sia a livello di riga che negli sconti e maggiorazioni a livello di testata. Per alcune categorie IVA, l’aliquota deve essere posta a zero e quindi non viene utilizzata in questi casi per raggruppare il riepilogo IVA.# +
+#Per l’aliquota dell’IVA devono essere considerati solo i decimali significativi, ovvero qualsiasi differenza nei decimali non deve determinare differenti riepiloghi IVA.#
 
 [IMPORTANT]
 #Non è possibile inserire nella medesima fattura operazioni con il medesimo Tax Category ID (BT-118 VAT category code) e natura differente.#
@@ -145,6 +151,7 @@ Per altri dettagli vedi anche il paragrafo <<anchor-11,9.4. Calcolo dell’IVA>>
   <cac:Price>
     <cbc:PriceAmount currencyID="EUR">100.00</cbc:PriceAmount>
   </cac:Price>
+</cac:InvoiceLine>
 ----
 
 ==== #Caso 2 - natura N1 – esempio riferito ad un’operazione esclusa#
@@ -190,9 +197,15 @@ Per altri dettagli vedi anche il paragrafo <<anchor-11,9.4. Calcolo dell’IVA>>
   </cac:Price>
 </cac:InvoiceLine>
 ----
-== Invoice total VAT amount
 
-The invoice total VAT amount (BT-110) is the sum of all VAT Category VAT amounts (BT-117)
+=== Indicazioni per l’esterometro nella fatturazione verso l’estero
+
+Ai fini dell’esterometro, la gestione della natura dell’operazione (FPA 2.2.2.2 Natura) per le fatture verso l’estero è operata analogamente a quanto previsto per le fatture verso l’estero (vedi paragrafo 7.3.1).
+
+== Totale IVA
+
+Il totale IVA *cbc:TaxAmount* (BT-110) è la somma delle imposte dei singoli riepiloghi *cbc:TaxAmount* (BT-117)
+
 
 == #Data operazione ed esigibilità IVA#
 

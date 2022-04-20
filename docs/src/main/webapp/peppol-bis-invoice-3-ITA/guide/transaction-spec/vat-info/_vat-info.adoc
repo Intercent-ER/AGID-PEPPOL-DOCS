@@ -7,18 +7,20 @@ Si consiglia di consultare anche i <<anchor-17, VAT category codes>> per dettagl
 
 == Informazioni IVA su riga
 
-=== Regole per la fatturazione cross-border
+=== Regole per la fatturazione dall'estero (cross-border)
 
-Ogni riga della fattura deve avere il codice della categoria IVA riferita alla voce fatturata (BT-151 VAT category code cac:ClassifiedTaxCategory/cbc:ID). +
-Se la categoria IVA è Z o E o G o K o AE, il BT-152 Invoiced item VAT rate (cac:ClassifiedTaxCategory/cbc:Percent) va posto uguale a 0.
+Per ogni riga della fattura deve essere indicato il codice della categoria IVA nel cac:ClassifiedTaxCategory/cbc:ID (BT-151 VAT category code). +
+Per le categorie IVA è Z, E, G, K e AE il cac:ClassifiedTaxCategory/cbc:Percent (BT-152 Invoiced item VAT rate) va posto uguale a 0.
 
 === Regole per la fatturazione domestica
 
-#Ogni riga della fattura deve avere il codice della categoria IVA riferita alla voce fatturata (BT-151 VAT category code cac:ClassifiedTaxCategory/cbc:ID).#+
-#Se la categoria IVA è S o B, l’aliquota IVA va inserita in BT-152 Invoiced item VAT rate (cac:ClassifiedTaxCategory/cbc:Percent).#
+#Per ogni riga della fattura deve essere indicato il codice della categoria IVA nel cac:ClassifiedTaxCategory/cbc:ID (BT-151 VAT category code).#
 
-#Per le fatture domestiche (BT-40 Seller country code pari a IT e BT-55 Buyer country code pari a IT) la gestione della Natura della riga è operata a mezzo dell’utilizzo del *cac:AdditionalItemProperty/cbc:Name* (BT-160) e *cac:AdditionalItemProperty/cbc:Value* (BT-161) per indicare la natura a livello di riga di fattura .# +
-#L’item attribute name viene valorizzato con la stringa “NATURA”, l’item attribute value con il codice natura secondo le specifiche FatturaPA.#
+#Per le categorie IVA Z, E, G, K e AE il cac:ClassifiedTaxCategory/cbc:Percent (BT-152 Invoiced item VAT rate) va posto uguale a 0.#
+
+#Per le categorie IVA S e B l’aliquota IVA va inserita nel cac:ClassifiedTaxCategory/cbc:Percent (BT-152 Invoiced item VAT rate).#
+
+#La gestione della natura della riga è operata a mezzo dell’utilizzo del *cac:AdditionalItemProperty/cbc:Name* (BT-160) e *cac:AdditionalItemProperty/cbc:Value* (BT-161), valorizzando il cbc:name con la stringa “NATURA” ed il cbc:value con il codice natura secondo le specifiche FatturaPA.#
 
 [source, xml, indent=0]
 ----
@@ -47,46 +49,53 @@ Se la categoria IVA è Z o E o G o K o AE, il BT-152 Invoiced item VAT rate (cac
 </cac:InvoiceLine>
 ----
 
+=== Indicazioni per l’esterometro nella fatturazione verso l’estero
+
+Ai fini dell’esterometro, la gestione è analoga a quanto previsto per le fatture verso l’estero (vedi paragrafo 7.1.1).
+
 == Sconti e maggiorazioni a livello di testata
 
-Ogni sconto o maggiorazione a livello di testata deve avere il codice di categoria IVA (BT-95 e BT-102). Per tutte le categorie IVA, eccetto "Non soggetto ad IVA" (O), deve essere fornita l'aliquota IVA.
+Per ogni sconto/maggiorazione deve essere indicato il codice della categoria IVA nel cac:ClassifiedTaxCategory/cbc:ID (BT-151 VAT category code). +
+Per le categorie IVA è Z, E, G, K e AE il cac:ClassifiedTaxCategory/cbc:Percent (BT-152 Invoiced item VAT rate) va posto uguale a 0.
+
+Per le categorie IVA S e B, l’aliquota IVA va inserita nel cac:ClassifiedTaxCategory/cbc:Percent (BT-152 Invoiced item VAT rate).
 
 [IMPORTANT]
-#Per la fatturazione verso soggetti italiani la sezione è utilizzata solo per Bollo (vedi paragrafo 4.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 4.8).#
+#La sezione è utilizzata solo per la fatturazione domestica per Bollo (vedi paragrafo 4.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 4.8).#
+#Per gli sconti e maggiorazioni a livello di testata che non incidono sull’imponibile vedasi 10.5.Sconti e maggiorazioni.#
 
-#Per gli sconti e maggiorazioni a livello di testata che non incidono sull’imponibile vedasi 10.5. Sconti e maggiorazioni.#
+== Riepiloghi IVA
 
-== Natura dell'operazione e Riepiloghi IVA
+=== Regole per la fatturazione dall’estero (cross-border)
 
-=== Regole per la fatturazione cross-border
+La gestione della natura dell’operazione (FPA 2.2.2.2 Natura) per le fatture dall’estero è operata a mezzo dell’utilizzo di:
 
-La gestione della natura dell’operazione (FPA 2.2.2.2 Natura) per le fatture cross-border (BT-40 Seller country code diverso da IT e BT-55 Buyer country code pari a IT)
-è operata a mezzo dell’utilizzo del *cac:TaxCategory/cbc:ID* (BT-118 VAT category code) per i riepiloghi IVA e *cac:Subtotal/cbc:TaxExemptionReasonCode* (BT-121 VAT VAT exemption reason code).
+1. *cac:TaxCategory/cbc:ID* (BT-118 VAT category code);
+2. *cbc:TaxExemptionReasonCode* (BT-121 VAT exemption reason code);
 
 .Tabella di relazione tra natura, VAT Category Code e VAT exemption reason code
 image::../../../images/vatex-table-cross-border.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
 
 [IMPORTANT]
-La fattura non può contenere più di un TaxSubtotal
+La fattura non può contenere più di un TaxSubtotal.
 
 === Regole per la fatturazione domestica
 
-#La gestione della natura dell'operazione (FPA 2.2.2.2 Natura) per le fatture domestiche (BT-40 Seller country code pari a IT e BT-55 Buyer country code pari a IT) è operata a mezzo dell’utilizzo di:# +
+#La gestione della natura dell'operazione (FPA 2.2.2.2 Natura) per le fatture domestiche è operata a mezzo dell’utilizzo di:# +
 
-1.	#*cac:TaxCategory/cbc:ID* (BT-118 VAT category code) per i riepiloghi IVA e *cac:Item/cac:TaxCategory/cbc:ID* (BT-151 VAT category code) per le righe di fattura;#
-2.	#*cbc:TaxExemptionReason* (BT-120 VAT exemption reason text) per i riepiloghi IVA, in cui viene inserita il codice natura secondo le specifiche FatturaPA ed il Riferimento Normativo;#
-3.	#*cbc:TaxExemptionReasonCode* (BT-121 VAT exemption reason code) per i riepiloghi IVA, cosiddetta tabella VATEX.#
+1. #*cac:TaxCategory/cbc:ID* (BT-118 VAT category code);#
+2. #*cbc:TaxExemptionReasonCode* (BT-121 VAT exemption reason code);#
+3. #*cbc:TaxExemptionReason* (BT-120 VAT exemption reason text), in cui viene inserita il codice natura secondo le specifiche FatturaPA ed il Riferimento Normativo.#
 
 [NOTE]
 Trattasi di CIUS domestica (DC)
 
 
-.Tabella di relazione tra natura, VAT Category Code e VAT exemption reason code
+.Tabella di relazione tra natura, VAT Category Code, VAT exemption reason code e VAT exemption reason text.
 image::../../../images/vatex-table.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
 
-Deve essere fornito un solo riepilogo IVA per ogni combinazione distinta di categoria e aliquota IVA sia a livello di riga che negli sconti e maggiorazioni a livello di testata. Per alcune categorie IVA, l'aliquota deve essere posta a zero e quindi non viene utilizzata in questi casi per raggruppare il riepilogo IVA.
-
-Si consiglia di osservare che per l'aliquota dell'IVA dovrebbero essere considerati solo i decimali significativi, ovvero qualsiasi differenza nei decimali non deve determinare differenti riepiloghi IVA.
+#Deve essere fornito un solo riepilogo IVA per ogni combinazione distinta di categoria e aliquota IVA sia a livello di riga che negli sconti e maggiorazioni a livello di testata. Per alcune categorie IVA, l’aliquota deve essere posta a zero e quindi non viene utilizzata in questi casi per raggruppare il riepilogo IVA.# +
+#Per l’aliquota dell’IVA devono essere considerati solo i decimali significativi, ovvero qualsiasi differenza nei decimali non deve determinare differenti riepiloghi IVA.#
 
 [IMPORTANT]
 #Non è possibile inserire nella medesima fattura operazioni con il medesimo Tax Category ID (BT-118 VAT category code) e natura differente.#
@@ -188,6 +197,11 @@ Per altri dettagli vedi anche il paragrafo <<anchor-11,9.4. Calcolo dell’IVA>>
   </cac:Price>
 </cac:InvoiceLine>
 ----
+
+=== Indicazioni per l’esterometro nella fatturazione verso l’estero
+
+Ai fini dell’esterometro, la gestione della natura dell’operazione (FPA 2.2.2.2 Natura) per le fatture verso l’estero è operata analogamente a quanto previsto per le fatture verso l’estero (vedi paragrafo 7.3.1).
+
 == Totale IVA
 
 Il totale IVA *cbc:TaxAmount* (BT-110) è la somma delle imposte dei singoli riepiloghi *cbc:TaxAmount* (BT-117)

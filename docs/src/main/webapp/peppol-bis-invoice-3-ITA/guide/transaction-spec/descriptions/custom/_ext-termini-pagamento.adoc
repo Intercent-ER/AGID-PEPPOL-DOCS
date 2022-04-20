@@ -1,10 +1,28 @@
 
-= #Dettaglio Pagamento# (estensione)
+= #Termini di pagamento#
 
+== #Termini e condizioni di pagamento#
 
-== Pagamento Anticipato
+##Il campo *cac:PaymentTerms/cbc:Note* deve essere usato solo per indicare il dato FPA 2.4.1 CondizioniPagamento e FPA 2.4.2.4 GiorniTerminiPagamento, concatenati con il simbolo "#".##
 
-A fronte di un pagamento anticipato è possibile offrire uno sconto specificandone l'importo e la data limite entro il quale il pagamento deve essere perfezionato.
+.Esempi
+[source, xml, indent=0]
+----
+<cac:PaymentTerms>
+    <cbc:Note>TP02</cbc:Note>
+</cac:PaymentTerms>
+----
+
+[source, xml, indent=0]
+----
+<cac:PaymentTerms>
+    <cbc:Note>TP02#60</cbc:Note>
+</cac:PaymentTerms>
+----
+
+== #Pagamento Anticipato (estensione)#
+
+#A fronte di un pagamento anticipato è possibile offrire uno sconto specificandone l'importo e la data limite entro il quale il pagamento deve essere perfezionato.#
 
 .Esempio UBL per specificare un pagamento anticipato
 [source, xml, indent=0]
@@ -18,9 +36,9 @@ A fronte di un pagamento anticipato è possibile offrire uno sconto specificando
 </cac:PaymentTerms>
 ----
 
-== Pagamento Ritardato
+== #Pagamento Ritardato (estensione)#
 
-A fronte di un pagamento ritardato è possibile fissare una penalità specificandone l'importo dovuto e la data di decorrenza della penale.
+#A fronte di un pagamento ritardato è possibile fissare una penalità specificandone l'importo dovuto e la data di decorrenza della penale.#
 
 .Esempio UBL per specificare un pagamento ritardato
 [source, xml, indent=0]

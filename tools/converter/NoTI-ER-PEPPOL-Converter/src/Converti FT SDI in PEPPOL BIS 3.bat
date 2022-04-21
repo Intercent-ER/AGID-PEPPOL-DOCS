@@ -9,7 +9,7 @@ echo - Phase 1: Conversion
 echo.
 echo Converting %xml%
 
-call _xslt2 "%xml%" adapters\government\it\Fattura-PA-1.2.1-to-PEPPOL-BIS-05a-400_UBL-Invoice-2.1_NoTIER\adapter.xsl output\converted.xml 2>output\conversion_report.txt
+call _xslt2 "%xml%" adapters\government\it\Fattura-PA-1.2.1-to-PEPPOL-BIS-05a-400_UBL-Invoice-3.0_NoTIER\adapter.xsl output\converted.xml 2>output\conversion_report.txt
 
 echo.
 echo Validating output\converted.xml
@@ -24,7 +24,7 @@ echo ____________________________________________________________
 echo - Phase 3: XSLT semantic validation
 
 echo   - OPENPEPPOL Rules
-call _xslt2 output\converted.xml xsl\PEPPOL\2.0\ITNAT-UBL-T10_NOBII2.xsl output\svrl_report.xml
+call _xslt2 output\converted.xml xsl\PEPPOL\3.0\ITNAT-EN16931-UBL.xsl output\svrl_report.xml
 echo Output is provided using Schematron Validation Report Language (SVRL)
 call _xslt2 output\svrl_report.xml xsl\SVRLReportRender-IT.xsl output\semantic_report.html
 

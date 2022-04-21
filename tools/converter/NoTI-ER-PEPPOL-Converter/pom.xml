@@ -22,6 +22,24 @@
 				<version>3.0.1</version>
 				<executions>
 					<execution>
+						<id>copy-xsl-3</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/xsl/PEPPOL/3.0/</outputDirectory>
+							<resources>          
+								<resource>
+									<directory>${basedir}/../../../artifacts/validation/3.0/xsl</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+							<echo>Copying xsl files</echo>						   
+						</configuration>            
+					</execution>
+					<execution>
 						<id>copy-xsl-2</id>
 						<!-- here the phase you need -->
 						<phase>validate</phase>
@@ -29,7 +47,7 @@
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${basedir}/target/xsl/PEPPOL/</outputDirectory>
+							<outputDirectory>${basedir}/target/xsl/PEPPOL/2.0/</outputDirectory>
 							<resources>          
 								<resource>
 									<directory>${basedir}/../../../artifacts/validation/2.0/xsl</directory>

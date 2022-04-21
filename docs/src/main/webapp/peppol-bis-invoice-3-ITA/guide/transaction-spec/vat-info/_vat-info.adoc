@@ -9,16 +9,16 @@ Si consiglia di consultare anche i <<anchor-17, VAT category codes>> per dettagl
 
 === Regole per la fatturazione dall'estero (cross-border)
 
-Per ogni riga della fattura deve essere indicato il codice della categoria IVA nel cac:ClassifiedTaxCategory/cbc:ID (BT-151 VAT category code). +
-Per le categorie IVA è Z, E, G, K e AE il cac:ClassifiedTaxCategory/cbc:Percent (BT-152 Invoiced item VAT rate) va posto uguale a 0.
+Per ogni riga della fattura deve essere indicato il codice della categoria IVA nel *cac:ClassifiedTaxCategory/cbc:ID* (BT-151 VAT category code). +
+Per le categorie IVA è Z, E, G, K e AE il *cac:ClassifiedTaxCategory/cbc:Percent* (BT-152 Invoiced item VAT rate) va posto uguale a 0.
 
 === Regole per la fatturazione domestica
 
-#Per ogni riga della fattura deve essere indicato il codice della categoria IVA nel cac:ClassifiedTaxCategory/cbc:ID (BT-151 VAT category code).#
+#Per ogni riga della fattura deve essere indicato il codice della categoria IVA nel *cac:ClassifiedTaxCategory/cbc:ID* (BT-151 VAT category code).#
 
-#Per le categorie IVA Z, E, G, K e AE il cac:ClassifiedTaxCategory/cbc:Percent (BT-152 Invoiced item VAT rate) va posto uguale a 0.#
+#Per le categorie IVA Z, E, G, K e AE il *cac:ClassifiedTaxCategory/cbc:Percent* (BT-152 Invoiced item VAT rate) va posto uguale a 0.#
 
-#Per le categorie IVA S e B l’aliquota IVA va inserita nel cac:ClassifiedTaxCategory/cbc:Percent (BT-152 Invoiced item VAT rate).#
+#Per le categorie IVA S e B l’aliquota IVA va inserita nel *cac:ClassifiedTaxCategory/cbc:Percent* (BT-152 Invoiced item VAT rate).#
 
 #La gestione della natura della riga è operata a mezzo dell’utilizzo del *cac:AdditionalItemProperty/cbc:Name* (BT-160) e *cac:AdditionalItemProperty/cbc:Value* (BT-161), valorizzando il cbc:name con la stringa “NATURA” ed il cbc:value con il codice natura secondo le specifiche FatturaPA.#
 
@@ -58,10 +58,10 @@ A soli fini dell’esterometro, la gestione della conversione della fattura UBL 
 
 == Sconti e maggiorazioni a livello di testata
 
-Per ogni sconto/maggiorazione deve essere indicato il codice della categoria IVA nel cac:ClassifiedTaxCategory/cbc:ID (BT-151 VAT category code). +
-Per le categorie IVA è Z, E, G, K e AE il cac:ClassifiedTaxCategory/cbc:Percent (BT-152 Invoiced item VAT rate) va posto uguale a 0.
+Per ogni sconto/maggiorazione deve essere indicato il codice della categoria IVA nel *cac:ClassifiedTaxCategory/cbc:ID* (BT-151 VAT category code). +
+Per le categorie IVA è Z, E, G, K e AE il *cac:ClassifiedTaxCategory/cbc:Percent* (BT-152 Invoiced item VAT rate) va posto uguale a 0.
 
-Per le categorie IVA S e B, l’aliquota IVA va inserita nel cac:ClassifiedTaxCategory/cbc:Percent (BT-152 Invoiced item VAT rate).
+Per le categorie IVA S e B, l’aliquota IVA va inserita nel *cac:ClassifiedTaxCategory/cbc:Percent* (BT-152 Invoiced item VAT rate).
 
 [IMPORTANT]
 #La sezione è utilizzata solo per la fatturazione domestica per Bollo (vedi paragrafo 4.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 4.8).#

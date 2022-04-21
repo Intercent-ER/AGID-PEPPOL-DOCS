@@ -49,9 +49,12 @@ Per le categorie IVA è Z, E, G, K e AE il cac:ClassifiedTaxCategory/cbc:Percent
 </cac:InvoiceLine>
 ----
 
-=== Indicazioni per l’esterometro nella fatturazione verso l’estero
+=== Indicazioni per la fatturazione verso l'estero
 
-Ai fini dell’esterometro, la gestione è analoga a quanto previsto per le fatture verso l’estero (vedi paragrafo 7.1.1).
+Per la fatturazione verso l'estero verificare con l'acquirente l'eventuale presenza di CIUS. +
+Per approfondimenti consultare il seguente https://ec.europa.eu/digital-building-blocks/wikis/display/DIGITAL/CIUS+and+Extension+-+What+is+allowed[link].
+
+A soli fini dell’esterometro, la gestione della conversione della fattura UBL in FatturaPA per la natura è analoga a quanto previsto per le fatture verso l’estero (vedi paragrafo 7.1.1).
 
 == Sconti e maggiorazioni a livello di testata
 
@@ -198,9 +201,12 @@ Per altri dettagli vedi anche il paragrafo <<anchor-11,9.4. Calcolo dell’IVA>>
 </cac:InvoiceLine>
 ----
 
-=== Indicazioni per l’esterometro nella fatturazione verso l’estero
+=== Indicazioni per la fatturazione verso l'estero
 
-Ai fini dell’esterometro, la gestione della natura dell’operazione (FPA 2.2.2.2 Natura) per le fatture verso l’estero è operata analogamente a quanto previsto per le fatture verso l’estero (vedi paragrafo 7.3.1).
+Per la fatturazione verso l'estero verificare con l'acquirente l'eventuale presenza di CIUS. +
+Per approfondimenti consultare il seguente https://ec.europa.eu/digital-building-blocks/wikis/display/DIGITAL/CIUS+and+Extension+-+What+is+allowed[link].
+
+A soli fini dell’esterometro, la gestione della conversione della fattura UBL in FatturaPA per la natura è analoga a quanto previsto per le fatture verso l’estero (vedi paragrafo 7.3.1).
 
 == Totale IVA
 

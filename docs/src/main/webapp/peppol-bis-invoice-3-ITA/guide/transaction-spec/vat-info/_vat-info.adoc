@@ -9,12 +9,15 @@ Si consiglia di consultare anche i <<anchor-17, VAT category codes>> per dettagl
 
 === Regole per la fatturazione dall'estero (cross-border)
 
-Per ogni riga della fattura deve essere indicato il codice della categoria IVA nel *cac:ClassifiedTaxCategory/cbc:ID* (BT-151 VAT category code). +
+Per ogni riga della fattura deve essere indicato il codice della categoria IVA nel *cac:ClassifiedTaxCategory/cbc:ID* (BT-151 Invoiced item VAT category code). +
 Per le categorie IVA è Z, E, G, K e AE il *cac:ClassifiedTaxCategory/cbc:Percent* (BT-152 Invoiced item VAT rate) va posto uguale a 0.
+
+.Tabella di relazione tra natura e Invoiced item VAT Category Code
+image::../../../images/7.1.1.vatex-table-cross-border.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
 
 === Regole per la fatturazione domestica
 
-#Per ogni riga della fattura deve essere indicato il codice della categoria IVA nel *cac:ClassifiedTaxCategory/cbc:ID* (BT-151 VAT category code).#
+#Per ogni riga della fattura deve essere indicato il codice della categoria IVA nel *cac:ClassifiedTaxCategory/cbc:ID* (BT-151 Invoiced item VAT category code).#
 
 #Per le categorie IVA Z, E, G, K e AE il *cac:ClassifiedTaxCategory/cbc:Percent* (BT-152 Invoiced item VAT rate) va posto uguale a 0.#
 
@@ -58,10 +61,10 @@ A soli fini dell’esterometro, la gestione della conversione della fattura UBL 
 
 == Sconti e maggiorazioni a livello di testata
 
-Per ogni sconto/maggiorazione deve essere indicato il codice della categoria IVA nel *cac:ClassifiedTaxCategory/cbc:ID* (BT-151 VAT category code). +
-Per le categorie IVA è Z, E, G, K e AE il *cac:ClassifiedTaxCategory/cbc:Percent* (BT-152 Invoiced item VAT rate) va posto uguale a 0.
+Per ogni sconto/maggiorazione deve essere indicato il codice della categoria IVA nel *cac:ClassifiedTaxCategory/cbc:ID* (BT-102 Document level charge VAT category code/BT-95Document level allowance VAT category code). +
+Per le categorie IVA è Z, E, G, K e AE il *cac:ClassifiedTaxCategory/cbc:Percent* (BT-103 Document level charge VAT rate/BT-96 Document level allowance VAT rate) va posto uguale a 0.
 
-Per le categorie IVA S e B, l’aliquota IVA va inserita nel *cac:ClassifiedTaxCategory/cbc:Percent* (BT-152 Invoiced item VAT rate).
+Per le categorie IVA S e B, l’aliquota IVA va inserita nel *cac:ClassifiedTaxCategory/cbc:Percent* (BT-103 Document level charge VAT rate/BT-96 Document level allowance VAT rate).
 
 [IMPORTANT]
 #La sezione è utilizzata solo per la fatturazione domestica per Bollo (vedi paragrafo 4.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 4.8).#
@@ -77,7 +80,7 @@ La gestione della natura dell’operazione (FPA 2.2.2.2 Natura) per le fatture d
 2. *cbc:TaxExemptionReasonCode* (BT-121 VAT exemption reason code);
 
 .Tabella di relazione tra natura, VAT Category Code e VAT exemption reason code
-image::../../../images/vatex-table-cross-border.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
+image::../../../images/7.3.1.vatex-table-cross-border.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
 
 [IMPORTANT]
 La fattura non può contenere più di un TaxSubtotal.

@@ -18,11 +18,11 @@
 	<properties>
 		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<validator.version>2.3.0</validator.version>
-		<converter.version>2.4.4</converter.version>
-		<schematron.version>2.3.0</schematron.version>
-		<mapping_peppol_fpa.version>3.2</mapping_peppol_fpa.version>
-		<mapping_fpa_peppol.version>1.0</mapping_fpa_peppol.version>
+		<validator.version>2.4.0</validator.version>
+		<converter.version>2.5.0</converter.version>
+		<schematron.version>2.4.0</schematron.version>
+		<mapping_peppol_fpa.version>2.3</mapping_peppol_fpa.version>
+		<mapping_fpa_peppol.version>2.3</mapping_fpa_peppol.version>
 	</properties>
 	<build>
 		<plugins>
@@ -590,11 +590,11 @@
 						</replacement>
 						<replacement>
 							<token>(#link_to_mapping_peppol_fpa#)</token>
-							<value>Mapping_UBL-Fattura-3.0-FatturaPA_V${mapping_peppol_fpa.version}.xlsx</value>
+							<value>Mapping_UBL-Peppol-3_FatturaPA_V${mapping_peppol_fpa.version}.xlsx</value>
 						</replacement>
 						<replacement>
 							<token>(#link_to_mapping_fpa_peppol#)</token>
-							<value>Mapping_FPA-Peppol_V${mapping_fpa_peppol.version}.xlsx</value>
+							<value>Mapping_FatturaPA_UBL-Peppol-3_V${mapping_fpa_peppol.version}.xlsx</value>
 						</replacement>
 					</replacements>
 				</configuration>

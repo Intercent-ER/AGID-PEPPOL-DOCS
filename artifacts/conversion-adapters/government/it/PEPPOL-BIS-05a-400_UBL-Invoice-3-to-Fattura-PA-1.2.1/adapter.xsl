@@ -10,40 +10,52 @@
   <xsl:param name="xclPaymentMeansCode" as="xs:string">xcl/PaymentMeansCode-2.1.gc</xsl:param>
   <xsl:param name="xclFormatoAttachment" as="xs:string">xcl/FormatoAttachment.gc</xsl:param>
   <!--Processing starts at node: /in:InvoiceSee the template rule at end of stylesheet for the default processing ofthe root node.-->
-  <xsl:template match="/*/ext:UBLExtensions/ext:UBLExtension" mode="OgniRitenuta">
+  <xsl:template match="/*/ext:UBLExtensions/ext:UBLExtension" mode="ProvaRitenuta">
     <xsl:param name="CN" select="."/>
     <xsl:param name="CNP" select="1"/>
-    <xsl:if test=".[ext:ExtensionURI = concat('urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta::',  $CNP)]">
-      <TipoRitenuta>
-        <xsl:value-of select="normalize-space(ext:ExtensionContent/cr:XCode)"/>
-      </TipoRitenuta>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/*/ext:UBLExtensions/ext:UBLExtension" mode="RiepilogoSpeseAccessorie">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test=".[ext:ExtensionURI = concat('urn:www.ubl-italia.org:spec:fatturapa:spese_accessorie_riepilogo::',  $CNP)]">
-      <SpeseAccessorie>
-        <xsl:value-of select="ext:ExtensionContent/cbc:Amount"/>
-      </SpeseAccessorie>
-    </xsl:if>
+    <xsl:choose>
+      <xsl:when test="contains(ext:ExtensionURI,'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta::')">
+        <xsl:variable name="var" select="number(substring-after(ext:ExtensionURI,'::'))"/>
+        <DatiRitenuta>
+          <TipoRitenuta>
+            <xsl:value-of select="ext:ExtensionContent/cbc:TypeCode"/>
+          </TipoRitenuta>
+          <ImportoRitenuta>
+            <xsl:value-of select="format-number(/in:Invoice/cac:WithholdingTaxTotal/cac:TaxSubtotal[$var]/cbc:TaxAmount,'###########0.00')"/>
+          </ImportoRitenuta>
+          <AliquotaRitenuta>
+            <xsl:value-of select="format-number(/in:Invoice/cac:WithholdingTaxTotal/cac:TaxSubtotal[$var]/cac:TaxCategory/cbc:Percent,'###########0.00')"/>
+          </AliquotaRitenuta>
+          <CausalePagamento>
+            <xsl:value-of select="/in:Invoice/cac:WithholdingTaxTotal/cac:TaxSubtotal[$var]/cac:TaxCategory/cac:TaxScheme/cbc:TaxTypeCode"/>
+          </CausalePagamento>
+        </DatiRitenuta>
+      </xsl:when>
+      <xsl:when test="ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:TipoRitenuta'">
+        <DatiRitenuta>
+          <TipoRitenuta>
+            <xsl:value-of select="ext:ExtensionContent/cbc:TypeCode"/>
+          </TipoRitenuta>
+          <ImportoRitenuta>
+            <xsl:value-of select="format-number(/in:Invoice/cac:WithholdingTaxTotal/cac:TaxSubtotal/cbc:TaxAmount,'###########0.00')"/>
+          </ImportoRitenuta>
+          <AliquotaRitenuta>
+            <xsl:value-of select="format-number(/in:Invoice/cac:WithholdingTaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:Percent,'###########0.00')"/>
+          </AliquotaRitenuta>
+          <CausalePagamento>
+            <xsl:value-of select="/in:Invoice/cac:WithholdingTaxTotal/cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:TaxTypeCode"/>
+          </CausalePagamento>
+        </DatiRitenuta>
+      </xsl:when>
+    </xsl:choose>
   </xsl:template>
   <xsl:template match="/*/ext:UBLExtensions/ext:UBLExtension" mode="RiepilogoArrotondamento">
     <xsl:param name="CN" select="."/>
     <xsl:param name="CNP" select="1"/>
-    <xsl:if test=".[ext:ExtensionURI = concat('urn:www.ubl-italia.org:spec:fatturapa:arrotondamento_riepilogo::',  $CNP)]">
+    <xsl:if test=".[ext:ExtensionURI = concat('urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento::',$CNP)]">
       <Arrotondamento>
-        <xsl:value-of select="ext:ExtensionContent/cbc:Amount"/>
+        <xsl:value-of select="format-number(ext:ExtensionContent/cbc:Amount,'###########0.00')"/>
       </Arrotondamento>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta']/ext:ExtensionContent/cr:XCode">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test=". and not(/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI,'urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta::')])">
-      <TipoRitenuta>
-        <xsl:value-of select="normalize-space(.)"/>
-      </TipoRitenuta>
     </xsl:if>
   </xsl:template>
   <xsl:template match="/in:Invoice/cac:AccountingSupplierParty/cac:Party"                 mode="RitenutaPersoneFisiche">
@@ -64,326 +76,59 @@
       </TipoRitenuta>
     </xsl:if>
   </xsl:template>
-  <xsl:template match="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CIG']/cbc:ID"                 mode="DatiOrdine_CIG">
+  <xsl:template match="/in:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification">
     <xsl:param name="CN" select="."/>
     <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCIG>
-        <xsl:value-of select="."/>
-      </CodiceCIG>
+    <xsl:if test="contains(./cbc:ID[contains(., 'EORI:')],'EORI:')">
+      <CodEORI>
+        <xsl:value-of select="substring-after(./cbc:ID,'EORI:')"/>
+      </CodEORI>
     </xsl:if>
   </xsl:template>
-  <xsl:template match="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CIG_CONTRATTO' or (not(/in:Invoice/cac:OrderReference/cbc:ID) and cbc:DocumentType='CIG')]/cbc:ID[1]"                 mode="DatiContratto_CIG">
+  <xsl:template match="cac:AllowanceCharge"                 mode="BOLLO">
     <xsl:param name="CN" select="."/>
     <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCIG>
-        <xsl:value-of select="."/>
-      </CodiceCIG>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CIG_CONVENZIONE']/cbc:ID"                 mode="DatiConvenzione_CIG">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCIG>
-        <xsl:value-of select="."/>
-      </CodiceCIG>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CIG_FATTURE_COLLEGATE']/cbc:ID"                 mode="DatiFattureCollegate_CIG">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCIG>
-        <xsl:value-of select="."/>
-      </CodiceCIG>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CIG_RICEZIONE']/cbc:ID"                 mode="DatiRicezione_CIG">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCIG>
-        <xsl:value-of select="."/>
-      </CodiceCIG>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CUP']/cbc:ID"                 mode="DatiOrdine_CUP">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCUP>
-        <xsl:value-of select="."/>
-      </CodiceCUP>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CUP_CONTRATTO' or (not(/in:Invoice/cac:OrderReference/cbc:ID) and cbc:DocumentType='CUP')]/cbc:ID[1]"                 mode="DatiContratto_CUP">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCUP>
-        <xsl:value-of select="."/>
-      </CodiceCUP>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CUP_CONVENZIONE']/cbc:ID"                 mode="DatiConvenzione_CUP">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCUP>
-        <xsl:value-of select="."/>
-      </CodiceCUP>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CUP_FATTURE_COLLEGATE']/cbc:ID"                 mode="DatiFattureCollegate_CUP">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCUP>
-        <xsl:value-of select="."/>
-      </CodiceCUP>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CUP_RICEZIONE']/cbc:ID"                 mode="DatiRicezione_CUP">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCUP>
-        <xsl:value-of select="."/>
-      </CodiceCUP>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CommessaConvenzione']/cbc:ID"                 mode="DatiOrdine_Commessa">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCommessaConvenzione>
-        <xsl:value-of select="."/>
-      </CodiceCommessaConvenzione>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CommessaConvenzione_CONTRATTO' or (not(/in:Invoice/cac:OrderReference/cbc:ID) and cbc:DocumentType='CommessaConvenzione')]/cbc:ID[1]"                 mode="DatiContratto_Commessa">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCommessaConvenzione>
-        <xsl:value-of select="."/>
-      </CodiceCommessaConvenzione>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CommessaConvenzione_CONVENZIONE']/cbc:ID"                 mode="DatiConvenzione_CommessaConvenzione">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCommessaConvenzione>
-        <xsl:value-of select="."/>
-      </CodiceCommessaConvenzione>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CommessaConvenzione_FATTURE_COLLEGATE']/cbc:ID"                 mode="DatiFattureCollegate_CommessaConvenzione">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCommessaConvenzione>
-        <xsl:value-of select="."/>
-      </CodiceCommessaConvenzione>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CommessaConvenzione_RICEZIONE']/cbc:ID"                 mode="DatiRicezione_CommessaConvenzione">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCommessaConvenzione>
-        <xsl:value-of select="."/>
-      </CodiceCommessaConvenzione>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='EORI CedentePrestatore']/cbc:ID">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <CodEORI>
-      <xsl:value-of select="."/>
-    </CodEORI>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CIG']/cbc:ID"                 mode="DatiOrdine_CIG_Riga">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCIG>
-        <xsl:value-of select="."/>
-      </CodiceCIG>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CIG_CONTRATTO' or (not(/in:Invoice/cac:InvoiceLine/cac:OrderLineReference) and cbc:DocumentType='CIG')]/cbc:ID[1]"                 mode="DatiContratto_CIG_Riga">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCIG>
-        <xsl:value-of select="."/>
-      </CodiceCIG>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CIG_CONVENZIONE']/cbc:ID"                 mode="DatiConvenzione_CIG_Riga">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCIG>
-        <xsl:value-of select="."/>
-      </CodiceCIG>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CIG_FATTURE_COLLEGATE']/cbc:ID"                 mode="DatiFattureCollegate_CIG_Riga">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCIG>
-        <xsl:value-of select="."/>
-      </CodiceCIG>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CIG_RICEZIONE']/cbc:ID"                 mode="DatiRicezione_CIG_Riga">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCIG>
-        <xsl:value-of select="."/>
-      </CodiceCIG>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CUP']/cbc:ID"                 mode="DatiOrdine_CUP_Riga">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCUP>
-        <xsl:value-of select="."/>
-      </CodiceCUP>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CUP_CONTRATTO' or (not(/in:Invoice/cac:InvoiceLine/cac:OrderLineReference) and cbc:DocumentType='CUP')]/cbc:ID[1]"                 mode="DatiContratto_CUP_Riga">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCUP>
-        <xsl:value-of select="."/>
-      </CodiceCUP>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CUP_CONVENZIONE']/cbc:ID"                 mode="DatiConvenzione_CUP_Riga">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCUP>
-        <xsl:value-of select="."/>
-      </CodiceCUP>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CUP_FATTURE_COLLEGATE']/cbc:ID"                 mode="DatiFattureCollegate_CUP_Riga">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCUP>
-        <xsl:value-of select="."/>
-      </CodiceCUP>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CUP_RICEZIONE']/cbc:ID"                 mode="DatiRicezione_CUP_Riga">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCUP>
-        <xsl:value-of select="."/>
-      </CodiceCUP>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CommessaConvenzione']/cbc:ID"                 mode="DatiOrdine_Commessa_Riga">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCommessaConvenzione>
-        <xsl:value-of select="."/>
-      </CodiceCommessaConvenzione>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CommessaConvenzione_CONTRATTO' or (not(/in:Invoice/cac:InvoiceLine/cac:OrderLineReference) and cbc:DocumentType='CommessaConvenzione')]/cbc:ID[1]"                 mode="DatiContratto_Commessa_Riga">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCommessaConvenzione>
-        <xsl:value-of select="."/>
-      </CodiceCommessaConvenzione>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CommessaConvenzione_CONVENZIONE']/cbc:ID"                 mode="DatiConvenzione_Commessa_Riga">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCommessaConvenzione>
-        <xsl:value-of select="."/>
-      </CodiceCommessaConvenzione>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CommessaConvenzione_FATTURE_COLLEGATE']/cbc:ID"                 mode="DatiFattureCollegate_Commessa_Riga">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCommessaConvenzione>
-        <xsl:value-of select="."/>
-      </CodiceCommessaConvenzione>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CommessaConvenzione_RICEZIONE']/cbc:ID"                 mode="DatiRicezione_Commessa_Riga">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="position()=$CNP">
-      <CodiceCommessaConvenzione>
-        <xsl:value-of select="."/>
-      </CodiceCommessaConvenzione>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="/in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:bollo']/ext:ExtensionContent/cbc:TaxAmount"                 mode="BOLLO">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test=".">
+    <xsl:if test="./cbc:AllowanceChargeReasonCode = 'SAE'">
       <DatiBollo>
         <BolloVirtuale>
           <xsl:text>SI</xsl:text>
         </BolloVirtuale>
         <ImportoBollo>
-          <xsl:value-of select="format-number(.,'###########0.00')"/>
+          <xsl:value-of select="format-number(cbc:Amount,'###########0.00')"/>
         </ImportoBollo>
       </DatiBollo>
     </xsl:if>
   </xsl:template>
-  <xsl:template match="/in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:contributo_cassa' or ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:contributo_cassa::1']/ext:ExtensionContent/cac:TaxTotal[1]"                 mode="CassaPrevidenziale">
+  <xsl:template match="/in:Invoice/cac:AllowanceCharge"                 mode="ProvaCassaPrevidenziale">
     <xsl:param name="CN" select="."/>
     <xsl:param name="CNP" select="1"/>
-    <xsl:if test="cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme[cbc:ID='SSS']">
+    <xsl:if test="cbc:AllowanceChargeReasonCode='ZZZ'">
       <DatiCassaPrevidenziale>
         <TipoCassa>
-          <xsl:value-of select="cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:TaxTypeCode"/>
+          <xsl:value-of select="substring-before(cbc:AllowanceChargeReason,'#')"/>
         </TipoCassa>
         <AlCassa>
-          <xsl:value-of select="format-number(cac:TaxSubtotal/cac:TaxCategory/cbc:Percent,'##0.00')"/>
+          <xsl:value-of select="format-number(cbc:MultiplierFactorNumeric,'###########0.00')"/>
         </AlCassa>
         <ImportoContributoCassa>
-          <xsl:value-of select="format-number(floor(cbc:TaxAmount * 100 + 0.5) div 100,'###########0.00')"/>
+          <xsl:value-of select="format-number(floor(cbc:Amount * 100 + 0.5) div 100,'###########0.00')"/>
         </ImportoContributoCassa>
-        <xsl:if test="cac:TaxSubtotal/cbc:TaxableAmount">
+        <xsl:if test="cbc:BaseAmount">
           <ImponibileCassa>
-            <xsl:value-of select="format-number(floor(cac:TaxSubtotal/cbc:TaxableAmount * 100 + 0.5) div 100,'###########0.00')"/>
+            <xsl:value-of select="format-number(floor(cbc:BaseAmount * 100 + 0.5) div 100,'###########0.00')"/>
           </ImponibileCassa>
         </xsl:if>
-        <AliquotaIVA>
-          <xsl:value-of select="if (/in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:contributo_cassa:aliquota_iva' or ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:contributo_cassa:aliquota_iva::1']/ext:ExtensionContent/cbc:Percent) then format-number(/in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:contributo_cassa:aliquota_iva' or ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:contributo_cassa:aliquota_iva::1']/ext:ExtensionContent/cbc:Percent[1],'##0.00') else format-number(/in:Invoice/cac:TaxTotal/cac:TaxSubTotal/cac:TaxCategory[cbc:ID='S' and cac:TaxScheme/cbc:ID='VAT']/cbc:Percent,'##0.00')"/>
-        </AliquotaIVA>
-        <xsl:apply-templates select="/in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:contributo_cassa:ritenuta' or ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:contributo_cassa:ritenuta::1']/ext:ExtensionContent/cbc:TaxEvidenceIndicator[.=true()][1]">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-        <xsl:if test="/in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:contributo_cassa:natura_iva' or ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:contributo_cassa:natura_iva::1']/ext:ExtensionContent/cr:XCode">
+        <xsl:if test="cac:TaxCategory/cbc:Percent">
+          <AliquotaIVA>
+            <xsl:value-of select="format-number(cac:TaxCategory/cbc:Percent,'###########0.00')"/>
+          </AliquotaIVA>
+        </xsl:if>
+        <Ritenuta>
+          <xsl:value-of select="substring-before(substring-after(cbc:AllowanceChargeReason,'#'),'#')"/>
+        </Ritenuta>
+        <xsl:if test="substring-after(substring-after(cbc:AllowanceChargeReason,'#'),'#')!=''">
           <Natura>
-            <xsl:value-of select="/in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:contributo_cassa:natura_iva' or ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:contributo_cassa:natura_iva::1']/ext:ExtensionContent/cr:XCode[1]"/>
+            <xsl:value-of select="substring-after(substring-after(cbc:AllowanceChargeReason,'#'),'#')"/>
           </Natura>
         </xsl:if>
       </DatiCassaPrevidenziale>
@@ -449,6 +194,7 @@
         <xsl:with-param name="CN" select="current()"/>
         <xsl:with-param name="CNP" select="position()"/>
       </xsl:apply-templates>
+      <!--NB: StabileOrganizzazioneDelCessionarioCommittente non viene mappato in PA-->
     </CessionarioCommittente>
   </xsl:template>
   <xsl:template match="cac:AccountingCustomerParty/cac:Party/cac:Contact/cbc:ElectronicMail">
@@ -459,13 +205,6 @@
         <xsl:value-of select="substring-after(., ':')"/>
       </PECDestinatario>
     </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID[1][@schemeID='IT:IPA']"                 mode="CodiceDestinatario">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <CodiceDestinatario>
-      <xsl:value-of select="if (starts-with(upper-case(.), 'CODDEST:')) then substring-after(., ':') else ."/>
-    </CodiceDestinatario>
   </xsl:template>
   <xsl:template match="cac:AccountingSupplierParty">
     <xsl:param name="CN" select="."/>
@@ -483,7 +222,7 @@
         <xsl:with-param name="CN" select="current()"/>
         <xsl:with-param name="CNP" select="position()"/>
       </xsl:apply-templates>
-      <xsl:apply-templates select="cac:Party/cac:PartyLegalEntity" mode="IscrizioneREA">
+      <xsl:apply-templates select="cac:Party/cac:PartyIdentification" mode="IscrizioneREA">
         <xsl:with-param name="CN" select="current()"/>
         <xsl:with-param name="CNP" select="position()"/>
       </xsl:apply-templates>
@@ -491,9 +230,9 @@
         <xsl:with-param name="CN" select="current()"/>
         <xsl:with-param name="CNP" select="position()"/>
       </xsl:apply-templates>
-      <xsl:if test="cbc:CustomerAssignedAccountID">
+      <xsl:if test="/in:Invoice/cbc:AccountingCost">
         <RiferimentoAmministrazione>
-          <xsl:value-of select="cbc:CustomerAssignedAccountID"/>
+          <xsl:value-of select="/in:Invoice/cbc:AccountingCost"/>
         </RiferimentoAmministrazione>
       </xsl:if>
     </CedentePrestatore>
@@ -501,7 +240,7 @@
   <xsl:template match="cac:AdditionalDocumentReference" mode="SAL">
     <xsl:param name="CN" select="."/>
     <xsl:param name="CNP" select="1"/>
-    <xsl:if test="cbc:DocumentType='SAL'">
+    <xsl:if test="cbc:ID[@schemeID='AOR']">
       <DatiSAL>
         <RiferimentoFase>
           <xsl:value-of select="cbc:ID"/>
@@ -515,49 +254,31 @@
     <xsl:if test="cac:Attachment/cbc:EmbeddedDocumentBinaryObject">
       <Allegati>
         <NomeAttachment>
-          <xsl:value-of select="if ((cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@filename|cbc:DocumentType)[1]) then (cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@filename|cbc:DocumentType)[1] else 'non specificato'"/>
+          <xsl:value-of select="cbc:ID"/>
         </NomeAttachment>
-        <FormatoAttachment>
-          <xsl:value-of select="if (document($xclFormatoAttachment)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xcode']/SimpleValue=current()/cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@mimeCode][1]) then document($xclFormatoAttachment)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xcode']/SimpleValue=current()/cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@mimeCode][1] else if (matches(cbc:DocumentType,'\.[a-zA-Z]{3,4}$')) then tokenize(cbc:DocumentType, '\.')[last()] else 'binary'"/>
-        </FormatoAttachment>
-        <xsl:if test="cbc:DocumentDescription">
-          <DescrizioneAttachment>
-            <xsl:value-of select="cbc:DocumentDescription"/>
-          </DescrizioneAttachment>
-        </xsl:if>
-        <xsl:if test="cac:Attachment/cbc:EmbeddedDocumentBinaryObject">
-          <Attachment>
-            <xsl:value-of select="cac:Attachment/cbc:EmbeddedDocumentBinaryObject"/>
-          </Attachment>
-        </xsl:if>
-      </Allegati>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:AdditionalDocumentReference" mode="URIReference">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="cac:Attachment/cac:ExternalReference/cbc:URI">
-      <Allegati>
-        <NomeAttachment>
-          <xsl:value-of select="cac:Attachment/cac:ExternalReference/cbc:URI"/>
-        </NomeAttachment>
-        <FormatoAttachment>
-          <xsl:text>binary</xsl:text>
-        </FormatoAttachment>
-        <xsl:if test="cbc:DocumentDescription">
-          <DescrizioneAttachment>
-            <xsl:value-of select="cbc:DocumentDescription"/>
-          </DescrizioneAttachment>
-        </xsl:if>
+        <!--<FormatoAttachment>
+        <xsl:value-of select="cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@mimeCode"/>
+      </FormatoAttachment>-->
+      <FormatoAttachment>
+        <xsl:value-of select="if (document($xclFormatoAttachment)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xcode']/SimpleValue=current()/cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@mimeCode][1]) then document($xclFormatoAttachment)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xcode']/SimpleValue=current()/cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@mimeCode][1] else if (matches(cbc:DocumentType,'\.[a-zA-Z]{3,4}$')) then tokenize(cbc:DocumentType, '\.')[last()] else 'binary'"/>
+      </FormatoAttachment>
+      <xsl:if test="cbc:DocumentDescription">
+        <DescrizioneAttachment>
+          <xsl:value-of select="cbc:DocumentDescription"/>
+        </DescrizioneAttachment>
+      </xsl:if>
+      <xsl:if test="cac:Attachment/cbc:EmbeddedDocumentBinaryObject">
         <Attachment>
-          <xsl:value-of select="cac:Attachment/cac:ExternalReference/cbc:URI"/>
+          <xsl:value-of select="cac:Attachment/cbc:EmbeddedDocumentBinaryObject"/>
         </Attachment>
-      </Allegati>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:AllowanceCharge">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
+      </xsl:if>
+    </Allegati>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="cac:AllowanceCharge" mode="SCONTOMAGGIORAZIONE">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test="not(cbc:AllowanceChargeReason='BOLLO') and (cbc:AllowanceChargeReasonCode!='ZZZ')">
     <ScontoMaggiorazione>
       <xsl:if test="cbc:ChargeIndicator=true()">
         <Tipo>
@@ -570,861 +291,901 @@
         </Tipo>
       </xsl:if>
       <Importo>
-        <xsl:value-of select="format-number(cbc:Amount,'###########0.00000000')"/>
+        <xsl:value-of select="format-number(cbc:Amount,'###########0.00')"/>
       </Importo>
     </ScontoMaggiorazione>
-  </xsl:template>
-  <xsl:template match="cac:AllowanceCharge" mode="ScontoMaggiorazione_Riga">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test=".">
-      <ScontoMaggiorazione>
+  </xsl:if>
+  <xsl:if test="/in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']">
+    <ScontoMaggiorazione>
+      <xsl:if test="lower-case(/in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']/ext:ExtensionContent/cac:AllowanceCharge/cbc:ChargeIndicator)='false'">
         <Tipo>
-          <xsl:value-of select="if (cbc:ChargeIndicator=true()) then 'MG' else 'SC'"/>
+          <xsl:text>SC</xsl:text>
         </Tipo>
-        <Importo>
-          <xsl:value-of select="format-number(cbc:Amount,'###########0.00')"/>
-        </Importo>
-      </ScontoMaggiorazione>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:BillingReference/cac:AdditionalDocumentReference"                 mode="FatturaPrincipale">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-
-      <FatturaPrincipale>
-        <NumeroFatturaPrincipale>
-          <xsl:value-of select="cbc:ID"/>
-        </NumeroFatturaPrincipale>
-        <DataFatturaPrincipale>
+      </xsl:if>
+      <xsl:if test="lower-case(/in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']/ext:ExtensionContent/cac:AllowanceCharge/cbc:ChargeIndicator)='true'">
+        <Tipo>
+          <xsl:text>MG</xsl:text>
+        </Tipo>
+      </xsl:if>
+      <Importo>
+        <xsl:value-of select="format-number(/in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']/ext:ExtensionContent/cac:AllowanceCharge/cbc:Amount,'###########0.00')"/>
+      </Importo>
+    </ScontoMaggiorazione>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="cac:Price/cac:AllowanceCharge" mode="ScontoMaggiorazione_Riga">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test=". and cbc:Amount != 0.00 ">
+    <ScontoMaggiorazione>
+      <!--A causa dei controlli SDI la logica del true e false è al contrario altrimenti i calcoli per l' importo non tornano-->
+      <xsl:choose>
+        <xsl:when test="(number(cbc:Amount) > 0.00)">
+          <Tipo>
+            <xsl:text>SC</xsl:text>
+          </Tipo>
+        </xsl:when>
+        <xsl:when test="(0.00 > number(cbc:Amount))">
+          <Tipo>
+            <xsl:text>MG</xsl:text>
+          </Tipo>
+        </xsl:when>
+      </xsl:choose>
+      <xsl:choose>
+        <xsl:when test="(number(cbc:Amount) > 0.00)">
+          <Importo>
+            <xsl:value-of select="format-number(cbc:Amount,'###########0.00')"/>
+          </Importo>
+        </xsl:when>
+        <xsl:when test="(0.00 > number(cbc:Amount))">
+          <Importo>
+            <xsl:value-of select="format-number( 0 - number(cbc:Amount),'###########0.00')"/>
+          </Importo>
+        </xsl:when>
+        <xsl:otherwise>
+          <Importo>
+            <xsl:value-of select="format-number(cbc:Amount,'###########0.00')"/>
+          </Importo>
+        </xsl:otherwise>
+      </xsl:choose>
+    </ScontoMaggiorazione>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="cac:BillingReference/cac:AdditionalDocumentReference"                 mode="FatturaPrincipale">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test=".">
+    <FatturaPrincipale>
+      <NumeroFatturaPrincipale>
+        <xsl:value-of select="cbc:ID"/>
+      </NumeroFatturaPrincipale>
+      <DataFatturaPrincipale>
+        <xsl:value-of select="cbc:IssueDate"/>
+      </DataFatturaPrincipale>
+    </FatturaPrincipale>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="cac:BillingReference/cac:InvoiceDocumentReference"                 mode="FatturaCollegata">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test="cbc:ID">
+    <DatiFattureCollegate>
+      <IdDocumento>
+        <xsl:value-of select="cbc:ID"/>
+      </IdDocumento>
+      <xsl:if test="cbc:IssueDate">
+        <Data>
           <xsl:value-of select="&#x9;substring(string(cbc:IssueDate),1,10)"/>
-        </DataFatturaPrincipale>
-      </FatturaPrincipale>
-    
-  </xsl:template>
-  <xsl:template match="cac:BillingReference/cac:InvoiceDocumentReference"                 mode="FatturaCollegata">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="cbc:ID">
-      <DatiFattureCollegate>
-        <IdDocumento>
-          <xsl:value-of select="cbc:ID"/>
-        </IdDocumento>
-        <xsl:if test="cbc:IssueDate">
-          <Data>
-            <xsl:value-of select="&#x9;substring(string(cbc:IssueDate),1,10)"/>
-          </Data>
-        </xsl:if>
-        <xsl:apply-templates select="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CommessaConvenzione_FATTURE_COLLEGATE']/cbc:ID"                                 mode="DatiFattureCollegate_CommessaConvenzione">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-        <xsl:apply-templates select="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CUP_FATTURE_COLLEGATE']/cbc:ID"                                 mode="DatiFattureCollegate_CUP">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-        <xsl:apply-templates select="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CIG_FATTURE_COLLEGATE']/cbc:ID"                                 mode="DatiFattureCollegate_CIG">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-      </DatiFattureCollegate>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:ContractDocumentReference">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="count(/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='ESTREMI_CONTRATTO']) = 0">
-      <DatiContratto>
-        <IdDocumento>
-          <xsl:value-of select="cbc:ID"/>
-        </IdDocumento>
-        <xsl:if test="cbc:IssueDate">
-          <Data>
-            <xsl:value-of select="&#x9;substring(string(cbc:IssueDate),1,10)"/>
-          </Data>
-        </xsl:if>
-        <xsl:apply-templates select="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CommessaConvenzione_CONTRATTO' or (not(/in:Invoice/cac:OrderReference/cbc:ID) and cbc:DocumentType='CommessaConvenzione')]/cbc:ID[1]"                                 mode="DatiContratto_Commessa">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-        <xsl:apply-templates select="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CUP_CONTRATTO' or (not(/in:Invoice/cac:OrderReference/cbc:ID) and cbc:DocumentType='CUP')]/cbc:ID[1]"                                 mode="DatiContratto_CUP">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-        <xsl:apply-templates select="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CIG_CONTRATTO' or (not(/in:Invoice/cac:OrderReference/cbc:ID) and cbc:DocumentType='CIG')]/cbc:ID[1]"                                 mode="DatiContratto_CIG">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-      </DatiContratto>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:DeliveryLocation/cac:Address">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test=".">
-      <IndirizzoResa>
-        <Indirizzo>
-          <xsl:value-of select="cbc:StreetName"/>
-        </Indirizzo>
+        </Data>
+      </xsl:if>
+    </DatiFattureCollegate>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="/in:Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test=".">
+    <IndirizzoResa>
+      <Indirizzo>
+        <xsl:value-of select="cbc:StreetName"/>
+      </Indirizzo>
+      <xsl:if test=" 5 > string-length(cbc:PostalZone) ">
+        <CAP>
+          <xsl:text>99999</xsl:text>
+        </CAP>
+      </xsl:if>
+      <xsl:if test="  string-length(cbc:PostalZone)  >= 5">
         <CAP>
           <xsl:value-of select="cbc:PostalZone"/>
         </CAP>
-        <Comune>
-          <xsl:value-of select="cbc:CityName"/>
-        </Comune>
+      </xsl:if>
+      <Comune>
+        <xsl:value-of select="cbc:CityName"/>
+      </Comune>
+      <xsl:if test="cac:Country/cbc:IdentificationCode = 'IT'">
         <Provincia>
-          <xsl:value-of select="if (string-length(cbc:CountrySubentity)=2 ) then cbc:CountrySubentity else document($xclProvinceItaliane)//Value[@ColumnRef='code']/SimpleValue[contains(lower-case(translate(../../Value[@ColumnRef='name']/SimpleValue,'áàéèíìóòúù','aaeeiioouu')), lower-case(translate(current()/cbc:CountrySubentity,'áàéèíìóòúù','aaeeiioouu')))][1]"/>
+          <xsl:value-of select="if (string-length(cbc:CountrySubentity)=2 ) then cbc:CountrySubentity else document($xclProvinceItaliane)//Value[@ColumnRef='code']/SimpleValue[contains(lower-case(translate(../../Value[@ColumnRef='xname']/SimpleValue,'áàéèíìóòúù','aaeeiioouu')), lower-case(translate(current()/cbc:CountrySubentity,'áàéèíìóòúù','aaeeiioouu')))][1]"/>
         </Provincia>
-        <Nazione>
-          <xsl:value-of select="if (cac:Country/cbc:IdentificationCode) then cac:Country/cbc:IdentificationCode else 'IT'"/>
-        </Nazione>
-      </IndirizzoResa>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:Delivery[1]">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="cac:Despatch or cbc:Quantity">
-      <DatiTrasporto>
-        <xsl:apply-templates select="cac:Despatch/cac:DespatchParty">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-        <xsl:if test="cbc:Quantity">
-          <NumeroColli>
-            <xsl:value-of select="cbc:Quantity"/>
-          </NumeroColli>
-        </xsl:if>
-        <xsl:if test="cac:Shipment/cbc:GrossWeightMeasure/@unitCode">
-          <UnitaMisuraPeso>
-            <xsl:value-of select="document($xclUnitOfMeasureCode)//Value[@ColumnRef='xname']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/cac:Shipment/cbc:GrossWeightMeasure/@unitCode][1]"/>
-          </UnitaMisuraPeso>
-        </xsl:if>
-        <xsl:if test="cac:Shipment/cbc:GrossWeightMeasure">
-          <PesoLordo>
-            <xsl:value-of select="format-number(cac:Shipment/cbc:GrossWeightMeasure,'###0.00')"/>
-          </PesoLordo>
-        </xsl:if>
-        <xsl:if test="cac:Shipment/cbc:NetWeightMeasure">
-          <PesoNetto>
-            <xsl:value-of select="format-number(cac:Shipment/cbc:NetWeightMeasure,'###0.00')"/>
-          </PesoNetto>
-        </xsl:if>
-        <xsl:if test="cbc:ActualDeliveryDate">
-          <DataInizioTrasporto>
-            <xsl:value-of select="&#x9;substring(string(cbc:ActualDeliveryDate),1,10)"/>
-          </DataInizioTrasporto>
-        </xsl:if>
-        <xsl:if test="../cac:DeliveryTerms/cbc:ID">
-          <TipoResa>
-            <xsl:value-of select="../cac:DeliveryTerms/cbc:ID"/>
-          </TipoResa>
-        </xsl:if>
-        <xsl:apply-templates select="cac:DeliveryLocation/cac:Address">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-      </DatiTrasporto>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:Despatch/cac:DespatchParty">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test=".">
-      <DatiAnagraficiVettore>
-        <xsl:apply-templates select="cac:PartyTaxScheme[cac:TaxScheme/cbc:ID='VAT']/cbc:CompanyID[not(@schemeID = 'IT:CF')][1]"                                 mode="Vettore_PIVA">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-        <xsl:if test="cac:Person[1]/cbc:ID[@schemeID='IT:CF']">
-          <CodiceFiscale>
-            <xsl:value-of select="cac:Person[1]/cbc:ID[@schemeID='IT:CF']"/>
-          </CodiceFiscale>
-        </xsl:if>
-        <xsl:apply-templates select="cac:PartyTaxScheme[cac:TaxScheme/cbc:ID='VAT']/cbc:CompanyID[@schemeID = 'IT:CF']"                                 mode="Vettore_CF">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-        <Anagrafica>
-          <xsl:if test="cac:PartyName/cbc:Name and not(cac:Person[cbc:ID[@schemeID='IT:CF']]/cbc:FamilyName)">
-            <Denominazione>
-              <xsl:value-of select="normalize-space(cac:PartyName[1]/cbc:Name)"/>
-            </Denominazione>
-          </xsl:if>
-          <xsl:if test="cac:Person/cbc:FirstName and cac:Person/cbc:FamilyName and cac:Person/cbc:ID[@schemeID='IT:CF']">
-            <Nome>
-              <xsl:value-of select="cac:Person[1]/cbc:FirstName"/>
-            </Nome>
-          </xsl:if>
-          <xsl:if test="cac:Person/cbc:FirstName and cac:Person/cbc:FamilyName and cac:Person/cbc:ID[@schemeID='IT:CF']">
-            <Cognome>
-              <xsl:value-of select="cac:Person[1]/cbc:FamilyName"/>
-            </Cognome>
-          </xsl:if>
-          <xsl:if test="cac:Person/cbc:ID[@schemeID='IT:CF'] and cac:Person/cbc:Title and cac:Person/cbc:FamilyName and not(cac:PartyName/cbc:Name)">
-            <Titolo>
-              <xsl:value-of select="cac:Person[1]/cbc:Title"/>
-            </Titolo>
-          </xsl:if>
-        </Anagrafica>
-        <xsl:if test="cac:Person/cac:IdentityDocumentReference[cbc:DocumentType='LicenzaGuida']/cbc:ID">
-          <NumeroLicenzaGuida>
-            <xsl:value-of select="cac:Person/cac:IdentityDocumentReference/cbc:ID"/>
-          </NumeroLicenzaGuida>
-        </xsl:if>
-      </DatiAnagraficiVettore>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:DespatchDocumentReference">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test=". and count(/in:Invoice/cac:InvoiceLine/cac:DespatchLineReference) = 0">
-      <DatiDDT>
-        <NumeroDDT>
-          <xsl:value-of select="cbc:ID"/>
-        </NumeroDDT>
-        <DataDDT>
-          <xsl:value-of select="if (cbc:IssueDate) then substring(string(cbc:IssueDate),1,10) else '9999-01-01'"/>
-        </DataDDT>
-      </DatiDDT>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:DespatchLineReference">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="cbc:LineID">
-      <AltriDatiGestionali>
-        <TipoDato>
-          <xsl:text>DatiDDT</xsl:text>
-        </TipoDato>
-        <RiferimentoTesto>
-          <xsl:value-of select="concat(cac:DocumentReference/cbc:ID, ':', cbc:LineID)"/>
-        </RiferimentoTesto>
-        <RiferimentoData>
-          <xsl:value-of select="cac:DocumentReference/cbc:IssueDate"/>
-        </RiferimentoData>
-      </AltriDatiGestionali>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:InvoiceLine">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <DettaglioLinee>
-      <NumeroLinea>
-        <xsl:value-of select="if (number(cbc:ID) &gt; 0) then number(cbc:ID) else position()"/>
-      </NumeroLinea>
-      <xsl:apply-templates select="cbc:ID" mode="TipoCessionePrestazione">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-      <xsl:apply-templates select="cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-      <xsl:apply-templates select="cac:Item/cac:CommodityClassification/cbc:CommodityCode">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-      <xsl:apply-templates select="cac:Item/cac:SellersItemIdentification/cbc:ID"                              mode="SellersItemIdentification">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-      <xsl:apply-templates select="cac:Item/cac:SellersItemIdentification/cbc:ID[starts-with(.,'AICFARMACO:')]"                              mode="SellersItemIdentification_AIC">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-      <xsl:apply-templates select="cac:Item/cac:StandardItemIdentification/cbc:ID">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-      <Descrizione>
-        <xsl:value-of select="normalize-space(cac:Item/cbc:Name)"/>
-      </Descrizione>
-      <xsl:if test="cbc:InvoicedQuantity">
-        <Quantita>
-          <xsl:value-of select="format-number(cbc:InvoicedQuantity,'###########0.00000000')"/>
-        </Quantita>
       </xsl:if>
-      <xsl:if test="not(cbc:InvoicedQuantity)">
-        <Quantita>
-          <xsl:text>1.00</xsl:text>
-        </Quantita>
+      <Nazione>
+        <xsl:value-of select="cac:Country/cbc:IdentificationCode"/>
+      </Nazione>
+    </IndirizzoResa>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="/in:Invoice/cac:Delivery" mode='delivery'>
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test="/in:Invoice/cac:Delivery">
+    <DatiTrasporto>
+      <xsl:apply-templates select="/in:Invoice/cac:Delivery/cac:CarrierParty" mode='transport-data'>
+        <xsl:with-param name="CN" select="current()"/>
+        <xsl:with-param name="CNP" select="position()"/>
+      </xsl:apply-templates>
+      <xsl:if test="cac:Shipment/cac:ShipmentStage">
+        <MezzoTrasporto>
+          <xsl:value-of select="cac:Shipment/cac:ShipmentStage/cbc:TransportMeansTypeCode"/>
+        </MezzoTrasporto>
       </xsl:if>
-      <xsl:if test="cbc:InvoicedQuantity/@unitCode">
-        <UnitaMisura>
-          <xsl:value-of select="if ((document($xclUnitOfMeasureCode)//Value[@ColumnRef='xname']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/cbc:InvoicedQuantity/@unitCode])[1]) then (document($xclUnitOfMeasureCode)//Value[@ColumnRef='xname']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/cbc:InvoicedQuantity/@unitCode])[1] else concat('unita', &#34;'&#34;)"/>
-        </UnitaMisura>
+      <xsl:if test="cac:Despatch/cbc:Instructions">
+        <CausaleTrasporto>
+          <xsl:value-of select="cac:Despatch/cbc:Instructions"/>
+        </CausaleTrasporto>
       </xsl:if>
-      <xsl:if test="cac:InvoicePeriod/cbc:StartDate">
-        <DataInizioPeriodo>
-          <xsl:value-of select="&#x9;substring(string(cac:InvoicePeriod/cbc:StartDate),1,10)"/>
-        </DataInizioPeriodo>
+      <xsl:if test="cac:Shipment/cbc:TotalTransportHandlingUnitQuantity">
+        <NumeroColli>
+          <xsl:value-of select="cac:Shipment/cbc:TotalTransportHandlingUnitQuantity"/>
+        </NumeroColli>
       </xsl:if>
-      <xsl:if test="cac:InvoicePeriod/cbc:EndDate">
-        <DataFinePeriodo>
-          <xsl:value-of select="&#x9;substring(string(cac:InvoicePeriod/cbc:EndDate),1,10)"/>
-        </DataFinePeriodo>
+      <xsl:if test="cac:Shipment/cac:GoodsItem/cbc:Description">
+        <Descrizione>
+          <xsl:value-of select="cac:Shipment/cac:GoodsItem/cbc:Description"/>
+        </Descrizione>
       </xsl:if>
-      <PrezzoUnitario>
-        <xsl:value-of select="format-number(cac:Price/cbc:PriceAmount,'###########0.00000000')"/>
-      </PrezzoUnitario>
-      <xsl:apply-templates select="cac:AllowanceCharge" mode="ScontoMaggiorazione_Riga">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-      <PrezzoTotale>
-        <xsl:value-of select="format-number(cbc:LineExtensionAmount,'###########0.00000000')"/>
-      </PrezzoTotale>
-      <xsl:apply-templates select="cac:Item/cac:ClassifiedTaxCategory" mode="AliquotaIVA_Dettaglio">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-      <xsl:if test="cac:WithholdingTaxTotal/cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme[cbc:ID='SWT']">
-        <Ritenuta>
-          <xsl:text>SI</xsl:text>
-        </Ritenuta>
+      <xsl:if test="cac:Shipment/cbc:GrossWeightMeasure/@unitCode">
+        <UnitaMisuraPeso>
+          <xsl:value-of select="document($xclUnitOfMeasureCode)//Value[@ColumnRef='xname']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/cac:Shipment/cbc:GrossWeightMeasure/@unitCode]"/>
+        </UnitaMisuraPeso>
       </xsl:if>
-      <xsl:if test="cac:Item/cac:ClassifiedTaxCategory[cbc:ID and cbc:ID[not(contains(' S AA H ',concat(' ',normalize-space(.),' ')))] and cac:TaxScheme/cbc:ID='VAT']">
-        <Natura>
-          <xsl:value-of select="if (/in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = concat('urn:www.ubl-italia.org:spec:fatturapa:xref:natura::', 1 + count(current()/preceding-sibling::cac:InvoiceLine))]) then /in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = concat('urn:www.ubl-italia.org:spec:fatturapa:xref:natura::', 1 + count(current()/preceding-sibling::cac:InvoiceLine))]/ext:ExtensionContent/cr:XCode else (if (/in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI=concat('urn:www.ubl-italia.org:spec:fatturapa:xref:natura::', current()/cac:Item/cac:ClassifiedTaxCategory/cbc:ID)]) then /in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI=concat('urn:www.ubl-italia.org:spec:fatturapa:xref:natura::', current()/cac:Item/cac:ClassifiedTaxCategory/cbc:ID)]/ext:ExtensionContent/cr:XCode else (document($xclCategoriaImposte)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xcode']/SimpleValue=current()/cac:Item/cac:ClassifiedTaxCategory/cbc:ID])[1])"/>
-        </Natura>
+      <xsl:if test="cac:Shipment/cbc:GrossWeightMeasure">
+        <PesoLordo>
+          <xsl:value-of select="format-number(cac:Shipment/cbc:GrossWeightMeasure,'###0.00')"/>
+        </PesoLordo>
       </xsl:if>
-      <xsl:if test="cbc:AccountingCost">
-        <RiferimentoAmministrazione>
-          <xsl:value-of select="cbc:AccountingCost"/>
-        </RiferimentoAmministrazione>
+      <xsl:if test="cac:Shipment/cbc:NetWeightMeasure">
+        <PesoNetto>
+          <xsl:value-of select="format-number(cac:Shipment/cbc:NetWeightMeasure,'###0.00')"/>
+        </PesoNetto>
       </xsl:if>
-      <xsl:apply-templates select="cac:DespatchLineReference">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-      <xsl:apply-templates select="cac:Item/cac:ClassifiedTaxCategory/cbc:ID">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-    </DettaglioLinee>
-  </xsl:template>
-  <xsl:template match="cac:InvoiceLine/cac:BillingReference" mode="DatiFattureCollegate_Riga">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="cac:InvoiceDocumentReference/cbc:ID">
-      <DatiFattureCollegate>
-        <RiferimentoNumeroLinea>
-          <xsl:value-of select="../cbc:ID"/>
-        </RiferimentoNumeroLinea>
-        <IdDocumento>
-          <xsl:value-of select="cac:InvoiceDocumentReference/cbc:ID"/>
-        </IdDocumento>
-        <xsl:if test="cac:InvoiceDocumentReference/cbc:IssueDate">
-          <Data>
-            <xsl:value-of select="substring(string(cac:InvoiceDocumentReference/cbc:IssueDate),1,10)"/>
-          </Data>
-        </xsl:if>
-        <xsl:apply-templates select="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CommessaConvenzione_FATTURE_COLLEGATE']/cbc:ID"                                 mode="DatiFattureCollegate_Commessa_Riga">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-        <xsl:apply-templates select="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CUP_FATTURE_COLLEGATE']/cbc:ID"                                 mode="DatiFattureCollegate_CUP_Riga">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-        <xsl:apply-templates select="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CIG_FATTURE_COLLEGATE']/cbc:ID"                                 mode="DatiFattureCollegate_CIG_Riga">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-      </DatiFattureCollegate>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:InvoiceLine/cac:DespatchLineReference" mode="DatiDDT">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test=".">
-      <DatiDDT>
-        <NumeroDDT>
-          <xsl:value-of select="cac:DocumentReference/cbc:ID"/>
-        </NumeroDDT>
-        <DataDDT>
-          <xsl:value-of select="&#x9;substring(string(cac:DocumentReference/cbc:IssueDate),1,10)"/>
-        </DataDDT>
-        <RiferimentoNumeroLinea>
-          <xsl:value-of select="../cbc:ID"/>
-        </RiferimentoNumeroLinea>
-      </DatiDDT>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='ESTREMI_CONTRATTO']"                 mode="DatiContratto_Riga">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <DatiContratto>
-      <RiferimentoNumeroLinea>
-        <xsl:value-of select="../cbc:ID"/>
-      </RiferimentoNumeroLinea>
-      <IdDocumento>
-        <xsl:value-of select="cbc:ID"/>
-      </IdDocumento>
-      <xsl:if test="cbc:IssueDate">
-        <Data>
-          <xsl:value-of select="&#x9;substring(string(cbc:IssueDate),1,10)"/>
-        </Data>
+      <xsl:if test="cac:Despatch/cbc:RequestedDespatchDate">
+        <xsl:variable name="date" select="cac:Despatch/cbc:RequestedDespatchDate"/>
+        <xsl:variable name="time" select="cac:Despatch/cbc:RequestedDespatchTime"/>
+        <DataOraRitiro>
+          <xsl:value-of select="concat($date,'T',$time)"/>
+        </DataOraRitiro>
       </xsl:if>
-      <xsl:apply-templates select="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CommessaConvenzione_CONTRATTO' or (not(/in:Invoice/cac:InvoiceLine/cac:OrderLineReference) and cbc:DocumentType='CommessaConvenzione')]/cbc:ID[1]"                              mode="DatiContratto_Commessa_Riga">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-      <xsl:apply-templates select="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CUP_CONTRATTO' or (not(/in:Invoice/cac:InvoiceLine/cac:OrderLineReference) and cbc:DocumentType='CUP')]/cbc:ID[1]"                              mode="DatiContratto_CUP_Riga">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-      <xsl:apply-templates select="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CIG_CONTRATTO' or (not(/in:Invoice/cac:InvoiceLine/cac:OrderLineReference) and cbc:DocumentType='CIG')]/cbc:ID[1]"                              mode="DatiContratto_CIG_Riga">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-    </DatiContratto>
-  </xsl:template>
-  <xsl:template match="cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='ESTREMI_CONVENZIONE']"                 mode="Estremi_Convenzione_Riga">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <DatiConvenzione>
-      <RiferimentoNumeroLinea>
-        <xsl:value-of select="../cbc:ID"/>
-      </RiferimentoNumeroLinea>
-      <IdDocumento>
-        <xsl:value-of select="cbc:ID"/>
-      </IdDocumento>
-      <xsl:if test="cbc:IssueDate">
-        <Data>
-          <xsl:value-of select="&#x9;substring(string(cbc:IssueDate),1,10)"/>
-        </Data>
+      <xsl:if test="cac:Despatch/cbc:ActualDespatchDate">
+        <DataInizioTrasporto>
+          <xsl:value-of select="cac:Despatch/cbc:ActualDespatchDate"/>
+        </DataInizioTrasporto>
       </xsl:if>
-      <xsl:apply-templates select="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CommessaConvenzione_CONVENZIONE']/cbc:ID"                              mode="DatiConvenzione_Commessa_Riga">
+      <xsl:if test="/in:Invoice/cac:DeliveryTerms/cbc:ID">
+        <TipoResa>
+          <xsl:value-of select="/in:Invoice/cac:DeliveryTerms/cbc:ID"/>
+        </TipoResa>
+      </xsl:if>
+      <xsl:apply-templates select="/in:Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address">
         <xsl:with-param name="CN" select="current()"/>
         <xsl:with-param name="CNP" select="position()"/>
       </xsl:apply-templates>
-      <xsl:apply-templates select="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CUP_CONVENZIONE']/cbc:ID"                              mode="DatiConvenzione_CUP_Riga">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-      <xsl:apply-templates select="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CIG_CONVENZIONE']/cbc:ID"                              mode="DatiConvenzione_CIG_Riga">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-    </DatiConvenzione>
-  </xsl:template>
-  <xsl:template match="cac:InvoiceLine/cac:OrderLineReference" mode="DatiOrdineAcquisto_Riga">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <DatiOrdineAcquisto>
-      <RiferimentoNumeroLinea>
-        <xsl:value-of select="../cbc:ID"/>
-      </RiferimentoNumeroLinea>
-      <IdDocumento>
-        <xsl:value-of select="if (cac:OrderReference) then cac:OrderReference/cbc:ID else /in:Invoice/cac:OrderReference/cbc:ID"/>
-      </IdDocumento>
-      <xsl:if test="cac:OrderReference/cbc:IssueDate or /in:Invoice/cac:OrderReference/cbc:IssueDate">
+      <xsl:if test="/in:Invoice/cac:Delivery/cbc:ActualDeliveryDate">
+        <xsl:variable name="date" select="/in:Invoice/cac:Delivery/cbc:ActualDeliveryDate"/>
+        <DataOraConsegna>
+          <xsl:value-of select="concat($date,'T','00:00:00')"/>
+        </DataOraConsegna>
+      </xsl:if>
+    </DatiTrasporto>
+  </xsl:if>
+</xsl:template>
+<!--DeiveryParty-->
+<xsl:template match="/in:Invoice/cac:Delivery/cac:CarrierParty" mode='transport-data'>
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test=".">
+    <DatiAnagraficiVettore>
+      <IdFiscaleIVA>
+        <IdPaese>
+          <xsl:value-of select="substring(cac:PartyTaxScheme/cbc:CompanyID,1,2)"/>
+        </IdPaese>
+        <IdCodice>
+          <xsl:value-of select="substring(cac:PartyTaxScheme/cbc:CompanyID,3,string-length(cac:PartyTaxScheme/cbc:CompanyID)-2)"/>
+        </IdCodice>
+      </IdFiscaleIVA>
+      <xsl:if test="cac:PartyIdentification">
+        <CodiceFiscale>
+          <xsl:value-of select="cac:PartyIdentification/cbc:ID"/>
+        </CodiceFiscale>
+      </xsl:if>
+      <Anagrafica>
         <xsl:choose>
-          <xsl:when test="cac:OrderReference/cbc:IssueDate">
-            <Data>
-              <xsl:value-of select="&#x9;substring(string(cac:OrderReference/cbc:IssueDate),1,10)"/>
-            </Data>
+          <xsl:when test="cac:PartyName">
+            <Denominazione>
+              <xsl:value-of select="normalize-space(cac:PartyName)"/>
+            </Denominazione>
           </xsl:when>
-          <xsl:when test="not (cac:OrderReference) and /in:Invoice/cac:OrderReference/cbc:IssueDate">
-            <Data>
-              <xsl:value-of select="&#x9;substring(string(/in:Invoice/cac:OrderReference/cbc:IssueDate),1,10)"/>
-            </Data>
+          <xsl:when test="cac:Person">
+            <Nome>
+              <xsl:value-of select="cac:Person/cbc:FirstName"/>
+            </Nome>
+            <Cognome>
+              <xsl:value-of select="cac:Person/cbc:FamilyName"/>
+            </Cognome>
           </xsl:when>
         </xsl:choose>
+      </Anagrafica>
+      <xsl:if test="cac:Person/cac:IdentityDocumentReference/cbc:ID">
+        <NumeroLicenzaGuida>
+          <xsl:value-of select="cac:Person/cac:IdentityDocumentReference/cbc:ID"/>
+        </NumeroLicenzaGuida>
       </xsl:if>
-      <xsl:if test="cbc:LineID != '0'">
-        <NumItem>
-          <xsl:value-of select="cbc:LineID"/>
-        </NumItem>
-      </xsl:if>
-      <xsl:apply-templates select="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CommessaConvenzione']/cbc:ID"                              mode="DatiOrdine_Commessa_Riga">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-      <xsl:apply-templates select="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CUP']/cbc:ID"                              mode="DatiOrdine_CUP_Riga">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-      <xsl:apply-templates select="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CIG']/cbc:ID"                              mode="DatiOrdine_CIG_Riga">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-    </DatiOrdineAcquisto>
-  </xsl:template>
-  <xsl:template match="cac:InvoiceLine/cac:ReceiptLineReference" mode="DatiRicezione_Riga">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <DatiRicezione>
+    </DatiAnagraficiVettore>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="cac:DespatchDocumentReference">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test=". and count(/in:Invoice/cac:InvoiceLine/cac:DespatchLineReference) = 0">
+    <DatiDDT>
+      <NumeroDDT>
+        <xsl:value-of select="cbc:ID"/>
+      </NumeroDDT>
+      <DataDDT>
+        <xsl:value-of select="if (cbc:IssueDate) then substring(string(cbc:IssueDate),1,10) else '9999-01-01'"/>
+      </DataDDT>
+    </DatiDDT>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="cac:DespatchLineReference">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test="cbc:LineID">
+    <AltriDatiGestionali>
+      <TipoDato>
+        <xsl:text>DatiDDT</xsl:text>
+      </TipoDato>
+      <RiferimentoTesto>
+        <xsl:value-of select="concat(cac:DocumentReference/cbc:ID, ':', cbc:LineID)"/>
+      </RiferimentoTesto>
+      <RiferimentoData>
+        <xsl:value-of select="cac:DocumentReference/cbc:IssueDate"/>
+      </RiferimentoData>
+    </AltriDatiGestionali>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="cac:InvoiceLine">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <DettaglioLinee>
+    <NumeroLinea>
+      <xsl:value-of select="if (number(cbc:ID) &gt; 0) then number(cbc:ID) else position()"/>
+    </NumeroLinea>
+    <xsl:apply-templates select="cac:Item/cac:AdditionalItemProperty" mode="TipoCessionePrestazione">
+      <xsl:with-param name="CN" select="current()"/>
+      <xsl:with-param name="CNP" select="position()"/>
+    </xsl:apply-templates>
+    <xsl:apply-templates select="cac:Item" mode="codiceArticolo">
+      <xsl:with-param name="CN" select="current()"/>
+      <xsl:with-param name="CNP" select="position()"/>
+    </xsl:apply-templates>
+    <!--Standard item e rispettivo schemeID-->
+    <xsl:apply-templates select="cac:Item/cac:StandardItemIdentification/cbc:ID">
+      <xsl:with-param name="CN" select="current()"/>
+      <xsl:with-param name="CNP" select="position()"/>
+    </xsl:apply-templates>
+    <xsl:choose>
+      <xsl:when test="cac:Item/cbc:Description and cac:Item/cbc:Name">
+        <Descrizione>
+          <xsl:value-of select="concat(normalize-space(cac:Item/cbc:Name),' - ',normalize-space(cac:Item/cbc:Description))"/>
+        </Descrizione>
+      </xsl:when>
+      <xsl:when test="cac:Item/cbc:Description and not(cac:Item/cbc:Name)">
+        <Descrizione>
+          <xsl:value-of select="normalize-space(cac:Item/cbc:Description)"/>
+        </Descrizione>
+      </xsl:when>
+      <xsl:when test="cac:Item/cbc:Name and not(cac:Item/cbc:Description)">
+        <Descrizione>
+          <xsl:value-of select="normalize-space(cac:Item/cbc:Name)"/>
+        </Descrizione>
+      </xsl:when>
+    </xsl:choose>
+    <xsl:if test="cbc:InvoicedQuantity and not(cac:Price/cbc:BaseQuantity)">
+      <Quantita>
+        <xsl:value-of select="format-number(cbc:InvoicedQuantity,'###########0.00000000')"/>
+      </Quantita>
+    </xsl:if>
+    <xsl:if test="cbc:InvoicedQuantity and cac:Price/cbc:BaseQuantity">
+      <Quantita>
+        <xsl:value-of select="format-number(number(cbc:InvoicedQuantity) div number(cac:Price/cbc:BaseQuantity),'###########0.00000000')"/>
+      </Quantita>
+    </xsl:if>
+    <xsl:if test="not(cbc:InvoicedQuantity)">
+      <Quantita>
+        <xsl:text>1.00</xsl:text>
+      </Quantita>
+    </xsl:if>
+    <!--  <UnitaMisura>
+    <xsl:value-of select="document($xclUnitOfMeasureCode)//Value[@ColumnRef='xname']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/cbc:InvoicedQuantity/@unitCode]"/>
+  </UnitaMisura>-->
+  <xsl:choose>
+    <xsl:when test="cac:Price/cbc:BaseQuantity">
+      <UnitaMisura>
+        <xsl:value-of select="substring(concat(format-number(cac:Price/cbc:BaseQuantity,'###########0.00'),' ',document($xclUnitOfMeasureCode)//Value[@ColumnRef='xname']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/cbc:InvoicedQuantity/@unitCode]),1,10)"/>
+      </UnitaMisura>
+    </xsl:when>
+    <xsl:when test="not(cac:Price/cbc:BaseQuantity)">
+      <UnitaMisura>
+        <xsl:value-of select="substring(concat('1.00',' ',document($xclUnitOfMeasureCode)//Value[@ColumnRef='xname']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/cbc:InvoicedQuantity/@unitCode]),1,10)"/>
+      </UnitaMisura>
+    </xsl:when>
+  </xsl:choose>
+  <xsl:if test="cac:InvoicePeriod/cbc:StartDate">
+    <DataInizioPeriodo>
+      <xsl:value-of select="&#x9;substring(string(cac:InvoicePeriod/cbc:StartDate),1,10)"/>
+    </DataInizioPeriodo>
+  </xsl:if>
+  <xsl:if test="cac:InvoicePeriod/cbc:EndDate">
+    <DataFinePeriodo>
+      <xsl:value-of select="&#x9;substring(string(cac:InvoicePeriod/cbc:EndDate),1,10)"/>
+    </DataFinePeriodo>
+  </xsl:if>
+  <PrezzoUnitario>
+    <xsl:value-of select="format-number(cac:Price/cac:AllowanceCharge/cbc:BaseAmount,'###########0.00000000')"/>
+  </PrezzoUnitario>
+  <xsl:apply-templates select="cac:Price/cac:AllowanceCharge" mode="ScontoMaggiorazione_Riga">
+    <xsl:with-param name="CN" select="current()"/>
+    <xsl:with-param name="CNP" select="position()"/>
+  </xsl:apply-templates>
+  <PrezzoTotale>
+    <xsl:value-of select="format-number(cbc:LineExtensionAmount,'###########0.00000000')"/>
+  </PrezzoTotale>
+  <xsl:apply-templates select="cac:Item/cac:ClassifiedTaxCategory" mode="AliquotaIVA_Dettaglio">
+    <xsl:with-param name="CN" select="current()"/>
+    <xsl:with-param name="CNP" select="position()"/>
+  </xsl:apply-templates>
+  <xsl:for-each select="cac:Item/cac:AdditionalItemProperty">
+    <xsl:if test="lower-case(cbc:Name)='ritenuta'">
+      <Ritenuta>
+        <xsl:text>SI</xsl:text>
+      </Ritenuta>
+    </xsl:if>
+  </xsl:for-each>
+  <xsl:for-each select="cac:Item/cac:AdditionalItemProperty">
+    <xsl:if test="lower-case(cbc:Name)='natura'">
+      <Natura>
+        <xsl:value-of select="cbc:Value"/>
+      </Natura>
+    </xsl:if>
+  </xsl:for-each>
+  <xsl:if test="cbc:AccountingCost">
+    <RiferimentoAmministrazione>
+      <xsl:value-of select="cbc:AccountingCost"/>
+    </RiferimentoAmministrazione>
+  </xsl:if>
+  <xsl:for-each select="cac:Item/cac:AdditionalItemProperty">
+    <xsl:if test="lower-case(cbc:Name)='testo' or lower-case(cbc:Name)='data' or  lower-case(cbc:Name)='numero'">
+      <xsl:choose>
+        <xsl:when test="lower-case(cbc:Name)='testo'">
+          <AltriDatiGestionali>
+            <TipoDato>
+              <xsl:value-of select="cbc:Name"/>
+            </TipoDato>
+            <RiferimentoTesto>
+              <xsl:value-of select="cbc:Value"/>
+            </RiferimentoTesto>
+          </AltriDatiGestionali>
+        </xsl:when>
+        <xsl:when test="lower-case(cbc:Name)='numero'">
+          <AltriDatiGestionali>
+            <TipoDato>
+              <xsl:value-of select="cbc:Name"/>
+            </TipoDato>
+            <RiferimentoTesto>
+              <xsl:value-of select="cbc:Value"/>
+            </RiferimentoTesto>
+          </AltriDatiGestionali>
+        </xsl:when>
+        <xsl:when test="lower-case(cbc:Name)='data'">
+          <AltriDatiGestionali>
+            <TipoDato>
+              <xsl:value-of select="cbc:Name"/>
+            </TipoDato>
+            <RiferimentoData>
+              <xsl:value-of select="cbc:Value"/>
+            </RiferimentoData>
+          </AltriDatiGestionali>
+        </xsl:when>
+      </xsl:choose>
+    </xsl:if>
+  </xsl:for-each>
+</DettaglioLinee>
+</xsl:template>
+<xsl:template match="cac:InvoiceLine/cac:BillingReference" mode="DatiFattureCollegate_Riga">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test="cac:InvoiceDocumentReference/cbc:ID">
+    <DatiFattureCollegate>
       <RiferimentoNumeroLinea>
         <xsl:value-of select="../cbc:ID"/>
       </RiferimentoNumeroLinea>
       <IdDocumento>
-        <xsl:value-of select="if (cac:DocumentReference) then cac:DocumentReference/cbc:ID else /in:Invoice/cac:ReceiptDocumentReference/cbc:ID"/>
+        <xsl:value-of select="cac:InvoiceDocumentReference/cbc:ID"/>
       </IdDocumento>
-      <xsl:if test="cac:DocumentReference/cbc:IssueDate or /in:Invoice/cac:ReceiptDocumentReference/cbc:IssueDate">
+      <xsl:if test="cac:InvoiceDocumentReference/cbc:IssueDate">
         <Data>
-          <xsl:value-of select="if (cac:DocumentReference) then &#x9;substring(string(cac:DocumentReference/cbc:IssueDate),1,10) else &#x9;substring(string(/in:Invoice/cac:ReceiptDocumentReference/cbc:IssueDate),1,10)"/>
+          <xsl:value-of select="substring(string(cac:InvoiceDocumentReference/cbc:IssueDate),1,10)"/>
         </Data>
       </xsl:if>
-      <xsl:if test="cbc:LineID != '0'">
-        <NumItem>
-          <xsl:value-of select="cbc:LineID"/>
-        </NumItem>
-      </xsl:if>
-      <xsl:apply-templates select="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CommessaConvenzione_RICEZIONE']/cbc:ID"                              mode="DatiRicezione_Commessa_Riga">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-      <xsl:apply-templates select="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CUP_RICEZIONE']/cbc:ID"                              mode="DatiRicezione_CUP_Riga">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-      <xsl:apply-templates select="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CIG_RICEZIONE']/cbc:ID"                              mode="DatiRicezione_CIG_Riga">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-    </DatiRicezione>
-  </xsl:template>
-  <xsl:template match="cac:Item/cac:ClassifiedTaxCategory" mode="AliquotaIVA_Dettaglio">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <AliquotaIVA>
-      <xsl:value-of select="if (.[cac:TaxScheme/cbc:ID='VAT']/cbc:Percent ) then format-number(.[cac:TaxScheme/cbc:ID='VAT']/cbc:Percent ,'##0.00') else '0.00'"/>
-    </AliquotaIVA>
-  </xsl:template>
-  <xsl:template match="cac:Item/cac:ClassifiedTaxCategory/cbc:ID">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test=".[not(contains(' S AA H ',concat(' ',normalize-space(.),' ')))]">
-      <AltriDatiGestionali>
-        <TipoDato>
-          <xsl:text>Natura</xsl:text>
-        </TipoDato>
-        <RiferimentoTesto>
-          <xsl:value-of select="."/>
-        </RiferimentoTesto>
-      </AltriDatiGestionali>
+    </DatiFattureCollegate>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="cac:InvoiceLine/cac:DespatchLineReference" mode="DatiDDT">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test=".">
+    <DatiDDT>
+      <NumeroDDT>
+        <xsl:value-of select="cac:DocumentReference/cbc:ID"/>
+      </NumeroDDT>
+      <DataDDT>
+        <xsl:value-of select="&#x9;substring(string(cac:DocumentReference/cbc:IssueDate),1,10)"/>
+      </DataDDT>
+      <RiferimentoNumeroLinea>
+        <xsl:value-of select="../cbc:ID"/>
+      </RiferimentoNumeroLinea>
+    </DatiDDT>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="/in:Invoice/cac:InvoiceLine"                 mode="DatiOrdine_Commessa_Prova">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test="./cac:DocumentReference/cbc:ID[@schemeID='AVV']">
+    <DatiConvenzione>
+      <RiferimentoNumeroLinea>
+        <xsl:value-of select="cbc:ID"/>
+      </RiferimentoNumeroLinea>
+      <IdDocumento>
+        <xsl:value-of select="./cac:DocumentReference/cbc:ID[@schemeID='AVV']"/>
+      </IdDocumento>
+    </DatiConvenzione>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="/in:Invoice/cac:InvoiceLine"     mode="DatiContratto_Cius">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:variable name="ct-b">
+    <xsl:if test="not(cac:DocumentReference/cbc:ID[@schemeID='CT'])">
+      <xsl:text>false</xsl:text>
     </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:Item/cac:CommodityClassification/cbc:CommodityCode">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test=".">
-      <CodiceArticolo>
-        <CodiceTipo>
-          <xsl:value-of select="if (@listID) then @listID else 'CommodityCode'"/>
-        </CodiceTipo>
-        <CodiceValore>
-          <xsl:value-of select="."/>
-        </CodiceValore>
-      </CodiceArticolo>
+    <xsl:if test="cac:DocumentReference/cbc:ID[@schemeID='CT']">
+      <xsl:text>true</xsl:text>
     </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test=".">
-      <CodiceArticolo>
-        <CodiceTipo>
-          <xsl:value-of select="if (@listID) then @listID else 'ItemClassificationCode'"/>
-        </CodiceTipo>
-        <CodiceValore>
-          <xsl:value-of select="."/>
-        </CodiceValore>
-      </CodiceArticolo>
+  </xsl:variable>
+  <!-- Se presente CT oppure AEP o AGB nelle righe apro il blocco dati contratto-->
+  <xsl:if test="$ct-b = 'true' or cac:DocumentReference/cbc:ID[@schemeID='AEP'] or cac:DocumentReference/cbc:ID[@schemeID='AGB']">
+    <DatiContratto>
+      <xsl:choose>
+        <!-- Se presente SOLO CT ma considero anche eventuali elementi in testata-->
+        <xsl:when test="$ct-b = 'true' and not (cac:DocumentReference/cbc:ID[@schemeID='AEP']) and not (cac:DocumentReference/cbc:ID[@schemeID='AGB'])">
+          <RiferimentoNumeroLinea>
+            <xsl:value-of select="cbc:ID"/>
+          </RiferimentoNumeroLinea>
+          <IdDocumento>
+            <xsl:value-of select="cac:DocumentReference/cbc:ID[@schemeID='CT']"/>
+          </IdDocumento>
+          <xsl:if test="/in:Invoice/cac:ProjectReference/cbc:ID">
+            <CodiceCUP>
+              <xsl:value-of select="/in:Invoice/cac:ProjectReference/cbc:ID"/>
+            </CodiceCUP>
+          </xsl:if>
+          <xsl:if test="/in:Invoice/cac:OriginatorDocumentReference/cbc:ID">
+            <CodiceCIG>
+              <xsl:value-of select="/in:Invoice/cac:OriginatorDocumentReference/cbc:ID"/>
+            </CodiceCIG>
+          </xsl:if>
+        </xsl:when>
+        <!-- Se presente CT e anche solo uno degli altri due nelle righe-->
+        <xsl:when test="$ct-b = 'true' and ((cac:DocumentReference/cbc:ID[@schemeID='AEP']) or (cac:DocumentReference/cbc:ID[@schemeID='AGB']))">
+          <xsl:if test="cac:DocumentReference/cbc:ID[@schemeID='CT']">
+            <IdDocumento>
+              <xsl:value-of select="cac:DocumentReference/cbc:ID[@schemeID='CT']"/>
+            </IdDocumento>
+          </xsl:if>
+          <xsl:if test="/in:Invoice/cac:ContractDocumentReference and not(cac:DocumentReference/cbc:ID[@schemeID='CT'])">
+            <IdDocumento>
+              <xsl:value-of select="/in:Invoice/cac:ContractDocumentReference/cbc:ID"/>
+            </IdDocumento>
+          </xsl:if>
+          <xsl:if test="cac:DocumentReference/cbc:ID[@schemeID='AEP']">
+            <CodiceCUP>
+              <xsl:value-of select="cac:DocumentReference/cbc:ID[@schemeID='AEP']"/>
+            </CodiceCUP>
+          </xsl:if>
+          <xsl:if test="cac:DocumentReference/cbc:ID[@schemeID='AGB']">
+            <CodiceCIG>
+              <xsl:value-of select="cac:DocumentReference/cbc:ID[@schemeID='AGB']"/>
+            </CodiceCIG>
+          </xsl:if>
+        </xsl:when>
+        <!-- Se Non è presente  CT ma uno degli altri due si-->
+        <xsl:when test="$ct-b = 'false' and ((cac:DocumentReference/cbc:ID[@schemeID='AEP'] or cac:DocumentReference/cbc:ID[@schemeID='AGB']))">
+          <RiferimentoNumeroLinea>
+            <xsl:value-of select="./cbc:ID"/>
+          </RiferimentoNumeroLinea>
+          <xsl:if test="/in:Invoice/cac:ContractDocumentReference">
+            <IdDocumento>
+              <xsl:value-of select="/in:Invoice/cac:ContractDocumentReference/cbc:ID"/>
+            </IdDocumento>
+          </xsl:if>
+          <xsl:if test="not(/in:Invoice/cac:ContractDocumentReference)">
+            <IdDocumento>
+              <xsl:text>N/A</xsl:text>
+            </IdDocumento>
+          </xsl:if>
+          <xsl:if test="cac:DocumentReference/cbc:ID[@schemeID='AEP']">
+            <CodiceCUP>
+              <xsl:value-of select="cac:DocumentReference/cbc:ID[@schemeID='AEP']"/>
+            </CodiceCUP>
+          </xsl:if>
+          <xsl:if test="cac:DocumentReference/cbc:ID[@schemeID='AGB']">
+            <CodiceCIG>
+              <xsl:value-of select="cac:DocumentReference/cbc:ID[@schemeID='AGB']"/>
+            </CodiceCIG>
+          </xsl:if>
+        </xsl:when>
+      </xsl:choose>
+    </DatiContratto>
+  </xsl:if>
+</xsl:template>
+<!--TODO: Tripletta non ancora impostata, questo blocco si crea in 3 modi: buyer reference con triplettaintestatain riga semplicemente con orderreference (mancacodicecommessaconvenzione) oppure con documentreference ="ON" sempre per tripletta-->
+<!--TODO: Tripletta non ancora impostata, questo blocco si crea in 3 modi: buyer reference con triplettaintestatain riga semplicemente con orderreference (mancacodicecommessaconvenzione) oppure con documentreference ="ON" sempre per tripletta-->
+<xsl:template match="cac:InvoiceLine/cac:OrderLineReference" mode="DatiOrdineAcquisto_Riga2">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <DatiOrdineAcquisto>
+    <RiferimentoNumeroLinea>
+      <xsl:value-of select="../cbc:ID"/>
+    </RiferimentoNumeroLinea>
+    <IdDocumento>
+      <xsl:value-of select="if (cac:OrderReference) then cac:OrderReference/cbc:ID else /in:Invoice/cac:OrderReference/cbc:ID"/>
+    </IdDocumento>
+    <xsl:if test="cac:OrderReference/cbc:IssueDate or /in:Invoice/cac:OrderReference/cbc:IssueDate">
+      <xsl:choose>
+        <xsl:when test="cac:OrderReference/cbc:IssueDate">
+          <Data>
+            <xsl:value-of select="&#x9;substring(string(cac:OrderReference/cbc:IssueDate),1,10)"/>
+          </Data>
+        </xsl:when>
+        <xsl:when test="not (cac:OrderReference) and /in:Invoice/cac:OrderReference/cbc:IssueDate">
+          <Data>
+            <xsl:value-of select="&#x9;substring(string(/in:Invoice/cac:OrderReference/cbc:IssueDate),1,10)"/>
+          </Data>
+        </xsl:when>
+      </xsl:choose>
     </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:Item/cac:SellersItemIdentification/cbc:ID"                 mode="SellersItemIdentification">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test=".">
+    <xsl:if test="cbc:LineID != '0'">
+      <NumItem>
+        <xsl:value-of select="cbc:LineID"/>
+      </NumItem>
+    </xsl:if>
+    <xsl:choose>
+      <xsl:when test="../cac:DocumentReference/cbc:ID[@schemeID='ON']">
+        <CodiceCommessaConvenzione>
+          <xsl:value-of select="../cac:DocumentReference/cbc:ID"/>
+        </CodiceCommessaConvenzione>
+      </xsl:when>
+      <xsl:when test="/in:Invoice/cbc:BuyerReference and not(/in:Invoice/cac:InvoiceLine/cac:DocumentReference/cbc:ID[@schemeID='ON'])">
+        <CodiceCommessaConvenzione>
+          <xsl:value-of select="/in:Invoice/cbc:BuyerReference"/>
+        </CodiceCommessaConvenzione>
+      </xsl:when>
+    </xsl:choose>
+  </DatiOrdineAcquisto>
+</xsl:template>
+<!-- fine vecchio template-->
+<xsl:template match="cac:InvoiceLine/cac:ReceiptLineReference" mode="DatiRicezione_Riga">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <DatiRicezione>
+    <RiferimentoNumeroLinea>
+      <xsl:value-of select="../cbc:ID"/>
+    </RiferimentoNumeroLinea>
+    <IdDocumento>
+      <xsl:value-of select="if (cac:DocumentReference) then cac:DocumentReference/cbc:ID else /in:Invoice/cac:ReceiptDocumentReference/cbc:ID"/>
+    </IdDocumento>
+    <xsl:if test="cac:DocumentReference/cbc:IssueDate or /in:Invoice/cac:ReceiptDocumentReference/cbc:IssueDate">
+      <Data>
+        <xsl:value-of select="if (cac:DocumentReference) then &#x9;substring(string(cac:DocumentReference/cbc:IssueDate),1,10) else &#x9;substring(string(/in:Invoice/cac:ReceiptDocumentReference/cbc:IssueDate),1,10)"/>
+      </Data>
+    </xsl:if>
+    <xsl:if test="cbc:LineID != '0'">
+      <NumItem>
+        <xsl:value-of select="cbc:LineID"/>
+      </NumItem>
+    </xsl:if>
+    <xsl:apply-templates select="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CommessaConvenzione_RICEZIONE']/cbc:ID"                              mode="DatiRicezione_Commessa_Riga">
+      <xsl:with-param name="CN" select="current()"/>
+      <xsl:with-param name="CNP" select="position()"/>
+    </xsl:apply-templates>
+    <xsl:apply-templates select="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CUP_RICEZIONE']/cbc:ID"                              mode="DatiRicezione_CUP_Riga">
+      <xsl:with-param name="CN" select="current()"/>
+      <xsl:with-param name="CNP" select="position()"/>
+    </xsl:apply-templates>
+    <xsl:apply-templates select="/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='CIG_RICEZIONE']/cbc:ID"                              mode="DatiRicezione_CIG_Riga">
+      <xsl:with-param name="CN" select="current()"/>
+      <xsl:with-param name="CNP" select="position()"/>
+    </xsl:apply-templates>
+  </DatiRicezione>
+</xsl:template>
+<xsl:template match="cac:Item/cac:ClassifiedTaxCategory" mode="AliquotaIVA_Dettaglio">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <AliquotaIVA>
+    <xsl:value-of select="if (.[cac:TaxScheme/cbc:ID='VAT']/cbc:Percent ) then format-number(.[cac:TaxScheme/cbc:ID='VAT']/cbc:Percent ,'##0.00') else '0.00'"/>
+  </AliquotaIVA>
+</xsl:template>
+<xsl:template match="cac:Item/cac:CommodityClassification/cbc:CommodityCode">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test=".">
+    <CodiceArticolo>
+      <CodiceTipo>
+        <xsl:value-of select="if (@listID) then @listID else 'CommodityCode'"/>
+      </CodiceTipo>
+      <CodiceValore>
+        <xsl:value-of select="."/>
+      </CodiceValore>
+    </CodiceArticolo>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="cac:Item" mode="codiceArticolo">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <!--generico-->
+  <xsl:if test="cac:SellersItemIdentification/cbc:ID">
+    <xsl:if test="not(contains(./cac:SellersItemIdentification/cbc:ID,':'))">
       <CodiceArticolo>
         <CodiceTipo>
           <xsl:value-of select="if (@schemeID) then @schemeID else 'SellerItemIdentification'"/>
         </CodiceTipo>
         <CodiceValore>
-          <xsl:value-of select="."/>
+          <xsl:value-of select="cac:SellersItemIdentification/cbc:ID"/>
         </CodiceValore>
       </CodiceArticolo>
     </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:Item/cac:SellersItemIdentification/cbc:ID[starts-with(.,'AICFARMACO:')]"                 mode="SellersItemIdentification_AIC">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
+  </xsl:if>
+  <!--CARB-->
+  <xsl:if test="substring-before(./cac:SellersItemIdentification/cbc:ID,':')='CARB'">
+    <CodiceArticolo>
+      <CodiceTipo>
+        <xsl:text>CARB</xsl:text>
+      </CodiceTipo>
+      <CodiceValore>
+        <xsl:value-of select="substring-after(./cac:SellersItemIdentification/cbc:ID,':')"/>
+      </CodiceValore>
+    </CodiceArticolo>
+  </xsl:if>
+  <!--AICFARMACO-->
+  <xsl:if test="substring-before(./cac:SellersItemIdentification/cbc:ID,':')='AICFARMACO'">
     <CodiceArticolo>
       <CodiceTipo>
         <xsl:text>AICFARMACO</xsl:text>
       </CodiceTipo>
       <CodiceValore>
-        <xsl:value-of select="substring(.,12)"/>
+        <xsl:value-of select="substring-after(./cac:SellersItemIdentification/cbc:ID,':')"/>
       </CodiceValore>
     </CodiceArticolo>
-  </xsl:template>
-  <xsl:template match="cac:Item/cac:StandardItemIdentification/cbc:ID">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test=".">
-      <CodiceArticolo>
-        <CodiceTipo>
-          <xsl:value-of select="if (@schemeID) then @schemeID else 'StandardItemIdentification'"/>
-        </CodiceTipo>
-        <CodiceValore>
-          <xsl:value-of select="."/>
-        </CodiceValore>
-      </CodiceArticolo>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:OrderReference">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="cbc:ID or cbc:IssueDate">
-      <DatiOrdineAcquisto>
-        <IdDocumento>
-          <xsl:value-of select="cbc:ID"/>
-        </IdDocumento>
-        <xsl:if test="cbc:IssueDate">
-          <Data>
-            <xsl:value-of select="&#x9;substring(string(cbc:IssueDate),1,10)"/>
-          </Data>
-        </xsl:if>
-        <xsl:apply-templates select="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CommessaConvenzione']/cbc:ID"                                 mode="DatiOrdine_Commessa">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-        <xsl:apply-templates select="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CUP']/cbc:ID"                                 mode="DatiOrdine_CUP">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-        <xsl:apply-templates select="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CIG']/cbc:ID"                                 mode="DatiOrdine_CIG">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-      </DatiOrdineAcquisto>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:OriginatorDocumentReference">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="count(/in:Invoice/cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='ESTREMI_CONVENZIONE']) = 0">
-      <DatiConvenzione>
-        <IdDocumento>
-          <xsl:value-of select="cbc:ID"/>
-        </IdDocumento>
-        <xsl:if test="cbc:IssueDate">
-          <Data>
-            <xsl:value-of select="&#x9;substring(string(cbc:IssueDate),1,10)"/>
-          </Data>
-        </xsl:if>
-        <xsl:apply-templates select="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CommessaConvenzione_CONVENZIONE']/cbc:ID"                                 mode="DatiConvenzione_CommessaConvenzione">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-        <xsl:apply-templates select="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CUP_CONVENZIONE']/cbc:ID"                                 mode="DatiConvenzione_CUP">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-        <xsl:apply-templates select="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CIG_CONVENZIONE']/cbc:ID"                                 mode="DatiConvenzione_CIG">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-      </DatiConvenzione>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:Party" mode="CedentePrestatore_DatiAnagrafici">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <DatiAnagrafici>
-      <xsl:apply-templates select="cac:PartyTaxScheme[cac:TaxScheme/cbc:ID='VAT']/cbc:CompanyID[not(@schemeID = 'IT:CF')][1]"                              mode="CedentePrestatore_PIVA">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-      <xsl:if test="cac:Person[1]/cbc:ID[@schemeID='IT:CF']">
-        <CodiceFiscale>
-          <xsl:value-of select="cac:Person[1]/cbc:ID[@schemeID='IT:CF']"/>
-        </CodiceFiscale>
+  </xsl:if>
+  <xsl:if test="./cac:CommodityClassification">
+    <CodiceArticolo>
+      <CodiceTipo>
+        <xsl:value-of select="if (cac:CommodityClassification/cbc:ItemClassificationCode/@listID) then cac:CommodityClassification/cbc:ItemClassificationCode/@listID else ./cac:CommodityClassification/cbc:ItemClassificationCode">
+        </xsl:value-of>
+      </CodiceTipo>
+      <CodiceValore>
+        <xsl:value-of select="./cac:CommodityClassification/cbc:ItemClassificationCode"/>
+      </CodiceValore>
+    </CodiceArticolo>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="cac:Item/cac:StandardItemIdentification/cbc:ID">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test=".">
+    <CodiceArticolo>
+      <!--TODO: potrebbe essere nella ISO 6523 ICD vedere come utilizzare codifiche-->
+      <CodiceTipo>
+        <xsl:value-of select="if (@schemeID) then @schemeID else 'StandardItemIdentification'"/>
+      </CodiceTipo>
+      <CodiceValore>
+        <xsl:value-of select="."/>
+      </CodiceValore>
+    </CodiceArticolo>
+  </xsl:if>
+</xsl:template>
+<!-- DONE-->
+<xsl:template match="cac:OrderReference">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test="cbc:ID">
+    <DatiOrdineAcquisto>
+      <IdDocumento>
+        <xsl:value-of select="cbc:ID"/>
+      </IdDocumento>
+      <xsl:if test="cbc:IssueDate">
+        <Data>
+          <xsl:value-of select="&#x9;substring(string(cbc:IssueDate),1,10)"/>
+        </Data>
       </xsl:if>
-      <xsl:apply-templates select="cac:PartyTaxScheme[cac:TaxScheme/cbc:ID='VAT']/cbc:CompanyID[@schemeID = 'IT:CF']"                              mode="CedentePrestatore_CF">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-      <Anagrafica>
-        <xsl:if test="cac:PartyName/cbc:Name and not(cac:Person[cbc:ID[@schemeID='IT:CF']]/cbc:FamilyName)">
+      <xsl:if test="/in:Invoice/cbc:BuyerReference">
+        <CodiceCommessaConvenzione>
+          <xsl:value-of select="/in:Invoice/cbc:BuyerReference"/>
+        </CodiceCommessaConvenzione>
+      </xsl:if>
+    </DatiOrdineAcquisto>
+  </xsl:if>
+</xsl:template>
+<!--Nuovo template per Cedente Prestatore-->
+<!-- IDFiscaleIva di Cedente prestatore sempre preso dal PartyTaxScheme dell' AccountingSupplierParty-->
+<xsl:template match="cac:PartyTaxScheme"               mode="CedentePrestatore_PIVA">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <IdFiscaleIVA>
+    <IdPaese>
+      <xsl:value-of select="substring(cbc:CompanyID,1,2)"/>
+    </IdPaese>
+    <IdCodice>
+      <xsl:value-of select="substring(cbc:CompanyID,3,string-length(cbc:CompanyID)-2)"/>
+    </IdCodice>
+  </IdFiscaleIVA>
+</xsl:template>
+<!-- Template Albo -->
+<xsl:template match="/in:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification"                     mode="AlboProfessionale">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test="contains(./cbc:ID[contains(., 'ALBO:')],'ALBO:')">
+    <AlboProfessionale>
+      <xsl:value-of select="substring-after(substring-before(./cbc:ID[contains(., 'ALBO:')],'#'),':')"/>
+    </AlboProfessionale>
+    <NumeroIscrizioneAlbo>
+      <xsl:value-of select="substring-before(substring-after(./cbc:ID[contains(., 'ALBO:')], '#'), '#')"/>
+    </NumeroIscrizioneAlbo>
+    <DataIscrizioneAlbo>
+      <xsl:value-of select="substring-after(substring-after(./cbc:ID[contains(., 'ALBO:')], '#'),'#')"/>
+    </DataIscrizioneAlbo>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="cac:Party" mode="CedentePrestatore_DatiAnagrafici">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <DatiAnagrafici>
+    <!-- 1.2.1.1[Id Fiscale Iva]-->
+    <xsl:apply-templates select="./cac:PartyTaxScheme"                            mode="CedentePrestatore_PIVA">
+      <xsl:with-param name="CN" select="current()"/>
+      <xsl:with-param name="CNP" select="position()"/>
+    </xsl:apply-templates>
+    <!-- 1.2.1.2  <CodiceFiscale>-->
+    <xsl:if test="./cac:PartyLegalEntity/cbc:CompanyID[@schemeID='0210']">
+      <CodiceFiscale>
+        <xsl:value-of select="./cac:PartyLegalEntity/cbc:CompanyID"/>
+      </CodiceFiscale>
+    </xsl:if>
+    <xsl:if test="contains(lower-case(./cac:PartyLegalEntity/cbc:CompanyID[contains(., 'CF:')]),'cf:')">
+      <CodiceFiscale>
+        <xsl:value-of select="./cac:PartyLegalEntity/cbc:CompanyID[contains(., 'CF:')]"/>
+      </CodiceFiscale>
+    </xsl:if>
+    <Anagrafica>
+      <xsl:choose>
+        <xsl:when test="contains(cac:PartyLegalEntity/cbc:RegistrationName,'Denominazione:')">
           <Denominazione>
-            <xsl:value-of select="normalize-space(cac:PartyName[1]/cbc:Name)"/>
+            <xsl:value-of select="substring-after(cac:PartyLegalEntity/cbc:RegistrationName,'Denominazione:')"/>
           </Denominazione>
-        </xsl:if>
-        <xsl:if test="cac:Person/cbc:FirstName and cac:Person/cbc:FamilyName and cac:Person/cbc:ID[@schemeID='IT:CF']">
+        </xsl:when>
+        <xsl:when test="contains(cac:PartyLegalEntity/cbc:RegistrationName,'Nome') and contains(cac:PartyLegalEntity/cbc:RegistrationName,'Cognome')">
           <Nome>
-            <xsl:value-of select="cac:Person[1]/cbc:FirstName"/>
+            <xsl:value-of select="substring-after(substring-before(cac:PartyLegalEntity/cbc:RegistrationName,'#'),':')"/>
           </Nome>
-        </xsl:if>
-        <xsl:if test="cac:Person/cbc:FirstName and cac:Person/cbc:FamilyName and cac:Person/cbc:ID[@schemeID='IT:CF']">
           <Cognome>
-            <xsl:value-of select="cac:Person[1]/cbc:FamilyName"/>
+            <xsl:value-of select="substring-after(cac:PartyLegalEntity/cbc:RegistrationName,'#')"/>
           </Cognome>
-        </xsl:if>
-        <xsl:if test="cac:Person/cbc:ID[@schemeID='IT:CF'] and cac:Person/cbc:Title and cac:Person/cbc:FamilyName and not(cac:PartyName/cbc:Name)">
-          <Titolo>
-            <xsl:value-of select="cac:Person[1]/cbc:Title"/>
-          </Titolo>
-        </xsl:if>
-        <xsl:apply-templates select="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='EORI CedentePrestatore']/cbc:ID">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-      </Anagrafica>
-      <xsl:apply-templates select="cac:PartyLegalEntity[cac:CorporateRegistrationScheme/cbc:Name!='REA' and cbc:CompanyID[@schemeID='ZZZ']]"                              mode="AlboProfessionale">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-      <xsl:apply-templates select="cac:PartyLegalEntity[cac:CorporateRegistrationScheme/cbc:Name!='REA' and cbc:CompanyID/@schemeID='ZZZ' and cac:RegistrationAddress/cbc:CityName]"                              mode="ProvinciaAlbo">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-      <xsl:apply-templates select="cac:PartyLegalEntity[cbc:CompanyID[@schemeID='ZZZ'] and cbc:CompanyID and cac:CorporateRegistrationScheme/cbc:Name!='REA']"                              mode="NumeroIscrizioneAlbo">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-      <xsl:apply-templates select="cac:PartyLegalEntity[cbc:CompanyID[@schemeID='ZZZ'] and cbc:RegistrationDate and cac:CorporateRegistrationScheme/cbc:Name!='REA']"                              mode="DataIscrizioneAlbo">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-      <xsl:if test="not(cac:PartyTaxScheme/cac:TaxScheme/cbc:TaxTypeCode)">
-        <RegimeFiscale>
-          <xsl:text>RF01</xsl:text>
-        </RegimeFiscale>
-      </xsl:if>
-      <xsl:if test="cac:PartyTaxScheme/cac:TaxScheme/cbc:TaxTypeCode">
-        <RegimeFiscale>
-          <xsl:value-of select="cac:PartyTaxScheme/cac:TaxScheme/cbc:TaxTypeCode"/>
-        </RegimeFiscale>
-      </xsl:if>
-    </DatiAnagrafici>
-  </xsl:template>
-  <xsl:template match="cac:Party" mode="CessionarioCommittente_DatiAnagrafici">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <DatiAnagrafici>
-      <xsl:apply-templates select="cac:PartyTaxScheme[cac:TaxScheme/cbc:ID='VAT']/cbc:CompanyID[not(@schemeID = 'IT:CF')][1]"                              mode="CessionarioCommittente_PIVA">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-      <xsl:if test="cac:Person[1]/cbc:ID[@schemeID='IT:CF']">
-        <CodiceFiscale>
-          <xsl:value-of select="cac:Person[1]/cbc:ID[@schemeID='IT:CF']"/>
-        </CodiceFiscale>
-      </xsl:if>
-      <xsl:apply-templates select="cac:PartyTaxScheme[cac:TaxScheme/cbc:ID='VAT']/cbc:CompanyID[@schemeID = 'IT:CF']"                              mode="CessionarioCommittente_CF">
-        <xsl:with-param name="CN" select="current()"/>
-        <xsl:with-param name="CNP" select="position()"/>
-      </xsl:apply-templates>
-      <Anagrafica>
-        <xsl:if test="cac:PartyName/cbc:Name and not(cac:Person[cbc:ID[@schemeID='IT:CF']]/cbc:FamilyName)">
+        </xsl:when>
+        <xsl:otherwise>
           <Denominazione>
-            <xsl:value-of select="normalize-space(cac:PartyName[1]/cbc:Name)"/>
+            <xsl:value-of select="cac:PartyLegalEntity/cbc:RegistrationName"/>
           </Denominazione>
-        </xsl:if>
-        <xsl:if test="cac:Person/cbc:FirstName and cac:Person/cbc:FamilyName and cac:Person/cbc:ID[@schemeID='IT:CF']">
-          <Nome>
-            <xsl:value-of select="cac:Person[1]/cbc:FirstName"/>
-          </Nome>
-        </xsl:if>
-        <xsl:if test="cac:Person/cbc:FirstName and cac:Person/cbc:FamilyName and cac:Person/cbc:ID[@schemeID='IT:CF']">
-          <Cognome>
-            <xsl:value-of select="cac:Person[1]/cbc:FamilyName"/>
-          </Cognome>
-        </xsl:if>
-        <xsl:if test="cac:Person/cbc:Title and cac:Person/cbc:FamilyName and not(cac:PartyName/cbc:Name)">
-          <Titolo>
-            <xsl:value-of select="cac:Person[1]/cbc:Title"/>
-          </Titolo>
-        </xsl:if>
-      </Anagrafica>
-    </DatiAnagrafici>
-  </xsl:template>
-  <xsl:template match="cac:Party/cac:AgentParty/cac:PostalAddress"                 mode="CedentePrestatore_StabileOrganizzazione">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test=". and ./cac:Country/cbc:IdentificationCode='IT'">
-      <StabileOrganizzazione>
-        <Indirizzo>
-          <xsl:value-of select="cbc:StreetName"/>
-        </Indirizzo>
-        <CAP>
-          <xsl:value-of select="cbc:PostalZone"/>
-        </CAP>
-        <Comune>
-          <xsl:value-of select="cbc:CityName"/>
-        </Comune>
-        <xsl:if test="cbc:CountrySubentity">
-          <Provincia>
-            <xsl:value-of select="if (string-length(cbc:CountrySubentity)=2) then cbc:CountrySubentity else document($xclProvinceItaliane)//Value[@ColumnRef='code']/SimpleValue[contains(lower-case(translate(../../Value[@ColumnRef='name']/SimpleValue,'áàéèíìóòúù','aaeeiioouu')), lower-case(translate(current()/cbc:CountrySubentity,'áàéèíìóòúù','aaeeiioouu')))][1]"/>
-          </Provincia>
-        </xsl:if>
-        <Nazione>
-          <xsl:text>IT</xsl:text>
-        </Nazione>
-      </StabileOrganizzazione>
+        </xsl:otherwise>
+      </xsl:choose>
+      <!-- 1.2.1.3.5   <CodEORI> -->
+      <xsl:apply-templates select="/in:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification">
+        <xsl:with-param name="CN" select="current()"/>
+        <xsl:with-param name="CNP" select="position()"/>
+      </xsl:apply-templates>
+    </Anagrafica>
+    <!--1.2.1.4 [ Albo] -->
+    <xsl:apply-templates select="/in:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification"                            mode="AlboProfessionale">
+      <xsl:with-param name="CN" select="current()"/>
+      <xsl:with-param name="CNP" select="position()"/>
+    </xsl:apply-templates>
+    <!--Regime fiscale dedotto dal TaxLevelCode dell'AccountingSupplierParty -->
+    <xsl:if test="not(cac:PartyTaxScheme/cbc:TaxLevelCode)">
+      <RegimeFiscale>
+        <xsl:text>RF01</xsl:text>
+      </RegimeFiscale>
     </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:Party/cac:Contact" mode="CedentePrestatore_Contatti">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test=". and *">
-      <Contatti>
-        <xsl:if test="cbc:Telephone">
-          <Telefono>
-            <xsl:value-of select="cbc:Telephone"/>
-          </Telefono>
-        </xsl:if>
-        <xsl:if test="cbc:Telefax">
-          <Fax>
-            <xsl:value-of select="cbc:Telefax"/>
-          </Fax>
-        </xsl:if>
-        <xsl:if test="cbc:ElectronicMail">
-          <Email>
-            <xsl:value-of select="cbc:ElectronicMail"/>
-          </Email>
-        </xsl:if>
-      </Contatti>
+    <xsl:if test="cac:PartyTaxScheme/cbc:TaxLevelCode">
+      <RegimeFiscale>
+        <xsl:value-of select="cac:PartyTaxScheme/cbc:TaxLevelCode"/>
+      </RegimeFiscale>
     </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:Party/cac:PartyLegalEntity" mode="IscrizioneREA">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="cbc:CompanyID[@schemeID='ZZZ'] and cac:CorporateRegistrationScheme/cbc:Name='REA'">
-      <IscrizioneREA>
-        <xsl:if test="cac:RegistrationAddress/cbc:CityName">
-          <Ufficio>
-            <xsl:value-of select="if (string-length(cac:RegistrationAddress/cbc:CityName)=2) then cac:RegistrationAddress/cbc:CityName else document($xclProvinceItaliane)//Value[@ColumnRef='code']/SimpleValue[contains(lower-case(translate(../../Value[@ColumnRef='name']/SimpleValue,'áàéèíìóòúù','aaeeiioouu')), lower-case(translate(current()/cac:RegistrationAddress/cbc:CityName,'áàéèíìóòúù','aaeeiioouu')))][1]"/>
-          </Ufficio>
-        </xsl:if>
-        <NumeroREA>
-          <xsl:value-of select="cbc:CompanyID"/>
-        </NumeroREA>
-        <xsl:if test="cbc:CorporateStockAmount">
-          <CapitaleSociale>
-            <xsl:value-of select="format-number(cbc:CorporateStockAmount,'###########0.00')"/>
-          </CapitaleSociale>
-        </xsl:if>
-        <xsl:if test="boolean(cbc:SoleProprietorshipIndicator)">
-          <SocioUnico>
-            <xsl:text>SU</xsl:text>
-          </SocioUnico>
-        </xsl:if>
-        <StatoLiquidazione>
-          <xsl:value-of select="cbc:CompanyLiquidationStatusCode"/>
-        </StatoLiquidazione>
-      </IscrizioneREA>
+  </DatiAnagrafici>
+</xsl:template>
+<xsl:template match="cac:Party" mode="CessionarioCommittente_DatiAnagrafici">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <DatiAnagrafici>
+    <xsl:apply-templates select="cac:PartyTaxScheme/cbc:CompanyID"                           mode="CessionarioCommittente_PIVA">
+      <xsl:with-param name="CN" select="current()"/>
+      <xsl:with-param name="CNP" select="position()"/>
+    </xsl:apply-templates>
+    <xsl:if test="cac:PartyLegalEntity/cbc:CompanyID">
+      <CodiceFiscale>
+        <xsl:value-of select="cac:PartyLegalEntity/cbc:CompanyID"/>
+      </CodiceFiscale>
     </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:Party/cac:PostalAddress" mode="CedentePrestatore_Sede">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <Sede>
+    <xsl:if test="contains(lower-case(./cac:PartyLegalEntity/cbc:CompanyID),'cf:')">
+      <CodiceFiscale>
+        <xsl:value-of select="./cac:PartyLegalEntity/cbc:CompanyID"/>
+      </CodiceFiscale>
+    </xsl:if>
+    <!--DONE Anagrafica da RegistrationName  AccountingCustomerParty-->
+    <Anagrafica>
+      <xsl:if test="cac:PartyLegalEntity">
+        <xsl:choose>
+          <xsl:when test="contains(cac:PartyLegalEntity/cbc:RegistrationName,'Denominazione:')">
+            <Denominazione>
+              <xsl:value-of select="substring-after(cac:PartyLegalEntity/cbc:RegistrationName,'Denominazione:')"/>
+            </Denominazione>
+          </xsl:when>
+          <xsl:when test="contains(cac:PartyLegalEntity/cbc:RegistrationName,'Nome') and contains(cac:PartyLegalEntity/cbc:RegistrationName,'Cognome')">
+            <Nome>
+              <xsl:value-of select="substring-after(substring-before(cac:PartyLegalEntity/cbc:RegistrationName,'#'),':')"/>
+            </Nome>
+            <Cognome>
+              <xsl:value-of select="substring-after(cac:PartyLegalEntity/cbc:RegistrationName,'#')"/>
+            </Cognome>
+          </xsl:when>
+          <xsl:otherwise>
+            <Denominazione>
+              <xsl:value-of select="cac:PartyLegalEntity/cbc:RegistrationName"/>
+            </Denominazione>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:if>
+      <xsl:if test="contains(./cac:PartyIdentification/cbc:ID[contains(., 'EORI:')],'EORI:')">
+        <CodEORI>
+          <xsl:value-of select="substring-after(./cac:PartyIdentification/cbc:ID[contains(., 'EORI:')],'EORI:')"/>
+        </CodEORI>
+      </xsl:if>
+    </Anagrafica>
+  </DatiAnagrafici>
+</xsl:template>
+<!--TODO: verificare se spezzato bene indirizzo-->
+<xsl:template match="cac:Party/cac:AgentParty/cac:PostalAddress"                 mode="CedentePrestatore_StabileOrganizzazione">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test=".">
+    <StabileOrganizzazione>
       <Indirizzo>
         <xsl:value-of select="cbc:StreetName"/>
       </Indirizzo>
@@ -1434,727 +1195,1001 @@
       <Comune>
         <xsl:value-of select="cbc:CityName"/>
       </Comune>
-      <xsl:if test="cac:Country/cbc:IdentificationCode='IT' and cbc:CountrySubentity">
+      <xsl:if test="cac:Country/cbc:IdentificationCode = 'IT'">
         <Provincia>
-          <xsl:value-of select="if (string-length(cbc:CountrySubentity)=2) then cbc:CountrySubentity else document($xclProvinceItaliane)//Value[@ColumnRef='code']/SimpleValue[contains(lower-case(translate(../../Value[@ColumnRef='name']/SimpleValue,'áàéèíìóòúù','aaeeiioouu')), lower-case(translate(current()/cbc:CountrySubentity,'áàéèíìóòúù','aaeeiioouu')))][1]"/>
+          <xsl:value-of select="cbc:CountrySubentity"/>
         </Provincia>
       </xsl:if>
       <Nazione>
-        <xsl:value-of select="if (cac:Country/cbc:IdentificationCode) then cac:Country/cbc:IdentificationCode else 'IT'"/>
+        <xsl:value-of select="cac:Country/cbc:IdentificationCode"/>
       </Nazione>
-    </Sede>
-  </xsl:template>
-  <xsl:template match="cac:Party/cac:PostalAddress" mode="CessionarioCommittente_Sede">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test=".">
-      <Sede>
-        <Indirizzo>
-          <xsl:value-of select="cbc:StreetName"/>
-        </Indirizzo>
+    </StabileOrganizzazione>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="cac:Party/cac:Contact" mode="CedentePrestatore_Contatti">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test=".">
+    <Contatti>
+      <xsl:if test="cbc:Telephone">
+        <Telefono>
+          <xsl:value-of select="cbc:Telephone"/>
+        </Telefono>
+      </xsl:if>
+      <xsl:if test="cbc:ElectronicMail">
+        <Email>
+          <xsl:value-of select="cbc:ElectronicMail"/>
+        </Email>
+      </xsl:if>
+    </Contatti>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="cac:Party/cac:PartyIdentification" mode="IscrizioneREA">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test="contains(cbc:ID[contains(., 'REA:')],'REA:')">
+    <IscrizioneREA>
+      <Ufficio>
+        <xsl:value-of select="substring-after(substring-before(./cbc:ID[contains(., 'REA:')],'#'),':')"/>
+      </Ufficio>
+      <NumeroREA>
+        <xsl:value-of select="substring-after(./cbc:ID[contains(., 'REA:')],'#')"/>
+      </NumeroREA>
+      <xsl:if test="/in:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity">
+        <CapitaleSociale>
+          <xsl:value-of select="format-number(number(substring-before(/in:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLegalForm,'#')),'###########0.00')"/>
+        </CapitaleSociale>
+        <!-- TODO verificare socio unico-->
+        <SocioUnico>
+          <xsl:value-of select="substring-before(substring-after(/in:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLegalForm,'#'),'#')"/>
+        </SocioUnico>
+        <StatoLiquidazione>
+          <xsl:value-of select="substring-after(substring-after(/in:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLegalForm,'#'),'#')"/>
+        </StatoLiquidazione>
+      </xsl:if>
+    </IscrizioneREA>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="cac:Party/cac:PostalAddress" mode="CedentePrestatore_Sede">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <Sede>
+    <Indirizzo>
+      <xsl:value-of select="cbc:StreetName"/>
+    </Indirizzo>
+    <xsl:if test="string(number(cbc:AdditionalStreetName)) != 'NaN'">
+      <!-- myNode is a number -->
+      <NumeroCivico>
+        <xsl:value-of select="cbc:AdditionalStreetName"/>
+      </NumeroCivico>
+    </xsl:if>
+    <xsl:if test="cbc:PostalZone">
+      <xsl:if test=" 5 > string-length(cbc:PostalZone) ">
+        <CAP>
+          <xsl:text>99999</xsl:text>
+        </CAP>
+      </xsl:if>
+      <xsl:if test="  string-length(cbc:PostalZone)  >= 5">
         <CAP>
           <xsl:value-of select="cbc:PostalZone"/>
         </CAP>
+      </xsl:if>
+    </xsl:if>
+    <xsl:if test="cbc:CityName">
+      <Comune>
+        <xsl:value-of select="cbc:CityName"/>
+      </Comune>
+    </xsl:if>
+    <xsl:if test="cac:Country/cbc:IdentificationCode = 'IT'">
+      <Provincia>
+        <xsl:value-of select="cbc:CountrySubentity"/>
+      </Provincia>
+    </xsl:if>
+    <Nazione>
+      <xsl:value-of select="cac:Country/cbc:IdentificationCode"/>
+    </Nazione>
+  </Sede>
+</xsl:template>
+<xsl:template match="cac:Party/cac:PostalAddress" mode="CessionarioCommittente_Sede">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test=".">
+    <Sede>
+      <Indirizzo>
+        <xsl:value-of select="cbc:StreetName"/>
+      </Indirizzo>
+      <xsl:if test="string(number(cbc:AdditionalStreetName)) != 'NaN'">
+        <NumeroCivico>
+          <xsl:value-of select="cbc:AdditionalStreetName"/>
+        </NumeroCivico>
+      </xsl:if>
+      <xsl:if test=" 5 > string-length(cbc:PostalZone) ">
+        <CAP>
+          <xsl:text>99999</xsl:text>
+        </CAP>
+      </xsl:if>
+      <xsl:if test="  string-length(cbc:PostalZone)  >= 5">
+        <CAP>
+          <xsl:value-of select="cbc:PostalZone"/>
+        </CAP>
+      </xsl:if>
+      <xsl:if test="cbc:CityName">
         <Comune>
           <xsl:value-of select="cbc:CityName"/>
         </Comune>
-        <xsl:if test="cac:Country/cbc:IdentificationCode='IT'">
-          <Provincia>
-            <xsl:value-of select="if (string-length(cbc:CountrySubentity)=2) then upper-case(cbc:CountrySubentity) else document($xclProvinceItaliane)//Value[@ColumnRef='code']/SimpleValue[contains(lower-case(translate(../../Value[@ColumnRef='name']/SimpleValue,'áàéèíìóòúù','aaeeiioouu')), lower-case(translate(if (string-length(current()/cbc:CountrySubentity) &gt; 0) then current()/cbc:CountrySubentity else current()/cbc:CityName,'áàéèíìóòúù','aaeeiioouu')))][1]"/>
-          </Provincia>
-        </xsl:if>
-        <Nazione>
-          <xsl:value-of select="if (cac:Country/cbc:IdentificationCode) then cac:Country/cbc:IdentificationCode else 'IT'"/>
-        </Nazione>
-      </Sede>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:PartyLegalEntity[cac:CorporateRegistrationScheme/cbc:Name!='REA' and cbc:CompanyID/@schemeID='ZZZ' and cac:RegistrationAddress/cbc:CityName]"                 mode="ProvinciaAlbo">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <ProvinciaAlbo>
-      <xsl:value-of select="if (string-length(cac:RegistrationAddress/cbc:CityName)=2) then cac:RegistrationAddress/cbc:CityName else document($xclProvinceItaliane)//Value[@ColumnRef='code']/SimpleValue[contains(lower-case(translate(../../Value[@ColumnRef='name']/SimpleValue,'áàéèíìóòúù','aaeeiioouu')), lower-case(translate(current()/cac:RegistrationAddress/cbc:CityName,'áàéèíìóòúù','aaeeiioouu')))][1]"/>
-    </ProvinciaAlbo>
-  </xsl:template>
-  <xsl:template match="cac:PartyLegalEntity[cac:CorporateRegistrationScheme/cbc:Name!='REA' and cbc:CompanyID[@schemeID='ZZZ']]"                 mode="AlboProfessionale">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <AlboProfessionale>
-      <xsl:value-of select="normalize-space(cac:CorporateRegistrationScheme/cbc:Name)"/>
-    </AlboProfessionale>
-  </xsl:template>
-  <xsl:template match="cac:PartyLegalEntity[cbc:CompanyID[@schemeID='ZZZ'] and cbc:CompanyID and cac:CorporateRegistrationScheme/cbc:Name!='REA']"                 mode="NumeroIscrizioneAlbo">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <NumeroIscrizioneAlbo>
-      <xsl:value-of select="cbc:CompanyID"/>
-    </NumeroIscrizioneAlbo>
-  </xsl:template>
-  <xsl:template match="cac:PartyLegalEntity[cbc:CompanyID[@schemeID='ZZZ'] and cbc:RegistrationDate and cac:CorporateRegistrationScheme/cbc:Name!='REA']"                 mode="DataIscrizioneAlbo">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <DataIscrizioneAlbo>
-      <xsl:value-of select="&#x9;substring(string(cbc:RegistrationDate),1,10)"/>
-    </DataIscrizioneAlbo>
-  </xsl:template>
-  <xsl:template match="cac:PartyTaxScheme[cac:TaxScheme/cbc:ID='VAT']/cbc:CompanyID[@schemeID = 'IT:CF']"                 mode="CedentePrestatore_CF">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="not(../../cac:Person[1]/cbc:ID[@schemeID='IT:CF'])">
-      <CodiceFiscale>
-        <xsl:value-of select="if (string-length(.) = 13) then substring(., 3) else ."/>
-      </CodiceFiscale>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:PartyTaxScheme[cac:TaxScheme/cbc:ID='VAT']/cbc:CompanyID[@schemeID = 'IT:CF']"                 mode="RappresentanteFiscale_CF">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="not(../../cac:Person[1]/cbc:ID[@schemeID='IT:CF'])">
-      <CodiceFiscale>
-        <xsl:value-of select="if (string-length(.) = 13) then substring(., 3) else ."/>
-      </CodiceFiscale>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:PartyTaxScheme[cac:TaxScheme/cbc:ID='VAT']/cbc:CompanyID[@schemeID = 'IT:CF']"                 mode="CessionarioCommittente_CF">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="not(../../cac:Person[1]/cbc:ID[@schemeID='IT:CF'])">
-      <CodiceFiscale>
-        <xsl:value-of select="if (string-length(.) = 13) then substring(., 3) else ."/>
-      </CodiceFiscale>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:PartyTaxScheme[cac:TaxScheme/cbc:ID='VAT']/cbc:CompanyID[@schemeID = 'IT:CF']"                 mode="Vettore_CF">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="not(../../cac:Person[1]/cbc:ID[@schemeID='IT:CF'])">
-      <CodiceFiscale>
-        <xsl:value-of select="if (string-length(.) = 13) then substring(., 3) else ."/>
-      </CodiceFiscale>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:PartyTaxScheme[cac:TaxScheme/cbc:ID='VAT']/cbc:CompanyID[not(@schemeID = 'IT:CF')][1]"                 mode="CedentePrestatore_PIVA">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <IdFiscaleIVA>
-      <IdPaese>
-        <xsl:value-of select="upper-case(if (matches(.,'^[a-zA-Z]{2}')) then substring(.,1,2) else (if (matches(./@schemeID,'^[a-zA-Z]{2}:')) then substring-before(./@schemeID,':') else 'IT'))"/>
-      </IdPaese>
-      <IdCodice>
-        <xsl:value-of select="if (upper-case(substring(.,1,2))=upper-case(substring-before(./@schemeID,':'))) then substring(.,3) else ."/>
-      </IdCodice>
-    </IdFiscaleIVA>
-  </xsl:template>
-  <xsl:template match="cac:PartyTaxScheme[cac:TaxScheme/cbc:ID='VAT']/cbc:CompanyID[not(@schemeID = 'IT:CF')][1]"                 mode="RappresentanteFiscale_PIVA">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <IdFiscaleIVA>
-      <IdPaese>
-        <xsl:text>IT</xsl:text>
-      </IdPaese>
-      <IdCodice>
-        <xsl:value-of select="if (upper-case(substring(.,1,2))=upper-case(substring-before(./@schemeID,':'))) then substring(.,3) else ."/>
-      </IdCodice>
-    </IdFiscaleIVA>
-  </xsl:template>
-  <xsl:template match="cac:PartyTaxScheme[cac:TaxScheme/cbc:ID='VAT']/cbc:CompanyID[not(@schemeID = 'IT:CF')][1]"                 mode="CessionarioCommittente_PIVA">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <IdFiscaleIVA>
-      <IdPaese>
-        <xsl:value-of select="upper-case(if (matches(./@schemeID,'^[a-zA-Z]{2}:')) then substring-before(./@schemeID,':') else (if (matches(.,'^[a-zA-Z]{2}')) then substring(.,1,2) else 'IT'))"/>
-      </IdPaese>
-      <IdCodice>
-        <xsl:value-of select="if (upper-case(substring(.,1,2))=upper-case(substring-before(./@schemeID,':'))) then substring(.,3) else ."/>
-      </IdCodice>
-    </IdFiscaleIVA>
-  </xsl:template>
-  <xsl:template match="cac:PartyTaxScheme[cac:TaxScheme/cbc:ID='VAT']/cbc:CompanyID[not(@schemeID = 'IT:CF')][1]"                 mode="Vettore_PIVA">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <IdFiscaleIVA>
-      <IdPaese>
-        <xsl:value-of select="upper-case(if (matches(./@schemeID,'^[a-zA-Z]{2}:')) then substring-before(./@schemeID,':') else (if (matches(.,'^[a-zA-Z]{2}')) then substring(.,1,2) else 'IT'))"/>
-      </IdPaese>
-      <IdCodice>
-        <xsl:value-of select="if (upper-case(substring(.,1,2))=upper-case(substring-before(./@schemeID,':'))) then substring(.,3) else ."/>
-      </IdCodice>
-    </IdFiscaleIVA>
-  </xsl:template>
-  <xsl:template match="cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cac:FinancialInstitution">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="cbc:Name">
-      <IstitutoFinanziario>
-        <xsl:value-of select="cbc:Name"/>
-      </IstitutoFinanziario>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:PaymentMeans">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <DettaglioPagamento>
-      <xsl:if test="/in:Invoice/cac:PayeeParty/cac:PartyName">
-        <Beneficiario>
-          <xsl:value-of select="/in:Invoice/cac:PayeeParty/cac:PartyName[1]/cbc:Name"/>
-        </Beneficiario>
       </xsl:if>
-      <ModalitaPagamento>
-        <xsl:value-of select="if (cbc:PaymentMeansCode = '9' and /in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:www.ubl-italia.org:spec:fatturapa:modalita_pagamento']/ext:ExtensionContent/cbc:TypeCode) then /in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:www.ubl-italia.org:spec:fatturapa:modalita_pagamento']/ext:ExtensionContent/cbc:TypeCode else (if (document($xclPaymentMeansCode)//Value[@ColumnRef='xcode']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/cbc:PaymentMeansCode]) then document($xclPaymentMeansCode)//Value[@ColumnRef='xcode']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/cbc:PaymentMeansCode][1] else 'MP05')"/>
-      </ModalitaPagamento>
-      <xsl:if test="/in:Invoice/cac:PaymentTerms[1]/cac:SettlementPeriod/cbc:StartDate">
-        <DataRiferimentoTerminiPagamento>
-          <xsl:value-of select="substring(string(/in:Invoice/cac:PaymentTerms[1]/cac:SettlementPeriod/cbc:StartDate),1,10)"/>
-        </DataRiferimentoTerminiPagamento>
+      <xsl:if test="cac:Country/cbc:IdentificationCode = 'IT'">
+        <Provincia>
+          <xsl:value-of select="cbc:CountrySubentity"/>
+        </Provincia>
       </xsl:if>
-      <xsl:if test="/in:Invoice/cac:PaymentTerms[1]/cac:SettlementPeriod/cbc:DurationMeasure">
-        <GiorniTerminiPagamento>
-          <xsl:value-of select="/in:Invoice/cac:PaymentTerms[1]/cac:SettlementPeriod/cbc:DurationMeasure"/>
-        </GiorniTerminiPagamento>
+      <Nazione>
+        <xsl:value-of select="cac:Country/cbc:IdentificationCode"/>
+      </Nazione>
+    </Sede>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="cac:PartyLegalEntity[cac:CorporateRegistrationScheme/cbc:Name!='REA' and cbc:CompanyID/@schemeID='ZZZ' and cac:RegistrationAddress/cbc:CityName]"                 mode="ProvinciaAlbo">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <ProvinciaAlbo>
+    <xsl:value-of select="if (string-length(cac:RegistrationAddress/cbc:CityName)=2) then cac:RegistrationAddress/cbc:CityName else document($xclProvinceItaliane)//Value[@ColumnRef='code']/SimpleValue[contains(lower-case(translate(../../Value[@ColumnRef='xname']/SimpleValue,'áàéèíìóòúù','aaeeiioouu')), lower-case(translate(current()/cac:RegistrationAddress/cbc:CityName,'áàéèíìóòúù','aaeeiioouu')))][1]"/>
+  </ProvinciaAlbo>
+</xsl:template>
+<xsl:template match="cac:PartyLegalEntity[cbc:CompanyID[@schemeID='ZZZ'] and cbc:RegistrationDate and cac:CorporateRegistrationScheme/cbc:Name!='REA']"                 mode="DataIscrizioneAlbo">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <DataIscrizioneAlbo>
+    <xsl:value-of select="&#x9;substring(string(cbc:RegistrationDate),1,10)"/>
+  </DataIscrizioneAlbo>
+</xsl:template>
+<xsl:template match="cac:PartyTaxScheme[cac:TaxScheme/cbc:ID='VAT']/cbc:CompanyID[@schemeID = 'IT:CF']"                 mode="RappresentanteFiscale_CF">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test="not(../../cac:Person[1]/cbc:ID[@schemeID='IT:CF'])">
+    <CodiceFiscale>
+      <xsl:value-of select="if (string-length(.) = 13) then substring(., 3) else ."/>
+    </CodiceFiscale>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="cac:PartyTaxScheme[cac:TaxScheme/cbc:ID='VAT']/cbc:CompanyID[@schemeID = 'IT:CF']"                 mode="CessionarioCommittente_CF">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test="not(../../cac:Person[1]/cbc:ID[@schemeID='IT:CF'])">
+    <CodiceFiscale>
+      <xsl:value-of select="if (string-length(.) = 13) then substring(., 3) else ."/>
+    </CodiceFiscale>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="cac:PartyTaxScheme[cac:TaxScheme/cbc:ID='VAT']/cbc:CompanyID[@schemeID = 'IT:CF']"                 mode="Vettore_CF">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test="not(../../cac:Person[1]/cbc:ID[@schemeID='IT:CF'])">
+    <CodiceFiscale>
+      <xsl:value-of select="if (string-length(.) = 13) then substring(., 3) else ."/>
+    </CodiceFiscale>
+  </xsl:if>
+</xsl:template>
+<!-- Rappresentante fiscale ora p.iva viene presa sempre dal PartyTaxScheme-->
+<xsl:template match="cac:PartyTaxScheme/cbc:CompanyID"                 mode="RappresentanteFiscale_PIVA">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <IdFiscaleIVA>
+    <IdPaese>
+      <xsl:value-of select="substring(.,1,2)"/>
+    </IdPaese>
+    <IdCodice>
+      <xsl:value-of select="substring(.,3,string-length(.)-2)"/>
+    </IdCodice>
+  </IdFiscaleIVA>
+</xsl:template>
+<xsl:template  match="cac:PartyTaxScheme/cbc:CompanyID"                 mode="CessionarioCommittente_PIVA">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <IdFiscaleIVA>
+    <IdPaese>
+      <xsl:value-of select="substring(.,1,2)"/>
+    </IdPaese>
+    <IdCodice>
+      <xsl:value-of select="substring(.,3,string-length(.)-2)"/>
+    </IdCodice>
+  </IdFiscaleIVA>
+</xsl:template>
+<xsl:template match="cac:PartyTaxScheme[cac:TaxScheme/cbc:ID='VAT']/cbc:CompanyID[not(@schemeID = 'IT:CF')][1]"                 mode="Vettore_PIVA">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <IdFiscaleIVA>
+    <IdPaese>
+      <xsl:value-of select="upper-case(if (matches(./@schemeID,'^[a-zA-Z]{2}:')) then substring-before(./@schemeID,':') else (if (matches(.,'^[a-zA-Z]{2}')) then substring(.,1,2) else 'IT'))"/>
+    </IdPaese>
+    <IdCodice>
+      <xsl:value-of select="if (upper-case(substring(.,1,2))=upper-case(substring-before(./@schemeID,':'))) then substring(.,3) else ."/>
+    </IdCodice>
+  </IdFiscaleIVA>
+</xsl:template>
+<xsl:template match="cac:PaymentMeans">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <DettaglioPagamento>
+    <xsl:if test="/in:Invoice/cac:PayeeParty/cac:PartyName">
+      <Beneficiario>
+        <xsl:value-of select="/in:Invoice/cac:PayeeParty/cac:PartyName[1]/cbc:Name"/>
+      </Beneficiario>
+    </xsl:if>
+    <!--TODO:Manca per esempio sepa con n59-->
+    <ModalitaPagamento>
+      <xsl:value-of select="(if (document($xclPaymentMeansCode)//Value[@ColumnRef='xcode']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/cbc:PaymentMeansCode]) then document($xclPaymentMeansCode)//Value[@ColumnRef='xcode']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/cbc:PaymentMeansCode][1] else 'MP05')"/>
+    </ModalitaPagamento>
+    <xsl:if test=" contains (/in:Invoice/cac:PaymentTerms[1]/cbc:Note,'#')">
+      <GiorniTerminiPagamento>
+        <xsl:value-of select="substring-after(/in:Invoice/cac:PaymentTerms[1]/cbc:Note,'#')"/>
+      </GiorniTerminiPagamento>
+    </xsl:if>
+    <xsl:if test="/in:Invoice/cbc:DueDate">
+      <DataScadenzaPagamento>
+        <xsl:value-of select="substring(string(/in:Invoice/cbc:DueDate),1,10)"/>
+      </DataScadenzaPagamento>
+    </xsl:if>
+    <ImportoPagamento>
+      <xsl:value-of select="format-number(/in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount,'###########0.00')"/>
+    </ImportoPagamento>
+    <!--TODO: se Mp04 deve apparire anche il blocco dell'agent party ma quel metodo di pagamento non è mappato nel documento (colonna =code)-->
+    <xsl:if test="cbc:PaymentMeansCode = '10' or cbc:PaymentMeansCode = '20'">
+      <xsl:if test="/in:Invoice/cac:PayeeParty/cac:PartyIdentification">
+        <CognomeQuietanzante>
+          <xsl:value-of select="substring-before(/in:Invoice/cac:PayeeParty/cac:PartyIdentification/cbc:ID,'#')"/>
+        </CognomeQuietanzante>
+        <NomeQuietanzante>
+          <xsl:value-of select="substring-after(/in:Invoice/cac:PayeeParty/cac:PartyIdentification/cbc:ID,'#')"/>
+        </NomeQuietanzante>
+        <CFQuietanzante>
+          <xsl:value-of select="/in:Invoice/cac:PayeeParty/cac:PartyLegalEntity/cbc:CompanyID"/>
+        </CFQuietanzante>
       </xsl:if>
-
-      <ImportoPagamento>
-        <xsl:value-of select="format-number(if (/in:Invoice/cac:PaymentTerms[1]/cbc:Amount) then /in:Invoice/cac:PaymentTerms[1]/cbc:Amount else (if (/in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount) then (xs:decimal(/in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount) - xs:decimal(sum(/in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount))) else /in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount),'###########0.00')"/>
-      </ImportoPagamento>
-      <xsl:apply-templates select="cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cac:FinancialInstitution">
+    </xsl:if>
+    <xsl:if test="cac:PayeeFinancialAccount">
+      <IBAN>
+        <xsl:value-of select="cac:PayeeFinancialAccount/cbc:ID"/>
+      </IBAN>
+    </xsl:if>
+    <xsl:if test="cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch">
+      <BIC>
+        <xsl:value-of select="cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID"/>
+      </BIC>
+    </xsl:if>
+    <xsl:if test="/in:Invoice/cac:PaymentTerms[1]/cbc:SettlementDiscountAmount">
+      <ScontoPagamentoAnticipato>
+        <xsl:value-of select="format-number(/in:Invoice/cac:PaymentTerms[1]/cbc:SettlementDiscountAmount,'###########0.00')"/>
+      </ScontoPagamentoAnticipato>
+    </xsl:if>
+    <xsl:if test="/in:Invoice/cac:PaymentTerms[1]/cac:SettlementPeriod/cbc:EndDate">
+      <DataLimitePagamentoAnticipato>
+        <xsl:value-of select="substring(string(/in:Invoice/cac:PaymentTerms[1]/cac:SettlementPeriod/cbc:EndDate),1,10)"/>
+      </DataLimitePagamentoAnticipato>
+    </xsl:if>
+    <xsl:if test="/in:Invoice/cac:PaymentTerms[1]/cbc:PenaltyAmount">
+      <PenalitaPagamentiRitardati>
+        <xsl:value-of select="format-number(/in:Invoice/cac:PaymentTerms[1]/cbc:PenaltyAmount,'###########0.00')"/>
+      </PenalitaPagamentiRitardati>
+    </xsl:if>
+    <xsl:if test="/in:Invoice/cac:PaymentTerms[1]/cac:PenaltyPeriod/cbc:StartDate">
+      <DataDecorrenzaPenale>
+        <xsl:value-of select="substring(string(/in:Invoice/cac:PaymentTerms[1]/cac:PenaltyPeriod/cbc:StartDate),1,10)"/>
+      </DataDecorrenzaPenale>
+    </xsl:if>
+    <xsl:if test="cbc:PaymentID">
+      <CodicePagamento>
+        <xsl:value-of select="cbc:PaymentID"/>
+      </CodicePagamento>
+    </xsl:if>
+  </DettaglioPagamento>
+</xsl:template>
+<xsl:template match="cac:ReceiptDocumentReference">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test="count(/in:Invoice/cac:InvoiceLine/cac:ReceiptLineReference) = 0">
+    <DatiRicezione>
+      <IdDocumento>
+        <xsl:value-of select="cbc:ID"/>
+      </IdDocumento>
+      <xsl:if test="cbc:IssueDate">
+        <Data>
+          <xsl:value-of select="&#x9;substring(string(cbc:IssueDate),1,10)"/>
+        </Data>
+      </xsl:if>
+      <xsl:apply-templates select="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CommessaConvenzione_RICEZIONE']/cbc:ID"                                 mode="DatiRicezione_CommessaConvenzione">
         <xsl:with-param name="CN" select="current()"/>
         <xsl:with-param name="CNP" select="position()"/>
       </xsl:apply-templates>
-      <xsl:if test="(not(cbc:PaymentChannelCode) or cbc:PaymentChannelCode='IBAN') and cac:PayeeFinancialAccount/cbc:ID[@schemeID='IBAN']">
-        <IBAN>
-          <xsl:value-of select="cac:PayeeFinancialAccount/cbc:ID"/>
-        </IBAN>
-      </xsl:if>
-      <xsl:if test="cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cac:FinancialInstitution/cbc:ID[@schemeID='ABI']">
-        <ABI>
-          <xsl:value-of select="cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cac:FinancialInstitution/cbc:ID"/>
-        </ABI>
-      </xsl:if>
-      <xsl:if test="cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID[@schemeID='CAB']">
-        <CAB>
-          <xsl:value-of select="&#x9;cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID"/>
-        </CAB>
-      </xsl:if>
-      <xsl:if test="(not(cbc:PaymentChannelCode) or cbc:PaymentChannelCode='IBAN') and cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cac:FinancialInstitution/cbc:ID[.!='XXXXITX0' and (not(@schemeID) or @schemeID='BIC')]">
-        <BIC>
-          <xsl:value-of select="cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cac:FinancialInstitution/cbc:ID"/>
-        </BIC>
-      </xsl:if>
-      <xsl:if test="/in:Invoice/cac:PaymentTerms[1]/cbc:SettlementDiscountAmount">
-        <ScontoPagamentoAnticipato>
-          <xsl:value-of select="format-number(/in:Invoice/cac:PaymentTerms[1]/cbc:SettlementDiscountAmount,'###########0.00')"/>
-        </ScontoPagamentoAnticipato>
-      </xsl:if>
-      <xsl:if test="/in:Invoice/cac:PaymentTerms[1]/cac:SettlementPeriod/cbc:EndDate">
-        <DataLimitePagamentoAnticipato>
-          <xsl:value-of select="substring(string(/in:Invoice/cac:PaymentTerms[1]/cac:SettlementPeriod/cbc:EndDate),1,10)"/>
-        </DataLimitePagamentoAnticipato>
-      </xsl:if>
-      <xsl:if test="/in:Invoice/cac:PaymentTerms[1]/cbc:PenaltyAmount">
-        <PenalitaPagamentiRitardati>
-          <xsl:value-of select="format-number(/in:Invoice/cac:PaymentTerms[1]/cbc:PenaltyAmount,'###########0.00')"/>
-        </PenalitaPagamentiRitardati>
-      </xsl:if>
-      <xsl:if test="/in:Invoice/cac:PaymentTerms[1]/cac:PenaltyPeriod/cbc:StartDate">
-        <DataDecorrenzaPenale>
-          <xsl:value-of select="substring(string(/in:Invoice/cac:PaymentTerms[1]/cac:PenaltyPeriod/cbc:StartDate),1,10)"/>
-        </DataDecorrenzaPenale>
-      </xsl:if>
-      <xsl:if test="cbc:PaymentID">
-        <CodicePagamento>
-          <xsl:value-of select="cbc:PaymentID"/>
-        </CodicePagamento>
-      </xsl:if>
-    </DettaglioPagamento>
-  </xsl:template>
-  <xsl:template match="cac:ReceiptDocumentReference">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="count(/in:Invoice/cac:InvoiceLine/cac:ReceiptLineReference) = 0">
-      <DatiRicezione>
-        <IdDocumento>
-          <xsl:value-of select="cbc:ID"/>
-        </IdDocumento>
-        <xsl:if test="cbc:IssueDate">
-          <Data>
-            <xsl:value-of select="&#x9;substring(string(cbc:IssueDate),1,10)"/>
-          </Data>
-        </xsl:if>
-        <xsl:apply-templates select="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CommessaConvenzione_RICEZIONE']/cbc:ID"                                 mode="DatiRicezione_CommessaConvenzione">
+      <xsl:apply-templates select="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CUP_RICEZIONE']/cbc:ID"                                 mode="DatiRicezione_CUP">
+        <xsl:with-param name="CN" select="current()"/>
+        <xsl:with-param name="CNP" select="position()"/>
+      </xsl:apply-templates>
+      <xsl:apply-templates select="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CIG_RICEZIONE']/cbc:ID"                                 mode="DatiRicezione_CIG">
+        <xsl:with-param name="CN" select="current()"/>
+        <xsl:with-param name="CNP" select="position()"/>
+      </xsl:apply-templates>
+    </DatiRicezione>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="cac:TaxRepresentativeParty">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test=".">
+    <RappresentanteFiscale>
+      <DatiAnagrafici>
+        <xsl:apply-templates select="cac:PartyTaxScheme/cbc:CompanyID"          mode="RappresentanteFiscale_PIVA">
           <xsl:with-param name="CN" select="current()"/>
           <xsl:with-param name="CNP" select="position()"/>
         </xsl:apply-templates>
-        <xsl:apply-templates select="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CUP_RICEZIONE']/cbc:ID"                                 mode="DatiRicezione_CUP">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-        <xsl:apply-templates select="/in:Invoice/cac:AdditionalDocumentReference[cbc:DocumentType='CIG_RICEZIONE']/cbc:ID"                                 mode="DatiRicezione_CIG">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-      </DatiRicezione>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:TaxRepresentativeParty">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test=".">
-      <RappresentanteFiscale>
-        <DatiAnagrafici>
-          <xsl:apply-templates select="cac:PartyTaxScheme[cac:TaxScheme/cbc:ID='VAT']/cbc:CompanyID[not(@schemeID = 'IT:CF')][1]"                                    mode="RappresentanteFiscale_PIVA">
-            <xsl:with-param name="CN" select="current()"/>
-            <xsl:with-param name="CNP" select="position()"/>
-          </xsl:apply-templates>
-          <xsl:if test="cac:Person[1]/cbc:ID[@schemeID='IT:CF']">
+        <!-- DONE scelta di codice EORI o CF in taxRapresentativeParty-->
+        <xsl:choose>
+          <xsl:when test="contains(lower-case(cac:PartyIdentification/cbc:ID[contains(., 'CF:')]),'cf:')">
             <CodiceFiscale>
-              <xsl:value-of select="cac:Person[1]/cbc:ID[@schemeID='IT:CF']"/>
+              <xsl:value-of select="substring-after(lower-case(cac:PartyIdentification/cbc:ID[contains(., 'CF:')]),'cf:')"/>
             </CodiceFiscale>
+          </xsl:when>
+          <xsl:when test="cac:PartyIdentification/cbc:ID[@schemeID='0210']">
+            <CodiceFiscale>
+              <xsl:value-of select="cac:PartyIdentification/cbc:ID[@schemeID='0210']"/>
+            </CodiceFiscale>
+          </xsl:when>
+        </xsl:choose>
+        <Anagrafica>
+          <xsl:if test="cac:PartyName">
+            <xsl:choose>
+              <xsl:when test="contains(cac:PartyName/cbc:Name,'Denominazione:')">
+                <Denominazione>
+                  <xsl:value-of select="substring-after(cac:PartyName/cbc:Name,'Denominazione:')"/>
+                </Denominazione>
+              </xsl:when>
+              <xsl:when test="contains(cac:PartyName/cbc:Name,'Nome') and contains(cac:PartyName/cbc:Name,'Cognome')">
+                <Nome>
+                  <xsl:value-of select="substring-after(substring-before(cac:PartyName/cbc:Name,'#'),':')"/>
+                </Nome>
+                <Cognome>
+                  <xsl:value-of select="substring-after(cac:PartyName/cbc:Name,'#')"/>
+                </Cognome>
+              </xsl:when>
+              <xsl:otherwise>
+                <Denominazione>
+                  <xsl:value-of select="cac:PartyName/cbc:Name"/>
+                </Denominazione>
+              </xsl:otherwise>
+            </xsl:choose>
           </xsl:if>
-          <xsl:apply-templates select="cac:PartyTaxScheme[cac:TaxScheme/cbc:ID='VAT']/cbc:CompanyID[@schemeID = 'IT:CF']"                                    mode="RappresentanteFiscale_CF">
-            <xsl:with-param name="CN" select="current()"/>
-            <xsl:with-param name="CNP" select="position()"/>
-          </xsl:apply-templates>
-          <Anagrafica>
-            <xsl:if test="cac:PartyName/cbc:Name and not(cac:Person[cbc:ID[@schemeID='IT:CF']]/cbc:FamilyName)">
-              <Denominazione>
-                <xsl:value-of select="normalize-space(cac:PartyName[1]/cbc:Name)"/>
-              </Denominazione>
-            </xsl:if>
-            <xsl:if test="cac:Person/cbc:FirstName and cac:Person/cbc:FamilyName and cac:Person/cbc:ID[@schemeID='IT:CF']">
-              <Nome>
-                <xsl:value-of select="cac:Person[1]/cbc:FirstName"/>
-              </Nome>
-            </xsl:if>
-            <xsl:if test="cac:Person/cbc:FirstName and cac:Person/cbc:FamilyName and cac:Person/cbc:ID[@schemeID='IT:CF']">
-              <Cognome>
-                <xsl:value-of select="cac:Person[1]/cbc:FamilyName"/>
-              </Cognome>
-            </xsl:if>
-            <xsl:if test="cac:Person/cbc:Title and cac:Person/cbc:FamilyName and not(cac:PartyName/cbc:Name)">
-              <Titolo>
-                <xsl:value-of select="cac:Person[1]/cbc:Title"/>
-              </Titolo>
-            </xsl:if>
-          </Anagrafica>
-        </DatiAnagrafici>
-      </RappresentanteFiscale>
-    </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:TaxTotal/cac:TaxSubtotal" mode="DatiRiepilogo">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="cac:TaxCategory/cac:TaxScheme/cbc:ID='VAT'">
-      <DatiRiepilogo>
-        <AliquotaIVA>
-          <xsl:value-of select="if (cac:TaxCategory/cbc:Percent &gt;= 0) then format-number(cac:TaxCategory/cbc:Percent,'##0.00') else '0.00'"/>
-        </AliquotaIVA>
-        <xsl:if test="cac:TaxCategory[cbc:ID and cbc:ID[not(contains(' S AA H ',concat(' ',normalize-space(.),' ')))] and cac:TaxScheme/cbc:ID='VAT']">
+          <!--EORI come ID del PartyIdentification-->
+          <xsl:if test="contains(cac:PartyIdentification/cbc:ID[contains(., 'EORI:')],'EORI:')">
+            <CodEORI>
+              <xsl:value-of select="substring-after(cac:PartyIdentification/cbc:ID[contains(., 'EORI:')],'EORI:')"/>
+            </CodEORI>
+          </xsl:if>
+        </Anagrafica>
+      </DatiAnagrafici>
+    </RappresentanteFiscale>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="cac:TaxTotal/cac:TaxSubtotal" mode="DatiRiepilogo">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <!--TODO check if ok, non deve comparire quando bollo non addebitato, va in errore la 34 , solo perchè non crea i dati riepilogo-->
+  <!--<xsl:if test="cac:TaxCategory/cac:TaxScheme/cbc:ID='VAT' and ((format-number(cbc:TaxableAmount,'##0.00')!='0.00') or (format-number(cbc:TaxAmount,'##0.00')!='0.00'))">-->
+  <DatiRiepilogo>
+    <AliquotaIVA>
+      <xsl:value-of select="if (cac:TaxCategory/cbc:Percent &gt;= 0) then format-number(cac:TaxCategory/cbc:Percent,'##0.00') else '0.00'"/>
+    </AliquotaIVA>
+    <xsl:if test="cac:TaxCategory/cbc:ID">
+      <xsl:choose>
+        <xsl:when test="cac:TaxCategory/cbc:ID !='Z' and cac:TaxCategory/cbc:ID !='B' and cac:TaxCategory/cbc:ID !='S'">
+          <xsl:if test="contains(cac:TaxCategory/cbc:TaxExemptionReason,'#')">
+            <Natura>
+              <xsl:value-of select="substring-before(cac:TaxCategory/cbc:TaxExemptionReason,'#')"/>
+            </Natura>
+          </xsl:if>
+          <!---->
+          <xsl:if test="not(contains(cac:TaxCategory/cbc:TaxExemptionReason,'#'))">
+            <Natura>
+              <xsl:value-of select="cac:TaxCategory/cbc:TaxExemptionReason"/>
+            </Natura>
+          </xsl:if>
+        </xsl:when>
+        <xsl:when test="cac:TaxCategory/cbc:ID ='Z'">
           <Natura>
-            <xsl:value-of select="if (/in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = concat('urn:www.ubl-italia.org:spec:fatturapa:xref:natura_riepilogo::', 1 + count(current()/preceding-sibling::cac:TaxSubtotal))]) then /in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = concat('urn:www.ubl-italia.org:spec:fatturapa:xref:natura_riepilogo::', 1 + count(current()/preceding-sibling::cac:TaxSubtotal))]/ext:ExtensionContent/cr:XCode else (if (/in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI=concat('urn:www.ubl-italia.org:spec:fatturapa:xref:natura::', current()/cac:TaxCategory/cbc:ID)]) then /in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI=concat('urn:www.ubl-italia.org:spec:fatturapa:xref:natura::', current()/cac:TaxCategory/cbc:ID)]/ext:ExtensionContent/cr:XCode else (document($xclCategoriaImposte)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xcode']/SimpleValue=current()/cac:TaxCategory/cbc:ID])[1])"/>
+            <xsl:text>N1</xsl:text>
           </Natura>
-        </xsl:if>
-        <xsl:apply-templates select="/*/ext:UBLExtensions/ext:UBLExtension" mode="RiepilogoSpeseAccessorie">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
+        </xsl:when>
+      </xsl:choose>
+    </xsl:if>
+    <xsl:choose>
+      <xsl:when test="/*/ext:UBLExtensions/ext:UBLExtension[ExtensionURI='urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento']">
         <xsl:apply-templates select="/*/ext:UBLExtensions/ext:UBLExtension" mode="RiepilogoArrotondamento">
           <xsl:with-param name="CN" select="current()"/>
           <xsl:with-param name="CNP" select="position()"/>
         </xsl:apply-templates>
-        <ImponibileImporto>
-          <xsl:value-of select="if (&#x9;cbc:TaxableAmount &gt;= 0) then format-number(floor(cbc:TaxableAmount * 100 + 0.5) div 100,'###########0.00') else '0.00'"/>
-        </ImponibileImporto>
-        <Imposta>
-          <xsl:value-of select="if (cbc:TaxAmount &gt;= 0) then format-number(floor(cbc:TaxAmount * 100 + 0.5) div 100,'###########0.00') else '0.00'"/>
-        </Imposta>
-        <xsl:if test="/in:Invoice/cac:TaxTotal/cbc:TaxAmount &gt; 0">
-          <xsl:if test="/in:Invoice/cac:InvoicePeriod/cbc:DescriptionCode eq '3'">
-            <EsigibilitaIVA>I</EsigibilitaIVA>
-          </xsl:if>
-          <xsl:if test="/in:Invoice/cac:InvoicePeriod/cbc:DescriptionCode eq '35'">
-            <EsigibilitaIVA>I</EsigibilitaIVA>
-          </xsl:if>
-          <xsl:if test="/in:Invoice/cac:InvoicePeriod/cbc:DescriptionCode eq '432'">
-            <EsigibilitaIVA>D</EsigibilitaIVA>
-          </xsl:if>
-          <xsl:if test="contains(/in:Invoice/cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:ID,'B')">
-            <EsigibilitaIVA>S</EsigibilitaIVA>
-          </xsl:if>
-          <!--TODO ne manca uno che invoca il controllo del BT-118 invece del BT-8
-          <xsl:if test="/in:Invoice/cac:InvoicePeriod/cbc:DescriptionCode=='I'">
-            <EsigibilitaIVA>
-
-            </EsigibilitaIVA> -->
-      </xsl:if>
-
-        <xsl:if test="cac:TaxCategory/cbc:TaxExemptionReason">
-          <RiferimentoNormativo>
-            <xsl:value-of select="cac:TaxCategory/cbc:TaxExemptionReason"/>
-          </RiferimentoNormativo>
-        </xsl:if>
-      </DatiRiepilogo>
+      </xsl:when>
+      <!--TODO: condizione se taxamount non è espresso con i decimali giusti bisogna fare - (arrotondamento(taxamount))-->
+      <xsl:when test=" format-number(cbc:TaxAmount,'###########0.00000000') != format-number(cbc:TaxableAmount * cac:TaxCategory/cbc:Percent div 100.00,'###########0.00000000')">
+        <Arrotondamento>
+          <xsl:value-of select=" concat('-',format-number((cbc:TaxAmount - (cbc:TaxableAmount * cac:TaxCategory/cbc:Percent div 100.00)),'###########0.00000000'))"/>
+        </Arrotondamento>
+      </xsl:when>
+    </xsl:choose>
+    <ImponibileImporto>
+      <xsl:value-of select="if (&#x9;cbc:TaxableAmount &gt;= 0) then format-number(floor(cbc:TaxableAmount * 100 + 0.5) div 100,'###########0.00') else '0.00'"/>
+    </ImponibileImporto>
+    <Imposta>
+      <xsl:value-of select="if (cbc:TaxAmount &gt;= 0) then format-number(floor(cbc:TaxAmount * 100 + 0.5) div 100,'###########0.00') else '0.00'"/>
+    </Imposta>
+    <xsl:choose>
+      <xsl:when test="cac:TaxCategory/cbc:ID ='B'">
+        <EsigibilitaIVA>
+          <xsl:text>S</xsl:text>
+        </EsigibilitaIVA>
+      </xsl:when>
+      <xsl:when test="/in:Invoice/cac:InvoicePeriod/cbc:DescriptionCode='3'">
+        <EsigibilitaIVA>
+          <xsl:text>I</xsl:text>
+        </EsigibilitaIVA>
+      </xsl:when>
+      <xsl:when test="/in:Invoice/cac:InvoicePeriod/cbc:DescriptionCode='35'">
+        <EsigibilitaIVA>
+          <xsl:text>I</xsl:text>
+        </EsigibilitaIVA>
+      </xsl:when>
+      <xsl:when test="/in:Invoice/cac:InvoicePeriod/cbc:DescriptionCode='432'">
+        <EsigibilitaIVA>
+          <xsl:text>D</xsl:text>
+        </EsigibilitaIVA>
+      </xsl:when>
+    </xsl:choose>
+    <xsl:if test="cac:TaxCategory/cbc:ID ='Z'">
+      <RiferimentoNormativo>
+        <xsl:text>Operazione esclusa ex. art. 15</xsl:text>
+      </RiferimentoNormativo>
     </xsl:if>
-  </xsl:template>
-  <xsl:template match="cac:WithholdingTaxTotal">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test=".">
-      <DatiRitenuta>
-        <xsl:apply-templates select="/in:Invoice/cac:AccountingSupplierParty/cac:Party"                                 mode="RitenutaPersoneFisiche">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-        <xsl:apply-templates select="/in:Invoice/cac:AccountingSupplierParty/cac:Party"                                 mode="RitenutaPersoneGiuridiche">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-        <xsl:apply-templates select="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta']/ext:ExtensionContent/cr:XCode">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-        <xsl:apply-templates select="/*/ext:UBLExtensions/ext:UBLExtension" mode="OgniRitenuta">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-        <ImportoRitenuta>
-          <xsl:value-of select="format-number(floor(cbc:TaxAmount * 100 + 0.5) div 100,'###########0.00')"/>
-        </ImportoRitenuta>
-        <AliquotaRitenuta>
-          <xsl:value-of select="format-number(cac:TaxSubtotal/cac:TaxCategory/cbc:Percent,'##0.00')"/>
-        </AliquotaRitenuta>
-        <CausalePagamento>
-          <xsl:value-of select="cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:TaxTypeCode"/>
-        </CausalePagamento>
-      </DatiRitenuta>
+    <xsl:if test="cac:TaxCategory/cbc:ID !='Z' and contains(cac:TaxCategory/cbc:TaxExemptionReason,'#')">
+      <RiferimentoNormativo>
+        <xsl:value-of select="substring-after(cac:TaxCategory/cbc:TaxExemptionReason,'#')"/>
+      </RiferimentoNormativo>
     </xsl:if>
-  </xsl:template>
-  <xsl:template match="cbc:ID" mode="TipoCessionePrestazione">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <xsl:if test="@schemeID">
-      <TipoCessionePrestazione>
-        <xsl:value-of select="@schemeID"/>
-      </TipoCessionePrestazione>
+  </DatiRiepilogo>
+  <!--</xsl:if>-->
+</xsl:template>
+<xsl:template match="/in:Invoice/cac:AccountingSupplierParty/cac:Party"                 mode="RitenutaPersoneFisiche2">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test="cac:Person and not(/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI,'urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta')])">
+    <TipoRitenuta>
+      <xsl:text>RT01</xsl:text>
+    </TipoRitenuta>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="cac:Item/cac:AdditionalItemProperty" mode="TipoCessionePrestazione">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <xsl:if test="contains(./cbc:Name,'TipoCessionePrestazione')">
+    <TipoCessionePrestazione>
+      <xsl:value-of select="./cbc:Value"/>
+    </TipoCessionePrestazione>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="cbc:Note">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <Causale>
+    <xsl:value-of select="normalize-space(.)"/>
+  </Causale>
+</xsl:template>
+<!--Done 1.1.1.1<IDTrasmittente>   -->
+<xsl:template match="/in:Invoice/cac:AccountingSupplierParty"      mode="IdService">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <!--Se presente il Service provider party ed è IT lo prendo da cac:PartyIdentification/cbc:ID-->
+  <xsl:if test=" ./cac:Party/cac:ServiceProviderParty and substring(./cac:Party/cac:ServiceProviderParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID,1,2)='IT'">
+    <xsl:choose>
+      <xsl:when test="./cac:Party/cac:ServiceProviderParty/cac:Party/cac:PartyIdentification/cbc:ID[@schemeID='0210']">
+        <IdPaese>
+          <xsl:text>IT</xsl:text>
+        </IdPaese>
+        <IdCodice>
+          <xsl:value-of select="./cac:Party/cac:ServiceProviderParty/cac:Party/cac:PartyIdentification/cbc:ID[@schemeID='0210']"/>
+        </IdCodice>
+      </xsl:when>
+      <xsl:when test="starts-with(./cac:Party/cac:ServiceProviderParty/cac:Party/cac:PartyIdentification/cbc:ID[contains(., 'CF:')],'CF:')">
+        <IdPaese>
+          <xsl:text>IT</xsl:text>
+        </IdPaese>
+        <IdCodice>
+          <xsl:value-of select="substring-after(./cac:Party/cac:ServiceProviderParty/cac:Party/cac:PartyIdentification/cbc:ID[contains(., 'CF:')],'CF:')"/>
+        </IdCodice>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:if>
+  <!--TODO: Capire come identificare il paese straniero_____Se presente il Service provider party e non è italiano lo prendo da cac:PartyTaxScheme/cbc:CompanyID-->
+  <xsl:if test=" ./cac:Party/cac:ServiceProviderParty and substring(./cac:Party/cac:ServiceProviderParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID,1,2) !='IT'">
+    <IdPaese>
+      <xsl:value-of select="substring(./cac:Party/cac:ServiceProviderParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID,1,2)"/>
+    </IdPaese>
+    <IdCodice>
+      <xsl:value-of select="substring(./cac:Party/cac:ServiceProviderParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID,3,string-length(./cac:Party/cac:ServiceProviderParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID)-2)"/>
+    </IdCodice>
+  </xsl:if>
+  <!--Se non è presente il Service Provider party e se Acconting supplier != 'IT' lo prendo dal companyId del PartyTaxScheme-->
+  <xsl:if test="./cac:Party/cac:PartyTaxScheme/cbc:CompanyID and not(./cac:Party/cac:ServiceProviderParty) and (./cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode != 'IT')">
+    <IdPaese>
+      <xsl:value-of select="substring(./cac:Party/cac:PartyTaxScheme/cbc:CompanyID,1,2)"/>
+    </IdPaese>
+    <IdCodice>
+      <xsl:value-of select="substring(./cac:Party/cac:PartyTaxScheme/cbc:CompanyID,3,string-length(./cac:Party/cac:PartyTaxScheme/cbc:CompanyID)-2)"/>
+    </IdCodice>
+  </xsl:if>
+  <!--Se non è presente il Service Provider party e se Acconting supplier = 'IT' lo prendo dal companyId del PartyLegalEntity-->
+  <xsl:if test="./cac:Party/cac:PartyTaxScheme/cbc:CompanyID and not(./cac:Party/cac:ServiceProviderParty) and ./cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT'">
+    <xsl:if test="./cac:Party/cac:PartyLegalEntity/cbc:CompanyID[@schemeID='0210']">
+      <IdPaese>
+        <xsl:text>IT</xsl:text>
+      </IdPaese>
     </xsl:if>
-  </xsl:template>
-  <xsl:template match="cbc:Note">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <Causale>
-      <xsl:value-of select="normalize-space(.)"/>
-    </Causale>
-  </xsl:template>
-  <xsl:template match="/in:Invoice" name="root">
-    <xsl:param name="CN" select="."/>
-    <xsl:param name="CNP" select="1"/>
-    <nx:FatturaElettronica>
-      <xsl:variable name="variable_d1e1a1049877">
-        <xsl:value-of select="normalize-space(ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:SistemaEmittente']/ext:ExtensionContent/cbc:Description)"/>
-      </xsl:variable>
-      <xsl:if test="string($variable_d1e1a1049877)">
-        <xsl:attribute name="SistemaEmittente">
-          <xsl:value-of select="string($variable_d1e1a1049877)"/>
-        </xsl:attribute>
-      </xsl:if>
-      <xsl:variable name="variable_d1e1a1050311">
-        <xsl:value-of select="if (starts-with(upper-case(cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID[1][@schemeID='IT:IPA']), 'CODDEST:')) then 'FPR12' else 'FPA12'"/>
-      </xsl:variable>
-      <xsl:if test="string($variable_d1e1a1050311)">
-        <xsl:attribute name="versione">
-          <xsl:value-of select="string($variable_d1e1a1050311)"/>
-        </xsl:attribute>
-      </xsl:if>
-      <FatturaElettronicaHeader>
-        <DatiTrasmissione>
-          <IdTrasmittente>
-            <IdPaese>
-              <xsl:text>IT</xsl:text>
-            </IdPaese>
-            <IdCodice>
-              <xsl:text>91252510374</xsl:text>
-            </IdCodice>
-          </IdTrasmittente>
-          <ProgressivoInvio>
-            <xsl:value-of select="$progInvio"/>
-          </ProgressivoInvio>
-          <xsl:if test="cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID[@schemeID='IT:IPA']">
-            <FormatoTrasmissione>
-              <xsl:value-of select="if (starts-with(upper-case(cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID[@schemeID='IT:IPA']), 'CODDEST:')) then 'FPR12' else 'FPA12'"/>
-            </FormatoTrasmissione>
-          </xsl:if>
-          <xsl:if test="not(cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID[@schemeID='IT:IPA'])">
-            <FormatoTrasmissione>
-              <xsl:text>FPR12</xsl:text>
-            </FormatoTrasmissione>
-          </xsl:if>
-          <xsl:apply-templates select="cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID[1][@schemeID='IT:IPA']"                                    mode="CodiceDestinatario">
+    <xsl:if test="not(./cac:Party/cac:PartyLegalEntity/cbc:CompanyID[@schemeID='0210'])">
+      <IdPaese>
+        <xsl:value-of select="./cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode"/>
+      </IdPaese>
+    </xsl:if>
+    <IdCodice>
+      <xsl:value-of select="./cac:Party/cac:PartyLegalEntity/cbc:CompanyID"/>
+    </IdCodice>
+  </xsl:if>
+</xsl:template>
+<!-- ServiceProviderParty template-->
+<xsl:template match="cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty"    mode="ServiceProviderParty_info">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <TerzoIntermediarioOSoggettoEmittente>
+    <DatiAnagrafici>
+      <IdFiscaleIVA>
+        <IdPaese>
+          <xsl:value-of select="substring(./cac:Party/cac:PartyTaxScheme/cbc:CompanyID,1,2)"/>
+        </IdPaese>
+        <IdCodice>
+          <xsl:value-of select="substring(./cac:Party/cac:PartyTaxScheme/cbc:CompanyID,3,string-length(./cac:Party/cac:PartyTaxScheme/cbc:CompanyID)-2)"/>
+        </IdCodice>
+      </IdFiscaleIVA>
+      <xsl:choose>
+        <xsl:when test="./cac:Party/cac:PartyIdentification/cbc:ID[@schemeID='0210']">
+          <CodiceFiscale>
+            <xsl:value-of select="./cac:Party/cac:PartyIdentification/cbc:ID[@schemeID='0210']"/>
+          </CodiceFiscale>
+        </xsl:when>
+        <xsl:when test="contains(lower-case(./cac:Party/cac:PartyIdentification/cbc:ID[contains(., 'CF:')]),'cf:')">
+          <CodiceFiscale>
+            <xsl:value-of select="substring-after(lower-case(./cac:Party/cac:PartyIdentification/cbc:ID[contains(., 'CF:')]),'cf:')"/>
+          </CodiceFiscale>
+        </xsl:when>
+      </xsl:choose>
+      <xsl:choose>
+        <xsl:when test="./cac:Party/cac:PartyName/cbc:Name">
+          <Anagrafica>
+            <Denominazione>
+              <xsl:value-of select="./cac:Party/cac:PartyName/cbc:Name"/>
+            </Denominazione>
+            <xsl:if test="contains(./cac:Party/cac:PartyIdentification/cbc:ID[contains(., 'EORI:')],'EORI:')">
+              <CodEORI>
+                <xsl:value-of select="substring-after(./cac:Party/cac:PartyIdentification/cbc:ID[contains(., 'EORI:')],'EORI:')"/>
+              </CodEORI>
+            </xsl:if>
+          </Anagrafica>
+        </xsl:when>
+        <xsl:when test="./cac:Party/cac:Person">
+          <Anagrafica>
+            <Nome>
+              <xsl:value-of select="./cac:Party/cac:Person/cbc:FirstName"/>
+            </Nome>
+            <Cognome>
+              <xsl:value-of select="./cac:Party/cac:Person/cbc:FamilyName"/>
+            </Cognome>
+            <xsl:if test="contains(./cac:Party/cac:PartyIdentification/cbc:ID[contains(., 'EORI:')],'EORI:')">
+              <CodEORI>
+                <xsl:value-of select="substring-after(./cac:Party/cac:PartyIdentification/cbc:ID[contains(., 'EORI:')],'EORI:')"/>
+              </CodEORI>
+            </xsl:if>
+          </Anagrafica>
+        </xsl:when>
+      </xsl:choose>
+    </DatiAnagrafici>
+  </TerzoIntermediarioOSoggettoEmittente>
+</xsl:template>
+<!--NB Inizio del documento-->
+<xsl:template match="/in:Invoice" name="root">
+  <xsl:param name="CN" select="."/>
+  <xsl:param name="CNP" select="1"/>
+  <nx:FatturaElettronica>
+    <xsl:variable name="variable_d1e1a1049877">
+      <xsl:value-of select="normalize-space(ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:SistemaEmittente']/ext:ExtensionContent/cbc:Description)"/>
+    </xsl:variable>
+    <xsl:if test="string($variable_d1e1a1049877)">
+      <xsl:attribute name="SistemaEmittente">
+        <xsl:value-of select="string($variable_d1e1a1049877)"/>
+      </xsl:attribute>
+    </xsl:if>
+    <xsl:variable name="variable_d1e1a1050311">
+      <xsl:value-of select="if (cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0201']) then 'FPA12' else 'FPR12'"/>
+    </xsl:variable>
+    <xsl:if test="string($variable_d1e1a1050311)">
+      <xsl:attribute name="versione">
+        <xsl:value-of select="string($variable_d1e1a1050311)"/>
+      </xsl:attribute>
+    </xsl:if>
+    <FatturaElettronicaHeader>
+      <DatiTrasmissione>
+        <IdTrasmittente>
+          <xsl:apply-templates select="/in:Invoice/cac:AccountingSupplierParty"                                    mode="IdService">
             <xsl:with-param name="CN" select="current()"/>
             <xsl:with-param name="CNP" select="position()"/>
           </xsl:apply-templates>
-          <xsl:if test="not(cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID[1][@schemeID='IT:IPA'])">
+        </IdTrasmittente>
+        <!--TODO da valutare a cosa serva-->
+        <ProgressivoInvio>
+          <xsl:value-of select="$progInvio"/>
+        </ProgressivoInvio>
+        <!--DONE :  1.1.3[Formato] -->
+        <xsl:if test="cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0201']">
+          <FormatoTrasmissione>
+            <xsl:text>FPA12</xsl:text>
+          </FormatoTrasmissione>
+        </xsl:if>
+        <xsl:if test="not(cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0201'])">
+          <FormatoTrasmissione>
+            <xsl:text>FPR12</xsl:text>
+          </FormatoTrasmissione>
+        </xsl:if>
+        <!--DONE :  1.1.4[CodiceDestinatario] -->
+        <xsl:choose>
+          <xsl:when test="cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0201']">
             <CodiceDestinatario>
-              <xsl:text>999999</xsl:text>
+              <xsl:value-of select="cac:AccountingCustomerParty/cac:Party/cbc:EndpointID"/>
             </CodiceDestinatario>
-          </xsl:if>
-          <xsl:apply-templates select="cac:AccountingCustomerParty/cac:Party/cac:Contact/cbc:ElectronicMail">
-            <xsl:with-param name="CN" select="current()"/>
-            <xsl:with-param name="CNP" select="position()"/>
-          </xsl:apply-templates>
-        </DatiTrasmissione>
-        <xsl:apply-templates select="cac:AccountingSupplierParty">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-        <xsl:apply-templates select="cac:TaxRepresentativeParty">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-        <xsl:apply-templates select="cac:AccountingCustomerParty">
-          <xsl:with-param name="CN" select="current()"/>
-          <xsl:with-param name="CNP" select="position()"/>
-        </xsl:apply-templates>
-        <TerzoIntermediarioOSoggettoEmittente>
-          <DatiAnagrafici>
-            <IdFiscaleIVA>
-              <IdPaese>
-                <xsl:text>IT</xsl:text>
-              </IdPaese>
-              <IdCodice>
-                <xsl:text>02792731206</xsl:text>
-              </IdCodice>
-            </IdFiscaleIVA>
-            <CodiceFiscale>
-              <xsl:text>91252510374</xsl:text>
-            </CodiceFiscale>
-            <Anagrafica>
-              <Denominazione>
-                <xsl:text>Intercent-ER, Agenzia regionale per lo sviluppo dei mercati telematici</xsl:text>
-              </Denominazione>
-            </Anagrafica>
-          </DatiAnagrafici>
-        </TerzoIntermediarioOSoggettoEmittente>
-        <SoggettoEmittente>
+          </xsl:when>
+          <xsl:when test="cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0205']">
+            <CodiceDestinatario>
+              <xsl:value-of select="cac:AccountingCustomerParty/cac:Party/cbc:EndpointID"/>
+            </CodiceDestinatario>
+          </xsl:when>
+          <!--TODO:Provvisorio per non mapping-->
+          <xsl:when test="cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0202']">
+            <CodiceDestinatario>
+              <xsl:text>0000000</xsl:text>
+            </CodiceDestinatario>
+            <PECDestinatario>
+              <xsl:value-of select="cac:AccountingCustomerParty/cac:Party/cbc:EndpointID"/>
+            </PECDestinatario>
+          </xsl:when>
+          <xsl:otherwise>
+            <CodiceDestinatario>
+              <xsl:text>XXXXXXX</xsl:text>
+            </CodiceDestinatario>
+          </xsl:otherwise>
+        </xsl:choose>
+      </DatiTrasmissione>
+      <xsl:apply-templates select="cac:AccountingSupplierParty">
+        <xsl:with-param name="CN" select="current()"/>
+        <xsl:with-param name="CNP" select="position()"/>
+      </xsl:apply-templates>
+      <xsl:apply-templates select="cac:TaxRepresentativeParty">
+        <xsl:with-param name="CN" select="current()"/>
+        <xsl:with-param name="CNP" select="position()"/>
+      </xsl:apply-templates>
+      <xsl:apply-templates select="cac:AccountingCustomerParty">
+        <xsl:with-param name="CN" select="current()"/>
+        <xsl:with-param name="CNP" select="position()"/>
+      </xsl:apply-templates>
+      <!--NB:Nuovo templateperServiceProviderParty-->
+      <xsl:apply-templates select="cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty" mode="ServiceProviderParty_info">
+        <xsl:with-param name="CN" select="current()"/>
+        <xsl:with-param name="CNP" select="position()"/>
+      </xsl:apply-templates>
+      <SoggettoEmittente>
+        <xsl:if test="cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty">
           <xsl:text>TZ</xsl:text>
-        </SoggettoEmittente>
-      </FatturaElettronicaHeader>
-      <FatturaElettronicaBody>
-        <DatiGenerali>
-          <DatiGeneraliDocumento>
-            <xsl:if test="cbc:InvoiceTypeCode">
-              <TipoDocumento>
-                <xsl:value-of select="if (ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_documento']) then ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_documento']/ext:ExtensionContent/cr:XCode else if (cbc:InvoiceTypeCode) then (document($xclTipoDocumento)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xcode']/SimpleValue=current()/cbc:InvoiceTypeCode])[1] else 'TD01'"/>
-              </TipoDocumento>
-            </xsl:if>
-            <Divisa>
-              <xsl:value-of select="if (cbc:DocumentCurrencyCode) then cbc:DocumentCurrencyCode else 'EUR'"/>
-            </Divisa>
-            <Data>
-              <xsl:value-of select="&#x9;substring(string(cbc:IssueDate),1,10)"/>
-            </Data>
-            <!--TODO : continua a segnalarmi errore-->
-
-            <Numero>
-              <xsl:value-of select="cbc:ID"/>
-            </Numero>
-            <xsl:apply-templates select="cac:WithholdingTaxTotal">
-              <xsl:with-param name="CN" select="current()"/>
-              <xsl:with-param name="CNP" select="position()"/>
-            </xsl:apply-templates>
-            <xsl:apply-templates select="/in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:bollo']/ext:ExtensionContent/cbc:TaxAmount"                                       mode="BOLLO">
-              <xsl:with-param name="CN" select="current()"/>
-              <xsl:with-param name="CNP" select="position()"/>
-            </xsl:apply-templates>
-            <xsl:apply-templates select="/in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:contributo_cassa' or ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:contributo_cassa::1']/ext:ExtensionContent/cac:TaxTotal[1]"                                       mode="CassaPrevidenziale">
-              <xsl:with-param name="CN" select="current()"/>
-              <xsl:with-param name="CNP" select="position()"/>
-            </xsl:apply-templates>
-            <xsl:apply-templates select="/in:Invoice/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:www.ubl-italia.org:spec:fatturapa:contributo_cassa::2']/ext:ExtensionContent/cac:TaxTotal"                                       mode="CassaPrevidenziale2">
-              <xsl:with-param name="CN" select="current()"/>
-              <xsl:with-param name="CNP" select="position()"/>
-            </xsl:apply-templates>
-            <xsl:apply-templates select="cac:AllowanceCharge">
-              <xsl:with-param name="CN" select="current()"/>
-              <xsl:with-param name="CNP" select="position()"/>
-            </xsl:apply-templates>
-            <xsl:if test="cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount">
-              <ImportoTotaleDocumento>
-                <xsl:value-of select="format-number(cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount,'###########0.00')"/>
-              </ImportoTotaleDocumento>
-            </xsl:if>
-            <xsl:if test="cac:LegalMonetaryTotal/cbc:PayableRoundingAmount">
-              <Arrotondamento>
-                <xsl:value-of select="format-number(cac:LegalMonetaryTotal/cbc:PayableRoundingAmount,'###########0.00')"/>
-              </Arrotondamento>
-            </xsl:if>
-            <xsl:apply-templates select="cbc:Note">
-              <xsl:with-param name="CN" select="current()"/>
-              <xsl:with-param name="CNP" select="position()"/>
-            </xsl:apply-templates>
-            <xsl:if test="lower-case(replace(cbc:ID/@schemeID,'\s',''))='art73dpr633/72'">
-              <Art73>
-                <xsl:text>SI</xsl:text>
-              </Art73>
-            </xsl:if>
-          </DatiGeneraliDocumento>
-          <xsl:apply-templates select="cac:OrderReference">
-            <xsl:with-param name="CN" select="current()"/>
-            <xsl:with-param name="CNP" select="position()"/>
-          </xsl:apply-templates>
-          <xsl:apply-templates select="cac:InvoiceLine/cac:OrderLineReference" mode="DatiOrdineAcquisto_Riga">
-            <xsl:with-param name="CN" select="current()"/>
-            <xsl:with-param name="CNP" select="position()"/>
-          </xsl:apply-templates>
-          <xsl:apply-templates select="cac:ContractDocumentReference">
-            <xsl:with-param name="CN" select="current()"/>
-            <xsl:with-param name="CNP" select="position()"/>
-          </xsl:apply-templates>
-          <xsl:apply-templates select="cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='ESTREMI_CONTRATTO']"                                    mode="DatiContratto_Riga">
-            <xsl:with-param name="CN" select="current()"/>
-            <xsl:with-param name="CNP" select="position()"/>
-          </xsl:apply-templates>
-          <xsl:apply-templates select="cac:OriginatorDocumentReference">
-            <xsl:with-param name="CN" select="current()"/>
-            <xsl:with-param name="CNP" select="position()"/>
-          </xsl:apply-templates>
-          <xsl:apply-templates select="cac:InvoiceLine/cac:DocumentReference[cbc:DocumentType='ESTREMI_CONVENZIONE']"                                    mode="Estremi_Convenzione_Riga">
-            <xsl:with-param name="CN" select="current()"/>
-            <xsl:with-param name="CNP" select="position()"/>
-          </xsl:apply-templates>
-          <xsl:apply-templates select="cac:ReceiptDocumentReference">
-            <xsl:with-param name="CN" select="current()"/>
-            <xsl:with-param name="CNP" select="position()"/>
-          </xsl:apply-templates>
-          <xsl:apply-templates select="cac:InvoiceLine/cac:ReceiptLineReference" mode="DatiRicezione_Riga">
-            <xsl:with-param name="CN" select="current()"/>
-            <xsl:with-param name="CNP" select="position()"/>
-          </xsl:apply-templates>
-          <xsl:apply-templates select="cac:BillingReference/cac:InvoiceDocumentReference"                                    mode="FatturaCollegata">
-            <xsl:with-param name="CN" select="current()"/>
-            <xsl:with-param name="CNP" select="position()"/>
-          </xsl:apply-templates>
-          <xsl:apply-templates select="cac:InvoiceLine/cac:BillingReference" mode="DatiFattureCollegate_Riga">
-            <xsl:with-param name="CN" select="current()"/>
-            <xsl:with-param name="CNP" select="position()"/>
-          </xsl:apply-templates>
-          <xsl:apply-templates select="cac:AdditionalDocumentReference" mode="SAL">
-            <xsl:with-param name="CN" select="current()"/>
-            <xsl:with-param name="CNP" select="position()"/>
-          </xsl:apply-templates>
-          <xsl:apply-templates select="cac:DespatchDocumentReference">
-            <xsl:with-param name="CN" select="current()"/>
-            <xsl:with-param name="CNP" select="position()"/>
-          </xsl:apply-templates>
-          <xsl:apply-templates select="cac:InvoiceLine/cac:DespatchLineReference" mode="DatiDDT">
-            <xsl:with-param name="CN" select="current()"/>
-            <xsl:with-param name="CNP" select="position()"/>
-          </xsl:apply-templates>
-          <xsl:apply-templates select="cac:Delivery[1]">
-            <xsl:with-param name="CN" select="current()"/>
-            <xsl:with-param name="CNP" select="position()"/>
-          </xsl:apply-templates>
-          <xsl:apply-templates select="cac:BillingReference/cac:AdditionalDocumentReference"                                    mode="FatturaPrincipale">
-            <xsl:with-param name="CN" select="current()"/>
-            <xsl:with-param name="CNP" select="position()"/>
-          </xsl:apply-templates>
-        </DatiGenerali>
-        <DatiBeniServizi>
-          <xsl:apply-templates select="cac:InvoiceLine">
-            <xsl:with-param name="CN" select="current()"/>
-            <xsl:with-param name="CNP" select="position()"/>
-          </xsl:apply-templates>
-          <xsl:apply-templates select="cac:TaxTotal/cac:TaxSubtotal" mode="DatiRiepilogo">
-            <xsl:with-param name="CN" select="current()"/>
-            <xsl:with-param name="CNP" select="position()"/>
-          </xsl:apply-templates>
-        </DatiBeniServizi>
-        <xsl:if test="cac:PaymentMeans or cac:PaymentTerms or cac:PayeeParty/cac:PartyName">
-          <DatiPagamento>
-            <CondizioniPagamento>
-              <xsl:text>TP02</xsl:text>
-            </CondizioniPagamento>
-            <xsl:apply-templates select="cac:PaymentMeans">
-              <xsl:with-param name="CN" select="current()"/>
-              <xsl:with-param name="CNP" select="position()"/>
-            </xsl:apply-templates>
-            <xsl:if test="not(cac:PaymentMeans) and not(cac:PaymentTerms) and cac:PayeeParty/cac:PartyName">
-              <DettaglioPagamento>
-                <xsl:if test="cac:PayeeParty/cac:PartyName">
-                  <Beneficiario>
-                    <xsl:value-of select="cac:PayeeParty/cac:PartyName[1]/cbc:Name"/>
-                  </Beneficiario>
-                </xsl:if>
-                <ModalitaPagamento>
-                  <xsl:text>MP05</xsl:text>
-                </ModalitaPagamento>
-                <ImportoPagamento>
-                  <xsl:value-of select="format-number(if (/in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount) then (xs:decimal(/in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount) - xs:decimal(sum(/in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount))) else /in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount,'###########0.00')"/>
-                </ImportoPagamento>
-              </DettaglioPagamento>
-            </xsl:if>
-            <xsl:if test="not(cac:PaymentMeans) and cac:PaymentTerms">
-              <DettaglioPagamento>
-                <xsl:if test="cac:PayeeParty/cac:PartyName">
-                  <Beneficiario>
-                    <xsl:value-of select="cac:PayeeParty/cac:PartyName[1]/cbc:Name"/>
-                  </Beneficiario>
-                </xsl:if>
-                <ModalitaPagamento>
-                  <xsl:text>MP05</xsl:text>
-                </ModalitaPagamento>
-                <xsl:if test="/in:Invoice/cac:PaymentTerms[1]/cac:SettlementPeriod/cbc:StartDate">
-                  <DataRiferimentoTerminiPagamento>
-                    <xsl:value-of select="substring(string(/in:Invoice/cac:PaymentTerms[1]/cac:SettlementPeriod/cbc:StartDate),1,10)"/>
-                  </DataRiferimentoTerminiPagamento>
-                </xsl:if>
-                <xsl:if test="/in:Invoice/cac:PaymentTerms[1]/cac:SettlementPeriod/cbc:DurationMeasure">
-                  <GiorniTerminiPagamento>
-                    <xsl:value-of select="/in:Invoice/cac:PaymentTerms[1]/cac:SettlementPeriod/cbc:DurationMeasure"/>
-                  </GiorniTerminiPagamento>
-                </xsl:if>
-                <xsl:if test="/in:Invoice/cbc:DueDate">
-                  <DataScadenzaPagamento>
-                    <xsl:value-of select="&#x9;substring(string(cbc:DueDate),1,10)"/>
-                  </DataScadenzaPagamento>
-                </xsl:if>
-                <ImportoPagamento>
-                  <xsl:value-of select="format-number(if (/in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount) then (xs:decimal(/in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount) - xs:decimal(sum(/in:Invoice/cac:WithholdingTaxTotal/cbc:TaxAmount))) else /in:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount,'###########0.00')"/>
-                </ImportoPagamento>
-                <xsl:if test="/in:Invoice/cac:PaymentTerms[1]/cbc:SettlementDiscountAmount">
-                  <ScontoPagamentoAnticipato>
-                    <xsl:value-of select="format-number(/in:Invoice/cac:PaymentTerms[1]/cbc:SettlementDiscountAmount,'###########0.00')"/>
-                  </ScontoPagamentoAnticipato>
-                </xsl:if>
-                <xsl:if test="/in:Invoice/cac:PaymentTerms[1]/cac:SettlementPeriod/cbc:EndDate">
-                  <DataLimitePagamentoAnticipato>
-                    <xsl:value-of select="substring(string(/in:Invoice/cac:PaymentTerms[1]/cac:SettlementPeriod/cbc:EndDate),1,10)"/>
-                  </DataLimitePagamentoAnticipato>
-                </xsl:if>
-                <xsl:if test="/in:Invoice/cac:PaymentTerms[1]/cbc:PenaltyAmount">
-                  <PenalitaPagamentiRitardati>
-                    <xsl:value-of select="format-number(/in:Invoice/cac:PaymentTerms[1]/cbc:PenaltyAmount,'###########0.00')"/>
-                  </PenalitaPagamentiRitardati>
-                </xsl:if>
-                <xsl:if test="/in:Invoice/cac:PaymentTerms[1]/cac:PenaltyPeriod/cbc:StartDate">
-                  <DataDecorrenzaPenale>
-                    <xsl:value-of select="substring(string(/in:Invoice/cac:PaymentTerms[1]/cac:PenaltyPeriod/cbc:StartDate),1,10)"/>
-                  </DataDecorrenzaPenale>
-                </xsl:if>
-              </DettaglioPagamento>
-            </xsl:if>
-          </DatiPagamento>
         </xsl:if>
-        <xsl:apply-templates select="cac:AdditionalDocumentReference" mode="AllegatiBinari">
+        <xsl:if test="not(cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty)">
+          <xsl:text>CC</xsl:text>
+        </xsl:if>
+      </SoggettoEmittente>
+    </FatturaElettronicaHeader>
+    <FatturaElettronicaBody>
+      <DatiGenerali>
+        <DatiGeneraliDocumento>
+          <xsl:if test=" (ext:UBLExtensions/ext:UBLExtension/ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:TipoDocumento')">
+            <TipoDocumento>
+              <xsl:value-of select="ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:TipoDocumento']/ext:ExtensionContent/cbc:TypeCode"/>
+            </TipoDocumento>
+          </xsl:if>
+          <xsl:if test="not(ext:UBLExtensions/ext:UBLExtension/ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:TipoDocumento')">
+            <TipoDocumento>
+              <xsl:text>TD01</xsl:text>
+            </TipoDocumento>
+          </xsl:if>
+          <Divisa>
+            <xsl:value-of select="if (cbc:DocumentCurrencyCode) then cbc:DocumentCurrencyCode else 'EUR'" />
+          </Divisa>
+          <xsl:choose>
+            <xsl:when test="/in:Invoice/cac:Delivery/cbc:ActualDeliveryDate">
+              <Data>
+                <xsl:value-of select="/in:Invoice/cac:Delivery/cbc:ActualDeliveryDate"/>
+              </Data>
+            </xsl:when>
+            <xsl:otherwise>
+              <Data>
+                <xsl:value-of select="&#x9;substring(string(cbc:IssueDate),1,10)"/>
+              </Data>
+            </xsl:otherwise>
+          </xsl:choose>
+          <Numero>
+            <xsl:value-of select="cbc:ID"/>
+          </Numero>
+          <xsl:apply-templates select="/*/ext:UBLExtensions/ext:UBLExtension" mode="ProvaRitenuta">
+            <xsl:with-param name="CN" select="current()"/>
+            <xsl:with-param name="CNP" select="position()"/>
+          </xsl:apply-templates>
+          <xsl:apply-templates select="cac:AllowanceCharge"         mode="BOLLO">
+            <xsl:with-param name="CN" select="current()"/>
+            <xsl:with-param name="CNP" select="position()"/>
+          </xsl:apply-templates>
+          <xsl:apply-templates select="/in:Invoice/cac:AllowanceCharge"    mode="ProvaCassaPrevidenziale">
+            <xsl:with-param name="CN" select="current()"/>
+            <xsl:with-param name="CNP" select="position()"/>
+          </xsl:apply-templates>
+          <xsl:apply-templates select="cac:AllowanceCharge"     mode="SCONTOMAGGIORAZIONE">
+            <xsl:with-param name="CN" select="current()"/>
+            <xsl:with-param name="CNP" select="position()"/>
+          </xsl:apply-templates>
+          <xsl:if test="cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount">
+            <ImportoTotaleDocumento>
+              <xsl:value-of select="format-number(cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount,'###########0.00')"/>
+            </ImportoTotaleDocumento>
+          </xsl:if>
+          <xsl:if test="cac:LegalMonetaryTotal/cbc:PayableRoundingAmount">
+            <Arrotondamento>
+              <xsl:value-of select="format-number(cac:LegalMonetaryTotal/cbc:PayableRoundingAmount,'###########0.00')"/>
+            </Arrotondamento>
+          </xsl:if>
+          <xsl:apply-templates select="cbc:Note">
+            <xsl:with-param name="CN" select="current()"/>
+            <xsl:with-param name="CNP" select="position()"/>
+          </xsl:apply-templates>
+          <xsl:if test="ext:UBLExtensions/ext:UBLExtension/ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:Art73'">
+            <Art73>
+              <xsl:text>SI</xsl:text>
+            </Art73>
+          </xsl:if>
+        </DatiGeneraliDocumento>
+        <xsl:apply-templates select="cac:OrderReference">
           <xsl:with-param name="CN" select="current()"/>
           <xsl:with-param name="CNP" select="position()"/>
         </xsl:apply-templates>
-        <xsl:apply-templates select="cac:AdditionalDocumentReference" mode="URIReference">
+        <xsl:apply-templates select="cac:InvoiceLine/cac:OrderLineReference" mode="DatiOrdineAcquisto_Riga2">
           <xsl:with-param name="CN" select="current()"/>
           <xsl:with-param name="CNP" select="position()"/>
         </xsl:apply-templates>
-      </FatturaElettronicaBody>
-    </nx:FatturaElettronica>
-  </xsl:template>
-  <xsl:template match="/">
-    <xsl:apply-templates select="/in:Invoice"/>
-  </xsl:template>
+        <xsl:if test="not(cac:InvoiceLine/cac:OrderLineReference) and in:Invoice/cac:OrderReference">
+          <DatiOrdineAcquisto>
+            <IdDocumento>
+              <xsl:value-of select="/in:Invoice/cac:OrderReference/cbc:ID"/>
+            </IdDocumento>
+            <xsl:if test="/in:Invoice/cbc:BuyerReference">
+              <CodiceCommessaConvenzione>
+                <xsl:value-of select="/in:Invoice/cbc:BuyerReference"/>
+              </CodiceCommessaConvenzione>
+            </xsl:if>
+          </DatiOrdineAcquisto>
+        </xsl:if>
+        <xsl:apply-templates select="/in:Invoice/cac:InvoiceLine"   mode="DatiContratto_Cius">
+          <xsl:with-param name="CN" select="current()"/>
+          <xsl:with-param name="CNP" select="position()"/>
+        </xsl:apply-templates>
+        <xsl:if test="/in:Invoice/cac:ContractDocumentReference or /in:Invoice/cac:OriginatorDocumentReference or /in:Invoice/cac:ProjectReference ">
+          <DatiContratto>
+            <xsl:if test="/in:Invoice/cac:ContractDocumentReference">
+              <IdDocumento>
+                <xsl:value-of select="/in:Invoice/cac:ContractDocumentReference/cbc:ID"/>
+              </IdDocumento>
+            </xsl:if>
+            <xsl:if test="not(/in:Invoice/cac:ContractDocumentReference) and /in:Invoice/cac:InvoiceLine/cac:DocumentReference/cbc:ID[@schemeID='CT']">
+              <IdDocumento>
+                <xsl:value-of select="/in:Invoice/cac:InvoiceLine/cac:DocumentReference/cbc:ID[@schemeID='CT']"/>
+              </IdDocumento>
+            </xsl:if>
+            <xsl:if test="not(/in:Invoice/cac:ContractDocumentReference) and not(/in:Invoice/cac:InvoiceLine/cac:DocumentReference/cbc:ID[@schemeID='CT'])">
+              <IdDocumento>
+                <xsl:text>NAN</xsl:text>
+              </IdDocumento>
+            </xsl:if>
+            <xsl:if test="/in:Invoice/cac:ProjectReference/cbc:ID">
+              <CodiceCUP>
+                <xsl:value-of select="/in:Invoice/cac:ProjectReference/cbc:ID"/>
+              </CodiceCUP>
+            </xsl:if>
+            <xsl:if test="/in:Invoice/cac:OriginatorDocumentReference/cbc:ID">
+              <CodiceCIG>
+                <xsl:value-of select="/in:Invoice/cac:OriginatorDocumentReference/cbc:ID"/>
+              </CodiceCIG>
+            </xsl:if>
+          </DatiContratto>
+        </xsl:if>
+        <xsl:apply-templates select="/in:Invoice/cac:InvoiceLine"      mode="DatiOrdine_Commessa_Prova">
+          <xsl:with-param name="CN" select="current()"/>
+          <xsl:with-param name="CNP" select="position()"/>
+        </xsl:apply-templates>
+        <!--TODO se presente solo in testata-->
+        <xsl:if test="/in:Invoice/cac:AdditionalDocumentReference/cbc:ID[@schemeID='AVV']">
+          <DatiConvenzione>
+            <IdDocumento>
+              <xsl:value-of select="/in:Invoice/cac:AdditionalDocumentReference/cbc:ID[@schemeID='AVV']"/>
+            </IdDocumento>
+          </DatiConvenzione>
+        </xsl:if>
+        <xsl:apply-templates select="cac:ReceiptDocumentReference">
+          <xsl:with-param name="CN" select="current()"/>
+          <xsl:with-param name="CNP" select="position()"/>
+        </xsl:apply-templates>
+        <xsl:apply-templates select="cac:InvoiceLine/cac:ReceiptLineReference" mode="DatiRicezione_Riga">
+          <xsl:with-param name="CN" select="current()"/>
+          <xsl:with-param name="CNP" select="position()"/>
+        </xsl:apply-templates>
+        <xsl:apply-templates select="cac:BillingReference/cac:InvoiceDocumentReference"                                    mode="FatturaCollegata">
+          <xsl:with-param name="CN" select="current()"/>
+          <xsl:with-param name="CNP" select="position()"/>
+        </xsl:apply-templates>
+        <xsl:apply-templates select="cac:InvoiceLine/cac:BillingReference" mode="DatiFattureCollegate_Riga">
+          <xsl:with-param name="CN" select="current()"/>
+          <xsl:with-param name="CNP" select="position()"/>
+        </xsl:apply-templates>
+        <xsl:apply-templates select="cac:AdditionalDocumentReference" mode="SAL">
+          <xsl:with-param name="CN" select="current()"/>
+          <xsl:with-param name="CNP" select="position()"/>
+        </xsl:apply-templates>
+        <xsl:apply-templates select="cac:DespatchDocumentReference">
+          <xsl:with-param name="CN" select="current()"/>
+          <xsl:with-param name="CNP" select="position()"/>
+        </xsl:apply-templates>
+        <xsl:apply-templates select="cac:InvoiceLine/cac:DespatchLineReference" mode="DatiDDT">
+          <xsl:with-param name="CN" select="current()"/>
+          <xsl:with-param name="CNP" select="position()"/>
+        </xsl:apply-templates>
+        <!--Continuo dal Delivery-->
+        <xsl:apply-templates select="/in:Invoice/cac:Delivery"   mode='delivery'>
+          <xsl:with-param name="CN" select="current()"/>
+          <xsl:with-param name="CNP" select="position()"/>
+        </xsl:apply-templates>
+        <xsl:apply-templates select="cac:BillingReference/cac:AdditionalDocumentReference"                                    mode="FatturaPrincipale">
+          <xsl:with-param name="CN" select="current()"/>
+          <xsl:with-param name="CNP" select="position()"/>
+        </xsl:apply-templates>
+      </DatiGenerali>
+      <DatiBeniServizi>
+        <xsl:apply-templates select="cac:InvoiceLine">
+          <xsl:with-param name="CN" select="current()"/>
+          <xsl:with-param name="CNP" select="position()"/>
+        </xsl:apply-templates>
+        <!-- TODO: Sviluppo senza template di linea aggiuntiva in caso di bollo -->
+        <xsl:for-each select="cac:AllowanceCharge">
+          <xsl:if test=" lower-case(cbc:AllowanceChargeReason)='bollo'">
+            <DettaglioLinee>
+              <NumeroLinea>
+                <xsl:text>9999</xsl:text>
+              </NumeroLinea>
+              <!--TODO :Sconto o maggiorazione?=-->
+              <TipoCessionePrestazione>
+                <xsl:text>SC</xsl:text>
+              </TipoCessionePrestazione>
+              <Descrizione>
+                <xsl:text>BOLLO</xsl:text>
+              </Descrizione>
+              <Quantita>
+                <xsl:text>1.00000000</xsl:text>
+              </Quantita>
+              <PrezzoUnitario>
+                <xsl:value-of select="format-number(cbc:Amount,'##0.000000')"/>
+              </PrezzoUnitario>
+              <PrezzoTotale>
+                <xsl:value-of select="format-number(cbc:Amount,'##0.000000')"/>
+              </PrezzoTotale>
+              <AliquotaIVA>0.00</AliquotaIVA>
+              <Natura>
+                <xsl:text>N1</xsl:text>
+              </Natura>
+              <RiferimentoAmministrazione>
+                <xsl:text>TC01</xsl:text>
+              </RiferimentoAmministrazione>
+              <AltriDatiGestionali>
+                <TipoDato>
+                  <xsl:text>BT-104</xsl:text>
+                </TipoDato>
+                <RiferimentoTesto>
+                  <xsl:text>BOLLO</xsl:text>
+                </RiferimentoTesto>
+              </AltriDatiGestionali>
+            </DettaglioLinee>
+          </xsl:if>
+        </xsl:for-each>
+        <!-- TODO: Sviluppo senza template di linea aggiuntiva in caso di sconto in testata -->
+        <xsl:for-each select="cac:AllowanceCharge">
+          <xsl:if test="not (lower-case(cbc:AllowanceChargeReason)='bollo') and not(lower-case(cbc:AllowanceChargeReasonCode)='zzz')">
+            <DettaglioLinee>
+              <NumeroLinea>
+                <xsl:text>9998</xsl:text>
+              </NumeroLinea>
+              <!--TODO :Sconto o maggiorazione?=-->
+              <TipoCessionePrestazione>
+                <xsl:text>SC</xsl:text>
+              </TipoCessionePrestazione>
+              <Descrizione>
+                <xsl:value-of select="cbc:AllowanceChargeReason"/>
+              </Descrizione>
+              <Quantita>
+                <xsl:text>1.00000000</xsl:text>
+              </Quantita>
+              <xsl:if test="cbc:ChargeIndicator='true'">
+                <PrezzoUnitario>
+                  <xsl:value-of select="cbc:Amount"/>
+                </PrezzoUnitario>
+                <PrezzoTotale>
+                  <xsl:value-of select="cbc:Amount"/>
+                </PrezzoTotale>
+              </xsl:if>
+              <xsl:if test="cbc:ChargeIndicator='false'">
+                <PrezzoUnitario>
+                  <xsl:text>-</xsl:text>
+                  <xsl:value-of select="cbc:Amount"/>
+                </PrezzoUnitario>
+                <PrezzoTotale>
+                  <xsl:text>-</xsl:text>
+                  <xsl:value-of select="cbc:Amount"/>
+                </PrezzoTotale>
+              </xsl:if>
+              <AliquotaIVA>
+                <xsl:value-of select="if (cac:TaxCategory/cbc:Percent &gt;= 0) then format-number(cac:TaxCategory/cbc:Percent,'##0.00') else '0.00'"/>
+              </AliquotaIVA>
+              <!--TODO:Come gestire la natura in questo caso chiedere a pietro                <Natura>
+              <xsl:value-of select="cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:TaxExemptionReason "/>
+            </Natura>                -->
+            <xsl:if test="cac:TaxCategory != Z">
+              <Natura>N4</Natura>
+            </xsl:if>
+          </DettaglioLinee>
+        </xsl:if>
+      </xsl:for-each>
+      <xsl:apply-templates select="cac:TaxTotal/cac:TaxSubtotal" mode="DatiRiepilogo">
+        <xsl:with-param name="CN" select="current()"/>
+        <xsl:with-param name="CNP" select="position()"/>
+      </xsl:apply-templates>
+    </DatiBeniServizi>
+    <xsl:if test="cac:PaymentMeans or cac:PaymentTerms or cac:PayeeParty/cac:PartyName">
+      <DatiPagamento>
+        <xsl:if test="contains(cac:PaymentTerms/cbc:Note,'#')">
+          <CondizioniPagamento>
+            <xsl:value-of select="substring-before(cac:PaymentTerms/cbc:Note,'#')"/>
+          </CondizioniPagamento>
+        </xsl:if>
+        <xsl:if test="not(contains(cac:PaymentTerms/cbc:Note,'#'))">
+          <CondizioniPagamento>
+            <xsl:value-of select="cac:PaymentTerms/cbc:Note"/>
+          </CondizioniPagamento>
+        </xsl:if>
+        <xsl:apply-templates select="cac:PaymentMeans">
+          <xsl:with-param name="CN" select="current()"/>
+          <xsl:with-param name="CNP" select="position()"/>
+        </xsl:apply-templates>
+      </DatiPagamento>
+    </xsl:if>
+    <xsl:apply-templates select="cac:AdditionalDocumentReference" mode="AllegatiBinari">
+      <xsl:with-param name="CN" select="current()"/>
+      <xsl:with-param name="CNP" select="position()"/>
+    </xsl:apply-templates>
+  </FatturaElettronicaBody>
+</nx:FatturaElettronica>
+</xsl:template>
+<xsl:template match="/">
+  <xsl:apply-templates select="/in:Invoice"/>
+</xsl:template>
 </xsl:stylesheet>

@@ -45,11 +45,11 @@
 		<Element>
 			<Term>ext:ExtensionContent</Term>
 			<Name>Definizione del contenuto dell'estensione</Name>
-			<Reference type="RULE">BR-IT-E01</Reference>
+			<Reference type="RULE">BR-IT-DE-001</Reference>
 
 			<Element>
 				<Term>cbc:TypeCode</Term>
-				<Name>Soggetto Emittente</Name>
+				<Name>Soggetto Emittente - FPA 1.6 'SoggettoEmittente'</Name>
 				<DataType>Code</DataType>
 				<Value type="EXAMPLE">TZ</Value>
 			</Element>
@@ -72,7 +72,7 @@
 		<Element>
 			<Term>ext:ExtensionContent</Term>
 			<Name>Definizione del contenuto dell'estensione</Name>
-			<Reference type="RULE">BR-IT-E02</Reference>
+			<Reference type="RULE">BR-IT-DE-002</Reference>
 
 			<Element>
 				<Term>cbc:TypeCode</Term>
@@ -93,7 +93,7 @@
 		<Element>
 			<Term>ext:ExtensionURI</Term>
 			<Name>URI dell'estensione</Name>
-			<Description>Per supportare una singola ritenuta è sufficiente indicare l'URI 'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta'. Per fare riferimento a più ritenute nello stesso documento aggiungere il suffisso '::n' indicante il numero di riga della ritenuta a cui si fa riferimento.</Description>
+			<Description>Per supportare una singola ritenuta è sufficiente indicare l'URI 'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta'. Per fare riferimento a più ritenute nello stesso documento aggiungere il suffisso '::n' indicante il numero progressivo del blocco cac:WithholdingTaxTotal, secondo l’ordine di compilazione.</Description>
 			<Value type="EXAMPLE">urn:fdc:agid.gov.it:fatturapa:TipoRitenuta</Value>
 			<Value type="EXAMPLE">urn:fdc:agid.gov.it:fatturapa:TipoRitenuta::2</Value>
 		</Element>
@@ -101,7 +101,7 @@
 		<Element>
 			<Term>ext:ExtensionContent</Term>
 			<Name>Definizione del contenuto dell'estensione</Name>
-			<Reference type="RULE">BR-IT-E03</Reference>
+			<Reference type="RULE">BR-IT-DE-003</Reference>
 
 			<Element>
 				<Term>cbc:TypeCode</Term>
@@ -128,8 +128,8 @@
 		<Element>
 			<Term>ext:ExtensionContent</Term>
 			<Name>Definizione del contenuto dell'estensione</Name>
-			<Reference type="RULE">BR-IT-E04</Reference>
-			
+			<Reference type="RULE">BR-IT-DE-004</Reference>
+
 			<Element>
 				<Term>cbc:TypeCode</Term>
 				<Name>Art 73 del DPR 633/72</Name>
@@ -156,7 +156,7 @@
 		<Element>
 			<Term>ext:ExtensionContent</Term>
 			<Name>Definizione del contenuto dell'estensione</Name>
-			<Reference type="RULE">BR-IT-E05</Reference>
+			<Reference type="RULE">BR-IT-DE-005</Reference>
 
 			<Element>
 				<Term>cbc:Amount</Term>
@@ -165,7 +165,7 @@
 
 				<Attribute>
 					<Term>currencyID</Term>
-					<Description>Mandatory attribute. Use BT-5</Description>
+					<Description>Mandatory attribute. Use BT-5. Identificativo valuta.</Description>
 					<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
 					<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
 					<Reference type="CODE_LIST">ISO4217</Reference>
@@ -193,7 +193,7 @@
 		<Element>
 			<Term>ext:ExtensionContent</Term>
 			<Name>Definizione del contenuto dell'estensione</Name>
-			<Reference type="RULE">BR-IT-E06</Reference>
+			<Reference type="RULE">BR-IT-DE-006</Reference>
 
 			<Element cardinality="1..n">
 
@@ -211,25 +211,22 @@
 				<Element cardinality="0..1">
 					<Term>cbc:MultiplierFactorNumeric</Term>
 					<Name>Percentuale dello sconto o della maggiorazione a livello documento - FPA 2.1.1.8.2 'Percentuale'</Name>
-					<Description>The percentage that may be used, in conjunction with the document level allowance base amount, to
-                calculate the document level allowance or charge amount. To state 20%, use value 20.
-					</Description>
+					<Description>Percentuale di sconto o di maggiorazione.</Description>
 					<DataType>Percentage</DataType>
-					<Reference type="RULE">BR-IT-E08</Reference>
+					<Reference type="RULE">BR-IT-DE-008</Reference>
 					<Value type="EXAMPLE">20</Value>
 				</Element>
 
 				<Element>
 					<Term>cbc:Amount</Term>
 					<Name>Importo dello sconto o della maggiorazione a livello documento - FPA 2.1.1.8.3 'Importo'</Name>
-					<Description>The amount of an allowance or a charge, without VAT. Must be rounded to maximum 2 decimals
-					</Description>
+					<Description>Importo dello sconto o della maggiorazione</Description>
 					<DataType>Amount</DataType>
-					<Reference type="RULE">BR-IT-E07</Reference>
+					<Reference type="RULE">BR-IT-DE-007</Reference>
 
 					<Attribute>
 						<Term>currencyID</Term>
-						<Description>Mandatory attribute. Use BT-5</Description>
+						<Description>Mandatory attribute. Use BT-5. Identificativo valuta.</Description>
 						<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
 						<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
 						<Reference type="CODE_LIST">ISO4217</Reference>

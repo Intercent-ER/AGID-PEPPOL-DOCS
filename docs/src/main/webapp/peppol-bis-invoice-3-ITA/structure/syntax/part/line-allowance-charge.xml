@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" cardinality="0..n">
-    
+<Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" cardinality="0..n" xmlns:agid="urn:fdc:agid.gov.it:peppol:customization">
+
         <Term>cac:AllowanceCharge</Term>
         <Name>INVOICE LINE ALLOWANCES OR CHARGES</Name>
         <Description>A group of business terms providing information about allowances or charges applicable to the individual
             Invoice line.
         </Description>
         <Reference type="BUSINESS_TERM">BG-27, BG-28</Reference>
-        
+
         <Element>
             <Term>cbc:ChargeIndicator</Term>
-            <Description> Use “true” when informing about Charges and “false” when informing about
-                Allowances
-            </Description>
+            <Description>Use “true” when informing about Charges and “false” when informing about Allowances</Description>
             <Value type="EXAMPLE">false</Value>
         </Element>
-        
-        
+
+
         <Element cardinality="0..1">
             <Term>cbc:AllowanceChargeReasonCode</Term>
             <Name>Line level allowance or charge reason code</Name>
@@ -34,7 +32,7 @@
             <Reference type="RULE">DK-R-004</Reference>
             <Value type="EXAMPLE">95</Value>
         </Element>
-        
+
         <Element cardinality="0..1">
             <Term>cbc:AllowanceChargeReason</Term>
             <Name>Line level allowance or charge reason</Name>
@@ -47,9 +45,9 @@
             <Reference type="RULE">BR-CO-08</Reference>
             <Reference type="RULE">DK-R-004</Reference>
             <Value type="EXAMPLE">Discount</Value>
-            
+
         </Element>
-        
+
         <Element cardinality="0..1">
             <Term>cbc:MultiplierFactorNumeric</Term>
             <Name>Line level allowance or charge percentage</Name>
@@ -59,10 +57,10 @@
             <DataType>Percentage</DataType>
             <Reference type="BUSINESS_TERM">BT-138,BT-143</Reference>
             <Reference type="RULE">PEPPOL-EN16931-R042</Reference>
-            <Value type="EXAMPLE">20</Value>            
+            <Value type="EXAMPLE">20</Value>
         </Element>
-        
-        <Element>
+
+        <Element agid:custom="rule">
             <Term>cbc:Amount</Term>
             <Name>Line level allowance or charge amount</Name>
             <Description>The amount of an allowance or a charge, without VAT. Must be rounded to maximum 2 decimals</Description>
@@ -74,7 +72,8 @@
             <Reference type="RULE">BR-DEC-24</Reference>
             <Reference type="RULE">BR-DEC-27</Reference>
             <Reference type="RULE">UBL-DT-01</Reference>
-            
+			<Reference type="RULE">BR-IT-421</Reference>
+
             <Attribute>
                 <Term>currencyID</Term>
                 <Description>Mandatory attribute. Use BT-5</Description>
@@ -83,10 +82,10 @@
                 <Reference type="CODE_LIST">ISO4217</Reference>
                 <Value type="EXAMPLE">EUR</Value>
             </Attribute>
-            
-            <Value type="EXAMPLE">200</Value>  
+
+            <Value type="EXAMPLE">200</Value>
         </Element>
-        
+
         <Element cardinality="0..1">
             <Term>cbc:BaseAmount</Term>
             <Name>Line level allowance or charge base amount</Name>
@@ -99,8 +98,8 @@
             <Reference type="RULE">BR-DEC-25</Reference>
             <Reference type="RULE">BR-DEC-28</Reference>
             <Reference type="RULE">UBL-DT-01</Reference>
-            
-            
+
+
             <Attribute>
                 <Term>currencyID</Term>
                 <Description>Mandatory attribute. Use BT-5</Description>
@@ -109,8 +108,8 @@
                 <Reference type="CODE_LIST">ISO4217</Reference>
                 <Value type="EXAMPLE">EUR</Value>
             </Attribute>
-            
-            <Value type="EXAMPLE">1000</Value>  
-            
+
+            <Value type="EXAMPLE">1000</Value>
+
         </Element>
     </Element>

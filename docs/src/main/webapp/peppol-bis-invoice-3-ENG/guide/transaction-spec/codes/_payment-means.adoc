@@ -1,7 +1,8 @@
 
 [[payment-means]]
-= Payment means type code
+= Termini di pagamento type code
 
-Payment means type code shall be from {UNCL4461}
+Tutti i codici termini di pagamento devono essere espressi secondo la codifica
+ {UNCL4461}
 
 include::../../syntax/codelists/_payment.adoc[]

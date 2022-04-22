@@ -2,19 +2,19 @@
 = Document Reference
 
 
-I riferimenti a documenti sono identificatori che sono stati assegnati ad un documento o ad una sua riga dall'acquirente, dal venditore o da una terza parte.
+Document Reference Types are identifiers that were assigned to a document or document line by the Buyer, the Seller or by a third party.
 
 
 .Document Reference. Type
 [cols="1s,1,1,1", options="header"]
 |===
-|Componente
-|Uso
-|Tipo primitivo
-|Esempio
+|Component
+|Use
+|Primitive Type
+|Example
 
-|Contenuto
-|Obbligatorio
+|Content
+|Mandatory
 |String
 |abc:123-DEF
 |===

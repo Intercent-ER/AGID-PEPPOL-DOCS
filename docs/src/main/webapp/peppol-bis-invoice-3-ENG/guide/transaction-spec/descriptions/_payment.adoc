@@ -1,48 +1,50 @@
 
-= Informazioni sulle modalità di pagamento
+= Payment means information
 
-== Bonifico
+== Credit transfer
 
-Se il pagamento viene effettuato mediante bonifico, l'elemento Payment account identifier (BT-84) è obbligatorio
+If payment is made by credit transfer, the Payment account identifier (BT-84) is mandatory
 
-Vedi <<payment-means>> per tutti i codici ammessi. Esempi di codici per i pagamenti con bonifico sono:
+See <<payment-means>> for all allowed codes. Examples of codes for payment by credit transfer are:
 
-* 30 - Bonifico
-* 58 - Bonifico SEPA (SEPA credit transfer o SCT)
+* 30 - Credit transfer
+* 58 - SEPA credit transfer ?
+* #56 - Giroconto bancario#
 
 include::../../syntax/_credit-payment.adoc[]
 
-== Pagamento con carta
+== Card Payment
 
-Se l'Acquirente ha scelto di pagare mediante una carta di pagamento come ad esempio una carta di credito o di debito, le informazioni relative al Primary Account Number (PAN) dovranno essere presenti in fattura.
+If the Buyer had opted to pay by using a payment card such as a credit or debit card, information on the Primary Account Number (PAN) shall be present in the invoice.
 
-Vedi <<payment-means>> per tutti i codici ammessi. Esempi di codici per i pagamenti con carta sono:
+See <<payment-means>> for all allowed codes. Examples of codes for payment by card are:
 
-* 48 - Bancomat (es. ATM)
-* 54 - Carta di credito (es. VISA, Mastercard, ...)
-* 55 - Carta di debito (es. VISA Electron)
+* 48 - Bank card
+* 54 - Credit card
+* 55 - Debet card
 
 include::../../syntax/_card-payment.adoc[]
 
-== Addebito diretto
+== Direct debit
 
-Vedi <<payment-means>> per tutti i codici ammessi. Esempi di codici per l'addebito diretto sono:
+See <<payment-means>> for all allowed codes. Examples of codes for payment by direct debit are:
 
-* 49 - Addebito diretto
-* 59 - Addebito diretto SEPA (SEPA direct debit o SDD)
+* 49 - Direct debit
+* 59 - SEPA direct debit
 
 include::../../syntax/_direct-debit.adoc[]
 
-== Pagamento mediante postagiro o giroconto bancario
+== Payment by post- or bank giro
 
-Vedi <<payment-means>> per tutti i codici ammessi. Esempi di codici per il postagiro o giroconto sono:
+See <<payment-means>> for all allowed codes. Examples of codes for payment by giro are:
 
-* 50 - Giroconto postale (Postagiro o bollettino postale)
-* 56 - Giroconto bancario
+* 50 - Payment by postgiro
+* ? 56 - Bankgiro
+
 
 include::../../syntax/_giro.adoc[]
 
-== Pagamento mediante contante
+== #Pagamento mediante contante#
 
 Vedi <<payment-means>> per tutti i codici ammessi. Esempio di codice per il pagamento in contante:
 
@@ -50,10 +52,26 @@ Vedi <<payment-means>> per tutti i codici ammessi. Esempio di codice per il paga
 
 include::../../syntax/_cash-payment.adoc[]
 
-== Pagamento non specificato
+
+//== Pagamento non specificato
 
 Se il venditore non dà indicazioni su come regolarizzare il pagamento della fattura, esiste solitamente un contratto che lo regola.
 
 Indicando il codice 1, l’acquirente non viene informato sulle modalità di pagamento della fattura e può essere indicata solo una data di pagamento.
 
 include::../../syntax/_unspecified-payment.adoc[]
+
+== #Pagamento mediante PagoPA#
+
+Il codice 9 (National or regional clearing) viene mappato con MP23 – PagoPA: +
+
+* 9 - PagoPA
+
+.Esempio UBL di modalità pagamento con PagoPA
+[source, xml, indent=0]
+----
+<cac:PaymentMeans>
+    <cbc:PaymentMeansCode name="PagoPA">9</cbc:PaymentMeansCode>
+</cac:PaymentMeans>
+----
+

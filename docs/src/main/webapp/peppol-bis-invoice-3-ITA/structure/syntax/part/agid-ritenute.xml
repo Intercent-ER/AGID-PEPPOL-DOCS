@@ -3,6 +3,7 @@
 
 	<Term>cac:WithholdingTaxTotal</Term>
 	<Name>Ritenuta d'acconto</Name>
+	<Reference type="RULE">BR-IT-DE-099FT1</Reference>
 
 	<Element>
 		<Term>cbc:TaxAmount</Term>
@@ -10,10 +11,10 @@
 		<DataType>Amount</DataType>
 		<Attribute>
 			<Term>currencyID</Term>
-			<Description>Mandatory attribute. Use BT-5 or BT-6.</Description>
+			<Description>Mandatory attribute. Use BT-5 or BT-6. Identificativo valuta.</Description>
 			<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
 			<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
-			<Reference type="RULE">BR-IT-E10</Reference>
+			<Reference type="RULE">BR-IT-DE-010</Reference>
 			<Reference type="CODE_LIST">ISO4217</Reference>
 			<Value type="EXAMPLE">EUR</Value>
 		</Attribute>
@@ -21,12 +22,12 @@
 		<Value type="EXAMPLE">486.25</Value>
 	</Element>
 
-	<Element cardinality="1..2">
+	<Element cardinality="1..n">
 		<Term>cac:TaxSubtotal</Term>
 		<Name>Dettaglio Ritenuta - FPA 2.1.1.5 'DatiRitenuta'</Name>
-		<Reference type="RULE">BR-IT-E11</Reference>
+		<Reference type="RULE">BR-IT-DE-011</Reference>
 
-		<Element cardinality="0..1">
+		<!--Element cardinality="0..1">
 			<Term>cbc:TaxableAmount</Term>
 			<Name>Imponibile Ritenuta</Name>
 			<DataType>Amount</DataType>
@@ -40,17 +41,17 @@
 				<Value type="EXAMPLE">EUR</Value>
 			</Attribute>
 			<Value type="EXAMPLE">1000.00</Value>
-		</Element>
-		
+		</Element-->
+
 		<Element>
 			<Term>cbc:TaxAmount</Term>
 			<Name>Importo Ritenuta - FPA 2.1.1.5.2 'ImportoRitenuta'</Name>
 			<DataType>Amount</DataType>
-			<Reference type="RULE">BR-IT-E12</Reference>
+			<Reference type="RULE">BR-IT-DE-012</Reference>
 
 			<Attribute>
 				<Term>currencyID</Term>
-				<Description>Mandatory attribute. Use BT-5</Description>
+				<Description>Mandatory attribute. Use BT-5. Identificativo valuta.</Description>
 				<Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
 				<Reference type="RULE">PEPPOL-EN16931-R051</Reference>
 				<Reference type="CODE_LIST">ISO4217</Reference>
@@ -61,8 +62,8 @@
 
 		<Element>
 			<Term>cac:TaxCategory</Term>
-			<Name>VAT CATEGORY</Name>
-			<Reference type="RULE">BR-IT-E13</Reference>
+			<Name>TAX CATEGORY</Name>
+			<Reference type="RULE">BR-IT-DE-013</Reference>
 
 			<Element>
 				<Term>cbc:ID</Term>

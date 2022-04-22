@@ -50,7 +50,62 @@
             and buyer.
         </Description>
         <Nome>Fattura commerciale</Nome>
-        <LocalDescription>Documento / messaggio che richiede il pagamento di beni o servizi forniti a condizioni concordate tra venditore e acquirente. Utilizzato anche in caso di parcella</LocalDescription>
+        <LocalCode>
+            <LocalId>TD01</LocalId>
+            <LocalName>Fattura</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD06</LocalId>
+            <LocalName>Parcella</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD16</LocalId>
+            <LocalName>Integrazione fattura reverse charge interno</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD17</LocalId>
+            <LocalName>Integrazione/autofattura per acquisto servizi dall'estero</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD18</LocalId>
+            <LocalName>Integrazione per acquisto di beni intracomunitari</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD19</LocalId>
+            <LocalName>Integrazione/autofattura per acquisto di beni ex art.17 c.2 DPR 633/72</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD20</LocalId>
+            <LocalName>Autofattura per regolarizzazione e integrazione delle fatture (ex art.6 c.8 d.lgs. 471/97  o  art.46 c.5 D.L. 331/93)</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD21</LocalId>
+            <LocalName>Autofattura per splafonamento</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD22</LocalId>
+            <LocalName>Estrazione beni da Deposito IVA</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD23</LocalId>
+            <LocalName>Estrazione beni da Deposito IVA con versamento dell'IVA</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD24</LocalId>
+            <LocalName>Fattura differita di cui all'art. 21, comma 4, lett. a)</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD25</LocalId>
+            <LocalName>Fattura differita di cui all'art. 21, comma 4, terzo periodo lett. b)</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD26</LocalId>
+            <LocalName>Cessione di beni ammortizzabili e per passaggi interni (ex art.36 DPR 633/72)</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD27</LocalId>
+            <LocalName>Fattura per autoconsumo o per cessioni gratuite senza rivalsa</LocalName>
+        </LocalCode>
     </Code>
   
     <Code>
@@ -60,6 +115,8 @@
             relevant party.
         </Description>
         <Nome>Nota di debito</Nome>
+        <LocalId>TD05</LocalId>
+        <LocalName>Nota di debito</LocalName>
         <LocalDescription>Documento / messaggio per fornire informazioni di addebito alla parte interessata. Supportata dallo SDI.</LocalDescription>
     </Code>
    
@@ -72,6 +129,14 @@
         </Description>
         <Nome>Fattura di pagamento anticipato</Nome>
         <LocalDescription>Fattura per pagare anticipatamente i beni e i servizi; questi importi saranno sottratti dalla fattura finale. Codifica utile per supportare acconto/anticipo su fattura (e parcella)</LocalDescription>
+        <LocalCode>
+            <LocalId>TD02</LocalId>
+            <LocalName>Acconto/anticipo su fattura</LocalName>
+        </LocalCode>
+        <LocalCode>
+            <LocalId>TD03</LocalId>
+            <LocalName>Acconto/anticipo su parcella</LocalName>
+        </LocalCode>
     </Code>
    
     <Code>

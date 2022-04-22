@@ -8,6 +8,6 @@ Le regole che si applicano a questo BIS sono le seguenti:
 :leveloffset: +1
 
 include::_profiles.adoc[]
-include::_parties.adoc[]
+//include::_parties.adoc[]
 
 :leveloffset: -1

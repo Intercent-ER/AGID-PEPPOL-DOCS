@@ -1,0 +1,191 @@
+
+= #Estensioni Domestiche#
+
+[cols="3s,3,5", options="header"]
+|====
+
+^.^|CIUS ID
+^.^|Elemento in XML PA
+^.^|Descrizione regola
+
+
+|BR-IT-DE-001
+|1.6 Soggetto Emittente
+|L'estensione deve contenere un elemento  cbc:TypeCode valorizzato esclusivamente  con i valori 'CC' o 'TZ'.
+
+|BR-IT-DE-002
+|2.1.1.1 Tipo Documento
+|L'estensione deve contenere un elemento  cbc:TypeCode valorizzato esclusivamente  con i valori del TipoDocumento, secondo  la specifica FatturaPA 1.2.1.
+
+|BR-IT-DE-003
+|2.1.1.5.1 Tipo Ritenuta
+|L'estensione deve contenere un elemento  cbcTypeCode valorizzato esclusivamente  con i valori del TipoRitenuta, secondo la  specifica FatturaPA 1.2.1
+
+|BR-IT-DE-004
+|2.1.1.12 Art73
+|L'estensione deve contenere un elemento  cbcTypeCode valorizzato esclusivamente  con il valore 'SI' per applicare l'Articolo 73  del DPR 633/72.
+
+|BR-IT-DE-005
+|2.2.2.4 Arrotondamento
+|L'estensione deve contenere un elemento  cbcAmount la cui lunghezza non può  superare i 15 caratteri incluso 2 cifre  decimali.
+
+|BR-IT-DE-006
+|2.1.1.8 Sconto Maggiorazione
+|L'estensione deve contenere uno o più  elementi cacAllowanceCharge.
+
+|BR-IT-DE-007
+|2.1.1.8 Sconto Maggiorazione
+|L'importo dello sconto o maggiorazione  (cbcAmount) deve contenere da 4 fino a  21 caratteri incluso 2 cifre decimali
+
+|BR-IT-DE-008
+|2.1.1.8 Sconto Maggiorazione
+|L'importo dello sconto/maggiorazione in  percentuale, se presente,  (cbcMultiplierFactorNumeric) deve  contenere da 4 fino a 6 caratteri incluso 2  cifre decimali
+
+|BR-IT-DE-009NC1*
+|2.1.1.5 Dati Ritenuta
+|L'estensione deve contenere un elemento cac:WithholdingTaxTotal.
+
+|BR-IT-DE-009FT1*
+|2.1.1.5 Dati Ritenuta
+|L'estensione deve contenere un elemento cac:WithholdingTaxTotal.
+
+|BR-IT-DE-010
+|2.1.1.5 Dati Ritenuta
+|L'importo totale delle ritenute  (cbcTaxAmount) deve contenere da 4 fino  a 15 caratteri incluso 2 cifre decimali.
+
+|BR-IT-DE-011
+|2.1.1.5 Dati Ritenuta
+|Il cac:WithholdingTaxTotal deve contenere almeno una ritenuta (cac:TaxSubtotal)
+
+|BR-IT-DE-012
+|2.1.1.5 Dati Ritenuta
+|L'importo di ogni ritenuta (cbcTaxAmount)  deve contenere da 4 fino a 15 caratteri  incluso 2 cifre decimali.
+
+|BR-IT-DE-013
+|2.1.1.5 Dati Ritenuta
+|Ogni ritenuta deve contenere la categoria  della ritenuta (cacTaxCategory) con  identificativo uguale a "S" (cbcID),  percentuale della ritenuta (cbcPercent) da  4 fino a 6 caratteri incluso 2 cifre decimali  e schema della ritenuta valorizzato con  cacTaxScheme/cbcID = 'SWT'
+
+|BR-IT-DE-014
+|2.1.10.1 NumeroFatturaPrincipale +
+2.1.10.2 DataFatturaPrincipale
+|Se si vuole fare riferimento ad una fattura  principale relativa al trasporto di beni  devono essere obbligatoriamente  valorizzati gli estremi della fattura con gli  elementi ID e IssueDate.
+
+|BR-IT-DE-015
+|2.1.10.1 NumeroFatturaPrincipale
+|L'identificativo della fattura principale non  può superare i 20 caratteri
+
+|BR-IT-DE-016
+|2.1.8.2 DataDDT
+|La data del documento di trasporto deve  essere obbligatoriamente valorizzata a  livello di documento
+
+|BR-IT-DE-017
+|1.2.1.8 Regime Fiscale
+|Il Regime Fiscale (cbcTaxLevelCode)  deve essere valorizzato esclusivamente  con i valori della relativa codifica.
+
+|BR-IT-DE-018
+|1.2.3 Stabile Organizzazione
+|La Stabile Organizzazione deve fornire  l'indirizzo completo di via e numero civico,  comune, CAP, provincia e nazione
+
+|BR-IT-DE-019
+|1.2.3.1 Indirizzo +
+1.2.3.2 NumeroCivico
+|La lunghezza dell'elemento non può  superare i 60 caratteri.
+
+|BR-IT-DE-020
+|1.2.3.4 Comune
+|La lunghezza dell'elemento non può  superare i 60 caratteri.
+
+|BR-IT-DE-021
+|1.2.3.3 CAP
+|La lunghezza dell'elemento deve essere  costituita da 5 cifre
+
+|BR-IT-DE-022
+|1.2.3.5 Provincia
+|La lunghezza dell'elemento non può  superare 2 caratteri.
+
+|BR-IT-DE-023
+|1.5 Terzo Intermediario 
+|Il Terzo Intermediario o Soggetto Emittente deve contenere la P.IVA, lo schema fiscale = 'VAT', la ragione sociale o una persona fisica (nome e cognome).
+
+|BR-IT-DE-024A*
+|1.3.1.2 Codice Fiscale
+|Il Codice Fiscale deve specificare l'attributo @schemeID valorizzato con "0210" ed avere la lunghezza del codice compresa fra 11 e 16 caratteri alfanumerici.
+
+|BR-IT-DE-025
+|1.3.1.3.5 Codice EORI
+|Il Codice EORI deve essere preceduto dal  prefisso 'EORI:' ed avere la lunghezza del  codice compresa fra 13 e 17 caratteri  alfanumerici.
+
+|BR-IT-DE-026A*
+|2.1.9.1.2 Codice Fiscale
+|Il Codice Fiscale deve specificare l'attributo @schemeID valorizzato con "0210" ed avere la lunghezza del codice compresa fra 11 e 16 caratteri alfanumerici.
+
+|BR-IT-DE-027
+|2.1.9.1.3.1 Denominazione +
+2.1.9.1.3.2 Nome +
+2.1.9.1.3.3 Cognome 
+|Se la Denominazione del Vettore è valorizzata, la sua lunghezza non può superare 80 caratteri, alternativamente, se è invece valorizzato il Nome e il Cognome, la loro lunghezza non potrà superare 60 caratteri
+
+|BR-IT-DE-028
+|2.1.9.1.1 Partita IVA
+|La lunghezza dell'elemento non può  superare i 30 caratteri
+
+|BR-IT-DE-029
+|
+|L’identificativo del TaxScheme deve  essere valorizzato con 'VAT'
+
+|BR-IT-DE-030
+|2.1.9.1.4 Numero Licenza Guida
+|Se il Numero Licenza Guida è valorizzata,  la sua lunghezza non può superare 20  caratteri e il tipo documento  (cbcDocumentTypeCode) deve essere '40'
+
+|BR-IT-DE-031
+|2.1.9.7 Peso Lordo +
+2.1.9.8 Peso Netto
+|La lunghezza del Peso Lordo o Netto deve  essere da 4 a 7 caratteri, incluse 1 o 2  cifre decimali.
+
+|BR-IT-DE-032
+|2.1.9.4 Numero Colli 
+|Il Numero di Colli può essere da 1 a 9999.
+
+|BR-IT-DE-033
+|2.1.9.5 Descrizione Merce 
+|La lunghezza dell'elemento non può  superare i 100 caratteri.
+
+|BR-IT-DE-034
+|2.1.9.2 Mezzo di Trasporto
+|La lunghezza dell'elemento non può  superare gli 80 caratteri
+
+|BR-IT-DE-035
+|2.1.9.3 Causale Trasporto
+|La lunghezza dell'elemento non può  superare i 100 caratteri.
+
+|BR-IT-DE-036
+|2.1.9.11 Tipo Resa Merce
+|La lunghezza dell'elemento deve essere  di 3 caratteri.
+
+|BR-IT-DE-037
+|2.4.2.17 Sconto Pagamento Anticipato
+|La lunghezza dell'elemento deve essere di  almeno 4 caratteri e non può superare i 15  caratteri incluso 2 cifre decimali
+
+|BR-IT-DE-038
+|2.4.2.19 Penalita Pagamenti Ritardati 
+|La lunghezza dell'elemento deve essere di  almeno 4 caratteri e non può superare i 15  caratteri incluso 2 cifre decimali
+
+|BR-IT-DE-039
+|2.1.2.2 Numero Ordine
+|La lunghezza dell'elemento non può  superare i 20 caratteri
+
+|BR-IT-DE-040
+|
+|Il riferimento ad una riga DDT dalla riga  fattura non supportato da SDI, valorizzarlo  sempre con 'NA'.
+
+|BR-IT-DE-041
+|2.1.8.1 Numero DDT
+|La lunghezza dell'elemento non può superare i 20 caratteri
+
+|BR-IT-DE-042
+|2.1.8.2 DataDDT
+|La data del documento di trasporto deve essere obbligatoriamente valorizzata a  livello di riga
+
+
+|====
+(*) _national Peppol authority rule that integrates the AdE technical specifications_ 

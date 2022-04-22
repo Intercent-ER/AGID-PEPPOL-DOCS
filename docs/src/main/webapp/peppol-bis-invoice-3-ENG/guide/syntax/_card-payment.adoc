@@ -1,10 +1,10 @@
 
-.Esempio UBL di modalità pagamento quando il pagamento è effettuato con carta di pagamento
+.UBL example of payment means info when payment is done by payment card
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/payment1.xml[tags=card]
 ----
-<1> Codice modalità pagamento per la carta di credito
-<2> Obbligatorio, deve coincidere con le ultime 4 o 6 cifre dal numero di carta di pagamanto
-<3> Obbligatorio, utilizzato per identificare il fornitore di servizi del circuito finanziario della carta. Esempi sono VISA, MasterCard, American Express.
-<4> Nome dell'intestatario della carta
+<1> Payment means code for credit card
+<2> Mandatory, shall be the last 4 to 6 digits of the payment card number
+<3> Mandatory, used to identify the financial service network provider of the card. Examples are VISA, MasterCard, American Express.
+<4> Card holder name

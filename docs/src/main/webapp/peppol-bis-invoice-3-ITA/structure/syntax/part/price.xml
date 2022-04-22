@@ -1,48 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1">
-        
+<Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" xmlns:agid="urn:fdc:agid.gov.it:peppol:customization">
+
 
         <Term>cac:Price</Term>
-        <Name>PRICE DETAILS</Name>
-        <Description>A group of business terms providing information about the price applied for the goods and services
-            invoiced on the Invoice line.
+        <Name>PRICE DETAILS - Prezzo del bene o del servizio</Name>
+        <Description>Informazioni relative al prezzo applicabile al bene o al servizio fatturato nella riga di fattura.
         </Description>
         <Reference type="BUSINESS_TERM">BG-29</Reference>
-        
-        <Element>
+
+        <Element agid:custom="rule">
             <Term>cbc:PriceAmount</Term>
-            <Name>Item net price</Name>
-            <Description>The price of an item, exclusive of VAT, after subtracting item price discount. The Item net price has to be equal with the
-                Item gross price less the Item price discount, if they are both provided. Item price can not be negative.</Description>
+            <Name>Item net price - Prezzo al netto dell’IVA</Name>
+            <Description>Indica il prezzo unitario del bene o del servizio, comprensivo di sconti e maggiorazioni, al netto dell’IVA.</Description>
             <DataType>Amount</DataType>
             <Reference type="BUSINESS_TERM">BT-146</Reference>
             <Reference type="RULE">BR-26</Reference>
             <Reference type="RULE">BR-27</Reference>
+			<Reference type="RULE">BR-IT-430</Reference>
             <Reference type="RULE">PEPPOL-EN16931-R046</Reference>
-            
-            
+
             <Attribute>
                 <Term>currencyID</Term>
-                <Description>Mandatory attribute. Use BT-5</Description>
+                <Description>Mandatory attribute. Use BT-5. Identificativo valuta.</Description>
                 <Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
                 <Reference type="RULE">PEPPOL-EN16931-R051</Reference>
                 <Reference type="CODE_LIST">ISO4217</Reference>
                 <Value type="EXAMPLE">EUR</Value>
             </Attribute>
-            
+
             <Value type="EXAMPLE">23.45</Value>
         </Element>
-        
+
         <Element cardinality="0..1">
             <Term>cbc:BaseQuantity</Term>
-            <Name>Item price base quantity</Name>
-            <Description>The number of item units to which the price applies.</Description>
+            <Name>Item price base quantity - Prezzo base</Name>
+            <Description>Indica la quantità di beni e/o servizi sulla quale si applica il prezzo unitario.</Description>
             <DataType>Quantity</DataType>
             <Reference type="BUSINESS_TERM">BT-149</Reference>
             <Reference type="RULE">PEPPOL-EN16931-R121</Reference>
-            
-            
-            
+
             <Attribute usage="Optional">
                 <Term>unitCode</Term>
                 <Name>Item price base quantity unit of measure code</Name>
@@ -54,57 +50,60 @@
                 <Reference type="RULE">PEPPOL-EN16931-R130</Reference>
                 <Value type="EXAMPLE">C62</Value>
             </Attribute>
-            
+
             <Value type="EXAMPLE">1</Value>
         </Element>
-        
-        <Element cardinality="0..1">
+
+        <Element cardinality="1..1" agid:custom="cardinality">
             <Term>cac:AllowanceCharge</Term>
-            <Name>ALLOWANCE</Name>
-            
+            <Name>ALLOWANCE - Sconto/Maggiorazione</Name>
+
             <Element>
                 <Term>cbc:ChargeIndicator</Term>
-                <Description>Mandatory element. Value must be “false”</Description>
+                <Description>Elemento obbligatorio. Valore fisso a “false”</Description>
                 <Reference type="RULE">PEPPOL-EN16931-R044</Reference>
                 <Value type="FIXED">false</Value>
             </Element>
-            <Element>
+            <Element agid:custom="rule">
                 <Term>cbc:Amount</Term>
-                <Name>Item price discount</Name>
-                <Description>The total discount subtracted from the Item gross price to calculate the Item net price.
+                <Name>Item price discount - FPA 2.2.1.10.1 'Tipo' e FPA 2.2.1.10.3 'Importo'</Name>
+                <Description>Importo Sconto/Maggiorazione. Vedi "Documentazione" per istruzioni sulla compilazione del campo.
                 </Description>
                 <DataType>Amount</DataType>
                 <Reference type="BUSINESS_TERM">BT-147</Reference>
-                
+				<Reference type="RULE">BR-IT-432</Reference>
+
                 <Attribute>
                     <Term>currencyID</Term>
-                    <Description>Mandatory attribute. Use BT-5</Description>
-                    <Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
-                    <Reference type="RULE">PEPPOL-EN16931-R051</Reference> 
-                    <Reference type="CODE_LIST">ISO4217</Reference>
-                    <Value type="EXAMPLE">EUR</Value>
-                </Attribute>
-                
-                <Value type="EXAMPLE">100</Value>
-            </Element>
-            
-            <Element cardinality="0..1">
-                <Term>cbc:BaseAmount</Term>
-                <Name>Item gross price</Name>
-                <Description>The unit price, exclusive of VAT, before subtracting Item price discount, can not be negative</Description>
-                <DataType>Amount</DataType>
-                <Reference type="BUSINESS_TERM">BT-148</Reference>
-                <Reference type="RULE">BR-28</Reference>
-                
-                <Attribute>
-                    <Term>currencyID</Term>
-                    <Description>Mandatory attribute. Use BT-5</Description>
+                    <Description>Mandatory attribute. Use BT-5. Identificativo valuta</Description>
                     <Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
                     <Reference type="RULE">PEPPOL-EN16931-R051</Reference>
                     <Reference type="CODE_LIST">ISO4217</Reference>
                     <Value type="EXAMPLE">EUR</Value>
                 </Attribute>
-                
+
+                <Value type="EXAMPLE">100</Value>
+            </Element>
+
+            <Element cardinality="1..1" agid:custom="cardinality,rule">
+                <Term>cbc:BaseAmount</Term>
+                <Name>Item gross price - FPA 2.2.1.9 'PrezzoUnitario'</Name>
+                <Description>The unit price, exclusive of VAT, before subtracting Item price discount, can not be negative. Prezzo unitario del bene/servizio; nel caso di beni ceduti a titolo di sconto, premio o abbuono, l'importo indicato rappresenta il "valore normale".</Description>
+                <DataType>Amount</DataType>
+                <Reference type="BUSINESS_TERM">BT-148</Reference>
+                <Reference type="RULE">BR-28</Reference>
+				<Reference type="RULE">BR-IT-431</Reference>
+				<Reference type="RULE">BR-IT-433</Reference>
+
+                <Attribute>
+                    <Term>currencyID</Term>
+                    <Description>Mandatory attribute. Use BT-5. Identificativo valuta</Description>
+                    <Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
+                    <Reference type="RULE">PEPPOL-EN16931-R051</Reference>
+                    <Reference type="CODE_LIST">ISO4217</Reference>
+                    <Value type="EXAMPLE">EUR</Value>
+                </Attribute>
+
                 <Value type="EXAMPLE">123.45</Value>
             </Element>
         </Element>

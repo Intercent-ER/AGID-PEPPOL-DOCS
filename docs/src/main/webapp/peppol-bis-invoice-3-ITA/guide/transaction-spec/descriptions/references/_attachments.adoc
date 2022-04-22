@@ -1,5 +1,5 @@
 
-= Allegati
+= #Allegati#
 
 L’elemento per memorizzare le informazioni degli allegati (AdditionalDocumentReference) può essere ripetuto diverse volte, permettendo quindi di avere molteplici allegati.
 

@@ -8,7 +8,7 @@
 	<parent>
 		<groupId>it.gov.agid</groupId>
 		<artifactId>AGID-PEPPOL</artifactId>
-		<version>1.5</version>
+		<version>1.3</version>
 		<relativePath>../</relativePath>
 	</parent>
 	<packaging>war</packaging>
@@ -18,9 +18,11 @@
 	<properties>
 		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<validator.version>2.3.0</validator.version>
-		<converter.version>2.4.6</converter.version>
-		<schematron.version>2.3.0</schematron.version>
+		<validator.version>2.4.0</validator.version>
+		<converter.version>2.5.0</converter.version>
+		<schematron.version>2.4.0</schematron.version>
+		<mapping_peppol_fpa.version>3.2</mapping_peppol_fpa.version>
+		<mapping_fpa_peppol.version>3.2</mapping_fpa_peppol.version>
 	</properties>
 	<build>
 		<plugins>
@@ -40,7 +42,7 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>xml-maven-plugin</artifactId>
 				<executions>
-				
+
 					<!-- ITA -->
 					<execution>
 						<id>apply-xslt-others-ITA</id>
@@ -52,7 +54,7 @@
 							<transformationSets>
 								<transformationSet>
 									<dir>${basedir}/src/main/webapp/peppol-bis-3-ITA/structure/syntax/</dir>
-									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-structure-v1.5.3.xsl</stylesheet>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-structure-v1.5.4.xsl</stylesheet>
 									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ITA/peppol-bis-3/</outputDir>
 									<fileMappers>
 										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
@@ -73,7 +75,7 @@
 							<transformationSets>
 								<transformationSet>
 									<dir>${basedir}/src/main/webapp/peppol-bis-invoice-3-ITA/structure/syntax/</dir>
-									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-structure-v1.5.3.xsl</stylesheet>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-structure-v1.5.4.xsl</stylesheet>
 									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ITA/peppol-bis-invoice-3/</outputDir>
 									<fileMappers>
 										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
@@ -134,7 +136,7 @@
 							</transformationSets>
 						</configuration>
 					</execution>
-					
+
 					<!-- ENG -->
 					<execution>
 						<id>apply-xslt-others-ENG</id>
@@ -146,7 +148,7 @@
 							<transformationSets>
 								<transformationSet>
 									<dir>${basedir}/src/main/webapp/peppol-bis-3-ENG/structure/syntax/</dir>
-									<stylesheet>${basedir}/src/main/webapp/xsl/ENG/agid-peppol-bis-structure-v1.5.3.xsl</stylesheet>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ENG/agid-peppol-bis-structure-v1.5.4.xsl</stylesheet>
 									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ENG/peppol-bis-3/</outputDir>
 									<fileMappers>
 										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
@@ -167,7 +169,7 @@
 							<transformationSets>
 								<transformationSet>
 									<dir>${basedir}/src/main/webapp/peppol-bis-invoice-3-ENG/structure/syntax/</dir>
-									<stylesheet>${basedir}/src/main/webapp/xsl/ENG/agid-peppol-bis-structure-v1.5.3.xsl</stylesheet>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ENG/agid-peppol-bis-structure-v1.5.4.xsl</stylesheet>
 									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ENG/peppol-bis-invoice-3/</outputDir>
 									<fileMappers>
 										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
@@ -228,8 +230,8 @@
 							</transformationSets>
 						</configuration>
 					</execution>
-					
-					<!-- SCHEMATRON -->
+
+					<!-- SCHEMATRON ITA-->
 					<execution>
 						<id>apply-xslt-sch</id>
 						<phase>package</phase>
@@ -241,8 +243,11 @@
 								<transformationSet>
 									<dir>${project.build.directory}/${project.build.finalName}/sch/</dir>
 									<includes>
-										<include>**/**/ITA/**.sch</include>
+										<include>**/**/ITA/**/**.sch</include>
 									</includes>
+									<excludes>
+										<exclude>peppolbis-en16931-ubl-3.0-invoice/**</exclude>
+									</excludes>
 									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-rules-v1.2.xsl</stylesheet>
 									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ITA/sch</outputDir>
 									<fileMappers>
@@ -254,7 +259,32 @@
 							</transformationSets>
 						</configuration>
 					</execution>
-					
+					<execution>
+						<id>apply-xslt-sch-invoice</id>
+						<phase>package</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${project.build.directory}/${project.build.finalName}/sch/</dir>
+									<includes>
+										<include>**/peppolbis-en16931-ubl-3.0-invoice/**/ITA/**/**.sch</include>
+									</includes>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-rules-invoice-v1.2.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ITA/sch</outputDir>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.html</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+
+					<!-- SCHEMATRON ENG-->
 					<execution>
 						<id>apply-xslt-sch-ENG</id>
 						<phase>package</phase>
@@ -279,6 +309,109 @@
 							</transformationSets>
 						</configuration>
 					</execution>
+					<execution>
+						<id>apply-xslt-sch-invoice-ENG</id>
+						<phase>package</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${project.build.directory}/${project.build.finalName}/sch/</dir>
+									<includes>
+										<include>**/peppolbis-en16931-ubl-3.0-invoice/**/ENG/**/**.sch</include>
+									</includes>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ENG/agid-peppol-bis-rules-invoice-v1.2.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ENG/sch</outputDir>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.html</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+
+					<!-- INVOICE TRASFORMAZIONE SCHEMATRON IN REGOLE (per la sezione delle specifiche)-->
+
+					<!--<execution>
+						<id>schematron-to-asciidoc-ph1</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${basedir}/../artifacts/validation/3.0/sch/peppolbis-en16931-ubl-3.0-invoice/Schematron/ITA</dir>
+									<stylesheet>${basedir}/../artifacts/validation/3.0/stylesheets/iso_dsdl_include.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/temp/ph1</outputDir>
+									<includes>
+										<include>**/*.sch</include>
+										<include>*.sch</include>
+									</includes>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.sch</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+					<execution>
+						<id>schematron-to-asciidoc-ph2</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${project.build.directory}/${project.build.finalName}/temp/ph1</dir>
+									<stylesheet>${basedir}/../artifacts/validation/3.0/stylesheets/iso_abstract_expand.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/temp/ph2</outputDir>
+									<includes>
+										<include>**/*.sch</include>
+										<include>*.sch</include>
+									</includes>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.sch</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+					<execution>
+						<id>schematron-to-asciidoc-ph3</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${project.build.directory}/${project.build.finalName}/temp/ph2</dir>
+									<stylesheet>${basedir}/../artifacts/validation/3.0/stylesheets/iso_schematron-to-asciidoc-v1.0.xsl</stylesheet>
+									<outputDir>${basedir}/src/main/webapp/peppol-bis-invoice-3-ITA/rules/generated</outputDir>
+									<includes>
+										<include>**/*.sch</include>
+										<include>*.sch</include>
+									</includes>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.adoc</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>-->
+
 				</executions>
 
 				<dependencies>
@@ -295,7 +428,7 @@
 				<artifactId>asciidoctor-maven-plugin</artifactId>
 				<version>1.5.6</version>
 				<executions>
-				
+
 					<!-- ITA -->
 					<execution>
 						<id>output-html-others-ITA</id>
@@ -325,7 +458,42 @@
 							<preserveDirectories>true</preserveDirectories>
 						</configuration>
 					</execution>
-					
+
+					<!-- BILLING generazione html (per le regole in homepage) a partire dagli schematron -->
+					<execution>
+						<id>output-html-billing-rules-ITA</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<backend>html5</backend>
+							<sourceDirectory>${basedir}/../artifacts/validation/3.0/sch/peppolbis-en16931-ubl-3.0-invoice/Schematron/ITA</sourceDirectory>
+							<outputDirectory>${project.build.directory}/generated-docs/ITA/invoice/generated-rules</outputDirectory>
+							<relativeBaseDir>true</relativeBaseDir>
+							<preserveDirectories>true</preserveDirectories>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>output-html-billing-rules-ENG</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<backend>html5</backend>
+							<sourceDirectory>${basedir}/../artifacts/validation/3.0/sch/peppolbis-en16931-ubl-3.0-invoice/Schematron/ENG</sourceDirectory>
+							<outputDirectory>${project.build.directory}/generated-docs/ENG/invoice/generated-rules</outputDirectory>
+							<relativeBaseDir>true</relativeBaseDir>
+							<preserveDirectories>true</preserveDirectories>
+						</configuration>
+					</execution>
+
+
+
+
+
 					<!-- ENG -->
 					<execution>
 						<id>output-html-others-ENG</id>
@@ -355,7 +523,7 @@
 							<preserveDirectories>true</preserveDirectories>
 						</configuration>
 					</execution>
-					
+
 
 				</executions>
 			</plugin>
@@ -419,6 +587,14 @@
 						<replacement>
 							<token>(#link_to_converter#)</token>
 							<value>AGID-PEPPOL-Converter-${converter.version}.zip</value>
+						</replacement>
+						<replacement>
+							<token>(#link_to_mapping_peppol_fpa#)</token>
+							<value>Mapping_UBL-Peppol-3_FatturaPA_V${mapping_peppol_fpa.version}.xlsx</value>
+						</replacement>
+						<replacement>
+							<token>(#link_to_mapping_fpa_peppol#)</token>
+							<value>Mapping_FatturaPA_UBL-Peppol-3_V${mapping_fpa_peppol.version}.xlsx</value>
 						</replacement>
 					</replacements>
 				</configuration>
@@ -488,7 +664,7 @@
 								</artifactItem>
 							</artifactItems>
 							<outputDirectory>${project.build.directory}/${project.build.finalName}/attachments</outputDirectory>
-						</configuration>            
+						</configuration>
 					</execution>
 					<execution>
 						<id>copy-converter-zip</id>

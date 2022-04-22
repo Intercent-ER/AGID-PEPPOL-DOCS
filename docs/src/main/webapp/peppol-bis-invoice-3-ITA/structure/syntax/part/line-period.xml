@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" cardinality="0..1">
-    
+
         <Term>cac:InvoicePeriod</Term>
-        <Name>INVOICE LINE PERIOD</Name>
-        <Description>A group of business terms providing information about the period relevant for the Invoice line.
-        </Description>
+        <Name>INVOICE LINE PERIOD - Periodo rilevante fattura</Name>
+        <Description>Informazioni sul periodo rilevante della riga di fattura.</Description>
         <Reference type="BUSINESS_TERM">BG-26</Reference>
-        
+
         <Element cardinality="0..1">
             <Term>cbc:StartDate</Term>
-            <Name>Invoice line period start date</Name>
-            <Description>The date when the Invoice period for this Invoice line starts. Format ="YYYY-MM-DD"</Description>
+            <Name>Invoice line period start date - FPA 2.2.1.7 'DataInizioPerido'</Name>
+            <Description>The date when the Invoice period for this Invoice line starts. Format ="YYYY-MM-DD".
+            Data iniziale del periodo di riferimento cui si riferisce l'eventuale servizio prestato (secondo il formato ISO 8601:2004).</Description>
             <DataType>Date</DataType>
             <Reference type="BUSINESS_TERM">BT-134</Reference>
             <Reference type="RULE">BR-CO-20</Reference>
@@ -20,8 +20,9 @@
         </Element>
         <Element cardinality="0..1">
             <Term>cbc:EndDate</Term>
-            <Name>Invoice line period end date</Name>
-            <Description>The date when the Invoice period for this Invoice line ends. Format ="YYYY-MM-DD"</Description>
+            <Name>Invoice line period end date - FPA 2.2.1.8 'DataFinePeriodo'</Name>
+            <Description>The date when the Invoice period for this Invoice line ends. Format ="YYYY-MM-DD".
+            Data finale del periodo di riferimento cui si riferisce l'eventuale servizio prestato (secondo il formato ISO 8601:2004).</Description>
             <DataType>Date</DataType>
             <Reference type="BUSINESS_TERM">BT-135</Reference>
             <Reference type="RULE">BR-30</Reference>

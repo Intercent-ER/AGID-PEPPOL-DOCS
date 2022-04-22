@@ -5,7 +5,12 @@
     <Agency>CEF</Agency>
 
     <Code>
-        <Id>vatex-eu-132</Id>
+        <Id>VATEX-EU-79-C</Id>
+        <Name>Exempt based on article 79, point c of Council Directive 2006/112/EC</Name>
+        <Description>Exemptions relating to repayment of expenditures. Remark, Repayment of expenditure is not an exemption in the sense of the VAT Directive but may be handled as such in the context of the EN16931.</Description>
+    </Code>  
+    <Code>
+        <Id>VATEX-EU-132</Id>
         <Name>Exempt based on article 132 of Council Directive 2006/112/EC</Name>
         <Description>Exemptions for certain activities in public interest.</Description>
     </Code>    

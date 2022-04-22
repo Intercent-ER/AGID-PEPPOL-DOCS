@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" xmlns:agid="urn:fdc:agid.gov.it:peppol:customization" cardinality="0..1" agid:custom="extension">
+
+	<Term>cac:Shipment</Term>
+	<Name>Spedizione</Name>
+	<Description>The shipment being delivered.</Description>
+
+	<Element>
+		<Term>cbc:ID</Term>
+		<Name>Identificativo Spedizione</Name>
+		<Description>Un identificativo per questa spedizione. E' possibile indicare qui un GSIN (Global Shipment Identification Number), un numero di spedizione riconosciuto a livello globale utilizzato per identificare univocamente la spedizione nel suo complesso come specificato dal fornitore. Se non è stato assegnato un identificativo unico a questa spedizione usare "NA".</Description>
+		<DataType>Identifier</DataType>
+
+		<Value type="EXAMPLE">NA</Value>
+
+	</Element>
+
+	<Element cardinality="0..1">
+		<Term>cbc:GrossWeightMeasure</Term>
+		<Name>Peso Lordo - FPA 2.1.9.7 'PesoLordo'</Name>
+		<Description>The total gross weight of a shipment; the weight of the goods plus packaging plus transport equipment.</Description>
+		<DataType>Measure</DataType>
+		<Reference type="RULE">BR-IT-DE-031</Reference>
+		<Value type="EXAMPLE">10.0</Value>
+
+		<Attribute>
+			<Term>unitCode</Term>
+			<Name>Unità di misura - FPA 2.1.9.6 'UnitaMisuraPeso'</Name>
+			<DataType>Code</DataType>
+			<Reference type="RULE">BR-23</Reference>
+			<Reference type="CODE_LIST">UNECERec20</Reference>
+			<Reference type="CODE_LIST">UNECERec21</Reference>
+			<Value type="EXAMPLE">KGM</Value>
+		</Attribute>
+
+	</Element>
+
+	<Element cardinality="0..1">
+		<Term>cbc:NetWeightMeasure</Term>
+		<Name>Peso Netto - FPA 2.1.9.8 'PesoNetto'</Name>
+		<Description>The net weight of this shipment, excluding packaging.</Description>
+		<DataType>Measure</DataType>
+		<Reference type="RULE">BR-IT-DE-031</Reference>
+		<Value type="EXAMPLE">8.0</Value>
+
+		<Attribute>
+			<Term>unitCode</Term>
+			<Name>Unità di misura - FPA 2.1.9.6 'UnitaMisuraPeso'</Name>
+			<DataType>Code</DataType>
+			<Reference type="RULE">BR-23</Reference>
+			<Reference type="CODE_LIST">UNECERec20</Reference>
+			<Reference type="CODE_LIST">UNECERec21</Reference>
+			<Value type="EXAMPLE">KGM</Value>
+		</Attribute>
+
+	</Element>
+
+	<Element cardinality="0..1">
+		<Term>cbc:TotalTransportHandlingUnitQuantity</Term>
+		<Name>Numero Colli - FPA 2.1.9.4 'NumeroColli'</Name>
+		<Description>Numero dei colli trasportati</Description>
+		<DataType>Quantity</DataType>
+		<Reference type="RULE">BR-IT-DE-032</Reference>
+		<Value type="EXAMPLE">1</Value>
+
+		<Attribute>
+			<Term>unitCode</Term>
+			<Name>Unità di misura</Name>
+			<DataType>Code</DataType>
+			<Reference type="RULE">BR-23</Reference>
+			<Reference type="CODE_LIST">UNECERec20</Reference>
+			<Reference type="CODE_LIST">UNECERec21</Reference>
+			<Value type="EXAMPLE">C62</Value>
+		</Attribute>
+
+	</Element>
+
+	<Element cardinality="0..1">
+		<Term>cac:GoodsItem</Term>
+		<Name>Dettaglio Merce</Name>
+
+		<Element>
+			<Term>cbc:Description</Term>
+			<Name>Descrizione Merce - FPA 2.1.9.5 'Descrizione'</Name>
+			<Description>Descrizione (natura, qualità, aspetto …) relativa ai colli trasportati.</Description>
+			<DataType>Text</DataType>
+			<Reference type="RULE">BR-IT-DE-033</Reference>
+			<Value type="EXAMPLE">Medicinali</Value>
+
+		</Element>
+	</Element>
+
+	<Element cardinality="0..1">
+		<Term>cac:ShipmentStage</Term>
+		<Name>Fase Spedizione</Name>
+
+		<Element>
+			<Term>cbc:TransportMeansTypeCode</Term>
+			<Name>Mezzo di Trasporto - FPA 2.1.9.2 'MezzoTrasporto'</Name>
+			<Description>Mezzo utilizzato per il trasporto.</Description>
+			<DataType>Code</DataType>
+			<Reference type="RULE">BR-IT-DE-034</Reference>
+			<Value type="EXAMPLE">CAMION</Value>
+
+		</Element>
+	</Element>
+
+</Element>

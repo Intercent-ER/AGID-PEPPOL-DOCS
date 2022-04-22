@@ -152,7 +152,7 @@
     </cac:LegalMonetaryTotal>
     <!-- end::negative[] -->
     <!-- tag::negative[] -->
- 
+
 <cac:InvoiceLine>
     <cbc:ID>1</cbc:ID><!--2-->
     <cbc:InvoicedQuantity unitCode="DAY">7</cbc:InvoicedQuantity>
@@ -187,10 +187,10 @@
     <cac:Price>
         <cbc:PriceAmount currencyID="EUR">400</cbc:PriceAmount>
     </cac:Price>
+  </cac:InvoiceLine>
     <!-- end::negative[] -->
-    </cac:InvoiceLine>
     <!-- tag::negative[] -->
-    
+
 <cac:InvoiceLine>
     <cbc:ID>2</cbc:ID><!--3-->
     <cbc:InvoicedQuantity unitCode="DAY">-3</cbc:InvoicedQuantity>
@@ -224,6 +224,6 @@
     <cac:Price>
         <cbc:PriceAmount currencyID="EUR">500</cbc:PriceAmount>
     </cac:Price>
+  </cac:InvoiceLine>
     <!-- end::negative[] -->
-</cac:InvoiceLine>
 </Invoice>

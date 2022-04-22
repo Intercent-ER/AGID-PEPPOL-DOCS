@@ -5,6 +5,11 @@
     <Agency>CEF</Agency>
 
     <Code>
+        <Id>VATEX-EU-79-C</Id>
+        <Name>Exempt based on article 79, point c of Council Directive 2006/112/EC</Name>
+        <Description>Exemptions relating to repayment of expenditures. Remark, Repayment of expenditure is not an exemption in the sense of the VAT Directive but may be handled as such in the context of the EN16931.</Description>
+    </Code>  
+    <Code>
         <Id>vatex-eu-132</Id>
         <Name>Exempt based on article 132 of Council Directive 2006/112/EC</Name>
         <Description>Exemptions for certain activities in public interest.</Description>
@@ -343,24 +348,6 @@
         <Description>Travel agents performed outside of EU.</Description>
     </Code>
     <Code>
-        <Id>vatex-eu-g</Id>
-        <Name>Export outside the EU</Name>
-        <Description>Supports EN 16931-1 rule BR-G-10 - Only use with VAT category code
-            G</Description>
-    </Code>
-    <Code>
-        <Id>vatex-eu-o</Id>
-        <Name>Not subject to VAT</Name>
-        <Description>Supports EN 16931-1 rule BR-O-10 - Only use with VAT category code
-            O</Description>
-    </Code>
-    <Code>
-        <Id>vatex-eu-ic</Id>
-        <Name>Intra-Community supply</Name>
-        <Description>Supports EN 16931-1 rule BR-IC-10 - Only use with VAT category code
-            K</Description>
-    </Code>
-    <Code>
         <Id>vatex-eu-ae</Id>
         <Name>Reverse charge</Name>
         <Description>Supports EN 16931-1 rule BR-AE-10 - Only use with VAT category code
@@ -378,11 +365,26 @@
         <Description>Second-hand goods - Indication that the VAT margin scheme for second-hand goods
             has been applied. - Only use with VAT category code E</Description>
     </Code>
+	<Code>
+        <Id>vatex-eu-g</Id>
+        <Name>Export outside the EU</Name>
+        <Description>Supports EN 16931-1 rule BR-G-10 - Only use with VAT category code G</Description>
+    </Code>
     <Code>
         <Id>vatex-eu-i</Id>
         <Name>Intra-Community acquisition of works of art</Name>
         <Description>Works of art - Indication that the VAT margin scheme for works of art has been
             applied. - Only use with VAT category code E</Description>
+    </Code>
+	 <Code>
+        <Id>vatex-eu-ic</Id>
+        <Name>Intra-Community supply</Name>
+        <Description>Supports EN 16931-1 rule BR-IC-10 - Only use with VAT category code K</Description>
+    </Code>
+    <Code>
+        <Id>vatex-eu-o</Id>
+        <Name>Not subject to VAT</Name>
+        <Description>Supports EN 16931-1 rule BR-O-10 - Only use with VAT category code O</Description>
     </Code>
     <Code>
         <Id>vatex-eu-j</Id>

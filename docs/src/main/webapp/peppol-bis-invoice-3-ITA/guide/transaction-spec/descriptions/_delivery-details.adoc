@@ -1,12 +1,28 @@
 
-= Informazioni di consegna (Data e Luogo)
+= Informazioni di consegna e #trasporto#
 
 Le informazioni di consegna possono essere fornite a livello di testata.
 
 Luogo e data di consegna sono raccomandati e devono essere inviati a meno che le informazioni non pregiudichino la capacità di garantire la correttezza della fattura.
 
-L'elemento di consegna contiene informazioni su nome, indirizzo e identificatore del luogo di consegna (`cac:Delivery/cac:DeliveryLocation/cbc:ID`) che possono essere utilizzati se il luogo di consegna è definito attraverso un identificatore.
+L'elemento 'cac:Delivery' contiene informazioni su nome, indirizzo e identificatore del luogo di consegna ('cac:Delivery/cac:DeliveryLocation/cbc:ID') che possono essere utilizzati se il luogo di consegna è definito attraverso un identificatore.
 
-Esempi sono GLN (Global Location Number) oppure GSRN (Global Service Relationship Number) entrambi emessi da GS1.
+#In italia, in seguito alle Regole Tecniche NSO, l'identificativo del luogo di consegna per le PA segue la codifica https://www.puntidiconsegna-nso.it/[Punti di consegna].# +
+
+Altri esempi dell'identificativo del luogo di consegna sono GLN (Global Location Number) oppure  GSRN (Global Service Relationship Number) entrambi emessi da GS1. +
+
+
+#Quando la fattura si riferisce ad un unico Documento di Trasporto, la data del DDT viene riportata nel *cac:DespatchDocumentReference/cbc:IssueDate*.#
+
 
 include::../../syntax/_delivery.adoc[]
+
+:leveloffset: +1
+
+//include::_ext-vettore.adoc[]
+
+//include::_ext-ritiro-merce.adoc[]
+
+//include::_ext-spedizione.adoc[]
+
+:leveloffset: -1

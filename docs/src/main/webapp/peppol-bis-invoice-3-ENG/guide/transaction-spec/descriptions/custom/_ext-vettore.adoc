@@ -1,0 +1,11 @@
+
+= #Vettore# (estensione)
+
+Dati fiscali e anagrafici del Vettore da indicare nei casi di fattura "accompagnatoria" nell'elemento CarrierParty all'interno delle informazioni relative al trasporto.
+
+
+.Esempio UBL completo per le informazioni sul vettore
+[source, xml, indent=0]
+----
+include::../../../rules/snippets/agid-extensions.xml[tag=info_vettore]
+----

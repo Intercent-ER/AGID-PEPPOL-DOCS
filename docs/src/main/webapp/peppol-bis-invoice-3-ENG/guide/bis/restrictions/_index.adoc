@@ -1,23 +1,28 @@
 
 [appendix]
-= Restrizioni alla EN16931
+= Restrictions #and Extensions# on EN16931
 
-Di seguito vengono elencate le restrizioni alla {EN16931} applicate a questa {CIUS}. In aggiunta a queste regole, alcune regole nazionali forniscono ulteriori restrizioni basate su paese del venditore o IVA/VAT del paese.
-Una lista di queste regole nazionali è disponibile nelle <<national_rules>> 
+Below is a list of the restrictions on {EN16931} that is done in this {CIUS}. In addition to these rules, some national rules gives further restrictions based on the seller country or VAT country.
+A list of these national rules can be found in <<national_rules>>  +
 
-Tutte le restrizioni si trovano nelle specifiche ammesse in una {CIUS}, come indicato nel capitolo 7.3.2 della {EN16931}.
+#Nello specifico contesto italiano, valgono ulteriori restrizioni/estensioni.#
+
+#Le restrizioni per la fatturazione italiana cross-border (BT-40 Seller country code diverso da IT e BT-55 Buyer country code pari a IT) sono riportate al paragrafo Annex C.1.# + 
+#Le restrizioni per la fatturazione domestica italiana (BT-40 Seller country code pari da IT e BT-55 Buyer country code pari a IT) sono riportate al paragrafo Annex C.2.# + 
+[lime-background]#Le restrizioni per la fatturazione domestica italiana (BT-40 Seller country code pari da IT e BT-55 Buyer country code pari a IT) verso i privati, sono riportate al paragrafo Annex C.3.# + 
+#Le estensioni per la fatturazione domestica italiana (BT-40 Seller country code pari da IT e BT-55 Buyer country code pari a IT) sono riportate al paragrafo Annex C.4.# + 
+[lime-background]#Le estensioni per la fatturazione domestica italiana (BT-40 Seller country code pari da IT e BT-55 Buyer country code pari a IT) verso i privati, sono riportate al paragrafo Annex C.5.# + 
+
+Le restrizioni sotto riportate sono espresse come indicato nel capitolo 7.3.2 della {EN16931}.
 
 :leveloffset: +1
 
-include::../../profile/annex/_restricted-elements.adoc[]
+include::_restricted-elements.adoc[]
 
-include::../../transaction-spec/annex/_restricted-elements.adoc[]
+include::_restricted-elements2.adoc[]
 
-include::../../profile/annex/_processes.adoc[]
+include::_processes.adoc[]
 
-include::../../profile/annex/_known-issues.adoc[]
-
-include::../../cius-italia/annex/_cius-italia.adoc[]
-
+include::_known-issues.adoc[]
 
 :leveloffset: -1

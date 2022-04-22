@@ -7,18 +7,18 @@
             payment.  Shall be used when the Payee is different from the Seller.
         </Description>
         <Reference type="BUSINESS_TERM">BG-10</Reference>
-        
+
         <Element cardinality="0..1">
             <Term>cac:PartyIdentification</Term>
             <Name>PARTY IDENTIFICATION</Name>
-            
+
             <Element>
                 <Term>cbc:ID</Term>
                 <Name>Payee identifier or bank assigned creditor identifier</Name>
                 <Description>This element is used for both the identification of the Payee, or the unique banking reference identifier of Payee (assigned by the Payee bank.) For payee identification use ICD code list, for SEPA bank assigned creditor reference, use SEPA.</Description>
                 <DataType>Text</DataType>
                 <Reference type="BUSINESS_TERM">BT-60, BT-90</Reference>
-                
+
                 <Attribute usage="Optional">
                     <Term>schemeID</Term>
                     <Name>Payee or bank assigned creditor identifier identification scheme identifier</Name>
@@ -28,20 +28,20 @@
                     <Reference type="CODE_LIST">SEPA</Reference>
                     <Value type="EXAMPLE">SEPA</Value>
                 </Attribute>
-                
+
                 <Value type="EXAMPLE">FR932874294</Value>
-                
+
             </Element>
-            
+
         </Element>
-        
+
         <Element>
             <Term>cac:PartyName</Term>
             <Name>PARTY NAME</Name>
-            
+
             <Element>
                 <Term>cbc:Name</Term>
-                <Name>Payee name</Name>
+                <Name>Payee name - FPA 2.4.2.1 'Beneficiario'</Name>
                 <Description>The name of the Payee.</Description>
                 <DataType>Text</DataType>
                 <Reference type="BUSINESS_TERM">BT-59</Reference>
@@ -49,21 +49,21 @@
                 <Value type="EXAMPLE">Payee Name Ltd</Value>
             </Element>
         </Element>
-        
+
         <Element cardinality="0..1">
             <Term>cac:PartyLegalEntity</Term>
             <Name>PARTY LEGAL ENTITY</Name>
-            
+
             <Element>
                 <Term>cbc:CompanyID</Term>
-                <Name>Payee legal registration identifier</Name>
+                <Name>Payee legal registration identifier - FPA 2.4.2.10 'CFQuietanzante'</Name>
                 <Description>An identifier issued by an official registrar that identifies the Payee as a legal entity or
                     person.
                 </Description>
                 <DataType>Identifier</DataType>
                 <Reference type="BUSINESS_TERM">BT-61</Reference>
-                
-                
+
+
                 <Attribute usage="Optional">
                     <Term>schemeID</Term>
                     <Name>Payee legal registration identifier identification scheme identifier</Name>
@@ -72,9 +72,9 @@
                     <Reference type="CODE_LIST">ICD</Reference>
                     <Value type="EXAMPLE">0002</Value>
                 </Attribute>
-                
+
                 <Value type="EXAMPLE">FR932874294</Value>
-                
+
             </Element>
         </Element>
     </Element>

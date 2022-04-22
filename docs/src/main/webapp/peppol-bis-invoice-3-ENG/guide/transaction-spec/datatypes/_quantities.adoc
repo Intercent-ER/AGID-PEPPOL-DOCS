@@ -1,19 +1,19 @@
 
 = Quantity
 
-Le quantità vengono utilizzate per indicare un numero di unità come per gli articoli. Il codice per l’unità di misura è definito come un termine di business distinto.
+Quantities are used to state a number of units such as for items. The code for the Unit of Measure is defined as a separate business term.
 
-IMPORTANT:  Per le quantità non vi è alcuna restrizione sul numero di cifre decimali utilizzabili.
+IMPORTANT:  No restriction on number of decimals for quantities.
 
 [cols="1s,1,1,1", options="header"]
 |===
-|Componente
-|Uso
-|Tipo primitivo
-|Esempio
+|Component
+|Use
+|Primitive Type
+|Example
 
-|Contenuto
-|Obbligatorio
+|Content
+|Mandatory
 |Decimal
 |10000.1234
 |===

@@ -2,19 +2,36 @@
 [cols="1h,1m,4m", options="header"]
 
 |===
-| Versione
-| Data
-| Cosa è cambiato
+^.^| Versione
+^.^| Data
+^.^| Cosa è cambiato
+
+.2+| 3.0.12.1(IT)
+.2+a| 21/04/2022
+a|La presente specifica implementa le nuove Regole tecniche relative alla gestione delle fatture europee - versione 2.1 pubblicate il 01/04/2022, in relazione al Provvedimento 99370 pubblicato il 18/04/2019 (disponibile presso il seguente https://www.agenziaentrate.gov.it/portale/web/guest/normativa-e-prassi/provvedimenti/2019/aprile-2019-provvedimenti/provvedimento-18042019-fatturazione-elettronica-europea[link]) fornendo inoltre indicazioni sulla gestione della fatturazione verso privati. Nel testo viene data apposita evidenza ad alcune modifiche, già concordate con Agenzia delle Entrate, che saranno accolte in una successiva versione delle regole tecniche.
+a| La versione è allineata alla release Peppol BIS Billing 3.0.12 (Fall release 2021).
+
+| 3.0.9.1(IT)
+a| 13/11/2020
+a| Aggiornamento alle specifiche PEPPOL BIS Billing 3.0.9 hotfix. Revisione regole estensioni.
+
+| 3.0.8.1(IT)
+a| 04/11/2020
+a| Aggiornamento alle specifiche PEPPOL BIS Billing 3.0.8. Revisione regole estensioni.
+
+| 3.0.7.1(IT)
+a| 27/10/2020
+a| Aggiornamento alle specifiche PEPPOL BIS Billing 3.0.7. Revisione regole estensioni.
 
 | 3.0.6.1(IT)
-| 13/05/2020
-| Aggiornamento alle specifiche PEPPOL BIS Billing 3.0.6.
+a| 13/05/2020
+a| Aggiornamento alle specifiche PEPPOL BIS Billing 3.0.6.
 
 | 3.0.5.2(IT)
-| 24/02/2020
-| Codifiche ufficiali mappate su requisiti e significati italiani.
+a| 24/02/2020
+a| Codifiche ufficiali mappate su requisiti e significati italiani.
 
 | 3.0.5.1(IT)
-| 21/02/2020
-| Regole di Business aggiornate con ultima EN 3.0.5 hotfix.
+a| 21/02/2020
+a| Regole di Business aggiornate con ultima EN 3.0.5 hotfix.
 |===

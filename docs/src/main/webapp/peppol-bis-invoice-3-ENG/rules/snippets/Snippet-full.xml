@@ -3,7 +3,7 @@
     xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
     xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
     <!-- tag::profile[] -->
-    <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID>
+    <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:www.agid.gov.it:trns:fattura:3.0</cbc:CustomizationID>
     <cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
     <!-- end::profile[] -->
     <cbc:ID>Snippet1</cbc:ID>
@@ -19,13 +19,13 @@
     <!--2-->
     <!-- end::vat-curr1[] -->
     <cbc:AccountingCost>4025:123:4343</cbc:AccountingCost>
-    <cbc:BuyerReference>0150abc</cbc:BuyerReference>
+    <cbc:BuyerReference>110#2018-01-30#aaaaaa</cbc:BuyerReference>
     <cac:InvoicePeriod>
         <cbc:StartDate>2017-11-01</cbc:StartDate>
         <cbc:EndDate>2017-12-31</cbc:EndDate>
     </cac:InvoicePeriod>
     <cac:OrderReference>
-        <cbc:ID>o-998877</cbc:ID>
+        <cbc:ID>CE20-HF1-4001</cbc:ID>
         <cbc:SalesOrderID>so-12343</cbc:SalesOrderID>
     </cac:OrderReference>
     <cac:DespatchDocumentReference>
@@ -120,12 +120,8 @@
         <cac:Party>
             <cbc:EndpointID schemeID="0201">ABCDEF</cbc:EndpointID>
             <!--1-->
-            <cac:PartyIdentification>
-                <cbc:ID schemeID="0201">ABCDEF</cbc:ID>
-                <!--2-->
-            </cac:PartyIdentification>
             <cac:PartyName>
-                <cbc:Name>Cliente S.p.A.</cbc:Name>
+                <cbc:Name>Azienda USL di Reggio Emilia</cbc:Name>
             </cac:PartyName>
             <cac:PostalAddress>
                 <cbc:StreetName>Via Pubblica, 712</cbc:StreetName>
@@ -139,16 +135,16 @@
                 </cac:Country>
             </cac:PostalAddress>
             <cac:PartyTaxScheme>
-                <cbc:CompanyID>IT07663520567</cbc:CompanyID>
-                <!--3-->
+                <cbc:CompanyID>IT01598570354</cbc:CompanyID>
+                <!--2-->
                 <cac:TaxScheme>
                     <cbc:ID>VAT</cbc:ID>
                 </cac:TaxScheme>
             </cac:PartyTaxScheme>
             <cac:PartyLegalEntity>
-                <cbc:RegistrationName>Cliente S.p.A.</cbc:RegistrationName>
-                <!--cbc:CompanyID schemeID="0183">39937423947</cbc:CompanyID-->
-                <!--4-->
+                <cbc:RegistrationName>Azienda USL di Reggio Emilia</cbc:RegistrationName>
+                <cbc:CompanyID schemeID="0210">01598570354</cbc:CompanyID>
+                <!--3-->
             </cac:PartyLegalEntity>
             <cac:Contact>
                 <cbc:Name>Giuseppe Verdi</cbc:Name>
@@ -162,20 +158,21 @@
     <!-- tag::payee[] -->
     <cac:PayeeParty>
         <cac:PartyIdentification>
-            <cbc:ID schemeID="0192">987654325</cbc:ID>
-            <!--1-->
+            <cbc:ID schemeID="0211">IT01598570354</cbc:ID>
         </cac:PartyIdentification>
         <cac:PartyName>
             <cbc:Name>Beneficiario e F.lli S.a.s</cbc:Name>
         </cac:PartyName>
         <cac:PartyLegalEntity>
-            <!--cbc:CompanyID schemeID="0192">IT07663520567</cbc:CompanyID-->
-            <!--2-->
+            <cbc:ID schemeID="0210">CXXNXX68M06E123H</cbc:ID>
         </cac:PartyLegalEntity>
     </cac:PayeeParty>
     <!-- end::payee[] -->
     <!-- tag::taxrep[] -->
     <cac:TaxRepresentativeParty>
+        <cac:PartyIdentification>
+            <cbc:ID schemeID="0210">CXXNXX68M06E123H</cbc:ID>
+        </cac:PartyIdentification>
         <cac:PartyName>
             <cbc:Name>Commercialista Snc</cbc:Name>
         </cac:PartyName>
@@ -205,14 +202,14 @@
     <cac:Delivery>
         <cbc:ActualDeliveryDate>2017-11-01</cbc:ActualDeliveryDate>
         <cac:DeliveryLocation>
-            <cbc:ID schemeID="0201">ABCDEF</cbc:ID>
+            <cbc:ID>01598570354-MCR-FEA</cbc:ID>
             <cac:Address>
                 <cbc:StreetName>Viale Viali,2 - PAD.01</cbc:StreetName>
                 <cbc:AdditionalStreetName>CENTRO LOG</cbc:AdditionalStreetName>
                 <cbc:CityName>Bologna</cbc:CityName>
                 <cbc:PostalZone>40100</cbc:PostalZone>
                 <cac:AddressLine>
-                    <cbc:Line>C38</cbc:Line>
+                    <cbc:Line>MCR-FEA</cbc:Line>
                 </cac:AddressLine>
                 <cac:Country>
                     <cbc:IdentificationCode>IT</cbc:IdentificationCode>

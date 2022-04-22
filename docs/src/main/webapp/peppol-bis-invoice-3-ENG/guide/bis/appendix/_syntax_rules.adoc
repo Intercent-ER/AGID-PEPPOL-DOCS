@@ -1,14 +1,14 @@
 [appendix]
 [[syntax_rules]]
-= Regole di sintassi
+= Syntax rules
 
-Le regole di sintassi {EN16931} si applicano alle transazioni delle fatture e note di credito secondo questa {peppol} BIS.
+The following {EN16931} syntax rules apply to invoice and credit note transaction as it is used in this {peppol} BIS.
 
-.Regole EN 16931 per la sintassi
+.EN 16931 syntax rules
 [cols="1,4", options="header"]
 |====
-|Regola
-|Messaggio
+|Rule
+|Message
 
 include::{rules-dir}/_CEN-EN16931-UBL-SYNTAX.sch.adoc[]
 |====

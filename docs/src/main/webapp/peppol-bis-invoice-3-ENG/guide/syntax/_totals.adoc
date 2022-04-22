@@ -1,11 +1,11 @@
 
 [[totals]]
-== Formule di calcolo per la sintassi UBL
+== UBL syntax calculation formulas
 
-I seguenti elementi mostrano gli importi monetari legali per una fattura o nota di credito
+The following elements show the legal monetary totals for an invoice or credit note
 [cols="3,5", options="header"]
 |===
-| Elemento
+| Element
 | Formula
 
 | <cbc:LineExtensionAmount>
@@ -40,10 +40,10 @@ stem:[+ \ "cac:LegalMonetaryTotal/cbc:PayableRoundingAmount"]
 
 
 
-== L'elemento PayableRoundingAmount per l'arrotondamento dell'importo da pagare
+== Element for rounding amount, the PayableRoundingAmount
 
-E' possibile arrotondare l'importo da pagare previsto.
+It is possible to round the expected payable amount.
 
-L'elemento `cac:LegalMonetaryTotal/cbc:PayableRoundingAmount` è utilizzato a questo scopo e viene specificato a livello di testata. Questo valore deve essere aggiunto al valore del `cac:LegalMonetaryTotal/cbc:PayableAmount`.
+The element `cac:LegalMonetaryTotal/cbc:PayableRoundingAmount` is used for this purpose and is specified on the header level. This value shall be added to the value in `cac:LegalMonetaryTotal/cbc:PayableAmount`.
 
-Esempio:  L'importo  999.81 arrotondato a  1000.  PayableRounding Amount = 0.19
+Example:  Amount  999.81 rounded to  1000.  PayableRounding Amount = 0.19

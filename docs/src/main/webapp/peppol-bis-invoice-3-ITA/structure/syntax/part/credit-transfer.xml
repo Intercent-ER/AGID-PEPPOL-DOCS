@@ -3,14 +3,14 @@
 
         <Term>cac:PayeeFinancialAccount</Term>
         <Name>CREDIT TRANSFER</Name>
-        <Description>A group of business terms to specify credit transfer payments.</Description>
+        <Description>Insieme di informazioni relative ai pagamenti tramite bonifico bancario.</Description>
         <Reference type="BUSINESS_TERM">BG-17</Reference>
         
         <Element>
             <Term>cbc:ID</Term>
             <Name>Payment account identifier</Name>
             <Description>A unique identifier of the financial payment account, at a payment service provider, to which
-                payment should be made. Such as IBAN or BBAN.
+                payment should be made. Such as IBAN or BBAN. International Bank Account Number (coordinata bancaria internazionale che consente di identificare, in maniera standard, il conto corrente del beneficiario ).
             </Description>
             <DataType>Identifier</DataType>
             <Reference type="BUSINESS_TERM">BT-84</Reference>
@@ -22,8 +22,7 @@
         <Element cardinality="0..1">
             <Term>cbc:Name</Term>
             <Name>Payment account name</Name>
-            <Description>The name of the payment account, at a payment service provider, to which payment should be made.
-            </Description>
+            <Description>Nominativo dell’intestatario del conto a cui deve essere effettuato il bonifico bancario.</Description>
             <DataType>Text</DataType>
             <Reference type="BUSINESS_TERM">BT-85</Reference>
             <Value type="EXAMPLE">Payment Account</Value>
@@ -37,7 +36,7 @@
                 <Term>cbc:ID</Term>
                 <Name>Payment service provider identifier</Name>
                 <Description>An identifier for the payment service provider where a payment account is located.
-                    Such as a BIC or a national clearing code where required. No identification scheme Identifier to be used.</Description>
+                    Such as a BIC or a national clearing code where required. No identification scheme Identifier to be used. Bank Identifier Code (codice che identifica la banca del beneficiario).</Description>
                 <DataType>Identifier</DataType>
                 <Reference type="BUSINESS_TERM">BT-86</Reference>
                 <Value type="EXAMPLE">9999</Value>

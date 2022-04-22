@@ -1,5 +1,5 @@
 
-= Indirizzo PEC del cliente
+= [lime-background]#Indirizzo PEC del cliente (valutare se eliminare dopo test)#
 
 Quando disponibile è necessario fornire la PEC, soprattutto se il Cliente è un operatore economico non accreditato presso SDI.
 La PEC può essere fornita al posto della e-mail nelle informazioni di contatto utilizzando il prefisso “pec:” non case-sensitive (es. PEC: )

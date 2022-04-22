@@ -1,13 +1,14 @@
 
-= Arrotondamenti
+= Rounding
 
-Per ridurre al minimo il rischio di difformità dovute agli arrotondamenti, si applicano le seguenti regole:
+
+To minimize the risk of differences due to rounding, the following rules apply:
 
 [IMPORTANT]
 ====
-* Tutti gli importi a livello di documento devono essere arrotondati a due decimali
-* L'importo netto delle righe di fattura deve essere arrotondato a due cifre decimali
-* Risultati di calcoli che coinvolgono importi già arrotondati non sono soggetti ad ulteriore arrotondamento, come gli importi da pagare e i totali inclusi IVA
+* All document level amounts shall be rounded to two decimals for accounting
+* Invoice line net amount shall be rounded to two decimals
+* Results from calculations involving already rounded amounts are not subject to rounding, like payable amounts and total amounts included VAT.
 ====
 
-Consultare anche il capitolo <<Calcoli>> per ulteriori dettagli su come calcolare differenti tipologie di importi.
+Please also see <<Calculation>> for details on how to calculate the different amounts.

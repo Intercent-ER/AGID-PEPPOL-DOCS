@@ -2,19 +2,37 @@
 [cols="1h,1m,4m", options="header"]
 
 |===
-| Versione
-| Data
-| Cosa è cambiato
+^.^| Version
+^.^| Date
+^.^| What’s new
+
+.2+| 3.0.12.1(IT)
+.2+a| 21/01/2022
+a|This specification implements the new Technical rules relating to the management of European invoices - version 2.1 published on  01/04/2022, in relation to Provision 99370 published on 18/04/2019 (available at the following https://www.agenziaentrate.gov.it/portale/web/guest/normativa-e-prassi/provvedimenti/2019/aprile-2019-provvedimenti/provvedimento-18042019-fatturazione-elettronica-europea[link]) providing also indications on the management of billing to private individuals. The text specifically highlights some changes, already agreed with the Revenue Agency, which will be accepted in a subsequent version of the technical rules.
+a| This version is aligned with the Peppol BIS Billing 3.0.12 (Fall release 2021).
+
+
+| 3.0.9.1(IT)
+a| 13/11/2020
+a| Update to [blue]#PEPPOL BIS Billing 3.0.9 hotfix release#. Review of extension rules.
+
+| 3.0.8.1(IT)
+a| 04/11/2020
+a| Update to [blue]#PEPPOL BIS 3.0.8 - Fall release 2020#. Review of extension rules.
+
+| 3.0.7.1(IT)
+a| 27/10/2020
+a| Update to [blue]#PEPPOL BIS 3.0.7 hotfix release#. Review of extension rules.
 
 | 3.0.6.1(IT)
-| 13/05/2020
-| Aggiornamento alle specifiche PEPPOL BIS Billing 3.0.6.
+a| 13/05/2020
+a| Update to [blue]#PEPPOL BIS 3.0.6 - Spring release 2020#.
 
 | 3.0.5.2(IT)
-| 24/02/2020
-| Codifiche ufficiali mappate su requisiti e significati italiani.
+a| 24/02/2020
+a| Official codelists mapped onto italian requirements and meanings
 
 | 3.0.5.1(IT)
-| 21/02/2020
-| Regole di Business aggiornate con ultima EN 3.0.5 hotfix.
+a| 21/02/2020
+a| Business rules updated to the last [blue]#PEPPOL BIS 3.0.5 hotfix release#.
 |===

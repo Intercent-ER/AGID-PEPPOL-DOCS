@@ -8,7 +8,7 @@
 	<parent>
 		<groupId>it.gov.agid</groupId>
 		<artifactId>AGID-PEPPOL</artifactId>
-		<version>1.3</version>
+		<version>1.6</version>
 		<relativePath>../</relativePath>
 	</parent>
 	<packaging>war</packaging>

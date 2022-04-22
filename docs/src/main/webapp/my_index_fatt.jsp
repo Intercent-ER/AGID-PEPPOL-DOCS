@@ -25,7 +25,7 @@
 			<div id="main" class="container" style="display: block;">
 
 				<div class="page-header">
-					<h1>Indice: <span id="home-title">PEPPOL BIS 3 (altri processi)</span>
+					<h1>Indice: <span id="home-title">PEPPOL BIS Fatturazione 3</span>
 					</h1>
 				</div>
 

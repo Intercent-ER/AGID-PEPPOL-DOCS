@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>  
+<schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:u="utils" schemaVersion="iso" queryBinding="xslt2">
+	<title>Rules for italian extension</title>											  
 <pattern id="Italy-EXTENSION-rules" xmlns="http://purl.oclc.org/dsdl/schematron">
 
 	<!-- UBL Extensions -->
@@ -31,13 +33,17 @@
 		<assert test="not(cbc:MultiplierFactorNumeric) or matches(cbc:MultiplierFactorNumeric,'^\d{1,3}\.\d{2}$')" flag="fatal" id="BR-IT-DE-008">[BR-IT-DE-008][FPA 2.1.1.8 - Sconto Maggiorazione] - L'importo dello sconto/maggiorazione in percentuale, se presente, (cbc:MultiplierFactorNumeric) deve contenere da 4 fino a 6 caratteri incluso 2 cifre decimali.</assert>
 	</rule>
 
-	<rule context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Ritenuta']/ext:ExtensionContent" flag="fatal">
-		<assert test="cac:WithholdingTaxTotal" flag="fatal" id="BR-IT-DE-009">[BR-IT-DE-009][FPA 2.1.1.5 - Dati Ritenuta] - L'estensione deve contenere uno elemento cac:WithholdingTaxTotal.</assert>
+    <rule context="/ubl-invoice:Invoice" flag="fatal">
+        <assert test="count(cac:WithholdingTaxTotal) &lt;= 1" flag="fatal" id="BR-IT-DE-009FT1">[BR-IT-DE-009FT1][FPA 2.1.1.5 - Dati Ritenuta] - L'estensione deve contenere un elemento cac:WithholdingTaxTotal.</assert>
+    </rule>
+	
+	<rule context="/ubl-creditnote:CreditNote/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Ritenuta']/ext:ExtensionContent" flag="fatal">
+		<assert test="count(cac:WithholdingTaxTotal) = 1 and count(/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Ritenuta']) = 1" flag="fatal" id="BR-IT-DE-009NC1">[BR-IT-DE-009NC1][FPA 2.1.1.5 - Dati Ritenuta] - L'estensione deve contenere uno elemento cac:WithholdingTaxTotal.</assert>
 	</rule>
 
 	<rule context="//cac:WithholdingTaxTotal" flag="fatal">
 		<assert test="matches(cbc:TaxAmount,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-DE-010">[BR-IT-DE-010][FPA 2.1.1.5 - Dati Ritenuta] - L'importo totale delle ritenute (cbc:TaxAmount) deve contenere da 4 fino a 15 caratteri incluso 2 cifre decimali.</assert>
-		<assert test="count(cac:TaxSubtotal) &gt;= 1 and count(cac:TaxSubtotal) &lt;= 2" flag="fatal" id="BR-IT-DE-011">[BR-IT-DE-011][FPA 2.1.1.5 - Dati Ritenuta] - Possono essere incluse da 1 a massimo 2 ritenute (cac:TaxSubtotal).</assert>
+		<assert test="count(cac:TaxSubtotal) &gt;= 1" flag="fatal" id="BR-IT-DE-011">[BR-IT-DE-011][FPA 2.1.1.5 - Dati Ritenuta] - Il cac:WithholdingTaxTotal deve contenere almeno una ritenuta (cac:TaxSubtotal).</assert>
 	</rule>
 
 	<rule context="//cac:WithholdingTaxTotal/cac:TaxSubtotal" flag="fatal">
@@ -146,3 +152,4 @@
 	
 </pattern>
 
+</schema>

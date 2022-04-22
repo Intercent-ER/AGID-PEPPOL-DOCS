@@ -1,54 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" cardinality="1..2">
-    
+<Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" cardinality="1..2" xmlns:agid="urn:fdc:agid.gov.it:peppol:customization">
+
         <Term>cac:TaxTotal</Term>
-        <Name>TAX TOTAL</Name>
-        <Description>When tax currency code is provided, two instances of the tax total must be present, but only one with tax subtotal.</Description>
+        <Name>TAX TOTAL - Totale imposta</Name>
+        <Description>Imposta totale.</Description>
         <Reference type="RULE">PEPPOL-EN16931-R054</Reference>
-        
+
         <Element>
             <Term>cbc:TaxAmount</Term>
-            <Name>Invoice total VAT amount, Invoice total VAT amount in accounting currency</Name>
-            <Description>The total VAT amount for the Invoice or the VAT total amount expressed in the accounting currency accepted or required in the country of
-                the Seller. Must be rounded to maximum 2 decimals</Description>
+            <Name>Invoice total VAT amount, Invoice total VAT amount in accounting currency - Importo totale imposta</Name>
+            <Description>Indica l’ammontare totale previsto dell’IVA.</Description>
             <DataType>Amount</DataType>
             <Reference type="BUSINESS_TERM">BT-110, BT-111</Reference>
             <Reference type="RULE">BR-53</Reference>
             <Reference type="RULE">BR-CO-14</Reference>
             <Reference type="RULE">BR-DEC-13</Reference>
-            <Reference type="RULE">BR-DEC-15</Reference>    
+            <Reference type="RULE">BR-DEC-15</Reference>
             <Reference type="RULE">UBL-DT-01</Reference>
             <Attribute>
                 <Term>currencyID</Term>
-                <Description>Mandatory attribute. Use BT-5 or BT-6.</Description>
+                <Description>Mandatory attribute. Use BT-5 or BT-6. Identificativo valuta.</Description>
                 <Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
                 <Reference type="RULE">PEPPOL-EN16931-R051</Reference>
                 <Reference type="CODE_LIST">ISO4217</Reference>
                 <Value type="EXAMPLE">EUR</Value>
             </Attribute>
-            
-            <Value type="EXAMPLE">486.25</Value>  
+
+            <Value type="EXAMPLE">486.25</Value>
         </Element>
-        
-        
-        
-        
+
         <Element cardinality="0..n">
             <Term>cac:TaxSubtotal</Term>
-            <Name>VAT BREAKDOWN</Name>
+            <Name>VAT BREAKDOWN - FPA 2.2.2 'DatiRiepilogo'</Name>
             <Description>A group of business terms providing information about VAT breakdown by different categories, rates
-                and exemption reasons
+                and exemption reasons. Blocco obbligatorio, gli elementi informativi che lo compongono riepilogano le informazioni di dettaglio, aggregandole per aliquota IVA distinta oppure per aliquota IVA nulla e 'Natura' distinta oppure, a parità di questi elementi, per valore distinto di 'Esigbilità'
             </Description>
             <Reference type="BUSINESS_TERM">BG-23</Reference>
             <Reference type="RULE">PEPPOL-EN16931-R053</Reference>
             <Reference type="RULE">BR-CO-18</Reference>
             <Reference type="RULE">BR-O-11</Reference>
-            
+
             <Element>
                 <Term>cbc:TaxableAmount</Term>
-                <Name>VAT category taxable amount</Name>
+                <Name>VAT category taxable amount - FPA 2.2.2.5 'ImponibileImporto'</Name>
                 <Description>Sum of all taxable amounts subject to a specific VAT category code and VAT category rate (if the
-                    VAT category rate is applicable). Must be rounded to maximum 2 decimals.
+                    VAT category rate is applicable). Must be rounded to maximum 2 decimals. Questo valore rappresenta:
+la base imponibile, se il riepilogo riguarda operazioni soggette ad IVA;
+l'ammontare degli importi, se il riepilogo riguarda le operazioni per le quali l'IVA non deve essere esposta (elemento informativo 2.2.2.2 'Natura' valorizzato)
                 </Description>
                 <DataType>Amount</DataType>
                 <Reference type="BUSINESS_TERM">BT-116</Reference>
@@ -64,24 +62,26 @@
                 <Reference type="RULE">BR-IP-08</Reference>
                 <Reference type="RULE">BR-DEC-19</Reference>
                 <Reference type="RULE">UBL-DT-01</Reference>
-                
-                
+				<Reference type="RULE">BR-IT-330</Reference>
+
                 <Attribute>
                     <Term>currencyID</Term>
-                    <Description>Mandatory attribute. Use BT-5</Description>
+                    <Description>Mandatory attribute. Use BT-5. Identificativo valuta.</Description>
                     <Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
                     <Reference type="RULE">PEPPOL-EN16931-R051</Reference>
                     <Reference type="CODE_LIST">ISO4217</Reference>
                     <Value type="EXAMPLE">EUR</Value>
                 </Attribute>
-                
-                <Value type="EXAMPLE">1945.00</Value> 
+
+                <Value type="EXAMPLE">1945.00</Value>
             </Element>
-            
+
             <Element>
                 <Term>cbc:TaxAmount</Term>
-                <Name>VAT category tax amount</Name>
-                <Description>The total VAT amount for a given VAT category. Must be rounded to maximum 2 decimals.</Description>
+                <Name>VAT category tax amount - FPA 2.2.2.6 'Imposta'</Name>
+                <Description>The total VAT amount for a given VAT category. Must be rounded to maximum 2 decimals.
+                Imposta risultante dall'applicazione dell'aliquota IVA all'imponibile.
+              </Description>
                 <DataType>Amount</DataType>
                 <Reference type="BUSINESS_TERM">BT-117</Reference>
                 <Reference type="RULE">BR-46</Reference>
@@ -97,30 +97,30 @@
                 <Reference type="RULE">BR-IP-09</Reference>
                 <Reference type="RULE">BR-DEC-20</Reference>
                 <Reference type="RULE">UBL-DT-01</Reference>
-                
-                
+				<Reference type="RULE">BR-IT-340</Reference>
+
                 <Attribute>
                     <Term>currencyID</Term>
-                    <Description>Mandatory attribute. Use BT-5</Description>
+                    <Description>Mandatory attribute. Use BT-5. Identificativo valuta.</Description>
                     <Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
                     <Reference type="RULE">PEPPOL-EN16931-R051</Reference>
                     <Reference type="CODE_LIST">ISO4217</Reference>
                     <Value type="EXAMPLE">EUR</Value>
                 </Attribute>
-                <Value type="EXAMPLE">486.25</Value> 
+                <Value type="EXAMPLE">486.25</Value>
             </Element>
-            
+
             <Element>
                 <Term>cac:TaxCategory</Term>
-                <Name>VAT CATEGORY</Name>
-                
-                <Element>
+                <Name>VAT CATEGORY - Tipo dell’imposta applicata</Name>
+
+                <Element agid:custom="rule">
                     <Term>cbc:ID</Term>
-                    <Name>VAT category code</Name>
-                    <Description>Coded identification of a VAT category.</Description>
+                    <Name>VAT category code - FPA 2.2.2.7 ‘EsigibilitaIVA’ o FPA 2.2.2.2 ‘Natura’ e FPA 2.2.2.8  ‘RiferimentoNormativo’</Name>
+                    <Description>Coded identification of a VAT category. Vedi "Documentazione" per istruzioni sulla compilazione del campo.</Description>
                     <DataType>Code</DataType>
-                    <Reference type="BUSINESS_TERM">BT-118</Reference>  
-                    <Reference type="CODE_LIST">UNCL5305</Reference>  
+                    <Reference type="BUSINESS_TERM">BT-118</Reference>
+                    <Reference type="CODE_LIST">UNCL5305</Reference>
                     <Reference type="RULE">BR-47</Reference>
                     <Reference type="RULE">BR-S-01</Reference>
                     <Reference type="RULE">BR-Z-01</Reference>
@@ -131,24 +131,25 @@
                     <Reference type="RULE">BR-O-10</Reference>
                     <Reference type="RULE">BR-IG-01</Reference>
                     <Reference type="RULE">BR-IP-01</Reference>
-                    <Value type="EXAMPLE">S</Value> 
+					<Reference type="RULE">BR-IT-350</Reference>
+                    <Value type="EXAMPLE">S</Value>
                 </Element>
-                
+
                 <Element cardinality="0..1">
                     <Term>cbc:Percent</Term>
-                    <Name>VAT category rate</Name>
-                    <Description>The VAT rate, represented as percentage that applies for the relevant VAT category.</Description>
+                    <Name>VAT category rate - FPA 2.2.2.1 'AliquotaIVA'</Name>
+                    <Description>The VAT rate, represented as percentage that applies for the relevant VAT category. Aliquota (%) IVA.</Description>
                     <DataType>Percentage</DataType>
                     <Reference type="BUSINESS_TERM">BT-119</Reference>
                     <Reference type="RULE">BR-48</Reference>
                     <Reference type="RULE">SE-R-006</Reference>
-                    <Value type="EXAMPLE">25</Value> 
+                    <Value type="EXAMPLE">25</Value>
                 </Element>
-                
+
                 <Element cardinality="0..1">
                     <Term>cbc:TaxExemptionReasonCode</Term>
                     <Name>VAT exemption reason code</Name>
-                    <Description>A coded statement of the reason for why the amount is exempted from VAT.</Description>
+                    <Description>Codifica della motivazione per l’esenzione/la non imponibilità ai fini IVA (vedi tabella VATEX)</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-121</Reference>
                     <Reference type="RULE">BR-CL-22</Reference>
@@ -162,12 +163,12 @@
                     <Reference type="RULE">BR-IG-10</Reference>
                     <Reference type="RULE">BR-IP-10</Reference>
                 </Element>
-                
+
                 <Element cardinality="0..1">
                     <Term>cbc:TaxExemptionReason</Term>
-                    <Name>VAT exemption reason text</Name>
+                    <Name>VAT exemption reason text - FPA 2.2.2.2 'Natura'</Name>
                     <Description>A textual statement of the reason why the amount is exempted from VAT or why no VAT is being
-                        charged. 
+                        charged.
                     </Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-120</Reference>
@@ -180,22 +181,21 @@
                     <Reference type="RULE">BR-O-10</Reference>
                     <Reference type="RULE">BR-IG-10</Reference>
                     <Reference type="RULE">BR-IP-10</Reference>
-                    <Value type="EXAMPLE">Exempt</Value> 
+                    <Value type="EXAMPLE">Exempt</Value>
                 </Element>
                 <Element>
                     <Term>cac:TaxScheme</Term>
-                    <Name>TAX SCHEME</Name>
-                    
+                    <Name>TAX SCHEME - Tipo di imposta</Name>
+
                     <Element>
                         <Term>cbc:ID</Term>
-                        <Description>Mandatory element. Use “VAT”</Description>
+                        <Description>Elemento obbligatorio (ad esempio "VAT" o "GST").</Description>
                         <Value type="DEFAULT">VAT</Value>
                     </Element>
                 </Element>
             </Element>
         </Element>
-        
-        
-        
+
+
+
     </Element>
-    

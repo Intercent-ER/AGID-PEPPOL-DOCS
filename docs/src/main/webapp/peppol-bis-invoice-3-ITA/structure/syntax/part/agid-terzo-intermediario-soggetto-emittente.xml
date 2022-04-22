@@ -8,7 +8,7 @@
 	<Element>
 		<Term>cac:Party</Term>
 		<Name>Terzo Intermediario o Soggetto Emittente - FPA 1.5 'TerzoIntermediarioOSoggettoEmittente'</Name>
-		<Reference type="RULE">BR-IT-156</Reference>
+		<Reference type="RULE">BR-IT-DE-023</Reference>
 
 		<Element cardinality="0..2">
 			<Term>cac:PartyIdentification</Term>
@@ -18,14 +18,22 @@
 				<Term>cbc:ID</Term>
 				<Name>Identificativo del Terzo Intermediario o Soggetto Emittente</Name>
 				<Description>E' possibile indicare fino a due identificativi per il Terzo Intermediario o Soggetto Emittente:
-
 				* Codice Fiscale (FPA 1.5.1.2 'CodiceFiscale') +
-				Numero di Codice Fiscale. Utilizzare sempre il prefisso 'CF:'
+				Numero di Codice Fiscale. Utilizzare sempre il prefisso @schemeID = 0210
 				* Codice EORI (FPA 1.5.1.3.5 'CodEORI') +
 				Numero del Codice EORI (Economic Operator Registration and Identification) in base al Regolamento (CE) n. 312 del 16 aprile 2009. In vigore dal 1 luglio 2009. Utilizzare sempre il prefisso 'EORI:'
 				</Description>
 				<DataType>Identifier</DataType>
-				<Value type="EXAMPLE">CF:CXXNXX68M06E123H</Value>
+				<Reference type="RULE">BR-IT-DE-049</Reference>
+                <Attribute usage="Optional">
+                    <Term>schemeID</Term>
+                    <Name>Service Provider Party identification scheme identifier</Name>
+                    <Description>The identification scheme identifier of the Service Provider Party identifier.</Description>
+                    <Reference type="RULE">BR-CL-10</Reference>
+                    <Reference type="CODE_LIST">ICD</Reference>
+                    <Value type="EXAMPLE">0210</Value>
+                </Attribute>
+				<Value type="EXAMPLE">CXXNXX68M06E123H</Value>
 				<Value type="EXAMPLE">EORI:12345678901</Value>
 			</Element>
 		</Element>

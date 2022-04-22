@@ -1,6 +1,6 @@
 
 [[auditingreq, Auditing requirements]]
-.Requisiti per la revisione contabile
+.Auditing requirements
 [cols="1,10", options="header"]
 |===
 |Id

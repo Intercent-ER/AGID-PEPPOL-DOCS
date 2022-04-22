@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1">
-        
+<Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" xmlns:agid="urn:fdc:agid.gov.it:peppol:customization">
+
 
         <Term>cac:Price</Term>
         <Name>PRICE DETAILS</Name>
@@ -8,19 +8,19 @@
             invoiced on the Invoice line.
         </Description>
         <Reference type="BUSINESS_TERM">BG-29</Reference>
-        
-        <Element>
+
+        <Element agid:custom="rule">
             <Term>cbc:PriceAmount</Term>
-            <Name>Item net price</Name>
+            <Name>Item net price - FPA 2.2.1.9 'PrezzoUnitario'</Name>
             <Description>The price of an item, exclusive of VAT, after subtracting item price discount. The Item net price has to be equal with the
                 Item gross price less the Item price discount, if they are both provided. Item price can not be negative.</Description>
             <DataType>Amount</DataType>
             <Reference type="BUSINESS_TERM">BT-146</Reference>
             <Reference type="RULE">BR-26</Reference>
             <Reference type="RULE">BR-27</Reference>
+			<Reference type="RULE">BR-IT-430</Reference>
             <Reference type="RULE">PEPPOL-EN16931-R046</Reference>
-            
-            
+
             <Attribute>
                 <Term>currencyID</Term>
                 <Description>Mandatory attribute. Use BT-5</Description>
@@ -29,10 +29,10 @@
                 <Reference type="CODE_LIST">ISO4217</Reference>
                 <Value type="EXAMPLE">EUR</Value>
             </Attribute>
-            
+
             <Value type="EXAMPLE">23.45</Value>
         </Element>
-        
+
         <Element cardinality="0..1">
             <Term>cbc:BaseQuantity</Term>
             <Name>Item price base quantity</Name>
@@ -40,9 +40,7 @@
             <DataType>Quantity</DataType>
             <Reference type="BUSINESS_TERM">BT-149</Reference>
             <Reference type="RULE">PEPPOL-EN16931-R121</Reference>
-            
-            
-            
+
             <Attribute usage="Optional">
                 <Term>unitCode</Term>
                 <Name>Item price base quantity unit of measure code</Name>
@@ -54,48 +52,29 @@
                 <Reference type="RULE">PEPPOL-EN16931-R130</Reference>
                 <Value type="EXAMPLE">C62</Value>
             </Attribute>
-            
+
             <Value type="EXAMPLE">1</Value>
         </Element>
-        
-        <Element cardinality="0..1">
+
+        <Element cardinality="1..1" agid:custom="cardinality">
             <Term>cac:AllowanceCharge</Term>
             <Name>ALLOWANCE</Name>
-            
+
             <Element>
                 <Term>cbc:ChargeIndicator</Term>
                 <Description>Mandatory element. Value must be “false”</Description>
                 <Reference type="RULE">PEPPOL-EN16931-R044</Reference>
                 <Value type="FIXED">false</Value>
             </Element>
-            <Element>
+            <Element agid:custom="rule">
                 <Term>cbc:Amount</Term>
                 <Name>Item price discount</Name>
                 <Description>The total discount subtracted from the Item gross price to calculate the Item net price.
                 </Description>
                 <DataType>Amount</DataType>
                 <Reference type="BUSINESS_TERM">BT-147</Reference>
-                
-                <Attribute>
-                    <Term>currencyID</Term>
-                    <Description>Mandatory attribute. Use BT-5</Description>
-                    <Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
-                    <Reference type="RULE">PEPPOL-EN16931-R051</Reference> 
-                    <Reference type="CODE_LIST">ISO4217</Reference>
-                    <Value type="EXAMPLE">EUR</Value>
-                </Attribute>
-                
-                <Value type="EXAMPLE">100</Value>
-            </Element>
-            
-            <Element cardinality="0..1">
-                <Term>cbc:BaseAmount</Term>
-                <Name>Item gross price</Name>
-                <Description>The unit price, exclusive of VAT, before subtracting Item price discount, can not be negative</Description>
-                <DataType>Amount</DataType>
-                <Reference type="BUSINESS_TERM">BT-148</Reference>
-                <Reference type="RULE">BR-28</Reference>
-                
+				<Reference type="RULE">BR-IT-432</Reference>
+
                 <Attribute>
                     <Term>currencyID</Term>
                     <Description>Mandatory attribute. Use BT-5</Description>
@@ -104,7 +83,29 @@
                     <Reference type="CODE_LIST">ISO4217</Reference>
                     <Value type="EXAMPLE">EUR</Value>
                 </Attribute>
-                
+
+                <Value type="EXAMPLE">100</Value>
+            </Element>
+
+            <Element cardinality="1..1" agid:custom="cardinality,rule">
+                <Term>cbc:BaseAmount</Term>
+                <Name>Item gross price</Name>
+                <Description>The unit price, exclusive of VAT, before subtracting Item price discount, can not be negative</Description>
+                <DataType>Amount</DataType>
+                <Reference type="BUSINESS_TERM">BT-148</Reference>
+                <Reference type="RULE">BR-28</Reference>
+				<Reference type="RULE">BR-IT-431</Reference>
+				<Reference type="RULE">BR-IT-433</Reference>
+
+                <Attribute>
+                    <Term>currencyID</Term>
+                    <Description>Mandatory attribute. Use BT-5</Description>
+                    <Reference type="RULE">PEPPOL-EN16931-CL007</Reference>
+                    <Reference type="RULE">PEPPOL-EN16931-R051</Reference>
+                    <Reference type="CODE_LIST">ISO4217</Reference>
+                    <Value type="EXAMPLE">EUR</Value>
+                </Attribute>
+
                 <Value type="EXAMPLE">123.45</Value>
             </Element>
         </Element>

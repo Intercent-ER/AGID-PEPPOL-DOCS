@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<gc:CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/">
+    <Identification>
+        <ShortName>TipoParcella</ShortName>
+        <LongName xml:lang="it">Tipo Parcella</LongName>
+        <LongName Identifier="listID">TipoParcella</LongName>
+        <Version>1.0</Version>
+        <CanonicalUri>urn:www.ubl-italia.org:spec:fatturapa:codelist:gc:TipoParcella</CanonicalUri>
+        <Agency>
+            <LongName xml:lang="it">UBL Italia</LongName>
+            <Identifier>UBL-ITALIA</Identifier>
+        </Agency>
+    </Identification>
+    <ColumnSet>
+        <Column Id="code" Use="required">
+            <ShortName>Code</ShortName>
+            <Data Type="normalizedString"/>
+        </Column>
+        <Column Id="name" Use="optional">
+            <ShortName>Name</ShortName>
+            <Data Type="string"/>
+        </Column>
+        <Column Id="xcode" Use="required">
+            <ShortName>Cross Reference Code</ShortName>
+            <Data Type="normalizedString"/>
+        </Column>
+        <Key Id="codeKey">
+            <ShortName>CodeKey</ShortName>
+            <ColumnRef Ref="code"/>
+        </Key>
+    </ColumnSet>
+    <SimpleCodeList>
+        <Row>
+            <Value ColumnRef="code">
+                <SimpleValue>TD06</SimpleValue>
+            </Value>
+            <Value ColumnRef="name">
+                <SimpleValue>Parcella</SimpleValue>
+            </Value>
+            <Value ColumnRef="xcode">
+                <SimpleValue>380</SimpleValue>
+            </Value>
+        </Row>
+        <Row>
+            <Value ColumnRef="code">
+                <SimpleValue>TD03</SimpleValue>
+            </Value>
+            <Value ColumnRef="name">
+                <SimpleValue>Acconto / anticipo su parcella</SimpleValue>
+            </Value>
+            <Value ColumnRef="xcode">
+                <SimpleValue>386</SimpleValue>
+            </Value>
+        </Row>
+    </SimpleCodeList>
+</gc:CodeList>

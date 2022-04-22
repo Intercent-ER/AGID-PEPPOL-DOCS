@@ -1,10 +1,18 @@
 
-= Riferimento al Contratto
+= Contract reference
 
-Per fare riferimento o riconciliare una fattura a un contratto di acquisto, il numero di contratto potrebbe essere specificato come segue:
+To reference or match an invoice to a purchase contract, the contract number could be specified like this:
 
-.Esempio UBL per il riferimento al contratto
+.UBL example of contract reference
 [source, xml, indent=0]
 ----
 include::../{snippet-dir}/Snippet-refs.xml[tags=contract]
+----
+
+#Per riferirsi a più contratti dalle righe di fattura è necessario utilizzare *cac:DocumentReference* con il codice tipo documento = 130.#
+
+.Esempio UBL per il riferimento al contratto dalle righe fattura
+[source, xml, indent=0]
+----
+include::../{snippet-dir}/Snippet-refs.xml[tags=contratto_riga]
 ----

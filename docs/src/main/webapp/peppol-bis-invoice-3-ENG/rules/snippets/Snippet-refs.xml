@@ -14,7 +14,7 @@
     <cbc:DocumentCurrencyCode>EUR</cbc:DocumentCurrencyCode>
     <cbc:AccountingCost>4025:123:4343</cbc:AccountingCost>
     <!-- tag::buyer-ref[] -->
-    <cbc:BuyerReference>0150abc</cbc:BuyerReference>
+    <cbc:BuyerReference>110#2018-01-30#aaaaaa</cbc:BuyerReference>
     <!-- end::buyer-ref[] -->
     <cac:InvoicePeriod>
         <cbc:StartDate>2017-11-01</cbc:StartDate>
@@ -22,21 +22,22 @@
     </cac:InvoicePeriod>
     <!-- tag::order-ref[] -->
     <cac:OrderReference>
-        <cbc:ID>o-998877</cbc:ID><!--1-->       
-        <cbc:SalesOrderID>so-12343</cbc:SalesOrderID><!--2-->      
+        <cbc:ID>CE20-HF1-4001</cbc:ID><!--1-->
+        <cbc:SalesOrderID>so-12343</cbc:SalesOrderID><!--2-->
     </cac:OrderReference>
     <!-- end::order-ref[] -->
     <!-- tag::desp-rec[] -->
     <cac:DespatchDocumentReference>
         <cbc:ID>despadv-3</cbc:ID><!--1-->
+        <cbc:IssueDate>YYYY-MM-DD</cbc:IssueDate>
     </cac:DespatchDocumentReference>
-    <cac:ReceiptDocumentReference>     
+    <cac:ReceiptDocumentReference>
         <cbc:ID>resadv-1</cbc:ID><!--2-->
     </cac:ReceiptDocumentReference>
     <!-- end::desp-rec[] -->
     <!-- tag::tender[] -->
     <cac:OriginatorDocumentReference>
-        <cbc:ID>ppid-123</cbc:ID>
+        <cbc:ID>1Z1A3EE456</cbc:ID>
     </cac:OriginatorDocumentReference>
     <!-- end::tender[] -->
     <!-- tag::contract[] -->
@@ -46,10 +47,22 @@
     <!-- end::contract[] -->
     <!-- tag::object[] -->
     <cac:AdditionalDocumentReference>
-        <cbc:ID schemeID="ABT">DR35141</cbc:ID><!--1-->   
-        <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode><!--2-->      
+        <cbc:ID schemeID="ABT">DR35141</cbc:ID><!--1-->
+        <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode><!--2-->
     </cac:AdditionalDocumentReference>
     <!-- end::object[] -->
+    <!-- tag::convenzione[] -->
+    <cac:AdditionalDocumentReference>
+        <cbc:ID schemeID="AVV">123456</cbc:ID>
+        <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
+    </cac:AdditionalDocumentReference>
+    <!-- end::convenzione[] -->
+    <!-- tag::impegno[] -->
+    <cac:AdditionalDocumentReference>
+        <cbc:ID schemeID="ALA">123456</cbc:ID><!--1-->
+        <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode><!--2-->
+    </cac:AdditionalDocumentReference>
+    <!-- end::impegno[] -->
     <cac:AdditionalDocumentReference>
         <cbc:ID>ts12345</cbc:ID>
         <cbc:DocumentDescription>Technical specification</cbc:DocumentDescription>
@@ -61,7 +74,7 @@
     </cac:AdditionalDocumentReference>
     <!-- tag::project[] -->
     <cac:ProjectReference>
-        <cbc:ID>project333</cbc:ID>
+        <cbc:ID>J31E01000010004</cbc:ID>
     </cac:ProjectReference>
     <!-- end::project[] -->
     <cac:AccountingSupplierParty>
@@ -293,6 +306,36 @@
             <cbc:ID schemeID="AWV">Mobile number 1223432432</cbc:ID>
             <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
         </cac:DocumentReference>
+        <!-- tag::CIG_riga[] -->
+        <cac:DocumentReference>
+            <cbc:ID schemeID="AGB">123456</cbc:ID>
+            <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
+        </cac:DocumentReference>
+        <!-- end::CIG_riga[] -->
+        <!-- tag::CUP_riga[] -->
+        <cac:DocumentReference>
+            <cbc:ID schemeID="AEP">123456</cbc:ID>
+            <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
+        </cac:DocumentReference>
+        <!-- end::CUP_riga[] -->
+        <!-- tag::convenzione_riga[] -->
+        <cac:DocumentReference>
+            <cbc:ID schemeID="AVV">123456</cbc:ID>
+            <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
+        </cac:DocumentReference>
+        <!-- end::convenzione_riga[] -->
+        <!-- tag::impegno_riga[] -->
+        <cac:DocumentReference>
+            <cbc:ID schemeID="ALA">123456</cbc:ID>
+            <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
+        </cac:DocumentReference>
+        <!-- end::impegno_riga[] -->
+        <!-- tag::contratto_riga[] -->
+        <cac:DocumentReference>
+            <cbc:ID schemeID="CT">123456</cbc:ID>
+            <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
+        </cac:DocumentReference>
+        <!-- end::contratto_riga[] -->
         <!-- tag::charge-line[] -->
         <cac:AllowanceCharge>
             <cbc:ChargeIndicator>true</cbc:ChargeIndicator>

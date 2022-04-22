@@ -1,6 +1,6 @@
 
 [[verificationreq, Invoice verification requirements]]
-.Requisiti per la verifica delle fatture (riconciliazione)
+.Invoice verification requirements
 [cols="1,10", options="header"]
 |===
 |Id

@@ -14,6 +14,6 @@ IMPORTANT:  Nelle percentuali non vi è alcuna restrizione sul numero di cifre d
 
 |Contenuto
 |Obbligatorio
-|Decimal
-|34.7812
+|Decimale
+|34,7812
 |===

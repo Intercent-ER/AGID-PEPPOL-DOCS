@@ -1,8 +1,7 @@
 
 
 [[rules]]
-= Regole di validazione per le transazioni
-
+= Transaction validation rules
 
 :leveloffset: +1
 

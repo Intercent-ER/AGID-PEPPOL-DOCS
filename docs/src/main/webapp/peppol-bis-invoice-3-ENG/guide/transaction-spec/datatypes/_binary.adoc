@@ -1,33 +1,33 @@
 
 = Binary objects
 
-Gli oggetti binari posso essere utilizzati per descrivere file che vengono trasmessi insieme alla fattura. La funzionalità dell'allegato non è inteso per includere una copia della fattura in un formato immagine (come un PDF). Allegare una copia della fattura non è compatibile con questa specifica.
+Binary objects can be used to describe files which are transmitted together with the Invoice. The attachment functionality is not intended for of including a copy of the invoice in an image format (such as PDF). Attaching an invoice copy is not in compliance with this specification.
 
-Gli allegati devono essere trasmessi insieme alla fattura. L'oggetto binaro ha due componenti supplementari: un Mime Code, che specifica il tipo Mime dell'allegato e un Filename che viene fornito dal (o per conto del) mittente della fattura o nota di credito.
+Attachments shall be transmitted together with the Invoice. The binary object has two supplementary components: a Mime Code, which specifies the Mime type of the attachment and a Filename that is provided by (or on behalf of) the sender of the invoice or credit note.
 
 
 [cols="1s,1,1,1", options="header"]
 |===
-|Componente
-|Uso
-|Tipo primitivo
-|Esempio
+|Component
+|Use
+|Primitive Type
+|Example
 
-|Contenuto
-|Obbligatorio
+|Content
+|Mandatory
 |Binary
 |QmFzZTY0IGNvbnRlbnQgZXhhbXBsZQ==
 
 |Mime Code
-|Obbligatorio
+|Mandatory
 |String
 |image/jpeg
 
 |Filename
-|Obbligatorio
+|Mandatory
 |String
 |drawing5.jpg
 |===
 
 
-Il destinatario di una fattura o nota di credito, deve accettare e processare allegati che sono allineati alle codifiche <<media-type>>
+A receiver of an invoice or credit note, shall accept and process attachments that are according to the code list <<media-type>>

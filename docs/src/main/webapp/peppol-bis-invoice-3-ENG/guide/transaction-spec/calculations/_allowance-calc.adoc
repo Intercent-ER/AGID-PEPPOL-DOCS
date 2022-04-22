@@ -1,16 +1,19 @@
 
 [[allowance-calc]]
-= Calcolo dell'importo sconto/maggiorazione
+= Calculation of allowance/charge amount
 
-Gli sconti e le maggiorazioni a livello di testata e a livello di riga consistono di elementi informativi che specificano sia l'importo base dello sconto/maggiorazione che la percentuale. Se presenti in fattura, questi sono usati per calcolare l'importo di sconto/maggiorazione.
+Allowance and charge on document- and line level consists of elements carrying information on the allowance/charge base amount and the allowance/charge percentage. These are, if present in the invoice instance, used for calculating the allowance/charge amount.
 
-Se l'importo base è presente, la percentuale deve essere presente e viceversa, se la percentuale è presente deve essere presente anche l'importo base.
-
-Il calcolo dell'importo è quindi:
+If base amount is present, the percentage shall also be present, and if percentage is present, the base amount shall also be present, and the calculation of the amount shall be:
 
 ====
 stem:["Amount" =  "Base amount" times ("Percentage" div 100)]
 ====
 
+[IMPORTANT]
+#Nel contesto nazionale la sezione è utilizzata solo per Bollo (vedi paragrafo 4.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 4.8).#
 
-include::../../syntax/_allowance-calc.adoc[]
+#Tipico esempio di maggiorazione espressa con importo base e percentuale è la cassa previdenziale (vedi paragrafo 4.8).#
+
+#Tipico esempio di sconto/maggiorazione con solo importo base è il bollo (vedi paragrafo 4.9).#
+

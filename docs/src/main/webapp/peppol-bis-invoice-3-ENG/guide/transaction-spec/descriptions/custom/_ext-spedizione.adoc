@@ -1,0 +1,10 @@
+
+= #Spedizione# (estensione)
+
+Nei casi di fattura "accompagnatoria" le informazioni relative alla spedizione possono essere fornite nelle informazioni di consegna nell'elemento Shipment.
+
+.Esempio UBL completo per le informazioni di spedizione
+[source, xml, indent=0]
+----
+include::../../../rules/snippets/agid-extensions.xml[tag=info_spedizione]
+----

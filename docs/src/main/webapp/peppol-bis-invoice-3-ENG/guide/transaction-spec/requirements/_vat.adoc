@@ -1,6 +1,6 @@
 
 [[vatreq, VAT reporting requirements]]
-.Requisiti per dati IVA
+.VAT reporting requirements
 [cols="1,10", options="header"]
 |===
 |Id

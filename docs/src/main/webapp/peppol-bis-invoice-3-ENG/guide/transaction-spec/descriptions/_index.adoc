@@ -1,14 +1,12 @@
 [[descriptions]]
-= Esempi di parti selezionate della transazione
+= Examples of selected parts of the transaction
 
-Nei paragrafi seguenti vengono riportarti esempi di parti selezionate della transazione. Si consiglia di esaminare anche la <<Detailed UBL message guideline>> per i dettagli su tutti gli elementi e gli attributi, le loro regole e l'utilizzo delle codifiche di riferimento.
+In the subchapters below you find examples of selected parts of the transaction. Please also look into the <<Detailed UBL message guideline>> for details on all elements and attributes, and their rules and use of code lists.
 
 :leveloffset: +1
 
 
 include::_roles-and-actor.adoc[]
-
-include::_address.adoc[]
 
 include::_delivery-details.adoc[]
 
@@ -29,6 +27,16 @@ include::_item.adoc[]
 include::_price.adoc[]
 
 include::_uom.adoc[]
+
+include::custom/_ext-tipo-documento.adoc[]
+
+include::custom/_ext-regime-fiscale.adoc[]
+
+include::custom/_ext-termini-pagamento.adoc[]
+
+include::custom/_ext-arrotondamento-riepilogo-IVA.adoc[]
+
+include::custom/_altreregoleitaliane.adoc[]
 
 
 :leveloffset: -1

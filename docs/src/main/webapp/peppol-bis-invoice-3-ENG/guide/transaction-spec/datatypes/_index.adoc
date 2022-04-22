@@ -1,9 +1,9 @@
 
-= Tipi di dato semantici
+= Semantic datatypes
 
-I tipi di dato semantici vengono utilizzati per colmare il divario tra i concetti semantici espressi dagli elementi informativi definiti nel modello semantico della {EN16931} e l'implementazione tecnica. I tipi di dato semantici definiscono i domini dei valori consentiti nel contenuto e qualsiasi altro componente informativo (attributi), necessari a garantire la sua corretta interpretazione.
+Semantic data types are used to bridge the gap between the semantic concepts expressed by the information elements defined in the semantic model from {EN16931} and the technical implementation. The semantic data types define the allowed value domain for the content, and any additional information components (attributes) needed in order to ensure its precise interpretation.
 
-NOTE: I dettagli di implementazione tecnica possono essere reperiti in <<Detailed UBL message guideline>>
+NOTE: The details of the technical implementation can be found in <<Detailed UBL message guideline>>
 
 :leveloffset: +1
 

@@ -1,10 +1,10 @@
 
-.Esempio UBL di modalità pagamento quando il pagamento è effettuato con addebito diretto SEPA
+.UBL example of payment means info when payment is done by SEPA direct debit
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/direct-debit.xml[tags=direct-debit]
 ----
-<1> Identificativo di riferimento bancario univoco del Venditore o Pagatore, lo schemeID deve essere valorizzato con "SEPA"
-<2> Codice modalità di pagamento
-<3> Informazioni di rimessa pagamento
-<4> Indentificativo di riferimento al mandato di pagamento
+<1> Unique banking reference identifier of the Seller or Payee, schemeID shall have value "SEPA"
+<2> Payment means code
+<3> Remittance information
+<4> Mandate reference identifier

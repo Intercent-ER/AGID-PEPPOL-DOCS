@@ -1,13 +1,13 @@
-= Unità di misura
+= Unit of measure
 
-L'unità di misura in una fattura prevede l'utilizzo delle codifiche presenti in UNECE Recommendation No. 20 (version 11e), unitamente alle codifiche riportate in UNECE Recommendation No. 21 con il prefisso X. 
-Si consiglia di consultare <<uom>> per ulteriori dettagli riferiti alle codifiche di riferimento.
+Unit of measure in an invoice allows the use of codes from UNECE Recommendation No. 20 (version 11e), as well as codes from UNECE Recommendation No. 21 prefixed with an X.
+Please also see <<uom>> for further information on the code lists.
 
-.Esempi di unità di misura dalla Recommendation No. 20
+.Examples of unit of measure from Recommendation No. 20
 [cols="1,5", options="header"]
 |===
-|Codice
-|Nome
+|Code
+|Name
 
 |H87
 |Piece

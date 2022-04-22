@@ -99,8 +99,11 @@
                 <cbc:Telephone>9384203984</cbc:Telephone>
                 <cbc:ElectronicMail>john.doe@foo.bar</cbc:ElectronicMail>
             </cac:Contact>
+            <!-- tag::direct-debit[] -->
+            ...
         </cac:Party>
     </cac:AccountingSupplierParty>
+    <!-- end::direct-debit[] -->
     <cac:AccountingCustomerParty>
         <cac:Party>
             <cbc:EndpointID schemeID="0002">FR23342</cbc:EndpointID>
@@ -197,7 +200,7 @@
             <cac:PayerFinancialAccount>
                 <cbc:ID>DK12328462834823</cbc:ID>
             </cac:PayerFinancialAccount>
-        </cac:PaymentMandate> 
+        </cac:PaymentMandate>
     </cac:PaymentMeans>
     <!-- end::direct-debit[] -->
     <cac:PaymentTerms>

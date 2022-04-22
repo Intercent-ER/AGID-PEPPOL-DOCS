@@ -1,6 +1,6 @@
 
 [[paymentreq, Payment requirements]]
-.Requisiti per il pagamento
+.payment requirements
 [cols="1,10", options="header"]
 |===
 |Id

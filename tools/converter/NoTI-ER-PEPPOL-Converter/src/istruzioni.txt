@@ -1,4 +1,4 @@
-*** Conversione Documenti OpenPEPPOL BIS 05A nel formato Fattura PA 1.2.1 ***
+*** Conversione Documenti UBL PEPPOL nel formato Fattura PA 1.2.1  e viceversa***
 
 Il pacchetto contiene un ambiente di test per la conversione dei documenti e l'ultima versione degli adapter.
 
@@ -6,15 +6,31 @@ Eventuali errori di conversione vengono mostrati nel browser di default disponib
 
 Per eseguire le conversioni è sufficiente invocare i rispettivi file batch disponibili nella root:
 
-# Conversione da OpenPEPPOL a FatturaPA
+
+# Conversione da PEPPOL UBL BIS 3 a FatturaPA
+
+	Converti FT PEPPOL BIS3-FPA.bat
+	Converti NC PEPPOL BIS3-FPA.bat
+
+	NOTA: Dopo la conversione viene eseguita automaticamente anche la validazione XSD della Fattura PA 1.2.1.
+
+
+# Conversione da FatturaPA a PEPPOL UBL BIS 3
+
+	Converti FT FPA-PEPPOL BIS3.bat
+	Converti NC FPA-PEPPOL BIS3.bat
+
+	NOTA: Dopo la conversione viene eseguita automaticamente anche la validazione XSD UBL e quella semantica OpenPEPPOL
+
+# Conversione da PEPPOL UBL BIS 2.1 a FatturaPA
 
 	Converti FT PEPPOL in SDI.bat
 	Converti NC PEPPOL in SDI.bat
 
-	NOTA: Dopo la conversione viene eseguita automaticamente anche la validazione XSD della Fattura PA 1.1
+	NOTA: Dopo la conversione viene eseguita automaticamente anche la validazione XSD della Fattura PA 1.2.1.
 
 
-# Conversione da FatturaPA a OpenPEPPOL (Variante senza totali generati per NoTIER incompatibile con regole BII2)
+# Conversione da FatturaPA a PEPPOL UBL BIS 2.1 (Variante senza totali generati - incompatibili con regole BII2)
 
 	Converti FT SDI in PEPPOL (No BII2).bat
 	Converti NC SDI in PEPPOL (No BII2).bat
@@ -35,7 +51,7 @@ Il risulato delle conversioni e validazioni può essere anche letto dai file di o
 
 adapters.zip
 
-	Contiene gli adattatori XSLT e i file necessari per l'installazione nel vs. sistema (x Engineering)
+	Contiene gli adattatori XSLT e i file necessari per l'installazione nel vs. sistema
 
 \adapters
 

@@ -5,7 +5,7 @@ This schematron uses business terms defined the CEN/EN16931-1 and is reproduced 
 Last update: 2021 November release.
  -->
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:u="utils" schemaVersion="iso" queryBinding="xslt2">
-  <title>Rules for PEPPOL BIS 3.0 Billing</title>
+  <title>Regole di business PEPPOL BID Fatturazione 3.0</title>
   <ns uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" prefix="cbc"/>
   <ns uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" prefix="cac"/>
   <ns uri="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2" prefix="ubl-creditnote"/>

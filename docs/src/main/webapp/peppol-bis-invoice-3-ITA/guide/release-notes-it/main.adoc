@@ -1,5 +1,5 @@
 include::../shared/_settings.adoc[]
-= PEPPOL BIS Billing {version}
+= PEPPOL BIS Fatturazione {version}
 Release Notes
 :doctype: book
 :encoding: utf-8

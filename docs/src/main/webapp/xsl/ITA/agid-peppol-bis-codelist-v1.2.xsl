@@ -164,19 +164,19 @@
             </p>
             </xsl:if>
 			<xsl:if test="cl:VATCategoryCode">
-            <code class="locale indent">
-                VAT Category Code (BT-118): <xsl:value-of select="cl:VATCategoryCode"/>
-            </code>
+            <p>
+                VAT Category Code (BT-118): <strong><xsl:value-of select="cl:VATCategoryCode"/></strong>
+            </p>
             </xsl:if>
 			<xsl:if test="cl:VATExemReasonCode">
-            <code class="locale indent">
-                VAT exemption reason code (BT-121): <xsl:value-of select="cl:VATExemReasonCode"/>
-            </code>
+            <p>
+                VAT exemption reason code (BT-121): <strong><xsl:value-of select="cl:VATExemReasonCode"/></strong>
+            </p>
             </xsl:if>
 			<xsl:if test="cl:VATExemReasonText">
-            <code class="locale indent">
-                VAT exemption reason text (BT-120): <xsl:value-of select="cl:VATExemReasonText"/>
-            </code>
+            <p>
+                VAT exemption reason text (BT-120): <strong><xsl:value-of select="cl:VATExemReasonText"/></strong>
+            </p>
             </xsl:if>
         </div>
     </xsl:template>

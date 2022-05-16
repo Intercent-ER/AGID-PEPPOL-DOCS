@@ -16,3 +16,9 @@ Le regole nazionali sono fornite dalle Autorità PEPPOL di ogni paese, e se sono
 
 include::{rules-dir}/_PEPPOL-EN16931-UBL-NATIONAL.sch.adoc[]
 |====
+
+:leveloffset: +1
+
+include::cius-italia-annex/_index.adoc[]
+
+:leveloffset: -1 

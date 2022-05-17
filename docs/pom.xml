@@ -26,6 +26,9 @@
 	</properties>
 	<build>
 		<plugins>
+			
+		
+		
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -39,10 +42,140 @@
 				</configuration>
 			</plugin>
 			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<!-- copia delle codelist da artifacts alle cartelle della documentazione-->
+					<!-- INVOICE-->
+					<!-- ITA-->
+					<execution>
+						<id>copy-codelist-invoice-ita</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/${project.build.finalName}/peppol-bis-invoice-3-ITA/structure/codelist/</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../artifacts/codelist/invoice/ITA</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+							<echo>Copying codelist files</echo>
+						</configuration>
+					</execution>
+					<!-- ENG-->
+					<execution>
+						<id>copy-codelist-invoice-eng</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/${project.build.finalName}/peppol-bis-invoice-3-ENG/structure/codelist/</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../artifacts/codelist/invoice/ENG</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+							<echo>Copying codelist files</echo>
+						</configuration>
+					</execution>
+					<!-- OTHER-->
+					<!-- ITA-->
+					<execution>
+						<id>copy-codelist-other-ita</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/${project.build.finalName}/peppol-bis-3-ITA/structure/codelist/</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../artifacts/codelist/other/ITA</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+							<echo>Copying codelist files</echo>
+						</configuration>
+					</execution>
+					<!-- ENG-->
+					<execution>
+						<id>copy-codelist-other-eng</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/${project.build.finalName}/peppol-bis-3-ENG/structure/codelist/</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../artifacts/codelist/other/ENG</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+							<echo>Copying codelist files</echo>
+						</configuration>
+					</execution>
+				
+				
+				
+				
+				
+					<execution>
+						<id>copy-sch</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/${project.build.finalName}/sch/</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../artifacts/validation/3.0/sch</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+							<echo>Copying sch files</echo>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-docs</id>
+						<!-- here the phase you need -->
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/${project.build.finalName}/docs/</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${project.build.directory}/generated-docs</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+							<echo>Copying doc files</echo>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+			
+			
+			
+			
+			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>xml-maven-plugin</artifactId>
 				<executions>
-
 					<!-- ITA -->
 					<execution>
 						<id>apply-xslt-others-ITA</id>
@@ -95,7 +228,7 @@
 						<configuration>
 							<transformationSets>
 								<transformationSet>
-									<dir>${basedir}/src/main/webapp/peppol-bis-3-ITA/structure/codelist/</dir>
+									<dir>${project.build.directory}/${project.build.finalName}/peppol-bis-3-ITA/structure/codelist/</dir>
 									<includes>
 										<include>**/*.xml</include>
 										<include>*.xml</include>
@@ -120,7 +253,7 @@
 						<configuration>
 							<transformationSets>
 								<transformationSet>
-									<dir>${basedir}/src/main/webapp/peppol-bis-invoice-3-ITA/structure/codelist/</dir>
+									<dir>${project.build.directory}/${project.build.finalName}/peppol-bis-invoice-3-ITA/structure/codelist/</dir>
 									<includes>
 										<include>**/*.xml</include>
 										<include>*.xml</include>
@@ -189,7 +322,7 @@
 						<configuration>
 							<transformationSets>
 								<transformationSet>
-									<dir>${basedir}/src/main/webapp/peppol-bis-3-ENG/structure/codelist/</dir>
+									<dir>${project.build.directory}/${project.build.finalName}/peppol-bis-3-ENG/structure/codelist/</dir>
 									<includes>
 										<include>**/*.xml</include>
 										<include>*.xml</include>
@@ -214,7 +347,7 @@
 						<configuration>
 							<transformationSets>
 								<transformationSet>
-									<dir>${basedir}/src/main/webapp/peppol-bis-invoice-3-ENG/structure/codelist/</dir>
+									<dir>${project.build.directory}/${project.build.finalName}/peppol-bis-invoice-3-ENG/structure/codelist/</dir>
 									<includes>
 										<include>**/*.xml</include>
 										<include>*.xml</include>
@@ -599,48 +732,7 @@
 					</replacements>
 				</configuration>
 			</plugin>
-			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.0.1</version>
-				<executions>
-					<execution>
-						<id>copy-sch</id>
-						<!-- here the phase you need -->
-						<phase>validate</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.build.directory}/${project.build.finalName}/sch/</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${basedir}/../artifacts/validation/3.0/sch</directory>
-									<filtering>false</filtering>
-								</resource>
-							</resources>
-							<echo>Copying sch files</echo>
-						</configuration>
-					</execution>
-					<execution>
-						<id>copy-docs</id>
-						<!-- here the phase you need -->
-						<phase>generate-resources</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.build.directory}/${project.build.finalName}/docs/</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${project.build.directory}/generated-docs</directory>
-									<filtering>false</filtering>
-								</resource>
-							</resources>
-							<echo>Copying doc files</echo>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>

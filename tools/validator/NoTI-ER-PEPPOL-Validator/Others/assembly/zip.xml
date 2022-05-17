@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assembly
+    xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+    http://maven.apache.org/ASSEMBLY/2.0.0
+      http://maven.apache.org/xsd/assembly-2.0.0.xsd"
+>
+    <id>zip</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <!--includeBaseDirectory>false</includeBaseDirectory-->
+    <fileSets>
+        <fileSet>
+            <outputDirectory>xsl</outputDirectory>
+            <directory>src/xsl</directory>
+        </fileSet>
+        <fileSet> <!-- Copy resources -->
+            <outputDirectory>xsl/PEPPOL</outputDirectory>
+            <directory>target/xsl/PEPPOL</directory>
+        </fileSet>
+    </fileSets>
+    <!-- package dependencies -->
+    <!--dependencySets>
+        <dependencySet>
+            <outputDirectory>lib</outputDirectory>
+            <excludes>
+                <exclude>*:pom</exclude>
+            </excludes>
+            <useStrictFiltering>true</useStrictFiltering>
+            <useProjectArtifact>false</useProjectArtifact>
+            <scope>runtime</scope>
+        </dependencySet>
+    </dependencySets-->
+</assembly>

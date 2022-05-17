@@ -710,12 +710,20 @@
 					</includes>
 					<replacements>
 						<replacement>
-							<token>(#link_to_schematron#)</token>
-							<value>AGID-PEPPOL-Schematron-${schematron.version}.zip</value>
+							<token>(#link_to_schematron_invoice#)</token>
+							<value>AGID-PEPPOL-Schematron-Invoice-${schematron.version}.zip</value>
 						</replacement>
 						<replacement>
-							<token>(#link_to_validator#)</token>
-							<value>AGID-PEPPOL-Validator-${validator.version}.zip</value>
+							<token>(#link_to_schematron_others#)</token>
+							<value>AGID-PEPPOL-Schematron-Others-${schematron.version}.zip</value>
+						</replacement>
+						<replacement>
+							<token>(#link_to_validator_invoice#)</token>
+							<value>AGID-PEPPOL-Validator-Invoice-${validator.version}.zip</value>
+						</replacement>
+						<replacement>
+							<token>(#link_to_validator_others#)</token>
+							<value>AGID-PEPPOL-Validator-Others-${validator.version}.zip</value>
 						</replacement>
 						<replacement>
 							<token>(#link_to_converter#)</token>
@@ -749,7 +757,14 @@
 							<artifactItems>
 								<artifactItem>
 									<groupId>it.gov.agid</groupId>
-									<artifactId>AGID-PEPPOL-Schematron</artifactId>
+									<artifactId>AGID-PEPPOL-Schematron-Invoice</artifactId>
+									<version>${schematron.version}</version>
+									<type>zip</type>
+									<overWrite>true</overWrite>
+								</artifactItem>
+								<artifactItem>
+									<groupId>it.gov.agid</groupId>
+									<artifactId>AGID-PEPPOL-Schematron-Others</artifactId>
 									<version>${schematron.version}</version>
 									<type>zip</type>
 									<overWrite>true</overWrite>
@@ -789,7 +804,14 @@
 							<artifactItems>
 								<artifactItem>
 									<groupId>it.gov.agid</groupId>
-									<artifactId>AGID-PEPPOL-Validator</artifactId>
+									<artifactId>AGID-PEPPOL-Validator-Invoice</artifactId>
+									<version>${validator.version}</version>
+									<type>zip</type>
+									<overWrite>true</overWrite>
+								</artifactItem>
+								<artifactItem>
+									<groupId>it.gov.agid</groupId>
+									<artifactId>AGID-PEPPOL-Validator-Others</artifactId>
 									<version>${validator.version}</version>
 									<type>zip</type>
 									<overWrite>true</overWrite>

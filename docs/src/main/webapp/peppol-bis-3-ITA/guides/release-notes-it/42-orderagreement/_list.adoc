@@ -6,6 +6,20 @@
 | Data
 | Cosa è cambiato
 
+| 3.0.0.3(IT)
+a| 27/05/2022
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3.0.9 - spring release 2022]_. +
+
+[red]#Cambiamenti alle code lists e ai tool di validazione#
+
+* Aggiunta una regola con severità “warning” per la validazione del formato del “Swedish organisation numbers” (ICD/EAS 0007). La severità passerà a “fatal” con la Fall release 2022;
+* Corretto un errore che provocava la comparsa di errori in sede di caricamento/utilizzo di file di schematron in alcuni convertitori/tool di file XLS;
+* Modificata da “warning” a “fatal” la severità della regola PEPPOL-COMMON-R043 (ICD 0208) relativa alla validazione del formato del “Belgian organisation numbers”, come annunciato nella Fall release 2021;
+* Corretta la regola PEPPOL-T77-R001 che veniva erroneamente ignorata in casi di omissione dell’indicazione del periodo di validità;
+* Aggiunta una regola con severità “warning” per la validazione del formato del “Australian ABN” (ICD/EAS 0151). La severità passerà a “fatal” con la Fall release 2022;
+* Aggiunti i codici 0214, 0215 e 0216 alla codifica ICD e adeguati gli artefatti di validazione;
+* Aggiunti i codici 0147, 0170, 0188, 0215 e 0216 alla codifica EAS e adeguati gli artefatti di validazione;
+* Rimozione della ripetizione del codice TSP dalla codifica UNCL7143.
 
 | 3.0.0.2(IT)
 a| 08/11/2021

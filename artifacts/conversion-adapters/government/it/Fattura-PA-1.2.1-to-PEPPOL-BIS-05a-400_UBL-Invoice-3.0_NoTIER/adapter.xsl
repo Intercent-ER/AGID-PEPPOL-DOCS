@@ -12,7 +12,9 @@
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:ccts="urn:un:unece:uncefact:documentation:2"
    xmlns:cr="http://www.ubl-italia.org/ns/CrossReference"
-   xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes="xsmap asmap in ds" version="2.0">
+   xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+   xmlns:gc="urn:fdc:difi.no:2017:vefa:structure:CodeList-1"
+   exclude-result-prefixes="xsmap asmap in ds" version="2.0">
    <xsl:output indent="no"/>
    <xsl:param name="xclTipoDocumento" as="xsd:string">xcl/TipoDocumento.gc</xsl:param>
    <xsl:param name="xclFormatoAttachment" as="xsd:string">xcl/FormatoAttachment.gc</xsl:param>
@@ -20,6 +22,8 @@
    <xsl:param name="xclPaymentMeansCode" as="xsd:string">xcl/PaymentMeansCode-2.1.gc</xsl:param>
    <xsl:param name="xclCategoriaImposte" as="xsd:string">xcl/CategoriaImposte.gc</xsl:param>
    <xsl:param name="xclUnitOfMeasureCode" as="xsd:string">xcl/UnitOfMeasureCode-2.1.gc</xsl:param>
+   <xsl:param name="UNECE" as="xsd:string">xcl/UNECERec20-11e.xml</xsl:param>
+
    <!--
 Processing starts at node: /in:FatturaElettronica
 See the template rule at end of stylesheet for the default processing of 
@@ -1322,8 +1326,10 @@ the root node.
                      <xsl:value-of select="string($variable_d1e455a1050145)"/>
                   </xsl:attribute>
                </xsl:if> -->
+			   
                <xsl:variable name="unitCode">
-                  <xsl:value-of select="if (document($xclUnitOfMeasureCode)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xname']/SimpleValue=current()/UnitaMisura][1]) then document($xclUnitOfMeasureCode)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xname']/SimpleValue=current()/UnitaMisura][1] else 'C62'"/>
+                  <!--<xsl:value-of select="if (document($xclUnitOfMeasureCode)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xname']/SimpleValue=current()/UnitaMisura][1]) then document($xclUnitOfMeasureCode)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xname']/SimpleValue=current()/UnitaMisura][1] else 'C62'"/>-->
+				  <xsl:value-of select="if (document($UNECE)//gc:Code[gc:LocalIds/gc:LocalId=current()/UnitaMisura]/gc:Id) then document($UNECE)//gc:Code[gc:LocalIds/gc:LocalId=current()/UnitaMisura]/gc:Id else 'C62'"/>
                </xsl:variable>
                <xsl:if test="string($unitCode)">
                   <xsl:attribute name="unitCode">

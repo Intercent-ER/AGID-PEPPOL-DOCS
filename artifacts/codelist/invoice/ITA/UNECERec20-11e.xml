@@ -6039,7 +6039,11 @@
         <Id>KWH</Id>
         <Name>kilowatt hour</Name>
         <Description/>
-        <LocalId>kwh</LocalId>
+    </Code>
+    <Code>
+        <Id>KWN</Id>
+        <Name>Kilowatt hour per normalized cubic metre</Name>
+	<LocalId>kwh</LocalId>
         <LocalName>chilowatt per ora</LocalName>
         <LocalDescription>Unità di misura della potenza, pari a 1000 watt per ora.</LocalDescription>
     </Code>
@@ -10314,6 +10318,9 @@
         <Name>Pallet, CHEP 80 cm x 120 cm</Name>
         <Description>Commonwealth Handling Equipment Pool (CHEP) standard pallet of dimensions 80
             centimeters x 120 centimeters.</Description>
+        <LocalId>bancale</LocalId>
+        <LocalName>pallet</LocalName>
+        <LocalDescription>Piattaforma o scatola aperta, solitamente in legno, su cui vengono trattenute le merci per facilità di movimentazione meccanica durante il trasporto e lo stoccaggio.</LocalDescription>
     </Code>
     <Code>
         <Id>XOC</Id>
@@ -10488,6 +10495,9 @@
         <Id>XPK</Id>
         <Name>Package</Name>
         <Description>Standard packaging unit.</Description>
+        <LocalId>confezione</LocalId>
+        <LocalName>confezione</LocalName>
+        <LocalDescription>Definisce il pacchetto che contiene più unità singole e' il confezionamento minimo vendibile (Es. confezione di compresse).</LocalDescription>
     </Code>
     <Code>
         <Id>XPL</Id>

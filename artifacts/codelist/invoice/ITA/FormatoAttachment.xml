@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/">
+	<Title>Formato Attachment</Title>
+	<Identifier>FormatoAttachment</Identifier>
+	<Version>1.1</Version>
+	<Agency>UBL-ITALIA</Agency>
+	<Code>
+		<LocalId>TXT</LocalId>
+		<Name>TXT = Formato Attachment TXT NON strutturato</Name>
+		<Id>text/plain</Id>
+	</Code>
+	<Code>
+		<LocalId>CSV</LocalId>
+		<Name>CSV = Formato Attachment TXT strutturato</Name>
+		<Id>text/csv</Id>
+	</Code>
+	<Code>
+		<LocalId>TIF</LocalId>
+		<Name>TIF = Formato Attachment Grafico TIFF</Name>
+		<Id>image/tiff</Id>
+	</Code>
+	<Code>
+		<LocalId>GIF</LocalId>
+		<Name>GIF = Formato Attachment Grafico GIF</Name>
+		<Id>image/gif</Id>
+	</Code>
+	<Code>
+		<LocalId>JPEG</LocalId>
+		<Name>JPEG = Formato Attachment Grafico JPEG</Name>
+		<Id>image/jpeg</Id>
+	</Code>
+	<Code>
+		<LocalId>PDF</LocalId>
+		<Name>PDF = Formato Attachment PDF, PDF/A</Name>
+		<Id>application/pdf</Id>
+	</Code>
+	<Code>
+		<LocalId>XML</LocalId>
+		<Name>XML = Formato Attachment XML</Name>
+		<Id>application/xml</Id>
+	</Code>
+	<Code>
+		<LocalId>XML</LocalId>
+		<Name>XML = Formato Attachment XML</Name>
+		<Id>text/xml</Id>
+	</Code>
+	<Code>
+		<LocalId>EDI</LocalId>
+		<Name>EDI = Formato Attachment EDIFACT</Name>
+		<Id>application/edifact</Id>
+	</Code>
+	<Code>
+		<LocalId>DOC</LocalId>
+		<Name>DOC = Formato Attachment MS Word</Name>
+		<Id>application/msword</Id>
+	</Code>
+	<Code>
+		<LocalId>DOCX</LocalId>
+		<Name>DOCX = Formato Attachment Office Open XML Document (ISO/IEC DIS 29500)</Name>
+		<Id>application/vnd.openxmlformats-officedocument.wordprocessingml.document</Id>
+	</Code>
+	<Code>
+		<LocalId>ODT</LocalId>
+		<Name>ODT = Formato Attachment OASIS Open Document (ISO/IEC 26300:2006)</Name>
+		<Id>application/vnd.oasis.opendocument.text</Id>
+	</Code>
+	<Code>
+		<LocalId>XLS</LocalId>
+		<Name>XLS = Formato Attachment MS Excel</Name>
+		<Id>application/vnd.ms-excel</Id>
+	</Code>
+	<Code>
+		<LocalId>XLSX</LocalId>
+		<Name>XLSX = Formato Attachment Office Open XML Spreadsheet (ISO/IEC DIS 29500)</Name>
+		<Id>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</Id>
+	</Code>
+	<Code>
+		<LocalId>ODS</LocalId>
+		<Name>ODS = Formato Attachment OASIS Open Document Spreadsheet (ISO/IEC 26300:2006)</Name>
+		<Id>application/vnd.oasis.opendocument.spreadsheet</Id>
+	</Code>
+	<Code>
+		<LocalId>ZIP</LocalId>
+		<Name>ZIP = Formato Attachment Compresso di archiviazione ZIP</Name>
+		<Id>application/zip</Id>
+	</Code>
+	<Code>
+		<LocalId>RAR</LocalId>
+		<Name>RAR = Formato Attachment Compresso di archiviazione RAR</Name>
+		<Id>application/x-rar-compressed</Id>
+	</Code>
+	<Code>
+		<LocalId>TAR</LocalId>
+		<Name>TAR = Formato Attachment di archiviazione TAR</Name>
+		<Id>application/x-tar</Id>
+	</Code>
+	<Code>
+		<LocalId>TAR.GZ</LocalId>
+		<Name>TAR.GZ = Formato Attachment Compresso di archiviazione TAR</Name>
+		<Id>application/x-gzip</Id>
+	</Code>
+	<Code>
+		<LocalId>TGZ</LocalId>
+		<Name>TGZ = Formato Attachment Compresso di archiviazione TAR</Name>
+		<Id>application/x-gzip</Id>
+	</Code>
+	<Code>
+		<LocalId>GZ</LocalId>
+		<Name>GZ = Formato Attachment Compresso di archiviazione TAR</Name>
+		<Id>application/x-gzip</Id>
+	</Code>
+	<Code>
+		<LocalId>binary</LocalId>
+		<Name>binary = Dati Binari</Name>
+		<Id>application/octet-stream</Id>
+	</Code>
+</CodeList>

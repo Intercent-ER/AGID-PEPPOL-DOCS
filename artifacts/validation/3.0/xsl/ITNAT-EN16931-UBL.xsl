@@ -19531,9 +19531,9 @@
 		<!--ASSERT -->
 
       <axsl:choose>
-         <axsl:when test="string-length(.) &lt;= 21 and matches(.,'^([0-9]+\d{0,2}(\.\d{3})*|([0-9]+\d*))?(#(SU|SM))?(#(LS|LN))?$')"/>
+         <axsl:when test="string-length(.) &lt;= 21 and matches(.,'^([0-9]+\d{0,2}(\.\d{2})*|([0-9]+\d*))?(#(SU|SM))?(#(LS|LN))?$')"/>
          <axsl:otherwise>
-            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="string-length(.) &lt;= 21 and matches(.,'^([0-9]+\d{0,2}(\.\d{3})*|([0-9]+\d*))?(#(SU|SM))?(#(LS|LN))?$')">
+            <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl" test="string-length(.) &lt;= 21 and matches(.,'^([0-9]+\d{0,2}(\.\d{2})*|([0-9]+\d*))?(#(SU|SM))?(#(LS|LN))?$')">
                <axsl:attribute name="id">BR-IT-DC-122</axsl:attribute>
                <axsl:attribute name="flag">fatal</axsl:attribute>
                <axsl:attribute name="location">

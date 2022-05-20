@@ -1,173 +1,171 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <CodeList xmlns="urn:www.ubl-italia.org:spec:fatturapa:codelist:gc:VATSchemes">
-
 	<Title>VAT Schemes</Title>
 	<Identifier>VATSchemes</Identifier>
 	<Version>1.0</Version>
 	<Agency>UBL-ITALIA</Agency>
-	
 	<Code>
-		<Id>AD</Id>
-		<LocalId>AD:VAT</LocalId>
+		<LocalId>AD</LocalId>
+		<Id>AD:VAT</Id>
 	</Code>
 	<Code>
-		<Id>AL</Id>
-		<LocalId>AL:VAT</LocalId>
+		<LocalId>AL</LocalId>
+		<Id>AL:VAT</Id>
 	</Code>
 	<Code>
-		<Id>AT</Id>
-		<LocalId>AT:VAT</LocalId>
+		<LocalId>AT</LocalId>
+		<Id>AT:VAT</Id>
 	</Code>
 	<Code>
-		<Id>BA</Id>
-		<LocalId>BA:VAT</LocalId>
+		<LocalId>BA</LocalId>
+		<Id>BA:VAT</Id>
 	</Code>
 	<Code>
-		<Id>BE</Id>
-		<LocalId>BE:VAT</LocalId>
+		<LocalId>BE</LocalId>
+		<Id>BE:VAT</Id>
 	</Code>
 	<Code>
-		<Id>BG</Id>
-		<LocalId>BG:VAT</LocalId>
+		<LocalId>BG</LocalId>
+		<Id>BG:VAT</Id>
 	</Code>
 	<Code>
-		<Id>CH</Id>
-		<LocalId>CH:VAT</LocalId>
+		<LocalId>CH</LocalId>
+		<Id>CH:VAT</Id>
 	</Code>
 	<Code>
-		<Id>CY</Id>
-		<LocalId>CY:VAT</LocalId>
+		<LocalId>CY</LocalId>
+		<Id>CY:VAT</Id>
 	</Code>
 	<Code>
-		<Id>CZ</Id>
-		<LocalId>CZ:VAT</LocalId>
+		<LocalId>CZ</LocalId>
+		<Id>CZ:VAT</Id>
 	</Code>
 	<Code>
-		<Id>DE</Id>
-		<LocalId>DE:VAT</LocalId>
+		<LocalId>DE</LocalId>
+		<Id>DE:VAT</Id>
 	</Code>
 	<Code>
-		<Id>DK</Id>
-		<LocalId>DK:CVR</LocalId>
+		<LocalId>DK</LocalId>
+		<Id>DK:CVR</Id>
 	</Code>
 	<Code>
-		<Id>EE</Id>
-		<LocalId>EE:VAT</LocalId>
+		<LocalId>EE</LocalId>
+		<Id>EE:VAT</Id>
 	</Code>
 	<Code>
-		<Id>ES</Id>
-		<LocalId>ES:VAT</LocalId>
+		<LocalId>ES</LocalId>
+		<Id>ES:VAT</Id>
 	</Code>
 	<Code>
-		<Id>FI</Id>
-		<LocalId>FI:OVT</LocalId>
+		<LocalId>FI</LocalId>
+		<Id>FI:OVT</Id>
 	</Code>
 	<Code>
-		<Id>FR</Id>
-		<LocalId>FR:SIRENE</LocalId>
+		<LocalId>FR</LocalId>
+		<Id>FR:SIRENE</Id>
 	</Code>
 	<Code>
-		<Id>GB</Id>
-		<LocalId>GB:VAT</LocalId>
+		<LocalId>GB</LocalId>
+		<Id>GB:VAT</Id>
 	</Code>
 	<Code>
-		<Id>GR</Id>
-		<LocalId>GR:VAT</LocalId>
+		<LocalId>GR</LocalId>
+		<Id>GR:VAT</Id>
 	</Code>
 	<Code>
-		<Id>HR</Id>
-		<LocalId>HR:VAT</LocalId>
+		<LocalId>HR</LocalId>
+		<Id>HR:VAT</Id>
 	</Code>
 	<Code>
-		<Id>HU</Id>
-		<LocalId>HU:VAT</LocalId>
+		<LocalId>HU</LocalId>
+		<Id>HU:VAT</Id>
 	</Code>
 	<Code>
-		<Id>IE</Id>
-		<LocalId>IE:VAT</LocalId>
+		<LocalId>IE</LocalId>
+		<Id>IE:VAT</Id>
 	</Code>
 	<Code>
-		<Id>IT</Id>
-		<LocalId>IT:VAT</LocalId>
+		<LocalId>IT</LocalId>
+		<Id>IT:VAT</Id>
 	</Code>
 	<Code>
-		<Id>LI</Id>
-		<LocalId>LI:VAT</LocalId>
+		<LocalId>LI</LocalId>
+		<Id>LI:VAT</Id>
 	</Code>
 	<Code>
-		<Id>LT</Id>
-		<LocalId>LT:VAT</LocalId>
+		<LocalId>LT</LocalId>
+		<Id>LT:VAT</Id>
 	</Code>
 	<Code>
-		<Id>LU</Id>
-		<LocalId>LU:VAT</LocalId>
+		<LocalId>LU</LocalId>
+		<Id>LU:VAT</Id>
 	</Code>
 	<Code>
-		<Id>LV</Id>
-		<LocalId>LV:VAT</LocalId>
+		<LocalId>LV</LocalId>
+		<Id>LV:VAT</Id>
 	</Code>
 	<Code>
-		<Id>MC</Id>
-		<LocalId>MC:VAT</LocalId>
+		<LocalId>MC</LocalId>
+		<Id>MC:VAT</Id>
 	</Code>
 	<Code>
-		<Id>ME</Id>
-		<LocalId>ME:VAT</LocalId>
+		<LocalId>ME</LocalId>
+		<Id>ME:VAT</Id>
 	</Code>
 	<Code>
-		<Id>MK</Id>
-		<LocalId>MK:VAT</LocalId>
+		<LocalId>MK</LocalId>
+		<Id>MK:VAT</Id>
 	</Code>
 	<Code>
-		<Id>MT</Id>
-		<LocalId>MT:VAT</LocalId>
+		<LocalId>MT</LocalId>
+		<Id>MT:VAT</Id>
 	</Code>
 	<Code>
-		<Id>NL</Id>
-		<LocalId>NL:VAT</LocalId>
+		<LocalId>NL</LocalId>
+		<Id>NL:VAT</Id>
 	</Code>
 	<Code>
-		<Id>NO</Id>
-		<LocalId>NO:VAT</LocalId>
+		<LocalId>NO</LocalId>
+		<Id>NO:VAT</Id>
 	</Code>
 	<Code>
-		<Id>PL</Id>
-		<LocalId>PL:VAT</LocalId>
+		<LocalId>PL</LocalId>
+		<Id>PL:VAT</Id>
 	</Code>
 	<Code>
-		<Id>PT</Id>
-		<LocalId>PT:VAT</LocalId>
+		<LocalId>PT</LocalId>
+		<Id>PT:VAT</Id>
 	</Code>
 	<Code>
-		<Id>RO</Id>
-		<LocalId>RO:VAT</LocalId>
+		<LocalId>RO</LocalId>
+		<Id>RO:VAT</Id>
 	</Code>
 	<Code>
-		<Id>RS</Id>
-		<LocalId>RS:VAT</LocalId>
+		<LocalId>RS</LocalId>
+		<Id>RS:VAT</Id>
 	</Code>
 	<Code>
-		<Id>SI</Id>
-		<LocalId>SI:VAT</LocalId>
+		<LocalId>SI</LocalId>
+		<Id>SI:VAT</Id>
 	</Code>
 	<Code>
-		<Id>SK</Id>
-		<LocalId>SK:VAT</LocalId>
+		<LocalId>SK</LocalId>
+		<Id>SK:VAT</Id>
 	</Code>
 	<Code>
-		<Id>SM</Id>
-		<LocalId>SM:VAT</LocalId>
+		<LocalId>SM</LocalId>
+		<Id>SM:VAT</Id>
 	</Code>
 	<Code>
-		<Id>TR</Id>
-		<LocalId>TR:VAT</LocalId>
+		<LocalId>TR</LocalId>
+		<Id>TR:VAT</Id>
 	</Code>
 	<Code>
-		<Id>VA</Id>
-		<LocalId>VA:VAT</LocalId>
+		<LocalId>VA</LocalId>
+		<Id>VA:VAT</Id>
 	</Code>
 	<Code>
-		<Id>SE</Id>
-		<LocalId>SE:VAT</LocalId>
+		<LocalId>SE</LocalId>
+		<Id>SE:VAT</Id>
 	</Code>
 </CodeList>

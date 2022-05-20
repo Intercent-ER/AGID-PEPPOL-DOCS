@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<CodeList xmlns:gc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/">
+<CodeList xmlns="http://docs.oasis-open.org/codelist/ns/genericode/1.0/">
 	<Title>Formato Attachment</Title>
 	<Identifier>FormatoAttachment</Identifier>
 	<Version>1.1</Version>

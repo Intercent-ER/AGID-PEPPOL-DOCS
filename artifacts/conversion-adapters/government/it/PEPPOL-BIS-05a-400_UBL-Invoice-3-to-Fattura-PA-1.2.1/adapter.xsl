@@ -650,13 +650,48 @@
       </Ritenuta>
     </xsl:if>
   </xsl:for-each>
-  <xsl:for-each select="cac:Item/cac:AdditionalItemProperty">
-    <xsl:if test="lower-case(cbc:Name)='natura'">
-      <Natura>
-        <xsl:value-of select="cbc:Value"/>
-      </Natura>
-    </xsl:if>
-  </xsl:for-each>
+  
+<!-- Conversione Natura cross-border-->
+  <xsl:if test="cac:Item/cac:ClassifiedTaxCategory/cbc:ID and ((/in:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode !='IT') or (/in:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode !='IT'))">
+      <xsl:choose>
+        <xsl:when test="cac:Item/cac:ClassifiedTaxCategory/cbc:ID ='Z'">
+          <Natura>
+            <xsl:text>N1</xsl:text>
+          </Natura>
+        </xsl:when>
+		<xsl:when test="cac:Item/cac:ClassifiedTaxCategory/cbc:ID ='E'">
+          <Natura>
+            <xsl:text>N2.2</xsl:text>
+          </Natura>
+        </xsl:when>
+		<xsl:when test="cac:Item/cac:ClassifiedTaxCategory/cbc:ID ='G'">
+          <Natura>
+            <xsl:text>N3.1</xsl:text>
+          </Natura>
+        </xsl:when>
+		<xsl:when test="cac:Item/cac:ClassifiedTaxCategory/cbc:ID ='K'">
+          <Natura>
+            <xsl:text>N3.2</xsl:text>
+          </Natura>
+        </xsl:when>
+		<xsl:when test="cac:Item/cac:ClassifiedTaxCategory/cbc:ID ='AE'">
+          <Natura>
+            <xsl:text>N6.9</xsl:text>
+          </Natura>
+        </xsl:when>
+      </xsl:choose>
+   </xsl:if>
+ <!-- Conversione Natura domestica-->
+  <xsl:if test="cac:Item/cac:ClassifiedTaxCategory/cbc:ID and (/in:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode ='IT') and (/in:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode ='IT')">
+	  <xsl:for-each select="cac:Item/cac:AdditionalItemProperty">
+		<xsl:if test="lower-case(cbc:Name)='natura'">
+		  <Natura>
+			<xsl:value-of select="cbc:Value"/>
+		  </Natura>
+		</xsl:if>
+	  </xsl:for-each>
+  </xsl:if>
+  
   <xsl:if test="cbc:AccountingCost">
     <RiferimentoAmministrazione>
       <xsl:value-of select="cbc:AccountingCost"/>
@@ -1537,7 +1572,8 @@
     <AliquotaIVA>
       <xsl:value-of select="if (cac:TaxCategory/cbc:Percent &gt;= 0) then format-number(cac:TaxCategory/cbc:Percent,'##0.00') else '0.00'"/>
     </AliquotaIVA>
-    <xsl:if test="cac:TaxCategory/cbc:ID">
+	<!-- Conversione Natura domestica-->
+    <xsl:if test="cac:TaxCategory/cbc:ID and (/in:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode ='IT') and (/in:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode ='IT')">
       <xsl:choose>
         <xsl:when test="cac:TaxCategory/cbc:ID !='Z' and cac:TaxCategory/cbc:ID !='B' and cac:TaxCategory/cbc:ID !='S'">
           <xsl:if test="contains(cac:TaxCategory/cbc:TaxExemptionReason,'#')">
@@ -1558,6 +1594,37 @@
         </xsl:when>
       </xsl:choose>
     </xsl:if>
+	<!-- Conversione Natura cross-border-->
+	<xsl:if test="cac:TaxCategory/cbc:ID and ((/in:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode !='IT') or (/in:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode !='IT'))">
+      <xsl:choose>
+        <xsl:when test="cac:TaxCategory/cbc:ID ='Z'">
+          <Natura>
+            <xsl:text>N1</xsl:text>
+          </Natura>
+        </xsl:when>
+		<xsl:when test="cac:TaxCategory/cbc:ID ='E'">
+          <Natura>
+            <xsl:text>N2.2</xsl:text>
+          </Natura>
+        </xsl:when>
+		<xsl:when test="cac:TaxCategory/cbc:ID ='G'">
+          <Natura>
+            <xsl:text>N3.1</xsl:text>
+          </Natura>
+        </xsl:when>
+		<xsl:when test="cac:TaxCategory/cbc:ID ='K'">
+          <Natura>
+            <xsl:text>N3.2</xsl:text>
+          </Natura>
+        </xsl:when>
+		<xsl:when test="cac:TaxCategory/cbc:ID ='AE'">
+          <Natura>
+            <xsl:text>N6.9</xsl:text>
+          </Natura>
+        </xsl:when>
+      </xsl:choose>
+    </xsl:if>
+	
     <xsl:choose>
       <xsl:when test="/*/ext:UBLExtensions/ext:UBLExtension[ExtensionURI='urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento']">
         <xsl:apply-templates select="/*/ext:UBLExtensions/ext:UBLExtension" mode="RiepilogoArrotondamento">

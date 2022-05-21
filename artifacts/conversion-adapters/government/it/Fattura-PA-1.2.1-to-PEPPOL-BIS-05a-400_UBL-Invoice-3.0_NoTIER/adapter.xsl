@@ -23,7 +23,7 @@
    <!-- <xsl:param name="xclVATSchemes" as="xsd:string">xcl/VATSchemes.gc</xsl:param> -->
    <!-- <xsl:param name="xclPaymentMeansCode" as="xsd:string">xcl/PaymentMeansCode-2.1.gc</xsl:param> -->
    <!-- <xsl:param name="xclCategoriaImposte" as="xsd:string">xcl/CategoriaImposte.gc</xsl:param> -->
-   <xsl:param name="xclUnitOfMeasureCode" as="xsd:string">xcl/UnitOfMeasureCode-2.1.gc</xsl:param>  <!-- capire cosa fare con i LocalIDs-->
+   <!-- <xsl:param name="xclUnitOfMeasureCode" as="xsd:string">xcl/UnitOfMeasureCode-2.1.gc</xsl:param>  capire cosa fare con i LocalIDs-->
    <xsl:param name="UNECE" as="xsd:string">xcl/UNECERec20-11e.xml</xsl:param>
    <xsl:param name="TIPODOC" as="xsd:string">xcl/TipoDocumento.xml</xsl:param>
    <xsl:param name="ALLEGATO" as="xsd:string">xcl/FormatoAttachment.xml</xsl:param>
@@ -631,7 +631,7 @@ the root node.
                <cbc:EmbeddedDocumentBinaryObject>
                   <xsl:variable name="mimecode_value">
                      <!-- <xsl:value-of select="if (document($xclFormatoAttachment)//Value[@ColumnRef='xcode']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/upper-case(if (FormatoAttachment) then FormatoAttachment else (if (matches(NomeAttachment, '\.[a-zA-Z]{3,4}$')) then tokenize(NomeAttachment, '\.')[last()] else 'BIN'))][1]) then document($xclFormatoAttachment)//Value[@ColumnRef='xcode']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/upper-case(if (FormatoAttachment) then FormatoAttachment else (if (matches(NomeAttachment, '\.[a-zA-Z]{3,4}$')) then tokenize(NomeAttachment, '\.')[last()] else 'BIN'))][1] else 'application/octet-stream'"/> -->
-					 <xsl:value-of select="if (document($ALLEGATO)//doc:Code[doc:LocalId=current()/upper-case(if (FormatoAttachment) then FormatoAttachment else (if (matches(NomeAttachment, '\.[a-zA-Z]{3,4}$')) then tokenize(NomeAttachment, '\.')[last()] else 'BIN'))][1]/doc:Id) then current()/upper-case(if (FormatoAttachment) then FormatoAttachment else (if (matches(NomeAttachment, '\.[a-zA-Z]{3,4}$')) then tokenize(NomeAttachment, '\.')[last()] else 'BIN'))][1] else 'application/octet-stream'"/>
+					 <xsl:value-of select="if (document($ALLEGATO)//doc:Code[doc:LocalId=current()/upper-case(if (FormatoAttachment) then FormatoAttachment else (if (matches(NomeAttachment, '\.[a-zA-Z]{3,4}$')) then tokenize(NomeAttachment, '\.')[last()] else 'BIN'))][1]/doc:Id) then (document($ALLEGATO)//doc:Code[doc:LocalId=current()/upper-case(if (FormatoAttachment) then FormatoAttachment else (if (matches(NomeAttachment, '\.[a-zA-Z]{3,4}$')) then tokenize(NomeAttachment, '\.')[last()] else 'BIN'))][1]/doc:Id) else 'application/octet-stream'"/>
                   </xsl:variable>
                   <xsl:attribute name="mimeCode">
                      <xsl:choose>
@@ -1001,7 +1001,7 @@ the root node.
       <cbc:CompanyID>
          <xsl:variable name="variable_d1e220a1051010">
             <!-- <xsl:value-of select="document($xclVATSchemes)//Value[@ColumnRef='VATSchemeID']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/upper-case(IdPaese)][1]"/> -->
-			<xsl:value-of select="(document($VATSchemes)//vs:Code[vs:LocalId=current()/upper-case(IdPaese)][1]]/vs:Id)"/>
+			<xsl:value-of select="(document($VATSchemes)//vs:Code[vs:LocalId=current()/upper-case(IdPaese)[1]]/vs:Id)"/>
          </xsl:variable>
          <xsl:value-of select="concat(IdPaese, IdCodice)"/>
       </cbc:CompanyID>
@@ -1013,7 +1013,7 @@ the root node.
          <cbc:CompanyID>
             <xsl:variable name="variable_d1e315a1051010">
                <!-- <xsl:value-of select="document($xclVATSchemes)//Value[@ColumnRef='VATSchemeID']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/upper-case(IdPaese)][1]"/> -->
-			   <xsl:value-of select="(document($VATSchemes)//vs:Code[vs:LocalId=current()/upper-case(IdPaese)][1]]/vs:Id)"/>
+			   <xsl:value-of select="(document($VATSchemes)//vs:Code[vs:LocalId=current()/upper-case(IdPaese)[1]]/vs:Id)"/>
             </xsl:variable>
             <xsl:value-of select="concat(IdPaese, IdCodice)"/>
          </cbc:CompanyID>
@@ -1296,12 +1296,12 @@ the root node.
             <xsl:if test="Natura and not(Natura = 'N1')">
                <cbc:TaxExemptionReasonCode>
                   <!-- <xsl:value-of select="if (document($xclCategoriaImposte)//Value[@ColumnRef='ecode']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/Natura][1]) then document($xclCategoriaImposte)//Value[@ColumnRef='ecode']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/Natura][1] else 'vatex-eu-132'"/> -->
-				  <xsl:value-of select="if (document($NATURA)//gc:Code[gc:Id=current()/Natura]/gc:VATCategoryCode) then document($NATURA)//gc:Code[gc:Id=current()/Natura]/gc:VATCategoryCode else 'vatex-eu-132'"/>
+				  <xsl:value-of select="if (document($NATURA)//gc:Code[gc:Id=current()/Natura]/gc:VATExemReasonCode) then document($NATURA)//gc:Code[gc:Id=current()/Natura]/gc:VATExemReasonCode else 'vatex-eu-132'"/>
                </cbc:TaxExemptionReasonCode>
                <cbc:TaxExemptionReason>
                   <xsl:choose>
                      <!-- <xsl:when test="not(document($xclCategoriaImposte)//Value[@ColumnRef='xcode']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/Natura][1])"> -->
-					 <xsl:when test="not(document($NATURA)//gc:Code[gc:Id=current()/Natura]/gc:VATCategoryCode)">
+					 <xsl:when test="not(document($NATURA)//gc:Code[gc:Id=current()/Natura]/gc:VATExemReasonCode)">
                         <xsl:value-of select="concat('N4', '#', 'Esenti')"/>
                      </xsl:when>
                      <xsl:when test="RiferimentoNormativo">
@@ -1309,7 +1309,7 @@ the root node.
                      </xsl:when>
                      <xsl:otherwise>
                         <!-- <xsl:value-of select="concat(Natura, '#', substring-after(document($xclCategoriaImposte)//Value[@ColumnRef='name']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/Natura][1], '= '))"/> -->
-						<xsl:value-of select="concat(Natura, '#', document($NATURA)//gc:Code[gc:Id=current()/Natura]/gc:Description"/>
+						<xsl:value-of select="concat(Natura, '#', document($NATURA)//gc:Code[gc:Id=current()/Natura]/gc:Description)"/>
                      </xsl:otherwise>
                   </xsl:choose>
                </cbc:TaxExemptionReason>
@@ -1627,7 +1627,8 @@ the root node.
                <xsl:if test="AltriDatiGestionali[TipoDato = 'Base Qty.']">
                   <cbc:BaseQuantity>
                      <xsl:variable name="unitCode">
-                        <xsl:value-of select="if (document($xclUnitOfMeasureCode)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xname']/SimpleValue=current()/UnitaMisura][1]) then document($xclUnitOfMeasureCode)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xname']/SimpleValue=current()/UnitaMisura][1] else 'C62'"/>
+                        <!-- <xsl:value-of select="if (document($xclUnitOfMeasureCode)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xname']/SimpleValue=current()/UnitaMisura][1]) then document($xclUnitOfMeasureCode)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xname']/SimpleValue=current()/UnitaMisura][1] else 'C62'"/> -->
+						<xsl:value-of select="if (document($UNECE)//gc:Code[gc:LocalIds/gc:LocalId=current()/UnitaMisura]/gc:Id) then document($UNECE)//gc:Code[gc:LocalIds/gc:LocalId=current()/UnitaMisura]/gc:Id else 'C62'"/>
                      </xsl:variable>
                      <xsl:if test="string($unitCode)">
                         <xsl:attribute name="unitCode">
@@ -1986,7 +1987,7 @@ the root node.
       <cac:PaymentMeans>
          <cbc:PaymentMeansCode>
             <!-- <xsl:if test="document($xclPaymentMeansCode)//Value[@ColumnRef='name']/SimpleValue[../../Value[@ColumnRef='xcode']/SimpleValue=current()/ModalitaPagamento][1] != ''"> -->
-			<xsl:if test="document($UNCL4461)//gc:Code[gc:LocalId=current()/ModalitaPagamento]/gc:Name)">
+			<xsl:if test="document($UNCL4461)//gc:Code[gc:LocalId=current()/ModalitaPagamento]/gc:Name">
                <xsl:attribute name="name">
                   <xsl:value-of select="document($UNCL4461)//gc:Code[gc:LocalId=current()/ModalitaPagamento]/gc:Name"/>
                </xsl:attribute>
@@ -2343,7 +2344,7 @@ the root node.
       <cbc:CompanyID>
          <xsl:variable name="variable_d1e272a1051010">
             <!-- <xsl:value-of select="document($xclVATSchemes)//Value[@ColumnRef='VATSchemeID']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/upper-case(IdPaese)][1]"/> -->
-			<xsl:value-of select="(document($VATSchemes)//vs:Code[vs:LocalId=current()/upper-case(IdPaese)][1]]/vs:Id)"/>
+			<xsl:value-of select="(document($VATSchemes)//vs:Code[vs:LocalId=current()/upper-case(IdPaese)[1]]/vs:Id)"/>
          </xsl:variable>
          <xsl:value-of select="concat(IdPaese, IdCodice)"/>
       </cbc:CompanyID>
@@ -2354,7 +2355,7 @@ the root node.
       <cbc:CompanyID>
          <xsl:variable name="variable_d1e376a1051010">
             <!-- <xsl:value-of select="document($xclVATSchemes)//Value[@ColumnRef='VATSchemeID']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/upper-case(IdPaese)][1]"/> -->
-			<xsl:value-of select="(document($VATSchemes)//vs:Code[vs:LocalId=current()/upper-case(IdPaese)][1]]/vs:Id)"/>
+			<xsl:value-of select="(document($VATSchemes)//vs:Code[vs:LocalId=current()/upper-case(IdPaese)[1]]/vs:Id)"/>
          </xsl:variable>
          <xsl:if test="string($variable_d1e376a1051010)">
             <xsl:attribute name="schemeID">

@@ -15,7 +15,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<modules>
-		<module>Invoice</module>
+		<module>Billing</module>
 		<module>Others</module>
 	</modules>
 </project>

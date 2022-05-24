@@ -44,6 +44,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>xml-maven-plugin</artifactId>
+				<version>1.0.2</version>
 				<executions>
 					<!-- ITA -->
 					<execution>
@@ -580,7 +581,7 @@
 					<replacements>
 						<replacement>
 							<token>(#link_to_schematron_invoice#)</token>
-							<value>AGID-PEPPOL-Schematron-Invoice-${schematron.version}.zip</value>
+							<value>AGID-PEPPOL-Schematron-Billing-${schematron.version}.zip</value>
 						</replacement>
 						<replacement>
 							<token>(#link_to_schematron_others#)</token>
@@ -588,7 +589,7 @@
 						</replacement>
 						<replacement>
 							<token>(#link_to_validator_invoice#)</token>
-							<value>AGID-PEPPOL-Validator-Invoice-${validator.version}.zip</value>
+							<value>AGID-PEPPOL-Validator-Billing-${validator.version}.zip</value>
 						</replacement>
 						<replacement>
 							<token>(#link_to_validator_others#)</token>
@@ -757,7 +758,7 @@
 							<artifactItems>
 								<artifactItem>
 									<groupId>it.gov.agid</groupId>
-									<artifactId>AGID-PEPPOL-Schematron-Invoice</artifactId>
+									<artifactId>AGID-PEPPOL-Schematron-Billing</artifactId>
 									<version>${schematron.version}</version>
 									<type>zip</type>
 									<overWrite>true</overWrite>
@@ -804,7 +805,7 @@
 							<artifactItems>
 								<artifactItem>
 									<groupId>it.gov.agid</groupId>
-									<artifactId>AGID-PEPPOL-Validator-Invoice</artifactId>
+									<artifactId>AGID-PEPPOL-Validator-Billing</artifactId>
 									<version>${validator.version}</version>
 									<type>zip</type>
 									<overWrite>true</overWrite>

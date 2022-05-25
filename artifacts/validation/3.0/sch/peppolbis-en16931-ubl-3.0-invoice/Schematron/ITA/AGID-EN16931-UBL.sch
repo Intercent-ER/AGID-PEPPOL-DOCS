@@ -2005,6 +2005,6 @@
 		</rule>
 	</pattern>
 	<!-- Italian rules -->
-	<include href="AGID/AGID-EN16931-CIUS-UBL.sch"/>
-	<include href="AGID/AGID-EN16931-EXT-UBL.sch"/>
+	<include href="AGID/AGID-EN16931-CIUS-UBL.inc"/>
+	<include href="AGID/AGID-EN16931-EXT-UBL.inc"/>
 </schema>

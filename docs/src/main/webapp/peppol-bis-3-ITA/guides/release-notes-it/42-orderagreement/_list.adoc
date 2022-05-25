@@ -8,7 +8,7 @@
 
 | 3.0.0.3(IT)
 a| 27/05/2022
-a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3.0.9 - spring release 2022]_. +
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3.0.9 - may release 2022]_. +
 
 [red]#Cambiamenti alle code lists e ai tool di validazione#
 

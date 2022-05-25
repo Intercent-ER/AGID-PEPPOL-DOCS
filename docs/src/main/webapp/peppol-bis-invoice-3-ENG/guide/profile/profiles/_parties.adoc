@@ -1,6 +1,6 @@
-= Identificatori delle parti di business
+= #Identificatori delle parti di business#
 
-L’attributo “schemeID” deve essere popolato in tutte le istanze dell’elemento “ID” quando è utilizzato all’interno di “PartyIdentification” e in tutte le istanze dell’elemento “EndpointID” quando è utilizzato all’interno dell’elemento composito “Party”. 
+L’attributo “schemeID” deve essere popolato in tutte le istanze degli elementi “EndpointID”  e “CompanyID”.
 
 
 #_Esempio di EndPointID - utilizzo del codice IPA:_#
@@ -28,21 +28,14 @@ L’attributo “schemeID” deve essere popolato in tutte le istanze dell’ele
 
 <cbc:EndpointID schemeID ="0205">0000000</cbc:EndpointID>
 
-#_Esempio di utilizzo della P.IVA in PartyIdentification:_#
+
+#_Esempio di utilizzo del CF in PartyLegalEntity:_#
 
 [source, xml]
 
-<cac:PartyIdentification>
-	<cbc:ID schemeID="0211">IT07643520567</cbc:ID>
-</cac:PartyIdentification>
-
-#_Esempio di utilizzo del CF in PartyIdentification:_#
-
-[source, xml]
-
-<cac:PartyIdentification>
-	<cbc:ID schemeID="0210">07643520567</cbc:ID>
-</cac:PartyIdentification>
+<cac:PartyLegalEntity>
+        <cbc:CompanyID schemeID="0210">91252510374</cbc:CompanyID>
+<cac:PartyLegalEntity>
 
 .Esempi di utilizzo del numero GLN di GS1 in PartyIdentification:
 
@@ -51,5 +44,4 @@ L’attributo “schemeID” deve essere popolato in tutte le istanze dell’ele
 <cac:PartyIdentification>
 	<cbc:ID schemeID="0088">5790000435968</cbc:ID>
 </cac:PartyIdentification>
-
 

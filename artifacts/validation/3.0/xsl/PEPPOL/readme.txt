@@ -1,1 +1,0 @@
-OpenPEPPOL Validation artefacts Version 3.0.12

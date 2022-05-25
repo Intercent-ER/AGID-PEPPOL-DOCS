@@ -805,6 +805,6 @@
 	
 	<!-- AGID rules -->
 	<!-- ======================== -->
-	<include href="AGID/AGID-PEPPOL-T76.sch"/>
+	<include href="AGID/AGID-PEPPOL-T76.inc"/>
 
 </schema>

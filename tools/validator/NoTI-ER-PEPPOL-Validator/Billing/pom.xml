@@ -32,13 +32,13 @@
 							<outputDirectory>${basedir}/target/xsl/PEPPOL/3.0</outputDirectory>
 							<resources>          
 								<resource>
-									<directory>${basedir}/../../../../artifacts/validation/3.0/xsl</directory>
-									<excludes>
+									<directory>${basedir}/../../../../artifacts/validation/target/AGID-PEPPOL-XSL-1.6/xsl/peppolbis-en16931-ubl-3.0-invoice/Schematron/ITA</directory>
+									<!--<excludes>
 										<exclude>ITNAT-UBL-T01.xsl</exclude>
 										<exclude>ITNAT-UBL-T16.xsl</exclude>
 										<exclude>ITNAT-UBL-T76.xsl</exclude>
 										<exclude>ITNAT-UBL-T110.xsl</exclude>
-									</excludes>
+									</excludes>-->
 									<filtering>false</filtering>
 								</resource>
 							</resources>

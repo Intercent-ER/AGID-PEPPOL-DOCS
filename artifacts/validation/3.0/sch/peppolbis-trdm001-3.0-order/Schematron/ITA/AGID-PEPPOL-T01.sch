@@ -2106,6 +2106,6 @@
 	
 	<!-- AGID rules -->
 	<!-- ======================== -->
-	<include href="AGID/AGID-PEPPOL-T01.sch"/>
+	<include href="AGID/AGID-PEPPOL-T01.inc"/>
 	
 </schema>

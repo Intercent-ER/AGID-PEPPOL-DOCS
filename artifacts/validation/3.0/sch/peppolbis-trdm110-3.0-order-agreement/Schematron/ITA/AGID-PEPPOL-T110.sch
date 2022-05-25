@@ -1810,6 +1810,6 @@
 	
 	<!-- AGID rules -->
 	<!-- ======================== -->
-	<include href="AGID/AGID-PEPPOL-T110.sch"/>
+	<include href="AGID/AGID-PEPPOL-T110.inc"/>
 	
 </schema>

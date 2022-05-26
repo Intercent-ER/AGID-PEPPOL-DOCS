@@ -28,10 +28,10 @@ version="2.0">
   <!-- <xsl:param name="xclCategoriaImposte" as="xs:string">xcl/CategoriaImposte.gc</xsl:param> -->  <!-- la variabile non è mai chiamata in causa, la natura si calcola in altri modi -->
   <!-- <xsl:param name="xclPaymentMeansCode" as="xs:string">xcl/PaymentMeansCode-2.1.gc</xsl:param> -->
   <!-- <xsl:param name="xclFormatoAttachment" as="xs:string">xcl/FormatoAttachment.gc</xsl:param> -->
-  <xsl:param name="PROVINCE" as="xs:string">xcl/SiglaProvince.xml</xsl:param>  <!-- forse non serve nemmeno-->
-  <xsl:param name="TIPODOC" as="xs:string">xcl/TipoDocumento.xml</xsl:param>  <!-- forse non serve nemmeno -->
+  <!-- <xsl:param name="PROVINCE" as="xs:string">xcl/SiglaProvince.xml</xsl:param>   forse non serve nemmeno-->
+  <!-- <xsl:param name="TIPODOC" as="xs:string">xcl/TipoDocumento.xml</xsl:param>   forse non serve nemmeno -->
   <xsl:param name="UNECE" as="xs:string">xcl/UNECERec20-11e.xml</xsl:param>
-  <xsl:param name="NATURA" as="xs:string">xcl/Natura_VATCategory_VATEX.xml</xsl:param> <!-- forse non serve nemmeno -->
+  <!--<xsl:param name="NATURA" as="xs:string">xcl/Natura_VATCategory_VATEX.xml</xsl:param>  forse non serve nemmeno -->
   <xsl:param name="UNCL4461" as="xs:string">xcl/UNCL4461.xml</xsl:param>
   <xsl:param name="ALLEGATO" as="xs:string">xcl/FormatoAttachment.xml</xsl:param>
 

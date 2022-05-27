@@ -163,7 +163,7 @@
 	</rule>
 
 	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity" flag="fatal">
-		<assert test="cbc:CompanyID[@schemeID='0210'] or ../cac:PostalAddress[cac:Country/cbc:IdentificationCode!='IT']" flag="fatal" id="BR-IT-520C">[BR-IT-520C][FPA 1.4.1.2 - Codice Fiscale] - Se Buyer country code (BT-55) = IT, l'elemento BT-47-1 (Buyer legal registration identifier scheme identifier) è obbligatorio e contiene il valore "0210".</assert>
+		<assert test="(cbc:CompanyID[@schemeID='0210'] or not cbc:CompanyID) or ../cac:PostalAddress[cac:Country/cbc:IdentificationCode!='IT']" flag="fatal" id="BR-IT-520C">[BR-IT-520C][FPA 1.4.1.2 - Codice Fiscale] - Se Buyer country code (BT-55) = IT, l'elemento BT-47-1 (Buyer legal registration identifier scheme identifier) è obbligatorio e contiene il valore "0210".</assert>
 	</rule>
 	
 	<rule context="/*/cac:AccountingCustomerParty/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]" flag="fatal">

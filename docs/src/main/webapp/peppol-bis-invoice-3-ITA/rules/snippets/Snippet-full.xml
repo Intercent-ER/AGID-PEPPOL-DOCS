@@ -117,44 +117,32 @@
     <!-- end::seller[] -->
     <!-- tag::buyer[] -->
     <cac:AccountingCustomerParty>
-        <cac:Party>
-            <cbc:EndpointID schemeID="0201">ABCDEF</cbc:EndpointID>
+         <cac:Party>
+            <cbc:EndpointID schemeID="0201">OBSH87</cbc:EndpointID>
             <!--1-->
-            <cac:PartyIdentification>
-                <cbc:ID schemeID="0201">ABCDEF</cbc:ID>
-                <!--2-->
-            </cac:PartyIdentification>
             <cac:PartyName>
-                <cbc:Name>Cliente S.p.A.</cbc:Name>
-            </cac:PartyName>
-            <cac:PostalAddress>
-                <cbc:StreetName>Via Pubblica, 712</cbc:StreetName>
-                <cbc:CityName>Roma</cbc:CityName>
-                <cbc:PostalZone>00199</cbc:PostalZone>
-                <cac:AddressLine>
-                    <cbc:Line>Informazioni Aggiuntive</cbc:Line>
-                </cac:AddressLine>
+                <cbc:Name>Intercent-ER Agenzia Regionale</cbc:Name>        
+              </cac:PartyName>       
+              <cac:PostalAddress>       
+                <cbc:StreetName>via Dei Mille 21</cbc:StreetName>        
+                <cbc:CityName>Bologna</cbc:CityName>
+                <cbc:PostalZone>40121</cbc:PostalZone>        
                 <cac:Country>
-                    <cbc:IdentificationCode>IT</cbc:IdentificationCode>
+                  <cbc:IdentificationCode>IT</cbc:IdentificationCode>
                 </cac:Country>
-            </cac:PostalAddress>
-            <cac:PartyTaxScheme>
-                <cbc:CompanyID>IT07663520567</cbc:CompanyID>
-                <!--3-->
+              </cac:PostalAddress>
+              <cac:PartyTaxScheme>
+                <cbc:CompanyID>IT02792731206</cbc:CompanyID>
+                <!--2-->
                 <cac:TaxScheme>
                     <cbc:ID>VAT</cbc:ID>
                 </cac:TaxScheme>
             </cac:PartyTaxScheme>
             <cac:PartyLegalEntity>
-                <cbc:RegistrationName>Cliente S.p.A.</cbc:RegistrationName>
-                <!--cbc:CompanyID schemeID="0183">39937423947</cbc:CompanyID-->
-                <!--4-->
+                <cbc:RegistrationName>Intercent-ER Agenzia Regionale</cbc:RegistrationName>
+                <cbc:CompanyID schemeID="0210">91252510374</cbc:CompanyID>
+                <!--3-->
             </cac:PartyLegalEntity>
-            <cac:Contact>
-                <cbc:Name>Giuseppe Verdi</cbc:Name>
-                <cbc:Telephone>06123456</cbc:Telephone>
-                <cbc:ElectronicMail>giuseppe.verdi@cliente.it</cbc:ElectronicMail>
-            </cac:Contact>
         </cac:Party>
     </cac:AccountingCustomerParty>
     <!-- end::buyer[] -->

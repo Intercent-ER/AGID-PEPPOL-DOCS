@@ -5,3 +5,8 @@
 Nella tabella seguente troverete i valori da utilizzare in questo profilo per l'identificatore della specifica (BT-24) e per il tipo di processo di business (BT-23).
 
 include::../../syntax/_profile.adoc[]
+
+[IMPORTANT]
+====
+Per le fatture verso clienti italiani vedi regole nei paragrafi C.1. CIUS e C.2. CIUS Domestiche.
+====

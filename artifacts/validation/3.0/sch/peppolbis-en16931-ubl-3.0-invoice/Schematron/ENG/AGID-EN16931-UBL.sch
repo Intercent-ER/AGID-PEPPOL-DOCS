@@ -1715,6 +1715,6 @@
  
   <!-- Italian CIUS rules -->
   <!-- ======================== -->
-  <include href="AGID/AGID-EN16931-UBL.sch"/>
+  <include href="AGID/AGID-EN16931-UBL.inc"/>
 
 </schema>

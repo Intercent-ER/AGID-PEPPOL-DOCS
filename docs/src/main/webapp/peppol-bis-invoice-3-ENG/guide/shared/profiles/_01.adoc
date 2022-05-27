@@ -6,4 +6,7 @@ Nella tabella seguente troverete i valori da utilizzare in questo profilo per l'
 
 include::../../syntax/_profile.adoc[]
 
-IMPORTANT: Per le fatture verso clienti italiani vedi regole nei paragrafi C.1. CIUS e C.2. CIUS Domestiche.
+[IMPORTANT]
+====
+Per le fatture verso clienti italiani vedi regole nei paragrafi C.1. CIUS e C.2. CIUS Domestiche.
+====

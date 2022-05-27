@@ -7,81 +7,15 @@
 	<parent>
 		<groupId>it.gov.agid</groupId>
 		<artifactId>AGID-PEPPOL</artifactId>
-		<version>1.5</version>
+		<version>1.6</version>
 		<relativePath>../../..</relativePath>
 	</parent>
 	<packaging>pom</packaging>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.0.1</version>
-				<executions>
-					<execution>
-						<id>copy-sch</id>
-						<!-- here the phase you need -->
-						<phase>validate</phase>
-						<goals>
-							<goal>copy-resources</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.build.directory}/sch</outputDirectory>
-							<resources>          
-								<resource>
-									<directory>${basedir}/../../../artifacts/validation/3.0/sch</directory>
-									<filtering>false</filtering>
-								</resource>
-							</resources>
-							<echo>Copying sch files</echo>				   
-						</configuration>            
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>create-distribution</id>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-						<configuration>
-							<descriptors>
-								<descriptor>assembly/zip.xml</descriptor>
-							</descriptors>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-install-plugin</artifactId>
-                                <version>2.3.1</version>
-				<executions>
-					<execution>
-						<id>install-external</id>
-						<phase>install</phase>
-						<configuration>
-							<file>${project.build.directory}/${project.artifactId}-${project.version}-zip.zip</file>
-							<repositoryLayout>default</repositoryLayout>
-							<groupId>${project.groupId}</groupId>
-							<artifactId>${project.artifactId}</artifactId>
-							<version>${project.version}</version>
-							<packaging>zip</packaging>
-							<generatePom>false</generatePom>
-						</configuration>
-						<goals>
-							<goal>install-file</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+	<modules>
+		<module>Billing</module>
+		<module>Others</module>
+	</modules>
 </project>

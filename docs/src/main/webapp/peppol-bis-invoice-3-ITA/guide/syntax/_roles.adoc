@@ -270,8 +270,7 @@ include::{snippet-dir}/Snippet-full.xml[tags=buyer]
 ----
 <1> L'attributo schemeID è obbligatorio per indirizzi elettronici, es. EndpointID
 
-<2> Gli identificatori per il VAT/IVA devono incudere il prefisso del codice paese>
-
+<2> Gli identificatori per il VAT/IVA devono incudere il prefisso del codice paese
 <3> Il codice fiscale è preceduto dall’attributo @schemeID valorizzato con “0210”
 
 

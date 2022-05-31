@@ -4,32 +4,32 @@
 [cols="1,10", options="header"]
 |===
 |Id
-|Requirement (depending, as applicable, on the respective business case)
+|Requisiti (se applicabili)
 
 |R58
-|identification of the means of settlement;
+|identificatizione della modalita' (mezzo) di pagamento
 |R59
-|the requested amount due for payment;
+|ammontare da pagare
 |R60
-|the date on which payment is due;
+|data in cui il pagamento e' dovuto
 |R61
-|necessary details to support bank transfers in accordance with SEPA and national systems;
+|informazioni necessarie a supportare un bonifico bancario in conformita' con la SEPA ed i sistemi nazionali
 |R62
-|a reference number and any additional reference data to be included in the payment;
+|numero di riferimento e ogni riferimento addizionale sulla data da includere nel pagamento
 |R63
-|reference number and any additional reference data to be included in the payment, in order to relate the payment to the invoice;
+|numero di riferimento e ogni riferimento addizionale sulla data da includere nel pagamento, per mettere in relazione la fattura con il pagamento
 |R64
-|information for relating an invoice to a payment card used for settlement;
+|informazioni per mettere in relazioni la fattura e la carta usata per il pagamento
 |R65
-|basic information to support national payment systems for use in domestic trade;
+|informazioni di base per supportare i sistemi di pagamento nazionali come uso nelle transazioni domestiche
 |R66
-|information about the amount that was pre-paid;
+|informazioni sul pagamento in anticipo
 |R67
-|invoices that have a total amount of zero;
+|fatture con ammontare totale documento uguale a zero
 |R68
-|invoices that have an amount to pay of zero;
+|fattura con ammontare da pagare uguale a zero
 |R69
-|necessary details to support direct debits.
+|informazioni necessarie a supportare un addebbito diretto
 |R70
-|pre-payment invoices
+|anticipi 
 |===

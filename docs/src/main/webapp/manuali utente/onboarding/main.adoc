@@ -1,0 +1,59 @@
+:doctype: book
+:icons: font
+:stem:
+:lang: it
+:toc: left
+:toclevels: 2
+:source-highlighter: coderay
+:source-language: xml
+:sectanchors:
+:sectnums:
+
+= [black]#Manuale utente Piattaforma di Onboarding#
+
+
+:leveloffset: +1
+
+== Note di rilascio ==
+
+include::note_di_rilascio/note_di_rilascio.adoc[]
+
+== Introduzione ==
+
+include::introduction/_index.adoc[]
+
+== Accesso alla piattaforma ==
+
+include::accesso_piattaforma/accesso_piattaforma.adoc[]
+
+== Interfaccia web ==
+=== Home Page ===
+
+include::interfaccia_web/home_page.adoc[]
+
+=== Selezione casi di Test ===
+
+include::interfaccia_web/selezione_test.adoc[]
+
+=== Inserimento dati  Sessione di Test ===
+
+include::interfaccia_web/dati_sessione_test.adoc[]
+
+== Sessione di Test ==
+
+include::TestSuite/Sessione_di_test.adoc[]
+
+== Casi di Test ==
+=== Test di Invio ===
+
+include::casi_test/invio.adoc[]
+
+=== Test di Ricezione ===
+include::casi_test/ricezione.adoc[]
+
+== Chiusura sessione ==
+
+include::certificati/certificati.adoc[]
+
+
+:leveloffset: -1

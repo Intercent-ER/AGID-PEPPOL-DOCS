@@ -6,15 +6,21 @@
 | Elemento `cbc:ProfileID`
 
 
-| Fattura e nota di credito
-| urn:cen.eu:en16931:2017# +
-compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0
+| Fattura
+| [lime-background]#urn:cen.eu:en16931:2017&#x0023;compliant&#x0023;# +
+[lime-background]#urn:fdc:peppol.eu:2017:poacc:billing:3.0&#x0023;conformant&#x0023;# +
+[lime-background]#*urn:www.agid.gov.it:trns:fattura:3*#
 | urn:fdc:peppol.eu:2017:poacc:billing:01:1.0
 
+| Nota di credito
+| [lime-background]#urn:cen.eu:en16931:2017&#x0023;compliant&#x0023;# +
+[lime-background]#urn:fdc:peppol.eu:2017:poacc:billing:3.0&#x0023;conformant&#x0023;# +
+[lime-background]#*urn:www.agid.gov.it:trns:fattura:3*#
+| urn:fdc:peppol.eu:2017:poacc:billing:01:1.0
 |===
 
 
-.Esempio UBL per l'identificatore del profilo
+.Esempio UBL per l'identificatore del profilo italiano
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/Snippet-full.xml[tags=profile]

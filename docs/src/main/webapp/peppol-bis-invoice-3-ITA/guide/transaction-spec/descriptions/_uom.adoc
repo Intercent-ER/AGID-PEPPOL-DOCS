@@ -10,77 +10,77 @@ Si consiglia di consultare <<uom>> per ulteriori dettagli riferiti alle codifich
 |Nome
 
 |H87
-|Piece
+|Pezzo
 
 |KGM
-|Kilogram
+|Kilogrammo
 
 |MTR
-|Meter
+|Metro
 
 |LTR
-|Litre
+|Litro
 
 |MTK
-|Square metre
+|Metro quadrato
 
 |MTQ
-|Cubic metre
+|Metro cubo
 
 |KTM
-|Kilometre
+|Kilometro
 
 |TNE
-|Tonne (metric ton)
+|Tonnelata
 
 |KWH
-|Kilowatt hour
+|Kilowattora
 
 |DAY
-|Day
+|Giorno
 
 |HUR
-|Hour
+|Ora
 
 |MIN
-|Minute
+|Minuto
 |===
 
-.Examples of unit of measure from Recommendation No. 21, prefixed with an X
+.Esempi di unità di misura dalla Recommendation No. 21, prefissati con la lettera X
 [cols="1,5", options="header"]
 |===
 |Code
 |Name
 
 |XBG
-|Bag
+|Sacca
 
 |XBX
-|Box
+|Scatola
 
 |XCT
-|Carton
+|Cartone
 
 |XCY
-|Cylinder
+|Cilindro
 
 |XBA
-|Barrel
+|Barile
 
 |XPK
-|Package
+|Confezione
 
 |XPX
 |Pallet
 
 |XRL
-|Reel
+|Bobina
 
 |XSA
-|Sack
+|Sacco
 
 |XST
-|Sheet
+|Foglio
 |===
 
 

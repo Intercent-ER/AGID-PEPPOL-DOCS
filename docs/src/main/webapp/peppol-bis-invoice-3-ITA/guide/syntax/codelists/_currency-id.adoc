@@ -1,5 +1,5 @@
 
-.Currency identifiers
+.Identificatori della valuta
 [cols="1,4"]
 |===
 h| Percorso nel documento

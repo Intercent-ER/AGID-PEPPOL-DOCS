@@ -3,7 +3,7 @@
 
 Il capitolo 5.2 nella {EN16931} definisce i processi di business supportati dalla {EN16931}.
 
-Questo {CIUS} ha applicato delle restrizioni per non supportare esplicitamente i seguenti processi di business:
+Questa {CIUS} ha applicato delle restrizioni per non supportare esplicitamente i seguenti processi di business:
 
 P10 - Fattura correttiva::
 Il processo descritto per la fatturazione correttiva è stato visto come non chiaro rispetto alla distinzione tra una fattura correttiva e una nota di credito, e questo processo è stato per questo definito fuori ambito.

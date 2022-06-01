@@ -2,7 +2,7 @@
 = Regole di business EN 16931 per le transazioni
 
 Le seguenti regole {EN16931} si applicano alle transazioni della fattura e della nota di credito in base a questa {peppol} BIS.
-Questa PEPPOL BIS usa una variante aller regole di validazione della {EN16931}.
+Questa PEPPOL BIS usa una variante alle regole di validazione della {EN16931}.
 Ulteriori dettagli sono disponibili presso https://github.com/OpenPEPPOL/tc434-validation.
 
 .Regole di business EN 16931

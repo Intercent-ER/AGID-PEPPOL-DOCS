@@ -32,19 +32,19 @@
 							<outputDirectory>${basedir}/target/xsl/PEPPOL/3.0</outputDirectory>
 							<resources>          
 								<resource>
-									<directory>${basedir}/../../../../artifacts/validation/target/AGID-PEPPOL-XSL-1.6/xsl/peppolbis-trdm001-3.0-order/Schematron/ITA</directory>									
+									<directory>${basedir}/../../../../artifacts/validation/target/AGID-PEPPOL-XSL-1.7/xsl/peppolbis-trdm001-3.0-order/Schematron/ITA</directory>									
 									<filtering>false</filtering>
 								</resource>
 								<resource>
-									<directory>${basedir}/../../../../artifacts/validation/target/AGID-PEPPOL-XSL-1.6/xsl/peppolbis-trdm016-3.0-despatch-advice/Schematron/ITA</directory>									
+									<directory>${basedir}/../../../../artifacts/validation/target/AGID-PEPPOL-XSL-1.7/xsl/peppolbis-trdm016-3.0-despatch-advice/Schematron/ITA</directory>									
 									<filtering>false</filtering>
 								</resource>
 								<resource>
-									<directory>${basedir}/../../../../artifacts/validation/target/AGID-PEPPOL-XSL-1.6/xsl/peppolbis-trdm076-3.0-order-response/Schematron/ITA</directory>									
+									<directory>${basedir}/../../../../artifacts/validation/target/AGID-PEPPOL-XSL-1.7/xsl/peppolbis-trdm076-3.0-order-response/Schematron/ITA</directory>									
 									<filtering>false</filtering>
 								</resource>
 								<resource>
-									<directory>${basedir}/../../../../artifacts/validation/target/AGID-PEPPOL-XSL-1.6/xsl/peppolbis-trdm110-3.0-order-agreement/Schematron/ITA</directory>									
+									<directory>${basedir}/../../../../artifacts/validation/target/AGID-PEPPOL-XSL-1.7/xsl/peppolbis-trdm110-3.0-order-agreement/Schematron/ITA</directory>									
 									<filtering>false</filtering>
 								</resource>
 							</resources>

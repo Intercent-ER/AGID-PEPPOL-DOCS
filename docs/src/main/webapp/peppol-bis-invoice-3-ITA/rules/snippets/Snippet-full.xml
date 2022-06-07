@@ -119,10 +119,7 @@
     <cac:AccountingCustomerParty>
          <cac:Party>
             <cbc:EndpointID schemeID="0201">OBSH87</cbc:EndpointID>
-            <!--1-->
-            <cac:PartyName>
-                <cbc:Name>Intercent-ER Agenzia Regionale</cbc:Name>        
-              </cac:PartyName>       
+            <!--1-->     
               <cac:PostalAddress>       
                 <cbc:StreetName>via Dei Mille 21</cbc:StreetName>        
                 <cbc:CityName>Bologna</cbc:CityName>
@@ -149,21 +146,19 @@
 
     <!-- tag::payee[] -->
     <cac:PayeeParty>
-        <cac:PartyIdentification>
-            <cbc:ID schemeID="0192">987654325</cbc:ID>
-            <!--1-->
-        </cac:PartyIdentification>
         <cac:PartyName>
-            <cbc:Name>Beneficiario e F.lli S.a.s</cbc:Name>
+            <cbc:Name>Banca XYZ SPA</cbc:Name>
         </cac:PartyName>
-        <cac:PartyLegalEntity>
-            <!--cbc:CompanyID schemeID="0192">IT07663520567</cbc:CompanyID-->
-            <!--2-->
-        </cac:PartyLegalEntity>
     </cac:PayeeParty>
     <!-- end::payee[] -->
     <!-- tag::taxrep[] -->
     <cac:TaxRepresentativeParty>
+        <cac:PartyIdentification>
+            <cbc:ID schemeID="0210">RSSMRA00A01E123H</cbc:ID>
+        </cac:PartyIdentification>
+        <cac:PartyIdentification>
+            <cbc:ID>EORI:12345678901</cbc:ID>
+        </cac:PartyIdentification>
         <cac:PartyName>
             <cbc:Name>Commercialista Snc</cbc:Name>
         </cac:PartyName>

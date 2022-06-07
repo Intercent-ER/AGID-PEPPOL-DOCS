@@ -2108,7 +2108,7 @@ the root node.
                         <xsl:value-of select="concat('Denominazione:', DatiAnagrafici/Anagrafica/Denominazione)"/>
                      </xsl:when>
                      <xsl:when test="DatiAnagrafici/Anagrafica[Nome or Cognome]">
-                        <xsl:value-of select="normalize-space(concat('Nome&amp;Cognome:', DatiAnagrafici/Anagrafica/Nome, '#', DatiAnagrafici/Anagrafica/Cognome))"/>
+                        <xsl:value-of select="normalize-space(concat('NomeCognome:', DatiAnagrafici/Anagrafica/Nome, '#', DatiAnagrafici/Anagrafica/Cognome))"/>
                      </xsl:when>
                   </xsl:choose>
                </cbc:RegistrationName>
@@ -2174,7 +2174,7 @@ the root node.
                         <xsl:value-of select="concat('Denominazione:', DatiAnagrafici/Anagrafica/Denominazione)"/>
                      </xsl:when>
                      <xsl:when test="DatiAnagrafici/Anagrafica[Nome or Cognome]">
-                        <xsl:value-of select="normalize-space(concat('Nome&amp;Cognome:', Nome, '#', Cognome))"/>
+                        <xsl:value-of select="normalize-space(concat('NomeCognome:', Nome, '#', Cognome))"/>
                      </xsl:when>
                   </xsl:choose>
                </cbc:RegistrationName>
@@ -2291,7 +2291,7 @@ the root node.
             <xsl:when test="DatiAnagrafici/Anagrafica[Nome or Cognome]">
                <cac:PartyName>
                   <cbc:Name>
-                     <xsl:value-of select="concat('Nome&amp;Cognome:', DatiAnagrafici/Anagrafica/Nome, '#', DatiAnagrafici/Anagrafica/Cognome)"/>
+                     <xsl:value-of select="concat('NomeCognome:', DatiAnagrafici/Anagrafica/Nome, '#', DatiAnagrafici/Anagrafica/Cognome)"/>
                   </cbc:Name>
                </cac:PartyName>
             </xsl:when>

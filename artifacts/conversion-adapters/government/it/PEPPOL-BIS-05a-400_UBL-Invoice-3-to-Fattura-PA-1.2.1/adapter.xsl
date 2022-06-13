@@ -1131,12 +1131,12 @@ version="2.0">
           </Denominazione>
         </xsl:when>
         <xsl:when test="contains(cac:PartyLegalEntity/cbc:RegistrationName,'Nome') and contains(cac:PartyLegalEntity/cbc:RegistrationName,'Cognome')">
-          <Nome>
-            <xsl:value-of select="substring-after(substring-before(cac:PartyLegalEntity/cbc:RegistrationName,'#'),':')"/>
-          </Nome>
-          <Cognome>
-            <xsl:value-of select="substring-after(cac:PartyLegalEntity/cbc:RegistrationName,'#')"/>
-          </Cognome>
+<Nome>
+	<xsl:value-of select="substring-before(substring-after(cac:PartyLegalEntity/cbc:RegistrationName,':'),'#')"/>
+</Nome>
+<Cognome>
+	<xsl:value-of select="substring-after(substring-after(cac:PartyLegalEntity/cbc:RegistrationName,':'),'#')"/>
+</Cognome>
         </xsl:when>
         <xsl:otherwise>
           <Denominazione>
@@ -1192,12 +1192,12 @@ version="2.0">
             </Denominazione>
           </xsl:when>
           <xsl:when test="contains(cac:PartyLegalEntity/cbc:RegistrationName,'Nome') and contains(cac:PartyLegalEntity/cbc:RegistrationName,'Cognome')">
-            <Nome>
-              <xsl:value-of select="substring-after(substring-before(cac:PartyLegalEntity/cbc:RegistrationName,'#'),':')"/>
-            </Nome>
-            <Cognome>
-              <xsl:value-of select="substring-after(cac:PartyLegalEntity/cbc:RegistrationName,'#')"/>
-            </Cognome>
+			<Nome>
+				<xsl:value-of select="substring-before(substring-after(cac:PartyLegalEntity/cbc:RegistrationName,':'),'#')"/>
+			</Nome>
+			<Cognome>
+				<xsl:value-of select="substring-after(substring-after(cac:PartyLegalEntity/cbc:RegistrationName,':'),'#')"/>
+			</Cognome>
           </xsl:when>
           <xsl:otherwise>
             <Denominazione>
@@ -1573,12 +1573,12 @@ version="2.0">
                 </Denominazione>
               </xsl:when>
               <xsl:when test="contains(cac:PartyName/cbc:Name,'Nome') and contains(cac:PartyName/cbc:Name,'Cognome')">
-                <Nome>
-                  <xsl:value-of select="substring-after(substring-before(cac:PartyName/cbc:Name,'#'),':')"/>
-                </Nome>
-                <Cognome>
-                  <xsl:value-of select="substring-after(cac:PartyName/cbc:Name,'#')"/>
-                </Cognome>
+				<Nome>
+					<xsl:value-of select="substring-before(substring-after(cac:PartyName/cbc:Name,':'),'#')"/>
+				</Nome>
+				<Cognome>
+					<xsl:value-of select="substring-after(substring-after(cac:PartyName/cbc:Name,':'),'#')"/>
+				</Cognome>
               </xsl:when>
               <xsl:otherwise>
                 <Denominazione>

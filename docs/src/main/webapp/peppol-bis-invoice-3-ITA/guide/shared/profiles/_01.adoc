@@ -8,3 +8,4 @@ include::../../syntax/_profile.adoc[]
 
 #Per gli identificatori della specifica (BT-24) da utilizzarsi per i clienti italiani vedi paragrafi C.1 (per i fornitori esteri) e C.2 (per i fornitori italiani).# +
 #I fornitori italiani nella fatturazione ai soli fini dell’esterometro utilizzano l’identificatore della specifica riportato nel paragrafo C.2 (vedi anche paragrafo 10.1.2.).#
+

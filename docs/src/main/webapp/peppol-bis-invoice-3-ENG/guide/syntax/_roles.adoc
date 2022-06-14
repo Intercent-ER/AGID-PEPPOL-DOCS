@@ -286,7 +286,7 @@ Trattasi di CIUS domestica valida per la fatturazione verso privati
 <cbc:EndpointID schemeID="0205">L0U7KO4</cbc:EndpointID>
 ----
 
-.Esempio di un soggetto (non persona fisica) non residente, non stabilito o identificato in Italia, privo di Codice e Destinatario e di PEC.
+.Esempio di utilizzo dell’end-point ai fini dell’esterometro.
 [source, xml, indent=0]
 ----
 <cbc:EndpointID schemeID="0205">XXXXXXX</cbc:EndpointID>

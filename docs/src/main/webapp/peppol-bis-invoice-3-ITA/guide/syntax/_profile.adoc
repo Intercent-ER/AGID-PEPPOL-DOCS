@@ -7,20 +7,18 @@
 
 
 | Fattura
-| [lime-background]#urn:cen.eu:en16931:2017&#x0023;compliant&#x0023;# +
-[lime-background]#urn:fdc:peppol.eu:2017:poacc:billing:3.0&#x0023;conformant&#x0023;# +
-[lime-background]#*urn:www.agid.gov.it:trns:fattura:3*#
+|urn:cen.eu:en16931:2017&#x0023;compliant&#x0023; +
+urn:fdc:peppol.eu:2017:poacc:billing:3.0
 | urn:fdc:peppol.eu:2017:poacc:billing:01:1.0
 
 | Nota di credito
-| [lime-background]#urn:cen.eu:en16931:2017&#x0023;compliant&#x0023;# +
-[lime-background]#urn:fdc:peppol.eu:2017:poacc:billing:3.0&#x0023;conformant&#x0023;# +
-[lime-background]#*urn:www.agid.gov.it:trns:fattura:3*#
+|urn:cen.eu:en16931:2017&#x0023;compliant&#x0023; +
+urn:fdc:peppol.eu:2017:poacc:billing:3.0
 | urn:fdc:peppol.eu:2017:poacc:billing:01:1.0
 |===
 
 
-.Esempio UBL per l'identificatore del profilo italiano
+.Esempio UBL per l’identificatore della specifica del profilo base Peppol
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/Snippet-full.xml[tags=profile]

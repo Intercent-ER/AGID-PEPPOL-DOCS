@@ -309,7 +309,7 @@ BT-48 Buyer VAT identifier
 |Cardinality - Make a  conditional element mandatory (0..x -- > 1..x)
 |BT-47-1 Buyer legal registration identifier scheme identifier
 |1.4.1.2 CodiceFiscale
-|Se Buyer country code (BT-55) = “IT”, l'elemento BT-47-1 (Buyer legal registration identifier scheme identifier) è obbligatorio e contiene il valore "0210".
+|Se Buyer country code (BT-55) = “IT” ed esiste l'elemento  Buyer legal registration identifier (BT-47), allora l'elemento Buyer legal registration identifier scheme identifier (BT-47-1) è obbligatorio e contiene il valore "0210".
 
 
 |BR-IT-521

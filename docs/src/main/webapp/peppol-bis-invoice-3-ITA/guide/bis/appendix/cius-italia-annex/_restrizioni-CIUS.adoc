@@ -98,7 +98,7 @@ valorizzato come segue: +
 BT-49-1 Buyer electronic address identification scheme
 |1.1.6 PECDestinatario +
 1.1.4  CodiceDestinatario
-|Se Buyer country code (BT-55) = “IT”’, allora l'elemento BT-49 (Buyer electronic address) deve contenere il Codice IPA, la PEC del destinatario della fattura oppure il Codice Destinatario. Di conseguenza, per l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) sono previsti rispettivamente i valori 0201, 0202 oppure 0205
+|Se Buyer country code (BT-55) = “IT”, allora l'elemento BT-49 (Buyer electronic address) deve contenere il Codice IPA, la PEC del destinatario della fattura oppure il Codice Destinatario. Di conseguenza, per l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) sono previsti rispettivamente i valori 0201, 0202 oppure 0205
 
 |BR-IT-200
 |Value domain for an element - Restrict  text or byte array length
@@ -117,13 +117,13 @@ BT-53 Buyer post code
 1.4.2.2 NumeroCivico +
 1.4.2.4 Comune +
 1.4.2.3 CAP +
-|Se Buyer country code (BT-55) = “IT”’, tutti gli elementi sono obbligatori a meno del Numero Civico
+|Se Buyer country code (BT-55) = “IT”, tutti gli elementi sono obbligatori a meno del Numero Civico
 
 |BR-IT-220
 |Value domain for an element - Require defined structured values
 |BT-54 Buyer country subdivision
 |1.4.2.5 Provincia
-|Se Buyer country code (BT-55) = “IT”’, per l'elemento BT-54 Buyer country subdivision deve essere utilizzato uno dei valori della lista delle province italiane. Altrimenti l'informazione è riportata in allegato
+|Se Buyer country code (BT-55) = “IT”, per l'elemento BT-54 Buyer country subdivision deve essere utilizzato uno dei valori della lista delle province italiane. Altrimenti l'informazione è riportata in allegato
 
 |BR-IT-230
 |Value domain for an element - Restrict  text or byte array length
@@ -296,7 +296,7 @@ BT-125 Attached document
 BT-48 Buyer VAT identifier
 |1.4.1.2 CodiceFiscale +
 1.4.1.1 IdFiscaleIVA
-|Se Buyer country code (BT-55) = “IT”’, almeno uno degli elementi BT-48 (Buyer VAT identifier) o BT-47 (Buyer legal registration identifier) deve essere valorizzato.
+|Se Buyer country code (BT-55) = “IT”, almeno uno degli elementi BT-48 (Buyer VAT identifier) o BT-47 (Buyer legal registration identifier) deve essere valorizzato.
 
 
 |BR-IT-520B*
@@ -309,14 +309,13 @@ BT-48 Buyer VAT identifier
 |Cardinality - Make a  conditional element mandatory (0..x -- > 1..x)
 |BT-47-1 Buyer legal registration identifier scheme identifier
 |1.4.1.2 CodiceFiscale
-|Se Buyer country code (BT-55) = “IT”’, l'elemento BT-47-1 (Buyer legal registration identifier scheme identifier) è obbligatorio e contiene il valore "0210".
-
+|Se Buyer country code (BT-55) = “IT” ed esiste l'elemento  Buyer legal registration identifier (BT-47), allora l'elemento Buyer legal registration identifier scheme identifier (BT-47-1) è obbligatorio e contiene il valore "0210".
 
 |BR-IT-521
 |Value domain for an element - Restrict text or byte array length
 |BT-46 Buyer identifier
 |1.4.1.3.5 Codice EORI
-|Se Buyer country code (BT-55) = “IT”’, il Codice EORI (BT-46 Buyer identifier) deve essere preceduto dal prefisso 'EORI:' ed avere la lunghezza del codice compresa fra 13 e 17 caratteri alfanumerici.
+|Se Buyer country code (BT-55) = “IT”, il Codice EORI (BT-46 Buyer identifier) deve essere preceduto dal prefisso 'EORI:' ed avere la lunghezza del codice compresa fra 13 e 17 caratteri alfanumerici.
 
 
 |====

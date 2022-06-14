@@ -2,11 +2,9 @@
 [[prof-01]]
 = Profilo 01 - Fatturazione
 
-Nella tabella seguente troverete i valori da utilizzare in questo profilo per l'identificatore della specifica (BT-24) e per il tipo di processo di business (BT-23).
+Nella tabella seguente sono riportati i valori da utilizzare per l’identificatore della specifica (BT-24) e per il tipo di processo di business (BT-23) per il profilo base Peppol.
 
 include::../../syntax/_profile.adoc[]
 
-[IMPORTANT]
-====
-Per le fatture verso clienti italiani vedi regole nei paragrafi C.1. CIUS e C.2. CIUS Domestiche.
-====
+#Per gli identificatori della specifica (BT-24) da utilizzarsi per i clienti italiani vedi paragrafi C.1 (per i fornitori esteri) e C.2 (per i fornitori italiani).# +
+#I fornitori italiani nella fatturazione ai soli fini dell’esterometro utilizzano l’identificatore della specifica riportato nel paragrafo C.2 (vedi anche paragrafo 10.1.2.).#

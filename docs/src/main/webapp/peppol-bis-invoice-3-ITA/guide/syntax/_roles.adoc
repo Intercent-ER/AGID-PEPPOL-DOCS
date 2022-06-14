@@ -167,7 +167,7 @@ La specifica è già concordata con Agenzia delle Entrate, che ne darà evidenza
 </cac:PartyIdentification>
 ----
 
-#Il campo *cac:PartyLegalEntity/cbc:RegistrationName* può essere usato per indicare il dato FPA 1.2.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.2.1.3.2 Nome e 1.2.1.3.3 Cognome preceduti dalla stringa "NomeCognome:" e concatenati dal simbolo ""&#x0023;".#
+#Il campo *cac:PartyLegalEntity/cbc:RegistrationName* può essere usato per indicare il dato FPA 1.2.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.2.1.3.2 Nome e 1.2.1.3.3 Cognome preceduti dalla stringa "Nome#Cognome:" e concatenati dal simbolo ""&#x0023;".#
 
 #Il campo *cac:PartyLegalEntity/cbc:CompanyLegalForm* può essere usato per indicare informazioni legali addizionali quali FPA 1.2.4.3 CapitaleSociale, FPA 1.2.4.4 SocioUnico e FPA  1.2.4.5 StatoLiquidazione, concatenando i campi con il simbolo "&#x0023;".#
 
@@ -234,7 +234,7 @@ Le informazioni inerenti al cliente vengono fornite nell'elemento 'cac:Accountin
 Almeno uno tra Partita IVA e Codice Fiscale deve essere presente
 
 
-#Il campo *cac:PartyLegalEntity/cbc:RegistrationName* può essere usato per indicare il dato FPA 1.2.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.2.1.3.2 Nome e 1.2.1.3.3 Cognome preceduti dalla stringa "NomeCognome:" e concatenati dal simbolo "&#x0023;".#
+#Il campo *cac:PartyLegalEntity/cbc:RegistrationName* può essere usato per indicare il dato FPA 1.2.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.2.1.3.2 Nome e 1.2.1.3.3 Cognome preceduti dalla stringa "Nome#Cognome:" e concatenati dal simbolo "&#x0023;".#
 
 
 #Il Codice EORI può essere espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.#
@@ -273,7 +273,7 @@ Trattasi di CIUS domestica valida per la fatturazione verso privati
 <cbc:EndpointID schemeID="0205">L0U7KO4</cbc:EndpointID>
 ----
 
-.Esempio di un soggetto (non persona fisica) non residente, non stabilito o identificato in Italia, privo di Codice e Destinatario e di PEC.
+.Esempio di utilizzo dell’end-point ai fini dell’esterometro.
 [source, xml, indent=0]
 ----
 <cbc:EndpointID schemeID="0205">XXXXXXX</cbc:EndpointID>
@@ -308,7 +308,7 @@ Trattasi di CIUS domestica valida per la fatturazione verso privati
 			</cac:TaxScheme>
 		</cac:PartyTaxScheme>
 		<cac:PartyLegalEntity>
-			<cbc:RegistrationName>NomeCognome:Mario#Rossi</cbc:RegistrationName>
+			<cbc:RegistrationName>Nome#Cognome:Mario#Rossi</cbc:RegistrationName>
 			<cbc:CompanyID schemeID="0210">RSSMRA00A01E123H</cbc:CompanyID>
 		</cac:PartyLegalEntity>
 		<cac:Contact>
@@ -364,7 +364,7 @@ I rappresentanti fiscali sono responsabili per la gestione corretta e la regolar
 
 #Il Codice EORI può essere espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.#
 
-#Il campo *cac:PartyName/cbc:Name* può essere usato per indicare il dato FPA 1.3.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.3.1.3.2 Nome e 1.3.1.3.3 Cognome preceduti dalla stringa "NomeCognome:" e concatenati dal simbolo "&#x0023;".#
+#Il campo *cac:PartyName/cbc:Name* può essere usato per indicare il dato FPA 1.3.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.3.1.3.2 Nome e 1.3.1.3.3 Cognome preceduti dalla stringa "Nome#Cognome:" e concatenati dal simbolo "&#x0023;".#
 
 .Esempio UBL per le informazioni del rappresentante fiscale
 [source, xml, indent=0]

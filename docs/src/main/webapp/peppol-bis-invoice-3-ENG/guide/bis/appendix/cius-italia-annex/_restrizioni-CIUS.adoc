@@ -303,7 +303,7 @@ BT-48 Buyer VAT identifier
 |Value domain for an element - Restrict  text or byte array length
 |BT-47 Buyer legal registration identifier 
 |1.4.1.2 CodiceFiscale
-|La lunghezza dell'elemento è compresa fra 11 e 16 caratteri.
+|Se Buyer country code (BT-55)="IT", la lunghezza dell’elemento è compresa fra 11 e 16 caratteri.
 
 |BR-IT-520C*
 |Cardinality - Make a  conditional element mandatory (0..x -- > 1..x)

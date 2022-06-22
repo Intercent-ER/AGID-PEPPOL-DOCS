@@ -26,7 +26,7 @@ include::../../../syntax/references/_order.adoc[]
 </cac:OrderReference>
 ----
 
-2.	#Nel cbc:BuyerReference (BT-10 Buyer reference) riportare la Tripletta di identificazione completa separando i componenti (Id, data e Endpoint) con il carattere #x0023; senza interposizione di spazi, come nel seguente esempio:#
+2.	#Nel cbc:BuyerReference (BT-10 Buyer reference) riportare la Tripletta di identificazione completa separando i componenti (Id, data e Endpoint) con il carattere # senza interposizione di spazi, come nel seguente esempio:#
 +
 [source, xml, indent=0]
 ----

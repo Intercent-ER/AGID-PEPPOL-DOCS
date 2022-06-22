@@ -288,14 +288,14 @@ Trattasi di CIUS domestica valida per la fatturazione verso privati
 [source, xml, indent=0]
 ----
 <cac:AccountingCustomerParty>
-<cac:Party>
-	<cbc:EndpointID schemeID="0202">nome.cognome@pec-domain.it</cbc:EndpointID>
-	<cac:PostalAddress>
-		<cbc:StreetName>Via Riviera di Chiaia, 99A</cbc:StreetName>
-		<cbc:CityName>Napoli</cbc:CityName>
-		<cbc:PostalZone>80121</cbc:PostalZone>
-		<cac:AddressLine>
-			<cbc:Line> Informazioni Aggiuntive /cbc:Line>
+	<cac:Party>
+		<cbc:EndpointID schemeID="0202">nome.cognome@pec-domain.it</cbc:EndpointID>
+		<cac:PostalAddress>
+			<cbc:StreetName>Via Riviera di Chiaia, 99A</cbc:StreetName>
+			<cbc:CityName>Napoli</cbc:CityName>
+			<cbc:PostalZone>80121</cbc:PostalZone>
+			<cac:AddressLine>
+				<cbc:Line> Informazioni Aggiuntive </cbc:Line>
 			</cac:AddressLine>
 			<cac:Country>
 				<cbc:IdentificationCode>IT</cbc:IdentificationCode>

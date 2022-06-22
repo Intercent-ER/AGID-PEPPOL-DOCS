@@ -301,33 +301,34 @@ Trattasi di CIUS domestica valida per la fatturazione verso privati
 [source, xml, indent=0]
 ----
 <cac:AccountingCustomerParty>
-        <cac:Party>
-                <cbc:EndpointID schemeID="0202">nome.cognome@pec-domain.it</cbc:EndpointID>
-                <cac:PartyName>
-                        <cbc:Name>Mario Rossi</cbc:Name>
-                </cac:PartyName>
-                <cac:PostalAddress>
-                        <cbc:StreetName>Via Riviera di Chiaia, 99A</cbc:StreetName>
-                        <cbc:CityName>Napoli</cbc:CityName>
-                        <cbc:PostalZone>80121</cbc:PostalZone>
-                        <cac:AddressLine>
-                        <cbc:Line> Informazioni Aggiuntive /cbc:Line>
-                    </cac:AddressLine>
-                        <cac:Country>
-                            <cbc:IdentificationCode>IT</cbc:IdentificationCode>
-                        </cac:Country>
-                </cac:PostalAddress>
-                <cac:PartyTaxScheme>
-                    <cbc:CompanyID>IT01234567890</cbc:CompanyID>
-                    <cac:TaxScheme>
-                        <cbc:ID>VAT</cbc:ID>
-                    </cac:TaxScheme>
-                </cac:PartyTaxScheme>
-                <cac:Contact>
-                        <cbc:Telephone>06123456</cbc:Telephone>
-                        <cbc:ElectronicMail>nome.cognome@pec-domain.it</cbc:ElectronicMail>
-                </cac:Contact>
-        </cac:Party>
+	<cac:Party>
+		<cbc:EndpointID schemeID="0202">nome.cognome@pec-domain.it</cbc:EndpointID>
+		<cac:PostalAddress>
+			<cbc:StreetName>Via Riviera di Chiaia, 99A</cbc:StreetName>
+			<cbc:CityName>Napoli</cbc:CityName>
+			<cbc:PostalZone>80121</cbc:PostalZone>
+			<cac:AddressLine>
+				<cbc:Line> Informazioni Aggiuntive </cbc:Line>
+			</cac:AddressLine>
+			<cac:Country>
+				<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+			</cac:Country>
+		</cac:PostalAddress>
+		<cac:PartyTaxScheme>
+			<cbc:CompanyID>IT01234567890</cbc:CompanyID>
+			<cac:TaxScheme>
+				<cbc:ID>VAT</cbc:ID>
+			</cac:TaxScheme>
+		</cac:PartyTaxScheme>
+		<cac:PartyLegalEntity>
+			<cbc:RegistrationName>Nome#Cognome:Mario#Rossi</cbc:RegistrationName>
+			<cbc:CompanyID schemeID="0210">RSSMRA00A01E123H</cbc:CompanyID>
+		</cac:PartyLegalEntity>
+		<cac:Contact>
+			<cbc:Telephone>06123456</cbc:Telephone>
+			<cbc:ElectronicMail>nome.cognome@pec-domain.it</cbc:ElectronicMail>
+		</cac:Contact>
+	</cac:Party>
 </cac:AccountingCustomerParty>
 ----
 

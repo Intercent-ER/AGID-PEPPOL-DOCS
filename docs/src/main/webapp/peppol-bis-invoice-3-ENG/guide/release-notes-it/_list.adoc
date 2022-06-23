@@ -6,6 +6,18 @@
 ^.^| Date
 ^.^| What’s new
 
+| 3.0.13.2(IT)
+a| 24/06/2022
+a| [red]#Changes in the Documentation section# +
+
+* Indication of filling in the information relating to Name and Surname for sole proprietorships and for natural persons: the concatenation of information relating to Name and Surname in the field cac: PartyLegalEntity / cbc: RegistrationName must be preceded by the string "Nome#Cognome:" instead of the previously used string "Nome&Cognome:". +
+The rule applies to the indication of the Supplier (par. 10.1.1. The Supplier (AccountingSupplierParty)), the Customer (10.1.2. The Customer (AccountingCustomerParty)) and the Beneficiary (10.1.3. The Beneficiary (PayeeParty) ).
+* Reformulation of the instructions for filling in the OrderReference and BuyerReference fields (par. 10.3.1. Purchase order and reference to the sales order). +
+
+[red]#Changes in the Downloads section# +
+
+* Upload new package of Invoice samples.
+
 | 3.0.13.1(IT)
 a| 27/05/2022
 a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/release-notes/[PEPPOL BIS 3.0.13 - may release 2022]_. +

@@ -6,6 +6,18 @@
 ^.^| Data
 ^.^| Cosa è cambiato
 
+| 3.0.13.2(IT)
+a| 24/06/2022
+a| [red]#Cambiamenti nella sezione Documentazione# +
+
+* Indicazione di compilazione delle informazioni relative a Nome e Cognome per le Ditte individuali e per le Persone fisiche: la concatenazione delle informazioni relative a Nome e Cognome all’interno del campo cac:PartyLegalEntity/cbc:RegistrationName deve essere preceduta dalla stringa “Nome#Cognome:” in sostituzione della stringa “Nome&Cognome:” utilizzata in precedenza. +
+La regola si applica per l’indicazione del Fornitore (par. 10.1.1. Il Fornitore (AccountingSupplierParty)), del Cliente (10.1.2. Il Cliente (AccountingCustomerParty)) e del Beneficiario (10.1.3. Il Beneficiario (PayeeParty)).
+* Riformulazione delle indicazioni di compilazione dei campi OrderReference e BuyerReference (par. 10.3.1. Ordine d’acquisto e riferimento all’ordine di vendita). +
+
+[red]#Cambiamenti nella sezione Downloads# +
+
+* Caricamento nuovo pacchetto di esempi Fattura. 
+
 | 3.0.13.1(IT)
 a| 27/05/2022
 a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/release-notes/[PEPPOL BIS 3.0.13 - may release 2022]_. +

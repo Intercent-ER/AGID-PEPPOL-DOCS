@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>it.gov.agid</groupId>
 		<artifactId>AGID-PEPPOL</artifactId>
-		<version>1.7</version>
+		<version>1.8</version>
 		<relativePath>../../..</relativePath>
 	</parent>
 	<packaging>pom</packaging>

@@ -4,7 +4,7 @@
     <name>AGID-PEPPOL</name>
     <groupId>it.gov.agid</groupId>
     <artifactId>AGID-PEPPOL</artifactId>
-    <version>1.7</version>
+    <version>1.8</version>
     <packaging>pom</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,7 +19,7 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/Intercent-ER/AGID-PEPPOL-DOCS</developerConnection>
-        <tag>NoTI-ER-PEPPOL-1.7</tag>
+        <tag>NoTI-ER-PEPPOL-1.8</tag>
     </scm>
 	
 	<pluginRepositories>

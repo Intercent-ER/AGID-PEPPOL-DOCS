@@ -32,7 +32,7 @@
                 <Description>Nominativo del titolare della carta.</Description>
                 <DataType>Text</DataType>
                 <Reference type="BUSINESS_TERM">BT-88</Reference>
-                <Value type="EXAMPLE">John Doe</Value>
+                <Value type="EXAMPLE">Mario Rossi</Value>
             </Element>
         
         

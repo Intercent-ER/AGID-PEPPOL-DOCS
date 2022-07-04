@@ -16,7 +16,7 @@
             <Reference type="BUSINESS_TERM">BT-84</Reference>
             <Reference type="RULE">BR-50</Reference>
             <Reference type="RULE">BR-61</Reference>
-            <Value type="EXAMPLE">NO99991122222</Value>
+            <Value type="EXAMPLE">IT001122334455667788990</Value>
         </Element>
         
         <Element cardinality="0..1">
@@ -25,7 +25,7 @@
             <Description>Nominativo dell’intestatario del conto a cui deve essere effettuato il bonifico bancario.</Description>
             <DataType>Text</DataType>
             <Reference type="BUSINESS_TERM">BT-85</Reference>
-            <Value type="EXAMPLE">Payment Account</Value>
+            <Value type="EXAMPLE">Fornitore S.p.A.</Value>
         </Element>
         
         <Element cardinality="0..1">
@@ -39,7 +39,7 @@
                     Such as a BIC or a national clearing code where required. No identification scheme Identifier to be used. Bank Identifier Code (codice che identifica la banca del beneficiario).</Description>
                 <DataType>Identifier</DataType>
                 <Reference type="BUSINESS_TERM">BT-86</Reference>
-                <Value type="EXAMPLE">9999</Value>
+                <Value type="EXAMPLE">BIC32409</Value>
             </Element>
         </Element>
     </Element>

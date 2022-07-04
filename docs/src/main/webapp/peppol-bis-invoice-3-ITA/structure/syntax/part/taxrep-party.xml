@@ -42,7 +42,7 @@
 
 		<Element>
 			<Term>cbc:Name</Term>
-			<Name>Seller tax representative name - FPA 1.3.1.3.1 ‘Denominazione’ or FPA 1.3.1.3.2 ‘Nome’ e FPA 1.3.1.3.3 ‘Cognome’ </Name>
+			<Name>Seller tax representative name - FPA 1.3.1.3.1 ‘Denominazione’ / concatenazione dei campi FPA 1.3.1.3.2 ‘Nome’ e FPA 1.3.1.3.3 ‘Cognome’ </Name>
 			<Description>The full name of the Seller's tax representative party. Ditta, denominazione o ragione sociale (ditta, impresa, società, ente) o Nome e Cognome della persona fisica.</Description>
 			<DataType>Text</DataType>
 			<Reference type="BUSINESS_TERM">BT-62</Reference>
@@ -66,7 +66,7 @@
 			<Description>Strada, via, piazza ecc. e numero civico.</Description>
 			<DataType>Text</DataType>
 			<Reference type="BUSINESS_TERM">BT-64</Reference>
-			<Value type="EXAMPLE">Lille gatan 545</Value>
+			<Value type="EXAMPLE">Via Emilia 18</Value>
 		</Element>
 
 		<Element cardinality="0..1">
@@ -75,7 +75,7 @@
 			<Description>Informazioni addizionali indirizzo.</Description>
 			<DataType>Text</DataType>
 			<Reference type="BUSINESS_TERM">BT-65</Reference>
-			<Value type="EXAMPLE">Po Box 987</Value>
+			<Value type="EXAMPLE">Interno 2</Value>
 		</Element>
 
 		<Element cardinality="0..1">
@@ -84,7 +84,7 @@
 			<Description>Nome della città</Description>
 			<DataType>Text</DataType>
 			<Reference type="BUSINESS_TERM">BT-66</Reference>
-			<Value type="EXAMPLE">Göteborg</Value>
+			<Value type="EXAMPLE">Modena</Value>
 		</Element>
 
 		<Element cardinality="0..1">
@@ -94,7 +94,7 @@
 			</Description>
 			<DataType>Text</DataType>
 			<Reference type="BUSINESS_TERM">BT-67</Reference>
-			<Value type="EXAMPLE">12345</Value>
+			<Value type="EXAMPLE">41121</Value>
 		</Element>
 
 		<Element cardinality="0..1">
@@ -103,7 +103,7 @@
 			<Description>Provincia.</Description>
 			<DataType>Text</DataType>
 			<Reference type="BUSINESS_TERM">BT-68</Reference>
-			<Value type="EXAMPLE">Region Vest</Value>
+			<Value type="EXAMPLE">MO</Value>
 		</Element>
 
 
@@ -117,7 +117,7 @@
 				<Description>Ulteriori informazioni indirizzo</Description>
 				<DataType>Text</DataType>
 				<Reference type="BUSINESS_TERM">BT-164</Reference>
-				<Value type="EXAMPLE">A87</Value>
+				<Value type="EXAMPLE">Interno 2</Value>
 			</Element>
 		</Element>
 

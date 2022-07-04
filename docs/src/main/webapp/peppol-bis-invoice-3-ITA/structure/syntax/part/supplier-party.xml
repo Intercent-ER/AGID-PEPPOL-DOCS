@@ -56,7 +56,7 @@
                     </Attribute>
 
 					<Value type="EXAMPLE">EORI:1234567890</Value>
-					<Value type="EXAMPLE">ALBO:GEOMETRI#12345</Value>
+					<Value type="EXAMPLE">ALBO:GEOMETRI#12345#2017-10-22</Value>
                     <Value type="EXAMPLE">REA:MI#1713601</Value>
 
                 </Element>
@@ -95,17 +95,17 @@
                     <Reference type="BUSINESS_TERM">BT-35</Reference>
                     <Reference type="RULE">IT-R-002</Reference>
 					<Reference type="RULE">BR-IT-DC-140</Reference>
-                    <Value type="EXAMPLE">Main Street 1</Value>
+                    <Value type="EXAMPLE">Via dei Mille</Value>
                 </Element>
 
                 <Element cardinality="0..1">
                     <Term>cbc:AdditionalStreetName</Term>
                     <Name>Seller address line 2 - FPA 1.2.2.2 'NumeroCivico'</Name>
                     <Description>An additional address line in an address that can be used to give further details supplementing the main line.
-                    Numero civico riferito all'indirizzo (non indicare se già presente nell'elemento informativo indirizzo).</Description>
+                    Numero civico riferito all'indirizzo.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-36</Reference>
-                    <Value type="EXAMPLE">Po Box 351</Value>
+                    <Value type="EXAMPLE">3</Value>
                 </Element>
 
                 <Element cardinality="0..1">
@@ -117,7 +117,7 @@
                     <Reference type="BUSINESS_TERM">BT-37</Reference>
                     <Reference type="RULE">IT-R-003</Reference>
 					<Reference type="RULE">BR-IT-DC-140</Reference>
-                    <Value type="EXAMPLE">London</Value>
+                    <Value type="EXAMPLE">Bologna</Value>
                 </Element>
 
                 <Element cardinality="0..1">
@@ -130,7 +130,7 @@
                     <Reference type="BUSINESS_TERM">BT-38</Reference>
                     <Reference type="RULE">IT-R-004</Reference>
 					<Reference type="RULE">BR-IT-DC-140</Reference>
-                    <Value type="EXAMPLE">W1G 8LZ</Value>
+                    <Value type="EXAMPLE">40121</Value>
                 </Element>
 
                 <Element cardinality="0..1">
@@ -140,7 +140,7 @@
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-39</Reference>
 					<Reference type="RULE">BR-IT-DC-150</Reference>
-                    <Value type="EXAMPLE">Region A</Value>
+                    <Value type="EXAMPLE">BO</Value>
                 </Element>
 
                 <Element cardinality="0..1">
@@ -154,7 +154,7 @@
                         </Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">BT-162</Reference>
-                        <Value type="EXAMPLE">Building 23</Value>
+                        <Value type="EXAMPLE">Interno 8</Value>
                     </Element>
                 </Element>
 
@@ -263,7 +263,7 @@
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-27</Reference>
                     <Reference type="RULE">BR-06</Reference>
-                    <Value type="EXAMPLE">Full Formal Seller Name LTD.</Value>
+                    <Value type="EXAMPLE">Fornitore S.p.A.</Value>
                 </Element>
 
                 <Element cardinality="1..1" agid:custom="cardinality">
@@ -296,7 +296,7 @@
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-33</Reference>
 					<Reference type="RULE">BR-IT-DC-122</Reference>
-                    <Value type="EXAMPLE">100.000#SM#LN</Value>
+                    <Value type="EXAMPLE">100000.00#SM#LN</Value>
                 </Element>
             </Element>
 
@@ -313,7 +313,7 @@
                     <Description>Nome della persona da contattare.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-41</Reference>
-                    <Value type="EXAMPLE">xyz123</Value>
+                    <Value type="EXAMPLE">Mario Rossi</Value>
                 </Element>
                 <Element cardinality="0..1">
                     <Term>cbc:Telephone</Term>
@@ -321,7 +321,7 @@
                     <Description>A phone number for the contact point. Contatto telefonico fisso o mobile.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-42</Reference>
-                    <Value type="EXAMPLE">887 654 321</Value>
+                    <Value type="EXAMPLE">051 000001</Value>
                 </Element>
                 <Element cardinality="0..1">
                     <Term>cbc:ElectronicMail</Term>
@@ -329,7 +329,7 @@
                     <Description>An e-mail address for the contact point. Indirizzo di posta elettronica.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-43</Reference>
-                    <Value type="EXAMPLE">test.name@foo.bar</Value>
+                    <Value type="EXAMPLE">mario.rossi@gmail.com</Value>
                 </Element>
             </Element>
 

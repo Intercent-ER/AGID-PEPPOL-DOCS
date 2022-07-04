@@ -12,7 +12,7 @@
             <Description>Riporta in testo libero la descrizione estesa del bene o del servizio.</Description>
             <DataType>Text</DataType>
             <Reference type="BUSINESS_TERM">BT-154</Reference>
-            <Value type="EXAMPLE">Long description of the item on the invoice line</Value>
+            <Value type="EXAMPLE">Farmaco Ebixa, uso orale</Value>
         </Element>
 
         <Element>
@@ -22,7 +22,7 @@
             <DataType>Text</DataType>
             <Reference type="BUSINESS_TERM">BT-153</Reference>
             <Reference type="RULE">BR-25</Reference>
-            <Value type="EXAMPLE">Item name</Value>
+            <Value type="EXAMPLE">EBIXA 5MG/EROGAZIONE SOL. ORALE 50 ML</Value>
         </Element>
 
         <Element cardinality="0..1">
@@ -46,11 +46,12 @@
             <Element>
                 <Term>cbc:ID</Term>
                 <Name>Item Seller's identifier - FPA 2.2.1.3.1 'CodiceTipo' e FPA 2.2.1.3.2 'CodiceValore'</Name>
-                <Description>An identifier, assigned by the Seller, for the item. Indica la tipologia di codice articolo (per esempio, TARIC, CPV, EAN, SSC, ...). Indica il valore del codice articolo corrispondente alla tipologia riportata nell'elemento informativo 2.2.1.3.1 'CodiceTipo'.</Description>
+                <Description>An identifier, assigned by the Seller, for the item. Contiene il codice articolo del fornitore e l'eventuale indicazione  se si tratta di Farmaci o Carburante .</Description>
                 <DataType>Identifier</DataType>
                 <Reference type="BUSINESS_TERM">BT-155</Reference>
 				<Reference type="RULE">BR-IT-440</Reference>
-                <Value type="EXAMPLE">9873242</Value>
+                <Value type="EXAMPLE">AICFARMACO:025829211</Value>
+                <Value type="EXAMPLE">CARB:27101249</Value>
             </Element>
         </Element>
 
@@ -71,10 +72,10 @@
                     <Name>Item standard identifier identification scheme identifier - FPA 2.2.1.3.1 'CodiceTipo'</Name>
                     <Description>The identification scheme identifier of the Item standard identifier. Indica la tipologia di codice articolo (per esempio, TARIC, CPV, EAN, SSC, ...).</Description>
                     <Reference type="CODE_LIST">ICD</Reference>
-                    <Value type="EXAMPLE">0160</Value>
+                    <Value type="EXAMPLE">CPV</Value>
 
                 </Attribute>
-                <Value type="EXAMPLE">10986700</Value>
+                <Value type="EXAMPLE">72510000-3</Value>
 
             </Element>
         </Element>
@@ -91,7 +92,7 @@
                 <Reference type="BUSINESS_TERM">BT-159</Reference>
                 <Reference type="RULE">BR-CL-15</Reference>
                 <Reference type="CODE_LIST">ISO3166</Reference>
-                <Value type="EXAMPLE">CN</Value>
+                <Value type="EXAMPLE">IT</Value>
             </Element>
         </Element>
 
@@ -191,7 +192,7 @@
                 <DataType>Text</DataType>
                 <Reference type="BUSINESS_TERM">BT-160</Reference>
                 <Reference type="RULE">BR-54</Reference>
-                <Value type="EXAMPLE">Color</Value>
+                <Value type="EXAMPLE">Natura</Value>
             </Element>
             <Element>
                 <Term>cbc:Value</Term>
@@ -200,7 +201,7 @@
                 <DataType>Text</DataType>
                 <Reference type="BUSINESS_TERM">BT-161</Reference>
                 <Reference type="RULE">BR-54</Reference>
-                <Value type="EXAMPLE">Black</Value>
+                <Value type="EXAMPLE">N1</Value>
             </Element>
         </Element>
     </Element>

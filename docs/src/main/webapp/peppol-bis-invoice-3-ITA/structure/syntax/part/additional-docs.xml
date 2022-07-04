@@ -45,7 +45,7 @@
             <Description>A description of the supporting document, such as: timesheet, usage report etc. Descrizione del documento.</Description>
             <DataType>Text</DataType>
             <Reference type="BUSINESS_TERM">BT-123</Reference>
-            <Value type="EXAMPLE">Time list</Value>
+            <Value type="EXAMPLE">Documento aggiuntivo</Value>
         </Element>
 
         <Element cardinality="0..1">
@@ -67,7 +67,7 @@
                     <Reference type="RULE">PEPPOL-EN16931-CL001</Reference>
                     <Reference type="RULE">UBL-DT-06</Reference>
                     <Reference type="CODE_LIST">MimeCode</Reference>
-                    <Value type="EXAMPLE">text/csv</Value>
+                    <Value type="EXAMPLE">PDF</Value>
                 </Attribute>
 
                 <Attribute>
@@ -75,7 +75,7 @@
                     <Name>Attached document Filename - Nome documento allegato</Name>
                     <Description>Il nome del documento allegato.</Description>
                     <Reference type="RULE">UBL-DT-07</Reference>
-                    <Value type="EXAMPLE">Hours-spent.csv</Value>
+                    <Value type="EXAMPLE">Fattura ft123 del 16-11-2017.pdf</Value>
 
                 </Attribute>
 

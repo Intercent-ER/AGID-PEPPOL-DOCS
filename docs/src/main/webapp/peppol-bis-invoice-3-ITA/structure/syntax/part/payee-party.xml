@@ -12,7 +12,7 @@
 
             <Element>
                 <Term>cbc:ID</Term>
-                <Name>Payee identifier or bank assigned creditor identifier - FPA 2.4.2.8 'CognomeQuietanzante' e FPA 2.4.2.9 'NomeQuietanzante'</Name>
+                <Name>Payee identifier or bank assigned creditor identifier - Concatenazione dei campi FPA 2.4.2.8 'CognomeQuietanzante' e FPA 2.4.2.9 'NomeQuietanzante'</Name>
                 <Description>This element is used for both the identification of the Payee, or the unique banking reference identifier of Payee (assigned by the Payee bank.) For payee identification use ICD code list, for SEPA bank assigned creditor reference, use SEPA. Cognome e Nome quietanzante.</Description>
                 <DataType>Text</DataType>
                 <Reference type="BUSINESS_TERM">BT-60, BT-90</Reference>
@@ -27,7 +27,7 @@
                     <Value type="EXAMPLE">0211</Value>
                 </Attribute>
 
-                <Value type="EXAMPLE">IT01598570354</Value>
+                <Value type="EXAMPLE">Rossi#Mario</Value>
 
             </Element>
 
@@ -44,7 +44,7 @@
                 <DataType>Text</DataType>
                 <Reference type="BUSINESS_TERM">BT-59</Reference>
                 <Reference type="RULE">BR-17</Reference>
-                <Value type="EXAMPLE">Payee Name Ltd</Value>
+                <Value type="EXAMPLE">Banca XYZ SPA</Value>
             </Element>
         </Element>
 

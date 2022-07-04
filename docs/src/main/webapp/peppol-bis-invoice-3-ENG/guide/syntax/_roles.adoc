@@ -189,7 +189,7 @@ Trattasi di CIUS domestica
 ----
 <cac:PartyLegalEntity>
     ...
-    <cbc:cbc:CompanyLegalForm>100000##</cbc:cbc:CompanyLegalForm>
+    <cbc:CompanyLegalForm>100000##</cbc:CompanyLegalForm>
     ...
 </cac:PartyLegalEntity>
 ----

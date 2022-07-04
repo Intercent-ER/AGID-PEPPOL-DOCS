@@ -162,6 +162,7 @@ l'ammontare degli importi, se il riepilogo riguarda le operazioni per le quali l
                     <Reference type="RULE">BR-O-10</Reference>
                     <Reference type="RULE">BR-IG-10</Reference>
                     <Reference type="RULE">BR-IP-10</Reference>
+                    <Value type="EXAMPLE">vatex-eu-132</Value>
                 </Element>
 
                 <Element cardinality="0..1">
@@ -181,7 +182,7 @@ l'ammontare degli importi, se il riepilogo riguarda le operazioni per le quali l
                     <Reference type="RULE">BR-O-10</Reference>
                     <Reference type="RULE">BR-IG-10</Reference>
                     <Reference type="RULE">BR-IP-10</Reference>
-                    <Value type="EXAMPLE">Exempt</Value>
+                    <Value type="EXAMPLE">N2.1</Value>
                 </Element>
                 <Element>
                     <Term>cac:TaxScheme</Term>

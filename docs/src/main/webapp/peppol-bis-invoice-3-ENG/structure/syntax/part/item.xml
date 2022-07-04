@@ -13,7 +13,7 @@
             <Description>A description for an item.The item description allows for describing the item and its features in more detail than the Item name.</Description>
             <DataType>Text</DataType>
             <Reference type="BUSINESS_TERM">BT-154</Reference>
-            <Value type="EXAMPLE">Long description of the item on the invoice line</Value>
+            <Value type="EXAMPLE">Farmaco Ebixa, uso orale</Value>
         </Element>
 
         <Element>
@@ -23,7 +23,7 @@
             <DataType>Text</DataType>
             <Reference type="BUSINESS_TERM">BT-153</Reference>
             <Reference type="RULE">BR-25</Reference>
-            <Value type="EXAMPLE">Item name</Value>
+            <Value type="EXAMPLE">EBIXA 5MG/EROGAZIONE SOL. ORALE 50 ML</Value>
         </Element>
 
         <Element cardinality="0..1">
@@ -51,7 +51,8 @@
                 <DataType>Identifier</DataType>
                 <Reference type="BUSINESS_TERM">BT-155</Reference>
 				<Reference type="RULE">BR-IT-440</Reference>
-                <Value type="EXAMPLE">9873242</Value>
+                <Value type="EXAMPLE">AICFARMACO:025829211</Value>
+                <Value type="EXAMPLE">CARB:27101249</Value>
             </Element>
         </Element>
 
@@ -72,10 +73,10 @@
                     <Name>Item standard identifier identification scheme identifier</Name>
                     <Description>The identification scheme identifier of the Item standard identifier</Description>
                     <Reference type="CODE_LIST">ICD</Reference>
-                    <Value type="EXAMPLE">0160</Value>
+                    <Value type="EXAMPLE">CPV</Value>
 
                 </Attribute>
-                <Value type="EXAMPLE">10986700</Value>
+                <Value type="EXAMPLE">72510000-3</Value>
 
             </Element>
         </Element>
@@ -92,7 +93,7 @@
                 <Reference type="BUSINESS_TERM">BT-159</Reference>
                 <Reference type="RULE">BR-CL-15</Reference>
                 <Reference type="CODE_LIST">ISO3166</Reference>
-                <Value type="EXAMPLE">CN</Value>
+                <Value type="EXAMPLE">IT</Value>
             </Element>
         </Element>
 
@@ -196,7 +197,7 @@
                 <DataType>Text</DataType>
                 <Reference type="BUSINESS_TERM">BT-160</Reference>
                 <Reference type="RULE">BR-54</Reference>
-                <Value type="EXAMPLE">Color</Value>
+                <Value type="EXAMPLE">Natura</Value>
             </Element>
             <Element>
                 <Term>cbc:Value</Term>
@@ -205,7 +206,7 @@
                 <DataType>Text</DataType>
                 <Reference type="BUSINESS_TERM">BT-161</Reference>
                 <Reference type="RULE">BR-54</Reference>
-                <Value type="EXAMPLE">Black</Value>
+                <Value type="EXAMPLE">N1</Value>
             </Element>
         </Element>
     </Element>

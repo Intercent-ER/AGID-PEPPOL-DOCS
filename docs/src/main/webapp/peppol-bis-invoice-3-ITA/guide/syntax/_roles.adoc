@@ -179,7 +179,7 @@ Trattasi di CIUS domestica
 
 [source, xml, indent=0]
 ----
-    <cbc:cbc:CompanyLegalForm>100000.00#SU#LN</cbc:cbc:CompanyLegalForm>
+    <cbc:CompanyLegalForm>100000.00#SU#LN</cbc:CompanyLegalForm>
 ----
 
 #Nell'utilizzo dell’aggregato informativo *cac:PostalAddress*, è obbligatorio l'utilizzo delle informazioni di indirizzo, CAP, Comune e nazione.# +

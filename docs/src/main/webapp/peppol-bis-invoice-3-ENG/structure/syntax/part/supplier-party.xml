@@ -95,7 +95,7 @@
                     <Reference type="BUSINESS_TERM">BT-35</Reference>
                     <Reference type="RULE">IT-R-002</Reference>
 					<Reference type="RULE">BR-IT-DC-140</Reference>
-                    <Value type="EXAMPLE">Main Street 1</Value>
+                    <Value type="EXAMPLE">Via dei Mille</Value>
                 </Element>
 
                 <Element cardinality="0..1">
@@ -104,7 +104,7 @@
                     <Description>An additional address line in an address that can be used to give further details supplementing the main line.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-36</Reference>
-                    <Value type="EXAMPLE">Po Box 351</Value>
+                    <Value type="EXAMPLE">3</Value>
                 </Element>
 
                 <Element cardinality="0..1">
@@ -115,7 +115,7 @@
                     <Reference type="BUSINESS_TERM">BT-37</Reference>
                     <Reference type="RULE">IT-R-003</Reference>
 					<Reference type="RULE">BR-IT-DC-140</Reference>
-                    <Value type="EXAMPLE">London</Value>
+                    <Value type="EXAMPLE">Bologna</Value>
                 </Element>
 
                 <Element cardinality="0..1">
@@ -127,7 +127,7 @@
                     <Reference type="BUSINESS_TERM">BT-38</Reference>
                     <Reference type="RULE">IT-R-004</Reference>
 					<Reference type="RULE">BR-IT-DC-140</Reference>
-                    <Value type="EXAMPLE">W1G 8LZ</Value>
+                    <Value type="EXAMPLE">40121</Value>
                 </Element>
 
                 <Element cardinality="0..1">
@@ -137,7 +137,7 @@
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-39</Reference>
 					<Reference type="RULE">BR-IT-DC-150</Reference>
-                    <Value type="EXAMPLE">Region A</Value>
+                    <Value type="EXAMPLE">BO</Value>
                 </Element>
 
                 <Element cardinality="0..1">
@@ -152,7 +152,7 @@
                         </Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">BT-162</Reference>
-                        <Value type="EXAMPLE">Building 23</Value>
+                        <Value type="EXAMPLE">Interno 8</Value>
                     </Element>
                 </Element>
 
@@ -260,7 +260,7 @@
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-27</Reference>
                     <Reference type="RULE">BR-06</Reference>
-                    <Value type="EXAMPLE">Full Formal Seller Name LTD.</Value>
+                    <Value type="EXAMPLE">Fornitore S.p.A.</Value>
                 </Element>
 
                 <Element cardinality="1..1" agid:custom="cardinality">
@@ -311,7 +311,7 @@
                     <Description>A contact point for a legal entity or person.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-41</Reference>
-                    <Value type="EXAMPLE">xyz123</Value>
+                    <Value type="EXAMPLE">Mario Rossi</Value>
                 </Element>
                 <Element cardinality="0..1">
                     <Term>cbc:Telephone</Term>
@@ -319,7 +319,7 @@
                     <Description>A phone number for the contact point.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-42</Reference>
-                    <Value type="EXAMPLE">887 654 321</Value>
+                    <Value type="EXAMPLE">051 000001</Value>
                 </Element>
                 <Element cardinality="0..1">
                     <Term>cbc:ElectronicMail</Term>
@@ -327,7 +327,7 @@
                     <Description>An e-mail address for the contact point.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-43</Reference>
-                    <Value type="EXAMPLE">test.name@foo.bar</Value>
+                    <Value type="EXAMPLE">mario.rossi@gmail.com</Value>
                 </Element>
             </Element>
 

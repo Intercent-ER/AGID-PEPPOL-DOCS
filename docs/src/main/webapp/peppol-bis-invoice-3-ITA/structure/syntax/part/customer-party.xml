@@ -67,11 +67,11 @@
 
                 <Element>
                     <Term>cbc:Name</Term>
-                    <Name>Buyer trading name - Denominazione commerciale Fornitore</Name>
+                    <Name>Buyer trading name - Denominazione commerciale Cliente</Name>
                     <Description>Denominazione commerciale del Cliente</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-45</Reference>
-                    <Value type="EXAMPLE">Buyer Trading Name</Value>
+                    <Value type="EXAMPLE">Azienda USL cliente</Value>
                 </Element>
             </Element>
 
@@ -90,18 +90,18 @@
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-50</Reference>
 					<Reference type="RULE">BR-IT-210</Reference>
-                    <Value type="EXAMPLE">Hovudgatan 32</Value>
+                    <Value type="EXAMPLE">Via Emilia</Value>
                 </Element>
 
                 <Element cardinality="0..1">
                     <Term>cbc:AdditionalStreetName</Term>
                     <Name>Buyer address line 2 - FPA 1.4.2.2 'NumeroCivico'</Name>
                     <Description>An additional address line in an address that can be used to give further details supplementing the
-                        main line. Numero civico riferito all'indirizzo (non indicare se già presente nell'elemento informativo indirizzo).
+                        main line. Numero civico riferito all'indirizzo.
                     </Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-51</Reference>
-                    <Value type="EXAMPLE">Po box 43</Value>
+                    <Value type="EXAMPLE">52</Value>
                 </Element>
 
                 <Element cardinality="0..1" agid:custom="rule">
@@ -111,7 +111,7 @@
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-52</Reference>
 					<Reference type="RULE">BR-IT-210</Reference>
-                    <Value type="EXAMPLE">Stockholm</Value>
+                    <Value type="EXAMPLE">Modena</Value>
                 </Element>
 
                 <Element cardinality="0..1" agid:custom="rule">
@@ -122,7 +122,7 @@
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-53</Reference>
 					<Reference type="RULE">BR-IT-210</Reference>
-                    <Value type="EXAMPLE">34567</Value>
+                    <Value type="EXAMPLE">41121</Value>
                 </Element>
 
                 <Element cardinality="0..1" agid:custom="rule">
@@ -132,7 +132,7 @@
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-54</Reference>
 					<Reference type="RULE">BR-IT-220</Reference>
-                    <Value type="EXAMPLE">Region A</Value>
+                    <Value type="EXAMPLE">MO</Value>
                 </Element>
 
                 <Element cardinality="0..1">
@@ -146,7 +146,7 @@
                         </Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">BT-163</Reference>
-                        <Value type="EXAMPLE">Building F2</Value>
+                        <Value type="EXAMPLE">Piano seminterrato</Value>
                     </Element>
                 </Element>
 
@@ -163,7 +163,7 @@
                         <Reference type="RULE">BR-11</Reference>
                         <Reference type="RULE">BR-CL-14</Reference>
                         <Reference type="CODE_LIST">ISO3166</Reference>
-                        <Value type="EXAMPLE">SE</Value>
+                        <Value type="EXAMPLE">IT</Value>
                     </Element>
                 </Element>
             </Element>
@@ -213,12 +213,12 @@
 
                 <Element>
                     <Term>cbc:RegistrationName</Term>
-                    <Name>Buyer name - FPA 1.4.1.3.1 ‘Denominazione’ o FPA 1.4.1.3.2 ‘Nome’ e FPA 1.4.1.3.3 ‘Cognome’</Name>
+                    <Name>Buyer name - FPA 1.4.1.3.1 ‘Denominazione’ / concatenazione dei campi FPA 1.4.1.3.2 ‘Nome’ e FPA 1.4.1.3.3 ‘Cognome’</Name>
                     <Description>The full name of the Buyer. Ditta, denominazione o ragione sociale (ditta, impresa, società, ente) o Nome e Cognome della persona fisica.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-44</Reference>
                     <Reference type="RULE">BR-07</Reference>
-                    <Value type="EXAMPLE">Buyer Full Name AS</Value>
+                    <Value type="EXAMPLE">Azienda USL cliente</Value>
                 </Element>
 
                 <Element cardinality="0..1" agid:custom="rule">
@@ -259,7 +259,7 @@
                     <Description>Nome della persona da contattare.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-56</Reference>
-                    <Value type="EXAMPLE">Jens Jensen</Value>
+                    <Value type="EXAMPLE">Giovanni Bianchi</Value>
                 </Element>
 
                 <Element cardinality="0..1">
@@ -268,7 +268,7 @@
                     <Description>Numero di telefono della persona da contattare.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-57</Reference>
-                    <Value type="EXAMPLE">876 654 321</Value>
+                    <Value type="EXAMPLE">059 000003</Value>
                 </Element>
 
                 <Element cardinality="0..1">
@@ -277,7 +277,7 @@
                     <Description>Email della persona da contattare.</Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-58</Reference>
-                    <Value type="EXAMPLE">jens.j@buyer.se</Value>
+                    <Value type="EXAMPLE">giovanni.bianchi@gmail.com</Value>
                 </Element>
             </Element>
 

@@ -16,6 +16,7 @@
 			<DataType>Text</DataType>
 			<Reference type="RULE">BR-IT-DE-018</Reference>
 			<Reference type="RULE">BR-IT-DE-019</Reference>
+			<Value type="EXAMPLE">Via Padova 47</Value>
 		</Element>
 
 		<Element>

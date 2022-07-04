@@ -98,7 +98,7 @@
             <DataType>Text</DataType>
             <Reference type="BUSINESS_TERM">BT-22</Reference>
             <Reference type="RULE">PEPPOL-EN16931-R002</Reference>
-            <Value type="EXAMPLE">Please note our new phone number 33 44 55 66</Value>
+            <Value type="EXAMPLE">Consegne mese di Maggio</Value>
         </Element>
 
 
@@ -151,7 +151,7 @@
             <DataType>Text</DataType>
             <Reference type="BUSINESS_TERM">BT-10</Reference>
             <Reference type="RULE">PEPPOL-EN16931-R003</Reference>
-            <Value type="EXAMPLE">abs1234</Value>
+            <Value type="EXAMPLE">202268004#2017-06-27#ABCDEF</Value>
         </Element>
 
         <Element cardinality="0..1">
@@ -239,7 +239,7 @@
                     <DataType>Document Reference</DataType>
                     <Reference type="BUSINESS_TERM">BT-25</Reference>
                     <Reference type="RULE">BR-55</Reference>
-                    <Value type="EXAMPLE">inv123</Value>
+                    <Value type="EXAMPLE">ft123</Value>
                 </Element>
                 <Element cardinality="0..1">
                     <Term>cbc:IssueDate</Term>
@@ -264,7 +264,7 @@
                 <Description>An identifier of a referenced despatch advice.</Description>
                 <DataType>Document Reference</DataType>
                 <Reference type="BUSINESS_TERM">BT-16</Reference>
-                <Value type="EXAMPLE">desp98</Value>
+                <Value type="EXAMPLE">ddt456</Value>
             </Element>
         </Element>
 
@@ -292,7 +292,7 @@
                 <Description>The identification of a contract.</Description>
                 <DataType>Document Reference</DataType>
                 <Reference type="BUSINESS_TERM">BT-12</Reference>
-                <Value type="EXAMPLE">123Contractref</Value>
+                <Value type="EXAMPLE">Contratto321</Value>
             </Element>
         </Element>
 
@@ -341,7 +341,7 @@
                 <Description>A description of the supporting document, such as: timesheet, usage report etc.</Description>
                 <DataType>Text</DataType>
                 <Reference type="BUSINESS_TERM">BT-123</Reference>
-                <Value type="EXAMPLE">Time list</Value>
+                <Value type="EXAMPLE">Documento aggiuntivo</Value>
             </Element>
             
             <Element cardinality="0..1">
@@ -363,7 +363,7 @@
                         <Reference type="RULE">PEPPOL-EN16931-CL001</Reference>
                         <Reference type="RULE">UBL-DT-06</Reference>
                         <Reference type="CODE_LIST">MimeCode</Reference>
-                        <Value type="EXAMPLE">text/csv</Value>
+                        <Value type="EXAMPLE">PDF</Value>
                     </Attribute>
                     
                     <Attribute>
@@ -371,7 +371,7 @@
                         <Name>Attached document Filename</Name>
                         <Description>The file name of the attached document</Description>
                         <Reference type="RULE">UBL-DT-07</Reference>
-                        <Value type="EXAMPLE">Hours-spent.csv</Value>
+                        <Value type="EXAMPLE">Fattura ft123 del 16-11-2017.pdf</Value>
                         
                     </Attribute>
                     
@@ -408,7 +408,7 @@
                 <Description>The identification of the call for tender or lot the invoice relates to.</Description>
                 <DataType>Document Reference</DataType>
                 <Reference type="BUSINESS_TERM">BT-17</Reference>
-                <Value type="EXAMPLE">PPID-123</Value>
+                <Value type="EXAMPLE">90305884F7</Value>
             </Element>
         </Element>
 
@@ -541,7 +541,7 @@
                 </Description>
                 <DataType>Text</DataType>
                 <Reference type="BUSINESS_TERM">BT-127</Reference>
-                <Value type="EXAMPLE">New article number 12345</Value>
+                <Value type="EXAMPLE">Nuovo articolo n. 12345</Value>
             </Element>
 
             <Element>

@@ -1666,7 +1666,7 @@ version="2.0">
       </xsl:when>
       <xsl:when test=" format-number(cbc:TaxAmount,'###########0.00000000') != format-number(cbc:TaxableAmount * cac:TaxCategory/cbc:Percent div 100.00,'###########0.00000000')">
         <Arrotondamento>
-          <xsl:value-of select=" concat('-',format-number((cbc:TaxAmount - (cbc:TaxableAmount * cac:TaxCategory/cbc:Percent div 100.00)),'###########0.00000000'))"/>
+          <xsl:value-of select="format-number((cbc:TaxAmount - (cbc:TaxableAmount * cac:TaxCategory/cbc:Percent div 100.00)),'###########0.00000000')"/>
         </Arrotondamento>
       </xsl:when>
     </xsl:choose>

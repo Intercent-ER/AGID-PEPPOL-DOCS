@@ -1060,7 +1060,7 @@ version="2.0">
 <xsl:template match="cac:OrderReference">
   <xsl:param name="CN" select="."/>
   <xsl:param name="CNP" select="1"/>
-  <xsl:if test="cbc:ID">
+  <xsl:if test="cbc:ID != '#MULTI#'">
     <DatiOrdineAcquisto>
       <IdDocumento>
         <xsl:value-of select="cbc:ID"/>

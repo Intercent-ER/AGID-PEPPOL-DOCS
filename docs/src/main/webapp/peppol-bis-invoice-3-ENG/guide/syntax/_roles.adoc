@@ -358,7 +358,7 @@ To reflect the assignment of an Invoice to a factor there is a need to:
 include::{snippet-dir}/Snippet-full.xml[tags=payee]
 ----
 
-#Il campo *cac:PartyIdentification/cbc:ID* può essere inoltreusato per fornire le informazioni anagrafiche del Quietanzante indicando i dati FPA 2.4.2.8 CognomeQuietanzante e  FPA 2.4.2.9 NomeQuietanzante concatenati con il simbolo "&#x0023;".#
+#Il campo *cac:PartyIdentification/cbc:ID* può essere inoltre usato per fornire le informazioni anagrafiche del Quietanzante indicando i dati FPA 2.4.2.9 NomeQuietanzante e  FPA 2.4.2.8 CognomeQuietanzante concatenati con il simbolo "&#x0023;".#
 
 
 

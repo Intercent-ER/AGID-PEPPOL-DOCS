@@ -1424,13 +1424,13 @@
 			<ImportoPagamento>
 				<xsl:value-of select="format-number(/in:CreditNote/cac:LegalMonetaryTotal/cbc:PayableAmount,'###########0.00')"/>
 			</ImportoPagamento>
-			<xsl:if test="cbc:PaymentMeansCode = '10' or cbc:PaymentMeansCode = '20'">
+			<xsl:if test="cbc:PaymentMeansCode = 'ZZZ'">
 				<xsl:if test="/in:CreditNote/cac:PayeeParty/cac:PartyIdentification">
 					<CognomeQuietanzante>
-						<xsl:value-of select="substring-before(/in:CreditNote/cac:PayeeParty/cac:PartyIdentification/cbc:ID,'#')"/>
+						<xsl:value-of select="substring-after(/in:CreditNote/cac:PayeeParty/cac:PartyIdentification/cbc:ID,'#')"/>
 					</CognomeQuietanzante>
 					<NomeQuietanzante>
-						<xsl:value-of select="substring-after(/in:CreditNote/cac:PayeeParty/cac:PartyIdentification/cbc:ID,'#')"/>
+						<xsl:value-of select="substring-before(/in:CreditNote/cac:PayeeParty/cac:PartyIdentification/cbc:ID,'#')"/>
 					</NomeQuietanzante>
 					<CFQuietanzante>
 						<xsl:value-of select="/in:CreditNote/cac:PayeeParty/cac:PartyLegalEntity/cbc:CompanyID"/>

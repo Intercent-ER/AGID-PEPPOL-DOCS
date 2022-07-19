@@ -651,8 +651,6 @@
 		<Name>Mutually defined</Name>
 		<Description>A code assigned within a code list to be used on an interim basis and as
             defined among trading partners until a precise code can be assigned to the code list.</Description>
-		<LocalId>MP01</LocalId>
-		<LocalDescription>contanti</LocalDescription>	
-		<LocalUsageNotes>Codice assegnato all'interno di un elenco di codici da utilizzare a titolo provvisorio e come definito tra i partner commerciali fino a quando una codifica non viene assegnato all'elenco di codici.</LocalUsageNotes>
+		<LocalId>MP04</LocalId>
 	</Code>
 </CodeList>

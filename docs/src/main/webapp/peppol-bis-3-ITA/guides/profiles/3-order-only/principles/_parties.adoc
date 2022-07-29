@@ -39,7 +39,7 @@ s|Descrizione
 
 |Il Venditore è la persona giuridica o l'organizzazione che vende la merce o i servizi al cliente. Questo ruolo viene ricoperto dal Fornitore o per suo conto.
 
-|*Committente* +
+|*Committente (Beneficiario)* +
 
 `cac:OriginatorCustomerParty` +
 

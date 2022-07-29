@@ -30,7 +30,7 @@ In alcune circostanze può essere utile revocare un Ordine precedentemente emess
 
 L’Ordine di revoca è un Ordine che contiene il riferimento all’Ordine che si intende revocare e l’indicazione che si tratta di una “revoca” (“Cancelled”), inoltre ha una sola linea d’ordine priva di contenuto.
 
-Per le regole di compilazione, vedi paragrafo 6.12.
+Per le regole di compilazione del riferimento ad altro ordine, vedi paragrafo 6.12.
 
 
 *[red]#Ordine sostitutivo#*
@@ -44,7 +44,7 @@ In alcune circostanze, però, può essere necessario modificare le informazioni 
 [NOTE]
 In questi casi l’Ordine sostitutivo deve riportare l’indicazione del sotto-tipo di Ordinazione “OR”, (c.d. “Ordine sostitutivo di regolazione“, vedi paragrafo 4.4).
 
-Per le regole di compilazione, vedi paragrafo 6.12.
+Per le regole di compilazione del riferimento ad altro ordine, vedi paragrafo 6.12.
 
 
 *[red]#Ordine collegato#*
@@ -55,9 +55,9 @@ In questi casi è possibile evidenziare tale generica relazione con l’uso dell
 
 
 [NOTE]
-L’Ordine collegato può essere utilizzato esclusivamente per tenere memoria che il nuovo processo che si intende avviare è collegato ad un processo precedente e non deve mai essere usato al posto degli altri strumenti (Ordine di revoca, Ordine sostitutivo e Ordine di riscontro) appositamente realizzati per revocare, sostituire (o integrare), confermare o rifiutare un altro Documento.
+L’Ordine collegato può essere utilizzato esclusivamente per tenere memoria che il nuovo processo che si intende avviare è collegato ad un processo precedente e non deve mai essere usato al posto degli altri strumenti (Ordine di revoca e Ordine sostitutivo) appositamente realizzati per revocare, sostituire (o integrare) un altro Documento.
 
-Per le regole di compilazione, vedi paragrafo 6.12.
+Per le regole di compilazione del riferimento ad altro ordine, vedi paragrafo 6.12.
 
 
 *[red]#Ordine di convalida#*
@@ -70,7 +70,7 @@ L’Ordine di convalida può essere utilizzato esclusivamente: +
 * se necessario, per convalidare una fattura emessa a fronte di una Ordinazione già effettuata da un soggetto diverso dal Cliente (ad esempio, da una centrale d’acquisto o da un altro ente che è stato successivamente incorporato, ceduto o diviso).
 
 [NOTE]
-L’Ordine di convalida non deve mai essere usato al posto degli altri strumenti (Ordine di revoca, Ordine sostitutivo e Ordine di riscontro) appositamente realizzati per revocare, sostituire, confermare o rifiutare un altro Documento.
+L’Ordine di convalida non deve mai essere usato al posto degli altri strumenti (Ordine di revoca e Ordine sostitutivo) appositamente realizzati per revocare, sostituire un altro Documento.
 
 .Regole di compilazione 
 

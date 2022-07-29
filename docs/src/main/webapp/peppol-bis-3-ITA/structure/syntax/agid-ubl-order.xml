@@ -285,10 +285,10 @@
                                                 </Attribute>
 					</Element>
 				</Element>
-				<Element agid:custom="cardinality">
+				<Element cardinality="0..1">
 					<Term>cac:PartyName</Term>
 					<Name>Party name - Denominazione della parte</Name>
-					<Element>
+					<Element cardinality="1..1">
 						<Term>cbc:Name</Term>
 						<Name>Buyer name - Denominazione del Cliente</Name>
 						<Description>Indica la denominazione del Cliente.</Description>
@@ -362,9 +362,9 @@
 						</Element>
 					</Element>
 				</Element>
-				<Element agid:custom="cardinality rule">
+				<Element cardinality="0..1">
 					<Term>cac:PartyTaxScheme</Term>
-					<Description>Informazioni fiscali Cliente</Description>
+					<Name>Informazioni fiscali Cliente</Name>
 					<Element>
 						<Term>cbc:CompanyID</Term>
 						<Name>Buyer TAX identifier - Identificativo fiscale del Cliente</Name>

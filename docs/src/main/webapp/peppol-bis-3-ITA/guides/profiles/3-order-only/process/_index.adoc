@@ -13,7 +13,9 @@ Il flusso del processo dell’Ordine può essere descritto come segue:
 
 * Un Ordine può fare riferimento ad un accordo quadro per quanto concerne i termini e le condizioni; altrimenti si applicano quelli dell’Acquirente.
 
-* Un Ordine può contenere voci (merce o servizi) espresso mediante identificatori o descrizioni testuali.
+* Un Ordine può contenere voci (merce o servizi) espresso mediante identificatori o descrizioni testuali;
+
+* #Un Acquirente può emettere un nuovo ordine al Venditore per modificare o cancellare un ordine precedente.#
 
 [[Requisiti-dei-processi-di-business]]
 == #Requisiti dei processi di business#

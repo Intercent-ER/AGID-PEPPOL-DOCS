@@ -62,6 +62,9 @@ A livello di riga +
 
 |====
 
+In caso di riferimento in testata, diverso dal Contratto, l'identificativo del documento deve essere inserito nel campo cbc:ID mentre il Tipo di riferimento deve essere inserito all'interno del campo cbc:DocumentType.  
+In caso di riferimento in riga, l'identificativo del documento deve essere inserito nel campo cbc:ID preceduto dalla stringa composta dal Tipo di riferimento e il carattere ":".
+
 .Esempio di riferimento ad un CUP a livello di testata.
 [source, xml, indent=0]
 ----

@@ -1,7 +1,7 @@
 
 = Percentage
 
-Le percentuali sono espresse come frazioni centesimali (%) cioè il valore di 34.78 % in termini percentuali è dato come 34,78.
+Le percentuali sono espresse come frazioni centesimali (%) cioè il valore di 34.78 % in termini percentuali è dato come 34.78.
 
 IMPORTANT:  Nelle percentuali non vi è alcuna restrizione sul numero di cifre decimali utilizzabili.
 
@@ -15,5 +15,5 @@ IMPORTANT:  Nelle percentuali non vi è alcuna restrizione sul numero di cifre d
 |Contenuto
 |Obbligatorio
 |Decimale
-|34,7812
+|34.7812
 |===

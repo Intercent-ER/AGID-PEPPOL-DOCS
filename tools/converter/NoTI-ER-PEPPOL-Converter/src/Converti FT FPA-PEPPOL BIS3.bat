@@ -24,7 +24,7 @@ echo ____________________________________________________________
 echo - Phase 3: XSLT semantic validation
 
 echo   - OPENPEPPOL Rules
-call _xslt2 output\converted.xml xsl\PEPPOL\3.0\ITNAT-EN16931-UBL.xsl output\svrl_report.xml
+call _xslt2 output\converted.xml xsl\PEPPOL\3.0\AGID-EN16931-UBL.xsl output\svrl_report.xml
 echo Output is provided using Schematron Validation Report Language (SVRL)
 call _xslt2 output\svrl_report.xml xsl\SVRLReportRender-IT.xsl output\semantic_report.html
 

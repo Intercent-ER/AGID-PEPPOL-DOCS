@@ -153,7 +153,6 @@
             holder (a bank or building society) to pay a stated sum to a named recipient.</Description>
 		<LocalId>MP02</LocalId>
 		<LocalDescription>Assegno.</LocalDescription>
-		<LocalUsageNotes>Per specificare il pagamento Contanti presso Tesoreria (MP04) usare il codice 9 e la relativa estensione.</LocalUsageNotes>
 	</Code>
 	<Code>
 		<Id>21</Id>
@@ -652,5 +651,6 @@
 		<Description>A code assigned within a code list to be used on an interim basis and as
             defined among trading partners until a precise code can be assigned to the code list.</Description>
 		<LocalId>MP04</LocalId>
+		<LocalDescription>Contanti presso Tesoreria</LocalDescription>
 	</Code>
 </CodeList>

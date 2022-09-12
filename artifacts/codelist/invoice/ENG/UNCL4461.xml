@@ -130,7 +130,6 @@
             holder (a bank or building society) to pay a stated sum to a named recipient.</Description>
             <LocalId>MP02</LocalId>
         <LocalDescription>Assegno.</LocalDescription>
-        <LocalUsageNotes>Per specificare il pagamento Contanti presso Tesoreria (MP04) usare il codice 9 e la relativa estensione.</LocalUsageNotes>
     </Code>
     <Code>
         <Id>21</Id>
@@ -529,7 +528,6 @@
         <Name>Mutually defined</Name>
         <Description>A code assigned within a code list to be used on an interim basis and as
             defined among trading partners until a precise code can be assigned to the code list.</Description>
-        <LocalUsageNotes>Codice assegnato all'interno di un elenco di codici da utilizzare a titolo provvisorio e come definito tra i partner commerciali fino a quando una codifica non viene assegnato all'elenco di codici.</LocalUsageNotes>
     </Code>
 
 

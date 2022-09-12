@@ -162,8 +162,7 @@
         <Element cardinality="0..1">
             <Term>cac:InvoicePeriod</Term>
             <Name>DELIVERY OR INVOICE PERIOD</Name>
-            <Description>A group of business terms providing information on the invoice period. Also called delivery period. 
-                If the group is used, the invoiceing period start date and/or end date must be used.</Description>
+            <Description>A group of business terms providing information on the invoice period. Also called delivery period.</Description>
             <Reference type="BUSINESS_TERM">BG-14</Reference>
             <Reference type="RULE">BR-IC-11</Reference>
 

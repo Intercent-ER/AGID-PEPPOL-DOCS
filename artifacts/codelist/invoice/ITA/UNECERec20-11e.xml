@@ -10495,12 +10495,7 @@
         <Id>XPK</Id>
         <Name>Package</Name>
         <Description>Standard packaging unit.</Description>
-		<LocalIds>
-			<LocalId>confezione</LocalId>
-			<LocalId>confezioni</LocalId>
-			<LocalId>Confezione</LocalId>
-			<LocalId>Confezioni</LocalId>
-		</LocalIds>
+		<LocalId>confezione</LocalId>
 		<LocalName>confezione</LocalName>
         <LocalDescription>Definisce il pacchetto che contiene più unità singole e' il confezionamento minimo vendibile (Es. confezione di compresse).</LocalDescription>
     </Code>

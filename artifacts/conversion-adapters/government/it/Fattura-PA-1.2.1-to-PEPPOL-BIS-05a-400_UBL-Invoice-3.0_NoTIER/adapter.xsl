@@ -2180,7 +2180,7 @@ the root node.
 								<xsl:value-of select="concat('Denominazione:', DatiAnagrafici/Anagrafica/Denominazione)"/>
 							</xsl:when>
 							<xsl:when test="DatiAnagrafici/Anagrafica[Nome or Cognome]">
-								<xsl:value-of select="normalize-space(concat('Nome#Cognome:', Nome, '#', Cognome))"/>
+								<xsl:value-of select="normalize-space(concat('Nome#Cognome:', DatiAnagrafici/Anagrafica/Nome, '#', DatiAnagrafici/Anagrafica/Cognome))"/>
 							</xsl:when>
 						</xsl:choose>
 					</cbc:RegistrationName>

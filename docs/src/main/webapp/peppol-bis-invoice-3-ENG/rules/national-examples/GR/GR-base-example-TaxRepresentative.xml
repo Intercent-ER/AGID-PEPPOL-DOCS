@@ -188,7 +188,7 @@
     <!-- tag::negative[] -->
 <cac:InvoiceLine>
     <cbc:ID>1</cbc:ID><!--2-->
-    <cbc:InvoicedQuantity unitCode="DAY">7</cbc:InvoicedQuantity>
+    <cbc:InvoicedQuantity unitCode="DAY">7.00</cbc:InvoicedQuantity>
     <cbc:LineExtensionAmount currencyID= "EUR">2800</cbc:LineExtensionAmount>
     <!-- end::negative[] -->
         <cbc:AccountingCost>Konteringsstreng</cbc:AccountingCost>
@@ -218,14 +218,19 @@
     <!-- tag::negative[] -->
     <!-- Code omitted for clarity -->
     <cac:Price>
-        <cbc:PriceAmount currencyID="EUR">400</cbc:PriceAmount>
+        <cbc:PriceAmount currencyID="EUR">400.00</cbc:PriceAmount>
+        <cac:AllowanceCharge>
+			<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+			<cbc:Amount currencyID="EUR">0.00</cbc:Amount>
+			<cbc:BaseAmount currencyID="EUR">400.00</cbc:BaseAmount>
+		</cac:AllowanceCharge>
     </cac:Price>
     <!-- end::negative[] -->
     </cac:InvoiceLine>
     <!-- tag::negative[] -->
 <cac:InvoiceLine>
     <cbc:ID>2</cbc:ID><!--3-->
-    <cbc:InvoicedQuantity unitCode="DAY">-3</cbc:InvoicedQuantity>
+    <cbc:InvoicedQuantity unitCode="DAY">-3.00</cbc:InvoicedQuantity>
     <cbc:LineExtensionAmount currencyID="EUR">-1500</cbc:LineExtensionAmount>
     <!-- end::negative[] -->
     <cac:OrderLineReference>
@@ -254,7 +259,12 @@
     <!-- tag::negative[] -->
     <!-- Code omitted for clarity -->
     <cac:Price>
-        <cbc:PriceAmount currencyID="EUR">500</cbc:PriceAmount>
+        <cbc:PriceAmount currencyID="EUR">500.00</cbc:PriceAmount>
+        <cac:AllowanceCharge>
+			<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+			<cbc:Amount currencyID="EUR">0.00</cbc:Amount>
+			<cbc:BaseAmount currencyID="EUR">500.00</cbc:BaseAmount>
+		</cac:AllowanceCharge>
     </cac:Price>
     <!-- end::negative[] -->
 </cac:InvoiceLine>

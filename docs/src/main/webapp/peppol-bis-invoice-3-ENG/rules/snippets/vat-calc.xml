@@ -225,7 +225,7 @@
             <!-- end::vat-calc[] -->
         </cac:Item>
         <cac:Price>
-            <cbc:PriceAmount currencyID="EUR">400</cbc:PriceAmount>
+            <cbc:PriceAmount currencyID="EUR">400.00</cbc:PriceAmount>
         </cac:Price>
         <!-- tag::vat-calc[] -->
     </cac:InvoiceLine>

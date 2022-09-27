@@ -99,7 +99,7 @@ deve essere arrontondato a due decimali e gli sconti/maggiorazionisono anch'essi
     </cac:AllowanceCharge>
     ...
     <cac:Price>
-        <cbc:PriceAmount currencyID="EUR">100</cbc:PriceAmount><1>
+        <cbc:PriceAmount currencyID="EUR">100.00</cbc:PriceAmount><1>
     </cac:Price>
 </cac:InvoiceLine>
 ----

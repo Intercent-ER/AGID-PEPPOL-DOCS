@@ -566,7 +566,7 @@
     </cac:LegalMonetaryTotal>
     <cac:InvoiceLine>
         <cbc:ID>1</cbc:ID>
-        <cbc:InvoicedQuantity unitCode="C62">1</cbc:InvoicedQuantity>
+        <cbc:InvoicedQuantity unitCode="C62">1.00</cbc:InvoicedQuantity>
         <cbc:LineExtensionAmount currencyID="EUR">4100.00</cbc:LineExtensionAmount>
         <cbc:AccountingCost>Konteringsstreng</cbc:AccountingCost>
         <cac:InvoicePeriod>
@@ -635,12 +635,12 @@
         </cac:Item>
         <!-- tag::price[] -->
         <cac:Price>
-            <cbc:PriceAmount currencyID="EUR">4100</cbc:PriceAmount>
+            <cbc:PriceAmount currencyID="EUR">4100.00</cbc:PriceAmount>
             <cbc:BaseQuantity unitCode="C62">1</cbc:BaseQuantity>
             <cac:AllowanceCharge>
                 <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-                <cbc:Amount currencyID="EUR">100</cbc:Amount>
-                <cbc:BaseAmount currencyID="EUR">4200</cbc:BaseAmount>
+                <cbc:Amount currencyID="EUR">100.00</cbc:Amount>
+                <cbc:BaseAmount currencyID="EUR">4200.00</cbc:BaseAmount>
             </cac:AllowanceCharge>
         </cac:Price>
         <!-- end::price[] -->

@@ -45,10 +45,15 @@ image::../../../images/7.1.1.vatex-table-cross-border.png[Vatex table, width=100
       <cbc:Value>N1</cbc:Value>
     </cac:AdditionalItemProperty>
   </cac:Item>
-  <cac:Price>
-    <cbc:PriceAmount currencyID="EUR">20.00</cbc:PriceAmount>
-    <cbc:BaseQuantity unitCode="C62">1</cbc:BaseQuantity>
-  </cac:Price>
+<cac:Price>
+	<cbc:PriceAmount currencyID="EUR">20.00</cbc:PriceAmount>
+	<cbc:BaseQuantity unitCode="C62">1</cbc:BaseQuantity>
+	<cac:AllowanceCharge>
+		<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+		<cbc:Amount currencyID="EUR">0.00</cbc:Amount>
+		<cbc:BaseAmount currencyID="EUR">20.00</cbc:BaseAmount>
+	</cac:AllowanceCharge>
+</cac:Price>
 </cac:InvoiceLine>
 ----
 
@@ -154,9 +159,14 @@ Per altri dettagli vedi anche il paragrafo <<anchor-11,9.4. Calcolo dell’IVA>>
       <cbc:Value>N6.3</cbc:Value>
     </cac:AdditionalItemProperty>
   </cac:Item>
-  <cac:Price>
-    <cbc:PriceAmount currencyID="EUR">100.00</cbc:PriceAmount>
-  </cac:Price>
+<cac:Price>
+	<cbc:PriceAmount currencyID="EUR">100.00</cbc:PriceAmount>
+	<cac:AllowanceCharge>
+		<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+		<cbc:Amount currencyID="EUR">0.00</cbc:Amount>
+		<cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
+	</cac:AllowanceCharge>
+</cac:Price>
 </cac:InvoiceLine>
 ----
 
@@ -197,10 +207,15 @@ Per altri dettagli vedi anche il paragrafo <<anchor-11,9.4. Calcolo dell’IVA>>
       <cbc:Value>N1</cbc:Value>
     </cac:AdditionalItemProperty>
   </cac:Item>
-  <cac:Price>
-    <cbc:PriceAmount currencyID="EUR">20.00</cbc:PriceAmount>
-    <cbc:BaseQuantity unitCode="C62">1</cbc:BaseQuantity>
-  </cac:Price>
+<cac:Price>
+	<cbc:PriceAmount currencyID="EUR">20.00</cbc:PriceAmount>
+	<cbc:BaseQuantity unitCode="C62">1</cbc:BaseQuantity>
+	<cac:AllowanceCharge>
+		<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+		<cbc:Amount currencyID="EUR">0.00</cbc:Amount>
+		<cbc:BaseAmount currencyID="EUR">20.00</cbc:BaseAmount>
+	</cac:AllowanceCharge>
+</cac:Price>
 </cac:InvoiceLine>
 ----
 

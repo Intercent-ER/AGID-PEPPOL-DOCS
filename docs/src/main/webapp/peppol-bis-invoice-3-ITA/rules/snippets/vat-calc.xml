@@ -225,6 +225,11 @@
         </cac:Item>
         <cac:Price>
             <cbc:PriceAmount currencyID="EUR">400.00</cbc:PriceAmount>
+            <cac:AllowanceCharge>
+                <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+                <cbc:Amount currencyID="EUR">0.00</cbc:Amount>
+                <cbc:BaseAmount currencyID="EUR">400.00</cbc:BaseAmount>
+            </cac:AllowanceCharge>
         </cac:Price>
     </cac:InvoiceLine>
     <!-- tag::vat-calc[] -->
@@ -259,7 +264,12 @@
             <!-- end::vat-calc[] -->
         </cac:Item>
         <cac:Price>
-            <cbc:PriceAmount currencyID="EUR">200</cbc:PriceAmount>
+            <cbc:PriceAmount currencyID="EUR">200.00</cbc:PriceAmount>
+            <cac:AllowanceCharge>
+                <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+                <cbc:Amount currencyID="EUR">0.00</cbc:Amount>
+                <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
+            </cac:AllowanceCharge>
         </cac:Price>
     </cac:InvoiceLine>
     <!-- tag::vat-calc[] -->

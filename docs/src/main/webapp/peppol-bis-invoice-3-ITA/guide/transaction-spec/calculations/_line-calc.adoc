@@ -62,8 +62,13 @@ deve essere arrontondato a due decimali e gli sconti/maggiorazionisono anch'essi
     <cbc:LineExtensionAmount currencyID="EUR">1000.00</cbc:LineExtensionAmount><4>
 ...
     <cac:Price>
-        <cbc:PriceAmount currencyID="EUR">200</cbc:PriceAmount><1>
+        <cbc:PriceAmount currencyID="EUR">200.00</cbc:PriceAmount><1>
         <cbc:BaseQuantity unitCode="C62">2</cbc:BaseQuantity><2> 
+                    <cac:AllowanceCharge>
+                <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+                <cbc:Amount currencyID="EUR">0.00</cbc:Amount>
+                <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
+            </cac:AllowanceCharge>
     </cac:Price>
 </cac:InvoiceLine>
 ----
@@ -100,6 +105,11 @@ deve essere arrontondato a due decimali e gli sconti/maggiorazionisono anch'essi
     ...
     <cac:Price>
         <cbc:PriceAmount currencyID="EUR">100.00</cbc:PriceAmount><1>
+        <cac:AllowanceCharge>
+            <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+            <cbc:Amount currencyID="EUR">0.00</cbc:Amount>
+            <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
+        </cac:AllowanceCharge>
     </cac:Price>
 </cac:InvoiceLine>
 ----

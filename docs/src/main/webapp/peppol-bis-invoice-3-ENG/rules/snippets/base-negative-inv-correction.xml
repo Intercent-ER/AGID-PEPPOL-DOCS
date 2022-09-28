@@ -193,6 +193,11 @@
         <!-- Code omitted for clarity -->
         <cac:Price>
             <cbc:PriceAmount currencyID="EUR">400.00</cbc:PriceAmount><!--5-->
+            <cac:AllowanceCharge>
+                <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+                <cbc:Amount currencyID="EUR">0.00</cbc:Amount>
+                <cbc:BaseAmount currencyID="EUR">400.00</cbc:BaseAmount>
+            </cac:AllowanceCharge>
         </cac:Price>
       </cac:InvoiceLine>
         <!-- end::negative[] -->
@@ -230,6 +235,11 @@
         <!-- Code omitted for clarity -->
         <cac:Price>
             <cbc:PriceAmount currencyID="EUR">500.00</cbc:PriceAmount>
+            <cac:AllowanceCharge>
+                <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+                <cbc:Amount currencyID="EUR">0.00</cbc:Amount>
+                <cbc:BaseAmount currencyID="EUR">500.00</cbc:BaseAmount>
+            </cac:AllowanceCharge>
         </cac:Price>
       </cac:InvoiceLine>
         <!-- end::negative[] -->

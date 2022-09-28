@@ -16,7 +16,7 @@
                 xmlns:ubl-creditnote="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2"
                 xmlns:ubl-invoice="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
                 xmlns:u="utils"
-                version="2.0"><!--Implementers: please note that overriding process-prolog or process-root is
+                version="2.0"><!--Implementers: please note that overriding process-prolog or process-root is 
     the preferred method for meta-stylesheets to use where possible. -->
 <xsl:param name="archiveDirParameter"/>
    <xsl:param name="archiveNameParameter"/>
@@ -183,7 +183,7 @@
       </xsl:if>
    </xsl:template>
    <!--MODE: SCHEMATRON-FULL-PATH-3-->
-<!--This mode can be used to generate prefixed XPath for humans
+<!--This mode can be used to generate prefixed XPath for humans 
 	(Top-level element has index)-->
 <xsl:template match="node() | @*" mode="schematron-get-full-path-3">
       <xsl:for-each select="ancestor-or-self::*">
@@ -886,7 +886,7 @@
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
                </xsl:attribute>
-               <svrl:text>[BR-CO-10]-Sum of Invoice line net amount (BT-106) = S Invoice line net amount (BT-131).</svrl:text>
+               <svrl:text>[BR-CO-10]-Sum of Invoice line net amount (BT-106) = Σ Invoice line net amount (BT-131).</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
@@ -902,7 +902,7 @@
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
                </xsl:attribute>
-               <svrl:text>[BR-CO-11]-Sum of allowances on document level (BT-107) = S Document level allowance amount (BT-92).</svrl:text>
+               <svrl:text>[BR-CO-11]-Sum of allowances on document level (BT-107) = Σ Document level allowance amount (BT-92).</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
@@ -918,7 +918,7 @@
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
                </xsl:attribute>
-               <svrl:text>[BR-CO-12]-Sum of charges on document level (BT-108) = S Document level charge amount (BT-99).</svrl:text>
+               <svrl:text>[BR-CO-12]-Sum of charges on document level (BT-108) = Σ Document level charge amount (BT-99).</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
@@ -934,7 +934,7 @@
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
                </xsl:attribute>
-               <svrl:text>[BR-CO-13]-Invoice total amount without VAT (BT-109) = S Invoice line net amount (BT-131) - Sum of allowances on document level (BT-107) + Sum of charges on document level (BT-108).</svrl:text>
+               <svrl:text>[BR-CO-13]-Invoice total amount without VAT (BT-109) = Σ Invoice line net amount (BT-131) - Sum of allowances on document level (BT-107) + Sum of charges on document level (BT-108).</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
@@ -2892,7 +2892,7 @@
                <xsl:attribute name="location">
                   <xsl:apply-templates select="." mode="schematron-select-full-path"/>
                </xsl:attribute>
-               <svrl:text>[BR-CO-14]-Invoice total VAT amount (BT-110) = S VAT category tax amount (BT-117).</svrl:text>
+               <svrl:text>[BR-CO-14]-Invoice total VAT amount (BT-110) = Σ VAT category tax amount (BT-117).</svrl:text>
             </svrl:failed-assert>
          </xsl:otherwise>
       </xsl:choose>
@@ -20406,10 +20406,10 @@
 
 		    <!--ASSERT -->
 <xsl:choose>
-         <xsl:when test="matches(.,'^\d{1,12}\.\d{2,8}$')"/>
+         <xsl:when test="matches(.,'^\-{0,1}\d{1,12}\.\d{2,8}$')"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="matches(.,'^\d{1,12}\.\d{2,8}$')">
+                                test="matches(.,'^\-{0,1}\d{1,12}\.\d{2,8}$')">
                <xsl:attribute name="id">BR-IT-380</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">
@@ -20431,10 +20431,10 @@
 
 		    <!--ASSERT -->
 <xsl:choose>
-         <xsl:when test="matches(.,'^\d*(\.\d{0,2})?$') and string-length(.) &gt;= 1 and string-length(.) &lt;= 15"/>
+         <xsl:when test="matches(.,'^\-{0,1}\d*(\.\d{0,2})?$') and string-length(.) &gt;= 1 and string-length(.) &lt;= 15"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="matches(.,'^\d*(\.\d{0,2})?$') and string-length(.) &gt;= 1 and string-length(.) &lt;= 15">
+                                test="matches(.,'^\-{0,1}\d*(\.\d{0,2})?$') and string-length(.) &gt;= 1 and string-length(.) &lt;= 15">
                <xsl:attribute name="id">BR-IT-390</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">

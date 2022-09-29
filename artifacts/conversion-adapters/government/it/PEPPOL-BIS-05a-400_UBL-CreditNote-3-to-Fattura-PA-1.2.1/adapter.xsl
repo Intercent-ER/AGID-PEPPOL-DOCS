@@ -3,21 +3,9 @@
 <xsl:stylesheet xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ccts="urn:un:unece:uncefact:documentation:2" xmlns:saxon="http://saxon.sf.net/" xmlns:cr="http://www.ubl-italia.org/ns/CrossReference" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:in="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2" xmlns:nx="http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2" xmlns:qdt="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDatatypes-2" xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2" xmlns:asmap="http://www.javest.com/ns/mapper/snippet/attribute" xmlns:xsmap="http://www.javest.com/ns/mapper/snippet" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:gc="urn:fdc:difi.no:2017:vefa:structure:CodeList-1" xmlns:doc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/" xmlns:vs="urn:www.ubl-italia.org:spec:fatturapa:codelist:gc:VATSchemes" exclude-result-prefixes="xsmap asmap in cac cbc ccts ext saxon qdt udt ds cr" version="2.0">
 	<xsl:output indent="no"/>
 	<xsl:param name="progInvio" as="xs:string">1</xsl:param>
-	<!-- <xsl:param name="xclProvinceItaliane" as="xs:string">xcl/ProvinceItaliane-1.0.gc</xsl:param> -->
-	<!-- <xsl:param name="xclTipoDocumento" as="xs:string">xcl/TipoDocumento.gc</xsl:param> -->
-	<!-- non sembra esserci conversione per InvoiceTypeCode, strano perché il dato è obbligatorio -->
-	<!-- <xsl:param name="xclUnitOfMeasureCode" as="xs:string">xcl/UnitOfMeasureCode-2.1.gc</xsl:param> -->
-	<!-- <xsl:param name="xclCategoriaImposte" as="xs:string">xcl/CategoriaImposte.gc</xsl:param> -->
-	<!-- la variabile non è mai chiamata in causa, la natura si calcola in altri modi -->
-	<!-- <xsl:param name="xclPaymentMeansCode" as="xs:string">xcl/PaymentMeansCode-2.1.gc</xsl:param> -->
-	<!-- <xsl:param name="xclFormatoAttachment" as="xs:string">xcl/FormatoAttachment.gc</xsl:param> -->
-	<!--<xsl:param name="PROVINCE" as="xs:string">xcl/SiglaProvince.xml</xsl:param>   forse non serve nemmeno-->
-	<!--<xsl:param name="TIPODOC" as="xs:string">xcl/TipoDocumento.xml</xsl:param>   forse non serve nemmeno -->
 	<xsl:param name="UNECE" as="xs:string">xcl/UNECERec20-11e.xml</xsl:param>
-	<!--<xsl:param name="NATURA" as="xs:string">xcl/Natura_VATCategory_VATEX.xml</xsl:param>  forse non serve nemmeno -->
 	<xsl:param name="UNCL4461" as="xs:string">xcl/UNCL4461.xml</xsl:param>
 	<xsl:param name="ALLEGATO" as="xs:string">xcl/FormatoAttachment.xml</xsl:param>
-	<!--Processing starts at node: /in:CreditNoteSee the template rule at end of stylesheet for the default processing ofthe root node.-->
 	<xsl:template match="/*/ext:UBLExtensions/ext:UBLExtension" mode="ProvaRitenuta">
 		<xsl:param name="CN" select="."/>
 		<xsl:param name="CNP" select="1"/>
@@ -259,7 +247,6 @@
 					<xsl:value-of select="cbc:ID"/>
 				</NomeAttachment>
 				<FormatoAttachment>
-					<!-- <xsl:value-of select="if (document($xclFormatoAttachment)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xcode']/SimpleValue=current()/cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@mimeCode][1]) then document($xclFormatoAttachment)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xcode']/SimpleValue=current()/cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@mimeCode][1] else if (matches(cbc:DocumentType,'\.[a-zA-Z]{3,4}$')) then tokenize(cbc:DocumentType, '\.')[last()] else 'binary'"/> -->
 					<xsl:value-of select="if (document($ALLEGATO)//doc:Code[doc:Id=current()/cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@mimeCode]/doc:LocalId[1]) then document($ALLEGATO)//doc:Code[doc:Id=current()/cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@mimeCode]/doc:LocalId[1] else if (matches(cbc:DocumentType,'\.[a-zA-Z]{3,4}$')) then tokenize(cbc:DocumentType, '\.')[last()] else 'binary'"/>
 				</FormatoAttachment>
 				<xsl:if test="cbc:DocumentDescription">
@@ -396,7 +383,6 @@
 				</Comune>
 				<xsl:if test="cac:Country/cbc:IdentificationCode = 'IT'">
 					<Provincia>
-						<!--<xsl:value-of select="if (string-length(cbc:CountrySubentity)=2 ) then cbc:CountrySubentity else document($xclProvinceItaliane)//Value[@ColumnRef='code']/SimpleValue[contains(lower-case(translate(../../Value[@ColumnRef='xname']/SimpleValue,'áàéèíìóòúù','aaeeiioouu')), lower-case(translate(current()/cbc:CountrySubentity,'áàéèíìóòúù','aaeeiioouu')))][1]"/>     l'XCode non esiste in ProinceItaliane-1.0.gc -->
 						<xsl:value-of select="cbc:CountrySubentity"/>
 					</Provincia>
 				</xsl:if>
@@ -437,7 +423,6 @@
 				</xsl:if>
 				<xsl:if test="cac:Shipment/cbc:GrossWeightMeasure/@unitCode">
 					<UnitaMisuraPeso>
-						<!-- <xsl:value-of select="document($xclUnitOfMeasureCode)//Value[@ColumnRef='xname']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/cac:Shipment/cbc:GrossWeightMeasure/@unitCode]"/> -->
 						<xsl:value-of select="document($UNECE)//gc:Code[gc:Id=current()/cac:Shipment/cbc:GrossWeightMeasure/@unitCode]/gc:LocalIds/gc:LocalId[1]"/>
 					</UnitaMisuraPeso>
 				</xsl:if>
@@ -1259,7 +1244,6 @@
 				<xsl:value-of select="cbc:StreetName"/>
 			</Indirizzo>
 			<xsl:if test="string(number(cbc:AdditionalStreetName)) != 'NaN'">
-				<!-- myNode is a number -->
 				<NumeroCivico>
 					<xsl:value-of select="cbc:AdditionalStreetName"/>
 				</NumeroCivico>
@@ -1322,7 +1306,6 @@
 		<xsl:param name="CN" select="."/>
 		<xsl:param name="CNP" select="1"/>
 		<ProvinciaAlbo>
-			<!--<xsl:value-of select="if (string-length(cac:RegistrationAddress/cbc:CityName)=2) then cac:RegistrationAddress/cbc:CityName else document($xclProvinceItaliane)//Value[@ColumnRef='code']/SimpleValue[contains(lower-case(translate(../../Value[@ColumnRef='xname']/SimpleValue,'áàéèíìóòúù','aaeeiioouu')), lower-case(translate(current()/cac:RegistrationAddress/cbc:CityName,'áàéèíìóòúù','aaeeiioouu')))][1]"/>-->
 			<xsl:value-of select="cac:RegistrationAddress/cbc:CityName"/>
 		</ProvinciaAlbo>
 	</xsl:template>
@@ -1406,7 +1389,6 @@
 				</Beneficiario>
 			</xsl:if>
 			<ModalitaPagamento>
-				<!--<xsl:value-of select="(if (document($xclPaymentMeansCode)//Value[@ColumnRef='xcode']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/cbc:PaymentMeansCode]) then document($xclPaymentMeansCode)//Value[@ColumnRef='xcode']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/cbc:PaymentMeansCode][1] else 'MP05')"/>-->
 				<xsl:value-of select="(if (document($UNCL4461)//gc:Code[gc:Id=current()/cbc:PaymentMeansCode]/gc:LocalId[1]) then document($UNCL4461)//gc:Code[gc:Id=current()/cbc:PaymentMeansCode]/gc:LocalId[1] else 'MP05')"/>
 			</ModalitaPagamento>
 			<xsl:if test=" contains (/in:CreditNote/cac:PaymentTerms[1]/cbc:Note,'#')">
@@ -2156,7 +2138,6 @@
 								<xsl:value-of select="cac:PaymentTerms/cbc:Note"/>
 							</CondizioniPagamento>
 						</xsl:if>
-						<!-- Completato ma problema a codelist TODO-->
 						<xsl:apply-templates select="cac:PaymentMeans">
 							<xsl:with-param name="CN" select="current()"/>
 							<xsl:with-param name="CNP" select="position()"/>

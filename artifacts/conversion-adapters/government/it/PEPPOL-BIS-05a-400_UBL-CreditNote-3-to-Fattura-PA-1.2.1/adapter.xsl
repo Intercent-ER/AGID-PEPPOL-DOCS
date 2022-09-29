@@ -592,13 +592,13 @@
 				</xsl:when>
 			</xsl:choose>
 			<xsl:if test="cbc:CreditedQuantity and not(cac:Price/cbc:BaseQuantity)">
-				<Quantita>
-					<xsl:value-of select="format-number(cbc:CreditedQuantity,'###########0.00000000')"/>
+				<Quantita>				
+					<xsl:value-of select="if (contains(cbc:CreditedQuantity, '-')) then format-number(number(substring-after(cbc:CreditedQuantity, '-')),'###########0.00000000') else format-number(cbc:CreditedQuantity,'###########0.00000000')"/>
 				</Quantita>
 			</xsl:if>
 			<xsl:if test="cbc:CreditedQuantity and cac:Price/cbc:BaseQuantity">
 				<Quantita>
-					<xsl:value-of select="format-number(number(cbc:CreditedQuantity) div number(cac:Price/cbc:BaseQuantity),'###########0.00000000')"/>
+					<xsl:value-of select="if (contains(cbc:CreditedQuantity, '-')) then format-number(number(substring-after(cbc:CreditedQuantity, '-')) div number(cac:Price/cbc:BaseQuantity),'###########0.00000000') else format-number(number(cbc:CreditedQuantity) div number(cac:Price/cbc:BaseQuantity),'###########0.00000000')"/>
 				</Quantita>
 			</xsl:if>
 			<xsl:if test="not(cbc:CreditedQuantity)">
@@ -609,14 +609,12 @@
 			<xsl:choose>
 				<xsl:when test="cac:Price/cbc:BaseQuantity">
 					<UnitaMisura>
-						<!-- <xsl:value-of select="substring(concat(format-number(cac:Price/cbc:BaseQuantity,'###########0.00'),' ',document($xclUnitOfMeasureCode)//Value[@ColumnRef='xname']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/cbc:InvoicedQuantity/@unitCode]),1,10)"/> -->
-						<xsl:value-of select="substring(concat(format-number(cac:Price/cbc:BaseQuantity,'###########0.00'),' ',document($UNECE)//gc:Code[gc:Id=current()/cbc:InvoicedQuantity/@unitCode]/gc:LocalIds/gc:LocalId[1]),1,10)"/>
+						<xsl:value-of select="substring(concat(format-number(cac:Price/cbc:BaseQuantity,'###########0.00'),' ',document($UNECE)//gc:Code[gc:Id=current()/cbc:CreditedQuantity/@unitCode]/gc:LocalIds/gc:LocalId[1]),1,10)"/>
 					</UnitaMisura>
 				</xsl:when>
 				<xsl:when test="not(cac:Price/cbc:BaseQuantity)">
 					<UnitaMisura>
-						<!-- <xsl:value-of select="substring(concat('1.00',' ',document($xclUnitOfMeasureCode)//Value[@ColumnRef='xname']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/cbc:InvoicedQuantity/@unitCode]),1,10)"/> -->
-						<xsl:value-of select="substring(concat('1.00',' ',document($UNECE)//gc:Code[gc:Id=current()/cbc:InvoicedQuantity/@unitCode]/gc:LocalIds/gc:LocalId[1]),1,10)"/>
+						<xsl:value-of select="substring(concat('1.00',' ',document($UNECE)//gc:Code[gc:Id=current()/cbc:CreditedQuantity/@unitCode]/gc:LocalIds/gc:LocalId[1]),1,10)"/>
 					</UnitaMisura>
 				</xsl:when>
 			</xsl:choose>
@@ -631,7 +629,7 @@
 				</DataFinePeriodo>
 			</xsl:if>
 			<PrezzoUnitario>
-				<xsl:value-of select="format-number(cac:Price/cac:AllowanceCharge/cbc:BaseAmount,'###########0.00000000')"/>
+				<xsl:value-of select="if (contains(cbc:CreditedQuantity, '-')) then concat('-',format-number(cac:Price/cac:AllowanceCharge/cbc:BaseAmount,'###########0.00000000')) else format-number(cac:Price/cac:AllowanceCharge/cbc:BaseAmount,'###########0.00000000')"/>
 			</PrezzoUnitario>
 			<xsl:apply-templates select="cac:Price/cac:AllowanceCharge" mode="ScontoMaggiorazione_Riga">
 				<xsl:with-param name="CN" select="current()"/>

@@ -620,16 +620,16 @@ version="2.0">
         </Descrizione>
       </xsl:when>
     </xsl:choose>
-    <xsl:if test="cbc:InvoicedQuantity and not(cac:Price/cbc:BaseQuantity)">
-      <Quantita>
-        <xsl:value-of select="format-number(cbc:InvoicedQuantity,'###########0.00000000')"/>
-      </Quantita>
-    </xsl:if>
-    <xsl:if test="cbc:InvoicedQuantity and cac:Price/cbc:BaseQuantity">
-      <Quantita>
-        <xsl:value-of select="format-number(number(cbc:InvoicedQuantity) div number(cac:Price/cbc:BaseQuantity),'###########0.00000000')"/>
-      </Quantita>
-    </xsl:if>
+		<xsl:if test="cbc:InvoicedQuantity and not(cac:Price/cbc:BaseQuantity)">
+			<Quantita>				
+				<xsl:value-of select="if (contains(cbc:InvoicedQuantity, '-')) then format-number(number(substring-after(cbc:InvoicedQuantity, '-')),'###########0.00000000') else format-number(cbc:InvoicedQuantity,'###########0.00000000')"/>
+			</Quantita>
+		</xsl:if>
+		<xsl:if test="cbc:InvoicedQuantity and cac:Price/cbc:BaseQuantity">
+			<Quantita>
+				<xsl:value-of select="if (contains(cbc:InvoicedQuantity, '-')) then format-number(number(substring-after(cbc:InvoicedQuantity, '-')) div number(cac:Price/cbc:BaseQuantity),'###########0.00000000') else format-number(number(cbc:InvoicedQuantity) div number(cac:Price/cbc:BaseQuantity),'###########0.00000000')"/>
+			</Quantita>
+		</xsl:if>
     <xsl:if test="not(cbc:InvoicedQuantity)">
       <Quantita>
         <xsl:text>1.00</xsl:text>
@@ -659,9 +659,9 @@ version="2.0">
       <xsl:value-of select="&#x9;substring(string(cac:InvoicePeriod/cbc:EndDate),1,10)"/>
     </DataFinePeriodo>
   </xsl:if>
-  <PrezzoUnitario>
-    <xsl:value-of select="format-number(cac:Price/cac:AllowanceCharge/cbc:BaseAmount,'###########0.00000000')"/>
-  </PrezzoUnitario>
+	<PrezzoUnitario>
+		<xsl:value-of select="if (contains(cbc:InvoicedQuantity, '-')) then concat('-',format-number(cac:Price/cac:AllowanceCharge/cbc:BaseAmount,'###########0.00000000')) else format-number(cac:Price/cac:AllowanceCharge/cbc:BaseAmount,'###########0.00000000')"/>
+	</PrezzoUnitario>
   <xsl:apply-templates select="cac:Price/cac:AllowanceCharge" mode="ScontoMaggiorazione_Riga">
     <xsl:with-param name="CN" select="current()"/>
     <xsl:with-param name="CNP" select="position()"/>

@@ -20,7 +20,7 @@ BT-40 Seller country code
 |Se il valore dell’elemento BT-40 (Seller country 
 code) è diverso da "IT", il BT-24 deve essere
 valorizzato come segue: + 
-*urn:cen.eu:en16931:2017#compliant# urn:fdc:peppol.eu:2017:poacc: billing:3.0#compliant #urn:www.agid.gov.it:trns:fattura:3*
+*urn:cen.eu:en16931:2017#compliant# urn:fdc:peppol.eu:2017:poacc: billing:3.0#conformant #urn:www.agid.gov.it:trns:fattura:3*
 
 (rimuovere gli spazi prima dell'utilizzo)
 

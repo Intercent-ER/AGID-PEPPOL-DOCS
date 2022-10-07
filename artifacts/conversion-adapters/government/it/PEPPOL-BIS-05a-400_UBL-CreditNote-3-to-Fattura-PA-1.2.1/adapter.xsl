@@ -551,10 +551,12 @@
 				<xsl:with-param name="CN" select="current()"/>
 				<xsl:with-param name="CNP" select="position()"/>
 			</xsl:apply-templates>
-			<xsl:apply-templates select="cac:Item" mode="codiceArticolo">
-				<xsl:with-param name="CN" select="current()"/>
-				<xsl:with-param name="CNP" select="position()"/>
-			</xsl:apply-templates>
+			<xsl:if test="cac:Item/cac:SellersItemIdentification or cac:Item/cac:CommodityClassification">
+				<xsl:apply-templates select="cac:Item" mode="codiceArticolo">
+					<xsl:with-param name="CN" select="current()"/>
+					<xsl:with-param name="CNP" select="position()"/>
+				</xsl:apply-templates>
+			</xsl:if>
 			<xsl:apply-templates select="cac:Item/cac:StandardItemIdentification/cbc:ID">
 				<xsl:with-param name="CN" select="current()"/>
 				<xsl:with-param name="CNP" select="position()"/>
@@ -577,7 +579,7 @@
 				</xsl:when>
 			</xsl:choose>
 			<xsl:if test="cbc:CreditedQuantity and not(cac:Price/cbc:BaseQuantity)">
-				<Quantita>				
+				<Quantita>
 					<xsl:value-of select="if (contains(cbc:CreditedQuantity, '-')) then format-number(number(substring-after(cbc:CreditedQuantity, '-')),'###########0.00000000') else format-number(cbc:CreditedQuantity,'###########0.00000000')"/>
 				</Quantita>
 			</xsl:if>

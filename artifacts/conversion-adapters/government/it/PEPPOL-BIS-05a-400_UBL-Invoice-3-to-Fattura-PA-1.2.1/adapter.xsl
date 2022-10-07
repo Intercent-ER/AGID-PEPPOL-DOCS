@@ -563,10 +563,12 @@
 				<xsl:with-param name="CN" select="current()"/>
 				<xsl:with-param name="CNP" select="position()"/>
 			</xsl:apply-templates>
-			<xsl:apply-templates select="cac:Item" mode="codiceArticolo">
-				<xsl:with-param name="CN" select="current()"/>
-				<xsl:with-param name="CNP" select="position()"/>
-			</xsl:apply-templates>
+			<xsl:if test="cac:Item/cac:SellersItemIdentification or cac:Item/cac:CommodityClassification">
+				<xsl:apply-templates select="cac:Item" mode="codiceArticolo">
+					<xsl:with-param name="CN" select="current()"/>
+					<xsl:with-param name="CNP" select="position()"/>
+				</xsl:apply-templates>
+			</xsl:if>
 			<xsl:apply-templates select="cac:Item/cac:StandardItemIdentification/cbc:ID">
 				<xsl:with-param name="CN" select="current()"/>
 				<xsl:with-param name="CNP" select="position()"/>

@@ -1982,12 +1982,12 @@ the root node.
 						<xsl:text>Credit transfer</xsl:text>
 					</xsl:attribute>
 				</xsl:if>
-				<xsl:if test="(ModaliaPagamento != 'MP05') and (document($UNCL4461)//gc:Code[gc:LocalId=current()/ModalitaPagamento][1]/gc:Name)">
+				<xsl:if test="(ModalitaPagamento != 'MP05') and (document($UNCL4461)//gc:Code[gc:LocalId=current()/ModalitaPagamento][1]/gc:Name)">
 					<xsl:attribute name="name">
 						<xsl:value-of select="document($UNCL4461)//gc:Code[gc:LocalId=current()/ModalitaPagamento][1]/gc:Name"/>
 					</xsl:attribute>
 				</xsl:if>
-				<xsl:value-of select="if ((document($UNCL4461)//gc:Code[gc:LocalId=current()/ModalitaPagamento][1]/gc:Id) and ModaliaPagamento != 'MP05') then (document($UNCL4461)//gc:Code[gc:LocalId=current()/ModalitaPagamento][1]/gc:Id) else '30'"/>
+				<xsl:value-of select="if ((document($UNCL4461)//gc:Code[gc:LocalId=current()/ModalitaPagamento][1]/gc:Id) and ModalitaPagamento != 'MP05') then (document($UNCL4461)//gc:Code[gc:LocalId=current()/ModalitaPagamento][1]/gc:Id) else '30'"/>
 			</cbc:PaymentMeansCode>
 			<xsl:if test="CodicePagamento">
 				<cbc:PaymentID>

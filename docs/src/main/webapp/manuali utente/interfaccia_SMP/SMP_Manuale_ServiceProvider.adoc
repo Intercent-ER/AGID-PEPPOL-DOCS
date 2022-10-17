@@ -1,0 +1,59 @@
+:Autore: AgID
+:doctype: book
+:encoding: utf-8
+:lang: it
+:toc: left
+:toclevels: 2
+:toc-title: Indice
+:numbered:
+
+====
+[blue]#Autore: AgID# +
+[blue]#Versione: 1.0.0# +
+[blue]#Ultimo aggiornamento: 17/10/2022#
+====
+
+= Manuale d'uso per l'utilizzo di *SMP Unico della PA* da parte dei Service Provider
+
+== Note di Rilascio
+[width="95%",cols=",,",align="center",options="header"]
+|===
+^.^|VERSIONE ^.^|DATA ^.^|CAMBIAMENTI APPORTATI
+| 1.0.0 | 11/11/2020 | Prima stesura
+|===
+
+== Glossario
+
+* *AgID*	Agenzia per l’Italia Digitale +
+* *AP*	Access Point  +
+* *iPA*	Indice delle Pubbliche Amministrazioni +
+* *REST*	Representational State Transfer +
+* *SML*	Service Metadata Locator +
+* *SMP*	Service Metadata Publisher
+
+
+== Obiettivo del documento
+
+Il presente documento ha l’obiettivo di guidare l’utente Service Provider attraverso l’interfaccia grafica della gestione del SMP Nazionale.
+
+Il documento è strutturato in 2 sezioni:
+
+*	*Login*: in cui si fornisce il dettaglio in merito all’accesso al sistema.
+* *Gestione Participant Id Peppol*: in cui si descrivono le modalità di ricerca, creazione e modifica di un Participant Id Peppol.
+
+== Login
+
+L’accesso al sistema (Figura 1) viene effettuato utilizzando l’indirizzo: https://peppol-smp-w.agid.gov.it/ipa/
+
+.Accesso Utente
+image::images\SMP_Manuale_ServiceProvider-db803.png[align=center]
+
+
+Si accede alla piattaforma inserendo “Nome Utente” e “Password”, popolando i campi riportati nella maschera e cliccando
+sul bottone “Accedi” (Figura 2).
+
+.Tasto Accedi
+image::images\SMP_Manuale_ServiceProvider-2d059.png[align=center]
+
+Nel caso di primo accesso viene richiesto l’inserimento della password temporanea, ricevuta tramite e-mail dall’utente, e la registrazione
+di una nuova password personale da utilizzare per gli accessi successivi (Figura 3).

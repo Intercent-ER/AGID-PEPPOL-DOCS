@@ -1,0 +1,98 @@
+:Autore: AgID
+:doctype: book
+:encoding: utf-8
+:lang: it
+:toc: left
+:toclevels: 2
+:toc-title: Indice
+:numbered:
+
+====
+[blue]#Autore: AgID# +
+[blue]#Versione: 1.0.0# +
+[blue]#Ultimo aggiornamento: 17/10/2022#
+====
+
+= Procedura per il rinnovo dei certificati Peppol
+
+== Note di Rilascio
+[width="95%",cols=",,",align="center",options="header"]
+|===
+^.^|VERSIONE ^.^|DATA ^.^|CAMBIAMENTI APPORTATI
+| 1.0.0 | 27/11/2020 | Prima stesura
+|===
+
+== Obiettivo
+
+Il presente documento ha l’obiettivo di guidare l’utente nelle procedure da seguire per effettuare il rinnovo
+dei certificati Peppol di Access Point e SMP.
+
+== Scadenza dei certificati
+
+I certificati possiedono un periodo di validità di due anni, al temine dei quali devono essere rinnovati. +
+All'incirca un mese prima della scadenza, OpenPeppol invia un avviso di certificato in scadenza.
+
+.esempio di avviso di scadenza certificati
+image::images\procedura_rinnovo_certificati_peppol-9abcd.png[align = center]
+
+== Richiesta di rinnovo
+
+La richiesta di rinnovo dei certificati deve essere posta a OpenPeppol tramite
+questo link: https://openpeppol.atlassian.net/servicedesk/customer/portals.
+
+.Home del portale di assistenza OpenPeppol
+image::images\procedura_rinnovo_certificati_peppol-10d6e.png[align=center]
+
+La sezione di interesse è *PKI Certificate request*, accedendo alla quale si viene rimandati a un form da compilare. +
+Le informazioni richieste sono tutte obbligatorie, pertanto devono essere tutte compilate.
+
+.Form per richiedere l'emissione dei certificati
+image::images\procedura_rinnovo_certificati_peppol-cea9c.png[align=center]
+
+Una volta inseriti tutti i dati e ricontrollati, si agisce sul pulsante "Invia" posto in fondo alla pagina, in modo
+da confermare la richiesta.
+
+.Messaggio ricevuto a seguito dell'invio dei dati
+image::images\procedura_rinnovo_certificati_peppol-c7b93.png[align=center]
+
+A questo punto, il sistema invia automaticamente una mail all'indirizzo configurato, confermando di aver ricevuto la richiesta di rinnovo
+e dando indicazioni sui prossimi passi da seguire.
+
+.Email ricevuta a seguito dell'invio della richiesta di rinnovo
+image::images\procedura_rinnovo_certificati_peppol-71899.png[align=center]
+
+== Recupero dei nuovi certificati
+
+Una volta approvati i certificati, OpenPeppol invia un SMS al numero di cellulare configurato, comunicando il codice da uilizzare
+per generare il nuovo certificato.
+
+.Esempio di SMS ricevuto
+image::images\procedura_rinnovo_certificati_peppol-d8102.png[align=center]
+
+Raggiungendo il link comunicato precedentemente via mail, si procede alla generazione dei nuovi certificati, secondo i seguenti passi:
+
+
+* immissione dell'ID del ServiceProvider (es. PIT0001);
+
+.conferma la propria identità
+image::images\procedura_rinnovo_certificati_peppol-4cdac.png[align=center]
+
+
+* immissione del codice di registrazione ricevuto via SMS;
+
+.immettere il codice di registrazione
+image::images\procedura_rinnovo_certificati_peppol-d7574.png[align=center]
+
+
+* procedere all'installazione del certificato;
+
+.installa il certificato
+image::images\procedura_rinnovo_certificati_peppol-0c261.png[align=center]
+
+* seguire i passaggi per importare e installare il certificato.
+
+.istruzioni per importare il certificato
+image::images\procedura_rinnovo_certificati_peppol-9b163.png[align=center]
+
+.recupero del file file .p12 e della password
+image::images\procedura_rinnovo_certificati_peppol-1d3aa.png[align=center]

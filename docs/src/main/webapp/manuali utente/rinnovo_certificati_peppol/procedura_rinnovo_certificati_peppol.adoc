@@ -24,13 +24,15 @@
 
 == Obiettivo
 
-Il presente documento ha l’obiettivo di guidare l’utente nelle procedure da seguire per effettuare il rinnovo
-dei certificati Peppol di Access Point e SMP.
+Il presente documento ha l’obiettivo di guidare i Service Provider nella procedura di rinnovo dei certificati del proprio Access Point
+ed eventualmente del proprio SMP.
 
 == Scadenza dei certificati
 
-I certificati possiedono un periodo di validità di due anni, al temine dei quali devono essere rinnovati. +
-All'incirca un mese prima della scadenza, OpenPeppol invia un avviso di certificato in scadenza.
+I certificati forniti da OpenPEPPOL ad ogni Service Provider qualificato e necessari per operare sulla rete PEPPOL possiedono un periodo di validità di due anni,
+al temine dei quali devono essere rinnovati. +
+Un mese prima della scadenza, OpenPeppol invia un avviso di certificato in scadenza all'indirizzo del Technical Contact Point specificato nel Peppol Service Provider Agreement.
+L'email contiene tra le altre cose il link a cui accedere per effettuare la richiesta di rinnovo.
 
 .esempio di avviso di scadenza certificati
 image::images\procedura_rinnovo_certificati_peppol-9abcd.png[align = center]
@@ -50,7 +52,8 @@ Le informazioni richieste sono tutte obbligatorie, pertanto devono essere tutte 
 image::images\procedura_rinnovo_certificati_peppol-cea9c.png[align=center]
 
 Una volta inseriti tutti i dati e ricontrollati, si agisce sul pulsante "Invia" posto in fondo alla pagina, in modo
-da confermare la richiesta.
+da confermare la richiesta.+
+E' importante ricordare che tra le informazioni che è obbligatorio allegare alla richiesta ci sono l'ultima copia del Service Provider Agreement firmato e un documento che certifichi l'identità dell'azienda (ad esempio una copia della registrazione alla Camera di Commercio competente).
 
 .Messaggio ricevuto a seguito dell'invio dei dati
 image::images\procedura_rinnovo_certificati_peppol-c7b93.png[align=center]
@@ -63,7 +66,8 @@ image::images\procedura_rinnovo_certificati_peppol-71899.png[align=center]
 
 == Recupero dei nuovi certificati
 
-Una volta approvati i certificati, OpenPeppol invia un SMS al numero di cellulare configurato, comunicando il codice da uilizzare
+Una volta svolte le procedure amministrative di controllo sui documenti allegati, OpenPEPPOL procede con l'approvazione all'emissione dei nuovi certificati,
+inviando diversi SMS (uno per ogni combinazione di Access Point/SMP e TEST e PROD, per un massimo di 4) al numero di cellulare configurato, comunicando il codice da utilizzare
 per generare il nuovo certificato.
 
 .Esempio di SMS ricevuto
@@ -72,7 +76,7 @@ image::images\procedura_rinnovo_certificati_peppol-d8102.png[align=center]
 Raggiungendo il link comunicato precedentemente via mail, si procede alla generazione dei nuovi certificati, secondo i seguenti passi:
 
 
-* immissione dell'ID del ServiceProvider (es. PIT0001);
+* immissione dell'ID del ServiceProvider (Seat Id, ad es. PIT0001);
 
 .conferma la propria identità
 image::images\procedura_rinnovo_certificati_peppol-4cdac.png[align=center]

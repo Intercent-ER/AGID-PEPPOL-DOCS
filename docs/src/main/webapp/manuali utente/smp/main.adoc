@@ -9,18 +9,19 @@
 
 ====
 [blue]#Autore: AgID# +
-[blue]#Versione: 1.0.0# +
+[blue]#Versione: 1.0.1# +
 [blue]#Ultimo aggiornamento: 20/10/2022#
 ====
 
-= Manuale d'uso per l'utilizzo di *SMP Unico della PA* da parte dei Service Provider
+= Manuale d'uso per l'utilizzo di SMP Unico della PA da parte dei Service Provider
 
 == Note di Rilascio
+
 [width="95%",cols=",,",align="center",options="header"]
 |===
 ^.^|VERSIONE ^.^|DATA ^.^|CAMBIAMENTI APPORTATI
 | 1.0.0 | 11/11/2020 | Prima stesura
-| 1.0.0 | 20/10/2022 | Revisione
+| 1.0.1 | 28/10/2022 | Revisione
 |===
 
 == Glossario
@@ -47,35 +48,35 @@ Il documento è strutturato in 2 sezioni:
 L’accesso al sistema (Figura 1) viene effettuato utilizzando l’indirizzo: https://peppol-smp-w.agid.gov.it/ipa/
 
 .Accesso Utente
-image::images\SMP_Manuale_ServiceProvider-db803.png[align=center]
+image::SMP_Manuale_ServiceProvider-db803.png[align=center]
 
 
 Si accede alla piattaforma inserendo “Nome Utente” e “Password”, popolando i campi riportati nella maschera e cliccando
 sul bottone “Accedi” (Figura 2).
 
 .Tasto Accedi
-image::images\SMP_Manuale_ServiceProvider-2d059.png[align=center]
+image::SMP_Manuale_ServiceProvider-2d059.png[align=center]
 
 Nel caso di primo accesso viene richiesto l’inserimento della password temporanea, ricevuta tramite e-mail dall’utente, e la registrazione
 di una nuova password personale da utilizzare per gli accessi successivi (Figura 3).
 
 .Gestione password
-image::images\SMP_Manuale_ServiceProvider-abc23.png[align=center]
+image::SMP_Manuale_ServiceProvider-abc23.png[align=center]
 
 Una volta inserita la nuova password, il sistema notifica che le modifiche sono state svolte con successo e cliccando il tasto “Torna al Login” (Figura 4) reindirizza l’utente nella schermata di login.
 
 .Messaggio di conferma registrazione password
-image::images\SMP_Manuale_ServiceProvider-5487d.png[align=center]
+image::SMP_Manuale_ServiceProvider-5487d.png[align=center]
 
 Nell’home page del Sistema è presente anche il tasto “Password dimenticata”. Tale funzione permette all’utente nel caso in cui abbia smarrito la password di reimpostarne una nuova premendo sul tasto “Password dimenticata” (Figura 5).
 
 .Password dimenticata
-image::images\SMP_Manuale_ServiceProvider-4d5a0.png[align=center]
+image::SMP_Manuale_ServiceProvider-4d5a0.png[align=center]
 
 Attivando la funzione viene richiesto all’utente di inserire il proprio nume utente ed e-mail (Figura 6). Cliccando sul tasto “Recupera password” il sistema invierà una password temporanea all’indirizzo e-mail indicato nel campo “Email”.
 
 .Maschera di recupero password
-image::images\SMP_Manuale_ServiceProvider-a4b61.png[align=center]
+image::SMP_Manuale_ServiceProvider-a4b61.png[align=center]
 
 Il sistema invierà una password temporanea da utilizzare per l’accesso. A seguito di tale accesso l’utente verrà reindirizzato alla pagina di “Gestione Password” (Figura 3) per impostarne una nuova password personalizzata.
 
@@ -86,7 +87,7 @@ Per accedere alla maschera di “Ricerca Participant Id Peppol”
 è necessario aprire il menu “Anagrafica” (Figura 7) presente nella Home e selezionare la voce “Participant Id Peppol”.
 
 .Menu Anagrafica - Participant Id Peppol
-image::images\SMP_Manuale_ServiceProvider-c53a4.png[align=center]
+image::SMP_Manuale_ServiceProvider-c53a4.png[align=center]
 
 In questo modo, si viene reindirizzati alla maschera di “Ricerca Participant Id Peppol” (Figura 8) avente le seguenti funzionalità:
 
@@ -99,19 +100,19 @@ Accedendo alla sezione Participant Id Peppol viene visualizzata la maschera “R
 mediante la quale è possibile estrarre la lista dei propri soggetti censiti in anagrafica su SMP.
 
 .Maschera ricerca Participant Id Peppol
-image::images\SMP_Manuale_ServiceProvider-660dc.png[align=center]
+image::SMP_Manuale_ServiceProvider-660dc.png[align=center]
 
 È possibile applicare alla maschera una serie di filtri di ricerca che consentono di ridurre l’ambito di ricerca. +
 Una volta inseriti i filtri desiderati, per effettuare la ricerca, bisogna attivare il tasto “Ricerca” (Figura 9), posto in basso a sinistra.
 
 .Filtri ricerca Participant Id Peppol e Ricerca
-image::images\SMP_Manuale_ServiceProvider-21507.png[align=center]
+image::SMP_Manuale_ServiceProvider-21507.png[align=center]
 
-Il risultato della ricerca viene visualizzato nella sezione inferiore della maschera "Ricerca Participant Id Peppol",
+Il risultato della ricerca viene visualizzato nella sezione inferiore della maschera _Ricerca Participant Id Peppol_,
 nella sezione “Lista registrazioni Participant Id Peppol”. Nel caso in cui non sia inserito nessun filtro, la ricerca restituisce tutti i Participant Id del Service Provider (Figura 10).
 
 .Risultato ricerca Participant Id Peppol
-image::images\SMP_Manuale_ServiceProvider-34247.png[align=center]
+image::SMP_Manuale_ServiceProvider-34247.png[align=center]
 
 In prima istanza, la lista mostra per ogni risultato le informazioni di:
 
@@ -120,7 +121,7 @@ In prima istanza, la lista mostra per ogni risultato le informazioni di:
 * Partita IVA;
 * Codice Fiscale.
 
-Inoltre, per ogni participant Id è possibile espandere la sezione tramite il tasto "freccia giù" posto al limite destro della riga (figura 11). +
+Inoltre, per ogni participant Id è possibile espandere la sezione tramite il tasto _freccia giù_ posto al limite destro della riga (figura 11). +
 Espandendo le informazioni, vengono mostrate le informazioni sulle singole registrazioni dei documenti su SMP, cioè:
 
 * nome del Service Provider;
@@ -129,39 +130,39 @@ Espandendo le informazioni, vengono mostrate le informazioni sulle singole regis
 * tipo di documento.
 
 .Visualizzazione in lista delle informazioni sulle singole registrazioni documenti
-image::images\SMP_Manuale_ServiceProvider-841b5.png[align=center]
+image::SMP_Manuale_ServiceProvider-841b5.png[align=center]
 
 Il tasto “Elimina” situato a sinistra di ciascun Participant Id, all’ interno della “Lista Registrazioni”,
 permette di eliminare, direttamente dalla Lista, la registrazione del Participant Id e di tutti i documenti ad esso associati.
 
-.Tasto "Elimina Participant Id Peppol" da lista
-image::images\SMP_Manuale_ServiceProvider-300bd.png[align=center]
+.Tasto _Elimina Participant Id Peppol_ da lista
+image::SMP_Manuale_ServiceProvider-300bd.png[align=center]
 
-A seguito della pressione dell’icona "trash", il sistema mostrerà all’utente un avviso (Figura 13) dove sarà indicato che, confermando l’operazione,
+A seguito della pressione dell’icona _trash_, il sistema mostrerà all’utente un avviso (Figura 13) dove sarà indicato che, confermando l’operazione,
 sarà cancellata la registrazione del Participant Id Peppol su SMP.
 
 .Notifica di eliminazione
-image::images\SMP_Manuale_ServiceProvider-f6ce6.png[align=center]
+image::SMP_Manuale_ServiceProvider-f6ce6.png[align=center]
 
 È inoltre disponibile, sempre a livello di Participant Id Peppol, la funzione “Modifica dettaglio”. +
 Tale funzione è attivabile cliccando sulla specifica icona collocata a sinistra del campo Partecipant Id Peppol, che consente di accedere alla maschera “Modifica Participant Id” per aggiornarne le informazioni.
 
-.Tasto "Modifica Participant Id Peppol" da lista
-image::images\SMP_Manuale_ServiceProvider-423aa.png[align=center]
+.Tasto _Modifica Participant Id Peppol_ da lista
+image::SMP_Manuale_ServiceProvider-423aa.png[align=center]
 
 Tutte le informazioni relative ai Participant Id Peppol possono essere esportate in un file Excel, cliccando sul tasto “Esporta” presente a livello di testata della lista della ricerca. +
 All’interno del file sarà presente una lista contenente una riga per ogni tipologia di documento e completa di ogni informazione relativa a ciascun Participant Id Peppol.
 Nel caso in cui si voglia effettuare una nuova ricerca ripulendo i filtri impostati nella maschera, è necessario premere il tasto “Pulisci” presente nella maschera di ricerca (Figura 14).
 
 .Tasto pulisci filtri ricerca impostati
-image::images\SMP_Manuale_ServiceProvider-2dc0a.png[align=center]
+image::SMP_Manuale_ServiceProvider-2dc0a.png[align=center]
 
 === Creazione Participant Id Peppol
 
 Per creare un Participant Id Peppol è necessario cliccare nel tasto “Crea” situato all’ interno della maschera “Ricerca Participant Id Peppol” (Figura 8), così facendo apparirà la finestra “Registrazione Participant Id Peppol” (Figura 16).
 
 .Registrazione Participant Id Peppol
-image::images\SMP_Manuale_ServiceProvider-c51e4.png[align=center]
+image::SMP_Manuale_ServiceProvider-c51e4.png[align=center]
 
 La maschera è strutturata in due sezioni:
 
@@ -171,7 +172,7 @@ La maschera è strutturata in due sezioni:
 L’utente dovrà procedere al popolamento di tutti i campi obbligatori, contrassegnati con “*”, e dovrà anche accettare le tre condizioni presenti in fondo alla maschera (Figura 17).
 
 .Flag obbligatori
-image::images\SMP_Manuale_ServiceProvider-7c3f6.png[align=center]
+image::SMP_Manuale_ServiceProvider-7c3f6.png[align=center]
 
 A seguito dell’inserimento dei dati e dell’associazione di un documento, l’utente seleziona il tasto “Salva” per completare la registrazione. +
 La maschera possiede anche il tasto “Indietro” per tornare alla maschera precedente senza salvare le modifiche apportate.
@@ -181,56 +182,56 @@ Tale funzione consente di associare ulteriori documenti ad un Participant Id Pep
 bisognerà cliccare sul tasto “Salva” per completare l’operazione. +
 
 .Associazione Nuovo Documento
-image::images\SMP_Manuale_ServiceProvider-7b8b7.png[align=center]
+image::SMP_Manuale_ServiceProvider-7b8b7.png[align=center]
 
 A seguito del salvataggio dei dati, il sistema verifica le registrazioni impostate sull'SMP,
 comunica l'associazione tra Participant Id  Peppol e SMP su SML e tenta la scrittura sulla Peppol Directory. +
 Le operazioni su SMP e su SML sono bloccanti e, in caso non terminino correttamente, generano un messaggio di errore. +
 La scrittura sulla Peppol Directory, invece, non è bloccante e, qualora non vada a buon fine, si genera un messaggio di warning, che non pregiudica il successo dell’operazione. +
-A seguito della creazione, i dati vengono registrati anche sulla Peppol Directory e viene visualizzato il messaggio “Registrazione avvenuta con successo su SMP."
+A seguito della creazione, i dati vengono registrati anche sulla Peppol Directory e viene visualizzato il messaggio “Registrazione avvenuta con successo su SMP._
 
 === Modifica Participant Id Peppol
 
 La funzione “Modifica Participant Id Peppol” si attiva cliccando sull’icona mostrata a sinistra dell’Id Peppol a seguito dell’operazione di ricerca e permette di accedere alla
 maschera “Modifica Participant Id Peppol” per modificare l’entità selezionata e, eventualmente, inserire i dati per la creazione di nuovi documenti afferenti allo stesso Partecipant Id Peppol.
 
-.Tasto "Modifica Participant Id Peppol" da lista
-image::images\SMP_Manuale_ServiceProvider-423aa.png[align=center]
+.Tasto _Modifica Participant Id Peppol_ da lista
+image::SMP_Manuale_ServiceProvider-423aa.png[align=center]
 
 La maschera “Modifica Participant Id Peppol” (Figura 20) è strutturata in due sezioni:
 
 *	Sezione superiore: contiene tutte le informazioni anagrafiche del Participant Id Peppol selezionato.
 *	Sezione inferiore: contiene una scheda di dettaglio per ogni documento associato al Participant Id Peppol.
 
-image::images\SMP_Manuale_ServiceProvider-e4669.png[align=center]
+image::SMP_Manuale_ServiceProvider-e4669.png[align=center]
 .Modifica Participant Id Peppol
-image::images\SMP_Manuale_ServiceProvider-20ad1.png[align=center]
+image::SMP_Manuale_ServiceProvider-20ad1.png[align=center]
 
 Si evidenziano in grigio i campi non modificabili, i restanti campi possono essere modificati. +
 Nella maschera “Modifica Participant Id Peppol” sono disponibili le seguenti funzionalità:
 
-*	*Elimina Participant*: permette di effettuare la cancellazione dei dati del Participant Id e con rispettivi documenti associati. A seguito dell’attivazione della funzione viene segnalato all’utente che confermando l’operazione viene cancellata la registrazione del Participant Id e dei rispettivi documenti ad esso associati (Figura 18) e successivamente viene mostrato il messaggio: "Eliminazione Participant Id Peppol avvenuta con successo.” (figura 21).
+*	*Elimina Participant*: permette di effettuare la cancellazione dei dati del Participant Id e con rispettivi documenti associati. A seguito dell’attivazione della funzione viene segnalato all’utente che confermando l’operazione viene cancellata la registrazione del Participant Id e dei rispettivi documenti ad esso associati (Figura 18) e successivamente viene mostrato il messaggio: _Eliminazione Participant Id Peppol avvenuta con successo.” (figura 21).
 
 .Notifica di eliminazione Participant Id
-image::images\SMP_Manuale_ServiceProvider-3c01e.png[algn=center]
+image::SMP_Manuale_ServiceProvider-3c01e.png[algn=center]
 
 * *Aggiungi Documento*: permette di aggiungere una nuova configurazione in una scheda “Nuova registrazione” (figura 22) per il Participant Id in questione.
 
 .Nuova registrazione documento
-image::images\SMP_Manuale_ServiceProvider-edb32.png[align=center]
+image::SMP_Manuale_ServiceProvider-edb32.png[align=center]
 
 *	*Elimina Documento*: a livello di singolo documento configurato, permette di cancellare la registrazione di uno specifico documento. +
 A seguito dell’attivazione della funzione viene segnalato all’utente che confermando l’operazione viene cancellata la registrazione del documento (Figura 23).
 
 .Notifica di eliminazione documento
-image::images\SMP_Manuale_ServiceProvider-7c3f7.png[align=center]
+image::SMP_Manuale_ServiceProvider-7c3f7.png[align=center]
 
 [CAUTION]
 ====
-Qualora un participant Id Peppol abbia associata una sola registrazione a un tipo documento, agendo sl tasto "Elimina Documento" si procederà all'eliminazione della registrazione specifica e,
+Qualora un participant Id Peppol abbia associata una sola registrazione a un tipo documento, agendo sl tasto _Elimina Documento_ si procederà all'eliminazione della registrazione specifica e,
 poiché è anche l'unica, all'eliminazione dell'intera anagrafica del Participant Id Peppol. +
 Questa operazione è anticipata da un avviso che deve essere confermato per proseguire (figura 24).
 ====
 
 .Elimina registrazione tramite l'eliminazione dell'unico documento
-image::images\SMP_Manuale_ServiceProvider-dc123.png[align=center]
+image::SMP_Manuale_ServiceProvider-dc123.png[align=center]

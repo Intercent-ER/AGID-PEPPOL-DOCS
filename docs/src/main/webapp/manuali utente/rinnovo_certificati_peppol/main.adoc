@@ -34,7 +34,7 @@ al temine dei quali devono essere rinnovati. +
 Un mese prima della scadenza, OpenPeppol invia un avviso di certificato in scadenza all'indirizzo del Technical Contact Point specificato nel Peppol Service Provider Agreement.
 L'email contiene tra le altre cose il link a cui accedere per effettuare la richiesta di rinnovo.
 
-.esempio di avviso di scadenza certificati
+.Esempio di avviso di scadenza certificati
 image::procedura_rinnovo_certificati_peppol-9abcd.png[align = center]
 
 == Richiesta di rinnovo
@@ -45,15 +45,15 @@ questo link: https://openpeppol.atlassian.net/servicedesk/customer/portals.
 .Home del portale di assistenza OpenPeppol
 image::procedura_rinnovo_certificati_peppol-10d6e.png[align=center]
 
-La sezione di interesse è *PKI Certificate request*, accedendo alla quale si viene rimandati a un form da compilare. +
-Le informazioni richieste sono tutte obbligatorie, pertanto devono essere tutte compilate.
+La sezione di interesse è *PKI Certificate request* all'interno della quale il sistema espone un form da compilare. +
+Tutte le informazioni richieste sono obbligatorie, pertanto la sezione deve essere compilata in ogni sua parte.
 
 .Form per richiedere l'emissione dei certificati
 image::procedura_rinnovo_certificati_peppol-cea9c.png[align=center]
 
 Una volta inseriti tutti i dati e ricontrollati, si agisce sul pulsante "Invia" posto in fondo alla pagina, in modo
-da confermare la richiesta.+
-E' importante ricordare che tra le informazioni che è obbligatorio allegare alla richiesta ci sono l'ultima copia del Service Provider Agreement firmato e un documento che certifichi l'identità dell'azienda (ad esempio una copia della registrazione alla Camera di Commercio competente).
+da confermare la richiesta. +
+E' importante ricordare che tra i documenti che è obbligatorio allegare alla richiesta vi sono l’ultima copia del Service Provider Agreement firmato e un documento che certifichi l'identità dell'azienda (ad esempio una copia della registrazione alla Camera di Commercio competente).
 
 .Messaggio ricevuto a seguito dell'invio dei dati
 image::procedura_rinnovo_certificati_peppol-c7b93.png[align=center]
@@ -78,25 +78,25 @@ Raggiungendo il link comunicato precedentemente via mail, si procede alla genera
 
 * immissione dell'ID del ServiceProvider (Seat Id, ad es. PIT0001);
 
-.conferma la propria identità
+.Conferma la propria identità
 image::procedura_rinnovo_certificati_peppol-4cdac.png[align=center]
 
 
 * immissione del codice di registrazione ricevuto via SMS;
 
-.immettere il codice di registrazione
+.Immettere il codice di registrazione
 image::procedura_rinnovo_certificati_peppol-d7574.png[align=center]
 
 
 * procedere all'installazione del certificato;
 
-.installa il certificato
+.Installa il certificato
 image::procedura_rinnovo_certificati_peppol-0c261.png[align=center]
 
 * seguire i passaggi per importare e installare il certificato.
 
-.istruzioni per importare il certificato
+.Istruzioni per importare il certificato
 image::procedura_rinnovo_certificati_peppol-9b163.png[align=center]
 
-.recupero del file file .p12 e della password
+.Recupero del file file .p12 e della password
 image::procedura_rinnovo_certificati_peppol-1d3aa.png[align=center]

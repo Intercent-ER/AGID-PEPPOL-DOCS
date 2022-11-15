@@ -62,7 +62,9 @@ image::../../../images/7.1.1.vatex-table-cross-border.png[Vatex table, width=100
 Per la fatturazione verso l'estero verificare con l'acquirente l'eventuale presenza di CIUS. +
 Per approfondimenti consultare il seguente https://ec.europa.eu/digital-building-blocks/wikis/display/DIGITAL/CIUS+and+Extension+-+What+is+allowed[link].
 
-A soli fini dell’esterometro, la gestione della conversione della fattura UBL in FatturaPA per la natura è analoga a quanto previsto per le fatture verso l’estero (vedi paragrafo 7.1.1).
+=== Indicazioni per l'esterometro e per i documenti di integrazione
+
+La gestione della natura è analoga a quanto previsto per la fatturazione domestica (vedi paragrafo 7.1.2).
 
 == Sconti e maggiorazioni a livello di testata
 
@@ -224,7 +226,9 @@ Per altri dettagli vedi anche il paragrafo <<anchor-11,9.4. Calcolo dell’IVA>>
 Per la fatturazione verso l'estero verificare con l'acquirente l'eventuale presenza di CIUS. +
 Per approfondimenti consultare il seguente https://ec.europa.eu/digital-building-blocks/wikis/display/DIGITAL/CIUS+and+Extension+-+What+is+allowed[link].
 
-A soli fini dell’esterometro, la gestione della conversione della fattura UBL in FatturaPA per la natura è analoga a quanto previsto per le fatture verso l’estero (vedi paragrafo 7.3.1).
+=== Indicazioni per l'esterometro e per i documenti di integrazione
+
+La gestione della natura è analoga a quanto previsto per la fatturazione domestica (vedi paragrafo 7.3.2).
 
 == Totale IVA
 

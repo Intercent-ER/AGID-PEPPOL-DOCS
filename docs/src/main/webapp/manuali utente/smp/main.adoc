@@ -10,7 +10,7 @@
 ====
 [blue]#Autore: AgID# +
 [blue]#Versione: 1.0.1# +
-[blue]#Ultimo aggiornamento: 20/10/2022#
+[blue]#Ultimo aggiornamento: 15/11/2022#
 ====
 
 = Manuale d'uso per l'utilizzo di SMP Unico della PA da parte dei Service Provider
@@ -21,7 +21,7 @@
 |===
 ^.^|VERSIONE ^.^|DATA ^.^|CAMBIAMENTI APPORTATI
 | 1.0.0 | 11/11/2020 | Prima stesura
-| 1.0.1 | 28/10/2022 | Revisione
+| 1.0.1 | 15/11/2022 | Revisione
 |===
 
 == Glossario
@@ -68,7 +68,7 @@ Una volta inserita la nuova password, il sistema notifica che le modifiche sono 
 .Messaggio di conferma registrazione password
 image::SMP_Manuale_ServiceProvider-5487d.png[align=center]
 
-Nell’home page del Sistema è presente anche il tasto “Password dimenticata”. Tale funzione permette all’utente nel caso in cui abbia smarrito la password di reimpostarne una nuova premendo sul tasto “Password dimenticata” (Figura 5).
+Nell’home page del Sistema è presente anche il tasto “Password dimenticata”. Tale funzione permette all’utente, nel caso in cui abbia smarrito la password, di reimpostarne una nuova premendo sul tasto “Password dimenticata” (Figura 5).
 
 .Password dimenticata
 image::SMP_Manuale_ServiceProvider-4d5a0.png[align=center]
@@ -177,7 +177,7 @@ image::SMP_Manuale_ServiceProvider-7c3f6.png[align=center]
 A seguito dell’inserimento dei dati e dell’associazione di un documento, l’utente seleziona il tasto “Salva” per completare la registrazione. +
 La maschera possiede anche il tasto “Indietro” per tornare alla maschera precedente senza salvare le modifiche apportate.
 
-Dopo l’inserimento della prima registrazione documento verrà attivato nella sezione inferiore della pagina il tasto “Aggiungi documento”. +
+Dopo l'associazione del primo documento verrà attivato nella sezione inferiore della pagina il tasto “Aggiungi documento”. +
 Tale funzione consente di associare ulteriori documenti ad un Participant Id Peppol (Figura 18). A seguito dell’inserimento dei dati del nuovo documento,
 bisognerà cliccare sul tasto “Salva” per completare l’operazione. +
 
@@ -188,7 +188,7 @@ A seguito del salvataggio dei dati, il sistema verifica le registrazioni imposta
 comunica l'associazione tra Participant Id  Peppol e SMP su SML e tenta la scrittura sulla Peppol Directory. +
 Le operazioni su SMP e su SML sono bloccanti e, in caso non terminino correttamente, generano un messaggio di errore. +
 La scrittura sulla Peppol Directory, invece, non è bloccante e, qualora non vada a buon fine, si genera un messaggio di warning, che non pregiudica il successo dell’operazione. +
-A seguito della creazione, i dati vengono registrati anche sulla Peppol Directory e viene visualizzato il messaggio “Registrazione avvenuta con successo su SMP._
+A seguito della creazione, i dati vengono registrati anche sulla Peppol Directory e viene visualizzato il messaggio “Registrazione avvenuta con successo su SMP".
 
 === Modifica Participant Id Peppol
 
@@ -210,7 +210,7 @@ image::SMP_Manuale_ServiceProvider-20ad1.png[align=center]
 Si evidenziano in grigio i campi non modificabili, i restanti campi possono essere modificati. +
 Nella maschera “Modifica Participant Id Peppol” sono disponibili le seguenti funzionalità:
 
-*	*Elimina Participant*: permette di effettuare la cancellazione dei dati del Participant Id e con rispettivi documenti associati. A seguito dell’attivazione della funzione viene segnalato all’utente che confermando l’operazione viene cancellata la registrazione del Participant Id e dei rispettivi documenti ad esso associati (Figura 18) e successivamente viene mostrato il messaggio: _Eliminazione Participant Id Peppol avvenuta con successo.” (figura 21).
+*	*Elimina Participant*: permette di effettuare la cancellazione dei dati del Participant Id e dei rispettivi documenti associati. A seguito dell’attivazione della funzione viene segnalato all’utente che confermando l’operazione viene cancellata la registrazione del Participant Id e dei rispettivi documenti ad esso associati (Figura 18) e successivamente viene mostrato il messaggio: "Eliminazione Participant Id Peppol avvenuta con successo.” (figura 21).
 
 .Notifica di eliminazione Participant Id
 image::SMP_Manuale_ServiceProvider-3c01e.png[algn=center]

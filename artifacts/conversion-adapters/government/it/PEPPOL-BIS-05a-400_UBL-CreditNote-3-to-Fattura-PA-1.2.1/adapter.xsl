@@ -278,7 +278,7 @@
 					</Tipo>
 				</xsl:if>
 				<Importo>
-					<xsl:value-of select="format-number(cbc:Amount,'###########0.00')"/>
+					<xsl:value-of select="cbc:Amount"/>
 				</Importo>
 			</ScontoMaggiorazione>
 			<xsl:if test="/in:CreditNote/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']">
@@ -294,7 +294,7 @@
 						</Tipo>
 					</xsl:if>
 					<Importo>
-						<xsl:value-of select="format-number(/in:CreditNote/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']/ext:ExtensionContent/cac:AllowanceCharge/cbc:Amount,'###########0.00')"/>
+						<xsl:value-of select="/in:CreditNote/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']/ext:ExtensionContent/cac:AllowanceCharge/cbc:Amount"/>
 					</Importo>
 				</ScontoMaggiorazione>
 			</xsl:if>
@@ -320,7 +320,7 @@
 				<xsl:choose>
 					<xsl:when test="(number(cbc:Amount) > 0.00)">
 						<Importo>
-							<xsl:value-of select="format-number(cbc:Amount,'###########0.00')"/>
+							<xsl:value-of select="cbc:Amount"/>
 						</Importo>
 					</xsl:when>
 					<xsl:when test="(0.00 > number(cbc:Amount))">
@@ -330,7 +330,7 @@
 					</xsl:when>
 					<xsl:otherwise>
 						<Importo>
-							<xsl:value-of select="format-number(cbc:Amount,'###########0.00')"/>
+							<xsl:value-of select="cbc:Amount"/>
 						</Importo>
 					</xsl:otherwise>
 				</xsl:choose>

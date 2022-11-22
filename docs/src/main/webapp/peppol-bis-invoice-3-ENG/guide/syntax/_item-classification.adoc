@@ -1,7 +1,9 @@
 .UBL example of using CPV
 [source, xml, indent=0]
 ----
-include::{snippet-dir}/item.xml[tags=cpv]
+<cac:CommodityClassification>
+    <cbc:ItemClassificationCode listID="STI">09348023</cbc:ItemClassificationCode>(1)
+</cac:CommodityClassification>
 ----
 <1> listID must be from UNCL7143 code list, and code STI indicates this is a CPV classification.
 
@@ -24,13 +26,26 @@ include::{snippet-dir}/item.xml[tags=unspsc]
 
 [source, xml, indent=0]
 ----
-<cac:CommodityClassification>
-    <cbc:ItemClassificationCode listID="ZZZ">DM1:130209/R</cbc:ItemClassificationCode> <1>
-</cac:CommodityClassification>
-<cac:CommodityClassification>
-    <cbc:ItemClassificationCode listID="STO">M0201030202</cbc:ItemClassificationCode> <2> 
-</cac:CommodityClassification>
+<cac:Item>
+	<cbc:Description>Dispositivo Medico</cbc:Description>
+	<cbc:Name>Prodotto 1143668 DEFIBRILLATORE SEMIAUTOMATICO LIFEPAK 1000</cbc:Name>
+	<cac:SellersItemIdentification>
+		<cbc:ID>1143668</cbc:ID> (1)
+    </cac:SellersItemIdentification>
+	<cac:CommodityClassification>
+		<cbc:ItemClassificationCode listID="ZZZ">DM1:918674</cbc:ItemClassificationCode> (2)
+    </cac:CommodityClassification>
+	<cac:CommodityClassification>
+		<cbc:ItemClassificationCode listID="STO">Z12030501</cbc:ItemClassificationCode> (3)
+    </cac:CommodityClassification>
+[…]
+</cac:Item>
 ----
-<1> Il listID deve essere fra quelli della codifica UNCL7143 e il codice *ZZZ* indica che questo è una classificazione in base ad accordi bilaterali, mentre il listVersionID è opzionale.
-<2> Il listID deve essere fra quelli della codifica UNCL7143 e il codice *STO* indica il codice CNDM (Classificazione Nazionale dei Dispositivi Medici)
+<1> Codice del dispositivo medico attribuito dal Fornitore;
+<2> #Il listID deve essere fra quelli della codifica UNCL7143, il codice ZZZ indica il numero di repertorio attribuito al dispositivo medico nella Banca Dati e Repertorio  (BDR) dei Dispositivi Medici del Ministero della Salute.# +
+#Il numero dovrà essere preceduto dalla seguente stringa:#
+* #“DM1:” in caso di Dispositivo medico o Dispositivo diagnostico in vitro;#
+* #“DM2:” in caso di Sistema o kit Assemblato;#
+* #In caso il dispositivo medico non abbia numero di repertorio, il campo sarà valorizzato solo con DM0.#
+<3> Il listID deve essere fra quelli della codifica UNCL7143 e il codice STO indica il codice attribuito al dispositivo medico dalla Classificazione Nazionale dei Dispositivi Medici (CND).
 

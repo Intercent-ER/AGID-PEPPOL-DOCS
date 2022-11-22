@@ -1909,14 +1909,11 @@
 					<xsl:with-param name="CN" select="current()"/>
 					<xsl:with-param name="CNP" select="position()"/>
 				</xsl:apply-templates>
-				<SoggettoEmittente>
-					<xsl:if test="cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty">
+				<xsl:if test="cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty">
+					<SoggettoEmittente>
 						<xsl:text>TZ</xsl:text>
-					</xsl:if>
-					<xsl:if test="not(cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty)">
-						<xsl:text>CC</xsl:text>
-					</xsl:if>
-				</SoggettoEmittente>
+					</SoggettoEmittente>
+				</xsl:if>
 			</FatturaElettronicaHeader>
 			<FatturaElettronicaBody>
 				<DatiGenerali>

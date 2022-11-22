@@ -1629,7 +1629,7 @@
 					</xsl:when>
 				</xsl:choose>
 				<ImponibileImporto>
-					<xsl:value-of select="if (&#x9;cbc:TaxableAmount &gt;= 0) then format-number(floor(cbc:TaxableAmount * 100 + 0.5) div 100,'###########0.00') else format-number(floor(cbc:TaxableAmount * 100 + 0.5) div 100,'###########0.00')"/>
+					<xsl:value-of select="format-number(floor(cbc:TaxableAmount * 100 + 0.5) div 100,'###########0.00')"/>
 				</ImponibileImporto>
 				<Imposta>
 					<xsl:value-of select="format-number(floor(cbc:TaxAmount * 100 + 0.5) div 100,'###########0.00')"/>
@@ -1887,14 +1887,11 @@
 					<xsl:with-param name="CN" select="current()"/>
 					<xsl:with-param name="CNP" select="position()"/>
 				</xsl:apply-templates>
-				<SoggettoEmittente>
-					<xsl:if test="cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty">
+				<xsl:if test="cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty">
+					<SoggettoEmittente>
 						<xsl:text>TZ</xsl:text>
-					</xsl:if>
-					<xsl:if test="not(cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty)">
-						<xsl:text>CC</xsl:text>
-					</xsl:if>
-				</SoggettoEmittente>
+					</SoggettoEmittente>
+				</xsl:if>
 			</FatturaElettronicaHeader>
 			<FatturaElettronicaBody>
 				<DatiGenerali>

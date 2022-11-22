@@ -188,7 +188,7 @@
     <cac:Delivery>
         <cbc:ActualDeliveryDate>2017-11-01</cbc:ActualDeliveryDate>
         <cac:DeliveryLocation>
-            <cbc:ID schemeID="0201">ABCDEF</cbc:ID>
+            <cbc:ID>CF-IdShipTo</cbc:ID>
             <cac:Address>
                 <cbc:StreetName>Viale Viali,2 - PAD.01</cbc:StreetName>
                 <cbc:AdditionalStreetName>CENTRO LOG</cbc:AdditionalStreetName>

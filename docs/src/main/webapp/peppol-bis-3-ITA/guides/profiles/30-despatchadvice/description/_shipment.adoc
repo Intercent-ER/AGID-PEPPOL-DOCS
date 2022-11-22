@@ -34,29 +34,24 @@ include::{snippet-dir}/snippet-30-3.xml[tags=shipment]
 <9> Data/ora effettiva di evasione
 
 
-Se trattasi di consegna domiciliare (ad esempio, all’indirizzo di un paziente), questa circostanza va specificata valorizzando il campo “ID” con il testo “Consegna domiciliare” e indicando con precisione nel campo “AddressLine/Line” l’indirizzo esatto di consegna (ad esempio, includendo il numero di interno), come mostrato nel seguente esempio:
+Se il luogo di consegna è un indirizzo istituzionale del Cliente a cui è stato associato un identificativo univoco reso disponibile al Fornitore, come avviene nel caso dei luogo di consegna per le PA censiti secondo la codifica https://www.puntidiconsegna-nso.it/[Punti di consegna], è possibile indicare anche tale identificativo, come mostrato nel seguente esempio:
 
 
-.Esempio di consegna domiciliare:
+.Esempio di consegna al Punto Istituzionale di un Ente:
 [source, xml, indent=0]
 ----
-<cac:Delivery>
-    <cac:DeliveryLocation>
-        <cac:ID>Consegna domiciliare</cac:ID>
-        <Name>Entrata lato portineria</Name>
-        <cac:Address>
-            <cbc:StreetName>Via Attanasio Soldati 80</cbc:StreetName>
-            <cbc:AdditionalStreetName>Località La Rustica</cbc:AdditionalStreetName>
-            <cbc:CityName>Roma</cbc:CityName>
-            <cbc:PostalZone>00155</cbc:PostalZone>
-            <cbc:CountrySubentity>Lazio</cbc:CountrySubentity>
-            <cac:AddressLine>
-                <cbc:Line>Edificio C, Quarto piano, Stanza 01</cbc:Line>
-            </cac:AddressLine>
-            <cac:Country>
-                <cbc:IdentificationCode>IT</cbc:IdentificationCode>
-            </cac:Country>
-        </cac:Address>
-    </cac:DeliveryLocation>
-</cac:Delivery>
+<cac:DespatchAddress>
+	<cac:ID>CF-IdShipTo</cac:ID>
+	<cbc:StreetName>Via Attanasio Soldati 80</cbc:StreetName>
+	<cbc:AdditionalStreetName>Località La Rustica</cbc:AdditionalStreetName>
+	<cbc:CityName>Roma</cbc:CityName>
+	<cbc:PostalZone>00155</cbc:PostalZone>
+	<cbc:CountrySubentity>Lazio</cbc:CountrySubentity>
+	<cac:AddressLine>
+		<cbc:Line>Edificio C, Quarto piano, Stanza 01</cbc:Line>
+	</cac:AddressLine>
+	<cac:Country>
+		<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+	</cac:Country>
+</cac:DespatchAddress>
 ----

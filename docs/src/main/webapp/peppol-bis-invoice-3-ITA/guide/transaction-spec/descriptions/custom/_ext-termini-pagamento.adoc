@@ -28,7 +28,7 @@
 [source, xml, indent=0]
 ----
 <cac:PaymentTerms>
-    <cbc:Note>Sconto per pagamento anticipato</cbc:Note>
+    <cbc:Note>TP02#60</cbc:Note>
     <cbc:SettlementDiscountAmount currencyID="EUR">100.00</cbc:SettlementDiscountAmount>
     <cac:SettlementPeriod>
         <cbc:EndDate>2020-10-31</cbc:EndDate>

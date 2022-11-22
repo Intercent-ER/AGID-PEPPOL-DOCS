@@ -135,7 +135,7 @@
 		<Name>ACH demand cash concentration/disbursement (CCD) debit</Name>
 		<Description>A debit transaction made through the ACH system to a demand deposit account
             using the CCD payment format.</Description>
-			<LocalId>MP01</LocalId>
+		<LocalId>MP01</LocalId>
 		<LocalDescription>contanti</LocalDescription>
 	</Code>
 	<Code>
@@ -143,7 +143,7 @@
 		<Name>ACH demand corporate trade payment (CTP) credit</Name>
 		<Description>A credit transaction made through the ACH system to a demand deposit account
             using the CTP payment format.</Description>
-			<LocalId>MP01</LocalId>
+		<LocalId>MP01</LocalId>
 		<LocalDescription>contanti</LocalDescription>
 	</Code>
 	<Code>
@@ -153,7 +153,6 @@
             holder (a bank or building society) to pay a stated sum to a named recipient.</Description>
 		<LocalId>MP02</LocalId>
 		<LocalDescription>Assegno.</LocalDescription>
-		<LocalUsageNotes>Per specificare il pagamento Contanti presso Tesoreria (MP04) usare il codice 9 e la relativa estensione.</LocalUsageNotes>
 	</Code>
 	<Code>
 		<Id>21</Id>
@@ -161,7 +160,6 @@
 		<Description>Issue of a banker's draft in payment of the funds.</Description>
 		<LocalId>MP03</LocalId>
 		<LocalDescription>Assegno Circolare.</LocalDescription>
-		<LocalUsageNotes>Usare preferibilmente il codice 22.</LocalUsageNotes>
 	</Code>
 	<Code>
 		<Id>22</Id>
@@ -180,7 +178,6 @@
             society) to pay a stated sum to a named recipient.</Description>
 		<LocalId>MP03</LocalId>
 		<LocalDescription>Assegno Circolare.</LocalDescription>
-		<LocalUsageNotes>Usare preferibilmente il codice 22.</LocalUsageNotes>
 	</Code>
 	<Code>
 		<Id>24</Id>
@@ -197,7 +194,6 @@
             stated sum to a named recipient.</Description>
 		<LocalId>MP02</LocalId>
 		<LocalDescription>Assegno</LocalDescription>
-		<LocalUsageNotes>Usare preferibilmente il codice 20.</LocalUsageNotes>
 	</Code>
 	<Code>
 		<Id>26</Id>
@@ -211,7 +207,7 @@
 		<Name>ACH demand corporate trade payment (CTP) debit</Name>
 		<Description>A debit transaction made through the ACH system to a demand deposit account
             using the CTP payment format.</Description>
-			<LocalId>MP01</LocalId>
+		<LocalId>MP01</LocalId>
 		<LocalDescription>contanti</LocalDescription>
 	</Code>
 	<Code>
@@ -219,7 +215,7 @@
 		<Name>ACH demand corporate trade exchange (CTX) credit</Name>
 		<Description>A credit transaction made through the ACH system to a demand deposit account
             using the CTX payment format.</Description>
-			<LocalId>MP01</LocalId>
+		<LocalId>MP01</LocalId>
 		<LocalDescription>contanti</LocalDescription>
 	</Code>
 	<Code>
@@ -227,7 +223,7 @@
 		<Name>ACH demand corporate trade exchange (CTX) debit</Name>
 		<Description>A debit transaction made through the ACH system to a demand account using the
             CTX payment format.</Description>
-			<LocalId>MP01</LocalId>
+		<LocalId>MP01</LocalId>
 		<LocalDescription>contanti</LocalDescription>
 	</Code>
 	<Code>
@@ -236,7 +232,6 @@
 		<Description>Payment by credit movement of funds from one account to another.</Description>
 		<LocalId>MP05</LocalId>
 		<LocalDescription>Bonifico</LocalDescription>
-		<LocalUsageNotes>Usare anche per Credit Transfer SEPA.</LocalUsageNotes>
 	</Code>
 	<Code>
 		<Id>31</Id>
@@ -250,7 +245,7 @@
 		<Name>ACH demand cash concentration/disbursement plus (CCD+) credit</Name>
 		<Description>A credit transaction made through the ACH system to a demand deposit account
             using the CCD+ payment format.</Description>
-			<LocalId>MP01</LocalId>
+		<LocalId>MP01</LocalId>
 		<LocalDescription>contanti</LocalDescription>
 	</Code>
 	<Code>
@@ -258,7 +253,7 @@
 		<Name>ACH demand cash concentration/disbursement plus (CCD+) debit</Name>
 		<Description>A debit transaction made through the ACH system to a demand deposit account
             using the CCD+ payment format.</Description>
-			<LocalId>MP01</LocalId>
+		<LocalId>MP01</LocalId>
 		<LocalDescription>contanti</LocalDescription>
 	</Code>
 	<Code>
@@ -266,7 +261,7 @@
 		<Name>ACH prearranged payment and deposit (PPD)</Name>
 		<Description>A consumer credit transaction made through the ACH system to a demand deposit
             or savings account.</Description>
-			<LocalId>MP01</LocalId>
+		<LocalId>MP01</LocalId>
 		<LocalDescription>contanti</LocalDescription>
 	</Code>
 	<Code>
@@ -274,7 +269,7 @@
 		<Name>ACH savings cash concentration/disbursement (CCD) credit</Name>
 		<Description>A credit transaction made through the ACH system to a demand deposit or savings
             account.</Description>
-			<LocalId>MP01</LocalId>
+		<LocalId>MP01</LocalId>
 		<LocalDescription>contanti</LocalDescription>
 	</Code>
 	<Code>
@@ -282,7 +277,7 @@
 		<Name>ACH savings cash concentration/disbursement (CCD) debit</Name>
 		<Description>A debit transaction made through the ACH system to a savings account using the
             CCD payment format.</Description>
-			<LocalId>MP01</LocalId>
+		<LocalId>MP01</LocalId>
 		<LocalDescription>contanti</LocalDescription>
 	</Code>
 	<Code>
@@ -290,7 +285,7 @@
 		<Name>ACH savings corporate trade payment (CTP) credit</Name>
 		<Description>A credit transaction made through the ACH system to a savings account using the
             CTP payment format.</Description>
-			<LocalId>MP01</LocalId>
+		<LocalId>MP01</LocalId>
 		<LocalDescription>contanti</LocalDescription>
 	</Code>
 	<Code>
@@ -298,7 +293,7 @@
 		<Name>ACH savings corporate trade payment (CTP) debit</Name>
 		<Description>A debit transaction made through the ACH system to a savings account using the
             CTP payment format.</Description>
-			<LocalId>MP01</LocalId>
+		<LocalId>MP01</LocalId>
 		<LocalDescription>contanti</LocalDescription>
 	</Code>
 	<Code>
@@ -306,7 +301,7 @@
 		<Name>ACH savings corporate trade exchange (CTX) credit</Name>
 		<Description>A credit transaction made through the ACH system to a savings account using the
             CTX payment format.</Description>
-			<LocalId>MP01</LocalId>
+		<LocalId>MP01</LocalId>
 		<LocalDescription>contanti</LocalDescription>
 	</Code>
 	<Code>
@@ -314,7 +309,7 @@
 		<Name>ACH savings corporate trade exchange (CTX) debit</Name>
 		<Description>A debit transaction made through the ACH system to a savings account using the
             CTX payment format.</Description>
-			<LocalId>MP01</LocalId>
+		<LocalId>MP01</LocalId>
 		<LocalDescription>contanti</LocalDescription>
 	</Code>
 	<Code>
@@ -322,7 +317,7 @@
 		<Name>ACH savings cash concentration/disbursement plus (CCD+) credit</Name>
 		<Description>A credit transaction made through the ACH system to a savings account using the
             CCD+ payment format.</Description>
-			<LocalId>MP01</LocalId>
+		<LocalId>MP01</LocalId>
 		<LocalDescription>contanti</LocalDescription>
 	</Code>
 	<Code>
@@ -330,7 +325,7 @@
 		<Name>Payment to bank account</Name>
 		<Description>Payment by an arrangement for settling debts that is operated by the Post
             Office.</Description>
-			<LocalId>MP17</LocalId>
+		<LocalId>MP17</LocalId>
 		<LocalDescription>domiciliazione postale</LocalDescription>
 	</Code>
 	<Code>
@@ -338,7 +333,7 @@
 		<Name>ACH savings cash concentration/disbursement plus (CCD+) debit</Name>
 		<Description>A debit transaction made through the ACH system to a savings account using the
             CCD+ payment format.</Description>
-			<LocalId>MP01</LocalId>
+		<LocalId>MP01</LocalId>
 		<LocalDescription>contanti</LocalDescription>
 	</Code>
 	<Code>
@@ -375,7 +370,6 @@
 		<Description>Payment by means of a card issued by a bank or other financial institution.</Description>
 		<LocalId>MP08</LocalId>
 		<LocalDescription>Carte di pagamento</LocalDescription>
-		<LocalUsageNotes>Carta di credito, carta di debito, ...</LocalUsageNotes>
 	</Code>
 	<Code>
 		<Id>49</Id>
@@ -384,7 +378,6 @@
             account.</Description>
 		<LocalId>MP19</LocalId>
 		<LocalDescription>SEPA Direct Debit</LocalDescription>
-		<LocalUsageNotes>Usare preferibilmente al posto del 46 sia per domiciliazioni basate su RID che SEPA SDD Core o B2B.  Se è necessario specificare che si tratta di domiciliazione postale (MP17) usare il codice 9 e la relativa estensione.</LocalUsageNotes>
 	</Code>
 	<Code>
 		<Id>50</Id>
@@ -393,7 +386,6 @@
             through the banking system.</Description>
 		<LocalId>MP18</LocalId>
 		<LocalDescription>Bollettino di c/c postale.</LocalDescription>
-		<LocalUsageNotes>Utilizzare solo con SDI 1.1.</LocalUsageNotes>
 	</Code>
 	<Code>
 		<Id>51</Id>
@@ -401,7 +393,7 @@
 		<Description>Banking Standards) - Option A A French standard procedure that allows a debtor
             to pay an amount due to a creditor. The creditor will forward it to its bank, which will
             collect the money on the bank account of the debtor.</Description>
-			<LocalId>MP05</LocalId>
+		<LocalId>MP05</LocalId>
 		<LocalDescription>bonifico</LocalDescription>
 	</Code>
 	<Code>
@@ -410,7 +402,7 @@
 		<Description>Payment order which requires guaranteed processing by the most appropriate
             means to ensure it occurs on the requested execution date, provided that it is issued to
             the ordered bank before the agreed cut-off time.</Description>
-			<LocalId>MP01</LocalId>
+		<LocalId>MP01</LocalId>
 		<LocalDescription>contanti</LocalDescription>
 	</Code>
 	<Code>
@@ -418,7 +410,7 @@
 		<Name>Urgent Treasury Payment</Name>
 		<Description>Payment order or transfer which must be executed, by the most appropriate
             means, as urgently as possible and before urgent commercial payments.</Description>
-			<LocalId>MP01</LocalId>
+		<LocalId>MP01</LocalId>
 		<LocalDescription>contanti</LocalDescription>
 	</Code>
 	<Code>
@@ -427,7 +419,6 @@
 		<Description>Payment made by means of credit card.</Description>
 		<LocalId>MP08</LocalId>
 		<LocalDescription>Carte di pagamento</LocalDescription>
-		<LocalUsageNotes>Carta di credito, carta di debito, ...</LocalUsageNotes>
 	</Code>
 	<Code>
 		<Id>55</Id>
@@ -435,7 +426,6 @@
 		<Description>Payment made by means of debit card.</Description>
 		<LocalId>MP08</LocalId>
 		<LocalDescription>Carte di pagamento</LocalDescription>
-		<LocalUsageNotes>Carta di credito, carta di debito, ...</LocalUsageNotes>
 	</Code>
 	<Code>
 		<Id>56</Id>
@@ -449,8 +439,8 @@
 		<Name>Standing agreement</Name>
 		<Description>The payment means have been previously agreed between seller and buyer and thus
             are not stated again.</Description>
-			<LocalId>MP01</LocalId>
-		<LocalDescription>contanti</LocalDescription>
+		<LocalId>MP15</LocalId>
+		<LocalDescription>Giroconto su conti di contabilità speciale</LocalDescription>
 	</Code>
 	<Code>
 		<Id>58</Id>
@@ -481,7 +471,7 @@
 		<Description>Payment by an unconditional promise in writing made by the debtor to another
             person, signed by the debtor, engaging to pay on demand or at a fixed or determinable
             future time a sum certain in money, to order or to bearer.</Description>
-			<LocalId>MP06</LocalId>
+		<LocalId>MP06</LocalId>
 		<LocalDescription>Vaglia Cambiario</LocalDescription>
 	</Code>
 	<Code>
@@ -490,7 +480,7 @@
 		<Description>Payment by an unconditional promise in writing made by the debtor to another
             person, signed by the debtor and endorsed by a bank, engaging to pay on demand or at a
             fixed or determinable future time a sum certain in money, to order or to bearer.</Description>
-			<LocalId>MP06</LocalId>
+		<LocalId>MP06</LocalId>
 		<LocalDescription>Vaglia Cambiario</LocalDescription>
 	</Code>
 	<Code>
@@ -499,7 +489,7 @@
 		<Description>Payment by an unconditional promise in writing made by the debtor to another
             person, signed by the debtor and endorsed by a third party, engaging to pay on demand or
             at a fixed or determinable future time a sum certain in money, to order or to bearer.</Description>
-			<LocalId>MP06</LocalId>
+		<LocalId>MP06</LocalId>
 		<LocalDescription>Vaglia Cambiario</LocalDescription>
 	</Code>
 	<Code>
@@ -508,7 +498,7 @@
 		<Description>Payment by an unconditional promise in writing made by the bank to another
             person, signed by the bank, engaging to pay on demand or at a fixed or determinable
             future time a sum certain in money, to order or to bearer.</Description>
-			<LocalId>MP06</LocalId>
+		<LocalId>MP06</LocalId>
 		<LocalDescription>Vaglia Cambiario</LocalDescription>
 	</Code>
 	<Code>
@@ -517,7 +507,7 @@
 		<Description>Payment by an unconditional promise in writing made by the bank to another
             person, signed by the bank and endorsed by another bank, engaging to pay on demand or at
             a fixed or determinable future time a sum certain in money, to order or to bearer.</Description>
-			<LocalId>MP06</LocalId>
+		<LocalId>MP06</LocalId>
 		<LocalDescription>Vaglia Cambiario</LocalDescription>
 	</Code>
 	<Code>
@@ -526,7 +516,7 @@
 		<Description>Payment by an unconditional promise in writing made by a third party to another
             person, signed by the third party, engaging to pay on demand or at a fixed or
             determinable future time a sum certain in money, to order or to bearer.</Description>
-			<LocalId>MP06</LocalId>
+		<LocalId>MP06</LocalId>
 		<LocalDescription>Vaglia Cambiario</LocalDescription>
 	</Code>
 	<Code>
@@ -535,7 +525,7 @@
 		<Description>Payment by an unconditional promise in writing made by a third party to another
             person, signed by the third party and endorsed by a bank, engaging to pay on demand or
             at a fixed or determinable future time a sum certain in money, to order or to bearer.</Description>
-			<LocalId>MP06</LocalId>
+		<LocalId>MP06</LocalId>
 		<LocalDescription>Vaglia Cambiario</LocalDescription>
 	</Code>
 	<Code>
@@ -551,7 +541,6 @@
 		<Description>Bill drawn by the creditor on the debtor.</Description>
 		<LocalId>MP12</LocalId>
 		<LocalDescription>RI.BA.</LocalDescription>
-		<LocalUsageNotes>Ricevuta Bancaria (Mandato per incasso).</LocalUsageNotes>
 	</Code>
 	<Code>
 		<Id>74</Id>
@@ -594,7 +583,6 @@
 		<Description>Issue a bankers draft not endorsable.</Description>
 		<LocalId>MP03</LocalId>
 		<LocalDescription>Assegno Circolare.</LocalDescription>
-		<LocalUsageNotes>Usare preferibilmente il codice 22.</LocalUsageNotes>
 		<LocalId>MP03</LocalId>
 		<LocalDescription>Assegno Circolare</LocalDescription>
 	</Code>
@@ -604,14 +592,13 @@
 		<Description>Issue a cheque not endorsable in payment of the funds.</Description>
 		<LocalId>MP02</LocalId>
 		<LocalDescription>Assegno.</LocalDescription>
-		<LocalUsageNotes>Usare preferibilmente il codice 22.</LocalUsageNotes>
 	</Code>
 	<Code>
 		<Id>93</Id>
 		<Name>Reference giro</Name>
 		<Description>Ordering customer tells the bank to use the payment system 'Reference giro'.
             Used in the Finnish national banking system.</Description>
-			<LocalId>MP05</LocalId>
+		<LocalId>MP05</LocalId>
 		<LocalDescription>bonifico</LocalDescription>
 	</Code>
 	<Code>
@@ -619,7 +606,7 @@
 		<Name>Urgent giro</Name>
 		<Description>Ordering customer tells the bank to use the bank service 'Urgent Giro' when
             transferring the payment. Used in Finnish national banking system.</Description>
-			<LocalId>MP05</LocalId>
+		<LocalId>MP05</LocalId>
 		<LocalDescription>bonifico</LocalDescription>
 	</Code>
 	<Code>
@@ -627,7 +614,7 @@
 		<Name>Free format giro</Name>
 		<Description>Ordering customer tells the ordering bank to use the bank service 'Free Format
             Giro' when transferring the payment. Used in Finnish national banking system.</Description>
-			<LocalId>MP05</LocalId>
+		<LocalId>MP05</LocalId>
 		<LocalDescription>bonifico</LocalDescription>
 	</Code>
 	<Code>
@@ -635,7 +622,7 @@
 		<Name>Requested method for payment was not used</Name>
 		<Description>If the requested method for payment was or could not be used, this code
             indicates that.</Description>
-			<LocalId>MP01</LocalId>
+		<LocalId>MP01</LocalId>
 		<LocalDescription>contanti</LocalDescription>
 	</Code>
 	<Code>
@@ -643,7 +630,7 @@
 		<Name>Clearing between partners</Name>
 		<Description>Amounts which two partners owe to each other to be compensated in order to
             avoid useless payments.</Description>
-			<LocalId>MP22</LocalId>
+		<LocalId>MP22</LocalId>
 		<LocalDescription>Trattenuta su somme già riscosse</LocalDescription>
 	</Code>
 	<Code>
@@ -652,5 +639,6 @@
 		<Description>A code assigned within a code list to be used on an interim basis and as
             defined among trading partners until a precise code can be assigned to the code list.</Description>
 		<LocalId>MP04</LocalId>
+		<LocalDescription>Contanti presso Tesoreria</LocalDescription>
 	</Code>
 </CodeList>

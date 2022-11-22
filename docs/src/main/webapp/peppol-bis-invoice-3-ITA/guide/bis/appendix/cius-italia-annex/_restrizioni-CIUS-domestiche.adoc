@@ -41,7 +41,7 @@ deve essere valorizzato come segue: +
 #NumeroIscrizioneAlb o#DataIscrizione" (con Data nel formato AAAA- MM-GG).
 
 
-|BR-IT-DC-100C**
+|BR-IT-DC-100C
 |Value domain for an element - Restrict text or byte array length
 |BT-29 Seller identifier
 |1.2.4.1 Ufficio +
@@ -97,5 +97,3 @@ BT-38 Seller post code
 
 |====
 (*) _regola della Peppol Authority nazionale che integra le specifiche tecniche AdE_
-
-(**) _regola già concordata con Agenzia delle Entrate, che ne darà evidenza in una successiva versione delle regole tecniche_

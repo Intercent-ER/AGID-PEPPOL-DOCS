@@ -16,14 +16,6 @@ include::{snippet-dir}/item.xml[tags=unspsc]
 
 
 .Esempio UBL di Dispositivo medico
-#In questo esempio viene fornito il numero di registrazione attribuito al dispositivo medico nella Banca dati e Repertorio Dispositivi Medici dal Ministero della Salute.#
-
-#L’attributo schemeID dovrà essere valorizzato con:#
-
-* #DM1 per “Dispositivo medico o Dispositivo diagnostico in vitro”#
-* #DM2 per “Sistema o kit Assemblato”#
-* #DM0 per "Nessun numero di repertorio"#
-
 [source, xml, indent=0]
 ----
 <cac:Item>

@@ -482,7 +482,7 @@
 	<!-- end::pagamento_anticipato[] -->
 	<!-- tag::pagamento_ritardato[] -->
     <cac:PaymentTerms>
-        <cbc:Note>Penale per pagamento ritardato</cbc:Note>
+        <cbc:Note>TP02#60</cbc:Note>
         <cbc:PenaltyAmount currencyID="EUR">100.00</cbc:PenaltyAmount>
         <cac:PenaltyPeriod>
             <cbc:StartDate>2020-10-01</cbc:StartDate>

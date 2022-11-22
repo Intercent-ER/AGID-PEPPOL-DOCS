@@ -2,7 +2,7 @@
 [source, xml, indent=0]
 ----
 <cac:CommodityClassification>
-    <cbc:ItemClassificationCode listID="STI">09348023</cbc:ItemClassificationCode>(1)
+    <cbc:ItemClassificationCode listID="STI">09348023</cbc:ItemClassificationCode> <1>
 </cac:CommodityClassification>
 ----
 <1> Il listID deve essere fra quelli della codifica UNCL7143 e il codice STI indica che questo è una classificazione CPV.
@@ -29,14 +29,14 @@ include::{snippet-dir}/item.xml[tags=unspsc]
 	<cbc:Description>Dispositivo Medico</cbc:Description>
 	<cbc:Name>Prodotto 1143668 DEFIBRILLATORE SEMIAUTOMATICO LIFEPAK 1000</cbc:Name>
 	<cac:SellersItemIdentification>
-		<cbc:ID>1143668</cbc:ID> (1)
-    </cac:SellersItemIdentification>
+		<cbc:ID>1143668</cbc:ID> <1>
+	</cac:SellersItemIdentification>
 	<cac:CommodityClassification>
-		<cbc:ItemClassificationCode listID="ZZZ">DM1:918674</cbc:ItemClassificationCode> (2)
-    </cac:CommodityClassification>
+		<cbc:ItemClassificationCode listID="ZZZ">DM1:918674</cbc:ItemClassificationCode> <2>
+	</cac:CommodityClassification>
 	<cac:CommodityClassification>
-		<cbc:ItemClassificationCode listID="STO">Z12030501</cbc:ItemClassificationCode> (3)
-    </cac:CommodityClassification>
+		<cbc:ItemClassificationCode listID="STO">Z12030501</cbc:ItemClassificationCode> <3>
+	</cac:CommodityClassification>
 […]
 </cac:Item>
 ----

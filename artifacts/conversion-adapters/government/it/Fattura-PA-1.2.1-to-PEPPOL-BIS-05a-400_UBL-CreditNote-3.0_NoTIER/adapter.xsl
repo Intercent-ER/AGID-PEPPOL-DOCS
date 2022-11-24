@@ -1377,26 +1377,7 @@ the root node.
 							<xsl:value-of select="format-number(Importo, '###########0.00')"/>
 						</xsl:if>
 						<xsl:if test="not(Importo)">
-							<xsl:choose>
-								<xsl:when test="../../DatiPagamento[1]/DettaglioPagamento/ImportoPagamento">
-									<xsl:value-of select="format-number((sum(../../DatiPagamento[1]/DettaglioPagamento/ImportoPagamento)) div 100 * Percentuale,'###########0.00')"/>
-								</xsl:when>
-								<xsl:when test="not(../../DatiPagamento[1]/DettaglioPagamento/ImportoPagamento) and ImponibileImporto">
-									<xsl:value-of select="format-number((ImportoTotaleDocumento+Arrotondamento) div 100 * Percentuale,'###########0.00')"/>
-								</xsl:when>
-								<xsl:otherwise>
-									<xsl:variable name="taxInclusiveAmount">
-										<xsl:if test="ImportoTotaleDocumento">
-											<xsl:value-of select="format-number(ImportoTotaleDocumento,'###########0.00')"/>
-										</xsl:if>
-										<xsl:if test="not(ImportoTotaleDocumento)">
-											<xsl:variable name="lineExtensionAmount" select="format-number(sum(../../DatiBeniServizi/DettaglioLinee[not(Descrizione = 'BOLLO') and not(Descrizione = 'SCONTO') and not(Descrizione = 'MAGGIORAZIONE')]/PrezzoTotale),'###########0.00')"/>
-											<xsl:value-of select="format-number($lineExtensionAmount+sum(../../DatiBeniServizi/DatiRiepilogo/Imposta)+sum(DatiCassaPrevidenziale/ImportoContributoCassa)+sum(../../DatiBeniServizi/DettaglioLinee[Descrizione = 'BOLLO']/PrezzoTotale),'###########0.00')"/>
-										</xsl:if>
-									</xsl:variable>
-									<xsl:value-of select="format-number(($taxInclusiveAmount+Arrotondamento) div 100 * Percentuale,'###########0.00')"/>
-								</xsl:otherwise>
-							</xsl:choose>
+							<xsl:value-of select="format-number((sum(../../../DatiBeniServizi/DatiRiepilogo/ImponibileImporto)+sum(../../../DatiBeniServizi/DatiRiepilogo/Imposta)) div 100 * Percentuale,'###########0.00')"/>
 						</xsl:if>
 					</cbc:Amount>
 				</cac:AllowanceCharge>
@@ -1919,11 +1900,11 @@ the root node.
 				<xsl:value-of select="Divisa"/>
 			</xsl:variable>
 			<xsl:variable name="taxInclusiveAmount">
-				<xsl:if test="ImportoTotaleDocumento">
+				<xsl:if test="ImportoTotaleDocumento and not(ScontoMaggiorazione)">
 					<xsl:value-of select="format-number(ImportoTotaleDocumento,'###########0.00')"/>
 				</xsl:if>
-				<xsl:if test="not(ImportoTotaleDocumento)">
-					<xsl:value-of select="format-number($lineExtensionAmount+sum(../../DatiBeniServizi/DatiRiepilogo/Imposta)+sum(DatiCassaPrevidenziale/ImportoContributoCassa)+sum(../../DatiBeniServizi/DettaglioLinee[Descrizione = 'BOLLO']/PrezzoTotale),'###########0.00')"/>
+				<xsl:if test="not(ImportoTotaleDocumento) or ScontoMaggiorazione">
+					<xsl:value-of select="format-number((sum(../../DatiBeniServizi/DatiRiepilogo/Imposta)+sum(DatiCassaPrevidenziale/ImportoContributoCassa)+sum(../../DatiBeniServizi/DettaglioLinee[Descrizione = 'BOLLO']/PrezzoTotale)+sum(../../DatiBeniServizi/DettaglioLinee[not(Descrizione = 'BOLLO') and not(Descrizione = 'SCONTO') and not(Descrizione = 'MAGGIORAZIONE')]/PrezzoTotale)),'###########0.00')"/>
 				</xsl:if>
 			</xsl:variable>
 			<xsl:variable name="chargeTotalAmount" select="format-number(sum(DatiCassaPrevidenziale/ImportoContributoCassa),'###########0.00')"/>

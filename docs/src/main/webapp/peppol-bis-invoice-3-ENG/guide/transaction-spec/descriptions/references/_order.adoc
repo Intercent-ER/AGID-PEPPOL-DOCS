@@ -54,7 +54,7 @@ include::../../../syntax/references/_order.adoc[]
 </cac:OrderReference>
 ----
 
-#Ove la fattura sia riferita a più ordini (elettronici o analogici) referenziati in riga, occorre indicarlo nel seguente modo (non valorizzando il cbc:BuyerReference):#
+#Ove la fattura sia riferita a più ordini elettronici referenziati in riga, occorre indicarlo nel seguente modo:#
 
 
 [source, xml, indent=0]

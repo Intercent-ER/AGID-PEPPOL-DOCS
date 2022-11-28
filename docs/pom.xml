@@ -440,7 +440,7 @@
 						</goals>
 						<configuration>
 							<backend>html5</backend>
-							<sourceDirectory>${basedir}/src/main/webapp/manuali utente/</sourceDirectory>
+							<sourceDirectory>src/main/webapp/manuali_utente/</sourceDirectory>
 							<outputDirectory>${project.build.directory}/generated-docs/manuali utente</outputDirectory>
 							<relativeBaseDir>true</relativeBaseDir>
 							<preserveDirectories>true</preserveDirectories>

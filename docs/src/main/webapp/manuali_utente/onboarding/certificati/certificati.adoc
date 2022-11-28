@@ -3,16 +3,16 @@ Superati tutti i test previsti dalla sessione di test, nella home page della pia
 •	"Invia report" che consente di inviare automaticamente il documento contenente l'esito dei test della sessione di test eseguita alla Peppol Authority.
 
 .Invio del report alla Peppol Authority
-image::../CATTURE/certificati-be485.png[align=center]
+image::certificati-be485.png[align=center]
 
 •	 "Scarica report" che consente di effettuare il download del documento in formato .pdf contenente l'esito dei test della sessione di test eseguita.
 
 .Download del report della sessione superata
-image::../CATTURE/certificati-9f644.png[align=center]
+image::certificati-9f644.png[align=center]
 
 In caso di fallimento della sessione di test, nella home page della piattaforma, nella sezione relativa al dettaglio,
 verrà specificato che la sessione di test è stata fallita (indicando la data e l’ora di fallimento) e verrà abilitato il solo bottone "Scarica report", che consente di effettuare il download del documento in formato .pdf contenente l'esito dei test della sessione di test eseguita. +
 Per i casi di test falliti, il report fornisce il dettaglio degli errori rilevati in fase di esecuzione del caso di test.
 
 .Download del report della sessione fallita
-image::../CATTURE/sess_fallita_report.png[align=center]
+image::sess_fallita_report.png[align=center]

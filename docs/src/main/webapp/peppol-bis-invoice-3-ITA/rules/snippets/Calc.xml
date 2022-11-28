@@ -410,8 +410,13 @@
         </cac:Item>
         <!-- tag::lineamount[] -->
         <cac:Price>
-            <cbc:PriceAmount currencyID="EUR">200</cbc:PriceAmount><!--1-->
+            <cbc:PriceAmount currencyID="EUR">200.00</cbc:PriceAmount><!--1-->
             <cbc:BaseQuantity unitCode="C62">2</cbc:BaseQuantity><!--2-->
+            <cac:AllowanceCharge>
+                <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+                <cbc:Amount currencyID="EUR">0.00</cbc:Amount>
+                <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
+            </cac:AllowanceCharge>
         </cac:Price>
         <!-- end::lineamount[] -->
     </cac:InvoiceLine>
@@ -479,10 +484,13 @@
         </cac:Item>
         <!-- tag::lineamount2[] -->
         <cac:Price>
-            <cbc:PriceAmount currencyID="EUR">100</cbc:PriceAmount><!--1-->
+            <cbc:PriceAmount currencyID="EUR">100.00</cbc:PriceAmount><!--1-->
+            <cac:AllowanceCharge>
+                <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+                <cbc:Amount currencyID="EUR">0.00</cbc:Amount>
+                <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
+            </cac:AllowanceCharge>
         </cac:Price>
         <!-- end::lineamount2[] -->
     </cac:InvoiceLine>    
 </Invoice>
-
-

@@ -592,7 +592,7 @@
 								<Term>filename</Term>
 								<Name>Attached document Filename</Name>
 								<Description>The file name of the attached document</Description>
-								<Value type="EXAMPLE">Hours-spent.csv</Value>
+								<Value type="EXAMPLE">Fattura ft123 del 16-11-2017.pdf</Value>
 							</Attribute>
 							<Value type="EXAMPLE">QklTIE9yZGVyIEFncmVlbWVudCAtIDQyQQ==</Value>
 						</Element>

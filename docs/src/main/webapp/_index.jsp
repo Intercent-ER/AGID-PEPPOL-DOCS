@@ -271,7 +271,7 @@
                                 <span class="sr-only">Toggle Dropdown</span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="peppol-bis-invoice-3">PEPPOL BIS Fatturazione 3</a></li>
+                                <li><a href="peppol-bis-invoice-3">Peppol BIS 3 Fatturazione</a></li>
                                 <li><a href="peppol-bis-3">PEPPOL BIS 3 (altri processi)</a></li>
                             </ul>
                         </li>

@@ -1,0 +1,25 @@
+=== Ottenimento del Certificato
+
+L’accesso alla piattaforma viene effettuato mediante l’utilizzo di un certificato di test rilasciato dalla Peppol Authority, che deve essere scaricato e importato nel browser.
+
+Per importare il certificato, è necessario andare nella sezione sicurezza del proprio browser e cercare la voce relativa ai certificati.
+
+.esempio di "Gestisci Certificati" in Google Chrome
+image::../CATTURE/accesso_piattaforma-22ea1.png[align=center]
+
+[CAUTION]
+====
+Qualora non si possieda un certificato valido o il certificato non sia stato correttamente installato sulla macchina in utilizzo, non sarà possibile accedere alla Piattaforma di Onboarding e il sistema resituirà l'errore *401: Unauthorized*.
+====
+.Errore in fase di autenticazione tramite certificato
+image::../CATTURE/accesso_piattaforma-e99fe.png[align-center]
+
+=== Accesso tramite link
+
+L’accesso al sistema può essere effettuato:
+
+* dalla home page della Peppol Authority Italia all'indirizzo https://peppol.agid.gov.it/it/;
+* direttamente all'indirizzo https://peppol-onboarding.agid.gov.it/piattaforma-onboarding/
+
+.Collegamento alla Piattaforma di Onboarding dal sito della Peppol Authority nazionale
+image::../CATTURE/Immagine 2022-04-07 110308.png[align=center]

@@ -34,5 +34,9 @@ include::../{snippet-dir}/CreditNote-snippets.xml[tags=project ]
 .Esempio UBL per il riferimento al progetto (CUP) dalle righe fattura
 [source, xml, indent=0]
 ----
-include::../{snippet-dir}/Snippet-refs.xml[tags=CUP_riga]
+<cac:DocumentReference>
+          <cbc:ID schemeID="AEP">project333</cbc:ID>
+          <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
+</cac:DocumentReference>
 ----
+

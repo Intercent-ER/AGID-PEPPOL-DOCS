@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeList xmlns="urn:fdc:difi.no:2017:vefa:structure:CodeList-1">
+	<Title>Regime Fiscale</Title>
+	<Identifier>RegimeFiscale</Identifier>
+	<Version>1.0</Version>
+	<Agency>AGID</Agency>
+	<Code>
+		<Id>RF01</Id>
+		<Name>Ordinario</Name>
+	</Code>
+	<Code>
+		<Id>RF02</Id>
+		<Name>Contribuenti minimi (art.1, c.96-117, L. 244/07) </Name>
+	</Code>
+	<Code>
+		<Id>RF04</Id>
+		<Name>Agricoltura e attività connesse e pesca (artt.34 e 34-bis, DPR 633/72) </Name>
+	</Code>
+	<Code>
+		<Id>RF05</Id>
+		<Name>Vendita sali e tabacchi (art.74, c.1, DPR. 633/72) </Name>
+	</Code>
+	<Code>
+		<Id>RF06</Id>
+		<Name>Commercio fiammiferi (art.74, c.1, DPR  633/72) </Name>
+	</Code>
+	<Code>
+		<Id>RF07</Id>
+		<Name>Editoria (art.74, c.1, DPR  633/72)</Name>
+	</Code>
+	<Code>
+		<Id>RF08</Id>
+		<Name>Gestione servizi telefonia pubblica (art.74, c.1, DPR 633/72) </Name>
+	</Code>
+	<Code>
+		<Id>RF09</Id>
+		<Name>Rivendita documenti di trasporto pubblico e di sosta (art.74, c.1, DPR  633/72) </Name>
+	</Code>
+	<Code>
+		<Id>RF10</Id>
+		<Name>Intrattenimenti, giochi e altre attività di cui alla tariffa allegata al DPR 640/72 (art.74, c.6, DPR 633/72) </Name>
+	</Code>
+	<Code>
+		<Id>RF11</Id>
+		<Name>Agenzie viaggi e turismo (art.74-ter, DPR 633/72) </Name>
+	</Code>
+	<Code>
+		<Id>RF12</Id>
+		<Name>Agriturismo (art.5, c.2, L. 413/91) </Name>
+	</Code>
+	<Code>
+		<Id>RF13</Id>
+		<Name>Vendite a domicilio (art.25-bis, c.6, DPR  600/73) </Name>
+	</Code>
+	<Code>
+		<Id>RF14</Id>
+		<Name>Rivendita beni usati, oggetti d’arte, d’antiquariato o da collezione (art.36, DL 41/95) </Name>
+	</Code>
+	<Code>
+		<Id>RF15</Id>
+		<Name>Agenzie di vendite all’asta di oggetti d’arte, antiquariato o da collezione (art.40-bis, DL 41/95) </Name>
+	</Code>
+	<Code>
+		<Id>RF16</Id>
+		<Name>IVA per cassa P.A. (art.6, c.5, DPR 633/72) </Name>
+	</Code>
+	<Code>
+		<Id>RF17</Id>
+		<Name>IVA per cassa (art. 32-bis, DL 83/2012) </Name>
+	</Code>
+	<Code>
+		<Id>RF18</Id>
+		<Name>Altro</Name>
+	</Code>
+	<Code>
+		<Id>RF19</Id>
+		<Name>Regime forfettario (art.1, c.54-89, L. 190/2014)</Name>
+	</Code>
+</CodeList>

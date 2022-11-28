@@ -6,9 +6,37 @@
 ^.^| Data
 ^.^| Cosa è cambiato
 
+| 3.0.13.2(IT)
+a| 24/06/2022
+a| [red]#Cambiamenti nella sezione Documentazione# +
+
+* Indicazione di compilazione delle informazioni relative a Nome e Cognome per le Ditte individuali e per le Persone fisiche: la concatenazione delle informazioni relative a Nome e Cognome all’interno del campo cac:PartyLegalEntity/cbc:RegistrationName deve essere preceduta dalla stringa “Nome#Cognome:” in sostituzione della stringa “Nome&Cognome:” utilizzata in precedenza. +
+La regola si applica per l’indicazione del Fornitore (par. 10.1.1. Il Fornitore (AccountingSupplierParty)), del Cliente (10.1.2. Il Cliente (AccountingCustomerParty)) e del Beneficiario (10.1.3. Il Beneficiario (PayeeParty)).
+* Riformulazione delle indicazioni di compilazione dei campi OrderReference e BuyerReference (par. 10.3.1. Ordine d’acquisto e riferimento all’ordine di vendita). +
+
+[red]#Cambiamenti nella sezione Downloads# +
+
+* Caricamento nuovo pacchetto di esempi Fattura. 
+
+| 3.0.13.1(IT)
+a| 27/05/2022
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/release-notes/[PEPPOL BIS 3.0.13 - may release 2022]_. +
+
+[red]#Cambiamenti alle code lists e ai tool di validazione#
+
+* Corretto un errore che provocava la comparsa di errori in sede di caricamento/utilizzo di file di schematron in alcuni convertitori/tool di file XLS;
+* Modificata da “warning” a “fatal” la severità della regola PEPPOL-COMMON-R043 (ICD 0208) relativa alla validazione del formato del “Belgian organisation numbers”, come annunciato nella Fall release 2021;
+* Aggiunta una regola con severità “warning” per la validazione del formato del “Swedish organisation numbers” (ICD/EAS 0007). La severità passerà a “fatal” con la Fall release 2022;
+* Corretta la regola PEPPOL-EN16931-R080 che deve attivarsi solo per la Nota di credito e non per la Fattura;
+* Aggiunti i codici 0214, 0215 e 0216 alla codifica ICD e adeguati gli artefatti di validazione;
+* Aggiunti i codici 0147, 0170, 0188, 0215 e 0216 alla codifica EAS e adeguati gli artefatti di validazione;
+* Corretta la ripetizione del codice TSP presente nella codifica UNCL7143.
+* Inseriti i codici tipo fattura aggiuntivi 71, 102, 218, 219, 331, 382, 553, 817, 870, 875, 876 e 877, in linea con l'aggiornamento effettuato dal TC434/EC-DIGITAL. Aggiunta all’interno della sezione Documentazione l’indicazione che questi codici tipo fattura addizionali possono essere trattati come sinonimi del codice 380 e quindi non richiedono una modifica nell’elaborazione;
+* Inserito il codice tipo fattura 0388. Aggiunta all’interno della sezione Documentazione l’indicazione che questo codice tipo fattura può essere trattato come sinonimo del codice 380 e quindi non richiede una modifica nell’elaborazione.
+
 .2+| 3.0.12.1(IT)
 .2+a| 21/04/2022
-a|La presente specifica implementa le nuove Regole tecniche relative alla gestione delle fatture europee - versione 2.1 pubblicate il 01/04/2022, in relazione al Provvedimento 99370 pubblicato il 18/04/2019 (disponibile presso il seguente https://www.agenziaentrate.gov.it/portale/web/guest/normativa-e-prassi/provvedimenti/2019/aprile-2019-provvedimenti/provvedimento-18042019-fatturazione-elettronica-europea[link]) fornendo inoltre indicazioni sulla gestione della fatturazione verso privati. Nel testo viene data apposita evidenza ad alcune modifiche, già concordate con Agenzia delle Entrate, che saranno accolte in una successiva versione delle regole tecniche.
+a|La presente specifica implementa le nuove Regole tecniche dell’Agenzia delle Entrate relative alla gestione delle fatture europee - versione 2.1 pubblicate il 01/04/2022, in relazione al Provvedimento 99370 pubblicato il 18/04/2019 (disponibile presso il seguente https://www.agenziaentrate.gov.it/portale/web/guest/normativa-e-prassi/provvedimenti/2019/aprile-2019-provvedimenti/provvedimento-18042019-fatturazione-elettronica-europea[link]) fornendo inoltre indicazioni sulla gestione della fatturazione verso privati. Nel testo viene data apposita evidenza ad alcune modifiche, già concordate con Agenzia delle Entrate, che saranno accolte in una successiva versione delle regole tecniche.
 a| La versione è allineata alla release Peppol BIS Billing 3.0.12 (Fall release 2021).
 
 | 3.0.9.1(IT)

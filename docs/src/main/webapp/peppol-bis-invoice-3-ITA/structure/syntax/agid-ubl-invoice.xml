@@ -100,7 +100,7 @@
 			<DataType>Text</DataType>
 			<Reference type="BUSINESS_TERM">BT-22</Reference>
 			<Reference type="RULE">PEPPOL-EN16931-R002</Reference>
-			<Value type="EXAMPLE">Please note our new phone number 33 44 55 66</Value>
+			<Value type="EXAMPLE">Consegne mese di Maggio</Value>
 		</Element>
 
 		<Element cardinality="0..1">
@@ -140,7 +140,7 @@
 			<Reference type="RULE">BR-CL-05</Reference>
 			<Reference type="RULE">PEPPOL-EN16931-R005</Reference>
 			<Reference type="CODE_LIST">ISO4217</Reference>
-			<Value type="EXAMPLE">SEK</Value>
+			<Value type="EXAMPLE">EUR</Value>
 		</Element>
 
 		<Element cardinality="0..1" agid:custom="rule">
@@ -164,14 +164,13 @@
 			<DataType>Text</DataType>
 			<Reference type="BUSINESS_TERM">BT-10</Reference>
 			<Reference type="RULE">PEPPOL-EN16931-R003</Reference>
-			<Value type="EXAMPLE">abs1234</Value>
+			<Value type="EXAMPLE">202268004#2017-06-27#ABCDEF</Value>
 		</Element>
 
 		<Element cardinality="0..1">
 			<Term>cac:InvoicePeriod</Term>
 			<Name>DELIVERY OR INVOICE PERIOD - Periodo rilevante fattura</Name>
-			<Description>A group of business terms providing information on the invoice period. Also called delivery period.
-                If the group is used, the invoiceing period start date and/or end date must be used.</Description>
+			<Description>A group of business terms providing information on the invoice period. Also called delivery period.</Description>
 			<Reference type="BUSINESS_TERM">BG-14</Reference>
 			<Reference type="RULE">BR-IC-11</Reference>
 
@@ -263,7 +262,7 @@
 					<Reference type="BUSINESS_TERM">BT-25</Reference>
 					<Reference type="RULE">BR-55</Reference>
 					<Reference type="RULE">BR-IT-090</Reference>
-					<Value type="EXAMPLE">inv123</Value>
+					<Value type="EXAMPLE">ft123</Value>
 				</Element>
 				<Element cardinality="0..1">
 					<Term>cbc:IssueDate</Term>
@@ -287,7 +286,7 @@
 					<DataType>Document Reference</DataType>
 					<Reference type="RULE">BR-IT-DE-014</Reference>
 					<Reference type="RULE">BR-IT-DE-015</Reference>
-					<Value type="EXAMPLE">inv123</Value>
+					<Value type="EXAMPLE">ft123</Value>
 				</Element>
 				<Element>
 					<Term>cbc:IssueDate</Term>
@@ -314,7 +313,7 @@
 				<DataType>Document Reference</DataType>
 				<Reference type="BUSINESS_TERM">BT-16</Reference>
 				<Reference type="RULE">BR-IT-060</Reference>
-				<Value type="EXAMPLE">desp98</Value>
+				<Value type="EXAMPLE">ddt456</Value>
 			</Element>
 
 			<Element agid:custom="extension">
@@ -355,7 +354,7 @@
 				<DataType>Document Reference</DataType>
 				<Reference type="BUSINESS_TERM">BT-17</Reference>
 				<Reference type="RULE">BR-IT-070</Reference>
-				<Value type="EXAMPLE">PPID-123</Value>
+				<Value type="EXAMPLE">90305884F7</Value>
 			</Element>
 		</Element>
 
@@ -371,7 +370,7 @@
 				<DataType>Document Reference</DataType>
 				<Reference type="BUSINESS_TERM">BT-12</Reference>
 				<Reference type="RULE">BR-IT-030</Reference>
-				<Value type="EXAMPLE">123Contractref</Value>
+				<Value type="EXAMPLE">Contratto321</Value>
 			</Element>
 		</Element>
 
@@ -392,7 +391,7 @@
 				<DataType>Document Reference</DataType>
 				<Reference type="BUSINESS_TERM">BT-11</Reference>
 				<Reference type="RULE">BR-IT-020</Reference>
-				<Value type="EXAMPLE">PID33</Value>
+				<Value type="EXAMPLE">p-2347234</Value>
 			</Element>
 		</Element>
 
@@ -580,7 +579,7 @@
 				<Description>Riporta informazioni in testo libero (non strutturate) rilevanti per la riga di fattura.</Description>
 				<DataType>Text</DataType>
 				<Reference type="BUSINESS_TERM">BT-127</Reference>
-				<Value type="EXAMPLE">New article number 12345</Value>
+				<Value type="EXAMPLE">Nuovo articolo n. 12345</Value>
 			</Element>
 
 			<Element agid:custom="rule">
@@ -700,7 +699,8 @@
 
 				<Element>
 					<Term>cbc:LineID</Term>
-					<Name>Riferimento ad una riga DDT dalla riga fattura. Non supportato da SDI. Valorizzarlo sempre con NA.</Name>
+					<Name>Riferimento ad una riga DDT dalla riga fattura</Name>
+					<Description>Non supportato da SDI. Valorizzarlo sempre con NA.</Description>
 					<DataType>Identifier</DataType>
 					<Reference type="RULE">BR-IT-DE-040</Reference>
 					<Value type="FIXED">NA</Value>

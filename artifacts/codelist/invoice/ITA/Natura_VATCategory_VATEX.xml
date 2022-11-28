@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeList xmlns="urn:fdc:difi.no:2017:vefa:structure:CodeList-1">
+	<Title>Natura, VAT Category e VATEX</Title>
+	<Identifier>Natura_VATCategory_VATEX</Identifier>
+	<Version>1.0</Version>
+	<Agency>AGID</Agency>
+	<Code>
+		<Id>N1</Id>
+		<Description>escluse ex art. 15</Description>
+		<VATCategoryCode>Z</VATCategoryCode>
+	</Code>
+	<Code>
+		<Id>N2.1</Id>
+		<Description>non soggette ad IVA ai sensi degli artt. da 7 a 7-septies del DPR 633/72</Description>
+		<VATCategoryCode>E</VATCategoryCode>
+		<VATExemReasonCode>VATex-eu-132</VATExemReasonCode>
+		<VATExemReasonText>N2.1</VATExemReasonText>
+	</Code>
+	<Code>
+		<Id>N2.2</Id>
+		<Description>non soggette - altri casi</Description>
+		<VATCategoryCode>E</VATCategoryCode>
+		<VATExemReasonCode>VATex-eu-132</VATExemReasonCode>
+		<VATExemReasonText>N2.2</VATExemReasonText>
+	</Code>
+	<Code>
+		<Id>N3.1</Id>
+		<Description>non imponibili - esportazioni</Description>
+		<VATCategoryCode>G</VATCategoryCode>
+		<VATExemReasonCode>VATex-eu-g</VATExemReasonCode>
+		<VATExemReasonText>N3.1</VATExemReasonText>
+	</Code>
+	<Code>
+		<Id>N3.2</Id>
+		<Description>non imponibili - cessioni intracomunitarie</Description>
+		<VATCategoryCode>K</VATCategoryCode>
+		<VATExemReasonCode>VATex-eu-ic</VATExemReasonCode>
+		<VATExemReasonText>N3.2</VATExemReasonText>
+	</Code>
+	<Code>
+		<Id>N3.3</Id>
+		<Description>non imponibili - cessioni verso San Marino</Description>
+		<VATCategoryCode>G</VATCategoryCode>
+		<VATExemReasonCode>VATex-eu-g</VATExemReasonCode>
+		<VATExemReasonText>N3.3</VATExemReasonText>
+	</Code>
+	<Code>
+		<Id>N3.4</Id>
+		<Description>non imponibili - operazioni assimilate alle cessioni all'esportazione</Description>
+		<VATCategoryCode>G</VATCategoryCode>
+		<VATExemReasonCode>VATex-eu-g</VATExemReasonCode>
+		<VATExemReasonText>N3.4</VATExemReasonText>
+	</Code>
+	<Code>
+		<Id>N3.5</Id>
+		<Description>non imponibili - a seguito di dichiarazioni d'intento</Description>
+		<VATCategoryCode>G</VATCategoryCode>
+		<VATExemReasonCode>VATex-eu-g</VATExemReasonCode>
+		<VATExemReasonText>N3.5</VATExemReasonText>
+	</Code>
+	<Code>
+		<Id>N3.6</Id>
+		<Description>non imponibili - altre operazioni</Description>
+		<VATCategoryCode>K</VATCategoryCode>
+		<VATExemReasonCode>VATex-eu-ic</VATExemReasonCode>
+		<VATExemReasonText>N3.6</VATExemReasonText>
+	</Code>
+	<Code>
+		<Id>N4</Id>
+		<Description>esenti</Description>
+		<VATCategoryCode>E</VATCategoryCode>
+		<VATExemReasonCode>VATex-eu-132</VATExemReasonCode>
+		<VATExemReasonText>N4</VATExemReasonText>
+	</Code>
+	<Code>
+		<Id>N5</Id>
+		<Description>regime del margine / IVA non esposta in fattura</Description>
+		<VATCategoryCode>E</VATCategoryCode>
+		<VATExemReasonCode>VATex-eu-132</VATExemReasonCode>
+		<VATExemReasonText>N5</VATExemReasonText>
+	</Code>
+	<Code>
+		<Id>N6.1</Id>
+		<Description>inversione contabile - cessione di rottami e altri materiali di recupero</Description>
+		<VATCategoryCode>AE</VATCategoryCode>
+		<VATExemReasonCode>VATex-eu-ae</VATExemReasonCode>
+		<VATExemReasonText>N6.1</VATExemReasonText>
+	</Code>
+	<Code>
+		<Id>N6.2</Id>
+		<Description>inversione contabile - cessione di oro e argento puro</Description>
+		<VATCategoryCode>AE</VATCategoryCode>
+		<VATExemReasonCode>VATex-eu-ae</VATExemReasonCode>
+		<VATExemReasonText>N6.2</VATExemReasonText>
+	</Code>
+	<Code>
+		<Id>N6.3</Id>
+		<Description>inversione contabile - subappalto nel settore edile</Description>
+		<VATCategoryCode>AE</VATCategoryCode>
+		<VATExemReasonCode>VATex-eu-ae</VATExemReasonCode>
+		<VATExemReasonText>N6.3</VATExemReasonText>
+	</Code>
+	<Code>
+		<Id>N6.4</Id>
+		<Description>inversione contabile - cessione di fabbricati</Description>
+		<VATCategoryCode>AE</VATCategoryCode>
+		<VATExemReasonCode>VATex-eu-ae</VATExemReasonCode>
+		<VATExemReasonText>N6.4</VATExemReasonText>
+	</Code>
+	<Code>
+		<Id>N6.5</Id>
+		<Description>inversione contabile - cessione di telefoni cellulari</Description>
+		<VATCategoryCode>AE</VATCategoryCode>
+		<VATExemReasonCode>VATex-eu-ae</VATExemReasonCode>
+		<VATExemReasonText>N6.5</VATExemReasonText>
+	</Code>
+	<Code>
+		<Id>N6.6</Id>
+		<Description>inversione contabile - cessione di prodotti elettronici</Description>
+		<VATCategoryCode>AE</VATCategoryCode>
+		<VATExemReasonCode>VATex-eu-ae</VATExemReasonCode>
+		<VATExemReasonText>N6.6</VATExemReasonText>
+	</Code>
+	<Code>
+		<Id>N6.7</Id>
+		<Description>inversione contabile - prestazioni comparto edile e settori connessi</Description>
+		<VATCategoryCode>AE</VATCategoryCode>
+		<VATExemReasonCode>VATex-eu-ae</VATExemReasonCode>
+		<VATExemReasonText>N6.7</VATExemReasonText>
+	</Code>
+	<Code>
+		<Id>N6.8</Id>
+		<Description>inversione contabile - operazioni settore energetico</Description>
+		<VATCategoryCode>AE</VATCategoryCode>
+		<VATExemReasonCode>VATex-eu-ae</VATExemReasonCode>
+		<VATExemReasonText>N6.8</VATExemReasonText>
+	</Code>
+	<Code>
+		<Id>N6.9</Id>
+		<Description>inversione contabile - altri casi</Description>
+		<VATCategoryCode>AE</VATCategoryCode>
+		<VATExemReasonCode>VATex-eu-ae</VATExemReasonCode>
+		<VATExemReasonText>N6.9</VATExemReasonText>
+	</Code>
+	<Code>
+		<Id>N7</Id>
+		<Description>IVA assolta in altro stato UE (vendite a distanza ex art. 40 c. 3 e 4 e art. 41 c. 1 lett. b, DL 331/93; prestazione di servizi di telecomunicazioni, teleradiodiffusione ed elettronici ex art. 7-sexies lett. f, g, art. 74-sexies DPR 633/72)</Description>
+		<VATCategoryCode>K</VATCategoryCode>
+		<VATExemReasonCode>VATex-eu-151</VATExemReasonCode>
+		<VATExemReasonText>N7</VATExemReasonText>
+	</Code>
+</CodeList>

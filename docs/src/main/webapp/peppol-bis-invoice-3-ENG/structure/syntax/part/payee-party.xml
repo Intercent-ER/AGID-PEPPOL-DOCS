@@ -46,7 +46,7 @@
                 <DataType>Text</DataType>
                 <Reference type="BUSINESS_TERM">BT-59</Reference>
                 <Reference type="RULE">BR-17</Reference>
-                <Value type="EXAMPLE">Payee Name Ltd</Value>
+                <Value type="EXAMPLE">Banca XYZ SPA</Value>
             </Element>
         </Element>
 

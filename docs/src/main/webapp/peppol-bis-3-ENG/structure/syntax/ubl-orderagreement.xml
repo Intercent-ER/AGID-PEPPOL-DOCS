@@ -113,7 +113,7 @@
 				<Name>Tender or lot reference</Name>
 				<Description>The identification of the call for tender or lot the order agreement relates to.</Description>
 				<DataType>Document Reference</DataType>
-				<Value type="EXAMPLE">PPID-123</Value>
+				<Value type="EXAMPLE">90305884F7</Value>
 			</Element>
 		</Element>
 		<Element cardinality="0..n">

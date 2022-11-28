@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>AGID-PEPPOL-XSL</artifactId>
+	<parent>
+		<groupId>it.gov.agid</groupId>
+		<artifactId>AGID-PEPPOL</artifactId>
+		<version>2.0</version>
+		<relativePath>../../</relativePath>
+	</parent>
+	<packaging>pom</packaging>
+
+	<name>AGID-PEPPOL-XSL</name>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>xml-maven-plugin</artifactId>
+				<version>1.0.2</version>
+				<executions>
+					<!-- Phase 1 -->
+					<execution>
+						<id>sch-to-xslt-phase1</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>transform</goal> 
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${basedir}/3.0/sch/</dir>
+									<includes>
+										<include>**/*.sch</include>
+									</includes>
+									<stylesheet>${basedir}/utilities/iso_dsdl_include.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/phase1</outputDir>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.sch</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+					<!-- Phase 2 -->
+					<execution>
+						<id>sch-to-xslt-phase2</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>transform</goal> 
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${project.build.directory}/${project.build.finalName}/phase1</dir>
+									<stylesheet>${basedir}/utilities/iso_abstract_expand.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/phase2</outputDir>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.sch</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+					<!-- Phase 2 -->
+					<execution>
+						<id>sch-to-xslt-phase3</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>transform</goal> 
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${project.build.directory}/${project.build.finalName}/phase2</dir>
+									<stylesheet>${basedir}/utilities/iso_svrl_for_xslt2.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xsl</outputDir>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.xsl</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>net.sf.saxon</groupId>
+						<artifactId>Saxon-B</artifactId>
+						<version>9.0</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>

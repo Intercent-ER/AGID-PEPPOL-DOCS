@@ -17,5 +17,9 @@ include::../{snippet-dir}/Snippet-refs.xml[tags=tender]
 .Esempio UBL per il riferimento alla gara (CIG) dalle righe fattura
 [source, xml, indent=0]
 ----
-include::../{snippet-dir}/Snippet-refs.xml[tags=CIG_riga]
+<cac:DocumentReference>
+	<cbc:ID schemeID="AGB">90305884F7</cbc:ID>
+	<cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
+</cac:DocumentReference>
 ----
+

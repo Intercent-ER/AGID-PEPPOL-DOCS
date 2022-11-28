@@ -122,43 +122,11 @@ Questo esempio mostra uno sconto di 10 EUR sul prezzo base:
 
 :leveloffset: +1
 
-[[titolo]]
-= #Sconti e maggiorazioni a livello di riga#
-
-Questo esempio mostra uno sconto applicato a tutta la riga d’ordine:
-
-[source, xml, indent=0]
-----
-<cac:OrderLine>
-    <cac:LineItem>
-        <cbc:ID>1</cbc:ID>
-        <cbc:Quantity unitCode="C62">10</cbc:Quantity>
-        <cbc:LineExtensionAmount currencyID="EUR">90.00</cbc:LineExtensionAmount>
-        <cac:AllowanceCharge>
-          <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-          <cbc:AllowanceChargeReason>Sconto sulla riga</cbc:AllowanceChargeReason>
-          <cbc:MultiplierFactorNumeric>10</cbc:MultiplierFactorNumeric>
-          <cbc:Amount currencyID="EUR">10.00</cbc:Amount>
-          <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
-        </cac:AllowanceCharge>
-        <cac:Price>
-            <cbc:PriceAmount currencyID="EUR">10.00000</cbc:PriceAmount>
-        </cac:Price>
-    </cac:LineItem>
-</cac:OrderLine>
-----
-
-:leveloffset: -1
-
-
-:leveloffset: +1
 
 [[titolo]]
 = #Sconto Merce#
 
-Per cessioni a titolo di sconto, premio o abbuono si inserisce una riga d’ordine separata prestando attenzione ad indicarne la relativa esenzione IVA.
-
-Infatti ai fini IVA lo sconto merce rientra nelle operazioni Escluse ex Art. 15 D.P.R. 633/72.
+Per cessioni a titolo di sconto, premio o abbuono si inserisce una riga d’ordine separata prestando attenzione ad indicarne il relativo trattamento ai fini IVA, infatti ai fini IVA lo sconto merce rientra nelle operazioni Escluse ex Art. 15 D.P.R. 633/72.
 
 [source, xml, indent=0]
 ----

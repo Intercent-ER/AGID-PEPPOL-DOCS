@@ -11,9 +11,6 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 <cac:AccountingSupplierParty>
     <cac:Party>
 	 <cbc:EndpointID schemeID="0211">IT01234567890</cbc:EndpointID>
-	 <cac:PartyName>
-	 	<cbc:Name>Fornitore S.p.A.</cbc:Name>
-	 </cac:PartyName>
 	 <cac:PostalAddress>
 	 	<cbc:StreetName>Indirizzo Riga 1</cbc:StreetName>
 	 	<cbc:AdditionalStreetName>Indirizzo Riga 2</cbc:AdditionalStreetName  >
@@ -58,9 +55,6 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 <cac:AccountingSupplierParty>
  <cac:Party>
 	<cbc:EndpointID schemeID="0201">UFY9MH</cbc:EndpointID>
-	<cac:PartyName>
-		<cbc:Name>Azienda USL di Reggio Emilia</cbc:Name>
-	</cac:PartyName>
 	<cac:PostalAddress>
 		<cbc:StreetName>Via Amendola 2</cbc:StreetName>
 		<cbc:CityName>Reggio Emilia</cbc:CityName>
@@ -94,10 +88,7 @@ Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è
 ----
 </cac:AccountingSupplierParty>
     <cac:Party>
-	 <cbc:EndpointID schemeID="9925">0999999999</cbc:EndpointID
-	 <cac:PartyName>
-	 	<cbc:Name>Fornitore Estero</cbc:Name>
-	 </cac:PartyName>
+	 <cbc:EndpointID schemeID="9925">0999999999</cbc:EndpointID>
 	 <cac:PostalAddress>
 	 	<cbc:StreetName> Rue Emile Claus 28</cbc:StreetName>
 		<cbc:AdditionalStreetName>Quartiere</cbc:AdditionalStreetName>
@@ -176,7 +167,7 @@ La specifica è già concordata con Agenzia delle Entrate, che ne darà evidenza
 </cac:PartyIdentification>
 ----
 
-#Il campo *cac:PartyLegalEntity/cbc:RegistrationName* può essere usato per indicare il dato FPA 1.2.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.2.1.3.2 Nome e 1.2.1.3.3 Cognome preceduti dalla stringa "Nome&Cognome:" e concatenati dal simbolo ""&#x0023;".#
+#Il campo *cac:PartyLegalEntity/cbc:RegistrationName* può essere usato per indicare il dato FPA 1.2.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.2.1.3.2 Nome e 1.2.1.3.3 Cognome preceduti dalla stringa "Nome#Cognome:" e concatenati dal simbolo ""&#x0023;".#
 
 #Il campo *cac:PartyLegalEntity/cbc:CompanyLegalForm* può essere usato per indicare informazioni legali addizionali quali FPA 1.2.4.3 CapitaleSociale, FPA 1.2.4.4 SocioUnico e FPA  1.2.4.5 StatoLiquidazione, concatenando i campi con il simbolo "&#x0023;".#
 
@@ -188,11 +179,7 @@ Trattasi di CIUS domestica
 
 [source, xml, indent=0]
 ----
-<cac:PartyLegalEntity>
-    ...
-    <cbc:cbc:CompanyLegalForm>100000##</cbc:cbc:CompanyLegalForm>
-    ...
-</cac:PartyLegalEntity>
+    <cbc:CompanyLegalForm>100000.00#SU#LN</cbc:CompanyLegalForm>
 ----
 
 #Nell'utilizzo dell’aggregato informativo *cac:PostalAddress*, è obbligatorio l'utilizzo delle informazioni di indirizzo, CAP, Comune e nazione.# +
@@ -247,7 +234,7 @@ Le informazioni inerenti al cliente vengono fornite nell'elemento 'cac:Accountin
 Almeno uno tra Partita IVA e Codice Fiscale deve essere presente
 
 
-#Il campo *cac:PartyLegalEntity/cbc:RegistrationName* può essere usato per indicare il dato FPA 1.2.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.2.1.3.2 Nome e 1.2.1.3.3 Cognome preceduti dalla stringa "Nome&Cognome:" e concatenati dal simbolo "&#x0023;".#
+#Il campo *cac:PartyLegalEntity/cbc:RegistrationName* può essere usato per indicare il dato FPA 1.2.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.2.1.3.2 Nome e 1.2.1.3.3 Cognome preceduti dalla stringa "Nome#Cognome:" e concatenati dal simbolo "&#x0023;".#
 
 
 #Il Codice EORI può essere espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.#
@@ -286,7 +273,7 @@ Trattasi di CIUS domestica valida per la fatturazione verso privati
 <cbc:EndpointID schemeID="0205">L0U7KO4</cbc:EndpointID>
 ----
 
-.Esempio di un soggetto (non persona fisica) non residente, non stabilito o identificato in Italia, privo di Codice e Destinatario e di PEC.
+.Esempio di utilizzo dell’end-point ai fini dell’esterometro.
 [source, xml, indent=0]
 ----
 <cbc:EndpointID schemeID="0205">XXXXXXX</cbc:EndpointID>
@@ -301,33 +288,34 @@ Trattasi di CIUS domestica valida per la fatturazione verso privati
 [source, xml, indent=0]
 ----
 <cac:AccountingCustomerParty>
-        <cac:Party>
-                <cbc:EndpointID schemeID="0202">nome.cognome@pec-domain.it</cbc:EndpointID>
-                <cac:PartyName>
-                        <cbc:Name>Mario Rossi</cbc:Name>
-                </cac:PartyName>
-                <cac:PostalAddress>
-                        <cbc:StreetName>Via Riviera di Chiaia, 99A</cbc:StreetName>
-                        <cbc:CityName>Napoli</cbc:CityName>
-                        <cbc:PostalZone>80121</cbc:PostalZone>
-                        <cac:AddressLine>
-                        <cbc:Line> Informazioni Aggiuntive /cbc:Line>
-                    </cac:AddressLine>
-                        <cac:Country>
-                            <cbc:IdentificationCode>IT</cbc:IdentificationCode>
-                        </cac:Country>
-                </cac:PostalAddress>
-                <cac:PartyTaxScheme>
-                    <cbc:CompanyID>IT01234567890</cbc:CompanyID>
-                    <cac:TaxScheme>
-                        <cbc:ID>VAT</cbc:ID>
-                    </cac:TaxScheme>
-                </cac:PartyTaxScheme>
-                <cac:Contact>
-                        <cbc:Telephone>06123456</cbc:Telephone>
-                        <cbc:ElectronicMail>nome.cognome@pec-domain.it</cbc:ElectronicMail>
-                </cac:Contact>
-        </cac:Party>
+	<cac:Party>
+		<cbc:EndpointID schemeID="0202">nome.cognome@pec-domain.it</cbc:EndpointID>
+		<cac:PostalAddress>
+			<cbc:StreetName>Via Riviera di Chiaia, 99A</cbc:StreetName>
+			<cbc:CityName>Napoli</cbc:CityName>
+			<cbc:PostalZone>80121</cbc:PostalZone>
+			<cac:AddressLine>
+				<cbc:Line> Informazioni Aggiuntive </cbc:Line>
+			</cac:AddressLine>
+			<cac:Country>
+				<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+			</cac:Country>
+		</cac:PostalAddress>
+		<cac:PartyTaxScheme>
+			<cbc:CompanyID>IT01234567890</cbc:CompanyID>
+			<cac:TaxScheme>
+				<cbc:ID>VAT</cbc:ID>
+			</cac:TaxScheme>
+		</cac:PartyTaxScheme>
+		<cac:PartyLegalEntity>
+			<cbc:RegistrationName>Nome#Cognome:Mario#Rossi</cbc:RegistrationName>
+			<cbc:CompanyID schemeID="0210">RSSMRA00A01E123H</cbc:CompanyID>
+		</cac:PartyLegalEntity>
+		<cac:Contact>
+			<cbc:Telephone>06123456</cbc:Telephone>
+			<cbc:ElectronicMail>nome.cognome@pec-domain.it</cbc:ElectronicMail>
+		</cac:Contact>
+	</cac:Party>
 </cac:AccountingCustomerParty>
 ----
 
@@ -361,7 +349,7 @@ Per riflettere l'assegnazione di una Fattura ad un factor è necessario:
 include::{snippet-dir}/Snippet-full.xml[tags=payee]
 ----
 
-#Il campo *cac:PartyIdentification/cbc:ID* può essere inoltreusato per fornire le informazioni anagrafiche del Quietanzante indicando i dati FPA 2.4.2.8 CognomeQuietanzante e  FPA 2.4.2.9 NomeQuietanzante concatenati con il simbolo "&#x0023;".#
+#Il campo *cac:PartyIdentification/cbc:ID* può essere inoltre usato per fornire le informazioni anagrafiche del Quietanzante indicando i dati FPA 2.4.2.9 NomeQuietanzante e  FPA 2.4.2.8 CognomeQuietanzante concatenati con il simbolo "&#x0023;".#
 
 
 
@@ -374,6 +362,9 @@ I rappresentanti fiscali sono responsabili per la gestione corretta e la regolar
 
 #Il Codice Fiscale può essere espresso all'interno del Party nell'elemento *cac:PartyIdentification/cbc:ID* inserendo l’attributo @schemeID valorizzato con il codice "0210", come nell'esempio di seguito.#
 
+#Il Codice EORI può essere espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.#
+
+#Il campo *cac:PartyName/cbc:Name* può essere usato per indicare il dato FPA 1.3.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.3.1.3.2 Nome e 1.3.1.3.3 Cognome preceduti dalla stringa "Nome#Cognome:" e concatenati dal simbolo "&#x0023;".#
 
 .Esempio UBL per le informazioni del rappresentante fiscale
 [source, xml, indent=0]
@@ -381,19 +372,6 @@ I rappresentanti fiscali sono responsabili per la gestione corretta e la regolar
 include::{snippet-dir}/Snippet-full.xml[tags=taxrep]
 ----
 <1> Gli identificatori per il VAT/IVA devono incudere il prefisso del codice paese
-
-#Il campo *cac:PartyName/cbc:Name* può essere usato per indicare il dato FPA 1.3.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.3.1.3.2 Nome e 1.3.1.3.3 Cognome preceduti dalla stringa "Nome&Cognome:" e concatenati dal simbolo "&#x0023;".#
-
-#Il Codice EORI può essere espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.#
-
-
-.Esempio UBL per esprimere il codice EORI
-[source, xml, indent=0]
-----
-<cac:PartyIdentification>
-    <cbc:ID>EORI:12345678901</cbc:ID>
-</cac:PartyIdentification>
-----
 
 
 = #Stabile Organizzazione del Fornitore (AccountingSupplierParty/AgentParty) - Estensione#

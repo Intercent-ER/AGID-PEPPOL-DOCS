@@ -111,7 +111,7 @@
                 <Reference type="RULE">SE-R-009</Reference>
                 <Reference type="RULE">SE-R-010</Reference>
 				<Reference type="RULE">BR-IT-270</Reference>
-                <Value type="EXAMPLE">NO99991122222</Value>
+                <Value type="EXAMPLE">IT001122334455667788990</Value>
             </Element>
             
             <Element cardinality="0..1">
@@ -121,7 +121,7 @@
                 </Description>
                 <DataType>Text</DataType>
                 <Reference type="BUSINESS_TERM">BT-85</Reference>
-                <Value type="EXAMPLE">Payment Account</Value>
+                <Value type="EXAMPLE">Fornitore S.p.A.</Value>
             </Element>
             
             <Element cardinality="0..1">
@@ -137,7 +137,7 @@
                     <Reference type="BUSINESS_TERM">BT-86</Reference>
                     <Reference type="RULE">DK-R-006</Reference>
 					<Reference type="RULE">BR-IT-280</Reference>
-                    <Value type="EXAMPLE">9999</Value>
+                    <Value type="EXAMPLE">BIC32409</Value>
                 </Element>
             </Element>
         </Element>

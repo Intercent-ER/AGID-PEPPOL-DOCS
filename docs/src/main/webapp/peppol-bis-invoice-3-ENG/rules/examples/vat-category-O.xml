@@ -81,7 +81,7 @@
     </cac:LegalMonetaryTotal>
     <cac:InvoiceLine>
         <cbc:ID>1</cbc:ID>
-        <cbc:InvoicedQuantity unitCode="EA">1</cbc:InvoicedQuantity>
+        <cbc:InvoicedQuantity unitCode="EA">1.00</cbc:InvoicedQuantity>
         <cbc:LineExtensionAmount currencyID="SEK">3200.00</cbc:LineExtensionAmount>
         <cac:OrderLineReference>
             <cbc:LineID>1</cbc:LineID>
@@ -101,6 +101,11 @@
         </cac:Item>
         <cac:Price>
             <cbc:PriceAmount currencyID="SEK">3200.00</cbc:PriceAmount>
+            <cac:AllowanceCharge>
+                <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+                <cbc:Amount currencyID="EUR">0.00</cbc:Amount>
+                <cbc:BaseAmount currencyID="EUR">3200.00</cbc:BaseAmount>
+            </cac:AllowanceCharge>
         </cac:Price>
     </cac:InvoiceLine>
 

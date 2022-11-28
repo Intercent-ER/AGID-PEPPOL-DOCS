@@ -25,7 +25,7 @@
 			<div id="main" class="container" style="display: block;">
 
 				<div class="page-header">
-					<h1>Indice: <span id="home-title">PEPPOL BIS 3 (altri processi)</span>
+					<h1>Indice: <span id="home-title">Peppol BIS 3 Fatturazione</span>
 					</h1>
 				</div>
 
@@ -33,31 +33,31 @@
 					<dd>
 						<%@include file="../peppol-bis-invoice-3-ITA/menu/jumbo-list.html" %>
 					</dd>
-					<dt>Note di Rilascio</dt>
+					<dt style="font-size: 18px">Note di Rilascio</dt>
 					<dd>
 						<%@include file="../peppol-bis-invoice-3-ITA/menu/intro-list.html" %>
 					</dd>
-					<dt>Documentazione</dt>
+					<dt style="font-size: 18px">Documentazione</dt>
 					<dd>
 						<%@include file="../peppol-bis-invoice-3-ITA/menu/bis-list.html" %>
 					</dd>
-					<dt>Sintassi</dt>
+					<dt style="font-size: 18px">Sintassi</dt>
 					<dd>
 						<%@include file="../peppol-bis-invoice-3-ITA/menu/syntax-list.html" %>
 					</dd>
-					<dt>Regole</dt>
+					<dt style="font-size: 18px">Regole</dt>
 					<dd>
 						<%@include file="../peppol-bis-invoice-3-ITA/menu/rule-list.html" %>
 					</dd>
-					<dt>Codifiche</dt>
+					<dt style="font-size: 18px">Codifiche</dt>
 					<dd>
 						<%@include file="../peppol-bis-invoice-3-ITA/menu/codelist-list.html" %>
 					</dd>
-					<dt>Fogli di stile</dt>
+					<dt style="font-size: 18px">Fogli di stile</dt>
 					<dd>
 						<%@include file="../peppol-bis-invoice-3-ITA/menu/stylesheet-list.html" %>
 					</dd>
-					<dt>Downloads</dt>
+					<dt style="font-size: 18px">Downloads</dt>
 					<dd>
 						<%@include file="../peppol-bis-invoice-3-ITA/menu/download-list.html" %>
 					</dd>

@@ -28,27 +28,32 @@ image::../../../images/7.1.1.vatex-table-cross-border.png[Vatex table, width=100
 [source, xml, indent=0]
 ----
 <cac:InvoiceLine>
-  <cbc:ID>1</cbc:ID>
-  <cbc:InvoicedQuantity unitCode="C62">5</cbc:InvoicedQuantity>
-  <cbc:LineExtensionAmount currencyID="EUR">100.00</cbc:LineExtensionAmount>
-  <cac:Item>
-    <cbc:Name>Importo degli imballaggi</cbc:Name>
-    <cac:ClassifiedTaxCategory>
-      <cbc:ID>Z</cbc:ID>
-      <cbc:Percent>0</cbc:Percent>
-      <cac:TaxScheme>
-        <cbc:ID>VAT</cbc:ID>
-      </cac:TaxScheme>
-    </cac:ClassifiedTaxCategory>
-    <cac:AdditionalItemProperty>
-      <cbc:Name>NATURA</cbc:Name>
-      <cbc:Value>N1</cbc:Value>
-    </cac:AdditionalItemProperty>
-  </cac:Item>
-  <cac:Price>
-    <cbc:PriceAmount currencyID="EUR">20.00</cbc:PriceAmount>
-    <cbc:BaseQuantity unitCode="C62">1</cbc:BaseQuantity>
-  </cac:Price>
+	<cbc:ID>1</cbc:ID>
+	<cbc:InvoicedQuantity unitCode="C62">5</cbc:InvoicedQuantity>
+	<cbc:LineExtensionAmount currencyID="EUR">100.00</cbc:LineExtensionAmount>
+	<cac:Item>
+		<cbc:Name>Importo degli imballaggi</cbc:Name>
+		<cac:ClassifiedTaxCategory>
+			<cbc:ID>Z</cbc:ID>
+			<cbc:Percent>0</cbc:Percent>
+			<cac:TaxScheme>
+				<cbc:ID>VAT</cbc:ID>
+			</cac:TaxScheme>
+		</cac:ClassifiedTaxCategory>
+		<cac:AdditionalItemProperty>
+			<cbc:Name>NATURA</cbc:Name>
+			<cbc:Value>N1</cbc:Value>
+		</cac:AdditionalItemProperty>
+	</cac:Item>
+	<cac:Price>
+		<cbc:PriceAmount currencyID="EUR">20.00</cbc:PriceAmount>
+		<cbc:BaseQuantity unitCode="C62">1</cbc:BaseQuantity>
+		<cac:AllowanceCharge>
+			<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+			<cbc:Amount currencyID="EUR">0.00</cbc:Amount>
+			<cbc:BaseAmount currencyID="EUR">20.00</cbc:BaseAmount>
+		</cac:AllowanceCharge>
+	</cac:Price>
 </cac:InvoiceLine>
 ----
 
@@ -57,7 +62,10 @@ image::../../../images/7.1.1.vatex-table-cross-border.png[Vatex table, width=100
 Per la fatturazione verso l'estero verificare con l'acquirente l'eventuale presenza di CIUS. +
 Per approfondimenti consultare il seguente https://ec.europa.eu/digital-building-blocks/wikis/display/DIGITAL/CIUS+and+Extension+-+What+is+allowed[link].
 
-A soli fini dell’esterometro, la gestione della conversione della fattura UBL in FatturaPA per la natura è analoga a quanto previsto per le fatture verso l’estero (vedi paragrafo 7.1.1).
+
+=== Indicazioni per l'esterometro e per i documenti di integrazione
+
+La gestione della natura è analoga a quanto previsto per la fatturazione domestica (vedi paragrafo 7.1.2).
 
 == Sconti e maggiorazioni a livello di testata
 
@@ -137,26 +145,31 @@ Per altri dettagli vedi anche il paragrafo <<anchor-11,9.4. Calcolo dell’IVA>>
 </cac:TaxTotal>
 <!-- ... -->
 <cac:InvoiceLine>
-  <cbc:ID>1</cbc:ID>
-  <cbc:InvoicedQuantity unitCode="C62">1</cbc:InvoicedQuantity>
-  <cbc:LineExtensionAmount currencyID="EUR">100.00</cbc:LineExtensionAmount>
-  <cac:Item>
-    <cbc:Description>Inversione contabile</cbc:Description>
-    <cbc:Name>Subappalto nel settore edile</cbc:Name>
-    <cac:ClassifiedTaxCategory>
-      <cbc:ID>AE</cbc:ID>
-      <cac:TaxScheme>
-        <cbc:ID>VAT</cbc:ID>
-      </cac:TaxScheme>
-    </cac:ClassifiedTaxCategory>
-    <cac:AdditionalItemProperty>
-      <cbc:Name>NATURA</cbc:Name>
-      <cbc:Value>N6.3</cbc:Value>
-    </cac:AdditionalItemProperty>
-  </cac:Item>
-  <cac:Price>
-    <cbc:PriceAmount currencyID="EUR">100.00</cbc:PriceAmount>
-  </cac:Price>
+	<cbc:ID>1</cbc:ID>
+	<cbc:InvoicedQuantity unitCode="C62">1</cbc:InvoicedQuantity>
+	<cbc:LineExtensionAmount currencyID="EUR">100.00</cbc:LineExtensionAmount>
+	<cac:Item>
+		<cbc:Description>Inversione contabile</cbc:Description>
+		<cbc:Name>Subappalto nel settore edile</cbc:Name>
+		<cac:ClassifiedTaxCategory>
+			<cbc:ID>AE</cbc:ID>
+			<cac:TaxScheme>
+				<cbc:ID>VAT</cbc:ID>
+			</cac:TaxScheme>
+		</cac:ClassifiedTaxCategory>
+		<cac:AdditionalItemProperty>
+			<cbc:Name>NATURA</cbc:Name>
+			<cbc:Value>N6.3</cbc:Value>
+		</cac:AdditionalItemProperty>
+	</cac:Item>
+	<cac:Price>
+		<cbc:PriceAmount currencyID="EUR">100.00</cbc:PriceAmount>
+		<cac:AllowanceCharge>
+			<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+			<cbc:Amount currencyID="EUR">0.00</cbc:Amount>
+			<cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount>
+		</cac:AllowanceCharge>
+	</cac:Price>
 </cac:InvoiceLine>
 ----
 
@@ -180,27 +193,32 @@ Per altri dettagli vedi anche il paragrafo <<anchor-11,9.4. Calcolo dell’IVA>>
 </cac:TaxTotal>
 <!-- ... -->
 <cac:InvoiceLine>
-  <cbc:ID>1</cbc:ID>
-  <cbc:InvoicedQuantity unitCode="C62">5</cbc:InvoicedQuantity>
-  <cbc:LineExtensionAmount currencyID="EUR">100.00</cbc:LineExtensionAmount>
-  <cac:Item>
-    <cbc:Name>Importo degli imballaggi</cbc:Name>
-    <cac:ClassifiedTaxCategory>
-      <cbc:ID>Z</cbc:ID>
-      <cbc:Percent>0</cbc:Percent>
-      <cac:TaxScheme>
-        <cbc:ID>VAT</cbc:ID>
-      </cac:TaxScheme>
-    </cac:ClassifiedTaxCategory>
-    <cac:AdditionalItemProperty>
-      <cbc:Name>NATURA</cbc:Name>
-      <cbc:Value>N1</cbc:Value>
-    </cac:AdditionalItemProperty>
-  </cac:Item>
-  <cac:Price>
-    <cbc:PriceAmount currencyID="EUR">20.00</cbc:PriceAmount>
-    <cbc:BaseQuantity unitCode="C62">1</cbc:BaseQuantity>
-  </cac:Price>
+	<cbc:ID>1</cbc:ID>
+	<cbc:InvoicedQuantity unitCode="C62">5</cbc:InvoicedQuantity>
+	<cbc:LineExtensionAmount currencyID="EUR">100.00</cbc:LineExtensionAmount>
+	<cac:Item>
+		<cbc:Name>Importo degli imballaggi</cbc:Name>
+		<cac:ClassifiedTaxCategory>
+			<cbc:ID>Z</cbc:ID>
+			<cbc:Percent>0</cbc:Percent>
+			<cac:TaxScheme>
+				<cbc:ID>VAT</cbc:ID>
+			</cac:TaxScheme>
+		</cac:ClassifiedTaxCategory>
+		<cac:AdditionalItemProperty>
+			<cbc:Name>NATURA</cbc:Name>
+			<cbc:Value>N1</cbc:Value>
+		</cac:AdditionalItemProperty>
+	</cac:Item>
+	<cac:Price>
+		<cbc:PriceAmount currencyID="EUR">20.00</cbc:PriceAmount>
+		<cbc:BaseQuantity unitCode="C62">1</cbc:BaseQuantity>
+		<cac:AllowanceCharge>
+			<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+			<cbc:Amount currencyID="EUR">0.00</cbc:Amount>
+			<cbc:BaseAmount currencyID="EUR">20.00</cbc:BaseAmount>
+		</cac:AllowanceCharge>
+	</cac:Price>
 </cac:InvoiceLine>
 ----
 
@@ -209,7 +227,9 @@ Per altri dettagli vedi anche il paragrafo <<anchor-11,9.4. Calcolo dell’IVA>>
 Per la fatturazione verso l'estero verificare con l'acquirente l'eventuale presenza di CIUS. +
 Per approfondimenti consultare il seguente https://ec.europa.eu/digital-building-blocks/wikis/display/DIGITAL/CIUS+and+Extension+-+What+is+allowed[link].
 
-A soli fini dell’esterometro, la gestione della conversione della fattura UBL in FatturaPA per la natura è analoga a quanto previsto per le fatture verso l’estero (vedi paragrafo 7.3.1).
+=== Indicazioni per l'esterometro e per i documenti di integrazione
+
+La gestione della natura è analoga a quanto previsto per la fatturazione domestica (vedi paragrafo 7.3.2).
 
 == Totale IVA
 

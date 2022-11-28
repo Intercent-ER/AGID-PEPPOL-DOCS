@@ -8,8 +8,6 @@ Nei paragrafi seguenti vengono riportarti esempi di parti selezionate della tran
 
 include::_roles-and-actor.adoc[]
 
-include::_address.adoc[]
-
 include::_delivery-details.adoc[]
 
 include::references/_index.adoc[]
@@ -29,6 +27,16 @@ include::_item.adoc[]
 include::_price.adoc[]
 
 include::_uom.adoc[]
+
+include::custom/_ext-tipo-documento.adoc[]
+
+include::custom/_ext-regime-fiscale.adoc[]
+
+include::custom/_ext-termini-pagamento.adoc[]
+
+include::custom/_ext-arrotondamento-riepilogo-IVA.adoc[]
+
+include::custom/_altreregoleitaliane.adoc[]
 
 
 :leveloffset: -1

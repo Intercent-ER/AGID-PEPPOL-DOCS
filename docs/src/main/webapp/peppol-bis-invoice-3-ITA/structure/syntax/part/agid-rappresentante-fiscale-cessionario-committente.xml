@@ -70,6 +70,7 @@
 
 				<Element>
 					<Term>cbc:ID</Term>
+					<Description>Elemento obbligatorio (ad esempio "VAT" o "GST").</Description>
 					<Value type="EXAMPLE">VAT</Value>
 				</Element>
 			</Element>
@@ -99,11 +100,13 @@
 				<Term>cbc:FirstName</Term>
 				<Name>Nome Persona Fisica - FPA 1.4.4.3 'Nome'</Name>
 				<DataType>Text</DataType>
+				<Value type="EXAMPLE">Giovanni</Value>
 			</Element>
 			<Element>
 				<Term>cbc:FamilyName</Term>
 				<Name>Cognome Persona Fisica - FPA 1.4.4.4 'Cognome'</Name>
 				<DataType>Text</DataType>
+				<Value type="EXAMPLE">Bianchi</Value>
 			</Element>
 
 		</Element>

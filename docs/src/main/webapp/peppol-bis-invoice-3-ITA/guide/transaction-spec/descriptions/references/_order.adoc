@@ -14,9 +14,9 @@ IMPORTANT: Nella fattura è possibile fornire sia un ordine di acquisto che un r
 
 include::../../../syntax/references/_order.adoc[]
 
-#Se la fattura viene messa nell'ambito di un processo di Ordinazione Semplice o Ordinazione Completa rilevante ai fini del sistema NSO, occorre riportare il riferimento all'ordine ("tripletta") nel seguente modo:#
+#Se la fattura viene emessa nell’ambito di un processo di Ordinazione elettronica, occorre riportare il riferimento all’ordine ("tripletta") nel seguente modo:#
 
-1.	#Nel *cac:OrderReference/cbc:ID*  (BT-13 Purchase order reference) riportare il solo identificativo dell’ordine, come nel seguente esempio (dove è riportata anche la data dell'ordine):#
+1.	#Nel cac:OrderReference/cbc:ID (BT-13 Purchase order reference) riportare il solo identificativo dell’ordine, deve inoltre essere riportata la data dell’ordine nel cac:OrderReference/cbc:IssueDate:#
 +
 [source, xml, indent=0]
 ----
@@ -26,18 +26,37 @@ include::../../../syntax/references/_order.adoc[]
 </cac:OrderReference>
 ----
 
-2.	#Nel *cbc:BuyerReference* (BT-10 Buyer reference) riportare la Tripletta di identificazione completa separando i componenti (Id, data e Endpoint) con il carattere &#x0023; senza interposizione di spazi, come nel seguente esempio:#
+2.	#Nel cbc:BuyerReference (BT-10 Buyer reference) riportare la Tripletta di identificazione completa separando i componenti (Id, data e Endpoint) con il carattere # senza interposizione di spazi, come nel seguente esempio:#
 +
 [source, xml, indent=0]
 ----
 <cbc:BuyerReference>110#2018-01-30#aaaaaa</cbc:BuyerReference>
 ----
 
-#Si evidenzia che, ove la fattura non sia stata emessa a fronte di un processo di Ordinazione elettronica e, perciò, non è legata ad alcun Ordine o Ordine pre-concordato rilevante per il sistema NSO:#
+#Se invece la fattura viene emessa a fronte di un ordine analogico se ne può dare evidenza nel seguente modo:#
 
-a. #se la fornitura non promana da alcun processo di ordinazione (elettronico o tradizionale), è sufficiente non compilare i campi sopra menzionati;#
-b. #se la fornitura promana da un processo di ordinazione tradizionale (ad esempio, via lettera, fax, ecc.), ovvero non gestito tramite NSO, per dare maggior evidenza a tale circostanza si può indicare l’identificativo dell’ordine emesso nelle forme tradizionali nei campi di cui al precedente punto e valorizzare i campi di cui al precedente punto con il testo "&#x0023;NO&#x0023;".# 
+[source, xml, indent=0]
+----
+<cbc:BuyerReference>#NO#</cbc:BuyerReference>
+----
 
+#Se la fattura non è stata preceduta da un ordine occorre indicarlo nel seguente modo:#
+
+[source, xml, indent=0]
+----
+<cac:OrderReference>
+    <cbc:ID>#NO#</cbc:ID>
+</cac:OrderReference>
+----
+
+#Ove la fattura sia riferita a più ordini elettronici referenziati in riga, occorre indicarlo nel seguente modo:#
+
+[source, xml, indent=0]
+----
+<cac:OrderReference>
+    <cbc:ID>#MULTI#</cbc:ID>
+</cac:OrderReference>
+----
 
 *A livello di riga*
 

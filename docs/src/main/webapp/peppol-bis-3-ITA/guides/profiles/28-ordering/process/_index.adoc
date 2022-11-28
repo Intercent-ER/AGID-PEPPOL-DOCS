@@ -15,17 +15,21 @@ Il flusso del processo dell’Ordine di fornitura e della risposta può essere d
 
 * Un Ordine può contenere voci (merce o servizi) espresso mediante identificatori o descrizioni testuali;
 
+* #Un Acquirente può emettere un nuovo ordine al Venditore per modificare o cancellare un ordine precedente;#
+
 * Il venditore può confermare che l’ordine è stato ricevuto;
 
-* Il Venditore può accettare l’Ordine, impegnandosi alle condizioni indicate mediante la transazione della Risposta d’Ordine.
+* Il Venditore può accettare l’Ordine, impegnandosi alle condizioni indicate mediante la transazione della Risposta d’Ordine;
 
-* Alternativamente, il Venditore può respingere l’Ordine attraverso la transazione della Risposta d’Ordine.
+* Alternativamente, il Venditore può respingere l’Ordine attraverso la transazione della Risposta d’Ordine;
 
-* Il rigetto di un Ordine può contenere le ragioni del rigetto.
+* Il rigetto di un Ordine può contenere le ragioni del rigetto;
 
-* Se pattuito contrattualmente, il Venditore può inoltre rispondere all’ordine, modificando dettagli che siano accettabili dall’Acquirente.
+* Se pattuito contrattualmente, il Venditore può inoltre rispondere all’ordine, modificando dettagli che siano accettabili dall’Acquirente;
 
-* Se l’Ordine è sttao accettato o accettato con modifiche, un contratto è concluso. Se l’Ordine è stato respinto, nessun contratto e nessuna obbligazione residuale avrà luogo.
+* #L'Acquirente può accettare o rifiutare le modifiche all'ordine proposte dal Venditore all'interno della Risposta all'ordine. In caso di rifiuto, rimane valido l'ordine originario a cui il Venditore aveva fornito Risposta;#
+
+* Se l’Ordine è stato accettato o accettato con modifiche, un contratto è concluso. Se l’Ordine è stato respinto, nessun contratto e nessuna obbligazione residuale avrà luogo.
 
 *   Dopo la ricezione della Risposta d’Ordine che respinge l’Ordine, l’Acquirente può iniziare un nuovo processo di ordine, tenendo conto dei motivi del rigetto da parte del Venditore.
 

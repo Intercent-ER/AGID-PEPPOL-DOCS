@@ -163,6 +163,21 @@
                 </i>
             </p>
             </xsl:if>
+			<xsl:if test="cl:VATCategoryCode">
+            <p>
+                VAT Category Code (BT-118): <strong><xsl:value-of select="cl:VATCategoryCode"/></strong>
+            </p>
+            </xsl:if>
+			<xsl:if test="cl:VATExemReasonCode">
+            <p>
+                VAT exemption reason code (BT-121): <strong><xsl:value-of select="cl:VATExemReasonCode"/></strong>
+            </p>
+            </xsl:if>
+			<xsl:if test="cl:VATExemReasonText">
+            <p>
+                VAT exemption reason text (BT-120): <strong><xsl:value-of select="cl:VATExemReasonText"/></strong>
+            </p>
+            </xsl:if>
         </div>
     </xsl:template>
 

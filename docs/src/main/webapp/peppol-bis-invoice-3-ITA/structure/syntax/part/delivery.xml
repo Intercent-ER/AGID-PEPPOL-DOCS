@@ -39,7 +39,7 @@
                     <Value type="EXAMPLE">0088</Value>
                 </Attribute>
 
-                <Value type="EXAMPLE">83745498753497</Value>
+                <Value type="EXAMPLE">97743230159-001</Value>
 
             </Element>
 
@@ -58,7 +58,7 @@
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-75</Reference>
 					<Reference type="RULE">BR-IT-240</Reference>
-                    <Value type="EXAMPLE">Delivery Street 1</Value>
+                    <Value type="EXAMPLE">Via Emilia</Value>
                 </Element>
 
                 <Element cardinality="0..1">
@@ -69,7 +69,7 @@
                     </Description>
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-76</Reference>
-                    <Value type="EXAMPLE">Delivery Street 2</Value>
+                    <Value type="EXAMPLE">52</Value>
                 </Element>
 
                 <Element cardinality="0..1" agid:custom="rule">
@@ -80,7 +80,7 @@
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-77</Reference>
 					<Reference type="RULE">BR-IT-240</Reference>
-                    <Value type="EXAMPLE">Malmö</Value>
+                    <Value type="EXAMPLE">Modena</Value>
                 </Element>
 
                 <Element cardinality="0..1" agid:custom="rule">
@@ -91,7 +91,7 @@
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-78</Reference>
 					<Reference type="RULE">BR-IT-240</Reference>
-                    <Value type="EXAMPLE">86756</Value>
+                    <Value type="EXAMPLE">40121</Value>
                 </Element>
 
                 <Element cardinality="0..1" agid:custom="rule">
@@ -101,7 +101,7 @@
                     <DataType>Text</DataType>
                     <Reference type="BUSINESS_TERM">BT-79</Reference>
 					<Reference type="RULE">BR-IT-250</Reference>
-                    <Value type="EXAMPLE">South Region</Value>
+                    <Value type="EXAMPLE">MO</Value>
                 </Element>
 
                 <Element cardinality="0..1">
@@ -115,7 +115,7 @@
                         </Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">BT-165</Reference>
-                        <Value type="EXAMPLE">C54</Value>
+                        <Value type="EXAMPLE">Piano semintarrato</Value>
                     </Element>
                 </Element>
 
@@ -154,6 +154,7 @@
                     <Description>Numero di Codice Fiscale.</Description>
                     <DataType>Identifier</DataType>
 					<Reference type="RULE">BR-IT-DE-026A</Reference>
+                    <Value type="EXAMPLE">CXXNXX68M06E123H</Value>
 
                     <Attribute usage="Optional">
                         <Term>schemeID</Term>
@@ -163,6 +164,7 @@
                         <Reference type="RULE">DK-R-013</Reference>
                         <Reference type="CODE_LIST">ICD</Reference>
                         <Reference type="CODE_LIST">SEPA</Reference>
+                        <Value type="EXAMPLE">0210</Value>
                     </Attribute>
 
                 </Element>
@@ -202,6 +204,7 @@
                     <Reference type="RULE">BR-O-03</Reference>
                     <Reference type="RULE">BR-O-04</Reference>
 					<Reference type="RULE">BR-IT-DE-028</Reference>
+                    <Value type="EXAMPLE">IT12345678901</Value>
                 </Element>
 
                 <Element>
@@ -228,11 +231,13 @@
                     <Term>cbc:FirstName</Term>
                     <Name>Nome Persona Fisica - FPA 2.1.9.1.3.2 'Nome'</Name>
                     <DataType>Text</DataType>
+                    <Value type="EXAMPLE">Giacomo</Value>
                 </Element>
                 <Element>
                     <Term>cbc:FamilyName</Term>
                     <Name>Cognome Persona Fisica - FPA 2.1.9.1.3.3 'Cognome'</Name>
                     <DataType>Text</DataType>
+                    <Value type="EXAMPLE">Neri</Value>
                 </Element>
 
                 <Element cardinality="0..1">
@@ -245,6 +250,7 @@
                         <Name>Numero Licenza Guida - FPA 2.1.9.1.4 'NumeroLicenzaGuida'</Name>
                         <Description>Numero identificativo della licenza di guida (es. numero patente)</Description>
                         <DataType>Identifier</DataType>
+                        <Value type="EXAMPLE">MI1234567H</Value>
                     </Element>
 
                     <Element>

@@ -59,7 +59,7 @@
 			<Description>The main address line in an address.</Description>
 			<DataType>Text</DataType>
 			<Reference type="BUSINESS_TERM">BT-64</Reference>
-			<Value type="EXAMPLE">Lille gatan 545</Value>
+			<Value type="EXAMPLE">Via Emilia 18</Value>
 		</Element>
 
 		<Element cardinality="0..1">
@@ -70,7 +70,7 @@
 			</Description>
 			<DataType>Text</DataType>
 			<Reference type="BUSINESS_TERM">BT-65</Reference>
-			<Value type="EXAMPLE">Po Box 987</Value>
+			<Value type="EXAMPLE">Interno 2</Value>
 		</Element>
 
 		<Element cardinality="0..1">
@@ -80,7 +80,7 @@
 			</Description>
 			<DataType>Text</DataType>
 			<Reference type="BUSINESS_TERM">BT-66</Reference>
-			<Value type="EXAMPLE">Göteborg</Value>
+			<Value type="EXAMPLE">Modena</Value>
 		</Element>
 
 		<Element cardinality="0..1">
@@ -90,7 +90,7 @@
 			</Description>
 			<DataType>Text</DataType>
 			<Reference type="BUSINESS_TERM">BT-67</Reference>
-			<Value type="EXAMPLE">12345</Value>
+			<Value type="EXAMPLE">41121</Value>
 		</Element>
 
 		<Element cardinality="0..1">
@@ -99,7 +99,7 @@
 			<Description>The subdivision of a country.</Description>
 			<DataType>Text</DataType>
 			<Reference type="BUSINESS_TERM">BT-68</Reference>
-			<Value type="EXAMPLE">Region Vest</Value>
+			<Value type="EXAMPLE">MO</Value>
 		</Element>
 
 
@@ -115,7 +115,7 @@
 				</Description>
 				<DataType>Text</DataType>
 				<Reference type="BUSINESS_TERM">BT-164</Reference>
-				<Value type="EXAMPLE">A87</Value>
+				<Value type="EXAMPLE">Interno 2</Value>
 			</Element>
 		</Element>
 

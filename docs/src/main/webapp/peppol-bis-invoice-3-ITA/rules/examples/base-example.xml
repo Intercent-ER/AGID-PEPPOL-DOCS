@@ -146,7 +146,7 @@
     
 <cac:InvoiceLine>
         <cbc:ID>1</cbc:ID>
-    <cbc:InvoicedQuantity unitCode="DAY">7</cbc:InvoicedQuantity>
+     <cbc:InvoicedQuantity unitCode="DAY">7.00</cbc:InvoicedQuantity>
     <cbc:LineExtensionAmount currencyID= "EUR">2800</cbc:LineExtensionAmount>
         <cbc:AccountingCost>Konteringsstreng</cbc:AccountingCost>
        <cac:OrderLineReference>
@@ -173,12 +173,17 @@
             </cac:ClassifiedTaxCategory>
         </cac:Item>
     <cac:Price>
-        <cbc:PriceAmount currencyID="EUR">400</cbc:PriceAmount>
+        <cbc:PriceAmount currencyID="EUR">400.00</cbc:PriceAmount>
+		<cac:AllowanceCharge>
+			<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+			<cbc:Amount currencyID="EUR">0.00</cbc:Amount>
+			<cbc:BaseAmount currencyID="EUR">400.00</cbc:BaseAmount>
+		</cac:AllowanceCharge>
     </cac:Price>
     </cac:InvoiceLine>
 <cac:InvoiceLine>
     <cbc:ID>2</cbc:ID>
-    <cbc:InvoicedQuantity unitCode="DAY">-3</cbc:InvoicedQuantity>
+    <cbc:InvoicedQuantity unitCode="DAY">-3.00</cbc:InvoicedQuantity>
     <cbc:LineExtensionAmount currencyID="EUR">-1500</cbc:LineExtensionAmount>
     <cac:OrderLineReference>
         <cbc:LineID>123</cbc:LineID>
@@ -204,7 +209,12 @@
         </cac:ClassifiedTaxCategory>
     </cac:Item>
     <cac:Price>
-        <cbc:PriceAmount currencyID="EUR">500</cbc:PriceAmount>
+        <cbc:PriceAmount currencyID="EUR">500.00</cbc:PriceAmount>
+		<cac:AllowanceCharge>
+			<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+			<cbc:Amount currencyID="EUR">0.00</cbc:Amount>
+			<cbc:BaseAmount currencyID="EUR">500.00</cbc:BaseAmount>
+		</cac:AllowanceCharge>
     </cac:Price>
 </cac:InvoiceLine>
 </Invoice>

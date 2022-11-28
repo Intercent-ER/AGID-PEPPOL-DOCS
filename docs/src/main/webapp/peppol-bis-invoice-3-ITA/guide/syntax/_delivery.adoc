@@ -1,6 +1,6 @@
 
 
-.Esempio UBL delle informazioni di consegna
+.Esempio di consegna al Punto Istituzionale di un Ente
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/Snippet-full.xml[tags=delivery]

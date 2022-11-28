@@ -33,31 +33,31 @@
 					<dd>
 						<%@include file="../peppol-bis-3-ENG/menu/jumbo-list.html" %>
 					</dd>
-					<dt>Release Notes</dt>
+					<dt style="font-size: 18px">Release Notes</dt>
 					<dd>
 						<%@include file="../peppol-bis-3-ENG/menu/intro-list.html" %>
 					</dd>
-					<dt>Documentation</dt>
+					<dt style="font-size: 18px">Documentation</dt>
 					<dd>
 						<%@include file="../peppol-bis-3-ENG/menu/bis-list.html" %>
 					</dd>
-					<dt>Syntax</dt>
+					<dt style="font-size: 18px">Syntax</dt>
 					<dd>
 						<%@include file="../peppol-bis-3-ENG/menu/syntax-list.html" %>
 					</dd>
-					<dt>Rules</dt>
+					<dt style="font-size: 18px">Rules</dt>
 					<dd>
 						<%@include file="../peppol-bis-3-ENG/menu/rule-list.html" %>
 					</dd>
-					<dt>Codelists</dt>
+					<dt style="font-size: 18px">Codelists</dt>
 					<dd>
 						<%@include file="../peppol-bis-3-ENG/menu/codelist-list.html" %>
 					</dd>
-					<dt>Stylesheets</dt>
+					<dt style="font-size: 18px">Stylesheets</dt>
 					<dd>
 						<%@include file="../peppol-bis-3-ENG/menu/stylesheet-list.html" %>
 					</dd>
-					<dt>Downloads</dt>
+					<dt style="font-size: 18px">Downloads</dt>
 					<dd>
 						<%@include file="../peppol-bis-3-ENG/menu/download-list.html" %>
 					</dd>

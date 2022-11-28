@@ -40,8 +40,9 @@ Le informazioni di consegna sono necessarie qualora l’indirizzo differisca da 
 
 Il luogo di esecuzione della fornitura è la sede in cui deve avvenire la cessione dei beni e/o la prestazione dei servizi. È rappresentato, a livello di testata documento, dall’elemento “Delivery/DeliveryLocation”. +
 
-Se il luogo di consegna è un indirizzo istituzionale del Cliente a cui è stato associato un identificativo univoco reso disponibile al Fornitore, indicare anche tale identificativo, come mostrato nel seguente esempio:
+Se il luogo di consegna è un indirizzo istituzionale del Cliente a cui è stato associato un identificativo univoco reso disponibile al Fornitore, come avviene nel caso dei luoghi di consegna per le PA censiti secondo la codifica https://www.puntidiconsegna-nso.it/[Punti di consegna], è possibile indicare anche tale identificativo, come mostrato nel seguente esempio:
 
+.Esempio di consegna al Punto Istituzionale di un Ente
 [source, xml, indent=0]
 ----
 <cac:Delivery>

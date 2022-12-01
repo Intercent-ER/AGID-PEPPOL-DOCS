@@ -11,6 +11,8 @@ include::_orderreference.adoc[]
 
 include::_shipment.adoc[]
 
+include::_attachments.adoc[]
+
 :leveloffset: -1
 
 [[despatch-line]]
@@ -45,6 +47,8 @@ include::../custom/_confezionamento.adoc[]
 include::../custom/_particolaretrattamento.adoc[]
 
 include::../custom/_specifichepartitamerce.adoc[]
+
+include::../custom/_classificazioneprodotto.adoc[]
 
 :leveloffset: -1
 

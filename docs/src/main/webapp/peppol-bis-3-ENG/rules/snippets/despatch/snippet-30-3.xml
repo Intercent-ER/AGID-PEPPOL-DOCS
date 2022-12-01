@@ -166,7 +166,11 @@
 				</cac:PostalAddress>
 			</cac:CarrierParty>
 		</cac:Consignment>
-		<!-- TEMPI DI CONSEGNA PROMESSI/STIMATI -->
+				<!-- INFORMAZIONI SULLO STATO DELLA SPEDIZIONE -->
+		<cac:ShipmentStage>
+			<cbc:TransportModeCode>2</cbc:TransportModeCode>
+		</cac:ShipmentStage>	
+				<!-- TEMPI DI CONSEGNA PROMESSI/STIMATI -->
 		<cac:Delivery><!--8-->
 			<cac:EstimatedDeliveryPeriod>
 				<cbc:StartDate>2013-03-15</cbc:StartDate>

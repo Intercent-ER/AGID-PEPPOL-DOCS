@@ -245,6 +245,19 @@
 				<Reference type="BUSINESS_TERM">tir01-019</Reference>
 			</Element>
 		</Element>
+		<Element cardinality="0..1">
+			<Term>cac:ProjectReference</Term>
+			<Name>Project reference - Riferimento al progetto</Name>
+			<Description>Reference to contract - Riferimento al contratto</Description>
+			<Element cardinality="1..1">
+				<Term>cbc:ID</Term>
+				<Name>Project reference - Identificativo del progetto</Name>
+				<Description>Indica gli estremi del progetto a cui fa riferimento l’Ordine, se il progetto è a livello di intero Documento.</Description>
+				<DataType>Document reference</DataType>
+				<Reference type="BUSINESS_TERM">tir01-p044</Reference>
+				<Value type="EXAMPLE">PID33</Value>
+			</Element>
+		</Element>
 		<Element>
 			<Term>cac:BuyerCustomerParty</Term>
 			<Name>Buyer information - Dati del Cliente</Name>
@@ -1078,11 +1091,25 @@
 					<Reference type="BUSINESS_TERM">tir01-099</Reference>
 				</Element>
 				<Element cardinality="0..1">
+					<Term>cbc:StartTime</Term>
+					<Name>Period start time - Ora di inizio</Name>
+					<Description>Indica l'orario in cui deve avere inizio la fornitura, nel formato oo:mm:ss</Description>
+					<Reference type="BUSINESS_TERM">tir01-p042</Reference>
+					<Value type="EXAMPLE">12:10:33</Value>
+				</Element>
+				<Element cardinality="0..1">
 					<Term>cbc:EndDate</Term>
 					<Name>Period end date - Data di fine</Name>
 					<Description>Indica la data entro cui deve terminare la fornitura, nel formato aaaa-mm-gg.</Description>
 					<DataType>Date</DataType>
 					<Reference type="BUSINESS_TERM">tir01-100</Reference>
+				</Element>
+				<Element cardinality="0..1">
+					<Term>cbc:EndTime</Term>
+					<Name>Period end time - Ora di fine</Name>
+					<Description>Indica l'orario in cui deve terminare la fornitura, nel formato oo:mm:ss</Description>
+					<Reference type="BUSINESS_TERM">tir01-p043</Reference>
+					<Value type="EXAMPLE">14:20:00</Value>
 				</Element>
 			</Element>
 			<Element cardinality="0..1">

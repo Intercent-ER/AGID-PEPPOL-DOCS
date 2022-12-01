@@ -67,7 +67,7 @@
             <Name>Order reference - Riferimento all'Ordine</Name>
       			<Element agid:custom="rule">
       				  <Term>cbc:ID</Term>
-      				  <Name>Order document reference - Riferimento all'ordine di riferimento </Name>
+      				  <Name>Order document reference - Riferimento all'ordine</Name>
       			    <Description>Contiene gli estremi dell’Ordine precedentemente emesso (c.d. Tripletta).</Description>
                 <DataType>Identifier</DataType>
                 <Reference type="BUSINESS_TERM">tir16-006</Reference>
@@ -76,39 +76,66 @@
             <Element cardinality="0..1" agid:custom="extension">
                 <Term>cbc:CustomerReference</Term>
                 <Name>Riferimento supplementare all’Ordine</Name>
-                <Description>Riferimento supplementare all’Ordine (es. ID Paziente).</Description>
+                <Description>Riferimento supplementare all’Ordine (es. ID Paziente)</Description>
                 <DataType>Text</DataType>
             </Element>
         </Element>
-        <!--Element cardinality="0..n" agid:custom="extension">
+        <Element cardinality="0..n">
                 <Term>cac:AdditionalDocumentReference</Term>
-                <Name>Additional documents</Name>
-                <Element>
+                <Name>Additional documents - Documenti Addizionali</Name>
+                <Element cardinality="1..1">
                         <Term>cbc:ID</Term>
-                        <Name>Document identifier</Name>
-                        <Description>An identifier for the referenced document.</Description>
-                        <Value type="EXAMPLE">1Z1A3EE456</Value>
+                        <Name>Document identifier - Identificativo del documento</Name>
+                        <Description>Indica gli estremi della codifica o del documento addizionale</Description>
+                        <Value type="EXAMPLE">doc-34</Value>
                 </Element>
                 <Element cardinality="0..1">
-                        <Term>cbc:IssueDate</Term>
-                        <Name>Data emissione documento</Name>
-                        <DataType>Date</DataType>
-                </Element>
-                <Element cardinality="1..1">
                         <Term>cbc:DocumentType</Term>
-                        <Name>Document description</Name>
-                        <Description>Textual description of the document.</Description>
-                        <DataType>Text</DataType>
-                        <Value type="EXAMPLE">CIG</Value>
+                        <Name>Document description - Descrizione del documento</Name>
+                        <Description>Indica il tipo di documento addizionale</Description>
+                        <Value type="EXAMPLE">File Excel</Value>
                 </Element>
-        </Element-->
+                <Element cardinality="0..1">
+                    <Term>cac:Attachment</Term>
+                    <Name>Attachment(s) - Allegato</Name>
+                    <Element cardinality="0..1">
+                        <Term>cbc:EmbeddedDocumentBinaryObject</Term>
+                        <Name>Attached document - Documento allegato</Name>
+                        <Description>Indica un allegato incluso nel Documento</Description>
+                        <Attribute usage="mandatory">
+                            <Term>mimeCode</Term>
+                            <Name>Attached document Mime code - Mime code documento allegato</Name>
+              				<Description>Il mime code del documento allegato.</Description>
+                            <Value type="EXAMPLE">application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</Value>
+                        </Attribute>
+                        <Attribute usage="mandatory">
+                            <Term>filename</Term>
+                            <Name>Attached document filename - Nome del documento allegato</Name>
+              				<Description>Il nome del documento allegato.</Description>
+                            <Value type="EXAMPLE">Hours-spent.xsl</Value>
+                        </Attribute>
+                        <Value type="EXAMPLE">QklTIE9yZGVyIEFncmVlbWVudCAtIDQyQQ==</Value>
+                    </Element>
+                    <Element cardinality="0..1">
+                        <Term>cac:ExternalReference</Term>
+                        <Name>External reference - Collegamento esterno</Name>
+                        <Description>Indica un allegato collegato al Documento.</Description>
+                        <Element cardinality="1..1">
+                            <Term>cbc:URI</Term>
+                            <Name>External document URI - URI del documento esterno</Name>
+                            <Description>L'URI (Uniform Resource Identifier) che identifica da dove è possibile scaricare il documento esterno.</Description>
+                            <Value type="EXAMPLE">http://www.test.eu/image.jpg</Value>
+                        </Element>
+                    </Element>
+                </Element>
+        </Element>
         <Element>
             <Term>cac:DespatchSupplierParty</Term>
             <Name>Speditore</Name>
             <Description>Lo Speditore è la persona o organizzazione che spedisce la merce o eroga i servizi. Questo ruolo viene ricoperto dal fornitore o per suo conto. (Lo Speditore è anche detto Mittente).</Description>
             <Element>
                 <Term>cac:Party</Term>
-                	<Name>Party information - Informazioni della parte</Name>
+                <Name>Party information - Informazioni della parte</Name>
                 <Element>
                     <Term>cbc:EndpointID</Term>
                     <Name>Despatching party electronic address - Endpoint dello Speditore</Name>
@@ -796,11 +823,11 @@
                     <Description>Desrizione o identificativo del veicolo che trasporta la merce spedita.</Description>
                     <Reference type="BUSINESS_TERM">tir16-077</Reference>
                 </Element>
-                <Element agid:custom="cardinality">
+                <Element>
                     <Term>cac:CarrierParty</Term>
                     <Name>Carrier party - Vettore</Name>
                     <Reference type="RULE">IT-T16-R031</Reference>
-                    <Element cardinality="0..1" agid:custom="extension">
+                    <Element cardinality="0..1">
                         <Term>cac:PartyIdentification</Term>
                         <Name>Party identification - Identificativo parte</Name>
                         <Element>
@@ -818,7 +845,7 @@
                             <Value type="EXAMPLE">PIVA:IT01245267890</Value>
                         </Element>
                     </Element>
-                    <Element agid:custom="cardinality">
+                    <Element>
                         <Term>cac:PartyName</Term>
                         <Name>Party name - Denominazione parte</Name>
                         <Element>
@@ -829,11 +856,11 @@
                             <Reference type="RULE">IT-T16-R002</Reference>
                         </Element>
                     </Element>
-                    <Element agid:custom="extension,cardinality">
+                    <Element>
                         <Term>cac:PostalAddress</Term>
                         <Name>Postal address - Indirizzo del Vettore</Name>
               					<Description>Contiene informazioni relative all’indirizzo del Vettore.</Description>
-                        <Element agid:custom="cardinality">
+                        <Element>
                             <Term>cbc:StreetName</Term>
                             <Name>Address line 1 - Indirizzo</Name>
                 						<Description>Strada, via, piazza ecc. e numero civico</Description>
@@ -841,14 +868,14 @@
                             <Reference type="BUSINESS_TERM">tir16-p012</Reference>
                             <Reference type="RULE">IT-T16-R002</Reference>
                         </Element>
-                        <Element cardinality="0..1">
+                        <Element>
                             <Term>cbc:AdditionalStreetName</Term>
                             <Name>Address line 2 - Informazioni addizionali indirizzo</Name>
                 						<Description>Informazioni addizionali indirizzo.</Description>
                             <DataType>Text</DataType>
                             <Reference type="BUSINESS_TERM">tir16-p013</Reference>
                         </Element>
-                        <Element agid:custom="cardinality">
+                        <Element>
                             <Term>cbc:CityName</Term>
                             <Name>City - Città</Name>
                 						<Description>Nome della città.</Description>
@@ -856,7 +883,7 @@
                             <Reference type="BUSINESS_TERM">tir16-p014</Reference>
                             <Reference type="RULE">IT-T16-R002</Reference>
                         </Element>
-                        <Element agid:custom="cardinality">
+                        <Element>
                             <Term>cbc:PostalZone</Term>
                             <Name>Post code - CAP</Name>
                 						<Description>Codice Postale</Description>
@@ -864,7 +891,7 @@
                             <Reference type="BUSINESS_TERM">tir16-p015</Reference>
                             <Reference type="RULE">IT-T16-R002</Reference>
                         </Element>
-                        <Element agid:custom="cardinality">
+                        <Element>
                             <Term>cbc:CountrySubentity</Term>
                             <Name>Country subdivision - Provincia</Name>
                             <Description>Provincia.</Description>
@@ -919,6 +946,16 @@
                             </Element>
                         </Element>
                     </Element>
+                </Element>
+            </Element>
+            <Element cardinality="0..1">
+                <Term>cac:ShipmentStage</Term>
+                <Name>Shipment stage information - Informazioni sullo stato della spedizione</Name>
+                <Element cardinality="1..1">
+                    <Term>cbc:TransportModeCode</Term>
+                    <Name>Mode of transport - Modalità di trasporto</Name>
+                    <Description>Indica la modalità in cui gli articoli vengono spediti</Description>
+                    <Reference type="EXAMPLE">2</Reference>
                 </Element>
             </Element>
             <Element cardinality="0..1">
@@ -1104,6 +1141,12 @@
                     <Reference type="BUSINESS_TERM">tir16-051</Reference>
                 </Element>
                 <Element cardinality="0..1">
+                    <Term>cbc:SalesOrderLineID</Term>
+                    <Name>Identificativo linea d'ordine di vendita</Name>
+                    <Description>Indica il numero della riga dell'ordine di vendita a cui si riferisce la riga del DDT.</Description>
+                    <Value type="EXAMPLE">10</Value>
+                </Element>
+                <Element cardinality="0..1">
                     <Term>cac:OrderReference</Term>
                     <Name>Order reference - Riferimento all'ordine</Name>
                     <Element>
@@ -1116,28 +1159,23 @@
                     </Element>
                 </Element>
             </Element>
-            <!--Element cardinality="0..n" agid:custom="extension">
+            <Element cardinality="0..n">
                     <Term>cac:DocumentReference</Term>
-                    <Name>Additional documents</Name>
-                    <Element>
+                    <Name>Document reference - Riferimento a documento addizionale</Name>
+                    <Element cardinality="1..1">
                             <Term>cbc:ID</Term>
-                            <Name>Document identifier</Name>
-                            <Description>An identifier for the referenced document.</Description>
-                            <Value type="EXAMPLE">1Z1A3EE456</Value>
+                            <Name>Document identifier - Identificativo del documento</Name>
+                            <Description>Indica gli estremi della codifica o del documento addizionale.</Description>
+                            <Value type="EXAMPLE">doc-30</Value>
                     </Element>
                     <Element cardinality="0..1">
-                            <Term>cbc:IssueDate</Term>
-                            <Name>Data emissione documento</Name>
-                            <DataType>Date</DataType>
-                    </Element>
-                    <Element cardinality="1..1">
                             <Term>cbc:DocumentType</Term>
-                            <Name>Document description</Name>
-                            <Description>Textual description of the document.</Description>
+                            <Name>Document description - Descrizione del documento</Name>
+                            <Description>Indica il tipo di documento addizionale</Description>
                             <DataType>Text</DataType>
-                            <Value type="EXAMPLE">CIG</Value>
+                            <Value type="EXAMPLE">Autodichiarazione</Value>
                     </Element>
-            </Element-->
+            </Element>
             <Element>
                 <Term>cac:Item</Term>
                 <Name>Item information - Informazioni sull'articolo</Name>
@@ -1223,6 +1261,34 @@
                         <Name>Item standard extended identifier - Estensione identificativo standard</Name>
                         <Description>Eventuale estensione identificativo standard.</Description>
                         <Reference type="BUSINESS_TERM">tir16-056</Reference>
+                    </Element>
+                </Element>
+                <Element cardinality="0..n">
+                    <Term>cac:CommodityClassification</Term>
+                    <Name>Commodity classification information - Classificazione prodotto</Name>
+                    <Element cardinality="0..1">
+                        <Term>cbc:ItemClassificationCode</Term>
+                        <Name>Item classification code - Codice classificazione prodotto </Name>
+          				<Description>Indica uno o più codici di classificazione del bene o del servizio, tratti, rispettivamente, da uno o più sistemi di classificazione</Description>
+                        <Attribute usage="mandatory">
+                            <Term>listID</Term>
+                            <Name>Item classification identifier identification scheme identifier - Scheme identifier dell'identificativo classificazione del prodotto</Name>
+            				<Description>Indica lo scheme identifier dell'identificativo classificazione del bene o del servizio.</Description>
+                            <Value type="EXAMPLE">STI</Value>
+                        </Attribute>
+                        <Attribute usage="optional">
+                            <Term>listVersionID</Term>
+                            <Name>Item classification identifier version identification scheme identifier - Versione dello scheme identifier</Name>
+            				<Description>Versione dello scheme identifier</Description>
+                            <Value type="EXAMPLE">20.0602</Value>
+                        </Attribute>
+                        <Attribute usage="optional">
+                            <Term>name</Term>
+                            <Name>Clear text name equivalent of classification code - Descrizione classificazione prodotto</Name>
+            				<Description>Descrizione del valore della classificazione del bene o del servizio.</Description>
+                            <Value type="EXAMPLE">Mobili per ufficio</Value>
+                        </Attribute>
+                        <Value type="EXAMPLE">9873242</Value>
                     </Element>
                 </Element>
                 <Element cardinality="0..n">

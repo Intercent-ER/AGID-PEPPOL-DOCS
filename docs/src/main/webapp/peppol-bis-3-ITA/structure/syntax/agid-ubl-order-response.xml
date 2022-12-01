@@ -226,7 +226,7 @@
 		<Element cardinality="0..1">
 			<Term>cac:Delivery</Term>
 			<Name>Delivery information - Informazioni sulla consegna</Name>
-			<Element agid:custom="rule">
+			<Element>
 				<Term>cac:PromisedDeliveryPeriod</Term>
 				<Name>Promised delivery period - Periodo di esecuzione della fornitura</Name>
 				<Reference type="RULE">INT-T76-R012</Reference>
@@ -240,6 +240,13 @@
 					<Value type="EXAMPLE">2018-06-01</Value>
 				</Element>
 				<Element cardinality="0..1">
+					<Term>cbc:StartTime</Term>
+					<Name>Period start time - Ora di inizio</Name>
+					<Description>Indica l'orario in cui deve avere inizio la fornitura, nel formato oo:mm:ss</Description>
+					<Reference type="BUSINESS_TERM">tir76-p010</Reference>
+					<Value type="EXAMPLE">12:10:33</Value>
+				</Element>
+				<Element cardinality="0..1">
 					<Term>cbc:EndDate</Term>
 					<Name>Period end date - Data di fine</Name>
 					<Description>Indica la data entro cui deve terminare la fornitura, nel formato aaaa-mm-gg.</Description>
@@ -247,6 +254,13 @@
 					<Reference type="BUSINESS_TERM">tir76-100</Reference>
 					<Reference type="RULE">PEPPOL-T76-R004</Reference>
 					<Value type="EXAMPLE">2018-06-30</Value>
+				</Element>
+				<Element cardinality="0..1">
+					<Term>cbc:EndTime</Term>
+					<Name>Period end time - Ora di fine</Name>
+					<Description>Indica l'orario in cui deve terminare la fornitura, nel formato oo:mm:ss</Description>
+					<Reference type="BUSINESS_TERM">tir76-p011</Reference>
+					<Value type="EXAMPLE">14:20:00</Value>
 				</Element>
 			</Element>
 		</Element>

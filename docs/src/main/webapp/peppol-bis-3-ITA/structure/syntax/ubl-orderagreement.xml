@@ -314,7 +314,6 @@
 				<Element>
 					<Term>cac:PartyLegalEntity</Term>
 					<Name>Party name</Name>
-
 					<Element>
 						<Term>cbc:RegistrationName</Term>
 						<Name>Sellers legal registration name</Name>
@@ -324,6 +323,20 @@
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir110-013</Reference>
 						<Value type="EXAMPLE">Seller company Ltd.</Value>
+					</Element>
+					<Element cardinality="0..1">
+						<Term>cbc:CompanyID</Term>
+						<Name>Sellers legal registration identifier - Identificazione di registrazione legale del Fornitore</Name>
+						<Description>Contiene l'identificazione di registrazione legale</Description>
+						<Reference type="BUSINESS_TERM">tir110-p010</Reference>
+						<Attribute usage="mandatory">
+							<Term>schemeID</Term>
+							<Name>Scheme identifier - Schema identificativo</Name>
+							<Description>Indica lo scheme identifier dell'identificativo del Fornitore</Description>
+							<Reference type="CODE_LIST">eas</Reference>
+							<Value type="EXAMPLE">0210</Value>
+						</Attribute>
+						<Value type="EXAMPLE">01598570354</Value>
 					</Element>
 				</Element>
 				<Element cardinality="0..1">
@@ -477,16 +490,27 @@
 				</Element>
 				<Element>
 					<Term>cac:PartyLegalEntity</Term>
-					<Name>Party name</Name>
-
+					<Name>Party name - Informazioni legali del Cliente</Name>
 					<Element>
 						<Term>cbc:RegistrationName</Term>
-						<Name>Buyer name</Name>
-						<Description>The full name of the buyer.The name of the party who ordered
-							the items and receives the response.</Description>
+						<Name>Buyer name - Denominazione legale del Cliente</Name>
+						<Description>Indica la denominazione legale del Cliente.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir110-010</Reference>
-						<Value type="EXAMPLE">Customer AS</Value>
+					</Element>
+					<Element cardinality="0..1">
+						<Term>cbc:CompanyID</Term>
+						<Name>Buyers legal registration identifier - Identificazione di registrazione legale del Cliente</Name>
+						<Description>Contiene l'identificazione di registrazione legale</Description>
+						<Reference type="BUSINESS_TERM">tir110-p009</Reference>
+						<Attribute usage="mandatory">
+							<Term>schemeID</Term>
+							<Name>Scheme identifier - Schema identificativo</Name>
+							<Description>Indica lo scheme identifier dell'identificativo del Cliente</Description>
+							<Reference type="CODE_LIST">eas</Reference>
+							<Value type="EXAMPLE">0210</Value>
+						</Attribute>
+						<Value type="EXAMPLE">01598570354</Value>
 					</Element>
 				</Element>
 			</Element>
@@ -1525,19 +1549,26 @@
 						<Name>Item document references</Name>
 						<Element>
 							<Term>cbc:ID</Term>
-							<Name>Document identifier</Name>
-							<Description>Identifier of a document</Description>
+							<Name>Document identifier - Identificativo del documento addizionale</Name>
+							<Description>Identificativo del documento addizionale.</Description>
 							<DataType>Identifier</DataType>
 							<Reference type="BUSINESS_TERM">tir110-102</Reference>
-							<Value type="EXAMPLE">docid7687</Value>
+							<Value type="EXAMPLE">CIG:729544145D</Value>
+						</Element>
+						<Element cardinality="0..1">
+							<Term>cbc:DocumentTypeCode</Term>
+							<Name>External Item Specification Type - Codice del tipo documento</Name>
+							<Description>Indica il codice relativo al tipo documento</Description>
+							<DataType>Text</DataType>
+							<Reference type="BUSINESS_TERM">tir110-p008</Reference>
 						</Element>
 						<Element cardinality="0..1">
 							<Term>cbc:DocumentType</Term>
-							<Name>Document description</Name>
-							<Description>Textual description of the document.</Description>
+							<Name>Document description - Tipo di documento</Name>
+							<Description>Indica il tipo di documento.</Description>
 							<DataType>Text</DataType>
 							<Reference type="BUSINESS_TERM">tir110-103</Reference>
-							<Value type="EXAMPLE">Picture of window</Value>
+							<Value type="EXAMPLE">Progetto</Value>
 						</Element>
 						<Element cardinality="0..1">
 							<Term>cac:Attachment</Term>

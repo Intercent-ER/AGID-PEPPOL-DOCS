@@ -2,6 +2,7 @@ include::../../shared/_links.adoc[]
 = PEPPOL BIS Despatch Advice {ddt_version_it}
 Release Notes
 :doctype: book
+:last-update-label!:
 :icons: font
 :encoding: utf-8
 :lang: it

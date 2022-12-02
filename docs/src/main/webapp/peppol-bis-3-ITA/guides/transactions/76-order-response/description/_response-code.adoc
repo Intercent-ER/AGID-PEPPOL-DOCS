@@ -69,7 +69,6 @@ L’ordine è accettato con modifica a livello di riga +
     <cbc:IssueTime>14:30:00</cbc:IssueTime>
     <!--Ordine ricevuto ma ancora non processato-->
     <cbc:OrderResponseCode>AB</cbc:OrderResponseCode>  <1>
-    <cbc:Note>Risposta Ordine Inviato al Cliente</cbc:Note>
     <cbc:DocumentCurrencyCode>EUR</cbc:DocumentCurrencyCode>
     <cac:OrderReference>
         <cbc:ID>5a-2018#2018-11-25#UFY9MH</cbc:ID>

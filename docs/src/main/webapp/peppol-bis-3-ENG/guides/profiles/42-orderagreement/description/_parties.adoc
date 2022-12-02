@@ -27,6 +27,7 @@ The seller is the legal person or organization acting on behalf of the supplier 
 	 </cac:PostalAddress>
 	 <cac:PartyLegalEntity>
 	 	<cbc:RegistrationName>Azienda fornitore</cbc:RegistrationName>
+		<cbc:CompanyID schemeID="0210">01598570354</cbc:CompanyID>
 	 </cac:PartyLegalEntity>
 	 <cac:Contact>
 	 	<cbc:Name>Lucio Grande</cbc:Name>
@@ -63,6 +64,7 @@ The seller is the legal person or organization acting on behalf of the supplier 
 	</cac:PostalAddress>
 	<cac:PartyLegalEntity>
 		<cbc:RegistrationName>Azienda USL di Reggio Emilia</cbc:RegistrationName>
+		<cbc:CompanyID schemeID="0210">01598570354</cbc:CompanyID>
 	</cac:PartyLegalEntity>
 	<cac:Contact>
 		<cbc:Name>Giovanni Rossi</cbc:Name>
@@ -144,6 +146,7 @@ The buyer is the legal person or organization acting on behalf of the customer a
 	</cac:PostalAddress>
 	<cac:PartyLegalEntity>
 		<cbc:RegistrationName>Azienda USL di Reggio Emilia</cbc:RegistrationName>
+		<cbc:CompanyID schemeID="0210">01598570354</cbc:CompanyID>
 	</cac:PartyLegalEntity>
  </cac:Party>
 </cac:BuyerCustomerParty>

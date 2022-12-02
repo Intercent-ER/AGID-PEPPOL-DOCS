@@ -1,5 +1,6 @@
 :Autore: AgID
 :doctype: book
+:last-update-label!:
 :encoding: utf-8
 :lang: it
 :toc: left

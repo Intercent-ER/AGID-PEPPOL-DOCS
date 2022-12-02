@@ -1,5 +1,6 @@
 = Review of alignment
 :doctype: book
+:last-update-label!:
 :icons: font
 :stem:
 :toc: left

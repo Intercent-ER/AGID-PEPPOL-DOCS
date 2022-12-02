@@ -23,6 +23,20 @@
         * OF - Ordine di fatturazione (per beni già consumati)
         * OFR - Ordine di fatturazione e ripristino</LocalUsageNotes>
     </Code>
+	
+	<Code>
+        <Id>221</Id>
+        <Name>Blanket order</Name>
+        <Description>Usage of document/message for general order purposes with later split into quantities and delivery dates and maybe delivery locations. 
+        </Description>
+    </Code>
+
+    <Code>
+        <Id>226</Id>
+        <Name>Call off order</Name>
+        <Description>Document/message to provide split quantities and delivery dates referring to a previous blanket order.
+        </Description>
+    </Code>
   
     <Code>
         <Id>227</Id>

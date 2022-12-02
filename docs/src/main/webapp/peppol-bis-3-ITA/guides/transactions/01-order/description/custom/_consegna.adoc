@@ -52,7 +52,9 @@ Se il luogo di consegna è un indirizzo istituzionale del Cliente a cui è stato
     </cac:DeliveryLocation>
     <cac:RequestedDeliveryPeriod>
         <cbc:StartDate>2018-05-15</cbc:StartDate>
+        <cbc:StartTime>12:10:33</cbc:StartTime>
         <cbc:EndDate>2018-05-15</cbc:EndDate>
+        <cbc:EndTime>14:20:00</cbc:EndTime>
     </cac:RequestedDeliveryPeriod>
     <cac:DeliveryParty>
         <cac:PartyIdentification>

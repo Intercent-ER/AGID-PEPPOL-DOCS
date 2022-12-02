@@ -1,5 +1,6 @@
 include::../../shared/_links.adoc[]
 :doctype: book
+:last-update-label!:
 :icons: font
 :stem:
 :lang: it

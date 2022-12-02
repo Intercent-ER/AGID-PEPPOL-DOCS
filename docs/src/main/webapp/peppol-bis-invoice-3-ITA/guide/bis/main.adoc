@@ -1,5 +1,6 @@
 include::_settings.adoc[]
 :doctype: book
+:last-update-label!:
 //:forceinclude:
 :icons: font
 :stem:

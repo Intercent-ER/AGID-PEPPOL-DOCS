@@ -4,6 +4,7 @@ include::../../shared/_links.adoc[]
 {author}
 v{version}
 :doctype: book
+:last-update-label!:
 :icons: font
 :stem:
 :toc: left

@@ -32,7 +32,9 @@
              </cac:DeliveryLocation>
             <cac:RequestedDeliveryPeriod>
                 <cbc:StartDate>2018-06-30</cbc:StartDate>
+                <cbc:StartTime>12:10:33</cbc:StartTime>
                 <cbc:EndDate>2018-06-30</cbc:EndDate>
+                <cbc:EndTime>14:20:00</cbc:EndTime>
             </cac:RequestedDeliveryPeriod>
             <cac:DeliveryParty>
             ...

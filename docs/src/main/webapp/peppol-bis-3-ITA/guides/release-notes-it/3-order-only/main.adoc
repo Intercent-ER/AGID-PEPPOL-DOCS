@@ -2,6 +2,7 @@ include::../../shared/_links.adoc[]
 = PEPPOL BIS Ordinazione Semplice {ord_version_it}
 Note di Rilascio
 :doctype: book
+:last-update-label!:
 :icons: font
 :encoding: utf-8
 :lang: it

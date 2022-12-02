@@ -166,7 +166,7 @@
 				</cac:PostalAddress>
 			</cac:CarrierParty>
 		</cac:Consignment>
-		<!-- INFORMAZIONI SULLO STATO DELLA SPEDIZIONE -->
+		<!-- INFORMAZIONI SULLE MODALITA' DELLA SPEDIZIONE -->
 		<cac:ShipmentStage>
 			<cbc:TransportModeCode>2</cbc:TransportModeCode>
 		</cac:ShipmentStage>	

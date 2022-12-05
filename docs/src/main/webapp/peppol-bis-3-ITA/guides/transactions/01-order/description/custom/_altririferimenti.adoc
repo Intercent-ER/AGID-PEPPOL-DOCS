@@ -13,10 +13,11 @@ s|Dove usarlo
 |*CUP*
 |Codice Unico Progetto
 |In testata si usa +
-`cac:AdditionalDocumentReference` (0.n) +
+`cac:ProjectReference` (0..1) +
 
 A livello di riga +
-`cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n)
+`cac:OrderLine/cac:LineItem/cac:Item/`
+`cac:ItemSpecificationDocumentReference/ID` (0..n)
 
 |*DDT*
 |Documento di Trasporto +
@@ -62,17 +63,17 @@ A livello di riga +
 
 |====
 
-In caso di riferimento in testata, diverso dal Contratto, l'identificativo del documento deve essere inserito nel campo cbc:ID mentre il Tipo di riferimento deve essere inserito all'interno del campo cbc:DocumentType.  
+In caso di riferimento in testata, diverso dal CUP e dal Contratto, l'identificativo del documento deve essere inserito nel campo cbc:ID mentre il Tipo di riferimento deve essere inserito all'interno del campo cbc:DocumentType.  
 In caso di riferimento in riga, l'identificativo del documento deve essere inserito nel campo cbc:ID preceduto dalla stringa composta dal Tipo di riferimento e il carattere ":".
 
 .Esempio di riferimento ad un CUP a livello di testata.
 [source, xml, indent=0]
 ----
-<cac:AdditionalDocumentReference>
+<cac:ProjectReference>
     <cbc:ID>J31E01000010004</cbc:ID>
-    <cbc:DocumentType>CUP</cbc:DocumentType>
-</cac:AdditionalDocumentReference>
+</cac:ProjectReference >
 ----
+
 .Esempio di riferimento ad un IMPEGNO e a un DDT a livello di riga.
 [source, xml, indent=0]
 ----

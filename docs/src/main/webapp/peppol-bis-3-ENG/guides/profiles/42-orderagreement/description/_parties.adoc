@@ -6,72 +6,86 @@ The following parties/roles may be specified in the message:
 
 The seller is the legal person or organization acting on behalf of the supplier and who sells goods or services to the buyer. The seller is mandatory in the PEPPOL BIS Order Agreement message.
 
-.Example of information for an italian Seller with the indication of the VAT number in the Endpoint
+#In case you want to indicate the VAT number, this must be indicated in the Seller party identification.# + field
+#In case you want to indicate the Tax Code, this must be indicated in the Seller legal registration identifier.#
+
+.Example of information for a private provider
 [source, xml, indent=0]
 ----
 <cac:SellerSupplierParty>
-    <cac:Party>
-	 <cbc:EndpointID schemeID="0211">IT01234567890</cbc:EndpointID>
-	 <cac:PostalAddress>
-	 	<cbc:StreetName>Indirizzo Riga 1</cbc:StreetName>
-	 	<cbc:AdditionalStreetName>Indirizzo Riga 2</cbc:AdditionalStreetName  >
-	 	<cbc:CityName>Bologna</cbc:CityName>
-	 	<cbc:PostalZone>40121</cbc:PostalZone>
-	 	<cbc:CountrySubentity>BO</cbc:CountrySubentity >
-	 	<cac:AddressLine>
-	 		<cbc:Line>Zona Savena</cbc:Line>
-	 	</cac:AddressLine>
-	 	<cac:Country>
-	 	    <cbc:IdentificationCode>IT</cbc:IdentificationCode>
-	 	</cac:Country>
-	 </cac:PostalAddress>
-	 <cac:PartyLegalEntity>
-	 	<cbc:RegistrationName>Azienda fornitore</cbc:RegistrationName>
-		<cbc:CompanyID schemeID="0210">01598570354</cbc:CompanyID>
-	 </cac:PartyLegalEntity>
-	 <cac:Contact>
-	 	<cbc:Name>Lucio Grande</cbc:Name>
-	 	<cbc:Telephone>051102030</cbc:Telephone>
-	 	<cbc:ElectronicMail>lucio.grande@fornitore.it</cbc:ElectronicMail>
-	 </cac:Contact>
-    </cac:Party>
+	<cac:Party>
+		<cbc:EndpointID schemeID="0211">IT01234567890</cbc:EndpointID>
+		<cac:PartyIdentification>
+			<cbc:ID schemeID="0211"> IT01234567890</cbc:ID>
+		</cac:PartyIdentification>
+		<cac:PostalAddress>
+			<cbc:StreetName>Indirizzo Riga 1</cbc:StreetName>
+			<cbc:AdditionalStreetName>Indirizzo Riga 2</cbc:AdditionalStreetName>
+			<cbc:CityName>Bologna</cbc:CityName>
+			<cbc:PostalZone>40121</cbc:PostalZone>
+			<cbc:CountrySubentity>BO</cbc:CountrySubentity>
+			<cac:AddressLine>
+				<cbc:Line>Zona Savena</cbc:Line>
+			</cac:AddressLine>
+			<cac:Country>
+				<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+			</cac:Country>
+		</cac:PostalAddress>
+		<cac:PartyLegalEntity>
+			<cbc:RegistrationName>Azienda fornitore</cbc:RegistrationName>
+			<cbc:CompanyID schemeID="0210">01598570354</cbc:CompanyID>
+			<cac:RegistrationAddress>
+				<cbc:CityName>Bologna</cbc:CityName>
+				<cac:Country>
+					<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+				</cac:Country>
+			</cac:RegistrationAddress>
+		</cac:PartyLegalEntity>
+		<cac:Contact>
+			<cbc:Name>Lucio Grande</cbc:Name>
+			<cbc:Telephone>051102030</cbc:Telephone>
+			<cbc:ElectronicMail>lucio.grande@fornitore.it</cbc:ElectronicMail>
+		</cac:Contact>
+	</cac:Party>
 </cac:SellerSupplierParty>
 ----
 
 #If the Seller is a Public Administration, the code 0201 shall be used in the element *EndpointID/@schemeID*, followed by the Entity's CUU code (Codice Univoco Ufficio, so-called "iPA code").#
 
-
-#If one intends to provide also the VAT number or the Fiscal Code, these need to be indicated into the *Seller party identification*, prefixed respectively by the @schemeID 0211 and 0210. It is not possible to indicate both the VAT number and Fiscal Code toghether in the Order Agreement for the Seller.#
-
-
-.Example of the indication of a VAT number and Fiscal Code
+.Example of information for a Public Administration supplier
 [source, xml, indent=0]
 ----
 <cac:SellerSupplierParty>
- <cac:Party>
-	<cbc:EndpointID schemeID="0201">UFY9MH</cbc:EndpointID>
-	<cac:PartyIdentification>
-		<cbc:ID schemeID="0211">IT01598570354</cbc:ID>
-	</cac:PartyIdentification>
-	<cac:PostalAddress>
-		<cbc:StreetName>Via Amendola 2</cbc:StreetName>
-		<cbc:CityName>Reggio Emilia</cbc:CityName>
-		<cbc:PostalZone>42122</cbc:PostalZone>
-		<cbc:CountrySubentity>RE</cbc:CountrySubentity>
-		<cac:Country>
-			<cbc:IdentificationCode>IT</cbc:IdentificationCode>
-		</cac:Country>
-	</cac:PostalAddress>
-	<cac:PartyLegalEntity>
-		<cbc:RegistrationName>Azienda USL di Reggio Emilia</cbc:RegistrationName>
-		<cbc:CompanyID schemeID="0210">01598570354</cbc:CompanyID>
-	</cac:PartyLegalEntity>
-	<cac:Contact>
-		<cbc:Name>Giovanni Rossi</cbc:Name>
-		<cbc:Telephone>0522335111</cbc:Telephone>
-		<cbc:ElectronicMail>giovanni.rossi@ausl.re.it</cbc:ElectronicMail>
-	</cac:Contact>
- </cac:Party>
+	<cac:Party>
+		<cbc:EndpointID schemeID="0201"> UFY9MH</cbc:EndpointID>
+		<cac:PartyIdentification>
+			<cbc:ID schemeID="0211"> IT01234567890</cbc:ID>
+		</cac:PartyIdentification>
+		<cac:PostalAddress>
+			<cbc:StreetName>Via Amendola 2</cbc:StreetName>
+			<cbc:CityName>Reggio Emilia</cbc:CityName>
+			<cbc:PostalZone>42122</cbc:PostalZone>
+			<cbc:CountrySubentity>RE</cbc:CountrySubentity>
+			<cac:Country>
+				<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+			</cac:Country>
+		</cac:PostalAddress>
+		<cac:PartyLegalEntity>
+			<cbc:RegistrationName>Azienda USL di Reggio Emilia</cbc:RegistrationName>
+			<cbc:CompanyID schemeID="0210">01234567890</cbc:CompanyID>
+			<cac:RegistrationAddress>
+				<cbc:CityName>Reggio Emilia</cbc:CityName>
+				<cac:Country>
+					<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+				</cac:Country>
+			</cac:RegistrationAddress>
+		</cac:PartyLegalEntity>
+		<cac:Contact>
+			<cbc:Name>Giovanni Rossi</cbc:Name>
+			<cbc:Telephone>0522335111</cbc:Telephone>
+			<cbc:ElectronicMail>giovanni.rossi@ausl.re.it</cbc:ElectronicMail>
+		</cac:Contact>
+	</cac:Party>
 </cac:SellerSupplierParty>
 ----
 
@@ -80,7 +94,7 @@ The seller is the legal person or organization acting on behalf of the supplier 
 ----
 <cac:SellerSupplierParty>
     <cac:Party>
-	 <cbc:EndpointID schemeID="9925">0999999999</cbc:EndpointID
+	 <cbc:EndpointID schemeID="9925">0999999999</cbc:EndpointID>
 	 <cac:PostalAddress>
         <cbc:StreetName> Rue Emile Claus 28</cbc:StreetName>
 		<cbc:AdditionalStreetName>Quartiere</cbc:AdditionalStreetName>
@@ -124,31 +138,32 @@ The buyer is the legal person or organization acting on behalf of the customer a
 </cac:BuyerCustomerParty>
 ----
 
-#If one intends to provide also the VAT number or the Fiscal Code, these need to be indicated into the *Seller party identification*, prefixed respectively by the @schemeID 0211 and 0210. It is not possible to indicate both the VAT number and Fiscal Code toghether in the Order Agreement for the Buyer.#
+#In case you want to indicate the VAT number, this must be indicated in the Buyer party identification.# + field
+#In case you want to indicate the Tax Code, this must be indicated in the Buyer legal registration identifier.#
 
 .Esempio di informazioni del cliente
 [source, xml, indent=0]
 ----
 <cac:BuyerCustomerParty>
- <cac:Party>
-	<cbc:EndpointID schemeID="0201">UFY9MH</cbc:EndpointID>
-	<cac:PartyIdentification>
-		<cbc:ID  schemeID="0210">01598570354</cbc:ID>
-	</cac:PartyIdentification>
-	<cac:PostalAddress>
-		<cbc:StreetName>Via Amendola 2</cbc:StreetName>
-		<cbc:CityName>Reggio Emilia</cbc:CityName>
-		<cbc:PostalZone>42122</cbc:PostalZone>
-		<cbc:CountrySubentity>RE</cbc:CountrySubentity>
-		<cac:Country>
-			<cbc:IdentificationCode>IT</cbc:IdentificationCode>
-		</cac:Country>
-	</cac:PostalAddress>
-	<cac:PartyLegalEntity>
-		<cbc:RegistrationName>Azienda USL di Reggio Emilia</cbc:RegistrationName>
-		<cbc:CompanyID schemeID="0210">01598570354</cbc:CompanyID>
-	</cac:PartyLegalEntity>
- </cac:Party>
+	<cac:Party>
+		<cbc:EndpointID schemeID="0201">UFY9MH</cbc:EndpointID>
+		<cac:PartyIdentification>
+			<cbc:ID schemeID="0211">IT01598570354</cbc:ID>
+		</cac:PartyIdentification>
+		<cac:PostalAddress>
+			<cbc:StreetName>Via Amendola 2</cbc:StreetName>
+			<cbc:CityName>Reggio Emilia</cbc:CityName>
+			<cbc:PostalZone>42122</cbc:PostalZone>
+			<cbc:CountrySubentity>RE</cbc:CountrySubentity>
+			<cac:Country>
+				<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+			</cac:Country>
+		</cac:PostalAddress>
+		<cac:PartyLegalEntity>
+			<cbc:RegistrationName>Azienda USL di Reggio Emilia</cbc:RegistrationName>
+			<cbc:CompanyID schemeID="0210">01598570354</cbc:CompanyID>
+		</cac:PartyLegalEntity>
+	</cac:Party>
 </cac:BuyerCustomerParty>
 ----
 

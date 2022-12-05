@@ -47,6 +47,10 @@ L’ordine è accettato con modifica a livello di riga +
 |====
 
 
+#Nel caso in cui si voglia indicare la Partita IVA, questa va indicata nel campo Seller party identification.# +
+#Nel caso in cui si voglia indicare il Codice Fiscale, questo va indicato nel Seller legal registration identifier.#
+
+
 .Esempio UBL di Codice di Risposta a livello di testata in un messaggio di risposta d’ordine
 [source, xml, indent=0]
 ----

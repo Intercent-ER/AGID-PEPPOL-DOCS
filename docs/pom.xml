@@ -441,7 +441,7 @@
 						<configuration>
 							<backend>html5</backend>
 							<sourceDirectory>src/main/webapp/manuali_utente/</sourceDirectory>
-							<outputDirectory>${project.build.directory}/generated-docs/manuali utente</outputDirectory>
+							<outputDirectory>${project.build.directory}/generated-docs/manuali_utente</outputDirectory>
 							<relativeBaseDir>true</relativeBaseDir>
 							<preserveDirectories>true</preserveDirectories>
 						</configuration>

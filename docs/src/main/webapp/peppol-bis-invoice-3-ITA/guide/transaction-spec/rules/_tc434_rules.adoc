@@ -6,10 +6,10 @@ Questa PEPPOL BIS usa una variante alle regole di validazione della {EN16931}.
 Ulteriori dettagli sono disponibili presso https://github.com/OpenPEPPOL/tc434-validation.
 
 .Regole di business EN 16931
-[cols="1,4", options="header"]
+[cols="1,4", options="header"] 
 |====
 |Regola
-|Messaggio
+|Messaggio/Contesto/Test
 
 include::{rules-dir}/_CEN-EN16931-UBL-GENERAL.sch.adoc[]
 |====

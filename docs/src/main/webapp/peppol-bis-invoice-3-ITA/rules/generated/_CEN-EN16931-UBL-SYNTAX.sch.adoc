@@ -1,1484 +1,3012 @@
-| UBL-CR-001 *(warning)*
+.3+| UBL-CR-001 *(warning)*
 | [UBL-CR-001]-A UBL invoice should not include extensions
-| UBL-CR-002 *(warning)*
-| [UBL-CR-002]-A UBL invoice should not include the UBLVersionID
-| UBL-CR-003 *(warning)*
-| [UBL-CR-003]-A UBL invoice should not include the ProfileExecutionID 
-| UBL-CR-004 *(warning)*
-| [UBL-CR-004]-A UBL invoice should not include the CopyIndicator 
-| UBL-CR-005 *(warning)*
-| [UBL-CR-005]-A UBL invoice should not include the UUID 
-| UBL-CR-006 *(warning)*
-| [UBL-CR-006]-A UBL invoice should not include the IssueTime 
-| UBL-CR-007 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(ext:UBLExtensions)
+.3+| UBL-CR-002 *(warning)*
+| [UBL-CR-002]-A UBL invoice should not include the UBLVersionID or it should be 2.1
+| /ubl:Invoice \| /cn:CreditNote
+| not(cbc:UBLVersionID) or cbc:UBLVersionID = '2.1'
+.3+| UBL-CR-003 *(warning)*
+| [UBL-CR-003]-A UBL invoice should not include the ProfileExecutionID
+| /ubl:Invoice \| /cn:CreditNote
+| not(cbc:ProfileExecutionID)
+.3+| UBL-CR-004 *(warning)*
+| [UBL-CR-004]-A UBL invoice should not include the CopyIndicator
+| /ubl:Invoice \| /cn:CreditNote
+| not(cbc:CopyIndicator)
+.3+| UBL-CR-005 *(warning)*
+| [UBL-CR-005]-A UBL invoice should not include the UUID
+| /ubl:Invoice \| /cn:CreditNote
+| not(cbc:UUID)
+.3+| UBL-CR-006 *(warning)*
+| [UBL-CR-006]-A UBL invoice should not include the IssueTime
+| /ubl:Invoice \| /cn:CreditNote
+| not(cbc:IssueTime)
+.3+| UBL-CR-007 *(warning)*
 | [UBL-CR-007]-A UBL invoice should not include the PricingCurrencyCode
-| UBL-CR-008 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cbc:PricingCurrencyCode)
+.3+| UBL-CR-008 *(warning)*
 | [UBL-CR-008]-A UBL invoice should not include the PaymentCurrencyCode
-| UBL-CR-009 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cbc:PaymentCurrencyCode)
+.3+| UBL-CR-009 *(warning)*
 | [UBL-CR-009]-A UBL invoice should not include the PaymentAlternativeCurrencyCode
-| UBL-CR-010 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cbc:PaymentAlternativeCurrencyCode)
+.3+| UBL-CR-010 *(warning)*
 | [UBL-CR-010]-A UBL invoice should not include the AccountingCostCode
-| UBL-CR-011 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cbc:AccountingCostCode)
+.3+| UBL-CR-011 *(warning)*
 | [UBL-CR-011]-A UBL invoice should not include the LineCountNumeric
-| UBL-CR-012 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cbc:LineCountNumeric)
+.3+| UBL-CR-012 *(warning)*
 | [UBL-CR-012]-A UBL invoice should not include the InvoicePeriod StartTime
-| UBL-CR-013 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:InvoicePeriod/cbc:StartTime)
+.3+| UBL-CR-013 *(warning)*
 | [UBL-CR-013]-A UBL invoice should not include the InvoicePeriod EndTime
-| UBL-CR-014 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:InvoicePeriod/cbc:EndTime)
+.3+| UBL-CR-014 *(warning)*
 | [UBL-CR-014]-A UBL invoice should not include the InvoicePeriod DurationMeasure
-| UBL-CR-015 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:InvoicePeriod/cbc:DurationMeasure)
+.3+| UBL-CR-015 *(warning)*
 | [UBL-CR-015]-A UBL invoice should not include the InvoicePeriod Description
-| UBL-CR-016 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:InvoicePeriod/cbc:Description)
+.3+| UBL-CR-016 *(warning)*
 | [UBL-CR-016]-A UBL invoice should not include the OrderReference CopyIndicator
-| UBL-CR-017 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:OrderReference/cbc:CopyIndicator)
+.3+| UBL-CR-017 *(warning)*
 | [UBL-CR-017]-A UBL invoice should not include the OrderReference UUID
-| UBL-CR-018 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:OrderReference/cbc:UUID)
+.3+| UBL-CR-018 *(warning)*
 | [UBL-CR-018]-A UBL invoice should not include the OrderReference IssueDate
-| UBL-CR-019 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:OrderReference/cbc:IssueDate)
+.3+| UBL-CR-019 *(warning)*
 | [UBL-CR-019]-A UBL invoice should not include the OrderReference IssueTime
-| UBL-CR-020 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:OrderReference/cbc:IssueTime)
+.3+| UBL-CR-020 *(warning)*
 | [UBL-CR-020]-A UBL invoice should not include the OrderReference CustomerReference
-| UBL-CR-021 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:OrderReference/cbc:CustomerReference)
+.3+| UBL-CR-021 *(warning)*
 | [UBL-CR-021]-A UBL invoice should not include the OrderReference OrderTypeCode
-| UBL-CR-022 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:OrderReference/cbc:OrderTypeCode)
+.3+| UBL-CR-022 *(warning)*
 | [UBL-CR-022]-A UBL invoice should not include the OrderReference DocumentReference
-| UBL-CR-023 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:OrderReference/cac:DocumentReference)
+.3+| UBL-CR-023 *(warning)*
 | [UBL-CR-023]-A UBL invoice should not include the BillingReference CopyIndicator
-| UBL-CR-024 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:BillingReference/cac:InvoiceDocumentReference/cbc:CopyIndicator)
+.3+| UBL-CR-024 *(warning)*
 | [UBL-CR-024]-A UBL invoice should not include the BillingReference UUID
-| UBL-CR-025 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:BillingReference/cac:InvoiceDocumentReference/cbc:UUID)
+.3+| UBL-CR-025 *(warning)*
 | [UBL-CR-025]-A UBL invoice should not include the BillingReference IssueTime
-| UBL-CR-026 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:BillingReference/cac:InvoiceDocumentReference/cbc:IssueTime)
+.3+| UBL-CR-026 *(warning)*
 | [UBL-CR-026]-A UBL invoice should not include the BillingReference DocumentTypeCode
-| UBL-CR-027 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:BillingReference/cac:InvoiceDocumentReference/cbc:DocumentTypeCode)
+.3+| UBL-CR-027 *(warning)*
 | [UBL-CR-027]-A UBL invoice should not include the BillingReference DocumentType
-| UBL-CR-028 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:BillingReference/cac:InvoiceDocumentReference/cbc:DocumentType)
+.3+| UBL-CR-028 *(warning)*
 | [UBL-CR-028]-A UBL invoice should not include the BillingReference Xpath
-| UBL-CR-029 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:BillingReference/cac:InvoiceDocumentReference/cbc:XPath)
+.3+| UBL-CR-029 *(warning)*
 | [UBL-CR-029]-A UBL invoice should not include the BillingReference LanguageID
-| UBL-CR-030 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:BillingReference/cac:InvoiceDocumentReference/cbc:LanguageID)
+.3+| UBL-CR-030 *(warning)*
 | [UBL-CR-030]-A UBL invoice should not include the BillingReference LocaleCode
-| UBL-CR-031 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:BillingReference/cac:InvoiceDocumentReference/cbc:LocaleCode)
+.3+| UBL-CR-031 *(warning)*
 | [UBL-CR-031]-A UBL invoice should not include the BillingReference VersionID
-| UBL-CR-032 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:BillingReference/cac:InvoiceDocumentReference/cbc:VersionID)
+.3+| UBL-CR-032 *(warning)*
 | [UBL-CR-032]-A UBL invoice should not include the BillingReference DocumentStatusCode
-| UBL-CR-033 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:BillingReference/cac:InvoiceDocumentReference/cbc:DocumentStatusCode)
+.3+| UBL-CR-033 *(warning)*
 | [UBL-CR-033]-A UBL invoice should not include the BillingReference DocumenDescription
-| UBL-CR-034 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:BillingReference/cac:InvoiceDocumentReference/cbc:DocumentDescription)
+.3+| UBL-CR-034 *(warning)*
 | [UBL-CR-034]-A UBL invoice should not include the BillingReference Attachment
-| UBL-CR-035 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:BillingReference/cac:InvoiceDocumentReference/cac:Attachment)
+.3+| UBL-CR-035 *(warning)*
 | [UBL-CR-035]-A UBL invoice should not include the BillingReference ValidityPeriod
-| UBL-CR-036 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:BillingReference/cac:InvoiceDocumentReference/cac:ValidityPeriod)
+.3+| UBL-CR-036 *(warning)*
 | [UBL-CR-036]-A UBL invoice should not include the BillingReference IssuerParty
-| UBL-CR-037 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:BillingReference/cac:InvoiceDocumentReference/cac:IssuerParty)
+.3+| UBL-CR-037 *(warning)*
 | [UBL-CR-037]-A UBL invoice should not include the BillingReference ResultOfVerification
-| UBL-CR-038 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:BillingReference/cac:InvoiceDocumentReference/cac:ResultOfVerification)
+.3+| UBL-CR-038 *(warning)*
 | [UBL-CR-038]-A UBL invoice should not include the BillingReference SelfBilledInvoiceDocumentReference
-| UBL-CR-039 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:BillingReference/cac:SelfBilledInvoiceDocumentReference)
+.3+| UBL-CR-039 *(warning)*
 | [UBL-CR-039]-A UBL invoice should not include the BillingReference CreditNoteDocumentReference
-| UBL-CR-040 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:BillingReference/cac:CreditNoteDocumentReference)
+.3+| UBL-CR-040 *(warning)*
 | [UBL-CR-040]-A UBL invoice should not include the BillingReference SelfBilledCreditNoteDocumentReference
-| UBL-CR-041 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:BillingReference/cac:SelfBilledCreditNoteDocumentReference)
+.3+| UBL-CR-041 *(warning)*
 | [UBL-CR-041]-A UBL invoice should not include the BillingReference DebitNoteDocumentReference
-| UBL-CR-042 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:BillingReference/cac:DebitNoteDocumentReference)
+.3+| UBL-CR-042 *(warning)*
 | [UBL-CR-042]-A UBL invoice should not include the BillingReference ReminderDocumentReference
-| UBL-CR-043 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:BillingReference/cac:ReminderDocumentReference)
+.3+| UBL-CR-043 *(warning)*
 | [UBL-CR-043]-A UBL invoice should not include the BillingReference AdditionalDocumentReference
-| UBL-CR-044 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:BillingReference/cac:AdditionalDocumentReference)
+.3+| UBL-CR-044 *(warning)*
 | [UBL-CR-044]-A UBL invoice should not include the BillingReference BillingReferenceLine
-| UBL-CR-045 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:BillingReference/cac:BillingReferenceLine)
+.3+| UBL-CR-045 *(warning)*
 | [UBL-CR-045]-A UBL invoice should not include the DespatchDocumentReference CopyIndicator
-| UBL-CR-046 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:DespatchDocumentReference/cbc:CopyIndicator)
+.3+| UBL-CR-046 *(warning)*
 | [UBL-CR-046]-A UBL invoice should not include the DespatchDocumentReference UUID
-| UBL-CR-047 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:DespatchDocumentReference/cbc:UUID)
+.3+| UBL-CR-047 *(warning)*
 | [UBL-CR-047]-A UBL invoice should not include the DespatchDocumentReference IssueDate
-| UBL-CR-048 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:DespatchDocumentReference/cbc:IssueDate)
+.3+| UBL-CR-048 *(warning)*
 | [UBL-CR-048]-A UBL invoice should not include the DespatchDocumentReference IssueTime
-| UBL-CR-049 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:DespatchDocumentReference/cbc:IssueTime)
+.3+| UBL-CR-049 *(warning)*
 | [UBL-CR-049]-A UBL invoice should not include the DespatchDocumentReference DocumentTypeCode
-| UBL-CR-050 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:DespatchDocumentReference/cbc:DocumentTypeCode)
+.3+| UBL-CR-050 *(warning)*
 | [UBL-CR-050]-A UBL invoice should not include the DespatchDocumentReference DocumentType
-| UBL-CR-051 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:DespatchDocumentReference/cbc:DocumentType)
+.3+| UBL-CR-051 *(warning)*
 | [UBL-CR-051]-A UBL invoice should not include the DespatchDocumentReference Xpath
-| UBL-CR-052 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:DespatchDocumentReference/cbc:XPath)
+.3+| UBL-CR-052 *(warning)*
 | [UBL-CR-052]-A UBL invoice should not include the DespatchDocumentReference LanguageID
-| UBL-CR-053 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:DespatchDocumentReference/cbc:LanguageID)
+.3+| UBL-CR-053 *(warning)*
 | [UBL-CR-053]-A UBL invoice should not include the DespatchDocumentReference LocaleCode
-| UBL-CR-054 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:DespatchDocumentReference/cbc:LocaleCode)
+.3+| UBL-CR-054 *(warning)*
 | [UBL-CR-054]-A UBL invoice should not include the DespatchDocumentReference VersionID
-| UBL-CR-055 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:DespatchDocumentReference/cbc:VersionID)
+.3+| UBL-CR-055 *(warning)*
 | [UBL-CR-055]-A UBL invoice should not include the DespatchDocumentReference DocumentStatusCode
-| UBL-CR-056 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:DespatchDocumentReference/cbc:DocumentStatusCode)
+.3+| UBL-CR-056 *(warning)*
 | [UBL-CR-056]-A UBL invoice should not include the DespatchDocumentReference DocumentDescription
-| UBL-CR-057 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:DespatchDocumentReference/cbc:DocumentDescription)
+.3+| UBL-CR-057 *(warning)*
 | [UBL-CR-057]-A UBL invoice should not include the DespatchDocumentReference Attachment
-| UBL-CR-058 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:DespatchDocumentReference/cac:Attachment)
+.3+| UBL-CR-058 *(warning)*
 | [UBL-CR-058]-A UBL invoice should not include the DespatchDocumentReference ValidityPeriod
-| UBL-CR-059 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:DespatchDocumentReference/cac:ValidityPeriod)
+.3+| UBL-CR-059 *(warning)*
 | [UBL-CR-059]-A UBL invoice should not include the DespatchDocumentReference IssuerParty
-| UBL-CR-060 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:DespatchDocumentReference/cac:IssuerParty)
+.3+| UBL-CR-060 *(warning)*
 | [UBL-CR-060]-A UBL invoice should not include the DespatchDocumentReference ResultOfVerification
-| UBL-CR-061 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:DespatchDocumentReference/cac:ResultOfVerification)
+.3+| UBL-CR-061 *(warning)*
 | [UBL-CR-061]-A UBL invoice should not include the ReceiptDocumentReference CopyIndicator
-| UBL-CR-062 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ReceiptDocumentReference/cbc:CopyIndicator)
+.3+| UBL-CR-062 *(warning)*
 | [UBL-CR-062]-A UBL invoice should not include the ReceiptDocumentReference UUID
-| UBL-CR-063 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ReceiptDocumentReference/cbc:UUID)
+.3+| UBL-CR-063 *(warning)*
 | [UBL-CR-063]-A UBL invoice should not include the ReceiptDocumentReference IssueDate
-| UBL-CR-064 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ReceiptDocumentReference/cbc:IssueDate)
+.3+| UBL-CR-064 *(warning)*
 | [UBL-CR-064]-A UBL invoice should not include the ReceiptDocumentReference IssueTime
-| UBL-CR-065 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ReceiptDocumentReference/cbc:IssueTime)
+.3+| UBL-CR-065 *(warning)*
 | [UBL-CR-065]-A UBL invoice should not include the ReceiptDocumentReference DocumentTypeCode
-| UBL-CR-066 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ReceiptDocumentReference/cbc:DocumentTypeCode)
+.3+| UBL-CR-066 *(warning)*
 | [UBL-CR-066]-A UBL invoice should not include the ReceiptDocumentReference DocumentType
-| UBL-CR-067 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ReceiptDocumentReference/cbc:DocumentType)
+.3+| UBL-CR-067 *(warning)*
 | [UBL-CR-067]-A UBL invoice should not include the ReceiptDocumentReference Xpath
-| UBL-CR-068 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ReceiptDocumentReference/cbc:XPath)
+.3+| UBL-CR-068 *(warning)*
 | [UBL-CR-068]-A UBL invoice should not include the ReceiptDocumentReference LanguageID
-| UBL-CR-069 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ReceiptDocumentReference/cbc:LanguageID)
+.3+| UBL-CR-069 *(warning)*
 | [UBL-CR-069]-A UBL invoice should not include the ReceiptDocumentReference LocaleCode
-| UBL-CR-070 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ReceiptDocumentReference/cbc:LocaleCode)
+.3+| UBL-CR-070 *(warning)*
 | [UBL-CR-070]-A UBL invoice should not include the ReceiptDocumentReference VersionID
-| UBL-CR-071 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ReceiptDocumentReference/cbc:VersionID)
+.3+| UBL-CR-071 *(warning)*
 | [UBL-CR-071]-A UBL invoice should not include the ReceiptDocumentReference DocumentStatusCode
-| UBL-CR-072 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ReceiptDocumentReference/cbc:DocumentStatusCode)
+.3+| UBL-CR-072 *(warning)*
 | [UBL-CR-072]-A UBL invoice should not include the ReceiptDocumentReference DocumentDescription
-| UBL-CR-073 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ReceiptDocumentReference/cbc:DocumentDescription)
+.3+| UBL-CR-073 *(warning)*
 | [UBL-CR-073]-A UBL invoice should not include the ReceiptDocumentReference Attachment
-| UBL-CR-074 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ReceiptDocumentReference/cac:Attachment)
+.3+| UBL-CR-074 *(warning)*
 | [UBL-CR-074]-A UBL invoice should not include the ReceiptDocumentReference ValidityPeriod
-| UBL-CR-075 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ReceiptDocumentReference/cac:ValidityPeriod)
+.3+| UBL-CR-075 *(warning)*
 | [UBL-CR-075]-A UBL invoice should not include the ReceiptDocumentReference IssuerParty
-| UBL-CR-076 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ReceiptDocumentReference/cac:IssuerParty)
+.3+| UBL-CR-076 *(warning)*
 | [UBL-CR-076]-A UBL invoice should not include the ReceiptDocumentReference ResultOfVerification
-| UBL-CR-077 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ReceiptDocumentReference/cac:ResultOfVerification)
+.3+| UBL-CR-077 *(warning)*
 | [UBL-CR-077]-A UBL invoice should not include the StatementDocumentReference
-| UBL-CR-078 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:StatementDocumentReference)
+.3+| UBL-CR-078 *(warning)*
 | [UBL-CR-078]-A UBL invoice should not include the OriginatorDocumentReference CopyIndicator
-| UBL-CR-079 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:OriginatorDocumentReference/cbc:CopyIndicator)
+.3+| UBL-CR-079 *(warning)*
 | [UBL-CR-079]-A UBL invoice should not include the OriginatorDocumentReference UUID
-| UBL-CR-080 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:OriginatorDocumentReference/cbc:UUID)
+.3+| UBL-CR-080 *(warning)*
 | [UBL-CR-080]-A UBL invoice should not include the OriginatorDocumentReference IssueDate
-| UBL-CR-081 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:OriginatorDocumentReference/cbc:IssueDate)
+.3+| UBL-CR-081 *(warning)*
 | [UBL-CR-081]-A UBL invoice should not include the OriginatorDocumentReference IssueTime
-| UBL-CR-082 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:OriginatorDocumentReference/cbc:IssueTime)
+.3+| UBL-CR-082 *(warning)*
 | [UBL-CR-082]-A UBL invoice should not include the OriginatorDocumentReference DocumentTypeCode
-| UBL-CR-083 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:OriginatorDocumentReference/cbc:DocumentTypeCode)
+.3+| UBL-CR-083 *(warning)*
 | [UBL-CR-083]-A UBL invoice should not include the OriginatorDocumentReference DocumentType
-| UBL-CR-084 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:OriginatorDocumentReference/cbc:DocumentType)
+.3+| UBL-CR-084 *(warning)*
 | [UBL-CR-084]-A UBL invoice should not include the OriginatorDocumentReference Xpath
-| UBL-CR-085 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:OriginatorDocumentReference/cbc:XPath)
+.3+| UBL-CR-085 *(warning)*
 | [UBL-CR-085]-A UBL invoice should not include the OriginatorDocumentReference LanguageID
-| UBL-CR-086 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:OriginatorDocumentReference/cbc:LanguageID)
+.3+| UBL-CR-086 *(warning)*
 | [UBL-CR-086]-A UBL invoice should not include the OriginatorDocumentReference LocaleCode
-| UBL-CR-087 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:OriginatorDocumentReference/cbc:LocaleCode)
+.3+| UBL-CR-087 *(warning)*
 | [UBL-CR-087]-A UBL invoice should not include the OriginatorDocumentReference VersionID
-| UBL-CR-088 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:OriginatorDocumentReference/cbc:VersionID)
+.3+| UBL-CR-088 *(warning)*
 | [UBL-CR-088]-A UBL invoice should not include the OriginatorDocumentReference DocumentStatusCode
-| UBL-CR-089 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:OriginatorDocumentReference/cbc:DocumentStatusCode)
+.3+| UBL-CR-089 *(warning)*
 | [UBL-CR-089]-A UBL invoice should not include the OriginatorDocumentReference DocumentDescription
-| UBL-CR-090 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:OriginatorDocumentReference/cbc:DocumentDescription)
+.3+| UBL-CR-090 *(warning)*
 | [UBL-CR-090]-A UBL invoice should not include the OriginatorDocumentReference Attachment
-| UBL-CR-091 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:OriginatorDocumentReference/cac:Attachment)
+.3+| UBL-CR-091 *(warning)*
 | [UBL-CR-091]-A UBL invoice should not include the OriginatorDocumentReference ValidityPeriod
-| UBL-CR-092 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:OriginatorDocumentReference/cac:ValidityPeriod)
+.3+| UBL-CR-092 *(warning)*
 | [UBL-CR-092]-A UBL invoice should not include the OriginatorDocumentReference IssuerParty
-| UBL-CR-093 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:OriginatorDocumentReference/cac:IssuerParty)
+.3+| UBL-CR-093 *(warning)*
 | [UBL-CR-093]-A UBL invoice should not include the OriginatorDocumentReference ResultOfVerification
-| UBL-CR-094 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:OriginatorDocumentReference/cac:ResultOfVerification)
+.3+| UBL-CR-094 *(warning)*
 | [UBL-CR-094]-A UBL invoice should not include the ContractDocumentReference CopyIndicator
-| UBL-CR-095 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ContractDocumentReference/cbc:CopyIndicator)
+.3+| UBL-CR-095 *(warning)*
 | [UBL-CR-095]-A UBL invoice should not include the ContractDocumentReference UUID
-| UBL-CR-096 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ContractDocumentReference/cbc:UUID)
+.3+| UBL-CR-096 *(warning)*
 | [UBL-CR-096]-A UBL invoice should not include the ContractDocumentReference IssueDate
-| UBL-CR-097 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ContractDocumentReference/cbc:IssueDate)
+.3+| UBL-CR-097 *(warning)*
 | [UBL-CR-097]-A UBL invoice should not include the ContractDocumentReference IssueTime
-| UBL-CR-098 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ContractDocumentReference/cbc:IssueTime)
+.3+| UBL-CR-098 *(warning)*
 | [UBL-CR-098]-A UBL invoice should not include the ContractDocumentReference DocumentTypeCode
-| UBL-CR-099 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ContractDocumentReference/cbc:DocumentTypeCode)
+.3+| UBL-CR-099 *(warning)*
 | [UBL-CR-099]-A UBL invoice should not include the ContractDocumentReference DocumentType
-| UBL-CR-100 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ContractDocumentReference/cbc:DocumentType)
+.3+| UBL-CR-100 *(warning)*
 | [UBL-CR-100]-A UBL invoice should not include the ContractDocumentReference Xpath
-| UBL-CR-101 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ContractDocumentReference/cbc:XPath)
+.3+| UBL-CR-101 *(warning)*
 | [UBL-CR-101]-A UBL invoice should not include the ContractDocumentReference LanguageID
-| UBL-CR-102 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ContractDocumentReference/cbc:LanguageID)
+.3+| UBL-CR-102 *(warning)*
 | [UBL-CR-102]-A UBL invoice should not include the ContractDocumentReference LocaleCode
-| UBL-CR-103 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ContractDocumentReference/cbc:LocaleCode)
+.3+| UBL-CR-103 *(warning)*
 | [UBL-CR-103]-A UBL invoice should not include the ContractDocumentReference VersionID
-| UBL-CR-104 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ContractDocumentReference/cbc:VersionID)
+.3+| UBL-CR-104 *(warning)*
 | [UBL-CR-104]-A UBL invoice should not include the ContractDocumentReference DocumentStatusCode
-| UBL-CR-105 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ContractDocumentReference/cbc:DocumentStatusCode)
+.3+| UBL-CR-105 *(warning)*
 | [UBL-CR-105]-A UBL invoice should not include the ContractDocumentReference DocumentDescription
-| UBL-CR-106 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ContractDocumentReference/cbc:DocumentDescription)
+.3+| UBL-CR-106 *(warning)*
 | [UBL-CR-106]-A UBL invoice should not include the ContractDocumentReference Attachment
-| UBL-CR-107 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ContractDocumentReference/cac:Attachment)
+.3+| UBL-CR-107 *(warning)*
 | [UBL-CR-107]-A UBL invoice should not include the ContractDocumentReference ValidityPeriod
-| UBL-CR-108 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ContractDocumentReference/cac:ValidityPeriod)
+.3+| UBL-CR-108 *(warning)*
 | [UBL-CR-108]-A UBL invoice should not include the ContractDocumentReference IssuerParty
-| UBL-CR-109 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ContractDocumentReference/cac:IssuerParty)
+.3+| UBL-CR-109 *(warning)*
 | [UBL-CR-109]-A UBL invoice should not include the ContractDocumentReference ResultOfVerification
-| UBL-CR-110 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ContractDocumentReference/cac:ResultOfVerification)
+.3+| UBL-CR-110 *(warning)*
 | [UBL-CR-110]-A UBL invoice should not include the AdditionalDocumentReference CopyIndicator
-| UBL-CR-111 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AdditionalDocumentReference/cbc:CopyIndicator)
+.3+| UBL-CR-111 *(warning)*
 | [UBL-CR-111]-A UBL invoice should not include the AdditionalDocumentReference UUID
-| UBL-CR-112 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AdditionalDocumentReference/cbc:UUID)
+.3+| UBL-CR-112 *(warning)*
 | [UBL-CR-112]-A UBL invoice should not include the AdditionalDocumentReference IssueDate
-| UBL-CR-113 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AdditionalDocumentReference/cbc:IssueDate)
+.3+| UBL-CR-113 *(warning)*
 | [UBL-CR-113]-A UBL invoice should not include the AdditionalDocumentReference IssueTime
-| UBL-CR-114 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AdditionalDocumentReference/cbc:IssueTime)
+.3+| UBL-CR-114 *(warning)*
 | [UBL-CR-114]-A UBL invoice should not include the AdditionalDocumentReference DocumentType
-| UBL-CR-115 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AdditionalDocumentReference/cbc:DocumentType)
+.3+| UBL-CR-115 *(warning)*
 | [UBL-CR-115]-A UBL invoice should not include the AdditionalDocumentReference Xpath
-| UBL-CR-116 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AdditionalDocumentReference/cbc:XPath)
+.3+| UBL-CR-116 *(warning)*
 | [UBL-CR-116]-A UBL invoice should not include the AdditionalDocumentReference LanguageID
-| UBL-CR-117 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AdditionalDocumentReference/cbc:LanguageID)
+.3+| UBL-CR-117 *(warning)*
 | [UBL-CR-117]-A UBL invoice should not include the AdditionalDocumentReference LocaleCode
-| UBL-CR-118 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AdditionalDocumentReference/cbc:LocaleCode)
+.3+| UBL-CR-118 *(warning)*
 | [UBL-CR-118]-A UBL invoice should not include the AdditionalDocumentReference VersionID
-| UBL-CR-119 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AdditionalDocumentReference/cbc:VersionID)
+.3+| UBL-CR-119 *(warning)*
 | [UBL-CR-119]-A UBL invoice should not include the AdditionalDocumentReference DocumentStatusCode
-| UBL-CR-121 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AdditionalDocumentReference/cbc:DocumentStatusCode)
+.3+| UBL-CR-121 *(warning)*
 | [UBL-CR-121]-A UBL invoice should not include the AdditionalDocumentReference Attachment External DocumentHash
-| UBL-CR-122 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AdditionalDocumentReference/cac:Attachment/cac:ExternalReference/cbc:DocumentHash)
+.3+| UBL-CR-122 *(warning)*
 | [UBL-CR-122]-A UBL invoice should not include the AdditionalDocumentReference Attachment External HashAlgorithmMethod
-| UBL-CR-123 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AdditionalDocumentReference/cac:Attachment/cac:ExternalReference/cbc:HashAlgorithmMethod)
+.3+| UBL-CR-123 *(warning)*
 | [UBL-CR-123]-A UBL invoice should not include the AdditionalDocumentReference Attachment External ExpiryDate
-| UBL-CR-124 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AdditionalDocumentReference/cac:Attachment/cac:ExternalReference/cbc:ExpiryDate)
+.3+| UBL-CR-124 *(warning)*
 | [UBL-CR-124]-A UBL invoice should not include the AdditionalDocumentReference Attachment External ExpiryTime
-| UBL-CR-125 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AdditionalDocumentReference/cac:Attachment/cac:ExternalReference/cbc:ExpiryTime)
+.3+| UBL-CR-125 *(warning)*
 | [UBL-CR-125]-A UBL invoice should not include the AdditionalDocumentReference Attachment External MimeCode
-| UBL-CR-126 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AdditionalDocumentReference/cac:Attachment/cac:ExternalReference/cbc:MimeCode)
+.3+| UBL-CR-126 *(warning)*
 | [UBL-CR-126]-A UBL invoice should not include the AdditionalDocumentReference Attachment External FormatCode
-| UBL-CR-127 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AdditionalDocumentReference/cac:Attachment/cac:ExternalReference/cbc:FormatCode)
+.3+| UBL-CR-127 *(warning)*
 | [UBL-CR-127]-A UBL invoice should not include the AdditionalDocumentReference Attachment External EncodingCode
-| UBL-CR-128 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AdditionalDocumentReference/cac:Attachment/cac:ExternalReference/cbc:EncodingCode)
+.3+| UBL-CR-128 *(warning)*
 | [UBL-CR-128]-A UBL invoice should not include the AdditionalDocumentReference Attachment External CharacterSetCode
-| UBL-CR-129 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AdditionalDocumentReference/cac:Attachment/cac:ExternalReference/cbc:CharacterSetCode)
+.3+| UBL-CR-129 *(warning)*
 | [UBL-CR-129]-A UBL invoice should not include the AdditionalDocumentReference Attachment External FileName
-| UBL-CR-130 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AdditionalDocumentReference/cac:Attachment/cac:ExternalReference/cbc:FileName)
+.3+| UBL-CR-130 *(warning)*
 | [UBL-CR-130]-A UBL invoice should not include the AdditionalDocumentReference Attachment External Descriprion
-| UBL-CR-131 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AdditionalDocumentReference/cac:Attachment/cac:ExternalReference/cbc:Description)
+.3+| UBL-CR-131 *(warning)*
 | [UBL-CR-131]-A UBL invoice should not include the AdditionalDocumentReference ValidityPeriod
-| UBL-CR-132 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AdditionalDocumentReference/cac:ValidityPeriod)
+.3+| UBL-CR-132 *(warning)*
 | [UBL-CR-132]-A UBL invoice should not include the AdditionalDocumentReference IssuerParty
-| UBL-CR-133 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AdditionalDocumentReference/cac:IssuerParty)
+.3+| UBL-CR-133 *(warning)*
 | [UBL-CR-133]-A UBL invoice should not include the AdditionalDocumentReference ResultOfVerification
-| UBL-CR-134 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AdditionalDocumentReference/cac:ResultOfVerification)
+.3+| UBL-CR-134 *(warning)*
 | [UBL-CR-134]-A UBL invoice should not include the ProjectReference UUID
-| UBL-CR-135 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ProjectReference/cbc:UUID)
+.3+| UBL-CR-135 *(warning)*
 | [UBL-CR-135]-A UBL invoice should not include the ProjectReference IssueDate
-| UBL-CR-136 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ProjectReference/cbc:IssueDate)
+.3+| UBL-CR-136 *(warning)*
 | [UBL-CR-136]-A UBL invoice should not include the ProjectReference WorkPhaseReference
-| UBL-CR-137 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:ProjectReference/cac:WorkPhaseReference)
+.3+| UBL-CR-137 *(warning)*
 | [UBL-CR-137]-A UBL invoice should not include the Signature
-| UBL-CR-138 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Signature)
+.3+| UBL-CR-138 *(warning)*
 | [UBL-CR-138]-A UBL invoice should not include the AccountingSupplierParty CustomerAssignedAccountID
-| UBL-CR-139 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cbc:CustomerAssignedAccountID)
+.3+| UBL-CR-139 *(warning)*
 | [UBL-CR-139]-A UBL invoice should not include the AccountingSupplierParty AdditionalAccountID
-| UBL-CR-140 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cbc:AdditionalAccountID)
+.3+| UBL-CR-140 *(warning)*
 | [UBL-CR-140]-A UBL invoice should not include the AccountingSupplierParty DataSendingCapability
-| UBL-CR-141 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cbc:DataSendingCapability)
+.3+| UBL-CR-141 *(warning)*
 | [UBL-CR-141]-A UBL invoice should not include the AccountingSupplierParty Party MarkCareIndicator
-| UBL-CR-142 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cbc:MarkCareIndicator)
+.3+| UBL-CR-142 *(warning)*
 | [UBL-CR-142]-A UBL invoice should not include the AccountingSupplierParty Party MarkAttentionIndicator
-| UBL-CR-143 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cbc:MarkAttentionIndicator)
+.3+| UBL-CR-143 *(warning)*
 | [UBL-CR-143]-A UBL invoice should not include the AccountingSupplierParty Party WebsiteURI
-| UBL-CR-144 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cbc:WebsiteURI)
+.3+| UBL-CR-144 *(warning)*
 | [UBL-CR-144]-A UBL invoice should not include the AccountingSupplierParty Party LogoReferenceID
-| UBL-CR-145 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cbc:LogoReferenceID)
+.3+| UBL-CR-145 *(warning)*
 | [UBL-CR-145]-A UBL invoice should not include the AccountingSupplierParty Party IndustryClassificationCode
-| UBL-CR-146 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cbc:IndustryClassificationCode)
+.3+| UBL-CR-146 *(warning)*
 | [UBL-CR-146]-A UBL invoice should not include the AccountingSupplierParty Party Language
-| UBL-CR-147 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:Language)
+.3+| UBL-CR-147 *(warning)*
 | [UBL-CR-147]-A UBL invoice should not include the AccountingSupplierParty Party PostalAddress ID
-| UBL-CR-148 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:ID)
+.3+| UBL-CR-148 *(warning)*
 | [UBL-CR-148]-A UBL invoice should not include the AccountingSupplierParty Party PostalAddress AddressTypeCode
-| UBL-CR-149 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:AddressTypeCode)
+.3+| UBL-CR-149 *(warning)*
 | [UBL-CR-149]-A UBL invoice should not include the AccountingSupplierParty Party PostalAddress AddressFormatCode
-| UBL-CR-150 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:AddressFormatCode)
+.3+| UBL-CR-150 *(warning)*
 | [UBL-CR-150]-A UBL invoice should not include the AccountingSupplierParty Party PostalAddress Postbox
-| UBL-CR-151 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:Postbox)
+.3+| UBL-CR-151 *(warning)*
 | [UBL-CR-151]-A UBL invoice should not include the AccountingSupplierParty Party PostalAddress Floor
-| UBL-CR-152 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:Floor)
+.3+| UBL-CR-152 *(warning)*
 | [UBL-CR-152]-A UBL invoice should not include the AccountingSupplierParty Party PostalAddress Room
-| UBL-CR-153 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:Room)
+.3+| UBL-CR-153 *(warning)*
 | [UBL-CR-153]-A UBL invoice should not include the AccountingSupplierParty Party PostalAddress BlockName
-| UBL-CR-154 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:BlockName)
+.3+| UBL-CR-154 *(warning)*
 | [UBL-CR-154]-A UBL invoice should not include the AccountingSupplierParty Party PostalAddress BuildingName
-| UBL-CR-155 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:BuildingName)
+.3+| UBL-CR-155 *(warning)*
 | [UBL-CR-155]-A UBL invoice should not include the AccountingSupplierParty Party PostalAddress BuildingNumber
-| UBL-CR-156 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:BuildingNumber)
+.3+| UBL-CR-156 *(warning)*
 | [UBL-CR-156]-A UBL invoice should not include the AccountingSupplierParty Party PostalAddress InhouseMail
-| UBL-CR-157 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:InhouseMail)
+.3+| UBL-CR-157 *(warning)*
 | [UBL-CR-157]-A UBL invoice should not include the AccountingSupplierParty Party PostalAddress Department
-| UBL-CR-158 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:Department)
+.3+| UBL-CR-158 *(warning)*
 | [UBL-CR-158]-A UBL invoice should not include the AccountingSupplierParty Party PostalAddress MarkAttention
-| UBL-CR-159 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:MarkAttention)
+.3+| UBL-CR-159 *(warning)*
 | [UBL-CR-159]-A UBL invoice should not include the AccountingSupplierParty Party PostalAddress MarkCare
-| UBL-CR-160 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:MarkCare)
+.3+| UBL-CR-160 *(warning)*
 | [UBL-CR-160]-A UBL invoice should not include the AccountingSupplierParty Party PostalAddress PlotIdentification
-| UBL-CR-161 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:PlotIdentification)
+.3+| UBL-CR-161 *(warning)*
 | [UBL-CR-161]-A UBL invoice should not include the AccountingSupplierParty Party PostalAddress CitySubdivisionName
-| UBL-CR-162 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:CitySubdivisionName)
+.3+| UBL-CR-162 *(warning)*
 | [UBL-CR-162]-A UBL invoice should not include the AccountingSupplierParty Party PostalAddress CountrySubentityCode
-| UBL-CR-163 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:CountrySubentityCode)
+.3+| UBL-CR-163 *(warning)*
 | [UBL-CR-163]-A UBL invoice should not include the AccountingSupplierParty Party PostalAddress Region
-| UBL-CR-164 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:Region)
+.3+| UBL-CR-164 *(warning)*
 | [UBL-CR-164]-A UBL invoice should not include the AccountingSupplierParty Party PostalAddress District
-| UBL-CR-165 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:District)
+.3+| UBL-CR-165 *(warning)*
 | [UBL-CR-165]-A UBL invoice should not include the AccountingSupplierParty Party PostalAddress TimezoneOffset
-| UBL-CR-166 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:TimezoneOffset)
+.3+| UBL-CR-166 *(warning)*
 | [UBL-CR-166]-A UBL invoice should not include the AccountingSupplierParty Party PostalAddress Country Name
-| UBL-CR-167 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:Name)
+.3+| UBL-CR-167 *(warning)*
 | [UBL-CR-167]-A UBL invoice should not include the AccountingSupplierParty Party PostalAddress LocationCoordinate
-| UBL-CR-168 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:LocationCoordinate)
+.3+| UBL-CR-168 *(warning)*
 | [UBL-CR-168]-A UBL invoice should not include the AccountingSupplierParty Party PhysicalLocation
-| UBL-CR-169 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PhysicalLocation)
+.3+| UBL-CR-169 *(warning)*
 | [UBL-CR-169]-A UBL invoice should not include the AccountingSupplierParty Party PartyTaxScheme RegistrationName
-| UBL-CR-170 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:RegistrationName)
+.3+| UBL-CR-170 *(warning)*
 | [UBL-CR-170]-A UBL invoice should not include the AccountingSupplierParty Party PartyTaxScheme TaxLevelCode
-| UBL-CR-171 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:TaxLevelCode)
+.3+| UBL-CR-171 *(warning)*
 | [UBL-CR-171]-A UBL invoice should not include the AccountingSupplierParty Party PartyTaxScheme ExemptionReasonCode
-| UBL-CR-172 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:ExemptionReasonCode)
+.3+| UBL-CR-172 *(warning)*
 | [UBL-CR-172]-A UBL invoice should not include the AccountingSupplierParty Party PartyTaxScheme ExemptionReason
-| UBL-CR-173 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:ExemptionReason)
+.3+| UBL-CR-173 *(warning)*
 | [UBL-CR-173]-A UBL invoice should not include the AccountingSupplierParty Party PartyTaxScheme RegistrationAddress
-| UBL-CR-174 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cac:RegistrationAddress)
+.3+| UBL-CR-174 *(warning)*
 | [UBL-CR-174]-A UBL invoice should not include the AccountingSupplierParty Party PartyTaxScheme TaxScheme Name
-| UBL-CR-175 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cac:TaxScheme/cbc:Name)
+.3+| UBL-CR-175 *(warning)*
 | [UBL-CR-175]-A UBL invoice should not include the AccountingSupplierParty Party PartyTaxScheme TaxScheme TaxTypeCode
-| UBL-CR-176 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cac:TaxScheme/cbc:TaxTypeCode)
+.3+| UBL-CR-176 *(warning)*
 | [UBL-CR-176]-A UBL invoice should not include the AccountingSupplierParty Party PartyTaxScheme TaxScheme CurrencyCode
-| UBL-CR-177 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cac:TaxScheme/cbc:CurrencyCode)
+.3+| UBL-CR-177 *(warning)*
 | [UBL-CR-177]-A UBL invoice should not include the AccountingSupplierParty Party PartyTaxScheme TaxScheme JurisdictionRegionAddress
-| UBL-CR-178 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cac:TaxScheme/cac:JurisdictionRegionAddress)
+.3+| UBL-CR-178 *(warning)*
 | [UBL-CR-178]-A UBL invoice should not include the AccountingSupplierParty Party PartyLegalEntity RegistrationDate
-| UBL-CR-179 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationDate)
+.3+| UBL-CR-179 *(warning)*
 | [UBL-CR-179]-A UBL invoice should not include the AccountingSupplierParty Party PartyLegalEntity RegistrationExpirationDate
-| UBL-CR-180 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationExpirationDate)
+.3+| UBL-CR-180 *(warning)*
 | [UBL-CR-180]-A UBL invoice should not include the AccountingSupplierParty Party PartyLegalEntity CompanyLegalFormCode
-| UBL-CR-181 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLegalFormCode)
+.3+| UBL-CR-181 *(warning)*
 | [UBL-CR-181]-A UBL invoice should not include the AccountingSupplierParty Party PartyLegalEntity SoleProprietorshipIndicator
-| UBL-CR-182 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:SoleProprietorshipIndicator)
+.3+| UBL-CR-182 *(warning)*
 | [UBL-CR-182]-A UBL invoice should not include the AccountingSupplierParty Party PartyLegalEntity CompanyLiquidationStatusCode
-| UBL-CR-183 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLiquidationStatusCode)
+.3+| UBL-CR-183 *(warning)*
 | [UBL-CR-183]-A UBL invoice should not include the AccountingSupplierParty Party PartyLegalEntity CorporationStockAmount
-| UBL-CR-184 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CorporateStockAmount)
+.3+| UBL-CR-184 *(warning)*
 | [UBL-CR-184]-A UBL invoice should not include the AccountingSupplierParty Party PartyLegalEntity FullyPaidSharesIndicator
-| UBL-CR-185 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:FullyPaidSharesIndicator)
+.3+| UBL-CR-185 *(warning)*
 | [UBL-CR-185]-A UBL invoice should not include the AccountingSupplierParty Party PartyLegalEntity RegistrationAddress
-| UBL-CR-186 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress)
+.3+| UBL-CR-186 *(warning)*
 | [UBL-CR-186]-A UBL invoice should not include the AccountingSupplierParty Party PartyLegalEntity CorporateRegistrationScheme
-| UBL-CR-187 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cac:CorporateRegistrationScheme)
+.3+| UBL-CR-187 *(warning)*
 | [UBL-CR-187]-A UBL invoice should not include the AccountingSupplierParty Party PartyLegalEntity HeadOfficeParty
-| UBL-CR-188 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cac:HeadOfficeParty)
+.3+| UBL-CR-188 *(warning)*
 | [UBL-CR-188]-A UBL invoice should not include the AccountingSupplierParty Party PartyLegalEntity ShareholderParty
-| UBL-CR-189 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cac:ShareholderParty)
+.3+| UBL-CR-189 *(warning)*
 | [UBL-CR-189]-A UBL invoice should not include the AccountingSupplierParty Party Contact ID
-| UBL-CR-190 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:Contact/cbc:ID)
+.3+| UBL-CR-190 *(warning)*
 | [UBL-CR-190]-A UBL invoice should not include the AccountingSupplierParty Party Contact Telefax
-| UBL-CR-191 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:Contact/cbc:Telefax)
+.3+| UBL-CR-191 *(warning)*
 | [UBL-CR-191]-A UBL invoice should not include the AccountingSupplierParty Party Contact Note
-| UBL-CR-192 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:Contact/cbc:Note)
+.3+| UBL-CR-192 *(warning)*
 | [UBL-CR-192]-A UBL invoice should not include the AccountingSupplierParty Party Contact OtherCommunication
-| UBL-CR-193 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:Contact/cac:OtherCommunication)
+.3+| UBL-CR-193 *(warning)*
 | [UBL-CR-193]-A UBL invoice should not include the AccountingSupplierParty Party Person
-| UBL-CR-194 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:Person)
+.3+| UBL-CR-194 *(warning)*
 | [UBL-CR-194]-A UBL invoice should not include the AccountingSupplierParty Party AgentParty
-| UBL-CR-195 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:AgentParty)
+.3+| UBL-CR-195 *(warning)*
 | [UBL-CR-195]-A UBL invoice should not include the AccountingSupplierParty Party ServiceProviderParty
-| UBL-CR-196 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty)
+.3+| UBL-CR-196 *(warning)*
 | [UBL-CR-196]-A UBL invoice should not include the AccountingSupplierParty Party PowerOfAttorney
-| UBL-CR-197 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:PowerOfAttorney)
+.3+| UBL-CR-197 *(warning)*
 | [UBL-CR-197]-A UBL invoice should not include the AccountingSupplierParty Party FinancialAccount
-| UBL-CR-198 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:Party/cac:FinancialAccount)
+.3+| UBL-CR-198 *(warning)*
 | [UBL-CR-198]-A UBL invoice should not include the AccountingSupplierParty DespatchContact
-| UBL-CR-199 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:DespatchContact)
+.3+| UBL-CR-199 *(warning)*
 | [UBL-CR-199]-A UBL invoice should not include the AccountingSupplierParty AccountingContact
-| UBL-CR-200 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:AccountingContact)
+.3+| UBL-CR-200 *(warning)*
 | [UBL-CR-200]-A UBL invoice should not include the AccountingSupplierParty SellerContact
-| UBL-CR-201 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingSupplierParty/cac:SellerContact)
+.3+| UBL-CR-201 *(warning)*
 | [UBL-CR-201]-A UBL invoice should not include the AccountingCustomerParty CustomerAssignedAccountID
-| UBL-CR-202 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cbc:CustomerAssignedAccountID)
+.3+| UBL-CR-202 *(warning)*
 | [UBL-CR-202]-A UBL invoice should not include the AccountingCustomerParty SupplierAssignedAccountID
-| UBL-CR-203 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cbc:SupplierAssignedAccountID)
+.3+| UBL-CR-203 *(warning)*
 | [UBL-CR-203]-A UBL invoice should not include the AccountingCustomerParty AdditionalAccountID
-| UBL-CR-204 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cbc:AdditionalAccountID)
+.3+| UBL-CR-204 *(warning)*
 | [UBL-CR-204]-A UBL invoice should not include the AccountingCustomerParty Party MarkCareIndicator
-| UBL-CR-205 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cbc:MarkCareIndicator)
+.3+| UBL-CR-205 *(warning)*
 | [UBL-CR-205]-A UBL invoice should not include the AccountingCustomerParty Party MarkAttentionIndicator
-| UBL-CR-206 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cbc:MarkAttentionIndicator)
+.3+| UBL-CR-206 *(warning)*
 | [UBL-CR-206]-A UBL invoice should not include the AccountingCustomerParty Party WebsiteURI
-| UBL-CR-207 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cbc:WebsiteURI)
+.3+| UBL-CR-207 *(warning)*
 | [UBL-CR-207]-A UBL invoice should not include the AccountingCustomerParty Party LogoReferenceID
-| UBL-CR-208 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cbc:LogoReferenceID)
+.3+| UBL-CR-208 *(warning)*
 | [UBL-CR-208]-A UBL invoice should not include the AccountingCustomerParty Party IndustryClassificationCode
-| UBL-CR-209 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cbc:IndustryClassificationCode)
+.3+| UBL-CR-209 *(warning)*
 | [UBL-CR-209]-A UBL invoice should not include the AccountingCustomerParty Party Language
-| UBL-CR-210 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:Language)
+.3+| UBL-CR-210 *(warning)*
 | [UBL-CR-210]-A UBL invoice should not include the AccountingCustomerParty Party PostalAddress ID
-| UBL-CR-211 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:ID)
+.3+| UBL-CR-211 *(warning)*
 | [UBL-CR-211]-A UBL invoice should not include the AccountingCustomerParty Party PostalAddress AddressTypeCode
-| UBL-CR-212 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:AddressTypeCode)
+.3+| UBL-CR-212 *(warning)*
 | [UBL-CR-212]-A UBL invoice should not include the AccountingCustomerParty Party PostalAddress AddressFormatCode
-| UBL-CR-213 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:AddressFormatCode)
+.3+| UBL-CR-213 *(warning)*
 | [UBL-CR-213]-A UBL invoice should not include the AccountingCustomerParty Party PostalAddress Postbox
-| UBL-CR-214 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:Postbox)
+.3+| UBL-CR-214 *(warning)*
 | [UBL-CR-214]-A UBL invoice should not include the AccountingCustomerParty Party PostalAddress Floor
-| UBL-CR-215 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:Floor)
+.3+| UBL-CR-215 *(warning)*
 | [UBL-CR-215]-A UBL invoice should not include the AccountingCustomerParty Party PostalAddress Room
-| UBL-CR-216 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:Room)
+.3+| UBL-CR-216 *(warning)*
 | [UBL-CR-216]-A UBL invoice should not include the AccountingCustomerParty Party PostalAddress BlockName
-| UBL-CR-217 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:BlockName)
+.3+| UBL-CR-217 *(warning)*
 | [UBL-CR-217]-A UBL invoice should not include the AccountingCustomerParty Party PostalAddress BuildingName
-| UBL-CR-218 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:BuildingName)
+.3+| UBL-CR-218 *(warning)*
 | [UBL-CR-218]-A UBL invoice should not include the AccountingCustomerParty Party PostalAddress BuildingNumber
-| UBL-CR-219 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:BuildingNumber)
+.3+| UBL-CR-219 *(warning)*
 | [UBL-CR-219]-A UBL invoice should not include the AccountingCustomerParty Party PostalAddress InhouseMail
-| UBL-CR-220 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:InhouseMail)
+.3+| UBL-CR-220 *(warning)*
 | [UBL-CR-220]-A UBL invoice should not include the AccountingCustomerParty Party PostalAddress Department
-| UBL-CR-221 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:Department)
+.3+| UBL-CR-221 *(warning)*
 | [UBL-CR-221]-A UBL invoice should not include the AccountingCustomerParty Party PostalAddress MarkAttention
-| UBL-CR-222 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:MarkAttention)
+.3+| UBL-CR-222 *(warning)*
 | [UBL-CR-222]-A UBL invoice should not include the AccountingCustomerParty Party PostalAddress MarkCare
-| UBL-CR-223 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:MarkCare)
+.3+| UBL-CR-223 *(warning)*
 | [UBL-CR-223]-A UBL invoice should not include the AccountingCustomerParty Party PostalAddress PlotIdentification
-| UBL-CR-224 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:PlotIdentification)
+.3+| UBL-CR-224 *(warning)*
 | [UBL-CR-224]-A UBL invoice should not include the AccountingCustomerParty Party PostalAddress CitySubdivisionName
-| UBL-CR-225 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:CitySubdivisionName)
+.3+| UBL-CR-225 *(warning)*
 | [UBL-CR-225]-A UBL invoice should not include the AccountingCustomerParty Party PostalAddress CountrySubentityCode
-| UBL-CR-226 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:CountrySubentityCode)
+.3+| UBL-CR-226 *(warning)*
 | [UBL-CR-226]-A UBL invoice should not include the AccountingCustomerParty Party PostalAddress Region
-| UBL-CR-227 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:Region)
+.3+| UBL-CR-227 *(warning)*
 | [UBL-CR-227]-A UBL invoice should not include the AccountingCustomerParty Party PostalAddress District
-| UBL-CR-228 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:District)
+.3+| UBL-CR-228 *(warning)*
 | [UBL-CR-228]-A UBL invoice should not include the AccountingCustomerParty Party PostalAddress TimezoneOffset
-| UBL-CR-229 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cbc:TimezoneOffset)
+.3+| UBL-CR-229 *(warning)*
 | [UBL-CR-229]-A UBL invoice should not include the AccountingCustomerParty Party PostalAddress Country Name
-| UBL-CR-230 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:Name)
+.3+| UBL-CR-230 *(warning)*
 | [UBL-CR-230]-A UBL invoice should not include the AccountingCustomerParty Party PostalAddress LocationCoordinate
-| UBL-CR-231 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:LocationCoordinate)
+.3+| UBL-CR-231 *(warning)*
 | [UBL-CR-231]-A UBL invoice should not include the AccountingCustomerParty Party PhysicalLocation
-| UBL-CR-232 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PhysicalLocation)
+.3+| UBL-CR-232 *(warning)*
 | [UBL-CR-232]-A UBL invoice should not include the AccountingCustomerParty Party PartyTaxScheme RegistrationName
-| UBL-CR-233 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:RegistrationName)
+.3+| UBL-CR-233 *(warning)*
 | [UBL-CR-233]-A UBL invoice should not include the AccountingCustomerParty Party PartyTaxScheme TaxLevelCode
-| UBL-CR-234 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:TaxLevelCode)
+.3+| UBL-CR-234 *(warning)*
 | [UBL-CR-234]-A UBL invoice should not include the AccountingCustomerParty Party PartyTaxScheme ExemptionReasonCode
-| UBL-CR-235 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:ExemptionReasonCode)
+.3+| UBL-CR-235 *(warning)*
 | [UBL-CR-235]-A UBL invoice should not include the AccountingCustomerParty Party PartyTaxScheme ExemptionReason
-| UBL-CR-236 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:ExemptionReason)
+.3+| UBL-CR-236 *(warning)*
 | [UBL-CR-236]-A UBL invoice should not include the AccountingCustomerParty Party PartyTaxScheme RegistrationAddress
-| UBL-CR-237 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cac:RegistrationAddress)
+.3+| UBL-CR-237 *(warning)*
 | [UBL-CR-237]-A UBL invoice should not include the AccountingCustomerParty Party PartyTaxScheme TaxScheme Name
-| UBL-CR-238 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cac:TaxScheme/cbc:Name)
+.3+| UBL-CR-238 *(warning)*
 | [UBL-CR-238]-A UBL invoice should not include the AccountingCustomerParty Party PartyTaxScheme TaxScheme TaxTypeCode
-| UBL-CR-239 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cac:TaxScheme/cbc:TaxTypeCode)
+.3+| UBL-CR-239 *(warning)*
 | [UBL-CR-239]-A UBL invoice should not include the AccountingCustomerParty Party PartyTaxScheme TaxScheme CurrencyCode
-| UBL-CR-240 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cac:TaxScheme/cbc:CurrencyCode)
+.3+| UBL-CR-240 *(warning)*
 | [UBL-CR-240]-A UBL invoice should not include the AccountingCustomerParty Party PartyTaxScheme TaxScheme JurisdictionRegionAddress
-| UBL-CR-241 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cac:TaxScheme/cac:JurisdictionRegionAddress)
+.3+| UBL-CR-241 *(warning)*
 | [UBL-CR-241]-A UBL invoice should not include the AccountingCustomerParty Party PartyLegalEntity RegistrationDate
-| UBL-CR-242 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationDate)
+.3+| UBL-CR-242 *(warning)*
 | [UBL-CR-242]-A UBL invoice should not include the AccountingCustomerParty Party PartyLegalEntity RegistrationExpirationDate
-| UBL-CR-243 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationExpirationDate)
+.3+| UBL-CR-243 *(warning)*
 | [UBL-CR-243]-A UBL invoice should not include the AccountingCustomerParty Party PartyLegalEntity CompanyLegalFormCode
-| UBL-CR-244 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLegalFormCode)
+.3+| UBL-CR-244 *(warning)*
 | [UBL-CR-244]-A UBL invoice should not include the AccountingCustomerParty Party PartyLegalEntity CompanyLegalForm
-| UBL-CR-245 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLegalForm)
+.3+| UBL-CR-245 *(warning)*
 | [UBL-CR-245]-A UBL invoice should not include the AccountingCustomerParty Party PartyLegalEntity SoleProprietorshipIndicator
-| UBL-CR-246 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:SoleProprietorshipIndicator)
+.3+| UBL-CR-246 *(warning)*
 | [UBL-CR-246]-A UBL invoice should not include the AccountingCustomerParty Party PartyLegalEntity CompanyLiquidationStatusCode
-| UBL-CR-247 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLiquidationStatusCode)
+.3+| UBL-CR-247 *(warning)*
 | [UBL-CR-247]-A UBL invoice should not include the AccountingCustomerParty Party PartyLegalEntity CorporationStockAmount
-| UBL-CR-248 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CorporateStockAmount)
+.3+| UBL-CR-248 *(warning)*
 | [UBL-CR-248]-A UBL invoice should not include the AccountingCustomerParty Party PartyLegalEntity FullyPaidSharesIndicator
-| UBL-CR-249 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:FullyPaidSharesIndicator)
+.3+| UBL-CR-249 *(warning)*
 | [UBL-CR-249]-A UBL invoice should not include the AccountingCustomerParty Party PartyLegalEntity RegistrationAddress
-| UBL-CR-250 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:RegistrationAddress)
+.3+| UBL-CR-250 *(warning)*
 | [UBL-CR-250]-A UBL invoice should not include the AccountingCustomerParty Party PartyLegalEntity CorporateRegistrationScheme
-| UBL-CR-251 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:CorporateRegistrationScheme)
+.3+| UBL-CR-251 *(warning)*
 | [UBL-CR-251]-A UBL invoice should not include the AccountingCustomerParty Party PartyLegalEntity HeadOfficeParty
-| UBL-CR-252 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:HeadOfficeParty)
+.3+| UBL-CR-252 *(warning)*
 | [UBL-CR-252]-A UBL invoice should not include the AccountingCustomerParty Party PartyLegalEntity ShareholderParty
-| UBL-CR-253 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cac:ShareholderParty)
+.3+| UBL-CR-253 *(warning)*
 | [UBL-CR-253]-A UBL invoice should not include the AccountingCustomerParty Party Contact ID
-| UBL-CR-254 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:Contact/cbc:ID)
+.3+| UBL-CR-254 *(warning)*
 | [UBL-CR-254]-A UBL invoice should not include the AccountingCustomerParty Party Contact Telefax
-| UBL-CR-255 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:Contact/cbc:Telefax)
+.3+| UBL-CR-255 *(warning)*
 | [UBL-CR-255]-A UBL invoice should not include the AccountingCustomerParty Party Contact Note
-| UBL-CR-256 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:Contact/cbc:Note)
+.3+| UBL-CR-256 *(warning)*
 | [UBL-CR-256]-A UBL invoice should not include the AccountingCustomerParty Party Contact OtherCommunication
-| UBL-CR-257 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:Contact/cac:OtherCommunication)
+.3+| UBL-CR-257 *(warning)*
 | [UBL-CR-257]-A UBL invoice should not include the AccountingCustomerParty Party Person
-| UBL-CR-258 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:Person)
+.3+| UBL-CR-258 *(warning)*
 | [UBL-CR-258]-A UBL invoice should not include the AccountingCustomerParty Party AgentParty
-| UBL-CR-259 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:AgentParty)
+.3+| UBL-CR-259 *(warning)*
 | [UBL-CR-259]-A UBL invoice should not include the AccountingCustomerParty Party ServiceProviderParty
-| UBL-CR-260 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:ServiceProviderParty)
+.3+| UBL-CR-260 *(warning)*
 | [UBL-CR-260]-A UBL invoice should not include the AccountingCustomerParty Party PowerOfAttorney
-| UBL-CR-261 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:PowerOfAttorney)
+.3+| UBL-CR-261 *(warning)*
 | [UBL-CR-261]-A UBL invoice should not include the AccountingCustomerParty Party FinancialAccount
-| UBL-CR-262 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:Party/cac:FinancialAccount)
+.3+| UBL-CR-262 *(warning)*
 | [UBL-CR-262]-A UBL invoice should not include the AccountingCustomerParty DeliveryContact
-| UBL-CR-263 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:DeliveryContact)
+.3+| UBL-CR-263 *(warning)*
 | [UBL-CR-263]-A UBL invoice should not include the AccountingCustomerParty AccountingContact
-| UBL-CR-264 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:AccountingContact)
+.3+| UBL-CR-264 *(warning)*
 | [UBL-CR-264]-A UBL invoice should not include the AccountingCustomerParty BuyerContact
-| UBL-CR-265 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AccountingCustomerParty/cac:BuyerContact)
+.3+| UBL-CR-265 *(warning)*
 | [UBL-CR-265]-A UBL invoice should not include the PayeeParty MarkCareIndicator
-| UBL-CR-266 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cbc:MarkCareIndicator)
+.3+| UBL-CR-266 *(warning)*
 | [UBL-CR-266]-A UBL invoice should not include the PayeeParty MarkAttentionIndicator
-| UBL-CR-267 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cbc:MarkAttentionIndicator)
+.3+| UBL-CR-267 *(warning)*
 | [UBL-CR-267]-A UBL invoice should not include the PayeeParty WebsiteURI
-| UBL-CR-268 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cbc:WebsiteURI)
+.3+| UBL-CR-268 *(warning)*
 | [UBL-CR-268]-A UBL invoice should not include the PayeeParty LogoReferenceID
-| UBL-CR-269 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cbc:LogoReferenceID)
+.3+| UBL-CR-269 *(warning)*
 | [UBL-CR-269]-A UBL invoice should not include the PayeeParty EndpointID
-| UBL-CR-270 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cbc:EndpointID)
+.3+| UBL-CR-270 *(warning)*
 | [UBL-CR-270]-A UBL invoice should not include the PayeeParty IndustryClassificationCode
-| UBL-CR-271 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cbc:IndustryClassificationCode)
+.3+| UBL-CR-271 *(warning)*
 | [UBL-CR-271]-A UBL invoice should not include the PayeeParty Language
-| UBL-CR-272 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cac:Language)
+.3+| UBL-CR-272 *(warning)*
 | [UBL-CR-272]-A UBL invoice should not include the PayeeParty PostalAddress
-| UBL-CR-273 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cac:PostalAddress)
+.3+| UBL-CR-273 *(warning)*
 | [UBL-CR-273]-A UBL invoice should not include the PayeeParty PhysicalLocation
-| UBL-CR-274 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cac:PhysicalLocation)
+.3+| UBL-CR-274 *(warning)*
 | [UBL-CR-274]-A UBL invoice should not include the PayeeParty PartyTaxScheme
-| UBL-CR-275 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cac:PartyTaxScheme)
+.3+| UBL-CR-275 *(warning)*
 | [UBL-CR-275]-A UBL invoice should not include the PayeeParty PartyLegalEntity RegistrationName
-| UBL-CR-276 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cac:PartyLegalEntity/cbc:RegistrationName)
+.3+| UBL-CR-276 *(warning)*
 | [UBL-CR-276]-A UBL invoice should not include the PayeeParty PartyLegalEntity RegistrationDate
-| UBL-CR-277 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cac:PartyLegalEntity/cbc:RegistrationDate)
+.3+| UBL-CR-277 *(warning)*
 | [UBL-CR-277]-A UBL invoice should not include the PayeeParty PartyLegalEntity RegistrationExpirationDate
-| UBL-CR-278 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cac:PartyLegalEntity/cbc:RegistrationExpirationDate)
+.3+| UBL-CR-278 *(warning)*
 | [UBL-CR-278]-A UBL invoice should not include the PayeeParty PartyLegalEntity CompanyLegalFormCode
-| UBL-CR-279 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cac:PartyLegalEntity/cbc:CompanyLegalFormCode)
+.3+| UBL-CR-279 *(warning)*
 | [UBL-CR-279]-A UBL invoice should not include the PayeeParty PartyLegalEntity CompanyLegalForm
-| UBL-CR-280 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cac:PartyLegalEntity/cbc:CompanyLegalForm)
+.3+| UBL-CR-280 *(warning)*
 | [UBL-CR-280]-A UBL invoice should not include the PayeeParty PartyLegalEntity SoleProprietorshipIndicator
-| UBL-CR-281 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cac:PartyLegalEntity/cbc:SoleProprietorshipIndicator)
+.3+| UBL-CR-281 *(warning)*
 | [UBL-CR-281]-A UBL invoice should not include the PayeeParty PartyLegalEntity CompanyLiquidationStatusCode
-| UBL-CR-282 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cac:PartyLegalEntity/cbc:CompanyLiquidationStatusCode)
+.3+| UBL-CR-282 *(warning)*
 | [UBL-CR-282]-A UBL invoice should not include the PayeeParty PartyLegalEntity CorporationStockAmount
-| UBL-CR-283 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cac:PartyLegalEntity/cbc:CorporateStockAmount)
+.3+| UBL-CR-283 *(warning)*
 | [UBL-CR-283]-A UBL invoice should not include the PayeeParty PartyLegalEntity FullyPaidSharesIndicator
-| UBL-CR-284 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cac:PartyLegalEntity/cbc:FullyPaidSharesIndicator)
+.3+| UBL-CR-284 *(warning)*
 | [UBL-CR-284]-A UBL invoice should not include the PayeeParty PartyLegalEntity RegistrationAddress
-| UBL-CR-285 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cac:PartyLegalEntity/cac:RegistrationAddress)
+.3+| UBL-CR-285 *(warning)*
 | [UBL-CR-285]-A UBL invoice should not include the PayeeParty PartyLegalEntity CorporateRegistrationScheme
-| UBL-CR-286 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cac:PartyLegalEntity/cac:CorporateRegistrationScheme)
+.3+| UBL-CR-286 *(warning)*
 | [UBL-CR-286]-A UBL invoice should not include the PayeeParty PartyLegalEntity HeadOfficeParty
-| UBL-CR-287 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cac:PartyLegalEntity/cac:HeadOfficeParty)
+.3+| UBL-CR-287 *(warning)*
 | [UBL-CR-287]-A UBL invoice should not include the PayeeParty PartyLegalEntity ShareholderParty
-| UBL-CR-288 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cac:PartyLegalEntity/cac:ShareholderParty)
+.3+| UBL-CR-288 *(warning)*
 | [UBL-CR-288]-A UBL invoice should not include the PayeeParty Contact
-| UBL-CR-289 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cac:Contact)
+.3+| UBL-CR-289 *(warning)*
 | [UBL-CR-289]-A UBL invoice should not include the PayeeParty Person
-| UBL-CR-290 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cac:Person)
+.3+| UBL-CR-290 *(warning)*
 | [UBL-CR-290]-A UBL invoice should not include the PayeeParty AgentParty
-| UBL-CR-291 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cac:AgentParty)
+.3+| UBL-CR-291 *(warning)*
 | [UBL-CR-291]-A UBL invoice should not include the PayeeParty ServiceProviderParty
-| UBL-CR-292 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cac:ServiceProviderParty)
+.3+| UBL-CR-292 *(warning)*
 | [UBL-CR-292]-A UBL invoice should not include the PayeeParty PowerOfAttorney
-| UBL-CR-293 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cac:PowerOfAttorney)
+.3+| UBL-CR-293 *(warning)*
 | [UBL-CR-293]-A UBL invoice should not include the PayeeParty FinancialAccount
-| UBL-CR-294 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PayeeParty/cac:FinancialAccount)
+.3+| UBL-CR-294 *(warning)*
 | [UBL-CR-294]-A UBL invoice should not include the BuyerCustomerParty
-| UBL-CR-295 *(warning)*
-| [UBL-CR-295]-A UBL invoice should not include the SellerCustomerParty
-| UBL-CR-296 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:BuyerCustomerParty)
+.3+| UBL-CR-295 *(warning)*
+| [UBL-CR-295]-A UBL invoice should not include the SellerSupplierParty
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:SellerSupplierParty)
+.3+| UBL-CR-296 *(warning)*
 | [UBL-CR-296]-A UBL invoice should not include the TaxRepresentativeParty MarkCareIndicator
-| UBL-CR-297 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cbc:MarkCareIndicator)
+.3+| UBL-CR-297 *(warning)*
 | [UBL-CR-297]-A UBL invoice should not include the TaxRepresentativeParty MarkAttentionIndicator
-| UBL-CR-298 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cbc:MarkAttentionIndicator)
+.3+| UBL-CR-298 *(warning)*
 | [UBL-CR-298]-A UBL invoice should not include the TaxRepresentativeParty WebsiteURI
-| UBL-CR-299 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cbc:WebsiteURI)
+.3+| UBL-CR-299 *(warning)*
 | [UBL-CR-299]-A UBL invoice should not include the TaxRepresentativeParty LogoReferenceID
-| UBL-CR-300 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cbc:LogoReferenceID)
+.3+| UBL-CR-300 *(warning)*
 | [UBL-CR-300]-A UBL invoice should not include the TaxRepresentativeParty EndpointID
-| UBL-CR-301 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cbc:EndpointID)
+.3+| UBL-CR-301 *(warning)*
 | [UBL-CR-301]-A UBL invoice should not include the TaxRepresentativeParty IndustryClassificationCode
-| UBL-CR-302 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cbc:IndustryClassificationCode)
+.3+| UBL-CR-302 *(warning)*
 | [UBL-CR-302]-A UBL invoice should not include the TaxRepresentativeParty PartyIdentification
-| UBL-CR-303 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PartyIdentification)
+.3+| UBL-CR-303 *(warning)*
 | [UBL-CR-303]-A UBL invoice should not include the TaxRepresentativeParty Language
-| UBL-CR-304 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:Language)
+.3+| UBL-CR-304 *(warning)*
 | [UBL-CR-304]-A UBL invoice should not include the TaxRepresentativeParty PostalAddress ID
-| UBL-CR-305 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PostalAddress/cbc:ID)
+.3+| UBL-CR-305 *(warning)*
 | [UBL-CR-305]-A UBL invoice should not include the TaxRepresentativeParty PostalAddress AddressTypeCode
-| UBL-CR-306 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PostalAddress/cbc:AddressTypeCode)
+.3+| UBL-CR-306 *(warning)*
 | [UBL-CR-306]-A UBL invoice should not include the TaxRepresentativeParty PostalAddress AddressFormatCode
-| UBL-CR-307 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PostalAddress/cbc:AddressFormatCode)
+.3+| UBL-CR-307 *(warning)*
 | [UBL-CR-307]-A UBL invoice should not include the TaxRepresentativeParty PostalAddress Postbox
-| UBL-CR-308 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PostalAddress/cbc:Postbox)
+.3+| UBL-CR-308 *(warning)*
 | [UBL-CR-308]-A UBL invoice should not include the TaxRepresentativeParty PostalAddress Floor
-| UBL-CR-309 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PostalAddress/cbc:Floor)
+.3+| UBL-CR-309 *(warning)*
 | [UBL-CR-309]-A UBL invoice should not include the TaxRepresentativeParty PostalAddress Room
-| UBL-CR-310 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PostalAddress/cbc:Room)
+.3+| UBL-CR-310 *(warning)*
 | [UBL-CR-310]-A UBL invoice should not include the TaxRepresentativeParty PostalAddress BlockName
-| UBL-CR-311 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PostalAddress/cbc:BlockName)
+.3+| UBL-CR-311 *(warning)*
 | [UBL-CR-311]-A UBL invoice should not include the TaxRepresentativeParty PostalAddress BuildingName
-| UBL-CR-312 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PostalAddress/cbc:BuildingName)
+.3+| UBL-CR-312 *(warning)*
 | [UBL-CR-312]-A UBL invoice should not include the TaxRepresentativeParty PostalAddress BuildingNumber
-| UBL-CR-313 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PostalAddress/cbc:BuildingNumber)
+.3+| UBL-CR-313 *(warning)*
 | [UBL-CR-313]-A UBL invoice should not include the TaxRepresentativeParty PostalAddress InhouseMail
-| UBL-CR-314 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PostalAddress/cbc:InhouseMail)
+.3+| UBL-CR-314 *(warning)*
 | [UBL-CR-314]-A UBL invoice should not include the TaxRepresentativeParty PostalAddress Department
-| UBL-CR-315 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PostalAddress/cbc:Department)
+.3+| UBL-CR-315 *(warning)*
 | [UBL-CR-315]-A UBL invoice should not include the TaxRepresentativeParty PostalAddress MarkAttention
-| UBL-CR-316 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PostalAddress/cbc:MarkAttention)
+.3+| UBL-CR-316 *(warning)*
 | [UBL-CR-316]-A UBL invoice should not include the TaxRepresentativeParty PostalAddress MarkCare
-| UBL-CR-317 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PostalAddress/cbc:MarkCare)
+.3+| UBL-CR-317 *(warning)*
 | [UBL-CR-317]-A UBL invoice should not include the TaxRepresentativeParty PostalAddress PlotIdentification
-| UBL-CR-318 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PostalAddress/cbc:PlotIdentification)
+.3+| UBL-CR-318 *(warning)*
 | [UBL-CR-318]-A UBL invoice should not include the TaxRepresentativeParty PostalAddress CitySubdivisionName
-| UBL-CR-319 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PostalAddress/cbc:CitySubdivisionName)
+.3+| UBL-CR-319 *(warning)*
 | [UBL-CR-319]-A UBL invoice should not include the TaxRepresentativeParty PostalAddress CountrySubentityCode
-| UBL-CR-320 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PostalAddress/cbc:CountrySubentityCode)
+.3+| UBL-CR-320 *(warning)*
 | [UBL-CR-320]-A UBL invoice should not include the TaxRepresentativeParty PostalAddress Region
-| UBL-CR-321 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PostalAddress/cbc:Region)
+.3+| UBL-CR-321 *(warning)*
 | [UBL-CR-321]-A UBL invoice should not include the TaxRepresentativeParty PostalAddress District
-| UBL-CR-322 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PostalAddress/cbc:District)
+.3+| UBL-CR-322 *(warning)*
 | [UBL-CR-322]-A UBL invoice should not include the TaxRepresentativeParty PostalAddress TimezoneOffset
-| UBL-CR-323 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PostalAddress/cbc:TimezoneOffset)
+.3+| UBL-CR-323 *(warning)*
 | [UBL-CR-323]-A UBL invoice should not include the TaxRepresentativeParty PostalAddress Country Name
-| UBL-CR-324 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PostalAddress/cac:Country/cbc:Name)
+.3+| UBL-CR-324 *(warning)*
 | [UBL-CR-324]-A UBL invoice should not include the TaxRepresentativeParty PostalAddress LocationCoordinate
-| UBL-CR-325 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PostalAddress/cac:LocationCoordinate)
+.3+| UBL-CR-325 *(warning)*
 | [UBL-CR-325]-A UBL invoice should not include the TaxRepresentativeParty PhysicalLocation
-| UBL-CR-326 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PhysicalLocation)
+.3+| UBL-CR-326 *(warning)*
 | [UBL-CR-326]-A UBL invoice should not include the TaxRepresentativeParty PartyTaxScheme RegistrationName
-| UBL-CR-327 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PartyTaxScheme/cbc:RegistrationName)
+.3+| UBL-CR-327 *(warning)*
 | [UBL-CR-327]-A UBL invoice should not include the TaxRepresentativeParty PartyTaxScheme TaxLevelCode
-| UBL-CR-328 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PartyTaxScheme/cbc:TaxLevelCode)
+.3+| UBL-CR-328 *(warning)*
 | [UBL-CR-328]-A UBL invoice should not include the TaxRepresentativeParty PartyTaxScheme ExemptionReasonCode
-| UBL-CR-329 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PartyTaxScheme/cbc:ExemptionReasonCode)
+.3+| UBL-CR-329 *(warning)*
 | [UBL-CR-329]-A UBL invoice should not include the TaxRepresentativeParty PartyTaxScheme ExemptionReason
-| UBL-CR-330 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PartyTaxScheme/cbc:ExemptionReason)
+.3+| UBL-CR-330 *(warning)*
 | [UBL-CR-330]-A UBL invoice should not include the TaxRepresentativeParty PartyTaxScheme RegistrationAddress
-| UBL-CR-331 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PartyTaxScheme/cac:RegistrationAddress)
+.3+| UBL-CR-331 *(warning)*
 | [UBL-CR-331]-A UBL invoice should not include the TaxRepresentativeParty PartyTaxScheme TaxScheme Name
-| UBL-CR-332 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PartyTaxScheme/cac:TaxScheme/cbc:Name)
+.3+| UBL-CR-332 *(warning)*
 | [UBL-CR-332]-A UBL invoice should not include the TaxRepresentativeParty PartyTaxScheme TaxScheme TaxTypeCode
-| UBL-CR-333 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PartyTaxScheme/cac:TaxScheme/cbc:TaxTypeCode)
+.3+| UBL-CR-333 *(warning)*
 | [UBL-CR-333]-A UBL invoice should not include the TaxRepresentativeParty PartyTaxScheme TaxScheme CurrencyCode
-| UBL-CR-334 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PartyTaxScheme/cac:TaxScheme/cbc:CurrencyCode)
+.3+| UBL-CR-334 *(warning)*
 | [UBL-CR-334]-A UBL invoice should not include the TaxRepresentativeParty PartyTaxScheme TaxScheme JurisdictionRegionAddress
-| UBL-CR-335 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PartyTaxScheme/cac:TaxScheme/cac:JurisdictionRegionAddress)
+.3+| UBL-CR-335 *(warning)*
 | [UBL-CR-335]-A UBL invoice should not include the TaxRepresentativeParty PartyLegalEntity
-| UBL-CR-336 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PartyLegalEntity)
+.3+| UBL-CR-336 *(warning)*
 | [UBL-CR-336]-A UBL invoice should not include the TaxRepresentativeParty Contact
-| UBL-CR-337 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:Contact)
+.3+| UBL-CR-337 *(warning)*
 | [UBL-CR-337]-A UBL invoice should not include the TaxRepresentativeParty Person
-| UBL-CR-338 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:Person)
+.3+| UBL-CR-338 *(warning)*
 | [UBL-CR-338]-A UBL invoice should not include the TaxRepresentativeParty AgentParty
-| UBL-CR-339 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:AgentParty)
+.3+| UBL-CR-339 *(warning)*
 | [UBL-CR-339]-A UBL invoice should not include the TaxRepresentativeParty ServiceProviderParty
-| UBL-CR-340 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:ServiceProviderParty)
+.3+| UBL-CR-340 *(warning)*
 | [UBL-CR-340]-A UBL invoice should not include the TaxRepresentativeParty PowerOfAttorney
-| UBL-CR-341 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:PowerOfAttorney)
+.3+| UBL-CR-341 *(warning)*
 | [UBL-CR-341]-A UBL invoice should not include the TaxRepresentativeParty FinancialAccount
-| UBL-CR-342 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxRepresentativeParty/cac:FinancialAccount)
+.3+| UBL-CR-342 *(warning)*
 | [UBL-CR-342]-A UBL invoice should not include the Delivery ID
-| UBL-CR-343 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cbc:ID)
+.3+| UBL-CR-343 *(warning)*
 | [UBL-CR-343]-A UBL invoice should not include the Delivery Quantity
-| UBL-CR-344 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cbc:Quantity)
+.3+| UBL-CR-344 *(warning)*
 | [UBL-CR-344]-A UBL invoice should not include the Delivery MinimumQuantity
-| UBL-CR-345 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cbc:MinimumQuantity)
+.3+| UBL-CR-345 *(warning)*
 | [UBL-CR-345]-A UBL invoice should not include the Delivery MaximumQuantity
-| UBL-CR-346 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cbc:MaximumQuantity)
+.3+| UBL-CR-346 *(warning)*
 | [UBL-CR-346]-A UBL invoice should not include the Delivery ActualDeliveryTime
-| UBL-CR-347 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cbc:ActualDeliveryTime)
+.3+| UBL-CR-347 *(warning)*
 | [UBL-CR-347]-A UBL invoice should not include the Delivery LatestDeliveryDate
-| UBL-CR-348 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cbc:LatestDeliveryDate)
+.3+| UBL-CR-348 *(warning)*
 | [UBL-CR-348]-A UBL invoice should not include the Delivery LatestDeliveryTime
-| UBL-CR-349 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cbc:LatestDeliveryTime)
+.3+| UBL-CR-349 *(warning)*
 | [UBL-CR-349]-A UBL invoice should not include the Delivery ReleaseID
-| UBL-CR-350 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cbc:ReleaseID)
+.3+| UBL-CR-350 *(warning)*
 | [UBL-CR-350]-A UBL invoice should not include the Delivery TrackingID
-| UBL-CR-351 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cbc:TrackingID)
+.3+| UBL-CR-351 *(warning)*
 | [UBL-CR-351]-A UBL invoice should not include the Delivery DeliveryLocation Description
-| UBL-CR-352 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cbc:Description)
+.3+| UBL-CR-352 *(warning)*
 | [UBL-CR-352]-A UBL invoice should not include the Delivery DeliveryLocation Conditions
-| UBL-CR-353 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cbc:Conditions)
+.3+| UBL-CR-353 *(warning)*
 | [UBL-CR-353]-A UBL invoice should not include the Delivery DeliveryLocation CountrySubentity
-| UBL-CR-354 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cbc:CountrySubentity)
+.3+| UBL-CR-354 *(warning)*
 | [UBL-CR-354]-A UBL invoice should not include the Delivery DeliveryLocation CountrySubentityCode
-| UBL-CR-355 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cbc:CountrySubentityCode)
+.3+| UBL-CR-355 *(warning)*
 | [UBL-CR-355]-A UBL invoice should not include the Delivery DeliveryLocation LocationTypeCode
-| UBL-CR-356 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cbc:LocationTypeCode)
+.3+| UBL-CR-356 *(warning)*
 | [UBL-CR-356]-A UBL invoice should not include the Delivery DeliveryLocation InformationURI
-| UBL-CR-357 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cbc:InformationURI)
+.3+| UBL-CR-357 *(warning)*
 | [UBL-CR-357]-A UBL invoice should not include the Delivery DeliveryLocation Name
-| UBL-CR-358 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cbc:Name)
+.3+| UBL-CR-358 *(warning)*
 | [UBL-CR-358]-A UBL invoice should not include the Delivery DeliveryLocation ValidationPeriod
-| UBL-CR-359 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cac:ValidityPeriod)
+.3+| UBL-CR-359 *(warning)*
 | [UBL-CR-359]-A UBL invoice should not include the Delivery DeliveryLocation Address ID
-| UBL-CR-360 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:ID)
+.3+| UBL-CR-360 *(warning)*
 | [UBL-CR-360]-A UBL invoice should not include the Delivery DeliveryLocation Address AddressTypeCode
-| UBL-CR-361 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:AddressTypeCode)
+.3+| UBL-CR-361 *(warning)*
 | [UBL-CR-361]-A UBL invoice should not include the Delivery DeliveryLocation Address AddressFormatCode
-| UBL-CR-362 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:AddressFormatCode)
+.3+| UBL-CR-362 *(warning)*
 | [UBL-CR-362]-A UBL invoice should not include the Delivery DeliveryLocation Address Postbox
-| UBL-CR-363 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:Postbox)
+.3+| UBL-CR-363 *(warning)*
 | [UBL-CR-363]-A UBL invoice should not include the Delivery DeliveryLocation Address Floor
-| UBL-CR-364 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:Floor)
+.3+| UBL-CR-364 *(warning)*
 | [UBL-CR-364]-A UBL invoice should not include the Delivery DeliveryLocation Address Room
-| UBL-CR-365 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:Room)
+.3+| UBL-CR-365 *(warning)*
 | [UBL-CR-365]-A UBL invoice should not include the Delivery DeliveryLocation Address BlockName
-| UBL-CR-366 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:BlockName)
+.3+| UBL-CR-366 *(warning)*
 | [UBL-CR-366]-A UBL invoice should not include the Delivery DeliveryLocation Address BuildingName
-| UBL-CR-367 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:BuildingName)
+.3+| UBL-CR-367 *(warning)*
 | [UBL-CR-367]-A UBL invoice should not include the Delivery DeliveryLocation Address BuildingNumber
-| UBL-CR-368 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:BuildingNumber)
+.3+| UBL-CR-368 *(warning)*
 | [UBL-CR-368]-A UBL invoice should not include the Delivery DeliveryLocation Address InhouseMail
-| UBL-CR-369 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:InhouseMail)
+.3+| UBL-CR-369 *(warning)*
 | [UBL-CR-369]-A UBL invoice should not include the Delivery DeliveryLocation Address Department
-| UBL-CR-370 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:Department)
+.3+| UBL-CR-370 *(warning)*
 | [UBL-CR-370]-A UBL invoice should not include the Delivery DeliveryLocation Address MarkAttention
-| UBL-CR-371 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:MarkAttention)
+.3+| UBL-CR-371 *(warning)*
 | [UBL-CR-371]-A UBL invoice should not include the Delivery DeliveryLocation Address MarkCare
-| UBL-CR-372 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:MarkCare)
+.3+| UBL-CR-372 *(warning)*
 | [UBL-CR-372]-A UBL invoice should not include the Delivery DeliveryLocation Address PlotIdentification
-| UBL-CR-373 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:PlotIdentification)
+.3+| UBL-CR-373 *(warning)*
 | [UBL-CR-373]-A UBL invoice should not include the Delivery DeliveryLocation Address CitySubdivisionName
-| UBL-CR-374 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:CitySubdivisionName)
+.3+| UBL-CR-374 *(warning)*
 | [UBL-CR-374]-A UBL invoice should not include the Delivery DeliveryLocation Address CountrySubentityCode
-| UBL-CR-375 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:CountrySubentityCode)
+.3+| UBL-CR-375 *(warning)*
 | [UBL-CR-375]-A UBL invoice should not include the Delivery DeliveryLocation Address Region
-| UBL-CR-376 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:Region)
+.3+| UBL-CR-376 *(warning)*
 | [UBL-CR-376]-A UBL invoice should not include the Delivery DeliveryLocation Address District
-| UBL-CR-377 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:District)
+.3+| UBL-CR-377 *(warning)*
 | [UBL-CR-377]-A UBL invoice should not include the Delivery DeliveryLocation Address TimezoneOffset
-| UBL-CR-378 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cac:Address/cbc:TimezoneOffset)
+.3+| UBL-CR-378 *(warning)*
 | [UBL-CR-378]-A UBL invoice should not include the Delivery DeliveryLocation Address Country Name
-| UBL-CR-379 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cac:Address/cac:Country/cbc:Name)
+.3+| UBL-CR-379 *(warning)*
 | [UBL-CR-379]-A UBL invoice should not include the Delivery DeliveryLocation Address LocationCoordinate
-| UBL-CR-380 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cac:Address/cac:LocationCoordinate)
+.3+| UBL-CR-380 *(warning)*
 | [UBL-CR-380]-A UBL invoice should not include the Delivery DeliveryLocation SubsidiaryLocation
-| UBL-CR-381 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cac:SubsidiaryLocation)
+.3+| UBL-CR-381 *(warning)*
 | [UBL-CR-381]-A UBL invoice should not include the Delivery DeliveryLocation LocationCoordinate
-| UBL-CR-382 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryLocation/cac:LocationCoordinate)
+.3+| UBL-CR-382 *(warning)*
 | [UBL-CR-382]-A UBL invoice should not include the Delivery AlternativeDeliveryLocation
-| UBL-CR-383 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:AlternativeDeliveryLocation)
+.3+| UBL-CR-383 *(warning)*
 | [UBL-CR-383]-A UBL invoice should not include the Delivery RequestedDeliveryPeriod
-| UBL-CR-384 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:RequestedDeliveryPeriod)
+.3+| UBL-CR-384 *(warning)*
 | [UBL-CR-384]-A UBL invoice should not include the Delivery PromisedDeliveryPeriod
-| UBL-CR-385 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:EstimatedDeliveryPeriod)
+.3+| UBL-CR-385 *(warning)*
 | [UBL-CR-385]-A UBL invoice should not include the Delivery CarrierParty
-| UBL-CR-386 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:CarrierParty)
+.3+| UBL-CR-386 *(warning)*
 | [UBL-CR-386]-A UBL invoice should not include the DeliveryParty MarkCareIndicator
-| UBL-CR-387 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryParty/cbc:MarkCareIndicator)
+.3+| UBL-CR-387 *(warning)*
 | [UBL-CR-387]-A UBL invoice should not include the DeliveryParty MarkAttentionIndicator
-| UBL-CR-388 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryParty/cbc:MarkAttentionIndicator)
+.3+| UBL-CR-388 *(warning)*
 | [UBL-CR-388]-A UBL invoice should not include the DeliveryParty WebsiteURI
-| UBL-CR-389 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryParty/cbc:WebsiteURI)
+.3+| UBL-CR-389 *(warning)*
 | [UBL-CR-389]-A UBL invoice should not include the DeliveryParty LogoReferenceID
-| UBL-CR-390 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryParty/cbc:LogoReferenceID)
+.3+| UBL-CR-390 *(warning)*
 | [UBL-CR-390]-A UBL invoice should not include the DeliveryParty EndpointID
-| UBL-CR-391 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryParty/cbc:EndpointID)
+.3+| UBL-CR-391 *(warning)*
 | [UBL-CR-391]-A UBL invoice should not include the DeliveryParty IndustryClassificationCode
-| UBL-CR-392 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryParty/cbc:IndustryClassificationCode)
+.3+| UBL-CR-392 *(warning)*
 | [UBL-CR-392]-A UBL invoice should not include the DeliveryParty PartyIdentification
-| UBL-CR-393 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryParty/cac:PartyIdentification)
+.3+| UBL-CR-393 *(warning)*
 | [UBL-CR-393]-A UBL invoice should not include the DeliveryParty Language
-| UBL-CR-394 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryParty/cac:Language)
+.3+| UBL-CR-394 *(warning)*
 | [UBL-CR-394]-A UBL invoice should not include the DeliveryParty PostalAddress
-| UBL-CR-395 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryParty/cac:PostalAddress)
+.3+| UBL-CR-395 *(warning)*
 | [UBL-CR-395]-A UBL invoice should not include the DeliveryParty PhysicalLocation
-| UBL-CR-396 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryParty/cac:PhysicalLocation)
+.3+| UBL-CR-396 *(warning)*
 | [UBL-CR-396]-A UBL invoice should not include the DeliveryParty PartyTaxScheme
-| UBL-CR-397 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryParty/cac:PartyTaxScheme)
+.3+| UBL-CR-397 *(warning)*
 | [UBL-CR-397]-A UBL invoice should not include the DeliveryParty PartyLegalEntity
-| UBL-CR-398 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryParty/cac:PartyLegalEntity)
+.3+| UBL-CR-398 *(warning)*
 | [UBL-CR-398]-A UBL invoice should not include the DeliveryParty Contact
-| UBL-CR-399 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryParty/cac:Contact)
+.3+| UBL-CR-399 *(warning)*
 | [UBL-CR-399]-A UBL invoice should not include the DeliveryParty Person
-| UBL-CR-400 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryParty/cac:Person)
+.3+| UBL-CR-400 *(warning)*
 | [UBL-CR-400]-A UBL invoice should not include the DeliveryParty AgentParty
-| UBL-CR-401 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryParty/cac:AgentParty)
+.3+| UBL-CR-401 *(warning)*
 | [UBL-CR-401]-A UBL invoice should not include the DeliveryParty ServiceProviderParty
-| UBL-CR-402 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryParty/cac:ServiceProviderParty)
+.3+| UBL-CR-402 *(warning)*
 | [UBL-CR-402]-A UBL invoice should not include the DeliveryParty PowerOfAttorney
-| UBL-CR-403 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryParty/cac:PowerOfAttorney)
+.3+| UBL-CR-403 *(warning)*
 | [UBL-CR-403]-A UBL invoice should not include the DeliveryParty FinancialAccount
-| UBL-CR-404 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryParty/cac:FinancialAccount)
+.3+| UBL-CR-404 *(warning)*
 | [UBL-CR-404]-A UBL invoice should not include the Delivery NotifyParty
-| UBL-CR-405 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:NotifyParty)
+.3+| UBL-CR-405 *(warning)*
 | [UBL-CR-405]-A UBL invoice should not include the Delivery Despatch
-| UBL-CR-406 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:Despatch)
+.3+| UBL-CR-406 *(warning)*
 | [UBL-CR-406]-A UBL invoice should not include the Delivery DeliveryTerms
-| UBL-CR-407 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryTerms)
+.3+| UBL-CR-407 *(warning)*
 | [UBL-CR-407]-A UBL invoice should not include the Delivery MinimumDeliveryUnit
-| UBL-CR-408 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:MinimumDeliveryUnit)
+.3+| UBL-CR-408 *(warning)*
 | [UBL-CR-408]-A UBL invoice should not include the Delivery MaximumDeliveryUnit
-| UBL-CR-409 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:MaximumDeliveryUnit)
+.3+| UBL-CR-409 *(warning)*
 | [UBL-CR-409]-A UBL invoice should not include the Delivery Shipment
-| UBL-CR-410 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:Shipment)
+.3+| UBL-CR-410 *(warning)*
 | [UBL-CR-410]-A UBL invoice should not include the DeliveryTerms
-| UBL-CR-411 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:DeliveryTerms)
+.3+| UBL-CR-411 *(warning)*
 | [UBL-CR-411]-A UBL invoice should not include the PaymentMeans ID
-| UBL-CR-412 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cbc:ID)
+.3+| UBL-CR-412 *(warning)*
 | [UBL-CR-412]-A UBL invoice should not include the PaymentMeans PaymentDueDate
-| UBL-CR-413 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cbc:PaymentDueDate) or ../cn:CreditNote
+.3+| UBL-CR-413 *(warning)*
 | [UBL-CR-413]-A UBL invoice should not include the PaymentMeans PaymentChannelCode
-| UBL-CR-414 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cbc:PaymentChannelCode)
+.3+| UBL-CR-414 *(warning)*
 | [UBL-CR-414]-A UBL invoice should not include the PaymentMeans InstructionID
-| UBL-CR-415 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cbc:InstructionID)
+.3+| UBL-CR-415 *(warning)*
 | [UBL-CR-415]-A UBL invoice should not include the PaymentMeans CardAccount CardTypeCode
-| UBL-CR-416 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:CardAccount/cbc:CardTypeCode)
+.3+| UBL-CR-416 *(warning)*
 | [UBL-CR-416]-A UBL invoice should not include the PaymentMeans CardAccount ValidityStartDate
-| UBL-CR-417 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:CardAccount/cbc:ValidityStartDate)
+.3+| UBL-CR-417 *(warning)*
 | [UBL-CR-417]-A UBL invoice should not include the PaymentMeans CardAccount ExpiryDate
-| UBL-CR-418 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:CardAccount/cbc:ExpiryDate)
+.3+| UBL-CR-418 *(warning)*
 | [UBL-CR-418]-A UBL invoice should not include the PaymentMeans CardAccount IssuerID
-| UBL-CR-419 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:CardAccount/cbc:IssuerID)
+.3+| UBL-CR-419 *(warning)*
 | [UBL-CR-419]-A UBL invoice should not include the PaymentMeans CardAccount IssuerNumberID
-| UBL-CR-420 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:CardAccount/cbc:IssueNumberID)
+.3+| UBL-CR-420 *(warning)*
 | [UBL-CR-420]-A UBL invoice should not include the PaymentMeans CardAccount CV2ID
-| UBL-CR-421 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:CardAccount/cbc:CV2ID)
+.3+| UBL-CR-421 *(warning)*
 | [UBL-CR-421]-A UBL invoice should not include the PaymentMeans CardAccount CardChipCode
-| UBL-CR-422 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:CardAccount/cbc:CardChipCode)
+.3+| UBL-CR-422 *(warning)*
 | [UBL-CR-422]-A UBL invoice should not include the PaymentMeans CardAccount ChipApplicationID
-| UBL-CR-424 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:CardAccount/cbc:ChipApplicationID)
+.3+| UBL-CR-424 *(warning)*
 | [UBL-CR-424]-A UBL invoice should not include the PaymentMeans PayeeFinancialAccount AliasName
-| UBL-CR-425 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PayeeFinancialAccount/cbc:AliasName)
+.3+| UBL-CR-425 *(warning)*
 | [UBL-CR-425]-A UBL invoice should not include the PaymentMeans PayeeFinancialAccount AccountTypeCode
-| UBL-CR-426 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PayeeFinancialAccount/cbc:AccountTypeCode)
+.3+| UBL-CR-426 *(warning)*
 | [UBL-CR-426]-A UBL invoice should not include the PaymentMeans PayeeFinancialAccount AccountFormatCode
-| UBL-CR-427 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PayeeFinancialAccount/cbc:AccountFormatCode)
+.3+| UBL-CR-427 *(warning)*
 | [UBL-CR-427]-A UBL invoice should not include the PaymentMeans PayeeFinancialAccount CurrencyCode
-| UBL-CR-428 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PayeeFinancialAccount/cbc:CurrencyCode)
+.3+| UBL-CR-428 *(warning)*
 | [UBL-CR-428]-A UBL invoice should not include the PaymentMeans PayeeFinancialAccount PaymentNote
-| UBL-CR-429 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PayeeFinancialAccount/cbc:PaymentNote)
+.3+| UBL-CR-429 *(warning)*
 | [UBL-CR-429]-A UBL invoice should not include the PaymentMeans PayeeFinancialAccount FinancialInstitutionBranch Name
-| UBL-CR-430 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:Name)
+.3+| UBL-CR-430 *(warning)*
 | [UBL-CR-430]-A UBL invoice should not include the PaymentMeans PayeeFinancialAccount FinancialInstitutionBranch FinancialInstitution Name
-| UBL-CR-431 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cac:FinancialInstitution/cbc:Name)
+.3+| UBL-CR-431 *(warning)*
 | [UBL-CR-431]-A UBL invoice should not include the PaymentMeans PayeeFinancialAccount FinancialInstitutionBranch FinancialInstitution Address
-| UBL-CR-432 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cac:FinancialInstitution/cac:Address)
+.3+| UBL-CR-432 *(warning)*
 | [UBL-CR-432]-A UBL invoice should not include the PaymentMeans PayeeFinancialAccount FinancialInstitutionBranch Address
-| UBL-CR-433 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cac:Address)
+.3+| UBL-CR-433 *(warning)*
 | [UBL-CR-433]-A UBL invoice should not include the PaymentMeans PayeeFinancialAccount Country
-| UBL-CR-434 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PayeeFinancialAccount/cac:Country)
+.3+| UBL-CR-434 *(warning)*
 | [UBL-CR-434]-A UBL invoice should not include the PaymentMeans CreditAccount
-| UBL-CR-435 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:CreditAccount)
+.3+| UBL-CR-435 *(warning)*
 | [UBL-CR-435]-A UBL invoice should not include the PaymentMeans PaymentMandate MandateTypeCode
-| UBL-CR-436 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PaymentMandate/cbc:MandateTypeCode)
+.3+| UBL-CR-436 *(warning)*
 | [UBL-CR-436]-A UBL invoice should not include the PaymentMeans PaymentMandate MaximumPaymentInstructionsNumeric
-| UBL-CR-437 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PaymentMandate/cbc:MaximumPaymentInstructionsNumeric)
+.3+| UBL-CR-437 *(warning)*
 | [UBL-CR-437]-A UBL invoice should not include the PaymentMeans PaymentMandate MaximumPaidAmount
-| UBL-CR-438 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PaymentMandate/cbc:MaximumPaidAmount)
+.3+| UBL-CR-438 *(warning)*
 | [UBL-CR-438]-A UBL invoice should not include the PaymentMeans PaymentMandate SignatureID
-| UBL-CR-439 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PaymentMandate/cbc:SignatureID)
+.3+| UBL-CR-439 *(warning)*
 | [UBL-CR-439]-A UBL invoice should not include the PaymentMeans PaymentMandate PayerParty
-| UBL-CR-440 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PaymentMandate/cac:PayerParty)
+.3+| UBL-CR-440 *(warning)*
 | [UBL-CR-440]-A UBL invoice should not include the PaymentMeans PaymentMandate PayerFinancialAccount Name
-| UBL-CR-441 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PaymentMandate/cac:PayerFinancialAccount/cbc:Name)
+.3+| UBL-CR-441 *(warning)*
 | [UBL-CR-441]-A UBL invoice should not include the PaymentMeans PaymentMandate PayerFinancialAccount AliasName
-| UBL-CR-442 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PaymentMandate/cac:PayerFinancialAccount/cbc:AliasName)
+.3+| UBL-CR-442 *(warning)*
 | [UBL-CR-442]-A UBL invoice should not include the PaymentMeans PaymentMandate PayerFinancialAccount AccountTypeCode
-| UBL-CR-443 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PaymentMandate/cac:PayerFinancialAccount/cbc:AccountTypeCode)
+.3+| UBL-CR-443 *(warning)*
 | [UBL-CR-443]-A UBL invoice should not include the PaymentMeans PaymentMandate PayerFinancialAccount AccountFormatCode
-| UBL-CR-444 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PaymentMandate/cac:PayerFinancialAccount/cbc:AccountFormatCode)
+.3+| UBL-CR-444 *(warning)*
 | [UBL-CR-444]-A UBL invoice should not include the PaymentMeans PaymentMandate PayerFinancialAccount CurrencyCode
-| UBL-CR-445 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PaymentMandate/cac:PayerFinancialAccount/cbc:CurrencyCode)
+.3+| UBL-CR-445 *(warning)*
 | [UBL-CR-445]-A UBL invoice should not include the PaymentMeans PaymentMandate PayerFinancialAccount PaymentNote
-| UBL-CR-446 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PaymentMandate/cac:PayerFinancialAccount/cbc:PaymentNote)
+.3+| UBL-CR-446 *(warning)*
 | [UBL-CR-446]-A UBL invoice should not include the PaymentMeans PaymentMandate PayerFinancialAccount FinancialInstitutionBranch
-| UBL-CR-447 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PaymentMandate/cac:PayerFinancialAccount/cac:FinancialInstitutionBranch)
+.3+| UBL-CR-447 *(warning)*
 | [UBL-CR-447]-A UBL invoice should not include the PaymentMeans PaymentMandate PayerFinancialAccount Country
-| UBL-CR-448 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PaymentMandate/cac:PayerFinancialAccount/cac:Country)
+.3+| UBL-CR-448 *(warning)*
 | [UBL-CR-448]-A UBL invoice should not include the PaymentMeans PaymentMandate ValidityPeriod
-| UBL-CR-449 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PaymentMandate/cac:ValidityPeriod)
+.3+| UBL-CR-449 *(warning)*
 | [UBL-CR-449]-A UBL invoice should not include the PaymentMeans PaymentMandate PaymentReversalPeriod
-| UBL-CR-450 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PaymentMandate/cac:PaymentReversalPeriod)
+.3+| UBL-CR-450 *(warning)*
 | [UBL-CR-450]-A UBL invoice should not include the PaymentMeans PaymentMandate Clause
-| UBL-CR-451 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PaymentMandate/cac:Clause)
+.3+| UBL-CR-451 *(warning)*
 | [UBL-CR-451]-A UBL invoice should not include the PaymentMeans TradeFinancing
-| UBL-CR-452 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:TradeFinancing)
+.3+| UBL-CR-452 *(warning)*
 | [UBL-CR-452]-A UBL invoice should not include the PaymentTerms ID
-| UBL-CR-453 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentTerms/cbc:ID)
+.3+| UBL-CR-453 *(warning)*
 | [UBL-CR-453]-A UBL invoice should not include the PaymentTerms PaymentMeansID
-| UBL-CR-454 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentTerms/cbc:PaymentMeansID)
+.3+| UBL-CR-454 *(warning)*
 | [UBL-CR-454]-A UBL invoice should not include the PaymentTerms PrepaidPaymentReferenceID
-| UBL-CR-455 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentTerms/cbc:PrepaidPaymentReferenceID)
+.3+| UBL-CR-455 *(warning)*
 | [UBL-CR-455]-A UBL invoice should not include the PaymentTerms ReferenceEventCode
-| UBL-CR-456 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentTerms/cbc:ReferenceEventCode)
+.3+| UBL-CR-456 *(warning)*
 | [UBL-CR-456]-A UBL invoice should not include the PaymentTerms SettlementDiscountPercent
-| UBL-CR-457 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentTerms/cbc:SettlementDiscountPercent)
+.3+| UBL-CR-457 *(warning)*
 | [UBL-CR-457]-A UBL invoice should not include the PaymentTerms PenaltySurchargePercent
-| UBL-CR-458 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentTerms/cbc:PenaltySurchargePercent)
+.3+| UBL-CR-458 *(warning)*
 | [UBL-CR-458]-A UBL invoice should not include the PaymentTerms PaymentPercent
-| UBL-CR-459 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentTerms/cbc:PaymentPercent)
+.3+| UBL-CR-459 *(warning)*
 | [UBL-CR-459]-A UBL invoice should not include the PaymentTerms Amount
-| UBL-CR-460 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentTerms/cbc:Amount)
+.3+| UBL-CR-460 *(warning)*
 | [UBL-CR-460]-A UBL invoice should not include the PaymentTerms SettlementDiscountAmount
-| UBL-CR-461 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentTerms/cbc:SettlementDiscountAmount)
+.3+| UBL-CR-461 *(warning)*
 | [UBL-CR-461]-A UBL invoice should not include the PaymentTerms PenaltyAmount
-| UBL-CR-462 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentTerms/cbc:PenaltyAmount)
+.3+| UBL-CR-462 *(warning)*
 | [UBL-CR-462]-A UBL invoice should not include the PaymentTerms PaymentTermsDetailsURI
-| UBL-CR-463 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentTerms/cbc:PaymentTermsDetailsURI)
+.3+| UBL-CR-463 *(warning)*
 | [UBL-CR-463]-A UBL invoice should not include the PaymentTerms PaymentDueDate
-| UBL-CR-464 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentTerms/cbc:PaymentDueDate)
+.3+| UBL-CR-464 *(warning)*
 | [UBL-CR-464]-A UBL invoice should not include the PaymentTerms InstallmentDueDate
-| UBL-CR-465 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentTerms/cbc:InstallmentDueDate)
+.3+| UBL-CR-465 *(warning)*
 | [UBL-CR-465]-A UBL invoice should not include the PaymentTerms InvoicingPartyReference
-| UBL-CR-466 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentTerms/cbc:InvoicingPartyReference)
+.3+| UBL-CR-466 *(warning)*
 | [UBL-CR-466]-A UBL invoice should not include the PaymentTerms SettlementPeriod
-| UBL-CR-467 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentTerms/cac:SettlementPeriod)
+.3+| UBL-CR-467 *(warning)*
 | [UBL-CR-467]-A UBL invoice should not include the PaymentTerms PenaltyPeriod
-| UBL-CR-468 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentTerms/cac:PenaltyPeriod)
+.3+| UBL-CR-468 *(warning)*
 | [UBL-CR-468]-A UBL invoice should not include the PaymentTerms ExchangeRate
-| UBL-CR-469 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentTerms/cac:ExchangeRate)
+.3+| UBL-CR-469 *(warning)*
 | [UBL-CR-469]-A UBL invoice should not include the PaymentTerms ValidityPeriod
-| UBL-CR-470 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentTerms/cac:ValidityPeriod)
+.3+| UBL-CR-470 *(warning)*
 | [UBL-CR-470]-A UBL invoice should not include the PrepaidPayment
-| UBL-CR-471 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PrepaidPayment)
+.3+| UBL-CR-471 *(warning)*
 | [UBL-CR-471]-A UBL invoice should not include the AllowanceCharge ID
-| UBL-CR-472 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AllowanceCharge/cbc:ID)
+.3+| UBL-CR-472 *(warning)*
 | [UBL-CR-472]-A UBL invoice should not include the AllowanceCharge PrepaidIndicator
-| UBL-CR-473 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AllowanceCharge/cbc:PrepaidIndicator)
+.3+| UBL-CR-473 *(warning)*
 | [UBL-CR-473]-A UBL invoice should not include the AllowanceCharge SequenceNumeric
-| UBL-CR-474 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AllowanceCharge/cbc:SequenceNumeric)
+.3+| UBL-CR-474 *(warning)*
 | [UBL-CR-474]-A UBL invoice should not include the AllowanceCharge AccountingCostCode
-| UBL-CR-475 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AllowanceCharge/cbc:AccountingCostCode)
+.3+| UBL-CR-475 *(warning)*
 | [UBL-CR-475]-A UBL invoice should not include the AllowanceCharge AccountingCost
-| UBL-CR-476 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AllowanceCharge/cbc:AccountingCost)
+.3+| UBL-CR-476 *(warning)*
 | [UBL-CR-476]-A UBL invoice should not include the AllowanceCharge PerUnitAmount
-| UBL-CR-477 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AllowanceCharge/cbc:PerUnitAmount)
+.3+| UBL-CR-477 *(warning)*
 | [UBL-CR-477]-A UBL invoice should not include the AllowanceCharge TaxCategory Name
-| UBL-CR-478 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AllowanceCharge/cac:TaxCategory/cbc:Name)
+.3+| UBL-CR-478 *(warning)*
 | [UBL-CR-478]-A UBL invoice should not include the AllowanceCharge TaxCategory BaseUnitMeasure
-| UBL-CR-479 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AllowanceCharge/cac:TaxCategory/cbc:BaseUnitMeasure)
+.3+| UBL-CR-479 *(warning)*
 | [UBL-CR-479]-A UBL invoice should not include the AllowanceCharge TaxCategory PerUnitAmount
-| UBL-CR-480 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AllowanceCharge/cac:TaxCategory/cbc:PerUnitAmount)
+.3+| UBL-CR-480 *(warning)*
 | [UBL-CR-480]-A UBL invoice should not include the AllowanceCharge TaxCategory TaxExemptionReasonCode
-| UBL-CR-481 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AllowanceCharge/cac:TaxCategory/cbc:TaxExemptionReasonCode)
+.3+| UBL-CR-481 *(warning)*
 | [UBL-CR-481]-A UBL invoice should not include the AllowanceCharge TaxCategory TaxExemptionReason
-| UBL-CR-482 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AllowanceCharge/cac:TaxCategory/cbc:TaxExemptionReason)
+.3+| UBL-CR-482 *(warning)*
 | [UBL-CR-482]-A UBL invoice should not include the AllowanceCharge TaxCategory TierRange
-| UBL-CR-483 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AllowanceCharge/cac:TaxCategory/cbc:TierRange)
+.3+| UBL-CR-483 *(warning)*
 | [UBL-CR-483]-A UBL invoice should not include the AllowanceCharge TaxCategory TierRatePercent
-| UBL-CR-484 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AllowanceCharge/cac:TaxCategory/cbc:TierRatePercent)
+.3+| UBL-CR-484 *(warning)*
 | [UBL-CR-484]-A UBL invoice should not include the AllowanceCharge TaxCategory TaxScheme Name
-| UBL-CR-485 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AllowanceCharge/cac:TaxCategory/cac:TaxScheme/cbc:Name)
+.3+| UBL-CR-485 *(warning)*
 | [UBL-CR-485]-A UBL invoice should not include the AllowanceCharge TaxCategory TaxScheme TaxTypeCode
-| UBL-CR-486 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AllowanceCharge/cac:TaxCategory/cac:TaxScheme/cbc:TaxTypeCode)
+.3+| UBL-CR-486 *(warning)*
 | [UBL-CR-486]-A UBL invoice should not include the AllowanceCharge TaxCategory TaxScheme CurrencyCode
-| UBL-CR-487 *(warning)*
-| [UBL-CR-487]-A UBL invoice should not include the AllowanceCharge TaxCategory TaxScheme JurisdiccionRegionAddress
-| UBL-CR-488 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AllowanceCharge/cac:TaxCategory/cac:TaxScheme/cbc:CurrencyCode)
+.3+| UBL-CR-487 *(warning)*
+| [UBL-CR-487]-A UBL invoice should not include the AllowanceCharge TaxCategory TaxScheme JurisdictionRegionAddress
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AllowanceCharge/cac:TaxCategory/cac:TaxScheme/cac:JurisdictionRegionAddress)
+.3+| UBL-CR-488 *(warning)*
 | [UBL-CR-488]-A UBL invoice should not include the AllowanceCharge TaxTotal
-| UBL-CR-489 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AllowanceCharge/cac:TaxTotal)
+.3+| UBL-CR-489 *(warning)*
 | [UBL-CR-489]-A UBL invoice should not include the AllowanceCharge PaymentMeans
-| UBL-CR-490 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AllowanceCharge/cac:PaymentMeans)
+.3+| UBL-CR-490 *(warning)*
 | [UBL-CR-490]-A UBL invoice should not include the TaxExchangeRate
-| UBL-CR-491 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxExchangeRate)
+.3+| UBL-CR-491 *(warning)*
 | [UBL-CR-491]-A UBL invoice should not include the PricingExchangeRate
-| UBL-CR-492 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PricingExchangeRate)
+.3+| UBL-CR-492 *(warning)*
 | [UBL-CR-492]-A UBL invoice should not include the PaymentExchangeRate
-| UBL-CR-493 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentExchangeRate)
+.3+| UBL-CR-493 *(warning)*
 | [UBL-CR-493]-A UBL invoice should not include the PaymentAlternativeExchangeRate
-| UBL-CR-494 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentAlternativeExchangeRate)
+.3+| UBL-CR-494 *(warning)*
 | [UBL-CR-494]-A UBL invoice should not include the TaxTotal RoundingAmount
-| UBL-CR-495 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxTotal/cbc:RoundingAmount)
+.3+| UBL-CR-495 *(warning)*
 | [UBL-CR-495]-A UBL invoice should not include the TaxTotal TaxEvidenceIndicator
-| UBL-CR-496 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxTotal/cbc:TaxEvidenceIndicator)
+.3+| UBL-CR-496 *(warning)*
 | [UBL-CR-496]-A UBL invoice should not include the TaxTotal TaxIncludedIndicator
-| UBL-CR-497 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxTotal/cbc:TaxIncludedIndicator)
+.3+| UBL-CR-497 *(warning)*
 | [UBL-CR-497]-A UBL invoice should not include the TaxTotal TaxSubtotal CalulationSequenceNumeric
-| UBL-CR-498 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxTotal/cac:TaxSubtotal/cbc:CalculationSequenceNumeric)
+.3+| UBL-CR-498 *(warning)*
 | [UBL-CR-498]-A UBL invoice should not include the TaxTotal TaxSubtotal TransactionCurrencyTaxAmount
-| UBL-CR-499 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxTotal/cac:TaxSubtotal/cbc:TransactionCurrencyTaxAmount)
+.3+| UBL-CR-499 *(warning)*
 | [UBL-CR-499]-A UBL invoice should not include the TaxTotal TaxSubtotal Percent
-| UBL-CR-500 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxTotal/cac:TaxSubtotal/cbc:Percent)
+.3+| UBL-CR-500 *(warning)*
 | [UBL-CR-500]-A UBL invoice should not include the TaxTotal TaxSubtotal BaseUnitMeasure
-| UBL-CR-501 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxTotal/cac:TaxSubtotal/cbc:BaseUnitMeasure)
+.3+| UBL-CR-501 *(warning)*
 | [UBL-CR-501]-A UBL invoice should not include the TaxTotal TaxSubtotal PerUnitAmount
-| UBL-CR-502 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxTotal/cac:TaxSubtotal/cbc:PerUnitAmount)
+.3+| UBL-CR-502 *(warning)*
 | [UBL-CR-502]-A UBL invoice should not include the TaxTotal TaxSubtotal TierRange
-| UBL-CR-503 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxTotal/cac:TaxSubtotal/cbc:TierRange)
+.3+| UBL-CR-503 *(warning)*
 | [UBL-CR-503]-A UBL invoice should not include the TaxTotal TaxSubtotal TierRatePercent
-| UBL-CR-504 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxTotal/cac:TaxSubtotal/cbc:TierRatePercent)
+.3+| UBL-CR-504 *(warning)*
 | [UBL-CR-504]-A UBL invoice should not include the TaxTotal TaxSubtotal TaxCategory Name
-| UBL-CR-505 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:Name)
+.3+| UBL-CR-505 *(warning)*
 | [UBL-CR-505]-A UBL invoice should not include the TaxTotal TaxSubtotal TaxCategory BaseUnitMeasure
-| UBL-CR-506 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:BaseUnitMeasure)
+.3+| UBL-CR-506 *(warning)*
 | [UBL-CR-506]-A UBL invoice should not include the TaxTotal TaxSubtotal TaxCategory PerUnitAmount
-| UBL-CR-507 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:PerUnitAmount)
+.3+| UBL-CR-507 *(warning)*
 | [UBL-CR-507]-A UBL invoice should not include the TaxTotal TaxSubtotal TaxCategory TierRange
-| UBL-CR-508 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:TierRange)
+.3+| UBL-CR-508 *(warning)*
 | [UBL-CR-508]-A UBL invoice should not include the TaxTotal TaxSubtotal TaxCategory TierRatePercent
-| UBL-CR-509 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cbc:TierRatePercent)
+.3+| UBL-CR-509 *(warning)*
 | [UBL-CR-509]-A UBL invoice should not include the TaxTotal TaxSubtotal TaxCategory TaxScheme Name
-| UBL-CR-510 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:Name)
+.3+| UBL-CR-510 *(warning)*
 | [UBL-CR-510]-A UBL invoice should not include the TaxTotal TaxSubtotal TaxCategory TaxScheme TaxTypeCode
-| UBL-CR-511 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:TaxTypeCode)
+.3+| UBL-CR-511 *(warning)*
 | [UBL-CR-511]-A UBL invoice should not include the TaxTotal TaxSubtotal TaxCategory TaxScheme CurrencyCode
-| UBL-CR-512 *(warning)*
-| [UBL-CR-512]-A UBL invoice should not include the TaxTotal TaxSubtotal TaxCategory TaxScheme JurisdiccionRegionAddress
-| UBL-CR-513 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:CurrencyCode)
+.3+| UBL-CR-512 *(warning)*
+| [UBL-CR-512]-A UBL invoice should not include the TaxTotal TaxSubtotal TaxCategory TaxScheme JurisdictionRegionAddress
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cac:JurisdictionRegionAddress)
+.3+| UBL-CR-513 *(warning)*
 | [UBL-CR-513]-A UBL invoice should not include the WithholdingTaxTotal
-| UBL-CR-514 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:WithholdingTaxTotal)
+.3+| UBL-CR-514 *(warning)*
 | [UBL-CR-514]-A UBL invoice should not include the LegalMonetaryTotal PayableAlternativeAmount
-| UBL-CR-515 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:LegalMonetaryTotal/cbc:PayableAlternativeAmount)
+.3+| UBL-CR-515 *(warning)*
 | [UBL-CR-515]-A UBL invoice should not include the InvoiceLine UUID
-| UBL-CR-516 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cbc:UUID)
+.3+| UBL-CR-516 *(warning)*
 | [UBL-CR-516]-A UBL invoice should not include the InvoiceLine TaxPointDate
-| UBL-CR-517 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cbc:TaxPointDate)
+.3+| UBL-CR-517 *(warning)*
 | [UBL-CR-517]-A UBL invoice should not include the InvoiceLine AccountingCostCode
-| UBL-CR-518 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cbc:AccountingCostCode)
+.3+| UBL-CR-518 *(warning)*
 | [UBL-CR-518]-A UBL invoice should not include the InvoiceLine PaymentPurposeCode
-| UBL-CR-519 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cbc:PaymentPurposeCode)
+.3+| UBL-CR-519 *(warning)*
 | [UBL-CR-519]-A UBL invoice should not include the InvoiceLine FreeOfChargeIndicator
-| UBL-CR-520 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cbc:FreeOfChargeIndicator)
+.3+| UBL-CR-520 *(warning)*
 | [UBL-CR-520]-A UBL invoice should not include the InvoiceLine InvoicePeriod StartTime
-| UBL-CR-521 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:InvoicePeriod/cbc:StartTime)
+.3+| UBL-CR-521 *(warning)*
 | [UBL-CR-521]-A UBL invoice should not include the InvoiceLine InvoicePeriod EndTime
-| UBL-CR-522 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:InvoicePeriod/cbc:EndTime)
+.3+| UBL-CR-522 *(warning)*
 | [UBL-CR-522]-A UBL invoice should not include the InvoiceLine InvoicePeriod DurationMeasure
-| UBL-CR-523 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:InvoicePeriod/cbc:DurationMeasure)
+.3+| UBL-CR-523 *(warning)*
 | [UBL-CR-523]-A UBL invoice should not include the InvoiceLine InvoicePeriod DescriptionCode
-| UBL-CR-524 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:InvoicePeriod/cbc:DescriptionCode)
+.3+| UBL-CR-524 *(warning)*
 | [UBL-CR-524]-A UBL invoice should not include the InvoiceLine InvoicePeriod Description
-| UBL-CR-525 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:InvoicePeriod/cbc:Description)
+.3+| UBL-CR-525 *(warning)*
 | [UBL-CR-525]-A UBL invoice should not include the InvoiceLine OrderLineReference SalesOrderLineID
-| UBL-CR-526 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:OrderLineReference/cbc:SalesOrderLineID)
+.3+| UBL-CR-526 *(warning)*
 | [UBL-CR-526]-A UBL invoice should not include the InvoiceLine OrderLineReference UUID
-| UBL-CR-527 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:OrderLineReference/cbc:UUID)
+.3+| UBL-CR-527 *(warning)*
 | [UBL-CR-527]-A UBL invoice should not include the InvoiceLine OrderLineReference LineStatusCode
-| UBL-CR-528 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:OrderLineReference/cbc:LineStatusCode)
+.3+| UBL-CR-528 *(warning)*
 | [UBL-CR-528]-A UBL invoice should not include the InvoiceLine OrderLineReference OrderReference
-| UBL-CR-529 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:OrderLineReference/cac:OrderReference)
+.3+| UBL-CR-529 *(warning)*
 | [UBL-CR-529]-A UBL invoice should not include the InvoiceLine DespatchLineReference
-| UBL-CR-530 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:DespatchLineReference)
+.3+| UBL-CR-530 *(warning)*
 | [UBL-CR-530]-A UBL invoice should not include the InvoiceLine ReceiptLineReference
-| UBL-CR-531 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:ReceiptLineReference)
+.3+| UBL-CR-531 *(warning)*
 | [UBL-CR-531]-A UBL invoice should not include the InvoiceLine BillingReference
-| UBL-CR-532 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:BillingReference)
+.3+| UBL-CR-532 *(warning)*
 | [UBL-CR-532]-A UBL invoice should not include the InvoiceLine DocumentReference CopyIndicator
-| UBL-CR-533 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:DocumentReference/cbc:CopyIndicator)
+.3+| UBL-CR-533 *(warning)*
 | [UBL-CR-533]-A UBL invoice should not include the InvoiceLine DocumentReference UUID
-| UBL-CR-534 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:DocumentReference/cbc:UUID)
+.3+| UBL-CR-534 *(warning)*
 | [UBL-CR-534]-A UBL invoice should not include the InvoiceLine DocumentReference IssueDate
-| UBL-CR-535 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:DocumentReference/cbc:IssueDate)
+.3+| UBL-CR-535 *(warning)*
 | [UBL-CR-535]-A UBL invoice should not include the InvoiceLine DocumentReference IssueTime
-| UBL-CR-537 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:DocumentReference/cbc:IssueTime)
+.3+| UBL-CR-537 *(warning)*
 | [UBL-CR-537]-A UBL invoice should not include the InvoiceLine DocumentReference DocumentType
-| UBL-CR-538 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:DocumentReference/cbc:DocumentType)
+.3+| UBL-CR-538 *(warning)*
 | [UBL-CR-538]-A UBL invoice should not include the InvoiceLine DocumentReference Xpath
-| UBL-CR-539 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:DocumentReference/cbc:XPath)
+.3+| UBL-CR-539 *(warning)*
 | [UBL-CR-539]-A UBL invoice should not include the InvoiceLine DocumentReference LanguageID
-| UBL-CR-540 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:DocumentReference/cbc:LanguageID)
+.3+| UBL-CR-540 *(warning)*
 | [UBL-CR-540]-A UBL invoice should not include the InvoiceLine DocumentReference LocaleCode
-| UBL-CR-541 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:DocumentReference/cbc:LocaleCode)
+.3+| UBL-CR-541 *(warning)*
 | [UBL-CR-541]-A UBL invoice should not include the InvoiceLine DocumentReference VersionID
-| UBL-CR-542 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:DocumentReference/cbc:VersionID)
+.3+| UBL-CR-542 *(warning)*
 | [UBL-CR-542]-A UBL invoice should not include the InvoiceLine DocumentReference DocumentStatusCode
-| UBL-CR-543 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:DocumentReference/cbc:DocumentStatusCode)
+.3+| UBL-CR-543 *(warning)*
 | [UBL-CR-543]-A UBL invoice should not include the InvoiceLine DocumentReference DocumentDescription
-| UBL-CR-544 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:DocumentReference/cbc:DocumentDescription)
+.3+| UBL-CR-544 *(warning)*
 | [UBL-CR-544]-A UBL invoice should not include the InvoiceLine DocumentReference Attachment
-| UBL-CR-545 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:DocumentReference/cac:Attachment)
+.3+| UBL-CR-545 *(warning)*
 | [UBL-CR-545]-A UBL invoice should not include the InvoiceLine DocumentReference ValidityPeriod
-| UBL-CR-546 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:DocumentReference/cac:ValidityPeriod)
+.3+| UBL-CR-546 *(warning)*
 | [UBL-CR-546]-A UBL invoice should not include the InvoiceLine DocumentReference IssuerParty
-| UBL-CR-547 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:DocumentReference/cac:IssuerParty)
+.3+| UBL-CR-547 *(warning)*
 | [UBL-CR-547]-A UBL invoice should not include the InvoiceLine DocumentReference ResultOfVerification
-| UBL-CR-548 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:DocumentReference/cac:ResultOfVerification)
+.3+| UBL-CR-548 *(warning)*
 | [UBL-CR-548]-A UBL invoice should not include the InvoiceLine PricingReference
-| UBL-CR-549 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:PricingReference)
+.3+| UBL-CR-549 *(warning)*
 | [UBL-CR-549]-A UBL invoice should not include the InvoiceLine OriginatorParty
-| UBL-CR-550 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:OriginatorParty)
+.3+| UBL-CR-550 *(warning)*
 | [UBL-CR-550]-A UBL invoice should not include the InvoiceLine Delivery
-| UBL-CR-551 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Delivery)
+.3+| UBL-CR-551 *(warning)*
 | [UBL-CR-551]-A UBL invoice should not include the InvoiceLine PaymentTerms
-| UBL-CR-552 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:PaymentTerms)
+.3+| UBL-CR-552 *(warning)*
 | [UBL-CR-552]-A UBL invoice should not include the InvoiceLine AllowanceCharge ID
-| UBL-CR-553 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:AllowanceCharge/cbc:ID)
+.3+| UBL-CR-553 *(warning)*
 | [UBL-CR-553]-A UBL invoice should not include the InvoiceLine AllowanceCharge PrepaidIndicator
-| UBL-CR-554 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:AllowanceCharge/cbc:PrepaidIndicator)
+.3+| UBL-CR-554 *(warning)*
 | [UBL-CR-554]-A UBL invoice should not include the InvoiceLine AllowanceCharge SequenceNumeric
-| UBL-CR-555 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:AllowanceCharge/cbc:SequenceNumeric)
+.3+| UBL-CR-555 *(warning)*
 | [UBL-CR-555]-A UBL invoice should not include the InvoiceLine AllowanceCharge AccountingCostCode
-| UBL-CR-556 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:AllowanceCharge/cbc:AccountingCostCode)
+.3+| UBL-CR-556 *(warning)*
 | [UBL-CR-556]-A UBL invoice should not include the InvoiceLine AllowanceCharge AccountingCost
-| UBL-CR-557 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:AllowanceCharge/cbc:AccountingCost)
+.3+| UBL-CR-557 *(warning)*
 | [UBL-CR-557]-A UBL invoice should not include the InvoiceLine AllowanceCharge PerUnitAmount
-| UBL-CR-558 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:AllowanceCharge/cbc:PerUnitAmount)
+.3+| UBL-CR-558 *(warning)*
 | [UBL-CR-558]-A UBL invoice should not include the InvoiceLine AllowanceCharge TaxCategory
-| UBL-CR-559 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:AllowanceCharge/cac:TaxCategory)
+.3+| UBL-CR-559 *(warning)*
 | [UBL-CR-559]-A UBL invoice should not include the InvoiceLine AllowanceCharge TaxTotal
-| UBL-CR-560 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:AllowanceCharge/cac:TaxTotal)
+.3+| UBL-CR-560 *(warning)*
 | [UBL-CR-560]-A UBL invoice should not include the InvoiceLine AllowanceCharge PaymentMeans
-| UBL-CR-561 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:AllowanceCharge/cac:PaymentMeans)
+.3+| UBL-CR-561 *(warning)*
 | [UBL-CR-561]-A UBL invoice should not include the InvoiceLine TaxTotal
-| UBL-CR-562 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:TaxTotal)
+.3+| UBL-CR-562 *(warning)*
 | [UBL-CR-562]-A UBL invoice should not include the InvoiceLine WithholdingTaxTotal
-| UBL-CR-563 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:WithholdingTaxTotal)
+.3+| UBL-CR-563 *(warning)*
 | [UBL-CR-563]-A UBL invoice should not include the InvoiceLine Item PackQuantity
-| UBL-CR-564 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cbc:PackQuantity)
+.3+| UBL-CR-564 *(warning)*
 | [UBL-CR-564]-A UBL invoice should not include the InvoiceLine Item PackSizeNumeric
-| UBL-CR-565 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cbc:PackSizeNumeric)
+.3+| UBL-CR-565 *(warning)*
 | [UBL-CR-565]-A UBL invoice should not include the InvoiceLine Item CatalogueIndicator
-| UBL-CR-566 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cbc:CatalogueIndicator)
+.3+| UBL-CR-566 *(warning)*
 | [UBL-CR-566]-A UBL invoice should not include the InvoiceLine Item HazardousRiskIndicator
-| UBL-CR-567 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cbc:HazardousRiskIndicator)
+.3+| UBL-CR-567 *(warning)*
 | [UBL-CR-567]-A UBL invoice should not include the InvoiceLine Item AdditionalInformation
-| UBL-CR-568 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cbc:AdditionalInformation)
+.3+| UBL-CR-568 *(warning)*
 | [UBL-CR-568]-A UBL invoice should not include the InvoiceLine Item Keyword
-| UBL-CR-569 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cbc:Keyword)
+.3+| UBL-CR-569 *(warning)*
 | [UBL-CR-569]-A UBL invoice should not include the InvoiceLine Item BrandName
-| UBL-CR-570 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cbc:BrandName)
+.3+| UBL-CR-570 *(warning)*
 | [UBL-CR-570]-A UBL invoice should not include the InvoiceLine Item ModelName
-| UBL-CR-571 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cbc:ModelName)
+.3+| UBL-CR-571 *(warning)*
 | [UBL-CR-571]-A UBL invoice should not include the InvoiceLine Item BuyersItemIdentification ExtendedID
-| UBL-CR-572 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cbc:ExtendedID)
+.3+| UBL-CR-572 *(warning)*
 | [UBL-CR-572]-A UBL invoice should not include the InvoiceLine Item BuyersItemIdentification BareCodeSymbologyID
-| UBL-CR-573 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cbc:BarecodeSymbologyID)
+.3+| UBL-CR-573 *(warning)*
 | [UBL-CR-573]-A UBL invoice should not include the InvoiceLine Item BuyersItemIdentification PhysicalAttribute
-| UBL-CR-574 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cac:PhysicalAttribute)
+.3+| UBL-CR-574 *(warning)*
 | [UBL-CR-574]-A UBL invoice should not include the InvoiceLine Item BuyersItemIdentification MeasurementDimension
-| UBL-CR-575 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cac:MeasurementDimension)
+.3+| UBL-CR-575 *(warning)*
 | [UBL-CR-575]-A UBL invoice should not include the InvoiceLine Item BuyersItemIdentification IssuerParty
-| UBL-CR-576 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cac:IssuerParty)
+.3+| UBL-CR-576 *(warning)*
 | [UBL-CR-576]-A UBL invoice should not include the InvoiceLine Item SellersItemIdentification ExtendedID
-| UBL-CR-577 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cbc:ExtendedID)
+.3+| UBL-CR-577 *(warning)*
 | [UBL-CR-577]-A UBL invoice should not include the InvoiceLine Item SellersItemIdentification BareCodeSymbologyID
-| UBL-CR-578 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cbc:BarecodeSymbologyID)
+.3+| UBL-CR-578 *(warning)*
 | [UBL-CR-578]-A UBL invoice should not include the InvoiceLine Item SellersItemIdentification PhysicalAttribute
-| UBL-CR-579 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cac:PhysicalAttribute)
+.3+| UBL-CR-579 *(warning)*
 | [UBL-CR-579]-A UBL invoice should not include the InvoiceLine Item SellersItemIdentification MeasurementDimension
-| UBL-CR-580 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cac:MeasurementDimension)
+.3+| UBL-CR-580 *(warning)*
 | [UBL-CR-580]-A UBL invoice should not include the InvoiceLine Item SellersItemIdentification IssuerParty
-| UBL-CR-581 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cac:IssuerParty)
+.3+| UBL-CR-581 *(warning)*
 | [UBL-CR-581]-A UBL invoice should not include the InvoiceLine Item ManufacturersItemIdentification
-| UBL-CR-582 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:ManufacturersItemIdentification)
+.3+| UBL-CR-582 *(warning)*
 | [UBL-CR-582]-A UBL invoice should not include the InvoiceLine Item StandardItemIdentification ExtendedID
-| UBL-CR-583 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cbc:ExtendedID)
+.3+| UBL-CR-583 *(warning)*
 | [UBL-CR-583]-A UBL invoice should not include the InvoiceLine Item StandardItemIdentification BareCodeSymbologyID
-| UBL-CR-584 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cbc:BarecodeSymbologyID)
+.3+| UBL-CR-584 *(warning)*
 | [UBL-CR-584]-A UBL invoice should not include the InvoiceLine Item StandardItemIdentification PhysicalAttribute
-| UBL-CR-585 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cac:PhysicalAttribute)
+.3+| UBL-CR-585 *(warning)*
 | [UBL-CR-585]-A UBL invoice should not include the InvoiceLine Item StandardItemIdentification MeasurementDimension
-| UBL-CR-586 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cac:MeasurementDimension)
+.3+| UBL-CR-586 *(warning)*
 | [UBL-CR-586]-A UBL invoice should not include the InvoiceLine Item StandardItemIdentification IssuerParty
-| UBL-CR-587 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cac:IssuerParty)
+.3+| UBL-CR-587 *(warning)*
 | [UBL-CR-587]-A UBL invoice should not include the InvoiceLine Item CatalogueItemIdentification
-| UBL-CR-588 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:CatalogueItemIdentification)
+.3+| UBL-CR-588 *(warning)*
 | [UBL-CR-588]-A UBL invoice should not include the InvoiceLine Item AdditionalItemIdentification
-| UBL-CR-589 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:AdditionalItemIdentification)
+.3+| UBL-CR-589 *(warning)*
 | [UBL-CR-589]-A UBL invoice should not include the InvoiceLine Item CatalogueDocumentReference
-| UBL-CR-590 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:CatalogueDocumentReference)
+.3+| UBL-CR-590 *(warning)*
 | [UBL-CR-590]-A UBL invoice should not include the InvoiceLine Item ItemSpecificationDocumentReference
-| UBL-CR-591 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:ItemSpecificationDocumentReference)
+.3+| UBL-CR-591 *(warning)*
 | [UBL-CR-591]-A UBL invoice should not include the InvoiceLine Item OriginCountry Name
-| UBL-CR-592 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:OriginCountry/cbc:Name)
+.3+| UBL-CR-592 *(warning)*
 | [UBL-CR-592]-A UBL invoice should not include the InvoiceLine Item CommodityClassification NatureCode
-| UBL-CR-593 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:CommodityClassification/cbc:NatureCode)
+.3+| UBL-CR-593 *(warning)*
 | [UBL-CR-593]-A UBL invoice should not include the InvoiceLine Item CommodityClassification CargoTypeCode
-| UBL-CR-594 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:CommodityClassification/cbc:CargoTypeCode)
+.3+| UBL-CR-594 *(warning)*
 | [UBL-CR-594]-A UBL invoice should not include the InvoiceLine Item CommodityClassification CommodityCode
-| UBL-CR-595 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:CommodityClassification/cbc:CommodityCode)
+.3+| UBL-CR-595 *(warning)*
 | [UBL-CR-595]-A UBL invoice should not include the InvoiceLine Item TransactionConditions
-| UBL-CR-596 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:TransactionConditions)
+.3+| UBL-CR-596 *(warning)*
 | [UBL-CR-596]-A UBL invoice should not include the InvoiceLine Item HazardousItem
-| UBL-CR-597 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:HazardousItem)
+.3+| UBL-CR-597 *(warning)*
 | [UBL-CR-597]-A UBL invoice should not include the InvoiceLine Item ClassifiedTaxCategory Name
-| UBL-CR-598 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:ClassifiedTaxCategory/cbc:Name)
+.3+| UBL-CR-598 *(warning)*
 | [UBL-CR-598]-A UBL invoice should not include the InvoiceLine Item ClassifiedTaxCategory BaseUnitMeasure
-| UBL-CR-599 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:ClassifiedTaxCategory/cbc:BaseUnitMeasure)
+.3+| UBL-CR-599 *(warning)*
 | [UBL-CR-599]-A UBL invoice should not include the InvoiceLine Item ClassifiedTaxCategory PerUnitAmount
-| UBL-CR-600 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:ClassifiedTaxCategory/cbc:PerUnitAmount)
+.3+| UBL-CR-600 *(warning)*
 | [UBL-CR-600]-A UBL invoice should not include the InvoiceLine Item ClassifiedTaxCategory TaxExemptionReasonCode
-| UBL-CR-601 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:ClassifiedTaxCategory/cbc:TaxExemptionReasonCode)
+.3+| UBL-CR-601 *(warning)*
 | [UBL-CR-601]-A UBL invoice should not include the InvoiceLine Item ClassifiedTaxCategory TaxExemptionReason
-| UBL-CR-602 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:ClassifiedTaxCategory/cbc:TaxExemptionReason)
+.3+| UBL-CR-602 *(warning)*
 | [UBL-CR-602]-A UBL invoice should not include the InvoiceLine Item ClassifiedTaxCategory TierRange
-| UBL-CR-603 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:ClassifiedTaxCategory/cbc:TierRange)
+.3+| UBL-CR-603 *(warning)*
 | [UBL-CR-603]-A UBL invoice should not include the InvoiceLine Item ClassifiedTaxCategory TierRatePercent
-| UBL-CR-604 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:ClassifiedTaxCategory/cbc:TierRatePercent)
+.3+| UBL-CR-604 *(warning)*
 | [UBL-CR-604]-A UBL invoice should not include the InvoiceLine Item ClassifiedTaxCategory TaxScheme Name
-| UBL-CR-605 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:ClassifiedTaxCategory/cac:TaxScheme/cbc:Name)
+.3+| UBL-CR-605 *(warning)*
 | [UBL-CR-605]-A UBL invoice should not include the InvoiceLine Item ClassifiedTaxCategory TaxScheme TaxTypeCode
-| UBL-CR-606 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:ClassifiedTaxCategory/cac:TaxScheme/cbc:TaxTypeCode)
+.3+| UBL-CR-606 *(warning)*
 | [UBL-CR-606]-A UBL invoice should not include the InvoiceLine Item ClassifiedTaxCategory TaxScheme CurrencyCode
-| UBL-CR-607 *(warning)*
-| [UBL-CR-607]-A UBL invoice should not include the InvoiceLine Item ClassifiedTaxCategory TaxScheme JurisdiccionRegionAddress
-| UBL-CR-608 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:ClassifiedTaxCategory/cac:TaxScheme/cbc:CurrencyCode)
+.3+| UBL-CR-607 *(warning)*
+| [UBL-CR-607]-A UBL invoice should not include the InvoiceLine Item ClassifiedTaxCategory TaxScheme JurisdictionRegionAddress
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:ClassifiedTaxCategory/cac:TaxScheme/cac:JurisdictionRegionAddress)
+.3+| UBL-CR-608 *(warning)*
 | [UBL-CR-608]-A UBL invoice should not include the InvoiceLine Item AdditionalItemProperty ID
-| UBL-CR-609 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:AdditionalItemProperty/cbc:ID)
+.3+| UBL-CR-609 *(warning)*
 | [UBL-CR-609]-A UBL invoice should not include the InvoiceLine Item AdditionalItemProperty NameCode
-| UBL-CR-610 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:AdditionalItemProperty/cbc:NameCode)
+.3+| UBL-CR-610 *(warning)*
 | [UBL-CR-610]-A UBL invoice should not include the InvoiceLine Item AdditionalItemProperty TestMethod
-| UBL-CR-611 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:AdditionalItemProperty/cbc:TestMethod)
+.3+| UBL-CR-611 *(warning)*
 | [UBL-CR-611]-A UBL invoice should not include the InvoiceLine Item AdditionalItemProperty ValueQuantity
-| UBL-CR-612 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:AdditionalItemProperty/cbc:ValueQuantity)
+.3+| UBL-CR-612 *(warning)*
 | [UBL-CR-612]-A UBL invoice should not include the InvoiceLine Item AdditionalItemProperty ValueQualifier
-| UBL-CR-613 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:AdditionalItemProperty/cbc:ValueQualifier)
+.3+| UBL-CR-613 *(warning)*
 | [UBL-CR-613]-A UBL invoice should not include the InvoiceLine Item AdditionalItemProperty ImportanceCode
-| UBL-CR-614 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:AdditionalItemProperty/cbc:ImportanceCode)
+.3+| UBL-CR-614 *(warning)*
 | [UBL-CR-614]-A UBL invoice should not include the InvoiceLine Item AdditionalItemProperty ListValue
-| UBL-CR-615 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:AdditionalItemProperty/cbc:ListValue)
+.3+| UBL-CR-615 *(warning)*
 | [UBL-CR-615]-A UBL invoice should not include the InvoiceLine Item AdditionalItemProperty UsabilityPeriod
-| UBL-CR-616 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:AdditionalItemProperty/cac:UsabilityPeriod)
+.3+| UBL-CR-616 *(warning)*
 | [UBL-CR-616]-A UBL invoice should not include the InvoiceLine Item AdditionalItemProperty ItemPropertyGroup
-| UBL-CR-617 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:AdditionalItemProperty/cac:ItemPropertyGroup)
+.3+| UBL-CR-617 *(warning)*
 | [UBL-CR-617]-A UBL invoice should not include the InvoiceLine Item AdditionalItemProperty RangeDimension
-| UBL-CR-618 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:AdditionalItemProperty/cac:RangeDimension)
+.3+| UBL-CR-618 *(warning)*
 | [UBL-CR-618]-A UBL invoice should not include the InvoiceLine Item AdditionalItemProperty ItemPropertyRange
-| UBL-CR-619 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:AdditionalItemProperty/cac:ItemPropertyRange)
+.3+| UBL-CR-619 *(warning)*
 | [UBL-CR-619]-A UBL invoice should not include the InvoiceLine Item ManufacturerParty
-| UBL-CR-620 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:ManufacturerParty)
+.3+| UBL-CR-620 *(warning)*
 | [UBL-CR-620]-A UBL invoice should not include the InvoiceLine Item InformationContentProviderParty
-| UBL-CR-621 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:InformationContentProviderParty)
+.3+| UBL-CR-621 *(warning)*
 | [UBL-CR-621]-A UBL invoice should not include the InvoiceLine Item OriginAddress
-| UBL-CR-622 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:OriginAddress)
+.3+| UBL-CR-622 *(warning)*
 | [UBL-CR-622]-A UBL invoice should not include the InvoiceLine Item ItemInstance
-| UBL-CR-623 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:ItemInstance)
+.3+| UBL-CR-623 *(warning)*
 | [UBL-CR-623]-A UBL invoice should not include the InvoiceLine Item Certificate
-| UBL-CR-624 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:Certificate)
+.3+| UBL-CR-624 *(warning)*
 | [UBL-CR-624]-A UBL invoice should not include the InvoiceLine Item Dimension
-| UBL-CR-625 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Item/cac:Dimension)
+.3+| UBL-CR-625 *(warning)*
 | [UBL-CR-625]-A UBL invoice should not include the InvoiceLine Item Price PriceChangeReason
-| UBL-CR-626 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Price/cbc:PriceChangeReason)
+.3+| UBL-CR-626 *(warning)*
 | [UBL-CR-626]-A UBL invoice should not include the InvoiceLine Item Price PriceTypeCode
-| UBL-CR-627 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Price/cbc:PriceTypeCode)
+.3+| UBL-CR-627 *(warning)*
 | [UBL-CR-627]-A UBL invoice should not include the InvoiceLine Item Price PriceType
-| UBL-CR-628 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Price/cbc:PriceType)
+.3+| UBL-CR-628 *(warning)*
 | [UBL-CR-628]-A UBL invoice should not include the InvoiceLine Item Price OrderableUnitFactorRate
-| UBL-CR-629 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Price/cbc:OrderableUnitFactorRate)
+.3+| UBL-CR-629 *(warning)*
 | [UBL-CR-629]-A UBL invoice should not include the InvoiceLine Item Price ValidityPeriod
-| UBL-CR-630 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Price/cbc:ValidityPeriod)
+.3+| UBL-CR-630 *(warning)*
 | [UBL-CR-630]-A UBL invoice should not include the InvoiceLine Item Price PriceList
-| UBL-CR-631 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Price/cbc:PriceList)
+.3+| UBL-CR-631 *(warning)*
 | [UBL-CR-631]-A UBL invoice should not include the InvoiceLine Item Price OrderableUnitFactorRate
-| UBL-CR-632 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Price/cbc:OrderableUnitFactorRate)
+.3+| UBL-CR-632 *(warning)*
 | [UBL-CR-632]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge ID
-| UBL-CR-633 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:ID)
+.3+| UBL-CR-633 *(warning)*
 | [UBL-CR-633]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge AllowanceChargeReasonCode
-| UBL-CR-634 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:AllowanceChargeReasonCode)
+.3+| UBL-CR-634 *(warning)*
 | [UBL-CR-634]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge AllowanceChargeReason
-| UBL-CR-635 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:AllowanceChargeReason)
+.3+| UBL-CR-635 *(warning)*
 | [UBL-CR-635]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge MultiplierFactorNumeric
-| UBL-CR-636 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:MultiplierFactorNumeric)
+.3+| UBL-CR-636 *(warning)*
 | [UBL-CR-636]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge PrepaidIndicator
-| UBL-CR-637 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:PrepaidIndicator)
+.3+| UBL-CR-637 *(warning)*
 | [UBL-CR-637]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge SequenceNumeric
-| UBL-CR-638 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:SequenceNumeric)
+.3+| UBL-CR-638 *(warning)*
 | [UBL-CR-638]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge AccountingCostCode
-| UBL-CR-639 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:AccountingCostCode)
+.3+| UBL-CR-639 *(warning)*
 | [UBL-CR-639]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge AccountingCost
-| UBL-CR-640 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:AccountingCost)
+.3+| UBL-CR-640 *(warning)*
 | [UBL-CR-640]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge PerUnitAmount
-| UBL-CR-641 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:PerUnitAmount)
+.3+| UBL-CR-641 *(warning)*
 | [UBL-CR-641]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge TaxCategory
-| UBL-CR-642 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cac:TaxCategory)
+.3+| UBL-CR-642 *(warning)*
 | [UBL-CR-642]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge TaxTotal
-| UBL-CR-643 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cac:TaxTotal)
+.3+| UBL-CR-643 *(warning)*
 | [UBL-CR-643]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge PaymentMeans
-| UBL-CR-644 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cac:PaymentMeans)
+.3+| UBL-CR-644 *(warning)*
 | [UBL-CR-644]-A UBL invoice should not include the InvoiceLine Item Price PricingExchangeRate
-| UBL-CR-645 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:Price/cac:PricingExchangeRate)
+.3+| UBL-CR-645 *(warning)*
 | [UBL-CR-645]-A UBL invoice should not include the InvoiceLine DeliveryTerms
-| UBL-CR-646 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:DeliveryTerms)
+.3+| UBL-CR-646 *(warning)*
 | [UBL-CR-646]-A UBL invoice should not include the InvoiceLine SubInvoiceLine
-| UBL-CR-647 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:SubInvoiceLine)
+.3+| UBL-CR-647 *(warning)*
 | [UBL-CR-647]-A UBL invoice should not include the InvoiceLine ItemPriceExtension
-| UBL-CR-648 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not((cac:InvoiceLine\|cac:CreditNoteLine)/cac:ItemPriceExtension)
+.3+| UBL-CR-648 *(warning)*
 | [UBL-CR-648]-A UBL invoice should not include the CustomizationID scheme identifier
-| UBL-CR-649 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cbc:CustomizationID/@schemeID)
+.3+| UBL-CR-649 *(warning)*
 | [UBL-CR-649]-A UBL invoice should not include the ProfileID scheme identifier
-| UBL-CR-650 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cbc:ProfileID/@schemeID)
+.3+| UBL-CR-650 *(warning)*
 | [UBL-CR-650]-A UBL invoice shall not include the Invoice ID scheme identifier
-| UBL-CR-651 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cbc:ID/@schemeID)
+.3+| UBL-CR-651 *(warning)*
 | [UBL-CR-651]-A UBL invoice should not include the SalesOrderID scheme identifier
-| UBL-CR-652 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cbc:SalesOrderID/@schemeID)
+.3+| UBL-CR-652 *(warning)*
 | [UBL-CR-652]-A UBL invoice should not include the PartyTaxScheme CompanyID scheme identifier
-| UBL-CR-653 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//cac:PartyTaxScheme/cbc:CompanyID/@schemeID)
+.3+| UBL-CR-653 *(warning)*
 | [UBL-CR-653]-A UBL invoice should not include the PaymentID scheme identifier
-| UBL-CR-654 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cbc:PaymentID/@schemeID)
+.3+| UBL-CR-654 *(warning)*
 | [UBL-CR-654]-A UBL invoice should not include the PayeeFinancialAccount scheme identifier
-| UBL-CR-655 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PayeeFinancialAccount/cbc:ID/@schemeID)
+.3+| UBL-CR-655 *(warning)*
 | [UBL-CR-655]-A UBL invoice shall not include the FinancialInstitutionBranch ID scheme identifier
-| UBL-CR-656 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID/@schemeID)
+.3+| UBL-CR-656 *(warning)*
 | [UBL-CR-656]-A UBL invoice should not include the InvoiceTypeCode listID
-| UBL-CR-657 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cbc:InvoiceTypeCode/@listID)
+.3+| UBL-CR-657 *(warning)*
 | [UBL-CR-657]-A UBL invoice should not include the DocumentCurrencyCode listID
-| UBL-CR-658 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cbc:DocumentCurrencyCode/@listID)
+.3+| UBL-CR-658 *(warning)*
 | [UBL-CR-658]-A UBL invoice should not include the TaxCurrencyCode listID
-| UBL-CR-659 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cbc:TaxCurrencyCode/@listID)
+.3+| UBL-CR-659 *(warning)*
 | [UBL-CR-659]-A UBL invoice shall not include the AdditionalDocumentReference DocumentTypeCode listID
-| UBL-CR-660 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:AdditionalDocumentReference/cbc:DocumentTypeCode/@listID)
+.3+| UBL-CR-660 *(warning)*
 | [UBL-CR-660]-A UBL invoice should not include the Country Identification code listID
-| UBL-CR-661 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//cac:Country/cbc:IdentificationCode/@listID)
+.3+| UBL-CR-661 *(warning)*
 | [UBL-CR-661]-A UBL invoice should not include the PaymentMeansCode listID
-| UBL-CR-662 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cbc:PaymentMeansCode/@listID)
+.3+| UBL-CR-662 *(warning)*
 | [UBL-CR-662]-A UBL invoice should not include the AllowanceChargeReasonCode listID
-| UBL-CR-663 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//cbc:AllowanceChargeReasonCode/@listID)
+.3+| UBL-CR-663 *(warning)*
 | [UBL-CR-663]-A UBL invoice should not include the unitCodeListID
-| UBL-CR-664 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//@unitCodeListID)
+.3+| UBL-CR-664 *(warning)*
 | [UBL-CR-664]-A UBL invoice should not include the FinancialInstitutionBranch FinancialInstitution
-| UBL-CR-665 *(warning)*
-| [UBL-CR-665]-A UBL invoice should not include the AdditonalDocumentReference ID schemeID unless the ID equals '130'
-| UBL-CR-666 *(warning)*
-| [UBL-CR-666]-A UBL invoice should not include the AdditonalDocumentReference referring to an Invoice Object Identifier should not include an Attachment
-| UBL-CR-667 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//cac:FinancialInstitution)
+.3+| UBL-CR-665 *(warning)*
+| [UBL-CR-665]-A UBL invoice should not include the AdditionalDocumentReference ID schemeID unless the DocumentTypeCode equals '130'
+| /ubl:Invoice \| /cn:CreditNote
+| not(//cac:AdditionalDocumentReference[cbc:DocumentTypeCode != '130' or not(cbc:DocumentTypeCode)]/cbc:ID/@schemeID)
+.3+| UBL-CR-666 *(fatal)*
+| [UBL-CR-666]-A UBL invoice shall not include an AdditionalDocumentReference simultaneously referring an Invoice Object Identifier and an Attachment
+| /ubl:Invoice \| /cn:CreditNote
+| not(//cac:AdditionalDocumentReference[cbc:DocumentTypeCode = '130']/cac:Attachment)
+.3+| UBL-CR-667 *(warning)*
 | [UBL-CR-667]-A UBL invoice should not include a Buyer Item Identification schemeID
-| UBL-CR-668 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//cac:BuyersItemIdentification/cbc:ID/@schemeID)
+.3+| UBL-CR-668 *(warning)*
 | [UBL-CR-668]-A UBL invoice should not include a Sellers Item Identification schemeID
-| UBL-CR-669 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//cac:SellersItemIdentification/cbc:ID/@schemeID)
+.3+| UBL-CR-669 *(warning)*
 | [UBL-CR-669]-A UBL invoice should not include a Price Allowance Reason Code
-| UBL-CR-670 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//cac:Price/cac:AllowanceCharge/cbc:AllowanceChargeReasonCode)
+.3+| UBL-CR-670 *(warning)*
 | [UBL-CR-670]-A UBL invoice should not include a Price Allowance Reason
-| UBL-CR-671 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//cac:Price/cac:AllowanceCharge/cbc:AllowanceChargeReason)
+.3+| UBL-CR-671 *(warning)*
 | [UBL-CR-671]-A UBL invoice should not include a Price Allowance Multiplier Factor
-| UBL-CR-672 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//cac:Price/cac:AllowanceCharge/cbc:MultiplierFactorNumeric)
+.3+| UBL-CR-672 *(warning)*
 | [UBL-CR-672]-A UBL credit note should not include the CreditNoteTypeCode listID
-| UBL-DT-01 *(fatal)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(cbc:CreditNoteTypeCode/@listID)
+.3+| UBL-CR-673 *(fatal)*
+| [UBL-CR-673]-A UBL invoice shall not include an AdditionalDocumentReference simultaneously referring an Invoice Object Identifier and an Document Description
+| /ubl:Invoice \| /cn:CreditNote
+| not(//cac:AdditionalDocumentReference[cbc:DocumentTypeCode  = '130']/cbc:DocumentDescription)
+.3+| UBL-CR-674 *(warning)*
+| [UBL-CR-674]-A UBL invoice should not include the PrimaryAccountNumber schemeID
+| /ubl:Invoice \| /cn:CreditNote
+| not(//cbc:PrimaryAccountNumber/@schemeID)
+.3+| UBL-CR-675 *(warning)*
+| [UBL-CR-675]-A UBL invoice should not include the NetworkID schemeID
+| /ubl:Invoice \| /cn:CreditNote
+| not(//cac:CardAccount/cbc:NetworkID/@schemeID)
+.3+| UBL-CR-676 *(warning)*
+| [UBL-CR-676]-A UBL invoice should not include the PaymentMandate/ID schemeID
+| /ubl:Invoice \| /cn:CreditNote
+| not(//cac:PaymentMandate/cbc:ID/@schemeID)
+.3+| UBL-CR-677 *(warning)*
+| [UBL-CR-677]-A UBL invoice should not include the PayerFinancialAccount/ID schemeID
+| /ubl:Invoice \| /cn:CreditNote
+| not(//cac:PaymentMandate/cac:PayerFinancialAccount/cbc:ID/@schemeID)
+.3+| UBL-CR-678 *(warning)*
+| [UBL-CR-678]-A UBL invoice should not include the TaxCategory/ID schemeID
+| /ubl:Invoice \| /cn:CreditNote
+| not(//cac:TaxCategory/cbc:ID/@schemeID)
+.3+| UBL-CR-679 *(warning)*
+| [UBL-CR-679]-A UBL invoice should not include the ClassifiedTaxCategory/ID schemeID
+| /ubl:Invoice \| /cn:CreditNote
+| not(//cac:ClassifiedTaxCategory/cbc:ID/@schemeID)
+.3+| UBL-CR-680 *(warning)*
+| [UBL-CR-680]-A UBL invoice should not include the PaymentMeans/PayerFinancialAccount
+| /ubl:Invoice \| /cn:CreditNote
+| not(//cac:PaymentMeans/cac:PayerFinancialAccount)
+.3+| UBL-CR-681 *(warning)*
+| [UBL-CR-681]-A UBL invoice should not include the PaymentMeans InstructionNote
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:PaymentMeans/cbc:InstructionNote)
+.3+| UBL-CR-682 *(warning)*
+| [UBL-CR-682]-A UBL invoice should not include the Delivery DeliveryAddress
+| /ubl:Invoice \| /cn:CreditNote
+| not(cac:Delivery/cac:DeliveryAddress)
+.3+| UBL-DT-01 *(fatal)*
 | [UBL-DT-01]-Amounts shall be decimal up to two fraction digits
-| UBL-DT-06 *(fatal)*
+| //*[ends-with(name(), 'Amount') and not(ends-with(name(),'PriceAmount')) and not(ancestor::cac:Price/cac:AllowanceCharge)]
+| string-length(substring-after(.,'.'))<=2
+.3+| UBL-DT-06 *(fatal)*
 | [UBL-DT-06]-Binary object elements shall contain the mime code attribute
-| UBL-DT-07 *(fatal)*
+| //*[ends-with(name(), 'BinaryObject')]
+| (@mimeCode)
+.3+| UBL-DT-07 *(fatal)*
 | [UBL-DT-07]-Binary object elements shall contain the file name attribute
-| UBL-DT-08 *(warning)*
+| //*[ends-with(name(), 'BinaryObject')]
+| (@filename)
+.3+| UBL-DT-08 *(warning)*
 | [UBL-DT-08]-Scheme name attribute should not be present
-| UBL-DT-09 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//@schemeName)
+.3+| UBL-DT-09 *(warning)*
 | [UBL-DT-09]-Scheme agency name attribute should not be present
-| UBL-DT-10 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//@schemeAgencyName)
+.3+| UBL-DT-10 *(warning)*
 | [UBL-DT-10]-Scheme data uri attribute should not be present
-| UBL-DT-11 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//@schemeDataURI)
+.3+| UBL-DT-11 *(warning)*
 | [UBL-DT-11]-Scheme uri attribute should not be present
-| UBL-DT-12 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//@schemeURI)
+.3+| UBL-DT-12 *(warning)*
 | [UBL-DT-12]-Format attribute should not be present
-| UBL-DT-13 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//@format)
+.3+| UBL-DT-13 *(warning)*
 | [UBL-DT-13]-Unit code list identifier attribute should not be present
-| UBL-DT-14 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//@unitCodeListIdentifier)
+.3+| UBL-DT-14 *(warning)*
 | [UBL-DT-14]-Unit code list agency identifier attribute should not be present
-| UBL-DT-15 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//@unitCodeListAgencyIdentifier)
+.3+| UBL-DT-15 *(warning)*
 | [UBL-DT-15]-Unit code list agency name attribute should not be present
-| UBL-DT-16 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//@unitCodeListAgencyName)
+.3+| UBL-DT-16 *(warning)*
 | [UBL-DT-16]-List agency name attribute should not be present
-| UBL-DT-17 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//@listAgencyName)
+.3+| UBL-DT-17 *(warning)*
 | [UBL-DT-17]-List name attribute should not be present
-| UBL-DT-18 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//@listName)
+.3+| UBL-DT-18 *(warning)*
 | [UBL-DT-18]-Name attribute should not be present
-| UBL-DT-19 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| count(//@name) - count(//cbc:PaymentMeansCode/@name) <= 0
+.3+| UBL-DT-19 *(warning)*
 | [UBL-DT-19]-Language identifier attribute should not be present
-| UBL-DT-20 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//@languageID)
+.3+| UBL-DT-20 *(warning)*
 | [UBL-DT-20]-List uri attribute should not be present
-| UBL-DT-21 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//@listURI)
+.3+| UBL-DT-21 *(warning)*
 | [UBL-DT-21]-List scheme uri attribute should not be present
-| UBL-DT-22 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//@listSchemeURI)
+.3+| UBL-DT-22 *(warning)*
 | [UBL-DT-22]-Language local identifier attribute should not be present
-| UBL-DT-23 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//@languageLocaleID)
+.3+| UBL-DT-23 *(warning)*
 | [UBL-DT-23]-Uri attribute should not be present
-| UBL-DT-24 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//@uri)
+.3+| UBL-DT-24 *(warning)*
 | [UBL-DT-24]-Currency code list version id should not be present
-| UBL-DT-25 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//@currencyCodeListVersionID)
+.3+| UBL-DT-25 *(warning)*
 | [UBL-DT-25]-CharacterSetCode attribute should not be present
-| UBL-DT-26 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//@characterSetCode)
+.3+| UBL-DT-26 *(warning)*
 | [UBL-DT-26]-EncodingCode attribute should not be present
-| UBL-DT-27 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//@encodingCode)
+.3+| UBL-DT-27 *(warning)*
 | [UBL-DT-27]-Scheme Agency ID attribute should not be present
-| UBL-DT-28 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//@schemeAgencyID)
+.3+| UBL-DT-28 *(warning)*
 | [UBL-DT-28]-List Agency ID attribute should not be present
-| UBL-SR-01 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| not(//@listAgencyID)
+.3+| UBL-SR-01 *(fatal)*
 | [UBL-SR-01]-Contract identifier shall occur maximum once.
-| UBL-SR-02 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| (count(cac:ContractDocumentReference/cbc:ID) <= 1)
+.3+| UBL-SR-02 *(fatal)*
 | [UBL-SR-02]-Receive advice identifier shall occur maximum once
-| UBL-SR-03 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| (count(cac:ReceiptDocumentReference/cbc:ID) <= 1)
+.3+| UBL-SR-03 *(fatal)*
 | [UBL-SR-03]-Despatch advice identifier shall occur maximum once
-| UBL-SR-04 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| (count(cac:DespatchDocumentReference/cbc:ID) <= 1)
+.3+| UBL-SR-04 *(fatal)*
 | [UBL-SR-04]-Invoice object identifier shall occur maximum once
-| UBL-SR-05 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| (count(cac:AdditionalDocumentReference[cbc:DocumentTypeCode='130']/cbc:ID) <= 1)
+.3+| UBL-SR-05 *(fatal)*
 | [UBL-SR-05]-Payment terms shall occur maximum once
-| UBL-SR-06 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| (count(cac:PaymentTerms/cbc:Note) <= 1)
+.3+| UBL-SR-06 *(fatal)*
 | [UBL-SR-06]-Preceding invoice reference shall occur maximum once
-| UBL-SR-07 *(warning)*
+| cac:BillingReference
+| (count(cac:InvoiceDocumentReference) <= 1)
+.3+| UBL-SR-07 *(fatal)*
 | [UBL-SR-07]-If there is a preceding invoice reference, the preceding invoice number shall be present
-| UBL-SR-08 *(warning)*
+| cac:BillingReference
+| (cac:InvoiceDocumentReference/cbc:ID)
+.3+| UBL-SR-08 *(fatal)*
 | [UBL-SR-08]-Invoice period shall occur maximum once
-| UBL-SR-09 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| (count(cac:InvoicePeriod) <= 1)
+.3+| UBL-SR-09 *(fatal)*
 | [UBL-SR-09]-Seller name shall occur maximum once
-| UBL-SR-10 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| (count(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName) <= 1)
+.3+| UBL-SR-10 *(fatal)*
 | [UBL-SR-10]-Seller trader name shall occur maximum once
-| UBL-SR-11 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| (count(cac:AccountingSupplierParty/cac:Party/cac:PartyName/cbc:Name) <= 1)
+.3+| UBL-SR-11 *(fatal)*
 | [UBL-SR-11]-Seller legal registration identifier shall occur maximum once
-| UBL-SR-12 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| (count(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID) <= 1)
+.3+| UBL-SR-12 *(fatal)*
 | [UBL-SR-12]-Seller VAT identifier shall occur maximum once
-| UBL-SR-13 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| (count(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/upper-case(cbc:ID)='VAT']/cbc:CompanyID) <= 1)
+.3+| UBL-SR-13 *(fatal)*
 | [UBL-SR-13]-Seller tax registration shall occur maximum once
-| UBL-SR-14 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| (count(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/upper-case(cbc:ID)!='VAT']/cbc:CompanyID) <= 1)
+.3+| UBL-SR-14 *(fatal)*
 | [UBL-SR-14]-Seller additional legal information shall occur maximum once
-| UBL-SR-15 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| (count(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLegalForm) <= 1)
+.3+| UBL-SR-15 *(fatal)*
 | [UBL-SR-15]-Buyer name shall occur maximum once
-| UBL-SR-16 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| (count(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName) <= 1)
+.3+| UBL-SR-16 *(fatal)*
 | [UBL-SR-16]-Buyer identifier shall occur maximum once
-| UBL-SR-17 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| (count(cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification/cbc:ID) <= 1)
+.3+| UBL-SR-17 *(fatal)*
 | [UBL-SR-17]-Buyer legal registration identifier shall occur maximum once
-| UBL-SR-18 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| (count(cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID) <= 1)
+.3+| UBL-SR-18 *(fatal)*
 | [UBL-SR-18]-Buyer VAT identifier shall occur maximum once
-| UBL-SR-19 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| (count(cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/upper-case(cbc:ID)='VAT']/cbc:CompanyID) <= 1)
+.3+| UBL-SR-19 *(fatal)*
 | [UBL-SR-19]-Payee name shall occur maximum once, if the Payee is different from the Seller
-| UBL-SR-20 *(warning)*
+| cac:PayeeParty
+| (count(cac:PartyName/cbc:Name) <= 1) and ((cac:PartyName/cbc:Name) != (../cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName))
+.3+| UBL-SR-20 *(fatal)*
 | [UBL-SR-20]-Payee identifier shall occur maximum once, if the Payee is different from the Seller
-| UBL-SR-21 *(warning)*
+| cac:PayeeParty
+| (count(cac:PartyIdentification/cbc:ID[upper-case(@schemeID) != 'SEPA']) <= 1) and ((cac:PartyName/cbc:Name) != (../cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName))
+.3+| UBL-SR-21 *(fatal)*
 | [UBL-SR-21]-Payee legal registration identifier shall occur maximum once, if the Payee is different from the Seller
-| UBL-SR-22 *(warning)*
+| cac:PayeeParty
+| (count(cac:PartyLegalEntity/cbc:CompanyID) <= 1) and ((cac:PartyName/cbc:Name) != (../cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName))
+.3+| UBL-SR-22 *(fatal)*
 | [UBL-SR-22]-Seller tax representative name shall occur maximum once, if the Seller has a tax representative
-| UBL-SR-23 *(warning)*
+| cac:TaxRepresentativeParty
+| (count(cac:Party/cac:PartyName/cbc:Name) <= 1)
+.3+| UBL-SR-23 *(fatal)*
 | [UBL-SR-23]-Seller tax representative VAT identifier shall occur maximum once, if the Seller has a tax representative
-| UBL-SR-24 *(warning)*
+| cac:TaxRepresentativeParty
+| (count(cac:Party/cac:PartyTaxScheme/cbc:CompanyID) <= 1)
+.3+| UBL-SR-24 *(fatal)*
 | [UBL-SR-24]-Deliver to information shall occur maximum once
-| UBL-SR-25 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| (count(cac:Delivery) <= 1)
+.3+| UBL-SR-25 *(fatal)*
 | [UBL-SR-25]-Deliver to party name shall occur maximum once
-| UBL-SR-26 *(warning)*
+| cac:Delivery
+| (count(cac:DeliveryParty/cac:PartyName/cbc:Name) <= 1)
+.3+| UBL-SR-26 *(fatal)*
 | [UBL-SR-26]-Payment reference shall occur maximum once
-| UBL-SR-27 *(warning)*
+| cac:PaymentMeans
+| (count(cbc:PaymentID) <= 1)
+.3+| UBL-SR-27 *(fatal)*
 | [UBL-SR-27]-Payment means text shall occur maximum once
-| UBL-SR-28 *(warning)*
+| cac:PaymentMeans
+| (count(cbc:PaymentMeansCode) <= 1)
+.3+| UBL-SR-28 *(fatal)*
 | [UBL-SR-28]-Mandate reference identifier shall occur maximum once
-| UBL-SR-29 *(warning)*
+| cac:PaymentMeans
+| (count(cac:PaymentMandate/cbc:ID) <= 1)
+.3+| UBL-SR-29 *(fatal)*
 | [UBL-SR-29]-Bank creditor reference shall occur maximum once
-| UBL-SR-30 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| (count(//cac:PartyIdentification/cbc:ID[upper-case(@schemeID) = 'SEPA']) <= 1)
+.3+| UBL-SR-30 *(fatal)*
 | [UBL-SR-30]-Document level allowance reason shall occur maximum once
-| UBL-SR-31 *(warning)*
+| cac:AllowanceCharge[cbc:ChargeIndicator = false()]
+| (count(cbc:AllowanceChargeReason) <= 1)
+.3+| UBL-SR-31 *(fatal)*
 | [UBL-SR-31]-Document level charge reason shall occur maximum once
-| UBL-SR-32 *(warning)*
+| cac:AllowanceCharge[cbc:ChargeIndicator = true()]
+| (count(cbc:AllowanceChargeReason) <= 1)
+.3+| UBL-SR-32 *(fatal)*
 | [UBL-SR-32]-VAT exemption reason text shall occur maximum once
-| UBL-SR-33 *(warning)*
+| cac:TaxSubtotal
+| (count(cac:TaxCategory/cbc:TaxExemptionReason) <= 1)
+.3+| UBL-SR-33 *(fatal)*
 | [UBL-SR-33]-Supporting document description shall occur maximum once
-| UBL-SR-34 *(warning)*
+| cac:AdditionalDocumentReference
+| (count(cbc:DocumentDescription) <= 1)
+.3+| UBL-SR-34 *(fatal)*
 | [UBL-SR-34]-Invoice line note shall occur maximum once
-| UBL-SR-35 *(warning)*
+| cac:InvoiceLine \| cac:CreditNoteLine
+| (count(cbc:Note) <= 1)
+.3+| UBL-SR-35 *(fatal)*
 | [UBL-SR-35]-Referenced purchase order line identifier shall occur maximum once
-| UBL-SR-36 *(warning)*
+| cac:InvoiceLine \| cac:CreditNoteLine
+| (count(cac:OrderLineReference/cbc:LineID) <= 1)
+.3+| UBL-SR-36 *(fatal)*
 | [UBL-SR-36]-Invoice line period shall occur maximum once
-| UBL-SR-37 *(warning)*
+| cac:InvoiceLine \| cac:CreditNoteLine
+| (count(cac:InvoicePeriod) <= 1)
+.3+| UBL-SR-37 *(fatal)*
 | [UBL-SR-37]-Item price discount shall occur maximum once
-| UBL-SR-38 *(warning)*
-| [UBL-SR-38]-Invoiced item VAT exemption reason text shall occur maximum once
-| UBL-SR-39 *(warning)*
+| cac:InvoiceLine \| cac:CreditNoteLine
+| (count(cac:Price/cac:AllowanceCharge/cbc:Amount) <= 1)
+.3+| UBL-SR-39 *(fatal)*
 | [UBL-SR-39]-Project reference shall occur maximum once.
-| UBL-SR-40 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| (count(cac:ProjectReference/cbc:ID) <= 1)
+.3+| UBL-SR-40 *(fatal)*
 | [UBL-SR-40]-Buyer trade name shall occur maximum once
-| UBL-SR-42 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| (count(cac:AccountingCustomerParty/cac:Party/cac:PartyName/cbc:Name) <= 1)
+.3+| UBL-SR-42 *(fatal)*
 | [UBL-SR-42]-Party tax scheme shall occur maximum twice in accounting supplier party
-| UBL-SR-43 *(warning)*
+| cac:AccountingSupplierParty/cac:Party
+| (count(cac:PartyTaxScheme) <= 2)
+.3+| UBL-SR-43 *(fatal)*
 | [UBL-SR-43]-Scheme identifier shall only be used for invoiced object (document type code with value 130)
-| UBL-SR-44 *(warning)*
-| [UBL-SR-44]-Payment ID shall occur maximum once
-| UBL-SR-45 *(warning)*
+| cac:AdditionalDocumentReference
+| ((cbc:DocumentTypeCode='130') or ((local-name(/*) = 'CreditNote') and (cbc:DocumentTypeCode='50')) or (not(cbc:ID/@scheme) and not(cbc:DocumentTypeCode)))
+.3+| UBL-SR-44 *(fatal)*
+| [UBL-SR-44]-An Invoice may only have one unique PaymentID, but the PaymentID may be used for multiple PaymentMeans
+| /ubl:Invoice \| /cn:CreditNote
+| count(//cbc:PaymentID[not(preceding::cbc:PaymentID/. = .)]) <= 1
+.3+| UBL-SR-45 *(fatal)*
 | [UBL-SR-45]-Due Date shall occur maximum once
-| UBL-SR-46 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| (count(cac:PaymentMeans/cbc:PaymentDueDate) <=1)
+.3+| UBL-SR-46 *(fatal)*
 | [UBL-SR-46]-Payment means text shall occur maximum once
-| UBL-SR-47 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| (count(cac:PaymentMeans/cbc:PaymentMeansCode/@name) <=1)
+.3+| UBL-SR-47 *(fatal)*
 | [UBL-SR-47]-When there are more than one payment means code, they shall be equal
-| UBL-SR-48 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| count(//cbc:PaymentMeansCode[not(preceding::cbc:PaymentMeansCode/. = .)]) <= 1
+.3+| UBL-SR-48 *(fatal)*
 | [UBL-SR-48]-Invoice lines shall have one and only one classified tax category.
-| UBL-SR-49 *(warning)*
+| cac:InvoiceLine \| cac:CreditNoteLine
+| count(cac:Item/cac:ClassifiedTaxCategory) = 1
+.3+| UBL-SR-49 *(fatal)*
 | [UBL-SR-49]-Value tax point date shall occur maximum once
-| UBL-SR-50 *(warning)*
+| /ubl:Invoice \| /cn:CreditNote
+| (count(cac:InvoicePeriod/cbc:DescriptionCode) <=1)
+.3+| UBL-SR-50 *(fatal)*
 | [UBL-SR-50]-Item description shall occur maximum once
+| cac:InvoiceLine \| cac:CreditNoteLine
+| count(cac:Item/cbc:Description) <= 1
+.3+| UBL-SR-51 *(fatal)*
+| [UBL-SR-51]-An address can only have one third line.
+| //cac:AddressLine
+| count(cbc:Line) = 1
+.3+| UBL-SR-52 *(fatal)*
+| [UBL-SR-52]-Document reference shall occur maximum once
+| cac:InvoiceLine \| cac:CreditNoteLine
+| count(cac:DocumentReference) <= 1

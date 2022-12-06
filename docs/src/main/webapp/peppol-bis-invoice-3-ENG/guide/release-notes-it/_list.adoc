@@ -6,6 +6,31 @@
 ^.^| Date
 ^.^| What’s new
 
+| 3.0.13.3(IT)
+a| 06/12/2022
+a| _Update to specifications https://docs.peppol.eu/poacc/billing/3.0/2022-Q4/release-notes/[PEPPOL BIS 3.0.10 - November release 2022]_. +
+
+Effective as of *06 February 2023*
+
+[red]#Changes to specification (Documentation)# +
+
+* Removed the "Last updated" indication in the footer;
+
+[red]#Changes to code lists and validation artifacts# +
+
+* Changed the severity of the PEPPOL-COMMON-R049 (ICD 0007) rule for the validation of the format of the "Swedish organization number" from "warning" to "fatal", as announced in the May Release 2022;
+* Corrected the PEPPOL-COMMON-R050 rule for the validation of the "Australian Business Number (ABN)";
+* Added US code 9959 to EAS encoding. Removed the Italian codes 9906 and 9907 from the same coding. Adjusted the validation artifacts;
+* Added codes 0217 (Netherlands), 0218, 0219 and 0220 (Latvia) to the ICD coding and adjusted the validation artifacts;
+* Corrected specific business rules deriving from updates to EN16931 and related schematrons (for more information, see the link: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.9).
+
+[red]#Country Specific Rule Changes# +
+
+* Updated rules GR-S-008-1, GR-R-008-2 and GR-R-008-3, requiring the string \\##INVOICE\|URL## instead of \\##INVOICE-URL## (POAC-518);
+* Eliminated the rule DK-R-015;
+* Correction of rules text DK-R-004 PEPPOL UBL & CII;
+* Correction of DK-R-003 PEPPOL CII rule text.
+
 | 3.0.13.2(IT)
 a| 24/06/2022
 a| [red]#Changes in the Documentation section# +

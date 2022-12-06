@@ -6,6 +6,33 @@
 ^.^| Date
 ^.^| What's new
 
+| 3.1.0.8(IT)
+a| 06/12/2022
+a| _Update to specifications https://docs.peppol.eu/poacc/upgrade-3/2022-Q4/release-notes/[PEPPOL BIS 3.0.10 - November release 2022]_. +
+
+Effective as of *06 February 2023*
+
+[red]#Changes to specification (Documentation)#
+
+* Removed the "Last updated" indication in the footer;
+* Updated examples to reflect syntax changes.
+
+[red]#Syntax changes#
+
+* Added cbc:SalesOrderLineID - Sales order line identifier as an optional field on the DDT line level;
+* Added cac:CommodityClassification – Product classification as optional structure at line level of DDT;
+* Added cac:AdditionalDocumentReference – Additional documents as an optional header-level structure. Added cac:DocumentsReference – Additional document reference as a row-level structure;
+* Added cac:ShipmentStage – Shipment status information as an optional structure at the header level. The related field cbc:TransportModeCode - Mode of transport is optional and can be filled in using the UN/ECE Recommendation 19 codelist;
+* Implemented the request of the Italian Peppol Authority to insert the structure cac:PartyIdentification of the Carrier (cac:CarrierParty), which is now no longer an extension of the Italian syntax;
+* Implemented the request of the Italian Peppol Authority to make the cbc:DeliveredQuantity field of the cac:DespatchLine structure mandatory.
+
+[red]#Changes to code lists and validation artifacts#
+
+* Changed the severity of the PEPPOL-COMMON-R049 (ICD 0007) rule for the validation of the format of the "Swedish organization number" from "warning" to "fatal", as announced in the May Release 2022;
+* Corrected the PEPPOL-COMMON-R050 rule for the validation of the "Australian Business Number (ABN)";
+* Added US code 9959 to EAS encoding. Removed the Italian codes 9906 and 9907 from the same coding. Adjusted the validation artifacts;
+* Added codes 0217 (Netherlands), 0218, 0219 and 0220 (Latvia) to the ICD encoding and adjusted the validation artifacts.
+
 | 3.1.0.7(IT)
 a| 27/05/2022
 a|  _Update to https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3.0.9 - may release 2022]_. +

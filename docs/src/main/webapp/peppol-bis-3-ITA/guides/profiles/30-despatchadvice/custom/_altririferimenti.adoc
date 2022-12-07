@@ -22,7 +22,7 @@ L’elemento <cac:DocumentType> tuttavia è di tipo testuale è può essere quin
 cac:DespatchLine/cac:DocumentReference (0..n)
 
 | CUP
-| Codice Unico Progetto
+| Codice Unico di Progetto
 | cac:AdditionalDocumentReference (0..n)
 cac:DespatchLine/cac:DocumentReference (0..n)
 

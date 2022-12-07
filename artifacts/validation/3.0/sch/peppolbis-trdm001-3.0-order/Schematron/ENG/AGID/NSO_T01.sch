@@ -4,7 +4,7 @@
         schemaVersion="iso"
         queryBinding="xslt2">
 
-    <title>NSO checks for PEPPOL Order transaction 3.0 tracing</title>
+    <title>Controlli NSO per il tracciato PEPPOL Order transaction 3.0</title>
 
     <!-- DEFINIZIONE NAMESPACES -->
    
@@ -189,7 +189,7 @@
 				<sequence select="if ($hex = '') then 0 else ( $dec * u:hexToDec2(16, string-length($hex) - 1) + u:hexToDec(substring($hex,2)) )"/>
 			</when>
 			<otherwise>
-				<message>Provided value is not hexadecimal...</message>
+				<message>Il valore fornito non è esadecimale...</message>
 				<sequence select="0"/>
 			</otherwise>
 		</choose>
@@ -453,17 +453,17 @@
 			
             <!--Struttura ID errata-->
 			<assert id="NSO_040" test="if ($tipologia_ordine_ristretta = 'ERRORE_NSO40') then false() else true()" flag="fatal">
-				NSO_040 - The format of the element "cac:OrderDocumentReference/cbc:ID" is invalid (correct format example: "110#2018-01-30#aaaaaa#Revised").
+				NSO_040 - Il formato dell’elemento "cac:OrderDocumentReference/cbc:ID" non è valido (esempio di format corretto: "110#2018-01-30#aaaaaa#Revised").
 			</assert>
 
 			<!--Tipo documento non riconosciuto-->
 			<assert id="NSO_044" test="if ($tipologia_ordine_ristretta = 'ERRORE') then false() else true()" flag="fatal">
-				NSO_044 - In the element "cac:OrderDocumentReference/cbc:ID" the ReferenceType is invalid (the allowed values are: "Connected", "Accepted", "Cancelled", "Revised", "Invoice").
+				NSO_044 - Nell’elemento "cac:OrderDocumentReference/cbc:ID", il ReferenceType non è valorizzato correttamente (i valori ammessi sono: "Connected", "Accepted", "Cancelled", "Revised", "Invoice").
 			</assert>
 		
 			<!--Presenza di troppi OrderDocumentReference-->
 			<assert id="NSO_045" test="if ($tipologia_ordine_ristretta = 'ERRORE_NSO45') then false() else true()" flag="fatal">
-				NSO_045 - The Document contains more than one "cac:OrderDocumentReference" element.
+				NSO_045 – Il Documento contiene più di un elemento "cac:OrderDocumentReference".
 			</assert>
 		
 			<let name="INIZ" value="if ($tipologia_ordine_ristretta = 'INIZ') then true() else false()"/>
@@ -479,7 +479,7 @@
 		<rule abstract="true" id="verifica_codice_ipa">	
 			
 			<assert id="NSO_010" 
-				test="if(@schemeID=0201) then u:checkCodiceIPA(.) else true()" flag="fatal">NSO_010 - The IPA Code specified in the element is invalid.
+				test="if(@schemeID=0201) then u:checkCodiceIPA(.) else true()" flag="fatal">NSO_010 – Il Codice IPA indicato nell’elemento non è valido.
 			</assert>
 
 		</rule>
@@ -518,15 +518,15 @@
 			<extends rule="define_tipologia_ordine"/>
 
 			<assert id="NSO_042"
-                 test="not( (u:is($CONF) or u:is($SOST) or u:is($CANC) or u:is($CONN) or u:is($INVO)) and not (u:validationDate(u:getPartTokenizeID(.,2))) )" flag="fatal">NSO_042 - The format of the date in the element is incorrect (correct format example: "2020-01-31"). 
+                 test="not( (u:is($CONF) or u:is($SOST) or u:is($CANC) or u:is($CONN) or u:is($INVO)) and not (u:validationDate(u:getPartTokenizeID(.,2))) )" flag="fatal">NSO_042 – Il formato della data presente nell’elemento non è corretto (esempio corretto: "2020-01-31").
 			</assert>
 					
 			<assert id="NSO_043"
-                 test="not( (u:is($CONF) or u:is($SOST) or u:is($CANC) or u:is($CONN) or u:is($INVO)) and ( not ( u:checkPIVAseIT(u:getPartTokenizeID(.,3)) ) ) )" flag="fatal">NSO_043 - The EndpointID specified in the element  is not a valid value (correct value example: "IT01043931003"). 
+                 test="not( (u:is($CONF) or u:is($SOST) or u:is($CANC) or u:is($CONN) or u:is($INVO)) and ( not ( u:checkPIVAseIT(u:getPartTokenizeID(.,3)) ) ) )" flag="fatal">NSO_043 - L'EndpointID indicato nell’elemento non è un valore valido (esempio di valore corretto: "IT01043931003").
 			</assert>
 
 			<assert id="NSO_041"
-                 test="not( (u:is($CONF) or u:is($SOST) or u:is($CANC) or u:is($CONN) or u:is($INVO)) and ( (u:getPartTokenizeID(.,1)='') ) )" flag="fatal">NSO_041 - The ID in the element is not set.
+                 test="not( (u:is($CONF) or u:is($SOST) or u:is($CANC) or u:is($CONN) or u:is($INVO)) and ( (u:getPartTokenizeID(.,1)='') ) )" flag="fatal">NSO_041 - L'ID presente nell’elemento non è valorizzato.
 			</assert>			
 
 		</rule>
@@ -541,7 +541,7 @@
 			<extends rule="define_tipologia_ordine"/>
 			
 			<assert id="NSO_050"
-				test=" not( (u:is($CONF) or u:is($CANC)) and (count(cac:OrderLine) != 1)) " flag="fatal">NSO_050 – The Document contains more than one "cac:OrderLine" element.
+				test=" not( (u:is($CONF) or u:is($CANC)) and (count(cac:OrderLine) != 1)) " flag="fatal">NSO_050 – Il Documento contiene più di un elemento "cac:OrderLine".
 			</assert>
 
 		</rule>
@@ -550,7 +550,7 @@
 			<extends rule="define_tipologia_ordine"/>
 			
 			<assert id="NSO_051"
-				test=" not( (u:is($CONF) or u:is($CANC)) and (count(cbc:Note) != 0)) " flag="fatal">NSO_051 – The order line contains not allowed elements (the only element allowed is "LineItem").
+				test=" not( (u:is($CONF) or u:is($CANC)) and (count(cbc:Note) != 0)) " flag="fatal">NSO_051 – La linea d’ordine contiene elementi non ammessi (l’unico elemento ammesso è "LineItem").
 			</assert>
 
 		</rule>
@@ -560,15 +560,15 @@
 			<extends rule="define_tipologia_ordine"/>
 			
 			<assert id="NSO_053"
-				test=" not( (u:is($CONF) or u:is($CANC)) and (cbc:ID != 'NA')) " flag="fatal">NSO_053 - The value specified in the element is not allowed (the correct value is "NA").
+				test=" not( (u:is($CONF) or u:is($CANC)) and (cbc:ID != 'NA')) " flag="fatal">NSO_053 – Il valore indicato nell’elemento non è ammesso (il valore corretto è "NA").
 			</assert>
 			
 			<assert id="NSO_054"
-				test=" not( (u:is($CONF) or u:is($CANC)) and (cbc:Quantity != '0')) " flag="fatal">NSO_054- The value specified in the element is not allowed (the correct value is "0").
+				test=" not( (u:is($CONF) or u:is($CANC)) and (cbc:Quantity != '0')) " flag="fatal">NSO_054 - Il valore indicato nell’elemento non è ammesso (il valore corretto è "0").
 			</assert>
 			
 			<assert id="NSO_056"
-				test=" not( (u:is($CONF) or u:is($CANC)) and (cac:Item/cbc:Name != 'NA')) " flag="fatal">NSO_056 - The value specified in the element is not allowed (the correct value is "NA"). 
+				test=" not( (u:is($CONF) or u:is($CANC)) and (cac:Item/cbc:Name != 'NA')) " flag="fatal">NSO_056 - Il valore indicato nell’elemento non è ammesso (il valore corretto è "NA").
 			</assert>
 			
 			<assert id="NSO_052"
@@ -589,7 +589,7 @@
 								or cac:Item/cac:AdditionalItemProperty	
 								or cac:Item/cac:ItemInstance
 								or cac:Price)
-							) " flag="fatal" > - The order line contains elements that are not allowed within "LineItem" (the allowed elements are: "ID", "Quantity", "Name").
+							) " flag="fatal" >NSO_052 – La linea d’ordine contiene elementi non ammessi all’interno di "LineItem" (gli elementi ammessi sono: "ID", "Quantity", "Name").
 			</assert>
 			
 		</rule>
@@ -607,25 +607,25 @@
 			<!-- verifica se non è presente in testata e nelle linee -->
 			<assert id="NSO_061"
                  test="not( (u:is($INIZ) or u:is($CONN) or u:is($SOST) or u:is($INVO)) and ( if ( not (/ubl:Order/cac:OriginatorDocumentReference) and ( string-join(u:checkCIGLineaAlg(/ubl:Order/cac:OrderLine/cac:LineItem),'') eq '') ) then true() else false() ) )"
-                 flag="fatal">NSO_061 - The Tender Identification Code (CIG) or the Exemption Code is not present at the entire document level or in all order lines, or is present in both levels simultaneously.
+                 flag="fatal">NSO_061 - Il Codice Identificativo di Gara (CIG) o il Codice di esenzione non è presente a livello di intero Documento o in tutte linee d’ordine, oppure è presente in entrambi i livelli contemporaneamente.
 			</assert>			
 
 			<!-- verifica che è presente in testata o in alcune linee -->
 			<assert id="NSO_061"
                  test="not( (u:is($INIZ) or u:is($CONN) or u:is($SOST) or u:is($INVO)) and ( if ( (/ubl:Order/cac:OriginatorDocumentReference) and  (string-length(string-join(distinct-values(u:checkCIGLineaAlg(/ubl:Order/cac:OrderLine/cac:LineItem)),'')) != 0 )) then true() else false() ) )"
-                 flag="fatal">NSO_061 - The Tender Identification Code (CIG) or the Exemption Code is not present at the entire document level or in all order lines, or is present in both levels simultaneously.
+                 flag="fatal">NSO_061 - Il Codice Identificativo di Gara (CIG) o il Codice di esenzione non è presente a livello di intero Documento o in tutte linee d’ordine, oppure è presente in entrambi i livelli contemporaneamente.
 			</assert>
 
 			<!-- verifica che se non presente in testata sia presente in tutte le linee-->
 			<assert id="NSO_061"
                  test="not( (u:is($INIZ) or u:is($CONN) or u:is($SOST) or u:is($INVO)) and ( if ( not (/ubl:Order/cac:OriginatorDocumentReference) and not ( (count(/ubl:Order/cac:OrderLine)*4) = string-length(string-join(distinct-values(u:checkCIGLineaAlg(/ubl:Order/cac:OrderLine/cac:LineItem)),'')) )  )  then true() else false() ) )"
-                 flag="fatal">NSO_061 - The Tender Identification Code (CIG) or the Exemption Code is not present at the entire document level or in all order lines, or is present in both levels simultaneously.
+                 flag="fatal">NSO_061 - Il Codice Identificativo di Gara (CIG) o il Codice di esenzione non è presente a livello di intero Documento o in tutte linee d’ordine, oppure è presente in entrambi i livelli contemporaneamente.
 			</assert>			
 
 			<!-- verifica che se presente nelle linee sia presente una sola volta per linee-->			
 			<assert id="NSO_062"
                  test="not( (u:is($INIZ) or u:is($CONN) or u:is($SOST) or u:is($INVO)) and ( not (u:checkCIGLinea(/ubl:Order/cac:OrderLine/cac:LineItem)) ) )"
-                 flag="fatal">NSO_062 – One or more order lines contain more than one Tender Identification Code (CIG) or Exemption Code.
+                 flag="fatal">NSO_062 – Una o più linee d’ordine contengono più di un Codice Identificativo di Gara (CIG) o Codice di esenzione.
 			</assert>
 			
 		</rule>
@@ -636,7 +636,7 @@
 			<!-- Se è un ordine iniziale, sostituzione o cancellazione, se presente un campo CIG deve essere valido -->	
 			<assert id="NSO_060"
                  test="not( (u:is($INIZ) or u:is($CONN) or u:is($SOST) or u:is($CANC) or u:is($INVO)) and ( u:verificaCIG(cbc:ID) ) )"
-                 flag="fatal">NSO_060 - The Tender Identification Code (CIG or Smart CIG) or the Exemption Code specified in the element is invalid.
+                 flag="fatal">NSO_060 - Il Codice Identificativo di Gara (CIG o Smart CIG) o il Codice di esenzione indicato nell’elemento non è valido.
 			</assert>
 			
 		</rule>
@@ -647,7 +647,7 @@
 			<!-- Se è un ordine iniziale, sostituzione o cancellazione, se presente un campo CIG deve essere valido -->	
 			<assert id="NSO_060"
                  test="not( (u:is($INIZ) or u:is($CONN) or u:is($SOST) or u:is($CANC) or u:is($INVO)) and ( u:verificaCIG(cbc:ID) ) )"
-                 flag="fatal">NSO_060 - The Tender Identification Code (CIG or Smart CIG) or the Exemption Code specified in the element is invalid.
+                 flag="fatal">NSO_060 - Il Codice Identificativo di Gara (CIG o Smart CIG) o il Codice di esenzione indicato nell’elemento non è valido.
 			</assert>
 			
 		</rule>
@@ -665,7 +665,7 @@
 			<!-- nel caso in cui schemeID = 9906 oppure 0211 l'endpointID deve contenere una partita iva formalmente corretta -->
 			<assert id="NSO_030"
                  test="if((@schemeID=9906 or @schemeID=0211)) then u:checkPIVAseIT(.) else true() "
-                 flag="fatal">NSO_030 - The VAT number specified in the element is invalid  is not valid.
+                 flag="fatal">NSO_030 – La partita IVA indicata nell’elemento non è valida.
 			</assert>
 			
 		</rule>
@@ -676,7 +676,7 @@
 			<!-- Se primi 2 caratteri IT una PIVA valido o se lungo 11 Codice Fiscale numerico  -->						
 			<assert id="NSO_030"
 			     test="if(u:checkPIVAseIT(.)) then (if (upper-case(substring(.,1,2)) != 'IT') then u:checkCF11(.) else true()) else false()"
-                 flag="fatal">NSO_030 - The VAT number specified in the element is invalid  is not valid.
+                 flag="fatal">NSO_030 – La partita IVA indicata nell’elemento non è valida.
 			</assert>
 			
 		</rule>
@@ -686,7 +686,7 @@
 			<!-- nel caso in cui schemeID = 9906 oppure 0211 l'endpointID deve contenere una partita iva formalmente corretta -->
 			<assert id="NSO_030"
                  test="if((@schemeID=9906 or @schemeID=0211)) then u:checkPIVAseIT(.) else true() "
-                 flag="fatal">NSO_030 - The VAT number specified in the element is invalid  is not valid.
+                 flag="fatal">NSO_030 – La partita IVA indicata nell’elemento non è valida.
 			</assert>
 			
 		</rule>
@@ -696,7 +696,7 @@
 			<!-- Se primi 2 caratteri IT una PIVA valido o se lungo 11 Codice Fiscale numerico  -->				
 			<assert id="NSO_030"
 			     test="if(u:checkPIVAseIT(.)) then (if (upper-case(substring(.,1,2)) != 'IT') then u:checkCF11(.) else true()) else false()"
-                 flag="fatal">NSO_030 - The VAT number specified in the element is invalid  is not valid.
+                 flag="fatal">NSO_030 – La partita IVA indicata nell’elemento non è valida.
 			</assert>
 			
 		</rule>			
@@ -770,14 +770,14 @@
 		<rule context="/ubl:Order/cac:SellerSupplierParty/cac:Party/cbc:EndpointID">
 			<assert id="NSO_020"
                  test="if((@schemeID=9907 or @schemeID=0210) and not (.=string(9999999999999999))) then u:checkCF(.) else true()"
-                 flag="fatal">NSO_020 - The Tax Code specified in the element is invalid.
+                 flag="fatal">NSO_020 – Il Codice Fiscale indicato nell’elemento non è valido.
 			</assert>
 		</rule>
 		
 		<rule context="/ubl:Order/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID">
 			<assert id="NSO_020"
                  test="if((@schemeID=9907 or @schemeID=0210)) then u:checkCF(.) else true()"
-                 flag="fatal">NSO_020 - The Tax Code specified in the element is invalid.
+                 flag="fatal">NSO_020 – Il Codice Fiscale indicato nell’elemento non è valido.
 			</assert>
 		</rule>
 		
@@ -789,7 +789,7 @@
 		<rule context="/ubl:Order/cac:BuyerCustomerParty/cac:Party/cbc:EndpointID">
 			<assert id="NSO_011"
                  test="if(@schemeID=0201) then true() else false()"
-                 flag="fatal">NSO_011 - The value of schemeID attribute of the element is incorrect (the correct value is "0201").
+                 flag="fatal">NSO_011 – Il valore dell’attributo schemeID dell’elemento è errato (il valore corretto è "0201").
 			</assert>
 		</rule>
 		

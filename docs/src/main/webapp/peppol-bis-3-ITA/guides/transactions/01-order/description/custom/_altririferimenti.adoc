@@ -11,7 +11,7 @@ s|Descrizione
 s|Dove usarlo
 
 |*CUP*
-|Codice Unico Progetto
+|Codice Unico di Progetto
 |In testata si usa +
 `cac:ProjectReference` (0..1) +
 

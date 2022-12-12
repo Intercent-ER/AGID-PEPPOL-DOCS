@@ -1815,7 +1815,7 @@ the root node.
                <xsl:with-param name="CNP" select="position()"/>
             </xsl:apply-templates>
             <ImponibileImporto>
-               <xsl:value-of select="if (cbc:TaxableAmount) then format-number(floor(cbc:TaxableAmount * 100 + 0.5) div 100,'###########0.00') else '0.00'"/>
+               <xsl:value-of select="if (&#x9;cbc:TaxableAmount &gt;= 0) then format-number(floor(cbc:TaxableAmount * 100 + 0.5) div 100,'###########0.00') else '0.00'"/>
             </ImponibileImporto>
             <Imposta>
                <xsl:value-of select="if (cbc:TaxAmount &gt;= 0) then format-number(floor(cbc:TaxAmount * 100 + 0.5) div 100,'###########0.00') else '0.00'"/>

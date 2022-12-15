@@ -6,7 +6,7 @@
 ^.^| Date
 ^.^| What’s new
 
-| 3.0.13.3(IT)
+| 3.0.13.4(IT)
 a| 06/12/2022
 a| _Update to specifications https://docs.peppol.eu/poacc/billing/3.0/2022-Q4/release-notes/[PEPPOL BIS 3.0.10 - November release 2022]_. +
 
@@ -30,6 +30,10 @@ Effective as of *06 February 2023*
 * Eliminated the rule DK-R-015;
 * Correction of rules text DK-R-004 PEPPOL UBL & CII;
 * Correction of DK-R-003 PEPPOL CII rule text.
+
+| 3.0.13.3(IT)
+a| 02/12/2022
+a| This specification implements the updated version of the Technical Rules of the Revenue Agency relating to the management of European invoices - version 2.2 published on 11/16/2022, in relation to Provision 99370 published on 04/18/2019. Some of the changes present in this latest version of the Technical Rules of the Revenue Agency were already contained in the Peppol BIS3 specification of 04/21/2022.
 
 | 3.0.13.2(IT)
 a| 24/06/2022

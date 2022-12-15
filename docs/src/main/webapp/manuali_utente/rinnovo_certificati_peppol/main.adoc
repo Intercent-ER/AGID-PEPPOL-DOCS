@@ -9,8 +9,8 @@
 
 ====
 [blue]#Autore: AgID# +
-[blue]#Versione: 1.0.0# +
-[blue]#Ultimo aggiornamento: 28/10/2022#
+[blue]#Versione: 1.1.0# +
+[blue]#Ultimo aggiornamento: 16/12/2022#
 ====
 
 = Procedura per il rinnovo dei certificati Peppol
@@ -19,7 +19,8 @@
 [width="95%",cols=",,",align="center",options="header"]
 |===
 ^.^|VERSIONE ^.^|DATA ^.^|CAMBIAMENTI APPORTATI
-| 1.0.0 | 27/11/2020 | Prima stesura
+| 1.0.0 | 27/11/2022 | Prima stesura
+| 1.1.0 | 16/12/2022 | Aggiunto capitolo _Invio certificati per SMP Unico_
 |===
 
 == Obiettivo
@@ -66,9 +67,7 @@ image::procedura_rinnovo_certificati_peppol-71899.png[align=center]
 
 == Recupero dei nuovi certificati
 
-Una volta svolte le procedure amministrative di controllo sui documenti allegati, OpenPEPPOL procede con l'approvazione all'emissione dei nuovi certificati,
-inviando diversi SMS (uno per ogni combinazione di Access Point/SMP e TEST e PROD, per un massimo di 4) al numero di cellulare configurato, comunicando il codice da utilizzare
-per generare il nuovo certificato.
+Una volta svolte le procedure amministrative di controllo sui documenti allegati, la Peppol Authority procede con l’approvazione all’emissione dei nuovi certificati. A questo punto il SP riceve diversi SMS (uno per ogni combinazione di Access Point/SMP e TEST e PROD, per un massimo di 4) inviati da OpenPeppol al numero di cellulare configurato, contenenti il codice da utilizzare per generare il nuovo certificato.
 
 .Esempio di SMS ricevuto
 image::procedura_rinnovo_certificati_peppol-d8102.png[align=center]
@@ -100,3 +99,7 @@ image::procedura_rinnovo_certificati_peppol-9b163.png[align=center]
 
 .Recupero del file file .p12 e della password
 image::procedura_rinnovo_certificati_peppol-1d3aa.png[align=center]
+
+== Invio certificati per SMP Unico
+
+Qualora il Service Provider aderisca all’SMP Unico della PA, una volta ottenuti i nuovi certificati tramite la procedura desctitta ai capitoli precedenti, lo stesso SP dovrà trasmettere la sola _chiave pubblica_ del certificato di ciascun Access Point alla Peppol Authority, in allegato al modulo di adesione, compilato e sottoscritto, all’indirizzo protocollo@pec.agid.gov.it .

@@ -16,7 +16,7 @@ In vigore a partire dal *06 febbraio 2023*
 [red]#Cambiamenti alla specifica (Documentazione)#
 
 * Inserita le nuove tipologie di Ordinazione, 221 Ordinazione a budget e 226 Ordinazione di regolazione; 
-* Modificata la modalità di indicazione del CUP a livello di testata;
+* Modificata la modalità di indicazione del CUP a livello di testata, che dovrà essere inserito in uno specifico campo di nuova creazione;
 * Eliminata l’indicazione del “Last updated” nel piè di pagina;
 * Aggiornati gli esempi in funzione delle modifiche alla sintassi.
 

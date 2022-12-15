@@ -15,7 +15,7 @@ Effective as of *06 February 2023*
 [red]#Changes to specification (Documentation)#
 
 * The new types of Orders, 221 Budget Order and 226 Regulation Order, have been added;
-* Changed the mode of indication of the CUP at the header level;
+* Changed the method of indicating the CUP at the header level, which must be entered in a specific newly created field;
 * Removed the "Last updated" indication in the footer;
 * Updated examples to reflect syntax changes.
 

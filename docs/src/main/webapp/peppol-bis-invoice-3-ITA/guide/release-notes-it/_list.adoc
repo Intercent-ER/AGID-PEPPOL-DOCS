@@ -6,6 +6,10 @@
 ^.^| Data
 ^.^| Cosa è cambiato
 
+| 3.0.13.3(IT)
+a| 02/12/2022
+a| La presente specifica implementa le versione aggiornata delle Regole tecniche dell’Agenzia delle Entrate relative alla gestione delle fatture europee - versione 2.2 pubblicate il 16/11/2022, in relazione al Provvedimento 99370 pubblicato il 18/04/2019. Alcune delle modifiche presenti in questa ultima versione delle Regole tecniche dell’Agenzia delle Entrate erano già contenute nella specifica Peppol BIS3 del 21/04/2022.
+
 | 3.0.13.2(IT)
 a| 24/06/2022
 a| [red]#Cambiamenti nella sezione Documentazione# +

@@ -102,4 +102,4 @@ image::procedura_rinnovo_certificati_peppol-1d3aa.png[align=center]
 
 == Invio certificati per SMP Unico
 
-Qualora il Service Provider aderisca all’SMP Unico della PA, una volta ottenuti i nuovi certificati tramite la procedura desctitta ai capitoli precedenti, lo stesso SP dovrà trasmettere la sola _chiave pubblica_ del certificato di ciascun Access Point alla Peppol Authority, in allegato al modulo di adesione, compilato e sottoscritto, all’indirizzo protocollo@pec.agid.gov.it .
+Qualora il Service Provider aderisca all’SMP Unico della PA, una volta ottenuti i nuovi certificati tramite la procedura descritta ai capitoli precedenti, lo stesso SP dovrà trasmettere la sola _chiave pubblica_ del certificato di ciascun Access Point alla Peppol Authority, in allegato al modulo di adesione, compilato e sottoscritto, all’indirizzo protocollo@pec.agid.gov.it .

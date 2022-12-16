@@ -9,7 +9,7 @@
 :sectanchors:
 :sectnums:
 
-= [black]#Manuale utente Piattaforma di Onboarding#
+= Manuale utente Piattaforma di Onboarding
 
 
 :leveloffset: +1

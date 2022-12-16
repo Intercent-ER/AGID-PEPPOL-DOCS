@@ -8,6 +8,7 @@
 :source-language: xml
 :sectanchors:
 :sectnums:
+:imagesdir: onboarding/images
 
 = Manuale utente Piattaforma di Onboarding
 

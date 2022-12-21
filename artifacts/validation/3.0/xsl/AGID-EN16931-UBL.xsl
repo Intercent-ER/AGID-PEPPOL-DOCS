@@ -19881,10 +19881,10 @@
 
 		    <!--ASSERT -->
 <xsl:choose>
-         <xsl:when test="matches(.,'^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$') and matches(.,'^.{7,256}$')"/>
+         <xsl:when test="matches(.,'^\w+([-_+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$') and matches(.,'^.{7,256}$')"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="matches(.,'^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$') and matches(.,'^.{7,256}$')">
+                                test="matches(.,'^\w+([-_+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$') and matches(.,'^.{7,256}$')">
                <xsl:attribute name="id">BR-IT-DC-203</xsl:attribute>
                <xsl:attribute name="flag">fatal</xsl:attribute>
                <xsl:attribute name="location">

@@ -2752,13 +2752,13 @@ the root node.
 							<xsl:value-of select="$codiceCommessaConvenzione"/>
 						</xsl:when>
 						<xsl:when test="starts-with($codiceCommessaConvenzione, '#') and ends-with($codiceCommessaConvenzione, '#')">
-							<xsl:value-of select="concat(FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto/IdDocumento, '#', FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto/Data, '#', substring(substring-after($codiceCommessaConvenzione, '#'), 1, string-length($codiceCommessaConvenzione) - 2))"/>
+							<xsl:value-of select="concat(FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[1]/IdDocumento, '#', FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[1]/Data, '#', substring(substring-after($codiceCommessaConvenzione, '#'), 1, string-length($codiceCommessaConvenzione) - 2))"/>
 						</xsl:when>
 						<xsl:when test="starts-with($codiceCommessaConvenzione, '#')">
-							<xsl:value-of select="concat(FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto/IdDocumento, '#', FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto/Data, '#', substring-after($codiceCommessaConvenzione, '#'))"/>
+							<xsl:value-of select="concat(FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[1]/IdDocumento, '#', FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[1]/Data, '#', substring-after($codiceCommessaConvenzione, '#'))"/>
 						</xsl:when>
 						<xsl:when test="ends-with($codiceCommessaConvenzione, '#')">
-							<xsl:value-of select="concat(FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto/IdDocumento, '#', FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto/Data, '#', substring($codiceCommessaConvenzione, 1, string-length($codiceCommessaConvenzione) - 1))"/>
+							<xsl:value-of select="concat(FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[1]/IdDocumento, '#', FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[1]/Data, '#', substring($codiceCommessaConvenzione, 1, string-length($codiceCommessaConvenzione) - 1))"/>
 						</xsl:when>
 						<xsl:otherwise>
 							<xsl:value-of select="concat(FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[1]/IdDocumento, '#', FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[1]/Data, '#', $codiceCommessaConvenzione)"/>

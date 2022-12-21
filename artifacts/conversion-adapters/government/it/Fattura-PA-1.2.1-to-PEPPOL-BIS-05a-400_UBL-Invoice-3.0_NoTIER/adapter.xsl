@@ -2742,7 +2742,7 @@ the root node.
 							<xsl:value-of select="concat(FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto/IdDocumento, '#', FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto/Data, '#', substring($codiceCommessaConvenzione, 1, string-length($codiceCommessaConvenzione) - 1))"/>
 						</xsl:when>
 						<xsl:otherwise>
-							<xsl:value-of select="concat(FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto/IdDocumento, '#', FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto/Data, '#', $codiceCommessaConvenzione)"/>
+							<xsl:value-of select="concat(FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[1]/IdDocumento, '#', FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[1]/Data, '#', $codiceCommessaConvenzione)"/>
 						</xsl:otherwise>
 					</xsl:choose>
 				</cbc:BuyerReference>

@@ -13,7 +13,7 @@
                 xmlns:xsmap="http://www.javest.com/ns/mapper/snippet"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 exclude-result-prefixes="xsmap asmap in ds"
-                version="2.0">
+                version="2.1">
    <xsl:output indent="no"/>
    <xsl:param name="xclTipoDocumento" as="xsd:string">xcl/TipoDocumento.gc</xsl:param>
    <xsl:param name="xclFormatoAttachment" as="xsd:string">xcl/FormatoAttachment.gc</xsl:param>

@@ -1813,18 +1813,6 @@ the root node.
 					</xsl:variable>
 					<xsl:variable name="amount">
 						<xsl:choose>
-							<xsl:when test="ScontoMaggiorazione/Importo and ScontoMaggiorazione/Tipo = 'MG'">
-								<xsl:value-of select="0 - ScontoMaggiorazione/Importo"/>
-							</xsl:when>
-							<xsl:when test="ScontoMaggiorazione/Importo and ScontoMaggiorazione/Tipo = 'SC'">
-								<xsl:value-of select="ScontoMaggiorazione/Importo"/>
-							</xsl:when>
-							<xsl:when test="not(ScontoMaggiorazione/Importo) and ScontoMaggiorazione/Percentuale and ScontoMaggiorazione/Tipo = 'MG'">
-								<xsl:value-of select="0 - (PrezzoUnitario / 100 * ScontoMaggiorazione/Percentuale)"/>
-							</xsl:when>
-							<xsl:when test="not(ScontoMaggiorazione/Importo) and ScontoMaggiorazione/Percentuale and ScontoMaggiorazione/Tipo = 'SC'">
-								<xsl:value-of select="PrezzoUnitario / 100 * ScontoMaggiorazione/Percentuale"/>
-							</xsl:when>
 							<xsl:when test="AltriDatiGestionali[TipoDato = 'BT-147']">
 								<xsl:value-of select="AltriDatiGestionali[TipoDato = 'BT-147'][1]/RiferimentoNumero"/>
 							</xsl:when>
@@ -1840,8 +1828,11 @@ the root node.
 							</xsl:attribute>
 						</xsl:if>
 						<xsl:choose>
-							<xsl:when test="ScontoMaggiorazione/Tipo = 'MG' or ScontoMaggiorazione/Tipo = 'SC'">
-								<xsl:value-of select="format-number(PrezzoUnitario - $amount,'###########0.00000000')"/>
+							<xsl:when test="(ScontoMaggiorazione/Tipo = 'MG' or ScontoMaggiorazione/Tipo = 'SC') and Quantita != 0">
+								<xsl:value-of select="format-number(PrezzoTotale div Quantita,'###########0.00000000')"/>
+							</xsl:when>
+							<xsl:when test="(ScontoMaggiorazione/Tipo = 'MG' or ScontoMaggiorazione/Tipo = 'SC') and (not(Quantita) or Quantita = 0)">
+								<xsl:value-of select="format-number(PrezzoTotale div Quantita,'###########0.00000000')"/>
 							</xsl:when>
 							<xsl:otherwise>
 								<xsl:value-of select="format-number(PrezzoUnitario,'###########0.00000000')"/>
@@ -1851,7 +1842,7 @@ the root node.
 					<xsl:if test="AltriDatiGestionali[TipoDato = 'Base Qty.']">
 						<cbc:BaseQuantity>
 							<xsl:variable name="unitCode">
-								<xsl:value-of select="if (document($UNECE)//gc:Code[gc:LocalIds/gc:LocalId=current()/UnitaMisura]/gc:Id) then document($UNECE)//gc:Code[gc:LocalIds/gc:LocalId=current()/UnitaMisura]/gc:Id else 'C62'"/>
+								<xsl:value-of select="if (document($UNECE)//gc:Code[substring(lower-case(gc:LocalId),0,8)=substring(lower-case(current()/UnitaMisura),0,8)]/gc:Id) then document($UNECE)//gc:Code[substring(lower-case(gc:LocalId),0,8)=substring(lower-case(current()/UnitaMisura),0,8)]/gc:Id else 'C62'"/>
 							</xsl:variable>
 							<xsl:if test="string($unitCode)">
 								<xsl:attribute name="unitCode">
@@ -1871,7 +1862,17 @@ the root node.
 									<xsl:value-of select="string($currenyID)"/>
 								</xsl:attribute>
 							</xsl:if>
-							<xsl:value-of select="format-number($amount,'###########0.00')"/>
+							<xsl:choose>
+								<xsl:when test="ScontoMaggiorazione and Quantita != 0">
+									<xsl:value-of select="format-number((PrezzoUnitario - (PrezzoTotale div Quantita) ),'###########0.00000000')"/>
+								</xsl:when>
+								<xsl:when test="ScontoMaggiorazione and (not(Quantita) or Quantita = 0)">
+									<xsl:value-of select="format-number((PrezzoUnitario - PrezzoTotale),'###########0.00000000')"/>
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:value-of select="format-number($amount,'###########0.00000000')"/>
+								</xsl:otherwise>
+							</xsl:choose>
 						</cbc:Amount>
 						<cbc:BaseAmount>
 							<xsl:if test="$currenyID">

@@ -171,6 +171,9 @@ the root node.
 						</xsl:attribute>
 					</xsl:if>
 					<xsl:value-of select="."/>
+					<xsl:if test="../Data">
+						<xsl:text> del </xsl:text> <xsl:value-of select="../Data"/>
+					</xsl:if>
 				</cbc:ID>
 				<cbc:DocumentTypeCode>
 					<xsl:text>130</xsl:text>
@@ -1606,6 +1609,10 @@ the root node.
 					<xsl:with-param name="CNP" select="position()"/>
 				</xsl:apply-templates>
 				<xsl:apply-templates select="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiDDT" mode="DespatchLineReference">
+					<xsl:with-param name="CN" select="current()"/>
+					<xsl:with-param name="CNP" select="position()"/>
+				</xsl:apply-templates>
+				<xsl:apply-templates select="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiContratto/IdDocumento" mode="Contratto_Riga">
 					<xsl:with-param name="CN" select="current()"/>
 					<xsl:with-param name="CNP" select="position()"/>
 				</xsl:apply-templates>

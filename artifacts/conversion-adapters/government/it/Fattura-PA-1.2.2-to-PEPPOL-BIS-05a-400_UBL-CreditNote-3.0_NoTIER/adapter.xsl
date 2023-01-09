@@ -1570,7 +1570,7 @@ the root node.
 					<xsl:if test="(not(UnitaMisura) or not(contains(UnitaMisura, ' '))) and Quantita">
 						<xsl:value-of select="format-number(Quantita, '###########0.00000000')"/>
 					</xsl:if>
-					<xsl:if test="not(UnitaMisura) and not(Quantita)">
+					<xsl:if test="not(Quantita)">
 						<xsl:text>1.00</xsl:text>
 					</xsl:if>
 				</cbc:CreditedQuantity>

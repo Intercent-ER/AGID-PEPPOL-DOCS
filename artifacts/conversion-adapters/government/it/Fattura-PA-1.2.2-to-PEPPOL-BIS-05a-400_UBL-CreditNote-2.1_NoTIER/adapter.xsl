@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--Stylesheet synthesized using Javest A2A Mapper environment.-->
-
-<xsl:stylesheet xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
-                xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
-                xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
-                xmlns:in="http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2"
-                xmlns:xsmap="http://www.javest.com/ns/mapper/snippet"
-                xmlns:asmap="http://www.javest.com/ns/mapper/snippet/attribute"
-                xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+<xsl:stylesheet xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
                 xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
-                xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                xmlns:in="http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2"
                 xmlns:ccts="urn:un:unece:uncefact:documentation:2"
                 xmlns:cr="http://www.ubl-italia.org/ns/CrossReference"
+                xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+                xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+                xmlns="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2"
+                xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                xmlns:asmap="http://www.javest.com/ns/mapper/snippet/attribute"
+                xmlns:xsmap="http://www.javest.com/ns/mapper/snippet"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 exclude-result-prefixes="xsmap asmap in ds"
-                version="2.0">
+                version="2.1">
    <xsl:output indent="no"/>
    <xsl:param name="xclTipoDocumento" as="xsd:string">xcl/TipoDocumento.gc</xsl:param>
    <xsl:param name="xclFormatoAttachment" as="xsd:string">xcl/FormatoAttachment.gc</xsl:param>
@@ -27,7 +26,23 @@ Processing starts at node: /in:FatturaElettronica
 See the template rule at end of stylesheet for the default processing of 
 the root node.
 -->
-<xsl:template match="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiContratto"
+<xsl:template match="/in:FatturaElettronica" mode="SistemaEmittente">
+      <xsl:param name="CN" select="."/>
+      <xsl:param name="CNP" select="1"/>
+      <xsl:if test=".[@SistemaEmittente]">
+         <ext:UBLExtension>
+            <ext:ExtensionURI>
+               <xsl:text>urn:fdc:agid.gov.it:fatturapa:SistemaEmittente</xsl:text>
+            </ext:ExtensionURI>
+            <ext:ExtensionContent>
+               <cbc:Description>
+                  <xsl:value-of select="@SistemaEmittente"/>
+               </cbc:Description>
+            </ext:ExtensionContent>
+         </ext:UBLExtension>
+      </xsl:if>
+   </xsl:template>
+   <xsl:template match="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiContratto"
                  mode="EstremiContratto_Riga">
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
@@ -388,12 +403,12 @@ the root node.
                   </cbc:ID>
                   <xsl:if test="PesoLordo &gt; 0.00">
                      <cbc:GrossWeightMeasure>
-                        <xsl:variable name="variable_d1e378a1050145">
+                        <xsl:variable name="variable_d10e407a1051169">
                            <xsl:value-of select="if (document($xclUnitOfMeasureCode)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xname']/SimpleValue=current()/UnitaMisuraPeso][1]) then document($xclUnitOfMeasureCode)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xname']/SimpleValue=current()/UnitaMisuraPeso][1] else 'KGM'"/>
                         </xsl:variable>
-                        <xsl:if test="string($variable_d1e378a1050145)">
+                        <xsl:if test="string($variable_d10e407a1051169)">
                            <xsl:attribute name="unitCode">
-                              <xsl:value-of select="string($variable_d1e378a1050145)"/>
+                              <xsl:value-of select="string($variable_d10e407a1051169)"/>
                            </xsl:attribute>
                         </xsl:if>
                         <xsl:value-of select="PesoLordo"/>
@@ -401,12 +416,12 @@ the root node.
                   </xsl:if>
                   <xsl:if test="PesoNetto &gt; 0.00">
                      <cbc:NetWeightMeasure>
-                        <xsl:variable name="variable_d1e379a1050145">
+                        <xsl:variable name="variable_d10e408a1051169">
                            <xsl:value-of select="if (document($xclUnitOfMeasureCode)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xname']/SimpleValue=current()/UnitaMisuraPeso][1]) then document($xclUnitOfMeasureCode)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xname']/SimpleValue=current()/UnitaMisuraPeso][1] else 'KGM'"/>
                         </xsl:variable>
-                        <xsl:if test="string($variable_d1e379a1050145)">
+                        <xsl:if test="string($variable_d10e408a1051169)">
                            <xsl:attribute name="unitCode">
-                              <xsl:value-of select="string($variable_d1e379a1050145)"/>
+                              <xsl:value-of select="string($variable_d10e408a1051169)"/>
                            </xsl:attribute>
                         </xsl:if>
                         <xsl:value-of select="PesoNetto"/>
@@ -456,12 +471,12 @@ the root node.
          <cac:Party>
             <cac:PartyTaxScheme>
                <cbc:CompanyID>
-                  <xsl:variable name="variable_d1e272a1051010">
+                  <xsl:variable name="variable_d10e301a1051010">
                      <xsl:value-of select="if (upper-case(IdTrasmittente/IdPaese)='IT') then 'IT:CF' else document($xclVATSchemes)//Value[@ColumnRef='VATSchemeID']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/upper-case(IdTrasmittente/IdPaese)][1]"/>
                   </xsl:variable>
-                  <xsl:if test="string($variable_d1e272a1051010)">
+                  <xsl:if test="string($variable_d10e301a1051010)">
                      <xsl:attribute name="schemeID">
-                        <xsl:value-of select="string($variable_d1e272a1051010)"/>
+                        <xsl:value-of select="string($variable_d10e301a1051010)"/>
                      </xsl:attribute>
                   </xsl:if>
                   <xsl:value-of select="concat(IdTrasmittente/IdPaese,IdTrasmittente/IdCodice)"/>
@@ -560,7 +575,7 @@ the root node.
    <xsl:template match="AltriDatiGestionali" mode="NaturaOriginale">
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
-      <xsl:if test="TipoDato='Natura'">
+      <xsl:if test="TipoDato = 'Natura'">
          <cbc:ID schemeID="UNCL5305">
             <xsl:value-of select="RiferimentoTesto"/>
          </cbc:ID>
@@ -612,12 +627,12 @@ the root node.
       <xsl:param name="CNP" select="1"/>
       <xsl:if test="contains(',CommodityCode,TARIC,', concat(',',CodiceTipo,','))">
          <cbc:CommodityCode>
-            <xsl:variable name="variable_d1e557a1050721">
+            <xsl:variable name="variable_d10e574a1051745">
                <xsl:value-of select="CodiceTipo"/>
             </xsl:variable>
-            <xsl:if test="string($variable_d1e557a1050721)">
+            <xsl:if test="string($variable_d10e574a1051745)">
                <xsl:attribute name="listID">
-                  <xsl:value-of select="string($variable_d1e557a1050721)"/>
+                  <xsl:value-of select="string($variable_d10e574a1051745)"/>
                </xsl:attribute>
             </xsl:if>
             <xsl:value-of select="CodiceValore"/>
@@ -629,12 +644,12 @@ the root node.
       <xsl:param name="CNP" select="1"/>
       <xsl:if test="contains(',ItemClassificationCode,CPV,UNSPSC,eCl@ss,', concat(',',CodiceTipo,','))">
          <cbc:ItemClassificationCode>
-            <xsl:variable name="variable_d1e558a1050721">
+            <xsl:variable name="variable_d10e575a1051745">
                <xsl:value-of select="CodiceTipo"/>
             </xsl:variable>
-            <xsl:if test="string($variable_d1e558a1050721)">
+            <xsl:if test="string($variable_d10e575a1051745)">
                <xsl:attribute name="listID">
-                  <xsl:value-of select="string($variable_d1e558a1050721)"/>
+                  <xsl:value-of select="string($variable_d10e575a1051745)"/>
                </xsl:attribute>
             </xsl:if>
             <xsl:value-of select="CodiceValore"/>
@@ -648,12 +663,12 @@ the root node.
       <xsl:if test="count(../CodiceArticolo[upper-case(CodiceTipo)='AICFARMACO'])=0">
          <cac:StandardItemIdentification>
             <cbc:ID>
-               <xsl:variable name="variable_d1e553a1051010">
+               <xsl:variable name="variable_d10e570a1051010">
                   <xsl:value-of select="CodiceTipo"/>
                </xsl:variable>
-               <xsl:if test="string($variable_d1e553a1051010)">
+               <xsl:if test="string($variable_d10e570a1051010)">
                   <xsl:attribute name="schemeID">
-                     <xsl:value-of select="string($variable_d1e553a1051010)"/>
+                     <xsl:value-of select="string($variable_d10e570a1051010)"/>
                   </xsl:attribute>
                </xsl:if>
                <xsl:value-of select="CodiceValore"/>
@@ -678,12 +693,12 @@ the root node.
       <xsl:if test="not(CodiceTipo) or not(contains(',STANDARDITEMIDENTIFICATION,SELLERITEMIDENTIFICATION,ITEMCLASSIFICATIONCODE,CPV,UNSPSC,ECL@SS,ECLASS,COMMODITYCODE,TARIC,', concat(',',upper-case(CodiceTipo),',')))">
          <cac:AdditionalItemIdentification>
             <cbc:ID>
-               <xsl:variable name="variable_d1e555a1051010">
+               <xsl:variable name="variable_d10e572a1051010">
                   <xsl:value-of select="CodiceTipo"/>
                </xsl:variable>
-               <xsl:if test="string($variable_d1e555a1051010)">
+               <xsl:if test="string($variable_d10e572a1051010)">
                   <xsl:attribute name="schemeID">
-                     <xsl:value-of select="string($variable_d1e555a1051010)"/>
+                     <xsl:value-of select="string($variable_d10e572a1051010)"/>
                   </xsl:attribute>
                </xsl:if>
                <xsl:value-of select="CodiceValore"/>
@@ -697,12 +712,12 @@ the root node.
       <xsl:param name="CNP" select="1"/>
       <cac:StandardItemIdentification>
          <cbc:ID>
-            <xsl:variable name="variable_d1e551a1051010">
+            <xsl:variable name="variable_d10e568a1051010">
                <xsl:value-of select="CodiceTipo"/>
             </xsl:variable>
-            <xsl:if test="string($variable_d1e551a1051010)">
+            <xsl:if test="string($variable_d10e568a1051010)">
                <xsl:attribute name="schemeID">
-                  <xsl:value-of select="string($variable_d1e551a1051010)"/>
+                  <xsl:value-of select="string($variable_d10e568a1051010)"/>
                </xsl:attribute>
             </xsl:if>
             <xsl:value-of select="CodiceValore"/>
@@ -712,16 +727,18 @@ the root node.
    <xsl:template match="CodiceFiscale">
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
-      <cac:PartyTaxScheme>
-         <cbc:CompanyID schemeID="IT:CF">
-            <xsl:value-of select="."/>
-         </cbc:CompanyID>
-         <cac:TaxScheme>
-            <cbc:ID>
-               <xsl:text>VAT</xsl:text>
-            </cbc:ID>
-         </cac:TaxScheme>
-      </cac:PartyTaxScheme>
+      <xsl:if test=".">
+         <cac:PartyTaxScheme>
+            <cbc:CompanyID schemeID="IT:CF">
+               <xsl:value-of select="."/>
+            </cbc:CompanyID>
+            <cac:TaxScheme>
+               <cbc:ID>
+                  <xsl:text>VAT</xsl:text>
+               </cbc:ID>
+            </cac:TaxScheme>
+         </cac:PartyTaxScheme>
+      </xsl:if>
    </xsl:template>
    <xsl:template match="Contatti">
       <xsl:param name="CN" select="."/>
@@ -956,12 +973,12 @@ the root node.
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
       <cbc:CompanyID>
-         <xsl:variable name="variable_d1e206a1051010">
+         <xsl:variable name="variable_d10e235a1051010">
             <xsl:value-of select="document($xclVATSchemes)//Value[@ColumnRef='VATSchemeID']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/upper-case(IdPaese)][1]"/>
          </xsl:variable>
-         <xsl:if test="string($variable_d1e206a1051010)">
+         <xsl:if test="string($variable_d10e235a1051010)">
             <xsl:attribute name="schemeID">
-               <xsl:value-of select="string($variable_d1e206a1051010)"/>
+               <xsl:value-of select="string($variable_d10e235a1051010)"/>
             </xsl:attribute>
          </xsl:if>
          <xsl:value-of select="concat(IdPaese, IdCodice)"/>
@@ -972,12 +989,12 @@ the root node.
       <xsl:param name="CNP" select="1"/>
       <cac:PartyTaxScheme>
          <cbc:CompanyID>
-            <xsl:variable name="variable_d1e301a1051010">
+            <xsl:variable name="variable_d10e330a1051010">
                <xsl:value-of select="document($xclVATSchemes)//Value[@ColumnRef='VATSchemeID']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/upper-case(IdPaese)][1]"/>
             </xsl:variable>
-            <xsl:if test="string($variable_d1e301a1051010)">
+            <xsl:if test="string($variable_d10e330a1051010)">
                <xsl:attribute name="schemeID">
-                  <xsl:value-of select="string($variable_d1e301a1051010)"/>
+                  <xsl:value-of select="string($variable_d10e330a1051010)"/>
                </xsl:attribute>
             </xsl:if>
             <xsl:value-of select="concat(IdPaese, IdCodice)"/>
@@ -1069,7 +1086,7 @@ the root node.
    <xsl:template match="DatiBeniServizi/DatiRiepilogo" mode="Estensione_Natura_Riepilogo_IVA">
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
-      <xsl:if test="contains('|N1|N2|N3|N5|N7|', concat('|', Natura, '|'))">
+      <xsl:if test="Natura">
          <ext:UBLExtension>
             <ext:ExtensionURI>
                <xsl:value-of select="concat('urn:www.ubl-italia.org:spec:fatturapa:xref:natura_riepilogo::', position())"/>
@@ -1116,7 +1133,25 @@ the root node.
          </ext:UBLExtension>
       </xsl:if>
    </xsl:template>
-   <xsl:template match="DatiBeniServizi/DatiRiepilogo[EsigibilitaIVA][1]/EsigibilitaIVA">
+   <xsl:template match="DatiBeniServizi/DatiRiepilogo[EsigibilitaIVA!='S'][1]/EsigibilitaIVA"
+                 mode="AltreEsigibilita">
+      <xsl:param name="CN" select="."/>
+      <xsl:param name="CNP" select="1"/>
+      <xsl:if test="count(/*/FatturaElettronicaBody/DatiBeniServizi/DatiRiepilogo[EsigibilitaIVA='S']) = 0">
+         <ext:UBLExtension>
+            <ext:ExtensionURI>
+               <xsl:text>urn:www.ubl-italia.org:spec:fatturapa:esigibilita_iva</xsl:text>
+            </ext:ExtensionURI>
+            <ext:ExtensionContent>
+               <cbc:TaxTypeCode>
+                  <xsl:value-of select="."/>
+               </cbc:TaxTypeCode>
+            </ext:ExtensionContent>
+         </ext:UBLExtension>
+      </xsl:if>
+   </xsl:template>
+   <xsl:template match="DatiBeniServizi/DatiRiepilogo[EsigibilitaIVA='S'][1]/EsigibilitaIVA"
+                 mode="PrioritaAllaScissione">
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
       <ext:UBLExtension>
@@ -1133,7 +1168,7 @@ the root node.
    <xsl:template match="DatiBeniServizi/DettaglioLinee" mode="Estensione_Natura_Riga">
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
-      <xsl:if test="contains('|N1|N2|N3|N5|N7|', concat('|', Natura, '|'))">
+      <xsl:if test="Natura">
          <ext:UBLExtension>
             <ext:ExtensionURI>
                <xsl:value-of select="concat('urn:www.ubl-italia.org:spec:fatturapa:xref:natura::', position())"/>
@@ -1146,7 +1181,7 @@ the root node.
          </ext:UBLExtension>
       </xsl:if>
    </xsl:template>
-   <xsl:template match="DatiGenerali/DatiGeneraliDocumento/DatiBollo/ImportoBollo">
+   <xsl:template match="DatiGenerali/DatiGeneraliDocumento/DatiBollo">
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
       <xsl:if test=".">
@@ -1156,7 +1191,8 @@ the root node.
             </ext:ExtensionURI>
             <ext:ExtensionContent>
                <cbc:TaxAmount currencyID="EUR">
-                  <xsl:value-of select="."/>
+			   <xsl:value-of select="if(ImportoBollo) then ImportoBollo else 0.00"/>
+                <!-- <xsl:value-of select="../ImportoBollo"/> -->
                </cbc:TaxAmount>
             </ext:ExtensionContent>
          </ext:UBLExtension>
@@ -1172,12 +1208,12 @@ the root node.
          <ext:ExtensionContent>
             <cac:TaxTotal>
                <cbc:TaxAmount>
-                  <xsl:variable name="variable_d1e7a1049836">
+                  <xsl:variable name="variable_d10e7a1050860">
                      <xsl:value-of select="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Divisa"/>
                   </xsl:variable>
-                  <xsl:if test="string($variable_d1e7a1049836)">
+                  <xsl:if test="string($variable_d10e7a1050860)">
                      <xsl:attribute name="currencyID">
-                        <xsl:value-of select="string($variable_d1e7a1049836)"/>
+                        <xsl:value-of select="string($variable_d10e7a1050860)"/>
                      </xsl:attribute>
                   </xsl:if>
                   <xsl:value-of select="ImportoContributoCassa"/>
@@ -1185,24 +1221,24 @@ the root node.
                <cac:TaxSubtotal>
                   <xsl:if test="ImponibileCassa">
                      <cbc:TaxableAmount>
-                        <xsl:variable name="variable_d1e9a1049836">
+                        <xsl:variable name="variable_d10e9a1050860">
                            <xsl:value-of select="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Divisa"/>
                         </xsl:variable>
-                        <xsl:if test="string($variable_d1e9a1049836)">
+                        <xsl:if test="string($variable_d10e9a1050860)">
                            <xsl:attribute name="currencyID">
-                              <xsl:value-of select="string($variable_d1e9a1049836)"/>
+                              <xsl:value-of select="string($variable_d10e9a1050860)"/>
                            </xsl:attribute>
                         </xsl:if>
                         <xsl:value-of select="ImponibileCassa"/>
                      </cbc:TaxableAmount>
                   </xsl:if>
                   <cbc:TaxAmount>
-                     <xsl:variable name="variable_d1e10a1049836">
+                     <xsl:variable name="variable_d10e10a1050860">
                         <xsl:value-of select="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Divisa"/>
                      </xsl:variable>
-                     <xsl:if test="string($variable_d1e10a1049836)">
+                     <xsl:if test="string($variable_d10e10a1050860)">
                         <xsl:attribute name="currencyID">
-                           <xsl:value-of select="string($variable_d1e10a1049836)"/>
+                           <xsl:value-of select="string($variable_d10e10a1050860)"/>
                         </xsl:attribute>
                      </xsl:if>
                      <xsl:value-of select="ImportoContributoCassa"/>
@@ -1276,48 +1312,117 @@ the root node.
          </ext:UBLExtension>
       </xsl:if>
    </xsl:template>
-   <xsl:template match="DatiGenerali/DatiGeneraliDocumento/TipoDocumento">
+   <xsl:template match="DatiGenerali/DatiGeneraliDocumento/DatiRitenuta">
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
-      <xsl:if test=". = 'TD03' or .= 'TD06'">
+      <ext:UBLExtension>
+         <ext:ExtensionURI>
+            <xsl:text>urn:www.ubl-italia.org:spec:fatturapa:ritenuta</xsl:text>
+         </ext:ExtensionURI>
+         <ext:ExtensionContent>
+            <cac:WithholdingTaxTotal>
+               <cbc:TaxAmount>
+                  <xsl:variable name="variable_d10e24a1050860">
+                     <xsl:value-of select="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Divisa"/>
+                  </xsl:variable>
+                  <xsl:if test="string($variable_d10e24a1050860)">
+                     <xsl:attribute name="currencyID">
+                        <xsl:value-of select="string($variable_d10e24a1050860)"/>
+                     </xsl:attribute>
+                  </xsl:if>
+                  <xsl:value-of select="ImportoRitenuta"/>
+               </cbc:TaxAmount>
+               <cac:TaxSubtotal>
+                  <cbc:TaxAmount>
+                     <xsl:variable name="variable_d10e26a1050860">
+                        <xsl:value-of select="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Divisa"/>
+                     </xsl:variable>
+                     <xsl:if test="string($variable_d10e26a1050860)">
+                        <xsl:attribute name="currencyID">
+                           <xsl:value-of select="string($variable_d10e26a1050860)"/>
+                        </xsl:attribute>
+                     </xsl:if>
+                     <xsl:value-of select="ImportoRitenuta"/>
+                  </cbc:TaxAmount>
+                  <cac:TaxCategory>
+                     <cbc:ID schemeID="UNCL5305">
+                        <xsl:text>S</xsl:text>
+                     </cbc:ID>
+                     <cbc:Percent>
+                        <xsl:value-of select="AliquotaRitenuta"/>
+                     </cbc:Percent>
+                     <cac:TaxScheme>
+                        <cbc:ID schemeID="UNCL5153">
+                           <xsl:text>SWT</xsl:text>
+                        </cbc:ID>
+                        <cbc:TaxTypeCode listID="AE770CP">
+                           <xsl:value-of select="CausalePagamento"/>
+                        </cbc:TaxTypeCode>
+                     </cac:TaxScheme>
+                  </cac:TaxCategory>
+               </cac:TaxSubtotal>
+            </cac:WithholdingTaxTotal>
+         </ext:ExtensionContent>
+      </ext:UBLExtension>
+   </xsl:template>
+   <xsl:template match="DatiGenerali/DatiGeneraliDocumento/DatiRitenuta" mode="TipoRitenuta">
+      <xsl:param name="CN" select="."/>
+      <xsl:param name="CNP" select="1"/>
+      <xsl:if test="TipoRitenuta">
          <ext:UBLExtension>
             <ext:ExtensionURI>
-               <xsl:text>urn:www.ubl-italia.org:spec:fatturapa:parcella</xsl:text>
+               <xsl:value-of select="concat('urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_ritenuta::', position())"/>
             </ext:ExtensionURI>
             <ext:ExtensionContent>
-               <cbc:Description>
-                  <xsl:value-of select="if (.= 'TD06') then 'PARCELLA' else 'ANTICIPO SU PARCELLA'"/>
-               </cbc:Description>
+               <cr:XCode>
+                  <xsl:value-of select="TipoRitenuta"/>
+               </cr:XCode>
             </ext:ExtensionContent>
          </ext:UBLExtension>
       </xsl:if>
+   </xsl:template>
+   <xsl:template match="DatiGenerali/DatiGeneraliDocumento/TipoDocumento">
+      <xsl:param name="CN" select="."/>
+      <xsl:param name="CNP" select="1"/>
+      <ext:UBLExtension>
+         <ext:ExtensionURI>
+            <xsl:text>urn:www.ubl-italia.org:spec:fatturapa:xref:tipo_documento</xsl:text>
+         </ext:ExtensionURI>
+         <ext:ExtensionContent>
+            <cr:XCode>
+               <xsl:value-of select="."/>
+            </cr:XCode>
+         </ext:ExtensionContent>
+      </ext:UBLExtension>
    </xsl:template>
    <xsl:template match="DatiPagamento/DettaglioPagamento/ModalitaPagamento">
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
-      <xsl:if test=". = ('MP04','MP07','MP10','MP11','MP13','MP14','MP16','MP17','MP20','MP21','MP22')">
-         <ext:UBLExtension>
-            <ext:ExtensionURI>
-               <xsl:text>urn:www.ubl-italia.org:spec:fatturapa:modalita_pagamento</xsl:text>
-            </ext:ExtensionURI>
-            <ext:ExtensionContent>
-               <cbc:TypeCode>
-                  <xsl:value-of select="."/>
-               </cbc:TypeCode>
-            </ext:ExtensionContent>
-         </ext:UBLExtension>
-      </xsl:if>
+      <ext:UBLExtension>
+         <ext:ExtensionURI>
+            <xsl:text>urn:www.ubl-italia.org:spec:fatturapa:modalita_pagamento</xsl:text>
+         </ext:ExtensionURI>
+         <ext:ExtensionContent>
+            <cbc:TypeCode>
+               <xsl:value-of select="."/>
+            </cbc:TypeCode>
+         </ext:ExtensionContent>
+      </ext:UBLExtension>
    </xsl:template>
    <xsl:template match="FatturaElettronicaBody">
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
-      <xsl:if test="DatiGenerali/DatiGeneraliDocumento[DatiCassaPrevidenziale or DatiBollo/ImportoBollo or DatiCassaPrevidenziale/AliquotaIVA or DatiCassaPrevidenziale/Ritenuta or DatiCassaPrevidenziale/Natura] or DatiBeniServizi/DettaglioLinee[contains('|N1|N2|N3|N5|N7|', concat('|', Natura, '|'))] or DatiBeniServizi/DatiRiepilogo[EsigibilitaIVA or contains('|N1|N2|N3|N5|N7|', concat('|', Natura, '|'))]">
+      <xsl:if test="DatiGenerali/DatiGeneraliDocumento[DatiRitenuta or DatiCassaPrevidenziale or DatiBollo/ImportoBollo or DatiCassaPrevidenziale/AliquotaIVA or DatiCassaPrevidenziale/Ritenuta or DatiCassaPrevidenziale/Natura] or DatiBeniServizi/DettaglioLinee[contains('|N1|N2|N3|N5|N7|', concat('|', Natura, '|'))] or DatiBeniServizi/DatiRiepilogo[EsigibilitaIVA or contains('|N1|N2|N3|N5|N7|', concat('|', Natura, '|'))]">
          <ext:UBLExtensions>
             <xsl:apply-templates select="DatiGenerali/DatiGeneraliDocumento/DatiCassaPrevidenziale">
                <xsl:with-param name="CN" select="current()"/>
                <xsl:with-param name="CNP" select="position()"/>
             </xsl:apply-templates>
-            <xsl:apply-templates select="DatiGenerali/DatiGeneraliDocumento/DatiBollo/ImportoBollo">
+            <xsl:apply-templates select="DatiGenerali/DatiGeneraliDocumento/DatiRitenuta">
+               <xsl:with-param name="CN" select="current()"/>
+               <xsl:with-param name="CNP" select="position()"/>
+            </xsl:apply-templates>
+            <xsl:apply-templates select="DatiGenerali/DatiGeneraliDocumento/DatiBollo">
                <xsl:with-param name="CN" select="current()"/>
                <xsl:with-param name="CNP" select="position()"/>
             </xsl:apply-templates>
@@ -1329,11 +1434,21 @@ the root node.
                <xsl:with-param name="CN" select="current()"/>
                <xsl:with-param name="CNP" select="position()"/>
             </xsl:apply-templates>
-            <xsl:apply-templates select="DatiBeniServizi/DatiRiepilogo[EsigibilitaIVA][1]/EsigibilitaIVA">
+            <xsl:apply-templates select="DatiBeniServizi/DatiRiepilogo[EsigibilitaIVA='S'][1]/EsigibilitaIVA"
+                                 mode="PrioritaAllaScissione">
+               <xsl:with-param name="CN" select="current()"/>
+               <xsl:with-param name="CNP" select="position()"/>
+            </xsl:apply-templates>
+            <xsl:apply-templates select="DatiBeniServizi/DatiRiepilogo[EsigibilitaIVA!='S'][1]/EsigibilitaIVA"
+                                 mode="AltreEsigibilita">
                <xsl:with-param name="CN" select="current()"/>
                <xsl:with-param name="CNP" select="position()"/>
             </xsl:apply-templates>
             <xsl:apply-templates select="DatiGenerali/DatiGeneraliDocumento/TipoDocumento">
+               <xsl:with-param name="CN" select="current()"/>
+               <xsl:with-param name="CNP" select="position()"/>
+            </xsl:apply-templates>
+            <xsl:apply-templates select="DatiGenerali/DatiGeneraliDocumento/DatiRitenuta" mode="TipoRitenuta">
                <xsl:with-param name="CN" select="current()"/>
                <xsl:with-param name="CNP" select="position()"/>
             </xsl:apply-templates>
@@ -1363,6 +1478,10 @@ the root node.
                <xsl:with-param name="CN" select="current()"/>
                <xsl:with-param name="CNP" select="position()"/>
             </xsl:apply-templates>
+            <xsl:apply-templates select="/in:FatturaElettronica" mode="SistemaEmittente">
+               <xsl:with-param name="CN" select="current()"/>
+               <xsl:with-param name="CNP" select="position()"/>
+            </xsl:apply-templates>
          </ext:UBLExtensions>
       </xsl:if>
    </xsl:template>
@@ -1384,12 +1503,12 @@ the root node.
             </xsl:if>
             <cac:Attachment>
                <cbc:EmbeddedDocumentBinaryObject>
-                  <xsl:variable name="variable_d1e179a1050260">
+                  <xsl:variable name="variable_d10e204a1052308">
                      <xsl:value-of select="if (document($xclFormatoAttachment)//Value[@ColumnRef='xcode']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/upper-case(if (FormatoAttachment) then FormatoAttachment else (if (matches(NomeAttachment, '\.[a-zA-Z]{3,4}$')) then tokenize(NomeAttachment, '\.')[last()] else 'BIN'))][1]) then document($xclFormatoAttachment)//Value[@ColumnRef='xcode']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/upper-case(if (FormatoAttachment) then FormatoAttachment else (if (matches(NomeAttachment, '\.[a-zA-Z]{3,4}$')) then tokenize(NomeAttachment, '\.')[last()] else 'BIN'))][1] else 'application/octet-stream'"/>
                   </xsl:variable>
-                  <xsl:if test="string($variable_d1e179a1050260)">
+                  <xsl:if test="string($variable_d10e204a1052308)">
                      <xsl:attribute name="mimeCode">
-                        <xsl:value-of select="string($variable_d1e179a1050260)"/>
+                        <xsl:value-of select="string($variable_d10e204a1052308)"/>
                      </xsl:attribute>
                   </xsl:if>
                   <xsl:value-of select="Attachment"/>
@@ -1403,23 +1522,23 @@ the root node.
       <xsl:param name="CNP" select="1"/>
       <cac:TaxSubtotal>
          <cbc:TaxableAmount>
-            <xsl:variable name="variable_d1e413a1049836">
+            <xsl:variable name="variable_d10e442a1050860">
                <xsl:value-of select="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Divisa"/>
             </xsl:variable>
-            <xsl:if test="string($variable_d1e413a1049836)">
+            <xsl:if test="string($variable_d10e442a1050860)">
                <xsl:attribute name="currencyID">
-                  <xsl:value-of select="string($variable_d1e413a1049836)"/>
+                  <xsl:value-of select="string($variable_d10e442a1050860)"/>
                </xsl:attribute>
             </xsl:if>
             <xsl:value-of select="ImponibileImporto"/>
          </cbc:TaxableAmount>
          <cbc:TaxAmount>
-            <xsl:variable name="variable_d1e414a1049836">
+            <xsl:variable name="variable_d10e443a1050860">
                <xsl:value-of select="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Divisa"/>
             </xsl:variable>
-            <xsl:if test="string($variable_d1e414a1049836)">
+            <xsl:if test="string($variable_d10e443a1050860)">
                <xsl:attribute name="currencyID">
-                  <xsl:value-of select="string($variable_d1e414a1049836)"/>
+                  <xsl:value-of select="string($variable_d10e443a1050860)"/>
                </xsl:attribute>
             </xsl:if>
             <xsl:value-of select="Imposta"/>
@@ -1429,7 +1548,7 @@ the root node.
                <xsl:value-of select="if (Natura) then document($xclCategoriaImposte)//Value[@ColumnRef='xcode']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/Natura][1] else (if (AliquotaIVA &gt;= 20) then 'S' else 'AA')"/>
             </cbc:ID>
             <cbc:Percent>
-               <xsl:value-of select="if (AliquotaIVA) then AliquotaIVA else '0.00'"/>
+               <xsl:value-of select="AliquotaIVA"/>
             </cbc:Percent>
             <xsl:if test="RiferimentoNormativo">
                <cbc:TaxExemptionReason>
@@ -1447,14 +1566,14 @@ the root node.
    <xsl:template match="FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee">
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
-      <cac:InvoiceLine>
+      <cac:CreditNoteLine>
          <cbc:ID>
-            <xsl:variable name="variable_d1e439a1051010">
+            <xsl:variable name="variable_d10e456a1051010">
                <xsl:value-of select="TipoCessionePrestazione"/>
             </xsl:variable>
-            <xsl:if test="string($variable_d1e439a1051010)">
+            <xsl:if test="string($variable_d10e456a1051010)">
                <xsl:attribute name="schemeID">
-                  <xsl:value-of select="string($variable_d1e439a1051010)"/>
+                  <xsl:value-of select="string($variable_d10e456a1051010)"/>
                </xsl:attribute>
             </xsl:if>
             <xsl:value-of select="normalize-space(NumeroLinea)"/>
@@ -1464,24 +1583,24 @@ the root node.
             <xsl:with-param name="CN" select="current()"/>
             <xsl:with-param name="CNP" select="position()"/>
          </xsl:apply-templates>
-         <cbc:InvoicedQuantity unitCodeListID="UNECERec20">
-            <xsl:variable name="variable_d1e441a1050145">
-               <xsl:value-of select="if (document($xclUnitOfMeasureCode)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xname']/SimpleValue=current()/UnitaMisura][1]) then document($xclUnitOfMeasureCode)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xname']/SimpleValue=current()/UnitaMisura][1] else 'C62'"/>
+         <cbc:CreditedQuantity unitCodeListID="UNECERec20">
+            <xsl:variable name="variable_d10e458a1051169">
+               <xsl:value-of select="if ((document($xclUnitOfMeasureCode)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xname']/SimpleValue/lower-case(.)=lower-case(current()/UnitaMisura)])[1]) then (document($xclUnitOfMeasureCode)//Value[@ColumnRef='code']/SimpleValue[../../Value[@ColumnRef='xname']/SimpleValue/lower-case(.)=lower-case(current()/UnitaMisura)])[1] else 'C62'"/>
             </xsl:variable>
-            <xsl:if test="string($variable_d1e441a1050145)">
+            <xsl:if test="string($variable_d10e458a1051169)">
                <xsl:attribute name="unitCode">
-                  <xsl:value-of select="string($variable_d1e441a1050145)"/>
+                  <xsl:value-of select="string($variable_d10e458a1051169)"/>
                </xsl:attribute>
             </xsl:if>
             <xsl:value-of select="if (Quantita) then Quantita else 1.00"/>
-         </cbc:InvoicedQuantity>
+         </cbc:CreditedQuantity>
          <cbc:LineExtensionAmount>
-            <xsl:variable name="variable_d1e442a1049836">
+            <xsl:variable name="variable_d10e459a1050860">
                <xsl:value-of select="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Divisa"/>
             </xsl:variable>
-            <xsl:if test="string($variable_d1e442a1049836)">
+            <xsl:if test="string($variable_d10e459a1050860)">
                <xsl:attribute name="currencyID">
-                  <xsl:value-of select="string($variable_d1e442a1049836)"/>
+                  <xsl:value-of select="string($variable_d10e459a1050860)"/>
                </xsl:attribute>
             </xsl:if>
             <xsl:value-of select="PrezzoTotale"/>
@@ -1676,18 +1795,18 @@ the root node.
          </cac:Item>
          <cac:Price>
             <cbc:PriceAmount>
-               <xsl:variable name="variable_d1e570a1049836">
+               <xsl:variable name="variable_d10e587a1050860">
                   <xsl:value-of select="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Divisa"/>
                </xsl:variable>
-               <xsl:if test="string($variable_d1e570a1049836)">
+               <xsl:if test="string($variable_d10e587a1050860)">
                   <xsl:attribute name="currencyID">
-                     <xsl:value-of select="string($variable_d1e570a1049836)"/>
+                     <xsl:value-of select="string($variable_d10e587a1050860)"/>
                   </xsl:attribute>
                </xsl:if>
                <xsl:value-of select="PrezzoUnitario"/>
             </cbc:PriceAmount>
          </cac:Price>
-      </cac:InvoiceLine>
+      </cac:CreditNoteLine>
    </xsl:template>
    <xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiContratto">
       <xsl:param name="CN" select="."/>
@@ -1884,12 +2003,12 @@ the root node.
       <cac:LegalMonetaryTotal>
          <xsl:if test="ImportoTotaleDocumento">
             <cbc:TaxInclusiveAmount>
-               <xsl:variable name="variable_d1e435a1049836">
+               <xsl:variable name="variable_d10e452a1050860">
                   <xsl:value-of select="Divisa"/>
                </xsl:variable>
-               <xsl:if test="string($variable_d1e435a1049836)">
+               <xsl:if test="string($variable_d10e452a1050860)">
                   <xsl:attribute name="currencyID">
-                     <xsl:value-of select="string($variable_d1e435a1049836)"/>
+                     <xsl:value-of select="string($variable_d10e452a1050860)"/>
                   </xsl:attribute>
                </xsl:if>
                <xsl:value-of select="ImportoTotaleDocumento"/>
@@ -1897,24 +2016,24 @@ the root node.
          </xsl:if>
          <xsl:if test="Arrotondamento &gt; 0.00">
             <cbc:PayableRoundingAmount>
-               <xsl:variable name="variable_d1e436a1049836">
+               <xsl:variable name="variable_d10e453a1050860">
                   <xsl:value-of select="Divisa"/>
                </xsl:variable>
-               <xsl:if test="string($variable_d1e436a1049836)">
+               <xsl:if test="string($variable_d10e453a1050860)">
                   <xsl:attribute name="currencyID">
-                     <xsl:value-of select="string($variable_d1e436a1049836)"/>
+                     <xsl:value-of select="string($variable_d10e453a1050860)"/>
                   </xsl:attribute>
                </xsl:if>
                <xsl:value-of select="Arrotondamento"/>
             </cbc:PayableRoundingAmount>
          </xsl:if>
          <cbc:PayableAmount>
-            <xsl:variable name="variable_d1e437a1049836">
+            <xsl:variable name="variable_d10e454a1050860">
                <xsl:value-of select="Divisa"/>
             </xsl:variable>
-            <xsl:if test="string($variable_d1e437a1049836)">
+            <xsl:if test="string($variable_d10e454a1050860)">
                <xsl:attribute name="currencyID">
-                  <xsl:value-of select="string($variable_d1e437a1049836)"/>
+                  <xsl:value-of select="string($variable_d10e454a1050860)"/>
                </xsl:attribute>
             </xsl:if>
             <xsl:value-of select="if (ImportoTotaleDocumento) then ImportoTotaleDocumento else format-number(sum(/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/PrezzoTotale)+sum(ScontoMaggiorazione[Tipo='MG']/Importo) -sum(ScontoMaggiorazione[Tipo='SC']/Importo)&#xA;+sum(/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DatiRiepilogo/Imposta)+sum(Arrotondamento),'###########0.00')"/>
@@ -1928,52 +2047,6 @@ the root node.
          <xsl:value-of select="normalize-space(.)"/>
       </cbc:Note>
    </xsl:template>
-   <xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/DatiRitenuta">
-      <xsl:param name="CN" select="."/>
-      <xsl:param name="CNP" select="1"/>
-      <cac:WithholdingTaxTotal>
-         <cbc:TaxAmount>
-            <xsl:variable name="variable_d1e423a1049836">
-               <xsl:value-of select="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Divisa"/>
-            </xsl:variable>
-            <xsl:if test="string($variable_d1e423a1049836)">
-               <xsl:attribute name="currencyID">
-                  <xsl:value-of select="string($variable_d1e423a1049836)"/>
-               </xsl:attribute>
-            </xsl:if>
-            <xsl:value-of select="ImportoRitenuta"/>
-         </cbc:TaxAmount>
-         <cac:TaxSubtotal>
-            <cbc:TaxAmount>
-               <xsl:variable name="variable_d1e425a1049836">
-                  <xsl:value-of select="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Divisa"/>
-               </xsl:variable>
-               <xsl:if test="string($variable_d1e425a1049836)">
-                  <xsl:attribute name="currencyID">
-                     <xsl:value-of select="string($variable_d1e425a1049836)"/>
-                  </xsl:attribute>
-               </xsl:if>
-               <xsl:value-of select="ImportoRitenuta"/>
-            </cbc:TaxAmount>
-            <cac:TaxCategory>
-               <cbc:ID schemeID="UNCL5305">
-                  <xsl:text>S</xsl:text>
-               </cbc:ID>
-               <cbc:Percent>
-                  <xsl:value-of select="AliquotaRitenuta"/>
-               </cbc:Percent>
-               <cac:TaxScheme>
-                  <cbc:ID schemeID="UNCL5153">
-                     <xsl:text>SWT</xsl:text>
-                  </cbc:ID>
-                  <cbc:TaxTypeCode listID="AE770CP">
-                     <xsl:value-of select="CausalePagamento"/>
-                  </cbc:TaxTypeCode>
-               </cac:TaxScheme>
-            </cac:TaxCategory>
-         </cac:TaxSubtotal>
-      </cac:WithholdingTaxTotal>
-   </xsl:template>
    <xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/ScontoMaggiorazione">
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
@@ -1983,12 +2056,12 @@ the root node.
                <xsl:value-of select="Tipo = 'MG'"/>
             </cbc:ChargeIndicator>
             <cbc:Amount>
-               <xsl:variable name="variable_d1e409a1049836">
+               <xsl:variable name="variable_d10e437a1050860">
                   <xsl:value-of select="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Divisa"/>
                </xsl:variable>
-               <xsl:if test="string($variable_d1e409a1049836)">
+               <xsl:if test="string($variable_d10e437a1050860)">
                   <xsl:attribute name="currencyID">
-                     <xsl:value-of select="string($variable_d1e409a1049836)"/>
+                     <xsl:value-of select="string($variable_d10e437a1050860)"/>
                   </xsl:attribute>
                </xsl:if>
                <xsl:value-of select="Importo"/>
@@ -1996,82 +2069,103 @@ the root node.
          </cac:AllowanceCharge>
       </xsl:if>
    </xsl:template>
-   <xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[1]"
-                 mode="OrderReference">
-      <xsl:param name="CN" select="."/>
-      <xsl:param name="CNP" select="1"/>
-      <xsl:if test="IdDocumento and not(RiferimentoNumeroLinea)">
-         <cac:OrderReference>
-            <cbc:ID>
-               <xsl:value-of select="IdDocumento"/>
-            </cbc:ID>
-            <xsl:if test="Data">
-               <cbc:IssueDate>
-                  <xsl:value-of select="Data"/>
-               </cbc:IssueDate>
-            </xsl:if>
-         </cac:OrderReference>
-      </xsl:if>
-   </xsl:template>
-   <xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[not(RiferimentoNumeroLinea)]/CodiceCIG"
-                 mode="CIG">
-      <xsl:param name="CN" select="."/>
-      <xsl:param name="CNP" select="1"/>
-      <cac:AdditionalDocumentReference>
-         <cbc:ID>
-            <xsl:value-of select="."/>
-         </cbc:ID>
-         <cbc:DocumentType>
-            <xsl:text>CIG</xsl:text>
-         </cbc:DocumentType>
-      </cac:AdditionalDocumentReference>
-   </xsl:template>
-   <xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[not(RiferimentoNumeroLinea)]/CodiceCUP"
-                 mode="CUP">
-      <xsl:param name="CN" select="."/>
-      <xsl:param name="CNP" select="1"/>
-      <cac:AdditionalDocumentReference>
-         <cbc:ID>
-            <xsl:value-of select="."/>
-         </cbc:ID>
-         <cbc:DocumentType>
-            <xsl:text>CUP</xsl:text>
-         </cbc:DocumentType>
-      </cac:AdditionalDocumentReference>
-   </xsl:template>
-   <xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[not(RiferimentoNumeroLinea)]/CodiceCommessaConvenzione"
-                 mode="CodiceCommessaConvenzione">
-      <xsl:param name="CN" select="."/>
-      <xsl:param name="CNP" select="1"/>
-      <cac:AdditionalDocumentReference>
-         <cbc:ID>
-            <xsl:value-of select="."/>
-         </cbc:ID>
-         <cbc:DocumentType>
-            <xsl:text>CommessaConvenzione</xsl:text>
-         </cbc:DocumentType>
-      </cac:AdditionalDocumentReference>
-   </xsl:template>
-   <xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[position() &gt; 1]"
-                 mode="AdditionalOrders">
-      <xsl:param name="CN" select="."/>
-      <xsl:param name="CNP" select="1"/>
-      <xsl:if test="IdDocumento and not(RiferimentoNumeroLinea)">
-         <cac:AdditionalDocumentReference>
-            <cbc:ID>
-               <xsl:value-of select="IdDocumento"/>
-            </cbc:ID>
-            <xsl:if test="Data">
-               <cbc:IssueDate>
-                  <xsl:value-of select="Data"/>
-               </cbc:IssueDate>
-            </xsl:if>
-            <cbc:DocumentType>
-               <xsl:text>OrdineAggiuntivo</xsl:text>
-            </cbc:DocumentType>
-         </cac:AdditionalDocumentReference>
-      </xsl:if>
-   </xsl:template>
+   
+	<xsl:template match="FatturaElettronicaBody/DatiGenerali" mode="OrderReference">								   
+		<xsl:param name="CN" select="."/>
+		<xsl:param name="CNP" select="1"/>
+		<xsl:for-each select="./DatiOrdineAcquisto[(not(./RiferimentoNumeroLinea)) or not(./RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea)]">
+			<xsl:choose>
+				<xsl:when test="position() = 1">
+					<cac:OrderReference>
+						<cbc:ID>
+							<xsl:value-of select="IdDocumento"/>
+						</cbc:ID>
+						<xsl:if test="Data">
+							<cbc:IssueDate>
+								<xsl:value-of select="Data"/>
+							</cbc:IssueDate>
+						</xsl:if>
+					</cac:OrderReference>
+				</xsl:when>
+				<xsl:otherwise>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:for-each>
+	</xsl:template>
+	
+	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto/CodiceCIG" mode="CIG">
+		<xsl:param name="CN" select="."/>
+		<xsl:param name="CNP" select="1"/>
+	  <xsl:variable name="riferimento" select="../RiferimentoNumeroLinea"/>
+      <xsl:if test="(../IdDocumento and not(../RiferimentoNumeroLinea)) or not (/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee[NumeroLinea = $riferimento])">
+		<cac:AdditionalDocumentReference>
+			<cbc:ID>
+				<xsl:value-of select="."/>
+			</cbc:ID>
+			<cbc:DocumentType>
+				<xsl:text>CIG</xsl:text>
+			</cbc:DocumentType>
+		</cac:AdditionalDocumentReference>
+	</xsl:if>
+	</xsl:template>
+	
+	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto/CodiceCUP" mode="CUP">
+		<xsl:param name="CN" select="."/>
+		<xsl:param name="CNP" select="1"/>
+		<xsl:variable name="riferimento" select="../RiferimentoNumeroLinea"/>
+		<xsl:if test="(../IdDocumento and not(../RiferimentoNumeroLinea)) or not (/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee[NumeroLinea = $riferimento])">
+		<cac:AdditionalDocumentReference>
+			<cbc:ID>
+				<xsl:value-of select="."/>
+			</cbc:ID>
+			<cbc:DocumentType>
+				<xsl:text>CUP</xsl:text>
+			</cbc:DocumentType>
+		</cac:AdditionalDocumentReference>
+	</xsl:if>
+	</xsl:template>
+	
+	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto/CodiceCommessaConvenzione" mode="CodiceCommessaConvenzione">
+		<xsl:param name="CN" select="."/>
+		<xsl:param name="CNP" select="1"/>
+		<xsl:variable name="riferimento" select="../RiferimentoNumeroLinea"/>
+		<xsl:if test="(../IdDocumento and not(../RiferimentoNumeroLinea)) or not (/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee[NumeroLinea = $riferimento])">
+		<cac:AdditionalDocumentReference>
+			<cbc:ID>
+				<xsl:value-of select="."/>
+			</cbc:ID>
+			<cbc:DocumentType>
+				<xsl:text>CommessaConvenzione</xsl:text>
+			</cbc:DocumentType>
+		</cac:AdditionalDocumentReference>
+	</xsl:if>
+	</xsl:template>
+	
+	<xsl:template match="FatturaElettronicaBody/DatiGenerali" mode="AdditionalOrders">
+		<xsl:param name="CN" select="."/>
+		<xsl:param name="CNP" select="1"/>
+		<xsl:for-each select="./DatiOrdineAcquisto[(not(./RiferimentoNumeroLinea)) or not(./RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea)]">
+			<xsl:choose>
+				<xsl:when test="position() != 1">
+					<cac:AdditionalDocumentReference>
+						<cbc:ID>
+							<xsl:value-of select="IdDocumento"/>
+						</cbc:ID>
+						<xsl:if test="Data">
+							<cbc:IssueDate>
+								<xsl:value-of select="Data"/>
+							</cbc:IssueDate>
+						</xsl:if>
+						<cbc:DocumentType>
+							<xsl:text>OrdineAggiuntivo</xsl:text>
+						</cbc:DocumentType>
+					</cac:AdditionalDocumentReference>
+				</xsl:when>
+				<xsl:otherwise>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:for-each>
+	</xsl:template>
    <xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiRicezione">
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
@@ -2192,12 +2286,12 @@ the root node.
             <cac:PayeeFinancialAccount>
                <xsl:if test="IBAN">
                   <cbc:ID>
-                     <xsl:variable name="variable_d1e388a1051010">
+                     <xsl:variable name="variable_d10e417a1051010">
                         <xsl:value-of select="if (IBAN) then 'IBAN' else 'LOCAL'"/>
                      </xsl:variable>
-                     <xsl:if test="string($variable_d1e388a1051010)">
+                     <xsl:if test="string($variable_d10e417a1051010)">
                         <xsl:attribute name="schemeID">
-                           <xsl:value-of select="string($variable_d1e388a1051010)"/>
+                           <xsl:value-of select="string($variable_d10e417a1051010)"/>
                         </xsl:attribute>
                      </xsl:if>
                      <xsl:value-of select="IBAN"/>
@@ -2247,12 +2341,12 @@ the root node.
       <cac:PaymentTerms>
          <xsl:if test="ImportoPagamento">
             <cbc:Amount>
-               <xsl:variable name="variable_d1e397a1049836">
+               <xsl:variable name="variable_d10e426a1050860">
                   <xsl:value-of select="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Divisa"/>
                </xsl:variable>
-               <xsl:if test="string($variable_d1e397a1049836)">
+               <xsl:if test="string($variable_d10e426a1050860)">
                   <xsl:attribute name="currencyID">
-                     <xsl:value-of select="string($variable_d1e397a1049836)"/>
+                     <xsl:value-of select="string($variable_d10e426a1050860)"/>
                   </xsl:attribute>
                </xsl:if>
                <xsl:value-of select="ImportoPagamento"/>
@@ -2260,12 +2354,12 @@ the root node.
          </xsl:if>
          <xsl:if test="ScontoPagamentoAnticipato &gt; 0.00">
             <cbc:SettlementDiscountAmount>
-               <xsl:variable name="variable_d1e398a1049836">
+               <xsl:variable name="variable_d10e427a1050860">
                   <xsl:value-of select="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Divisa"/>
                </xsl:variable>
-               <xsl:if test="string($variable_d1e398a1049836)">
+               <xsl:if test="string($variable_d10e427a1050860)">
                   <xsl:attribute name="currencyID">
-                     <xsl:value-of select="string($variable_d1e398a1049836)"/>
+                     <xsl:value-of select="string($variable_d10e427a1050860)"/>
                   </xsl:attribute>
                </xsl:if>
                <xsl:value-of select="ScontoPagamentoAnticipato"/>
@@ -2273,12 +2367,12 @@ the root node.
          </xsl:if>
          <xsl:if test="PenalitaPagamentiRitardati &gt; 0.00">
             <cbc:PenaltyAmount>
-               <xsl:variable name="variable_d1e399a1049836">
+               <xsl:variable name="variable_d10e428a1050860">
                   <xsl:value-of select="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Divisa"/>
                </xsl:variable>
-               <xsl:if test="string($variable_d1e399a1049836)">
+               <xsl:if test="string($variable_d10e428a1050860)">
                   <xsl:attribute name="currencyID">
-                     <xsl:value-of select="string($variable_d1e399a1049836)"/>
+                     <xsl:value-of select="string($variable_d10e428a1050860)"/>
                   </xsl:attribute>
                </xsl:if>
                <xsl:value-of select="PenalitaPagamentiRitardati"/>
@@ -2517,12 +2611,12 @@ the root node.
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
       <cbc:CompanyID>
-         <xsl:variable name="variable_d1e258a1051010">
+         <xsl:variable name="variable_d10e287a1051010">
             <xsl:value-of select="document($xclVATSchemes)//Value[@ColumnRef='VATSchemeID']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/upper-case(IdPaese)][1]"/>
          </xsl:variable>
-         <xsl:if test="string($variable_d1e258a1051010)">
+         <xsl:if test="string($variable_d10e287a1051010)">
             <xsl:attribute name="schemeID">
-               <xsl:value-of select="string($variable_d1e258a1051010)"/>
+               <xsl:value-of select="string($variable_d10e287a1051010)"/>
             </xsl:attribute>
          </xsl:if>
          <xsl:value-of select="concat(IdPaese, IdCodice)"/>
@@ -2532,12 +2626,12 @@ the root node.
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
       <cbc:CompanyID>
-         <xsl:variable name="variable_d1e362a1051010">
+         <xsl:variable name="variable_d10e391a1051010">
             <xsl:value-of select="document($xclVATSchemes)//Value[@ColumnRef='VATSchemeID']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/upper-case(IdPaese)][1]"/>
          </xsl:variable>
-         <xsl:if test="string($variable_d1e362a1051010)">
+         <xsl:if test="string($variable_d10e391a1051010)">
             <xsl:attribute name="schemeID">
-               <xsl:value-of select="string($variable_d1e362a1051010)"/>
+               <xsl:value-of select="string($variable_d10e391a1051010)"/>
             </xsl:attribute>
          </xsl:if>
          <xsl:value-of select="concat(IdPaese, IdCodice)"/>
@@ -2597,12 +2691,12 @@ the root node.
          </cbc:CompanyLiquidationStatusCode>
          <xsl:if test="CapitaleSociale">
             <cbc:CorporateStockAmount>
-               <xsl:variable name="variable_d1e227a1049836">
+               <xsl:variable name="variable_d10e256a1050860">
                   <xsl:value-of select="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Divisa"/>
                </xsl:variable>
-               <xsl:if test="string($variable_d1e227a1049836)">
+               <xsl:if test="string($variable_d10e256a1050860)">
                   <xsl:attribute name="currencyID">
-                     <xsl:value-of select="string($variable_d1e227a1049836)"/>
+                     <xsl:value-of select="string($variable_d10e256a1050860)"/>
                   </xsl:attribute>
                </xsl:if>
                <xsl:value-of select="CapitaleSociale"/>
@@ -2631,12 +2725,12 @@ the root node.
                <xsl:value-of select="if (Tipo = 'MG') then true() else false()"/>
             </cbc:ChargeIndicator>
             <cbc:Amount>
-               <xsl:variable name="variable_d1e545a1049836">
+               <xsl:variable name="variable_d10e562a1050860">
                   <xsl:value-of select="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Divisa"/>
                </xsl:variable>
-               <xsl:if test="string($variable_d1e545a1049836)">
+               <xsl:if test="string($variable_d10e562a1050860)">
                   <xsl:attribute name="currencyID">
-                     <xsl:value-of select="string($variable_d1e545a1049836)"/>
+                     <xsl:value-of select="string($variable_d10e562a1050860)"/>
                   </xsl:attribute>
                </xsl:if>
                <xsl:value-of select="Importo"/>
@@ -2697,7 +2791,7 @@ the root node.
    <xsl:template match="/in:FatturaElettronica" name="root">
       <xsl:param name="CN" select="."/>
       <xsl:param name="CNP" select="1"/>
-      <Invoice>
+      <CreditNote>
          <xsl:apply-templates select="FatturaElettronicaBody">
             <xsl:with-param name="CN" select="current()"/>
             <xsl:with-param name="CNP" select="position()"/>
@@ -2706,18 +2800,18 @@ the root node.
             <xsl:text>2.1</xsl:text>
          </cbc:UBLVersionID>
          <cbc:CustomizationID>
-            <xsl:text>urn:www.cenbii.eu:transaction:biitrns010:ver2.0:extended:urn:www.peppol.eu:bis:peppol5a:ver2.0:extended:urn:www.ubl-italia.org:spec:fatturapa:ver2.0</xsl:text>
+            <xsl:text>urn:www.cenbii.eu:transaction:biitrns014:ver2.0:extended:urn:www.peppol.eu:bis:peppol5a:ver2.0:extended:urn:www.ubl-italia.org:spec:fatturapa:ver2.0</xsl:text>
          </cbc:CustomizationID>
          <cbc:ProfileID>
             <xsl:text>urn:www.cenbii.eu:profile:bii05:ver2.0</xsl:text>
          </cbc:ProfileID>
          <cbc:ID>
-            <xsl:variable name="variable_d1e74a1051010">
-               <xsl:value-of select="if (FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Art73 = 'SI') then 'art73dpr633/72' else ''"/>
+            <xsl:variable name="variable_d10e104a1051010">
+               <xsl:value-of select="if (FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Art73) then 'art73dpr633/72' else ''"/>
             </xsl:variable>
-            <xsl:if test="string($variable_d1e74a1051010)">
+            <xsl:if test="string($variable_d10e104a1051010)">
                <xsl:attribute name="schemeID">
-                  <xsl:value-of select="string($variable_d1e74a1051010)"/>
+                  <xsl:value-of select="string($variable_d10e104a1051010)"/>
                </xsl:attribute>
             </xsl:if>
             <xsl:value-of select="FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Numero"/>
@@ -2728,9 +2822,6 @@ the root node.
          <cbc:IssueDate>
             <xsl:value-of select="FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Data"/>
          </cbc:IssueDate>
-         <cbc:InvoiceTypeCode listID="UNCL1001">
-            <xsl:value-of select="document($xclTipoDocumento)//Value[@ColumnRef='xcode']/SimpleValue[../../Value[@ColumnRef='code']/SimpleValue=current()/FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/TipoDocumento][1]"/>
-         </cbc:InvoiceTypeCode>
          <xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Causale">
             <xsl:with-param name="CN" select="current()"/>
             <xsl:with-param name="CNP" select="position()"/>
@@ -2738,7 +2829,7 @@ the root node.
          <cbc:DocumentCurrencyCode listID="ISO4217">
             <xsl:value-of select="FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Divisa"/>
          </cbc:DocumentCurrencyCode>
-         <xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[1]"
+         <xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali"
                               mode="OrderReference">
             <xsl:with-param name="CN" select="current()"/>
             <xsl:with-param name="CNP" select="position()"/>
@@ -2761,15 +2852,11 @@ the root node.
             <xsl:with-param name="CN" select="current()"/>
             <xsl:with-param name="CNP" select="position()"/>
          </xsl:apply-templates>
-         <xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiConvenzione">
-            <xsl:with-param name="CN" select="current()"/>
-            <xsl:with-param name="CNP" select="position()"/>
-         </xsl:apply-templates>
          <xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiContratto">
             <xsl:with-param name="CN" select="current()"/>
             <xsl:with-param name="CNP" select="position()"/>
          </xsl:apply-templates>
-         <xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[not(RiferimentoNumeroLinea)]/CodiceCommessaConvenzione"
+         <xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto/CodiceCommessaConvenzione"
                               mode="CodiceCommessaConvenzione">
             <xsl:with-param name="CN" select="current()"/>
             <xsl:with-param name="CNP" select="position()"/>
@@ -2794,7 +2881,7 @@ the root node.
             <xsl:with-param name="CN" select="current()"/>
             <xsl:with-param name="CNP" select="position()"/>
          </xsl:apply-templates>
-         <xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[not(RiferimentoNumeroLinea)]/CodiceCUP"
+         <xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto/CodiceCUP"
                               mode="CUP">
             <xsl:with-param name="CN" select="current()"/>
             <xsl:with-param name="CNP" select="position()"/>
@@ -2819,7 +2906,7 @@ the root node.
             <xsl:with-param name="CN" select="current()"/>
             <xsl:with-param name="CNP" select="position()"/>
          </xsl:apply-templates>
-         <xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[not(RiferimentoNumeroLinea)]/CodiceCIG"
+         <xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto/CodiceCIG"
                               mode="CIG">
             <xsl:with-param name="CN" select="current()"/>
             <xsl:with-param name="CNP" select="position()"/>
@@ -2856,8 +2943,12 @@ the root node.
             <xsl:with-param name="CN" select="current()"/>
             <xsl:with-param name="CNP" select="position()"/>
          </xsl:apply-templates>
-         <xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[position() &gt; 1]"
+         <xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali"
                               mode="AdditionalOrders">
+            <xsl:with-param name="CN" select="current()"/>
+            <xsl:with-param name="CNP" select="position()"/>
+         </xsl:apply-templates>
+         <xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiConvenzione">
             <xsl:with-param name="CN" select="current()"/>
             <xsl:with-param name="CNP" select="position()"/>
          </xsl:apply-templates>
@@ -2901,12 +2992,12 @@ the root node.
          </xsl:apply-templates>
          <cac:TaxTotal>
             <cbc:TaxAmount>
-               <xsl:variable name="variable_d1e411a1049836">
+               <xsl:variable name="variable_d10e440a1050860">
                   <xsl:value-of select="FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Divisa"/>
                </xsl:variable>
-               <xsl:if test="string($variable_d1e411a1049836)">
+               <xsl:if test="string($variable_d10e440a1050860)">
                   <xsl:attribute name="currencyID">
-                     <xsl:value-of select="string($variable_d1e411a1049836)"/>
+                     <xsl:value-of select="string($variable_d10e440a1050860)"/>
                   </xsl:attribute>
                </xsl:if>
                <xsl:value-of select="format-number(sum(FatturaElettronicaBody/DatiBeniServizi/DatiRiepilogo/Imposta),'###########0.00')"/>
@@ -2916,10 +3007,6 @@ the root node.
                <xsl:with-param name="CNP" select="position()"/>
             </xsl:apply-templates>
          </cac:TaxTotal>
-         <xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/DatiRitenuta">
-            <xsl:with-param name="CN" select="current()"/>
-            <xsl:with-param name="CNP" select="position()"/>
-         </xsl:apply-templates>
          <xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento"
                               mode="LegalMonetaryTotal">
             <xsl:with-param name="CN" select="current()"/>
@@ -2929,7 +3016,7 @@ the root node.
             <xsl:with-param name="CN" select="current()"/>
             <xsl:with-param name="CNP" select="position()"/>
          </xsl:apply-templates>
-      </Invoice>
+      </CreditNote>
    </xsl:template>
 
    <xsl:template match="/">

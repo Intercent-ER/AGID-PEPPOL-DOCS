@@ -7,6 +7,7 @@
 :toclevels: 2
 :toc-title: Indice
 :numbered:
+:imagesdir: smp/images
 
 ====
 [blue]#Autore: AgID# +
@@ -21,7 +22,7 @@
 [width="95%",cols=",,",align="center",options="header"]
 |===
 ^.^|VERSIONE ^.^|DATA ^.^|CAMBIAMENTI APPORTATI
-| 1.0.0 | 11/11/2020 | Prima stesura
+| 1.0.0 | 11/11/2022 | Prima stesura
 | 1.0.1 | 15/11/2022 | Revisione
 |===
 

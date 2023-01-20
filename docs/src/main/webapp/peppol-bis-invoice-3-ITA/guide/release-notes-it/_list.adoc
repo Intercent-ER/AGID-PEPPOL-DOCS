@@ -46,7 +46,7 @@ La regola si applica per l’indicazione del Fornitore (par. 10.1.1. Il Fornitor
 
 [red]#Cambiamenti nella sezione Downloads# +
 
-* Caricamento nuovo pacchetto di esempi Fattura. 
+* Caricamento nuovo pacchetto di esempi Fattura.
 
 | 3.0.13.1(IT)
 a| 27/05/2022

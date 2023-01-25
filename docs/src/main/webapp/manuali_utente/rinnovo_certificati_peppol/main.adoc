@@ -7,12 +7,12 @@
 :toclevels: 2
 :toc-title: Indice
 :numbered:
-:imagesdir: rinnovo_certificati_peppol/images
+:imagesdir: ../rinnovo_certificati_peppol/images
 
 ====
 [blue]#Autore: AgID# +
 [blue]#Versione: 1.2.0# +
-[blue]#Ultimo aggiornamento: 16/12/2022#
+[blue]#Ultimo aggiornamento: 06/02/2023#
 ====
 
 = Procedura per il rinnovo dei certificati Peppol
@@ -23,7 +23,7 @@
 ^.^|VERSIONE ^.^|DATA ^.^|CAMBIAMENTI APPORTATI
 | 1.0.0 | 27/11/2022 | Prima stesura
 | 1.1.0 | 16/12/2022 | Aggiunto capitolo _Invio certificati per SMP Unico_
-| 1.2.0 | 06/02/2023 | Aggiornati capitoli 3 e 4 in relazione alle modalità di indicazione dell'indirizzo di contatto indicato per ricevere le informazioni sui certificati PKI.
+| 1.2.0 | 06/02/2023 | Aggiornati capitoli 3 e 4 in relazione alle modalità di indicazione dell'indirizzo di contatto per ricevere le informazioni sui certificati PKI.
 |===
 
 == Obiettivo
@@ -35,8 +35,8 @@ ed eventualmente del proprio SMP.
 
 I certificati forniti da OpenPEPPOL ad ogni Service Provider qualificato e necessari per operare sulla rete PEPPOL possiedono un periodo di validità di due anni,
 al temine dei quali devono essere rinnovati. +
-Un mese prima della scadenza, OpenPeppol invia un avviso di certificato in scadenza all'indirizzo di contatto indicato dal SP per le comunicazioni relative ai certificati PKI di AP e SMP.
-L'email contiene tra le altre cose il link a cui accedere per effettuare la richiesta di rinnovo.
+Un mese prima della scadenza, OpenPeppol invia un avviso di certificato in scadenza all'indirizzo di contatto indicato dal SP per le comunicazioni relative ai certificati PKI di AP e SMP. +
+L'email contiene, tra le altre cose, il link a cui accedere per effettuare la richiesta di rinnovo.
 
 .Esempio di avviso di scadenza certificati
 image::procedura_rinnovo_certificati_peppol-9abcd.png[align = center]
@@ -54,7 +54,7 @@ Tutte le informazioni richieste sono obbligatorie, pertanto la sezione deve esse
 
 [NOTE]
 ====
-All'interno del campo *Email confirmation to* del form PKI Certificate request, il SP dovrà inserire l'indirizzo email a cui intende ricevere la conferma dell'emissione dei nuovi certificati. +
+All'interno del campo *Email confirmation to* del form *PKI Certificate request*, il SP dovrà inserire l'indirizzo email a cui intende ricevere la conferma dell'emissione dei nuovi certificati. +
 Si consiglia di valorizzare il campo con l'indirizzo di contatto per le comunicazioni relative ai certificati PKI di AP e SMP indicato dal SP in sede di qualificazione come SP Peppol (procedura di https://peppol.agid.gov.it/it/qualificazione-ap-smp/[Qualificazione AP/SMP], punto 5) e al quale è stata ricevuta la notifica di scadenza dei certificati PKI. +
 In caso il SP inserisca un indirizzo email diverso da quello precedentemente indicato, OpenPeppol aggiornerà le informazioni del SP censendolo come l'indirizzo di contatto per le comunicazioni relative ai certificati PKI di AP e SMP gestiti dal Service Provider.
 ====

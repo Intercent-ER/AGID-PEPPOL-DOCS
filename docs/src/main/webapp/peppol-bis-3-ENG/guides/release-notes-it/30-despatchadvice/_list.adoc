@@ -6,7 +6,7 @@
 ^.^| Date
 ^.^| What's new
 
-| 3.1.0.8(IT)
+| 3.1.0.1(IT)
 a| 16/12/2022
 a| _Update to specifications https://docs.peppol.eu/poacc/upgrade-3/2022-Q4/release-notes/[PEPPOL BIS 3.0.10 - November release 2022]_. +
 
@@ -33,7 +33,7 @@ Effective as of *06 February 2023*
 * Added US code 9959 to EAS encoding. Removed the Italian codes 9906 and 9907 from the same coding. Adjusted the validation artifacts;
 * Added codes 0217 (Netherlands), 0218, 0219 and 0220 (Latvia) to the ICD encoding and adjusted the validation artifacts.
 
-| 3.1.0.7(IT)
+| 3.0.0.8(IT)
 a| 27/05/2022
 a|  _Update to https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3.0.9 - may release 2022]_. +
 
@@ -49,7 +49,7 @@ a|  _Update to https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 
 * Added codes 0147, 0170, 0188, 0215 and 0216 to the EAS code list and support added in validation artefacts. [481,473,505,506]
 * Double entry of code TSP removed from code list UNCL7143. [488]
 
-| 3.1.0.6(IT)
+| 3.0.0.7(IT)
 a| 08/11/2021
 a|  _Update to https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3.0.8 - Fall release 2021]_. +
 
@@ -62,7 +62,7 @@ a|  _Update to https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 
 * Added UOM codes IUG, KWN, KWS, ODG, ODK, ODM, Q41, Q42, XZZ to aling with CEF listing of codes. [POACC-427]
 
 
-| 3.1.0.5 (IT)
+| 3.0.0.6 (IT)
 | 03/05/2021
 a| _Update to [blue]#PEPPOL BIS 3.0.7 - Spring release 2021#_. +
 
@@ -87,7 +87,7 @@ a| _Update to [blue]#PEPPOL BIS 3.0.7 - Spring release 2021#_. +
 ** UOM code list. Added 49 new codes into Recommendation 20 and 21.
 
 
-| 3.1.0.4(IT)
+| 3.0.0.5(IT)
 a| 13/11/2020
 a| _Update to https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3.0.6 - Hotfix 2020]_. +
 
@@ -102,7 +102,7 @@ a| _Update to https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3
 
 
 
-| 3.1.0.3(IT)
+| 3.0.0.4(IT)
 a| 06/11/2020
 a| _Update to [blue]#PEPPOL BIS 3.0.6 - Fall release 2020#_. +
 
@@ -121,7 +121,7 @@ a| _Update to [blue]#PEPPOL BIS 3.0.6 - Fall release 2020#_. +
 
 
 
-| 3.1.0.2(IT)
+| 3.0.0.3(IT)
 a| 22/09/2020
 a| [red]#Changes to syntax# +
 
@@ -137,11 +137,11 @@ Typo corrected in the cardinality of the following elements, now mandatory (1..1
 Typo correction of the indication about the fiscal code when inserted in the element *cac:Partyidentification*, now must be prefixed with the string "CF:" instead of "IT:CF:".
 
 
-| 3.1.0.1(IT)
+| 3.0.0.2(IT)
 a| 13/05/2020
 a| Update to PEPPOL BIS 3.0.4 version (Despatch Advice 3.1).
 
-| 3.0.3.1(IT)
+| 3.0.0.1(IT)
 a| 20/04/2020
 a| This version now incorporates the amendements decided during the public consultation carried out between 16 and 27 March 2020 (note, the communication was sent the 16th, not on 13th).  +
 The BIS Despatch Advice 3 will become mandatory starting from 30 September 2020.

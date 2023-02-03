@@ -6,7 +6,7 @@
 ^.^| Date
 ^.^| What's new
 
-| 3.0.0.4(IT)
+| 3.1.0.1(IT)
 a| 16/12/2022
 a| _Update to specifications https://docs.peppol.eu/poacc/upgrade-3/2022-Q4/release-notes/[PEPPOL BIS 3.0.10 - November release 2022]_. +
 

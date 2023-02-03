@@ -6,7 +6,7 @@
 ^.^| Data
 ^.^| Cosa è cambiato
 
-| 3.1.0.8(IT)
+| 3.1.0.1(IT)
 a| 16/12/2022
 a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2022-Q4/release-notes/[PEPPOL BIS 3.0.10 - November release 2022]_. +
 
@@ -34,7 +34,7 @@ In vigore a partire dal *06 febbraio 2023*
 * Aggiunti i codici 0217 (Paesi Bassi), 0218, 0219 e 0220 (Lettonia) alla codifica ICD e adeguati gli artefatti di validazione.
 
 
-| 3.1.0.7(IT)
+| 3.0.0.8(IT)
 a| 27/05/2022
 a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3.0.9 - may release 2022]_. +
 
@@ -49,7 +49,7 @@ a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/release
 * Aggiunti i codici 0147, 0170, 0188, 0215 e 0216 alla codifica EAS e adeguati gli artefatti di validazione;
 * Rimozione della ripetizione del codice TSP dalla codifica UNCL7143.
 
-| 3.1.0.6(IT)
+| 3.0.0.7(IT)
 a| 08/11/2021
 a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3.0.8 - Fall release 2021]_. +
 
@@ -61,7 +61,7 @@ a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/release
 * Aggiunti i codici UOM (Unit of Measure) IUG, KWN, KWS, ODG, ODK, ODM, Q41, Q42, XZZ per allineamento ai codici della lista CEF.
 
 
-| 3.1.0.5(IT)
+| 3.0.0.6(IT)
 | 03/05/2021
 a| _Aggiornamento alle specifiche [blue]#PEPPOL BIS 3.0.7 - Spring release 2021#_. +
 
@@ -85,7 +85,7 @@ a| _Aggiornamento alle specifiche [blue]#PEPPOL BIS 3.0.7 - Spring release 2021#
 
 
 
-| 3.1.0.4(IT)
+| 3.0.0.5(IT)
 a| 13/11/2020
 a| _Aggiornamento alle specifiche [blue]#PEPPOL BIS 3.0.6 - hotfix#_. +
 
@@ -100,7 +100,7 @@ a| _Aggiornamento alle specifiche [blue]#PEPPOL BIS 3.0.6 - hotfix#_. +
 
 
 
-| 3.1.0.3(IT)
+| 3.0.0.4(IT)
 a| 06/11/2020
 a| _Aggiornamento alle specifiche [blue]#PEPPOL BIS 3.0.5 - Fall release 2020#_. +
 
@@ -124,7 +124,7 @@ a| _Aggiornamento alle specifiche [blue]#PEPPOL BIS 3.0.5 - Fall release 2020#_.
 
 
 
-| 3.1.0.2(IT)
+| 3.0.0.3(IT)
 a| 22/09/2020
 a| [red]#*Cambiamenti alla sintassi*# +
 
@@ -140,7 +140,7 @@ Correzione refuso nella cardinalità dei seguenti campi, ora obbligatoria (1..1)
 Correzione refuso sull'indicazione del Codice Fiscale quando inserito nel *cac:Partyidentification*, ora preceduto dalla stringa "CF:" invece di "IT:CF:".
 
 
-| 3.1.0.1(IT)
+| 3.0.0.2(IT)
 a| 13/05/2020
 a| Aggiornamento alle specifiche PEPPOL BIS 3.0.4 (Despatch Advice 3.1).
 

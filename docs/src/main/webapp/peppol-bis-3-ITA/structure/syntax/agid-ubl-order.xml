@@ -4,7 +4,7 @@
 	<Term>Order</Term>
 	<agid:Restriction>
 		<agid:ID>urn:www.ubl-italia.org:spec:ordine:ver3.1</agid:ID>
-		<agid:Name>Ordine PEPPOL 3.2</agid:Name>
+		<agid:Name>Ordine PEPPOL 3.3.0.1</agid:Name>
 		<agid:Version>3.2</agid:Version>
 	</agid:Restriction>
 

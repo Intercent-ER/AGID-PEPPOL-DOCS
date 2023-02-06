@@ -77,8 +77,8 @@ Attraverso questa modalità di gestione, il valore dell’imposta di bollo di 2 
 Se l’emittente decide di effettuare la rivalsa del bollo addebitandolo in nota di credito, questa viene eseguita attraverso una trattenuta di 2 euro, indicando nella struttura *cac:AllowanceCharge*:  
 
 * l’elemento cbc:ChargeIndicator pari a “false”;
-* l’elemento cbc:AllowanceChargeReasonCode (BT-98 Document level charge reason code) pari a “95”;
-* l’elemento cbc:AllowanceChargeReason (BT-97 Document level charge reason) con la stringa “BOLLO”;
+* l’elemento cbc:AllowanceChargeReasonCode (BT-98 Document level allowance reason code) pari a “95”;
+* l’elemento cbc:AllowanceChargeReason (BT-97 Document level allowance reason) con la stringa “BOLLO”;
 * l’elemento cbc:Amount (BT-92 Document level allowance amount) con il valore 2;
 * l’elemento cac:TaxCategory/cbc:ID (BT-95 Document level charge VAT category code) posto a Z (zero) per indicare che l’importo è escluso IVA ex art. 15 DPR n. 633 del 1972 (per ulteriori dettagli vedi paragrafo 7.3).
 
@@ -197,7 +197,7 @@ Attraverso questa modalità di gestione, il valore dell’imposta di bollo non i
     	</cac:TaxSubtotal>
 </cac:TaxTotal>
 <cac:LegalMonetaryTotal>
-		<cbc:LineExtensionAmount currencyID="EUR">100.00</cbc:LineExtensionAmount>
+    	<cbc:LineExtensionAmount currencyID="EUR">100.00</cbc:LineExtensionAmount>
     	<cbc:TaxExclusiveAmount currencyID="EUR">100.00</cbc:TaxExclusiveAmount>
     	<cbc:TaxInclusiveAmount currencyID="EUR">100.00</cbc:TaxInclusiveAmount>
     	<cbc:ChargeTotalAmount currencyID="EUR">0.00</cbc:ChargeTotalAmount>
@@ -261,7 +261,7 @@ Attraverso questa modalità di gestione, il valore dell’imposta di bollo pagat
     	</cac:TaxSubtotal>
 </cac:TaxTotal>
 <cac:LegalMonetaryTotal>
-		<cbc:LineExtensionAmount currencyID="EUR">102.00</cbc:LineExtensionAmount>
+    	<cbc:LineExtensionAmount currencyID="EUR">102.00</cbc:LineExtensionAmount>
     	<cbc:TaxExclusiveAmount currencyID="EUR">102.00</cbc:TaxExclusiveAmount>
     	<cbc:TaxInclusiveAmount currencyID="EUR">102.00</cbc:TaxInclusiveAmount>
     	<cbc:ChargeTotalAmount currencyID="EUR">0.00</cbc:ChargeTotalAmount>

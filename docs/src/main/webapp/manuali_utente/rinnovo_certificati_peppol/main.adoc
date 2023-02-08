@@ -7,7 +7,8 @@
 :toclevels: 2
 :toc-title: Indice
 :numbered:
-:imagesdir: ../rinnovo_certificati_peppol/images
+:imagesdir: rinnovo_certificati_peppol/images
+// in test funziona con imagesdir:../rinnovo_certificati_peppol/images
 
 ====
 [blue]#Autore: AgID# +

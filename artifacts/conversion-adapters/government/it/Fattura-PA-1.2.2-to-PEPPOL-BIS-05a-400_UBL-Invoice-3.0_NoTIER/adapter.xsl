@@ -2192,7 +2192,7 @@ the root node.
 					</xsl:attribute>
 				</xsl:if>
 				<xsl:choose>
-					<xsl:when test="upper-case(normalize-space(../../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO')]))">
+					<xsl:when test="upper-case(normalize-space(../../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO')][1]))">
 						<xsl:value-of select="format-number(../../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO')][1]/PrezzoTotale,'###########0.00')"/>
 					</xsl:when>
 					<xsl:otherwise>

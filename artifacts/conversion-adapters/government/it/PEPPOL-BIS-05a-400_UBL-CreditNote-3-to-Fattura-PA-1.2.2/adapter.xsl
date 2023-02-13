@@ -1038,7 +1038,20 @@
 				</xsl:if>
 				<xsl:if test="/in:CreditNote/cbc:BuyerReference">
 					<CodiceCommessaConvenzione>
-						<xsl:value-of select="/in:CreditNote/cbc:BuyerReference"/>
+						<xsl:choose>
+							<xsl:when test="string-length(/in:CreditNote/cbc:BuyerReference)-string-length(translate(/in:CreditNote/cbc:BuyerReference,'#','')) = 2">
+								<xsl:value-of select="concat('#', substring-after(substring-after(/in:CreditNote/cbc:BuyerReference, '#'), '#'), '#')"/>
+							</xsl:when>
+							<xsl:when test="string-length(/in:CreditNote/cbc:BuyerReference)-string-length(translate(/in:CreditNote/cbc:BuyerReference,'#','')) = 3">
+								<xsl:value-of select="concat('#', substring-before(substring-after(substring-after(/in:CreditNote/cbc:BuyerReference, '#'), '#'), '#'), '#')"/>
+							</xsl:when>
+							<xsl:when test="(string-length(/in:CreditNote/cbc:BuyerReference)-string-length(translate(/in:CreditNote/cbc:BuyerReference,'#','')) &gt; 3) and (contains(/in:CreditNote/cbc:BuyerReference, '##')) ">
+								<xsl:value-of select="concat('#', substring-before(substring-after(/in:CreditNote/cbc:BuyerReference, '##'), '#'), '#')"/>
+							</xsl:when>
+							<xsl:otherwise>						
+								<xsl:value-of select="/in:CreditNote/cbc:BuyerReference"/>
+							</xsl:otherwise>
+						</xsl:choose>
 					</CodiceCommessaConvenzione>
 				</xsl:if>
 			</DatiOrdineAcquisto>

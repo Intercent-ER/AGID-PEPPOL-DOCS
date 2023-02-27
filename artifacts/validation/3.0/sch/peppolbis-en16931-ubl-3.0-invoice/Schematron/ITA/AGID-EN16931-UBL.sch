@@ -1166,7 +1166,8 @@
 			<assert id="UBL-SR-37" flag="fatal" test="(count(cac:Price/cac:AllowanceCharge/cbc:Amount) &lt;= 1)">[UBL-SR-37]-Item price discount shall occur maximum once</assert>
 			<assert id="UBL-SR-48" flag="fatal" test="count(cac:Item/cac:ClassifiedTaxCategory) = 1">[UBL-SR-48]-Invoice lines shall have one and only one classified tax category.</assert>
 			<assert id="UBL-SR-50" flag="fatal" test="count(cac:Item/cbc:Description) &lt;= 1">[UBL-SR-50]-Item description shall occur maximum once</assert>
-      <assert id="UBL-SR-52" flag="fatal" test="count(cac:DocumentReference) &lt;= 1">[UBL-SR-52]-Document reference shall occur maximum once</assert>
+			<!-- 27/02/2023 commentata regola UBL-SR-52 perché va contro l'estensione nazionale sulla molteplicità di InvoiceLine/DocumentReference -->
+			<!-- <assert id="UBL-SR-52" flag="fatal" test="count(cac:DocumentReference) &lt;= 1">[UBL-SR-52]-Document reference shall occur maximum once</assert> -->
 		</rule>
 		<rule context="cac:PayeeParty">
 			<assert id="UBL-SR-19" flag="fatal" test="(count(cac:PartyName/cbc:Name) &lt;= 1) and ((cac:PartyName/cbc:Name) != (../cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName))">[UBL-SR-19]-Payee name shall occur maximum once, if the Payee is different from the Seller</assert>

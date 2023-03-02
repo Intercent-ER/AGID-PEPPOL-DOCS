@@ -456,10 +456,6 @@ the root node.
 			</cac:DocumentReference>
 		</xsl:if>
 		<xsl:if test="(. != '#NO#') and ((not(../RiferimentoNumeroLinea) or not(../RiferimentoNumeroLinea = /in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea)) and (count(/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea)]/CodiceCommessaConvenzione)) &gt; 1) ">
-																																										  
-								   
-									
-																																																																									
 			<cac:DocumentReference>
 				<cbc:ID>
 					<xsl:if test=".">
@@ -755,20 +751,6 @@ the root node.
 			</cac:ServiceProviderParty>
 		</xsl:if>
 	</xsl:template>
-																											  
-											 
-					   
-			
-										 
-			 
-						
-					
-								   
-					 
-			 
-						
-		   
-				
 	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiFattureCollegate[not(RiferimentoNumeroLinea)]">
 		<cac:BillingReference>
 			<cac:InvoiceDocumentReference>
@@ -861,7 +843,7 @@ the root node.
 			</cbc:DocumentTypeCode>
 		</cac:AdditionalDocumentReference>
 	</xsl:template>
-	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiContratto[not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea = /in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea)]/CodiceCommessaConvenzione" mode="Codice_Commessa">										
+	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiContratto[not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea = /in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea)]/CodiceCommessaConvenzione" mode="Codice_Commessa">
 		<cac:AdditionalDocumentReference>
 			<cbc:ID>
 				<xsl:attribute name="schemeID">
@@ -874,13 +856,13 @@ the root node.
 			</cbc:DocumentTypeCode>
 		</cac:AdditionalDocumentReference>
 	</xsl:template>
-	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea = /in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea)]/CodiceCommessaConvenzione" mode="Codice_Commessa">																												   
+	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea = /in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea)]/CodiceCommessaConvenzione" mode="Codice_Commessa">
 		<cac:AdditionalDocumentReference>
 			<cbc:ID>
 				<xsl:attribute name="schemeID">
 					<xsl:text>AVV</xsl:text>
 				</xsl:attribute>
-				<xsl:value-of select="."/>			 
+				<xsl:value-of select="."/>
 			</cbc:ID>
 			<cbc:DocumentTypeCode>
 				<xsl:text>130</xsl:text>
@@ -900,28 +882,28 @@ the root node.
 		</cac:AdditionalDocumentReference>
 	</xsl:template>
 	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiConvenzione[not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea = /in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea)]/CodiceCUP">
-			<cac:AdditionalDocumentReference>
-				<cbc:ID>
-					<xsl:if test=".">
-						<xsl:value-of select="../CodiceCUP"/>
-					</xsl:if>
-				</cbc:ID>
-				<cbc:DocumentTypeCode>
-					<xsl:text>50</xsl:text>
-				</cbc:DocumentTypeCode>
-			</cac:AdditionalDocumentReference>
+		<cac:AdditionalDocumentReference>
+			<cbc:ID>
+				<xsl:if test=".">
+					<xsl:value-of select="../CodiceCUP"/>
+				</xsl:if>
+			</cbc:ID>
+			<cbc:DocumentTypeCode>
+				<xsl:text>50</xsl:text>
+			</cbc:DocumentTypeCode>
+		</cac:AdditionalDocumentReference>
 	</xsl:template>
 	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea = /in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea)]/CodiceCUP">
-			<cac:AdditionalDocumentReference>
-				<cbc:ID>
-					<xsl:if test=".">
-						<xsl:value-of select="../CodiceCUP"/>
-					</xsl:if>
-				</cbc:ID>
-				<cbc:DocumentTypeCode>
-					<xsl:text>50</xsl:text>
-				</cbc:DocumentTypeCode>
-			</cac:AdditionalDocumentReference>
+		<cac:AdditionalDocumentReference>
+			<cbc:ID>
+				<xsl:if test=".">
+					<xsl:value-of select="../CodiceCUP"/>
+				</xsl:if>
+			</cbc:ID>
+			<cbc:DocumentTypeCode>
+				<xsl:text>50</xsl:text>
+			</cbc:DocumentTypeCode>
+		</cac:AdditionalDocumentReference>
 	</xsl:template>
 	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiSAL">
 		<cac:AdditionalDocumentReference>
@@ -1681,7 +1663,7 @@ the root node.
 	<xsl:template match="FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee">
 		<xsl:param name="CN" select="."/>
 		<xsl:param name="CNP" select="1"/>
-		<xsl:if test="not(contains(upper-case(normalize-space(Descrizione)), 'BOLLO'))">
+		<xsl:if test="not((contains(upper-case(normalize-space(Descrizione)), 'BOLLO')) and PrezzoTotale = '2.00')">
 			<cac:CreditNoteLine>
 				<cbc:ID>
 					<xsl:value-of select="normalize-space(NumeroLinea)"/>
@@ -1752,7 +1734,6 @@ the root node.
 					<xsl:with-param name="CN" select="current()"/>
 					<xsl:with-param name="CNP" select="position()"/>
 				</xsl:apply-templates>
-				
 				<xsl:for-each select="AltriDatiGestionali[TipoDato='DatiDDT']">
 					<cac:DespatchLineReference>
 						<cbc:LineID>
@@ -1768,10 +1749,10 @@ the root node.
 						<cac:DocumentReference>
 							<cbc:ID>
 								<xsl:choose>
-									<xsl:when test= "RiferimentoTesto and contains(RiferimentoTesto, ':')">
+									<xsl:when test="RiferimentoTesto and contains(RiferimentoTesto, ':')">
 										<xsl:value-of select="substring-before(RiferimentoTesto, ':')"/>
 									</xsl:when>
-									<xsl:when test= "RiferimentoTesto and not(contains(RiferimentoTesto, ':'))">
+									<xsl:when test="RiferimentoTesto and not(contains(RiferimentoTesto, ':'))">
 										<xsl:value-of select="RiferimentoTesto"/>
 									</xsl:when>
 									<xsl:otherwise>
@@ -1781,7 +1762,7 @@ the root node.
 							</cbc:ID>
 							<cbc:IssueDate>
 								<xsl:choose>
-									<xsl:when test= "RiferimentoData">
+									<xsl:when test="RiferimentoData">
 										<xsl:value-of select="RiferimentoData"/>
 									</xsl:when>
 									<xsl:otherwise>
@@ -1792,7 +1773,6 @@ the root node.
 						</cac:DocumentReference>
 					</cac:DespatchLineReference>
 				</xsl:for-each>
-				
 				<xsl:apply-templates select="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiContratto/IdDocumento" mode="Contratto_Riga">
 					<xsl:with-param name="CN" select="current()"/>
 					<xsl:with-param name="CNP" select="position()"/>
@@ -2019,9 +1999,9 @@ the root node.
 							<xsl:when test="(ScontoMaggiorazione/Tipo = 'MG' or ScontoMaggiorazione/Tipo = 'SC') and Quantita != 0">
 								<xsl:value-of select="format-number(PrezzoTotale div Quantita,'###########0.00000000')"/>
 							</xsl:when>
- 							<xsl:when test="(ScontoMaggiorazione/Tipo = 'MG' or ScontoMaggiorazione/Tipo = 'SC') and (not(Quantita) or Quantita = 0 or Quantita = '.')">
+							<xsl:when test="(ScontoMaggiorazione/Tipo = 'MG' or ScontoMaggiorazione/Tipo = 'SC') and (not(Quantita) or Quantita = 0 or Quantita = '.')">
 								<xsl:value-of select="format-number(PrezzoTotale,'###########0.00000000')"/>
-							</xsl:when> 
+							</xsl:when>
 							<xsl:otherwise>
 								<xsl:value-of select="format-number(PrezzoUnitario,'###########0.00000000')"/>
 							</xsl:otherwise>
@@ -2093,11 +2073,11 @@ the root node.
 					<xsl:value-of select="format-number(ImportoTotaleDocumento,'###########0.00')"/>
 				</xsl:if>
 				<xsl:if test="not(ImportoTotaleDocumento) or ScontoMaggiorazione">
-					<xsl:value-of select="format-number((sum(../../DatiBeniServizi/DatiRiepilogo/Imposta)+sum(DatiCassaPrevidenziale/ImportoContributoCassa)+sum(../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO')]/PrezzoTotale)+sum(../../DatiBeniServizi/DettaglioLinee[not(Descrizione = 'BOLLO') and not(Descrizione = 'SCONTO') and not(Descrizione = 'MAGGIORAZIONE')]/PrezzoTotale)),'###########0.00')"/>
+					<xsl:value-of select="format-number((sum(../../DatiBeniServizi/DatiRiepilogo/Imposta)+sum(DatiCassaPrevidenziale/ImportoContributoCassa)+sum(../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO') and PrezzoTotale = '2.00']/PrezzoTotale)+sum(../../DatiBeniServizi/DettaglioLinee[not(Descrizione = 'BOLLO') and not(Descrizione = 'SCONTO') and not(Descrizione = 'MAGGIORAZIONE')]/PrezzoTotale)),'###########0.00')"/>
 				</xsl:if>
 			</xsl:variable>
 			<xsl:variable name="chargeTotalAmount" select="format-number(sum(DatiCassaPrevidenziale/ImportoContributoCassa),'###########0.00')"/>
-			<xsl:variable name="allowanceTotalAmount" select="format-number(abs(sum(../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO')]/PrezzoTotale)),'###########0.00')"/>
+			<xsl:variable name="allowanceTotalAmount" select="format-number(abs(sum(../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO') and PrezzoTotale = '2.00']/PrezzoTotale)),'###########0.00')"/>
 			<xsl:variable name="payableAmountWithoutAllowanceCharge">
 				<xsl:choose>
 					<xsl:when test="../../DatiPagamento[1]/DettaglioPagamento/ImportoPagamento">
@@ -2147,7 +2127,7 @@ the root node.
 						<xsl:value-of select="string($variable_d1e449a1049836)"/>
 					</xsl:attribute>
 				</xsl:if>
-				<xsl:value-of select="format-number(number($lineExtensionAmount)+sum(DatiCassaPrevidenziale/ImportoContributoCassa)+sum(../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO')]/PrezzoTotale),'###########0.00')"/>
+				<xsl:value-of select="format-number(number($lineExtensionAmount)+sum(DatiCassaPrevidenziale/ImportoContributoCassa)+sum(../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO') and PrezzoTotale = '2.00']/PrezzoTotale),'###########0.00')"/>
 			</cbc:TaxExclusiveAmount>
 			<cbc:TaxInclusiveAmount>
 				<xsl:if test="string($variable_d1e449a1049836)">
@@ -2167,7 +2147,7 @@ the root node.
 					<xsl:value-of select="$allowanceTotalAmount"/>
 				</cbc:AllowanceTotalAmount>
 			</xsl:if>
-			<xsl:if test="(number($chargeTotalAmount) &gt; number('0.00')) or (../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO')])">
+			<xsl:if test="(number($chargeTotalAmount) &gt; number('0.00')) or (../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO') and PrezzoTotale = '2.00'])">
 				<cbc:ChargeTotalAmount>
 					<xsl:if test="string($variable_d1e449a1049836)">
 						<xsl:attribute name="currencyID">
@@ -2242,8 +2222,8 @@ the root node.
 					<xsl:when test="ImportoBollo">
 						<xsl:value-of select="format-number(ImportoBollo,'###########0.00')"/>
 					</xsl:when>
-					<xsl:when test="../../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO')]">
-						<xsl:value-of select="format-number(../../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO')][1]/PrezzoTotale,'###########0.00')"/>
+					<xsl:when test="../../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO') and PrezzoTotale = '2.00'][1]">
+						<xsl:value-of select="format-number(../../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO') and PrezzoTotale = '2.00'][1]/PrezzoTotale,'###########0.00')"/>
 					</xsl:when>
 					<xsl:otherwise>
 						<xsl:text>0.00</xsl:text>
@@ -2956,7 +2936,7 @@ the root node.
 						</xsl:choose>
 					</cbc:BuyerReference>
 				</xsl:when>
-				<xsl:when test="count(FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[CodiceCommessaConvenzione]) &gt; 1">
+				<xsl:when test="count(FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[CodiceCommessaConvenzione != '#NO#']) &gt; 1">
 					<cbc:BuyerReference>
 						<xsl:text>#MULTI#</xsl:text>
 					</cbc:BuyerReference>
@@ -3008,7 +2988,7 @@ the root node.
 				<xsl:with-param name="CN" select="current()"/>
 				<xsl:with-param name="CNP" select="position()"/>
 			</xsl:apply-templates>
-			<xsl:if test="count(FatturaElettronicaBody/DatiGenerali/DatiContratto[not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea)]) = 1">						 
+			<xsl:if test="count(FatturaElettronicaBody/DatiGenerali/DatiContratto[not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea)]) = 1">
 				<xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiContratto[not(RiferimentoNumeroLinea)][1]">
 					<xsl:with-param name="CN" select="current()"/>
 					<xsl:with-param name="CNP" select="position()"/>

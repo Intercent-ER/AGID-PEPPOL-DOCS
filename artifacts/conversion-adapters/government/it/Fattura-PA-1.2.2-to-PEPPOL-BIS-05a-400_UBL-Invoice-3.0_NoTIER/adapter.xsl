@@ -793,13 +793,6 @@ the root node.
 		</cac:ReceiptDocumentReference>
 	</xsl:template>
 	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiContratto[not(RiferimentoNumeroLinea)][1]">
-		<xsl:if test="CodiceCIG">
-			<cac:OriginatorDocumentReference>
-				<cbc:ID>
-					<xsl:value-of select="CodiceCIG"/>
-				</cbc:ID>
-			</cac:OriginatorDocumentReference>
-		</xsl:if>
 		<xsl:if test="not(IdDocumento = 'Nan') and not (IdDocumento = 'NoREFCOntr') and not(IdDocumento = 'N/A') and not(Data)">
 			<cac:ContractDocumentReference>
 				<cbc:ID>
@@ -2967,13 +2960,19 @@ the root node.
 				<xsl:with-param name="CN" select="current()"/>
 				<xsl:with-param name="CNP" select="position()"/>
 			</xsl:apply-templates>
-				<xsl:if test="count(//CodiceCIG[not(../RiferimentoNumeroLinea) or not(../RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea)]) = 1">
-					<cac:OriginatorDocumentReference>
-						<cbc:ID>
-							<xsl:value-of select="//CodiceCIG[not(../RiferimentoNumeroLinea) or not(../RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea)]"/>
-						</cbc:ID>
-					</cac:OriginatorDocumentReference>
-				</xsl:if>
+			<xsl:if test="count(//CodiceCIG[not(../RiferimentoNumeroLinea) or not(../RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea)]) = 1">
+				<cac:OriginatorDocumentReference>
+					<cbc:ID>
+						<xsl:value-of select="//CodiceCIG[not(../RiferimentoNumeroLinea) or not(../RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea)]"/>
+					</cbc:ID>
+				</cac:OriginatorDocumentReference>
+			</xsl:if>
+			<xsl:if test="count(FatturaElettronicaBody/DatiGenerali/DatiContratto[not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea)]) = 1">						 
+				<xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiContratto[not(RiferimentoNumeroLinea)][1]">
+					<xsl:with-param name="CN" select="current()"/>
+					<xsl:with-param name="CNP" select="position()"/>
+				</xsl:apply-templates>
+			</xsl:if>
 			<xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiSAL">
 				<xsl:with-param name="CN" select="current()"/>
 				<xsl:with-param name="CNP" select="position()"/>

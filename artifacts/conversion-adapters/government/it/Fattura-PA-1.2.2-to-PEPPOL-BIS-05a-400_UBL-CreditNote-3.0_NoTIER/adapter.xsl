@@ -1414,7 +1414,7 @@ the root node.
 			</ext:UBLExtension>
 		</xsl:if>
 	</xsl:template>
-	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/DatiRitenuta">
+	<xsl:template match="DatiGenerali/DatiGeneraliDocumento/DatiRitenuta">
 		<xsl:param name="CN" select="."/>
 		<xsl:param name="CNP" select="1"/>
 		<ext:UBLExtension>
@@ -1580,7 +1580,7 @@ the root node.
 					<xsl:with-param name="CN" select="current()"/>
 					<xsl:with-param name="CNP" select="position()"/>
 				</xsl:apply-templates>
-				<xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/DatiRitenuta">
+				<xsl:apply-templates select="DatiGenerali/DatiGeneraliDocumento/DatiRitenuta">
 					<xsl:with-param name="CN" select="current()"/>
 					<xsl:with-param name="CNP" select="position()"/>
 				</xsl:apply-templates>

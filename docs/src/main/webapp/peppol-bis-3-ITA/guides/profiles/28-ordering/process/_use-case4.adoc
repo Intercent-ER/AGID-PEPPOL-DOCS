@@ -6,13 +6,13 @@ L’ordine viene accettato completamente dal venditore.
 
 [cols="1s,5",options="header"]
 |====
-|Caso d’uso nr.
+|Nr. Caso d'uso
 |4
 
-|Nome
+|Nome Caso d'uso
 |Ordine complesso
 
-|Descrizione
+|Descrizione caso d'uso
 a|
 * Un ordine di articoli numerati con sconti e maggiorazioni sia a livello di testata che di riga e prezzo.
 

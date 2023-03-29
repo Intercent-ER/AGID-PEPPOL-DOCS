@@ -5,20 +5,20 @@ Questo caso d’uso è relativo a un ordine composto da voci/articoli numerati.
 
 [cols="1s,5",options="header"]
 |====
-|Caso d’uso nr.
+|Nr. Caso d'uso
 |1
 
-|Nome
+|Nome Caso d'uso
 |Ordine con articoli numerati
 
-|Descrizione
+|Descrizione caso d'uso
 a|
 * Un ordine di articoli numerati.
 
 * L’ordine istruisce il venditore sull’indirizzo di consegna. Il venditore può consegnare alcuni degli articoli ma non tutti.
 
 * Un articolo deve essere sostituito.
-|Ruoli coinvolte
+|Ruoli coinvolti
 |Acquirente +
 Venditore
 

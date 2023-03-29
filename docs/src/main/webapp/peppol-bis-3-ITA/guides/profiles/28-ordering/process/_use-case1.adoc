@@ -5,13 +5,13 @@ Questo caso d’uso è relativo a un ordine composto da voci/articoli numerati c
 
 [cols="1s,5",options="header"]
 |====
-|Caso d’uso nr.
+|Nr. Caso d'uso
 |1
 
-|Nome
+|Nome Caso d'uso
 |Ordine con articoli numerati
 
-|Descrizione
+|Descrizione caso d'uso
 a|
 * Un ordine di articoli numerati. 
 * L’ordine indica al venditore l’indirizzo di consegna. Il venditore consegna solo una parte degli articoli richiesti.

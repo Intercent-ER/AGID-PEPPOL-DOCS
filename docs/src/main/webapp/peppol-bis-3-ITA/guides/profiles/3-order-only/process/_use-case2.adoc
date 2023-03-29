@@ -5,13 +5,13 @@ Questo caso d’uso è relativo a un ordine composto da articoli descritti in te
 
 [cols="1s,5",options="header"]
 |====
-|Caso d’uso nr.
+|Nr. Caso d'uso
 |2
 
-|Nome
+|Nome Caso d'uso
 |Ordine di articoli in testo libero
 
-|Descrizione
+|Descrizione caso d'uso
 |Un ordine con unità/articoli descritti con testo libero e coppie di attributo-valore. 
 
 |Ruoli coinvolti

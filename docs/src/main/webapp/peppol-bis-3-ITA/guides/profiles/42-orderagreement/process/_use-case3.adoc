@@ -5,13 +5,13 @@ Questo caso d’uso descrive il processo dove un Cliente/Acquirente ordina prodo
 
 [cols="1h,5",]
 |====
-|Caso d’uso nr.
+|Nr. Caso d'uso
 |3
 
-|Nome
+|Nome Caso d'uso
 |Ordine effettuato per telefono o per mail
 
-|Descrizione 
+|Descrizione caso d'uso 
 |L'Acquirente fa un acquisto chiamando il Venditore per telefono o mandando una mail.
 
 |Ruoli coinvolti

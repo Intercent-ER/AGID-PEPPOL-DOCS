@@ -6,13 +6,13 @@ Questo caso d’uso è relativo a un ordine composto da articoli e descritti in 
 
 [cols="1s,5",options="header"]
 |====
-|Caso d’uso nr.
+|Nr. Caso d'uso
 |2
 
-|Nome
+|Nome Caso d'uso
 |Ordine di articoli in testo libero
 
-|Descrizione
+|Descrizione caso d'uso
 a|
 * Un ordine con unità/articoli descritti con testo libero e coppie di attributo-valore. +
 * Il venditore risponde con le denominazioni degli articoli appropriate. +

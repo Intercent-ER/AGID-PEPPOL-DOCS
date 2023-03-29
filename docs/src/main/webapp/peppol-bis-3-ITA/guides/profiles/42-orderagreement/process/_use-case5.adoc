@@ -5,13 +5,13 @@ L'Acquirente ha concluso un accordo quadro con il Venditore per dei servizi, ad 
 
 [cols="1h,5",]
 |====
-|Caso d’uso nr.
+|Nr. Caso d'uso
 |5
 
-|Nome
+|Nome Caso d'uso
 |Manutenzione sulla base di un contratto quadro
 
-|Descrizione
+|Descrizione caso d'uso
 a|Un Venditore, il quale ha stipuato un contratto quadro che lo incarica rispetto a certi servizi, ad una fornitura di beni o consulenze, potrebbe "reagire" rispetto ad alcuni eventi come da contratto ed alla fine del periodo inviare un Ordine pre-concordato che elenchi tutti i servizi che sono stati effettuati. +
  +
 Degli esempi possono essere:

@@ -5,7 +5,7 @@ L’emittente fattura può decidere se effettuare o non effettuare la rivalsa de
 La gestione del bollo è operata come sconto o maggiorazione a livello di testata del documento a mezzo dell’utilizzo della struttura *cac:AllowanceCharge* (BG-21 Document level charge).
 
 
-== Caso 1 - Bollo su fattura non addebitato al Cliente
+== Caso 1 - Bollo su fattura addebitato al Cliente
 
 Se l’emittente decide di effettuare la rivalsa del bollo addebitandolo in fattura, questa viene eseguita attraverso una maggiorazione di 2 euro, indicando nella struttura *cac:AllowanceCharge*:
 

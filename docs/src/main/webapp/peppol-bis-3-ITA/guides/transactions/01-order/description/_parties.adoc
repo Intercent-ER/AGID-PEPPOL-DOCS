@@ -6,7 +6,8 @@ Le seguenti parti/I seguenti ruoli possono essere specificate/i nel messaggio:
 [[sellersupplierparty-seller]]
 == Fornitore/Venditore (SellerSupplierParty)
 
-Il Venditore è colui che vende la merce o i servizi al cliente. Il Venditore è obbligatorio in quanto destinatario dell’ordine PEPPOL, pertanto è obbligatori includere l’EndpointID (ParticipantID) con il quale è registrato su PEPPOL.
+Il Venditore è la persona giuridica o l’organizzazione che vende beni e/o servizi. +
+Il Venditore è un’informazione obbligatoria in quanto destinatario dell’Ordine, pertanto è necessario includere l’EndpointID (ParticipantID) con il quale è registrato su Peppol.
 
 
 .Esempio di informazioni per un fornitore italiano con indicazione della Partita Iva nell'Endpoint
@@ -161,7 +162,9 @@ In caso di invio di un ordine verso un fornitore estero, il campo EndpointID dev
 [[buyercustomerparty-buyer]]
 == Cliente/Acquirente (BuyerCustomerParty)
 
-L'Acquirente è colui che acquista la merce o i servizi dal fornire. L'Acquirente è obbligatorio in quanto mittente del messaggio dell’ordine PEPPOL, pertanto è necessario includere l’EndpointID (ID partecipante) con il quale è registrato in PEPPOL.
+L’Acquirente è la persona giuridica o l’organizzazione che acquista beni e/o servizi. +
+L’Acquirente è un’informazione obbligatoria in quanto mittente dell’Ordine, pertanto è necessario includere l’EndpointID.
+
 
 #Nel caso in cui il cliente abbia la Partita IVA, la Partita IVA va indicata nel cac:PartyTaxScheme/cbc:CompanyID.# +
 #Nel caso in cui il cliente sia dotato solo di Codice Fiscale, questo va indicato nel cac:PartyLegalEntity/cbc:CompanyID, valorizzando l’attributo @schemeID con “0210”.# +
@@ -201,9 +204,11 @@ Il campo cac:PartyLegalEntity/cbc:RegistrationName viene utilizzato per indicare
 ----
 
 [[originatorcustomerparty-originator]]
-== Committente (OriginatorCustomerParty)
+== Richiedente (OriginatorCustomerParty)
 
-Generalmente, il committente è l’utente finale che emette l’ordine. Le informazioni presenti nel messaggio dell’ordine inerenti al committente sono facoltative.
+Il Richiedente è la persona giuridica o l’organizzazione che inizializza il processo di emissione dell'Ordine e per la quale l'Acquirente effettua l'acquisto. +
+Il Richiedente è un’informazione opzionale nel messaggio dell’Ordine.
+
 
 .Esempio di informazioni del committente appartenente alla medesima organizzazione del cliente/acquirente
 [source, xml, indent=0]
@@ -250,7 +255,8 @@ Generalmente, il committente è l’utente finale che emette l’ordine. Le info
 [[accountingcustomerparty-invoicee]]
 ==  Intestatario fattura (AccountingCustomerParty)
 
-L’intestatario della fattura è la persona giuridica che agisce per conto del Cliente e che riceve la fattura relativa all’ordine. Le informazioni sull’intestatario della fattura sono opzionali nel messaggio dell’Ordine PEPPOL. 
+L’intestatario fattura è la persona giuridica o l’organizzazione a cui deve essere intestata la fattura relativa all'ordine. +
+L’intestatario fattura è un’informazione opzionale nel messaggio dell’Ordine.
 
 [IMPORTANT]
 ====
@@ -299,3 +305,42 @@ Qualora l’Acquirente (BuyerCustomerParty) sia una Pubblica Amministrazione, l�
     </cac:Party>
 </cac:AccountingCustomerParty>
 ----
+
+==  Consegnatario/Destinatario (DeliveryParty)
+
+Il Consegnatario/Destinatario è la persona giuridica o l’organizzazione che riceve i beni e/o i servizi oggetto dell’ordine.
+L’indicazione del Consegnatario/Destinatario è prevista solo con riferimento all’intero Documento. +
+Il Consegnatario/Destinatario è un’informazione opzionale nel messaggio dell’Ordine.
+
+
+.Esempio di informazioni del Consegnatario/Destinatario
+[source, xml, indent=0]
+----
+<cac:Delivery>
+    <cac:DeliveryParty>
+          <cac:PartyIdentification>
+          <cbc:ID>UO07</cbc:ID>
+          <cac:PartyName>
+              <cbc:Name>Centro logistico</cbc:Name>
+     </cac:PartyName>
+     <cac:Contact>
+         <cbc:Name>James Bond</Name
+         <cbc:Telephone>0647611</cbc:Telephone>
+         <cbc:ElectronicMail>james.bond@peo.it</ ElectronicMail>
+        </cac:Contact>
+        </cac:PartyIdentification>
+    </cac:DeliveryParty>
+</cac:Delivery>
+---- 
+
+Qualora si indichi il Beneficiario, l’identificativo (campo “ID”) e la denominazione (campo “Name”) dell’unità organizzativa sono entrambi obbligatori. Se l’identificativo non è noto o non esiste, è sufficiente valorizzare il campo con il testo “UO”, che sta per unità organizzativa. +
+
+Se invece il Beneficiario è una persona fisica è necessario contemperare l’esigenza di
+tutelarne la riservatezza con la necessità di dare indicazioni complete ed esaurienti per
+la consegna. A tal fine: +
+
+* se non è strettamente necessario indicare per esteso il nome del Beneficiario, il
+campo “Name” deve essere valorizzato con “PF”, che sta per persona fisica;
+* se al Beneficiario è stato assegnato un identificativo, questo deve essere indicato
+nel campo “ID”, altrimenti anche questo campo va valorizzato con “PF”.
+

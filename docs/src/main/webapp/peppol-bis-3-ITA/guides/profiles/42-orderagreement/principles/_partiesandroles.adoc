@@ -8,18 +8,16 @@ La tabella seguente fornisce le definizioni delle parti e dei ruoli nel processo
 s|Parti di business
 s|Descrizione
 
-|*Cliente (Cessionario)*
-|Il cliente è la persona giuridica o l'organizzazione che richiede un prodotto o servizio.
+|*Cliente*
+|Il Cliente è la persona giuridica o l'organizzazione che richiede beni e/o servizi. 
 
-I ruoli che possono essere ricoperti dal Cliente sono: acquirente, consegnatario/destinatario, debitore, un'amministrazione aggiudicatrice.
+Esempi di ruoli per il cliente: Acquirente, Richiedente, Intestatario fattura e Consegnatario/Destinatario.
 
 
-|*Fornitore (Cedente)*
-|Il fornitore è la persona giuridca o organizzazione che fornisce un prodotto o servizio. 
+|*Fornitore*
+|Il Fornitore è la persona giuridica o l'organizzazione che fornisce beni e/o servizi. Il Fornitore ricopre il ruolo di Venditore.
 
-I ruoli che possono essere ricoperti dal Fornitore sono: venditore, speditore, creditore, operatore economico.
 |====
-
 
 [cols="2,5", options="header"]
 |====
@@ -30,13 +28,31 @@ s|Descrizione
 
 `cac:BuyerCustomerParty` +
 
-|L’Acquirente è la persona giuridica o l'organizzazione che acquista la merce o i servizi. Questo ruolo viene ricoperto dal Cliente o per suo conto.
+|L’Acquirente è la persona giuridica o l’organizzazione che acquista beni e/o servizi.
 
 |*Venditore* +
 
 `cac:SellerSupplierParty` +
 
-|Il Venditore è la persona giuridica o l'organizzazione che vende la merce o i servizi al cliente. Questo ruolo viene ricoperto dal Fornitore o per suo conto.
+|Il Venditore è la persona giuridica o l’organizzazione che vende beni e/o servizi.
+
+|*Richiedente* +
+
+`cac:OriginatorCustomerParty` +
+
+|Il Richiedente è la persona giuridica o l’organizzazione che inizializza il processo di emissione dell'Ordine e per la quale l'Acquirente effettua l'acquisto.
+
+|*Intestatario fattura* +
+
+`cac:AccountingCustomerParty` +
+
+|L’intestatario fattura è la persona giuridica o l’organizzazione a cui deve essere intestata la fattura relativa all'ordine.
+
+|*Consegnatario/Destinatario* +
+
+`cac:Delivery/cac:DeliveryParty` +
+
+|Il Consegnatario/Destinatario è la persona giuridica o l’organizzazione che riceve i beni e/o i servizi oggetto dell’ordine.
 
 |====
 

@@ -1,5 +1,5 @@
 [[use-case-3-ordering-of-services]]
-= Caso d’uso 3 – Risposta all’ordine di fornitura per i servizi
+= Caso d’uso 3 – Risposta all’ordine di fornitura di servizi
 
 Questo caso d’uso è relativo a un ordine sui servizi e risposta con rigetto.
 
@@ -17,7 +17,7 @@ a|
 * Il luogo di consegna e il periodo sono specificati.
 * Il venditore respinge l’ordine.
 
-|Parti coinvolte
+|Ruoli coinvolti
 |Acquirente +
 Venditore
 

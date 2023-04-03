@@ -47,7 +47,7 @@ a. Gli articoli possono essere stoccati per BestBeforeDate o ExpiryDate
 b. Gli articoli possono essere stoccati per lotto e/o numero seriale
 c. Gli articoli possono essere movimentati in base al peso della unità logistica
 
-|*Risultato* a|
+|*Risultati* a|
 1. Il Documento di Trasporto ha aiutato il Consegnatario a preparare l’accettazione 
 a. In tempo
 b. Nel luogo corretto (indirizzo)
@@ -58,5 +58,7 @@ b. Le righe d’ordine
 c. Le unità logistiche 
 d. Gli articoli
 e. La quantità evasa/peso
+
+|*Esempio XML* | Vedi sezione download nella Homepage.
 
 |====

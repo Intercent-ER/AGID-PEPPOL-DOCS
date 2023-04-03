@@ -12,4 +12,3 @@ Tutti i messaggi contengono il ProfileID e il CustomizationID. Il ProfileID iden
 I profili sono connessi ad un processo di business e possono contenere molteplici tipologie di documento. Istanze di documenti validi debbono contenere i corrispondenti ProfileID e CustomizationID.
 
 
-IMPORTANT: Il CustomizationID è una stringa senza spazi. La seguente lista contiene spazi nel CustomizationID al solo scopo di semplificarne la lettura. *Assicuratevi di rimuovere gli spazi prima di utilizzarla.*

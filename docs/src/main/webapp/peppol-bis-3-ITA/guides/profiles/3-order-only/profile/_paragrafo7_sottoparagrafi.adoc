@@ -3,7 +3,7 @@
 
 Quando si specifica un Endpoint ID nel documento si vuole mantenere l’informazione dell’indirizzo elettronico del mittente o destinatario utilizzati per l’instradamento dei messaggi (delivery) sul circuito Peppol. 
 
-Le tipologie di identificativi italiani riconosciuti da PEPPOL e consigliati sono:
+Le tipologie di identificativi italiani riconosciuti da Peppol e consigliati sono:
 
 * *0211* per le partite IVA;
 
@@ -14,25 +14,25 @@ Le tipologie di identificativi italiani riconosciuti da PEPPOL e consigliati son
 In Italia si raccomanda l’uso del Codice Univoco Ufficio per registrare le pubbliche amministrazioni sulla rete Peppol, tuttavia non è obbligatorio e in sua assenza si consiglia l’uso del codice fiscale.
 
 
-.Esempio di Endpoint di un’Amministrazione registrata in PEPPOL tramite il Codice Univoco Ufficio:
+.Esempio di Endpoint di un’Amministrazione registrata in Peppol tramite il Codice Univoco Ufficio:
 [source, xml, indent=0]
 ----
     <cbc:EndpointID schemeID="0201">ABCDEF</cbc:EndpointID>
 ----
 
-.Esempio di Endpoint di un’Amministrazione registrata in PEPPOL con il Codice Fiscale:
+.Esempio di Endpoint di un’Amministrazione registrata in Peppol con il Codice Fiscale:
 [source, xml, indent=0]
 ----
     <cbc:EndpointID schemeID="0210">07643520567</cbc:EndpointID>
 ----
 
-.Esempio di Endpoint di Fornitore registrato in PEPPOL con la Partita IVA:
+.Esempio di Endpoint di Fornitore registrato in Peppol con la Partita IVA:
 [source, xml, indent=0]
 ----
     <cbc:EndpointID schemeID="0211">IT07643520567</cbc:EndpointID>
 ----
 
-.Esempio di Endpoint di fornitore registrato in PEPPOL con un GLN (Global Location Number) secondo gli standard GS1:
+.Esempio di Endpoint di fornitore registrato in Peppol con un GLN (Global Location Number) secondo gli standard GS1:
 [source, xml, indent=0]
 ----
     ​<cbc:EndpointID schemeID="0088">5790000435968</cbc:EndpointID

@@ -13,11 +13,10 @@ L’ordine viene accettato completamente dal venditore.
 |Ordine complesso
 
 |Descrizione caso d'uso
-a|
-* Un ordine di articoli numerati con sconti e maggiorazioni sia a livello di testata che di riga e prezzo.
+|Un ordine di articoli numerati con sconti e maggiorazioni sia a livello di testata che di riga e prezzo.
 
 
-|Parti coinvolte
+|Ruoli coinvolti
 |Acquirente +
 Venditore +
 Committente

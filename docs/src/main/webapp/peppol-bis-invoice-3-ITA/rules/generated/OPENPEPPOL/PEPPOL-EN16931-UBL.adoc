@@ -128,11 +128,11 @@
 | cac:AdditionalDocumentReference[$isGreekSender and cbc:DocumentDescription = '##INVOICE\|URL##']
 | string-length(normalize-space(cac:Attachment/cac:ExternalReference/cbc:URI))>0
 .3+| GR-R-009 *(fatal)*
-| Greek suppliers that send an invoice through the PEPPOL network must use a correct TIN number as an electronic address according to PEPPOL Electronic Address Identifier scheme (schemeID 9933).
+| Greek suppliers that send an invoice through the Peppol network must use a correct TIN number as an electronic address according to Peppol Electronic Address Identifier scheme (schemeID 9933).
 | cac:AccountingSupplierParty/cac:Party[$accountingSupplierCountry='GR' or $accountingSupplierCountry='EL']/cbc:EndpointID
 | ./@schemeID='9933' and u:TinVerification(.)
 .3+| GR-R-010 *(fatal)*
-| Greek Suppliers that send an invoice through the PEPPOL network to a greek buyer must use a correct TIN number as an electronic address according to PEPPOL Electronic Address Identifier scheme (SchemeID 9933)
+| Greek Suppliers that send an invoice through the Peppol network to a greek buyer must use a correct TIN number as an electronic address according to Peppol Electronic Address Identifier scheme (SchemeID 9933)
 | cac:AccountingCustomerParty[$isGreekSenderandReceiver]/cac:Party/cbc:EndpointID
 | ./@schemeID='9933' and u:TinVerification(.)
 .3+| GR-S-008-1 *(warning)*

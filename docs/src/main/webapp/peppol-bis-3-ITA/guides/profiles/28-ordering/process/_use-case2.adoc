@@ -1,7 +1,7 @@
 [[use-case-2-ordering-of-free-text-articles]]
 = Caso d’uso 2 – Risposta all’ordine di fornitura di articoli in testo libero
 
-Questo caso d’uso è relativo a un ordine composto da articoli e descritti in testo libero.
+Questo caso d’uso è relativo a un ordine composto da articoli descritti in testo libero con completa accettazione e sua risposta.
 
 
 [cols="1s,5",options="header"]
@@ -18,7 +18,7 @@ a|
 * Il venditore risponde con le denominazioni degli articoli appropriate. +
 * Tutte le righe vengono accettate.
 
-|Parti coinvolte
+|Ruoli coinvolti
 |Acquirente +
 Venditore +
 Committente

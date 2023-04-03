@@ -38,7 +38,7 @@ Il flusso del processo dell’Ordine di fornitura e della risposta può essere d
 
 A fronte della ricezione dell’Ordine, il Fornitore trasmette una Risposta , che deve contenere l’indicazione
 dell’Ordine precedentemente inviato a cui si risponde, con la quale comunica al
-Cliente, alternativamente, che intende:# +
+Cliente, alternativamente, che intende: +
 
 * comunicare di aver ricevuto l’Ordine (Risposta di ricezione);
 * accettare l’Ordine ricevuto (Risposta di accettazione);

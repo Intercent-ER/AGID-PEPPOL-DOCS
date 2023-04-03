@@ -5,7 +5,7 @@ La tabella sottostante fornisce le definizioni delle parti e dei ruoli nel proce
 
 [cols="2,5",options="header",]
 |====
-|Parti |Definizione
+|Parti di business |Definizione
 |*Cliente (Cessionario)* a|
 Il cliente è la persona giuridica che richiede un prodotto o servizio.
 

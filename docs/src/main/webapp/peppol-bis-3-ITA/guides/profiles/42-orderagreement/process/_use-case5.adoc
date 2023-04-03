@@ -1,5 +1,5 @@
 [[use-case-5-framework-contract]]
-= Use case 5 – Contratto quadro
+= Caso d'uso 5 – Contratto quadro
 
 L'Acquirente ha concluso un accordo quadro con il Venditore per dei servizi, ad esempio servizi di manutenzione o relativi ad una consulenza. L'accordo quadro prefissa i limiti ed le condizioni con cui il Venditore può fornire i servizi senza un ordine individuale da parte dell'Acquirente.
 

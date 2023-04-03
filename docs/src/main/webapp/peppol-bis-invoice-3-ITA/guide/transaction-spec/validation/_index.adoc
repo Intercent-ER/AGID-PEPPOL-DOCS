@@ -1,7 +1,7 @@
 
 = Validazione
 
-Per rendere flessibile il processo di validazione, ogni documento PEPPOL viene validato in diverse fasi spostando l'attenzione su ciascuna di esse. +
+Per rendere flessibile il processo di validazione, ogni documento Peppol viene validato in diverse fasi spostando l'attenzione su ciascuna di esse. +
 
 Il diagramma seguente illustra le diverse fasi:
 

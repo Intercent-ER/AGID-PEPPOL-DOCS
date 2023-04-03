@@ -4,7 +4,7 @@
 <<<
 
 
-Le specifiche tecniche e relativi tools di validazione PEPPOL BIS 3.0 compatibili con NSO inerente ai profili: 
+Le specifiche tecniche e relativi tools di validazione Peppol BIS 3.0 compatibili con NSO inerente ai profili: 
 
 * https://notier.regione.emilia-romagna.it/docs/profiles/3-order-only/BIS_OrderOnly.htm[Ordine semplice]
 
@@ -21,16 +21,16 @@ L’aggiornamento introduce le seguenti specifiche per ogni BIS (Business Intero
 * Tool per la validazione dei documenti;
 * Codifiche e identificatori.
 
-I tools per la validazione dei documenti PEPPOL BIS 3.0 compatibili con NSO non sono ancora utilizzabili nell’ambiente di staging NoTI-ER, l'ambiente sarà reso disponibile a partire da Luglio.
+I tools per la validazione dei documenti Peppol BIS 3.0 compatibili con NSO non sono ancora utilizzabili nell’ambiente di staging NoTI-ER, l'ambiente sarà reso disponibile a partire da Luglio.
 
 
-Intercent-ER supporterà il passaggio dalle attuali specifiche PEPPOL BIS in versione 2.1 alle nuove regole di utilizzo PEPPOL BIS 3.0 compatibili con NSO.
+Intercent-ER supporterà il passaggio dalle attuali specifiche Peppol BIS in versione 2.1 alle nuove regole di utilizzo Peppol BIS 3.0 compatibili con NSO.
 
 
 //image::images/NSO_gantt.JPG[]
 
 
-L’utilizzo della specifica *PEPPOL BIS Ordine semplice 3.0* compatibile con NSO sarà obbligatoria dal 1 Ottobre 2019. A partire da tale data l’utilizzo della specifica PEPPOL BIS Ordine 3A (versione 2.1) non sarà più disponibile. 
+L’utilizzo della specifica *PEPPOL BIS Ordine semplice 3.0* compatibile con NSO sarà obbligatoria dal 1 Ottobre 2019. A partire da tale data l’utilizzo della specifica Peppol BIS Ordine 3A (versione 2.1) non sarà più disponibile. 
 
 L’ambiente di Produzione NoTI-ER permetterà l’invio *solo* dell’Ordine semplice compatibile con NSO, a partire dal 1 Settembre 2019.
 

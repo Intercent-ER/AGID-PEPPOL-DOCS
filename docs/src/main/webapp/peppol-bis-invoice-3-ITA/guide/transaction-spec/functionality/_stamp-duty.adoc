@@ -142,7 +142,7 @@ Attraverso questa modalità di gestione, il valore dell’imposta di bollo di 2 
 
 Se l’emittente decide di non effettuare la rivalsa del bollo, questa viene indicata sia su fattura che su nota di credito indicando nella struttura *cac:AllowanceCharge*:  
 
-* *l’elemento cbc:ChargeIndicator pari a “true”;
+* l’elemento cbc:ChargeIndicator pari a “true”;
 * l’elemento cbc:AllowanceChargeReasonCode (BT-105 Document level charge reason code) pari a “SAE”;
 * l’elemento cbc:AllowanceChargeReason (BT-104 Document level charge reason) con la stringa “BOLLO”;
 * l’elemento cbc:Amount (BT-99 Document level charge amount) con il valore 0;

@@ -1,7 +1,7 @@
 [[hazardous-item]]
 = Informazioni sulla merce pericolosa
 
-Il Documento di Trasporto PEPPOL contiene anche la possibilità di informare il Consegnatario riguardo agli articoli pericolosi (indicati anche come HAZMAT, Hazard Material o Dangerous Goods).
+Il Documento di Trasporto Peppol contiene anche la possibilità di informare il Consegnatario riguardo agli articoli pericolosi (indicati anche come HAZMAT, Hazard Material o Dangerous Goods).
 
 Questo viene fatto fornendo nell’elemento HazardousItem il codice di pericolosità in base al regolamento adottato, per esempio ADR (trasporto su gomma), IMDG (trasporto via mare) or RID (trasporto ferroviario).
 

@@ -18,7 +18,7 @@ a|
 * Un articolo deve essere sostituito.
 
 
-|Parti coinvolte
+|Ruoli coinvolti
 |Acquirente +
 Venditore
 

@@ -12,7 +12,7 @@ L’obiettivo di questo documento è descrivere l’uso dei messaggi della fattu
 
 == A chi si rivolge
 
-Questo documento si rivolge alle organizzazioni che intendono essere abilitate a PEPPOL per scambiare fatture e note di credito elettroniche, e/o ai loro fornitori ICT. Queste organizzazioni potrebbero essere:
+Questo documento si rivolge alle organizzazioni che intendono essere abilitate a Peppol per scambiare fatture e note di credito elettroniche, e/o ai loro fornitori ICT. Queste organizzazioni potrebbero essere:
 
      * Fornitori di Servizi (SP)
      * Autorità appaltanti (CA)

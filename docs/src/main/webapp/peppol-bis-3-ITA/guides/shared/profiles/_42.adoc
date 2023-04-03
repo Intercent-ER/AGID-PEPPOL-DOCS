@@ -2,7 +2,9 @@
 [[prof-42]]
 = Identificatori per la customizzazione e profilo
 
-Nella tabella seguente troverai i valori da utilizzare come identificatore della specifica e il tipo di processo di business per questo profilo
+Nella tabella seguente troverai i valori da utilizzare come identificatore della specifica e il tipo di processo di business per questo profilo.
+
+IMPORTANT: Il CustomizationID è una stringa senza spazi. La tabella seguente contiene spazi in CustomizationID al solo scopo di renderlo più leggibile. Bisogna assicurarsi di *rimuovere tutti gli spazi intermedi prima dell’uso*.
 
 [cols="2s,5a,5a", options="header"]
 |===

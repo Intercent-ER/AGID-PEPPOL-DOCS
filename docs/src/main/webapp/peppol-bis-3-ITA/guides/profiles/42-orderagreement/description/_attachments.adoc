@@ -11,7 +11,7 @@ IMPORTANT: Gli allegati possono essere utilizzati come informazioni aggiuntive m
 
 [yellow-background]#I codici validi sono quelli evidenziati nella codifica link:../../../../../../xml/ITA/peppol-bis-3/codelist/MimeCode.html[Mime code], compatibili con NSO.#
 
-.Esempio di allegato incorporato, oggetto binario nel messaggio dell’Ordine PEPPOL a livello di documento
+.Esempio di allegato incorporato, oggetto binario nel messaggio dell’Ordine Peppol a livello di documento
 [source, xml, indent=0]
 ----
 <cac:AdditionalDocumentReference>
@@ -34,7 +34,7 @@ IMPORTANT: Gli allegati possono essere utilizzati come informazioni aggiuntive m
 
 I documenti non-XML possono essere inviati come allegato all’Ordine pre-concordato Peppol a livello di riga. Questi potrebbero comprendere specifiche del prodotto, disegni o resoconti di ore lavorate o altri documenti rilevanti per l’Ordine pre-concordato. Vedi informazioni sopra relative agli allegati.
 
-.Esempio di allegato incorporato, oggetto binario nel messaggio dell’Ordine PEPPOL a livello di riga
+.Esempio di allegato incorporato, oggetto binario nel messaggio dell’Ordine Peppol a livello di riga
 [source, xml, indent=0]
 ----
 <cac:ItemSpecificationDocumentReference>

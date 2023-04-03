@@ -6,7 +6,7 @@ L'ambito inteso per questo BIS è:
 * Approvvigionamenti regionali in EU e EEA
 * Per supportare l'acquisto di merci e servizi e/o servizi che possono dettagliati e conteggiati.
 
-Questo PEPPOL BIS supporta un numero di “casi d'uso comuni e processi”. Questi sono processi che sono usati ovunque e ritenuti rilevanti dalla maggior parte delle aziende.
+Questo Peppol BIS supporta un numero di “casi d'uso comuni e processi”. Questi sono processi che sono usati ovunque e ritenuti rilevanti dalla maggior parte delle aziende.
 
 Le principali attività supportate da questo BIS sono:
 
@@ -19,5 +19,5 @@ Le principali attività supportate da questo BIS sono:
 * Descrizione di una precisa istanza dell'articolo
 * Manutenzione del catalogo
 
-Questo PEPPOL BIS supporta i requisiti fornendo gli elementi informativi necessari a soddisfarli.
+Questo Peppol BIS supporta i requisiti fornendo gli elementi informativi necessari a soddisfarli.
 Questo BIS fornisce anche un numero di regole di business per chiarire il contenuto e gli implementatori le possono usare come base per la validazione se proficuo per il business.

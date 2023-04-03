@@ -28,8 +28,8 @@ In vigore a partire dal *06 febbraio 2023*
 
 * Aggiornate le regole GR-S-008-1, GR-R-008-2 e GR-R-008-3, prevedendo la stringa \\##INVOICE\|URL## invece di \\##INVOICE-URL## (POAC-518);
 * Eliminata la regola DK-R-015;
-* Correzione del testo delle regole DK-R-004 PEPPOL UBL & CII;
-* Correzione del testo della regola DK-R-003 PEPPOL CII.
+* Correzione del testo delle regole DK-R-004 Peppol UBL & CII;
+* Correzione del testo della regola DK-R-003 Peppol CII.
 
 | 3.0.13.3(IT)
 a| 02/12/2022
@@ -71,19 +71,19 @@ a| La versione è allineata alla release Peppol BIS Billing 3.0.12 (Fall release
 
 | 3.0.9.1(IT)
 a| 13/11/2020
-a| Aggiornamento alle specifiche PEPPOL BIS Billing 3.0.9 hotfix. Revisione regole estensioni.
+a| Aggiornamento alle specifiche Peppol BIS Billing 3.0.9 hotfix. Revisione regole estensioni.
 
 | 3.0.8.1(IT)
 a| 04/11/2020
-a| Aggiornamento alle specifiche PEPPOL BIS Billing 3.0.8. Revisione regole estensioni.
+a| Aggiornamento alle specifiche Peppol BIS Billing 3.0.8. Revisione regole estensioni.
 
 | 3.0.7.1(IT)
 a| 27/10/2020
-a| Aggiornamento alle specifiche PEPPOL BIS Billing 3.0.7. Revisione regole estensioni.
+a| Aggiornamento alle specifiche Peppol BIS Billing 3.0.7. Revisione regole estensioni.
 
 | 3.0.6.1(IT)
 a| 13/05/2020
-a| Aggiornamento alle specifiche PEPPOL BIS Billing 3.0.6.
+a| Aggiornamento alle specifiche Peppol BIS Billing 3.0.6.
 
 | 3.0.5.2(IT)
 a| 24/02/2020

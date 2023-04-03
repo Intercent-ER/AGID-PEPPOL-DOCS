@@ -33,17 +33,17 @@ h| {phase-in}
 h| {transition}
 h| {phase-out}
 
-| PEPPOL BIS Billing 5a, version 2.3
+| Peppol BIS Billing 5a, version 2.3
 | Mandatory
 | Optional
 | Discontinued
 
-| PEPPOL BIS Invoice 4a, version 2.3
+| Peppol BIS Invoice 4a, version 2.3
 | Mandatory
 | Optional
 | Discontinued
 
-| PEPPOL BIS Billing, version 3.0
+| Peppol BIS Billing, version 3.0
 | Optional
 | Mandatory
 | Mandatory

@@ -1,9 +1,11 @@
 
 = #Termini di pagamento#
 
-== #Termini e condizioni di pagamento#
+== #Termini e condizioni di pagamento (CIUS domestica)#
 
 ##Il campo *cac:PaymentTerms/cbc:Note* deve essere usato solo per indicare il dato FPA 2.4.1 CondizioniPagamento e FPA 2.4.2.4 GiorniTerminiPagamento, concatenati con il simbolo "#".##
+
+#Per la fatturazione cross-border il campo Note ha valore fisso e pari a TP02.#
 
 .Esempi
 [source, xml, indent=0]

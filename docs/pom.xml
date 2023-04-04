@@ -21,7 +21,7 @@
 		<validator.version>2.7.0</validator.version>
 		<converter.version>2.9.0</converter.version>
 		<schematron.version>2.7.0</schematron.version>
-		<mapping_peppol_fpa.version>3.2</mapping_peppol_fpa.version>
+		<mapping_peppol_fpa.version>3.3</mapping_peppol_fpa.version>
 		<mapping_fpa_peppol.version>3.2</mapping_fpa_peppol.version>
 	</properties>
 	<build>

@@ -326,7 +326,7 @@ Il Consegnatario/Destinatario è un’informazione opzionale nel messaggio dell�
      <cac:Contact>
          <cbc:Name>James Bond</Name
          <cbc:Telephone>0647611</cbc:Telephone>
-         <cbc:ElectronicMail>james.bond@peo.it</ ElectronicMail>
+         <cbc:ElectronicMail>james.bond@peo.it</ElectronicMail>
         </cac:Contact>
         </cac:PartyIdentification>
     </cac:DeliveryParty>

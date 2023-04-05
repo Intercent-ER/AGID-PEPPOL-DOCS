@@ -6,6 +6,31 @@
 ^.^| Date
 ^.^| What's new
 
+| 3.1.0.1(IT)
+a| 16/12/2022
+a| _Update to specifications https://docs.peppol.eu/poacc/upgrade-3/2022-Q4/release-notes/[PEPPOL BIS 3.0.10 - November release 2022]_. +
+
+Effective as of *06 February 2023*
+
+[red]#Changes to specification (Documentation)#
+
+* The method of indicating the VAT number and Tax Code of the Supplier/Seller and Customer/Buyer has been changed;
+* Removed the "Last updated" indication in the footer;
+* Updated examples to reflect syntax changes.
+
+[red]#Syntax changes#
+
+* Added cbc:DocumentTypeCode as an optional field of the cac:ItemSpecificationDocumentReference structure at row level;
+* Added cbc:CompanyID as an optional field of the cac:PartyLegalEntity structure for both the Supplier (cac:SellerSupplierParty) and the Customer (cac:BuyerCustomerParty).
+
+[red]#Changes to code lists and validation artifacts#
+
+* Removed tax category validation rules: PEPPOL-T110-B13301 rule applied to cac:AllowanceCharge/cac:TaxCategory/cbc:ID, PEPPOL-T110-B14601 rule applied to cac:TaxTotal/cac:TaxSubtotal/cac :TaxCategory/cbc:ID and PEPPOL-T110-B22301 rule applied to the cac:Item/cac:ClassifiedTaxCategory/cbc:ID field.
+* Changed the severity of the PEPPOL-COMMON-R049 (ICD 0007) rule for the validation of the format of the "Swedish organization number" from "warning" to "fatal", as announced in the May Release 2022;
+* Corrected the PEPPOL-COMMON-R050 rule for the validation of the "Australian Business Number (ABN)";
+* Added US code 9959 to EAS encoding. Removed the Italian codes 9906 and 9907 from the same coding. Adjusted the validation artifacts;
+* Added codes 0217 (Netherlands), 0218, 0219 and 0220 (Latvia) to the ICD encoding and adjusted the validation artifacts.
+
 | 3.0.0.3(IT)
 a| 27/05/2022
 a|  _Update to https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3.0.9 - may release 2022]_. +

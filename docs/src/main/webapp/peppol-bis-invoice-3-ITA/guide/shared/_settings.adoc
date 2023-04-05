@@ -1,5 +1,5 @@
 :rules-dir: ../../../rules/generated
-:version: 3.0.13.2(IT)
+:version: 3.0.14.1(IT)
 
 //links used in the BIS document
 :link-examples: https://github.com/OpenPEPPOL/peppol-bis-invoice-3/tree/master/rules/examples[Example files]

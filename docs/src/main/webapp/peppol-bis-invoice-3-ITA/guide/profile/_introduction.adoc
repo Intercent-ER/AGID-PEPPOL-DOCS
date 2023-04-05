@@ -9,6 +9,8 @@ Questa Business Interoperability Specification (BIS) fornisce un insieme di spec
 * #delle CIUS da applicare alle fatture domestiche (CIUS domestica);#
 * #delle Estensioni da applicare alle fatture domestiche (estensione).#
 
+#Ai sensi del Decreto MEF del 21.06.2021 per la fatturazione elettronica da e verso San Marino valgono le regole del mercato domestico.#
+
 [lime-background]#Le regole d’uso ed i paragrafi applicabili specificatamente alla fatturazione domestica verso i privati sono invece evidenziate in verde.#
 
 #Per ulteriori dettagli vedi anche i paragrafi 12.2 e Appendix A.#
@@ -54,7 +56,7 @@ Questo documento  fornisce le linee guida per il supporto e l'implementazione de
 
 == A chi si rivolge
 
-Questo documento si rivolge alle organizzazioni che intendono utilizzare PEPPOL per scambiare fatture e note di credito elettroniche e/o ai loro fornitori ICT. Queste organizzazioni potrebbero essere:
+Questo documento si rivolge alle organizzazioni che intendono utilizzare Peppol per scambiare fatture e note di credito elettroniche e/o ai loro fornitori ICT. Queste organizzazioni potrebbero essere:
 
      * Fornitori di Servizi ICT (SP)
      * Autorità appaltanti (CA)

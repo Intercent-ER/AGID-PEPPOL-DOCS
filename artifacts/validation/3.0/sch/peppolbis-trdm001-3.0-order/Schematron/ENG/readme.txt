@@ -1,6 +1,6 @@
 Ordine
 
-Peppol BIS 3.0.6 hotfix (same as 3.0.5)
+Peppol BIS 3.0.8
 NSO 4.5
 
 Customization ID:

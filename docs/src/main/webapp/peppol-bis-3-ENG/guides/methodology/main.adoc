@@ -4,6 +4,7 @@ include::links.adoc[]
 OpenPEPPOL AISBL, Post-Award Coordinating Community
 v0.1.0
 :doctype: book
+:last-update-label!:
 :icons: font
 :stem:
 :toc: left

@@ -1,7 +1,7 @@
 [[Sconti-e-maggiorazioni]]
 = Sconti e Maggiorazioni
 
-Gli elementi per specificare sconti e maggiorazioni si trovano a livello di documento
+Gli elementi per specificare sconti e maggiorazioni si trovano a livello di documento.
 
 L’elemento `cac:AllowanceCharge` con il sotto elemento `cac:ChargeIndicator` permette di indicare se si sta specificando una maggiorazione (true) o uno sconto/abbuono (false).
 

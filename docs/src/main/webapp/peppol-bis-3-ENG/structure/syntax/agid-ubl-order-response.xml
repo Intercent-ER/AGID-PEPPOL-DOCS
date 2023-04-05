@@ -228,27 +228,41 @@
 		<Element cardinality="0..1">
 			<Term>cac:Delivery</Term>
 			<Name>Delivery information</Name>
-			<Element agid:custom="rule">
+			<Element>
 				<Term>cac:PromisedDeliveryPeriod</Term>
 				<Name>Promised delivery period</Name>
 				<Reference type="RULE">INT-T76-R012</Reference>
 				<Element cardinality="0..1">
 					<Term>cbc:StartDate</Term>
-					<Name>Period start date</Name>
-					<Description>The date on which the supply period starts, in the format aaaa-mm-gg. The start dates counts as part of the period.</Description>
+					<Name>Period start date - Data di inizio</Name>
+					<Description>Indica la data in cui deve avere inizio la fornitura, nel formato aaaa-mm-gg.</Description>
 					<DataType>date</DataType>
 					<Reference type="BUSINESS_TERM">tir76-099</Reference>
 					<Reference type="RULE">PEPPOL-T76-R004</Reference>
 					<Value type="EXAMPLE">2018-06-01</Value>
 				</Element>
 				<Element cardinality="0..1">
+					<Term>cbc:StartTime</Term>
+					<Name>Period start time</Name>
+					<Description>Indica l'orario in cui deve avere inizio la fornitura, nel formato oo:mm:ss</Description>
+					<Reference type="BUSINESS_TERM">tir76-p010</Reference>
+					<Value type="EXAMPLE">12:10:33</Value>
+				</Element>
+				<Element cardinality="0..1">
 					<Term>cbc:EndDate</Term>
 					<Name>Period end date</Name>
-					<Description>The date on which the supply period ends, in the format aaaa-mm-gg. The end date counts as part of the period.</Description>
+					<Description>Indica la data entro cui deve terminare la fornitura, nel formato aaaa-mm-gg.</Description>
 					<DataType>Date</DataType>
 					<Reference type="BUSINESS_TERM">tir76-100</Reference>
 					<Reference type="RULE">PEPPOL-T76-R004</Reference>
 					<Value type="EXAMPLE">2018-06-30</Value>
+				</Element>
+				<Element cardinality="0..1">
+					<Term>cbc:EndTime</Term>
+					<Name>Period end time</Name>
+					<Description>Indica l'orario in cui deve terminare la fornitura, nel formato oo:mm:ss</Description>
+					<Reference type="BUSINESS_TERM">tir76-p011</Reference>
+					<Value type="EXAMPLE">14:20:00</Value>
 				</Element>
 			</Element>
 		</Element>

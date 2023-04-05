@@ -1,5 +1,5 @@
 
-= Migration rules ‐ PEPPOL participants affected by the Migration Policy
+= Migration rules ‐ Peppol participants affected by the Migration Policy
 
 This OpenPEPPOL BIS Billing Migration Policy affects all end-users registered in a SMP for invoice/billing according to the following rules:
 

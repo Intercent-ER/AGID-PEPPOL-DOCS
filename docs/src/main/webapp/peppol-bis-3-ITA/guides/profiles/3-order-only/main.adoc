@@ -1,5 +1,6 @@
 include::../../shared/_links.adoc[]
 :doctype: book
+:last-update-label!:
 :icons: font
 :stem:
 :lang: it
@@ -14,7 +15,7 @@ include::../../shared/_links.adoc[]
 
 image::../../../shared/images/peppol.png[float="right"]
 
-= [black]#BIS Ordinazione Semplice 3.2#
+= [black]#BIS Ordinazione Semplice 3.3.0.1#
 
 {author}
 v{ord_version_it}

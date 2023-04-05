@@ -1,8 +1,7 @@
 = CIG (Originator document reference)
 
-[yellow-background]#Nel procurement pubblico possono essere diversi i riferimenti necessari a identificare una fornitura. Per fornire gli estremi di un documento a cui ci si riferisce dalla testata o dalle righe d’ordine è necessario specificarne l’identificativo.#
+[yellow-background]#Il codice identificativo di gara (CIG), censito nella Banca dati Nazionale dei contratti pubblici (BDNCP), è utilizzato per identificare il bando di gara o il lotto al quale le prestazioni contenute nell'ordine si riferiscono. L'indicazione del CIG è obbligatoria sia negli ordini iniziali che negli ordini sostitutivi.#
 
-[yellow-background]#Nei documenti di tipo ordine iniziale e sostitutivo è obbligatorio indicare il Codice identificativo di gara (CIG o Smart CIG), censito nella Banca dati Nazionale dei contratti pubblici (BDNCP), a cui le prestazioni contenute nel Documento si riferiscono.#
 
 [cols="1,2,5", options="header"]
 |====
@@ -13,7 +12,7 @@ s|Dove usarlo
 |*CIG*
 |Codice Identificativo Gara
 |In testata si usa +
-`cac:OriginatorDocumentReference` (0..1) +
+`cac:OriginatorDocumentReference/cbc:ID` (1..1) +
 
 A livello di riga +
 `cac:OrderLine/cac:LineItem/cac:Item/cac:ItemSpecificationDocumentReference/ID` (0..n)
@@ -29,17 +28,10 @@ A livello di riga +
 </cac:OriginatorDocumentReference>
 ----
 
-[yellow-background]#Nei casi di esclusione previsti dalle norme vigenti, in luogo del valore del CIG deve essere utilizzato uno dei codici presenti nella codelist *"Esclusioni CIG (IT)"*, disponibile nella sezione CODIFICHE. Il motivo di esclusione va indicato inserendo l'apposito codice.#
+L'indicazione del CIG a livello di riga d'ordine deve essere preceduta dalla stringa "CIG:" senza interposizione di spazi.
 
-.L’esempio seguente indica un ordine con il motivo di esclusione ES12 “AFFIDAMENTI_IN_HOUSE”.
-[source, xml, indent=0]
-----
-<cac:OriginatorDocumentReference>
-    <cbc:ID>ES12</cbc:ID>
-</cac:OriginatorDocumentReference>
-----
 
-.Esempio di riferimento ad un CIG a livello di riga:
+.Esempio di un ordine con CIG a livello di riga.
 [source, xml, indent=0]
 ----
 <cac:OrderLine>
@@ -54,5 +46,17 @@ A livello di riga +
     </cac:LineItem>
 </cac:OrderLine>
 ----
+
+
+[yellow-background]#Nei casi di esclusione previsti dalle norme vigenti, in luogo del riferimento al CIG deve essere indicato il motivo di esclusione inserendo il relativo codice tra quelli presenti nella codelist "Esclusioni CIG (IT)", disponibile nella sezione CODIFICHE.#
+
+.Esempio di un ordine con indicazione del motivo di esclusione a livello di testata.
+[source, xml, indent=0]
+----
+<cac:OriginatorDocumentReference>
+    <cbc:ID>ES12</cbc:ID>
+</cac:OriginatorDocumentReference>
+----
+
 
 

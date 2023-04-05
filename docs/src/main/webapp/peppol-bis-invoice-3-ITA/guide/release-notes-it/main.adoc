@@ -1,7 +1,8 @@
 include::../shared/_settings.adoc[]
-= PEPPOL BIS Fatturazione {version}
+= Peppol BIS Fatturazione {version}
 Release Notes
 :doctype: book
+:last-update-label!:
 :encoding: utf-8
 :lang: it
 :toc: left

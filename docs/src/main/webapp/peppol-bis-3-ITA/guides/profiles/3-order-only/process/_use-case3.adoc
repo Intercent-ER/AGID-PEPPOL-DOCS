@@ -6,12 +6,12 @@ Questo caso d’uso è relativo a un ordine di servizi.
 
 [cols="1s,5",options="header"]
 |====
-|Caso d’uso nr.
+|Nr. Caso d'uso
 |3
-|Nome
-|Ordine servizi
+|Nome Caso d'uso
+|Ordine di servizi
 
-|Descrizione
+|Descrizione caso d'uso
 |Un ordine per servizi di traduzione. +
 Il luogo di consegna e il periodo sono specificati.
 |Ruoli coinvolti

@@ -1,5 +1,6 @@
 = Schematron design guideline
 :doctype: book
+:last-update-label!:
 :icons: font
 :stem:
 :toc: left

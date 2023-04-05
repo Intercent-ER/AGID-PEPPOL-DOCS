@@ -58,7 +58,7 @@ image::../images/image10.png[]
 .. Gli articoli possono essere stoccati per best before date, per lotto e/o numero seriale
 .. Gli articoli possono essere movimentati in base al peso della unità logistica
 
-|*Risultato* a|
+|*Risultati* a|
 . Il Documento di Trasporto ha aiutato il Consegnatario a preparare l’accettazione 
 .. In tempo
 .. Nel luogo giusto (indirizzo)
@@ -70,5 +70,7 @@ image::../images/image10.png[]
 .. Le unità logistiche 
 .. Gl articoli
 .. La quantità evasa/peso
+
+|*Esempio XML* | Vedi sezione download nella Homepage.
 
 |====

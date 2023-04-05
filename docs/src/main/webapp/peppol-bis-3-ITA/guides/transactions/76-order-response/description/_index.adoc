@@ -1,7 +1,7 @@
 [[Descrizione-di-parti-selezionate-del-messaggio-di-risposta-ordine]]
 = Descrizione di parti selezionate del messaggio di risposta d’ordine
 
-Il messaggio di risposta d’ordine viene inviato dal venditore all’acquirente attestando la capacità del venditore di evadere l’ordine. Le seguenti regole si applicano al PEPPOL BIS Order Response:
+Il messaggio di risposta d’ordine viene inviato dal venditore all’acquirente attestando la capacità del venditore di evadere l’ordine. Le seguenti regole si applicano al Peppol BIS Order Response:
 
 * La risposta d’ordine deve essere riferita ad un ordine.
 

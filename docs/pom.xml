@@ -8,7 +8,7 @@
 	<parent>
 		<groupId>it.gov.agid</groupId>
 		<artifactId>AGID-PEPPOL</artifactId>
-		<version>2.0</version>
+		<version>2.1</version>
 		<relativePath>../</relativePath>
 	</parent>
 	<packaging>war</packaging>
@@ -18,10 +18,10 @@
 	<properties>
 		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<validator.version>2.5.0</validator.version>
-		<converter.version>2.7.0</converter.version>
-		<schematron.version>2.5.0</schematron.version>
-		<mapping_peppol_fpa.version>3.2</mapping_peppol_fpa.version>
+		<validator.version>2.7.0</validator.version>
+		<converter.version>2.9.0</converter.version>
+		<schematron.version>2.7.0</schematron.version>
+		<mapping_peppol_fpa.version>3.3</mapping_peppol_fpa.version>
 		<mapping_fpa_peppol.version>3.2</mapping_fpa_peppol.version>
 	</properties>
 	<build>
@@ -34,8 +34,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
 				<configuration>
-					<source>2.0</source>
-					<target>2.0</target>
+					<source>2.1</source>
+					<target>2.1</target>
 					<compilerArguments>
 						<endorseddirs>${endorsed.dir}</endorseddirs>
 					</compilerArguments>
@@ -339,7 +339,7 @@
 
 					<!-- INVOICE TRASFORMAZIONE SCHEMATRON IN REGOLE (per la sezione delle specifiche)-->
 
-					<!--<execution>
+					<!--execution>
 						<id>schematron-to-asciidoc-ph1</id>
 						<phase>generate-resources</phase>
 						<goals>
@@ -413,7 +413,7 @@
 								</transformationSet>
 							</transformationSets>
 						</configuration>
-					</execution>-->
+					</execution-->
 
 				</executions>
 
@@ -441,7 +441,7 @@
 						<configuration>
 							<backend>html5</backend>
 							<sourceDirectory>src/main/webapp/manuali_utente/</sourceDirectory>
-							<outputDirectory>${project.build.directory}/generated-docs/manuali utente</outputDirectory>
+							<outputDirectory>${project.build.directory}/generated-docs/manuali_utente</outputDirectory>
 							<relativeBaseDir>true</relativeBaseDir>
 							<preserveDirectories>true</preserveDirectories>
 						</configuration>

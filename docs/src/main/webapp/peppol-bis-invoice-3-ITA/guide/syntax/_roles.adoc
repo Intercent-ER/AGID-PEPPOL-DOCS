@@ -1,8 +1,8 @@
 
 
-= Il Fornitore (AccountingSupplierParty)
+= Fornitore (AccountingSupplierParty)
 
-Il fornitore è colui che vende la merce o i servizi al cliente. Il fornitore è obbligatorio in quanto è il emittente del documento, inoltre è obbligatorio includere l’EndpointID (ParticipantID) con il quale è registrato su PEPPOL.
+Il Fornitore è la persona fisica, la persona giuridica o l'organizzazione che fornisce beni e/o servizi ed è un’informazione obbligatoria in quanto emittente del documento. +È quindi obbligatorio includere il l’EndpointID. #Il Fornitore corrisponde al Cedente/Prestatore della fattura ai sensi del DPR n. 633/1972.#
 
 
 .Esempio di informazioni per un fornitore italiano con indicazione della Partita Iva nell'Endpoint
@@ -218,9 +218,10 @@ Trattasi di CIUS domestica
 
 
 
-= Il Cliente (AccountingCustomerParty)
+= Cliente (AccountingCustomerParty)
 
-Il Cliente, detto anche Cessionario o Committente, è la persona o organizzazione che acquisisce la proprietà di un prodotto o di un servizio in base ad un prezzo concordato e a dei termini di pagamento. +
+Il Cliente è la persona fisica, la persona giuridica o l'organizzazione che richiede beni e/o servizi ed è un’informazione obbligatoria in quanto destinatario del documento.
+È quindi obbligatorio includere l’EndpointID. #Il Cliente corrisponde al Cessionario/Committente della fattura ai sensi del DPR n. 633/1972.# +
 
 #Il cliente può essere una PA, un operatore economico, un cittadino o un soggetto residente, non residente, non stabilito/identificato in Italia.#
 
@@ -326,13 +327,9 @@ Trattasi di CIUS domestica valida per la fatturazione verso privati
 ----
 
 
-= Il Beneficiario (PayeeParty)
+= Beneficiario (PayeeParty)
 
-Il beneficiario è una persona, istituto bancario o entità di business alla quale si effettua il pagamento.
-
-Il beneficiario è una informazione facoltativa. Se questa informazione non è fornita, il fornitore/venditore è anche il beneficiario del pagamento.
-
-Quando vengono fornite le informazioni del beneficiario significa che si evidenzia un caso di factoring.
+Il Beneficiario del pagamento (o Beneficiario) è la persona fisica, la persona giuridica o l’organizzazione che ha diritto a ricevere il pagamento (es. società di factoring) ed è un’informazione facoltativa. Se questa informazione non è fornita, il Fornitore/Venditore è anche il Beneficiario del pagamento.
 
 Per riflettere l'assegnazione di una Fattura ad un factor è necessario:
 
@@ -353,16 +350,14 @@ include::{snippet-dir}/Snippet-full.xml[tags=payee]
 
 
 
-= Rappresentante fiscale del Fornitore (TaxRepresentativeParty)
+= Rappresentante Fiscale del Fornitore (TaxRepresentativeParty)
 
-In alcuni scenari di business, le aziende che commerciano oltre confine sono tenute secondo le autorità fiscali locali a nominare un rappresentante fiscale. 
-Sono comprese le aziende extra-EU che operano in Europa, gli importatori in EU e i commercianti.  
+Il Rappresentante Fiscale è la persona fisica, la persona giuridica o l'organizzazione responsabile per la gestione corretta e la regolarizzazione dell'IVA per conto delle aziende, in linea con le normative locali. +
+#Il Codice Fiscale può essere indicato nell’elemento *cac:PartyIdentification/cbc:ID* inserendo l’attributo @schemeID valorizzato con il codice "0210", come nell’esempio di seguito.#
 
-I rappresentanti fiscali sono responsabili per la gestione corretta e la regolarizzazione dell'IVA per conto delle aziende, in linea con le normative locali. Un rappresentante fiscale è considerato come l'agente locale del commerciante.  In molti casi, il rappresentante fiscale è ritenuto responsabile in solido per le tasse del commerciante.
+#Il Codice EORI può essere indicato nell’elemento *cac:PartyIdentification/cbc:ID* omettendo l’attributo @schemeID ma includendo il prefisso "EORI:" come nell’esempio di seguito.#
 
-#Il Codice Fiscale può essere espresso all'interno del Party nell'elemento *cac:PartyIdentification/cbc:ID* inserendo l’attributo @schemeID valorizzato con il codice "0210", come nell'esempio di seguito.#
-
-#Il Codice EORI può essere espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.#
+#La Partita IVA deve essere indicata nel *cac:PartyTaxScheme/cbc:CompanyID*.#
 
 #Il campo *cac:PartyName/cbc:Name* può essere usato per indicare il dato FPA 1.3.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.3.1.3.2 Nome e 1.3.1.3.3 Cognome preceduti dalla stringa "Nome#Cognome:" e concatenati dal simbolo "&#x0023;".#
 
@@ -376,7 +371,7 @@ include::{snippet-dir}/Snippet-full.xml[tags=taxrep]
 
 = #Stabile Organizzazione del Fornitore (AccountingSupplierParty/AgentParty) - Estensione#
 
-Se il cedente/prestatore non residente ha una stabile organizzazione in Italia, si può specificare in fattura come parte dei dati del fornitore nell'elemento *cac:AgentParty*.
+In caso di Stabile Organizzazione in Italia del Cedente/Prestatore non residente, i dati della Stabile Organizzazione vanno indicati nella struttura *cac:AgentParty*.
 
 .Esempio UBL per la stabile organizzazione del fornitore
 [source, xml, indent=0]
@@ -385,7 +380,7 @@ include::../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_for
 ----
 
 
-= #Il Terzo Intermediario o Soggetto Emittente del Fornitore (AccountingSupplierParty/ServiceProviderParty) - Estensione#
+= #Terzo Intermediario o Soggetto Emittente del Fornitore (AccountingSupplierParty/ServiceProviderParty) - Estensione#
 
 Nel caso sia un soggetto terzo ad emettere fattura per conto del cedente / prestatore, si può specificare in fattura come parte dei dati del fornitore nell'elemento *cac:ServiceProviderParty*. +
 
@@ -425,7 +420,7 @@ Il Codice EORI può essere espresso nell'elemento *cac:PartyIdentification/cbc:I
 
 
 
-= [lime-background]#Il Rappresentante fiscale del Cliente (AccountingCustomerParty/PowerOfAttorney) - Estensione#
+= [lime-background]#Rappresentante fiscale del Cliente (AccountingCustomerParty/PowerOfAttorney) - Estensione#
 
 Nella fatturazione tra privati (B2B, B2C, G2B e G2C), se il cessionario/committente si avvale di un rappresentante fiscale in Italia, si può specificare in fattura come parte dei dati del fornitore nell’elemento PowerOfAttorney, come procura per la rappresentanza fiscale.
 
@@ -451,7 +446,7 @@ Nella fatturazione tra privati (B2B, B2C, G2B e G2C), se il cessionario/committe
 
 = [lime-background]#Stabile Organizzazione del Cliente (AccountingCustomerParty/AgentParty) - Estensione#
 
-Nella fatturazione tra privati (B2B, B2C, G2B e G2C), se il cessionario/committente non residente ha una stabile organizzazione in Italia, si può specificare in fattura come parte dei dati del cliente nell’elemento AgentParty.
+In caso di Stabile Organizzazione in Italia del Cessionario/Committente non residente, i dati della Stabile Organizzazione vanno indicati nella struttura *cac:AgentParty*.
 
 .Esempio UBL per la stabile organizzazione del cliente
 [source, xml, indent=0]
@@ -470,11 +465,14 @@ Nella fatturazione tra privati (B2B, B2C, G2B e G2C), se il cessionario/committe
 ----
 
 
-= #Il Vettore (Delivery/CarrierParty)#
+= #Vettore (Delivery/CarrierParty)#
 
-Nei casi di fattura "accompagnatoria", come parte delle informazioni relative al trasporto è possibile specificare i dati fiscali e anagrafici del vettore che trasporta e consegna la merce, nell'elemento CarrierParty.
+Il Vettore è la persona giuridica o l'organizzazione che gestisce la consegna/trasporto fisico della spedizione. Utilizzato se il trasporto è effettuato da una terza parte.
 
-Il Codice Fiscale può essere espresso all'interno del Party nell'elemento PartyIdentification/ID inserendo l’attributo @schemeID valorizzato con il codice "0210", come nell'esempio di seguito.
+
+Il Codice Fiscale può essere indicato nell’elemento *cac:PartyIdentification/cbc:ID* inserendo l’attributo @schemeID valorizzato con il codice "0210", come nell’esempio di seguito.
+La Partita IVA deve essere indicata nel *cac:PartyTaxScheme/cbc:CompanyID*.
+
 
 
 .Esempio UBL per il vettore che effettua il trasporto

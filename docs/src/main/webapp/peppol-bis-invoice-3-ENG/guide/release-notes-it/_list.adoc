@@ -6,6 +6,35 @@
 ^.^| Date
 ^.^| What’s new
 
+| 3.0.14.1(IT)
+a| 16/12/2022
+a| _Update to specifications https://docs.peppol.eu/poacc/billing/3.0/2022-Q4/release-notes/[PEPPOL BIS 3.0.14 - November release 2022]_. +
+
+Effective as of *06 February 2023*
+
+[red]#Changes to specification (Documentation)# +
+
+* Removed the "Last updated" indication in the footer;
+
+[red]#Changes to code lists and validation artifacts# +
+
+* Changed the severity of the PEPPOL-COMMON-R049 (ICD 0007) rule for the validation of the format of the "Swedish organization number" from "warning" to "fatal", as announced in the May Release 2022;
+* Corrected the PEPPOL-COMMON-R050 rule for the validation of the "Australian Business Number (ABN)";
+* Added US code 9959 to EAS encoding. Removed the Italian codes 9906 and 9907 from the same coding. Adjusted the validation artifacts;
+* Added codes 0217 (Netherlands), 0218, 0219 and 0220 (Latvia) to the ICD coding and adjusted the validation artifacts;
+* Corrected specific business rules deriving from updates to EN16931 and related schematrons (for more information, see the link: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.9).
+
+[red]#Country Specific Rule Changes# +
+
+* Updated rules GR-S-008-1, GR-R-008-2 and GR-R-008-3, requiring the string \\##INVOICE\|URL## instead of \\##INVOICE-URL## (POAC-518);
+* Eliminated the rule DK-R-015;
+* Correction of rules text DK-R-004 PEPPOL UBL & CII;
+* Correction of DK-R-003 PEPPOL CII rule text.
+
+| 3.0.13.3(IT)
+a| 02/12/2022
+a| This specification implements the updated version of the Technical Rules of the Revenue Agency relating to the management of European invoices - version 2.2 published on 11/16/2022, in relation to Provision 99370 published on 04/18/2019. Some of the changes present in this latest version of the Technical Rules of the Revenue Agency were already contained in the Peppol BIS3 specification of 04/21/2022.
+
 | 3.0.13.2(IT)
 a| 24/06/2022
 a| [red]#Changes in the Documentation section# +
@@ -28,11 +57,11 @@ a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/relea
 * Rule PEPPOL-COMMON-R043 (ICD 0208) changed from severity warning to fatal (as announced in the november 2021 release)
 * Added rule to check format for Swedish organisation numbers (ICD/EAS 0007) with severity warning, will be changed to fatal in future release.
 * An error has been corrected in PEPPOL-EN16931-R080 as it should not be triggered in Invoice (only CreditNotes)
-* Added codes 0214, 0215 and 0216 to the ICD code list and support added in validation artefacts. 
+* Added codes 0214, 0215 and 0216 to the ICD code list and support added in validation artefacts.
 * Added codes 0147, 0170, 0188, 0215 and 0216 to the EAS code list and support added in validation artefacts.
-* Double entry of code TSP removed from code list UNCL7143. 
-* Added support for additional invoice type codes 71, 102, 218, 219, 331, 382, 553, 817, 870, 875, 876 and 877. This is in line with update made by TC434/EC-DIGITAL. Added to BIS instructions that these additional invoice types codes shall be handled as synonyms to the 380 and thus do not require change in processing. 
-* Added support for invoice type code 0388. Added to BIS instructions that this additional invoice type code shall be handled as synonyms to the 380 and thus do not require change in processing. 
+* Double entry of code TSP removed from code list UNCL7143.
+* Added support for additional invoice type codes 71, 102, 218, 219, 331, 382, 553, 817, 870, 875, 876 and 877. This is in line with update made by TC434/EC-DIGITAL. Added to BIS instructions that these additional invoice types codes shall be handled as synonyms to the 380 and thus do not require change in processing.
+* Added support for invoice type code 0388. Added to BIS instructions that this additional invoice type code shall be handled as synonyms to the 380 and thus do not require change in processing.
 
 .2+| 3.0.12.1(IT)
 .2+a| 21/01/2022

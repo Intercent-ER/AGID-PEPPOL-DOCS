@@ -45,7 +45,7 @@ Il Venditore ha accettato l’ordine senza modifiche.
 .  Il Consegnatario receve il DDT 
 .  Il Consegnatario usa il contenuto del DDT per registrare l’accettazione.
 
-|*Risultato* a|
+|*Risultati* a|
 .  Il Documento di Trasporto ha aiutato il Consegnatario a preparare l’accettazione della merce:
 ..  In tempo
 ..  Nel luogo corretto (indirizzo)
@@ -57,7 +57,7 @@ Il Venditore ha accettato l’ordine senza modifiche.
 ..  La quantità evasa
 ..  Le Parti coinvolte nel processo
 
-|*Esempio XML* |Vedi Allegato A per un esempio di file che illustra il Caso d’uso 3.
+|*Esempio XML* | Vedi sezione download nella Homepage.
 |====
 
 Di seguito si forniscono ulteriori dettagli e chiarimenti sulle varie chiavi e identificatori utilizzati in questo Caso d’uso, come pure i benfici che gli implementatori possono ottenere quando li usano. Infine vi sono due immagini che chiariscono la relazione che intercorre tra gli identificatori GSIN e GINC.
@@ -178,7 +178,7 @@ a|
 
 |====
 
-*Chiarimenti supplementary sull’uso del GSIN e del GINC.*
+*Chiarimenti supplementari sull’uso del GSIN e del GINC.*
 
 _Assemblaggio delle chiavi:_
 

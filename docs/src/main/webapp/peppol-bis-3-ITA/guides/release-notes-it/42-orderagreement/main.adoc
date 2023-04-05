@@ -1,7 +1,8 @@
 include::../../shared/_links.adoc[]
-= PEPPOL BIS Ordinazione Pre-Concordata {ord_agreement_version_it}
+= Peppol BIS Ordinazione Pre-Concordata {ord_agreement_version_it}
 Note di Rilascio
 :doctype: book
+:last-update-label!:
 :icons: font
 :encoding: utf-8
 :lang: it

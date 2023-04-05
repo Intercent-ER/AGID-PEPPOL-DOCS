@@ -1,16 +1,19 @@
 :Autore: AgID
 :doctype: book
+:last-update-label!:
 :encoding: utf-8
 :lang: it
 :toc: left
 :toclevels: 2
 :toc-title: Indice
 :numbered:
+:imagesdir: rinnovo_certificati_peppol/images
+// in test funziona con imagesdir:../rinnovo_certificati_peppol/images
 
 ====
 [blue]#Autore: AgID# +
-[blue]#Versione: 1.0.0# +
-[blue]#Ultimo aggiornamento: 28/10/2022#
+[blue]#Versione: 1.2.0# +
+[blue]#Ultimo aggiornamento: 06/02/2023#
 ====
 
 = Procedura per il rinnovo dei certificati Peppol
@@ -19,20 +22,22 @@
 [width="95%",cols=",,",align="center",options="header"]
 |===
 ^.^|VERSIONE ^.^|DATA ^.^|CAMBIAMENTI APPORTATI
-| 1.0.0 | 27/11/2020 | Prima stesura
+| 1.0.0 | 27/11/2022 | Prima stesura
+| 1.1.0 | 16/12/2022 | Aggiunto capitolo _Invio certificati per SMP Unico_
+| 1.2.0 | 06/02/2023 | Aggiornati capitoli 3 e 4 in relazione alle modalità di indicazione dell'indirizzo di contatto per ricevere le informazioni sui certificati PKI.
 |===
 
 == Obiettivo
 
-Il presente documento ha l’obiettivo di guidare i Service Provider nella procedura di rinnovo dei certificati del proprio Access Point
+Il presente documento ha l'obiettivo di guidare i Service Provider nella procedura di rinnovo dei certificati del proprio Access Point
 ed eventualmente del proprio SMP.
 
 == Scadenza dei certificati
 
 I certificati forniti da OpenPEPPOL ad ogni Service Provider qualificato e necessari per operare sulla rete PEPPOL possiedono un periodo di validità di due anni,
 al temine dei quali devono essere rinnovati. +
-Un mese prima della scadenza, OpenPeppol invia un avviso di certificato in scadenza all'indirizzo del Technical Contact Point specificato nel Peppol Service Provider Agreement.
-L'email contiene tra le altre cose il link a cui accedere per effettuare la richiesta di rinnovo.
+Un mese prima della scadenza, OpenPeppol invia un avviso di certificato in scadenza all'indirizzo di contatto indicato dal SP per le comunicazioni relative ai certificati PKI di AP e SMP. +
+L'email contiene, tra le altre cose, il link a cui accedere per effettuare la richiesta di rinnovo.
 
 .Esempio di avviso di scadenza certificati
 image::procedura_rinnovo_certificati_peppol-9abcd.png[align = center]
@@ -47,6 +52,13 @@ image::procedura_rinnovo_certificati_peppol-10d6e.png[align=center]
 
 La sezione di interesse è *PKI Certificate request* all'interno della quale il sistema espone un form da compilare. +
 Tutte le informazioni richieste sono obbligatorie, pertanto la sezione deve essere compilata in ogni sua parte.
+
+[NOTE]
+====
+All'interno del campo *Email confirmation to* del form *PKI Certificate request*, il SP dovrà inserire l'indirizzo email a cui intende ricevere la conferma dell'emissione dei nuovi certificati. +
+Si consiglia di valorizzare il campo con l'indirizzo di contatto per le comunicazioni relative ai certificati PKI di AP e SMP indicato dal SP in sede di qualificazione come SP Peppol (procedura di https://peppol.agid.gov.it/it/qualificazione-ap-smp/[Qualificazione AP/SMP], punto 5) e al quale è stata ricevuta la notifica di scadenza dei certificati PKI. +
+In caso il SP inserisca un indirizzo email diverso da quello precedentemente indicato, OpenPeppol aggiornerà le informazioni del SP censendolo come l'indirizzo di contatto per le comunicazioni relative ai certificati PKI di AP e SMP gestiti dal Service Provider.
+====
 
 .Form per richiedere l'emissione dei certificati
 image::procedura_rinnovo_certificati_peppol-cea9c.png[align=center]
@@ -66,9 +78,7 @@ image::procedura_rinnovo_certificati_peppol-71899.png[align=center]
 
 == Recupero dei nuovi certificati
 
-Una volta svolte le procedure amministrative di controllo sui documenti allegati, OpenPEPPOL procede con l'approvazione all'emissione dei nuovi certificati,
-inviando diversi SMS (uno per ogni combinazione di Access Point/SMP e TEST e PROD, per un massimo di 4) al numero di cellulare configurato, comunicando il codice da utilizzare
-per generare il nuovo certificato.
+Una volta svolte le procedure amministrative di controllo sui documenti allegati, la Peppol Authority procede con l’approvazione all’emissione dei nuovi certificati. A questo punto il SP riceve diversi SMS (uno per ogni combinazione di Access Point/SMP e TEST e PROD, per un massimo di 4) inviati da OpenPeppol al numero di cellulare configurato, contenenti il codice da utilizzare per generare il nuovo certificato.
 
 .Esempio di SMS ricevuto
 image::procedura_rinnovo_certificati_peppol-d8102.png[align=center]
@@ -100,3 +110,7 @@ image::procedura_rinnovo_certificati_peppol-9b163.png[align=center]
 
 .Recupero del file file .p12 e della password
 image::procedura_rinnovo_certificati_peppol-1d3aa.png[align=center]
+
+== Invio certificati per SMP Unico
+
+Qualora il Service Provider aderisca all’SMP Unico della PA, una volta ottenuti i nuovi certificati tramite la procedura descritta ai capitoli precedenti, lo stesso SP dovrà trasmettere la sola _chiave pubblica_ del certificato di ciascun Access Point alla Peppol Authority, in allegato al modulo di adesione, compilato e sottoscritto, all’indirizzo protocollo@pec.agid.gov.it .

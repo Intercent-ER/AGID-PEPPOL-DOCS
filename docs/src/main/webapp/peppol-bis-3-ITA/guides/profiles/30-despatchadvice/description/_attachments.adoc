@@ -1,0 +1,30 @@
+[[attachements]]
+= Allegati
+
+I documenti non-XML possono essere inviati come allegato al DDT PEPPOL. Questi potrebbero essere disegni o resoconti di ore lavorate o altri documenti rilevanti per il DDT. L’allegato può essere inviato come oggetto binario codificato in Base64, incorporato nel message o come URI ad un indirizzo esterno.
+
+
+NOTE: Si raccomanda di inviare allegati in modo incorporato, oggetti binari e non come riferimenti esterni.
+
+
+.Esempio di allegato incorporato, oggetto binario nel messaggio del DDT PEPPOL
+[source, xml, indent=0]
+----
+<cac:AdditionalDocumentReference> <1>
+    <cbc:ID>Doc2</cbc:ID>
+    <cbc:DocumentType>Disegno</cbc:DocumentType>
+    <cac:Attachment>
+        <cbc:EmbeddedDocumentBinaryObject mimeCode="application/pdf" filename="disegno.pdf"> UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi
+        </cbc:EmbeddedDocumentBinaryObject> <2>
+    </cac:Attachment>
+</cac:AdditionalDocumentReference>
+----
+
+<1> E' consigliabile utilizzare l’elemento `cac:AdditionalDocumentReference/cbc:DocumentType` per inviare una breve descrizione del contenuto presente in allegato.
+<2> Il nome del file e la sua estensione devono essere inviati dall’attributo filename all’elemento `cbc:EmbeddedDocumentBinaryObject`.  
+
+
+IMPORTANT: Gli allegati possono essere utilizzati come informazioni aggiuntive ma non come copie dell’ordine.
+
+
+

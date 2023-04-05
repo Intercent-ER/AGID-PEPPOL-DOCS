@@ -64,11 +64,14 @@ Il codice 9 (National or regional clearing) viene mappato con MP23 – PagoPA: +
 
 * 9 - PagoPA
 
+Il codice IUV va inserito nel cbc:PaymentID.
+
 .Esempio UBL di modalità pagamento con PagoPA
 [source, xml, indent=0]
 ----
 <cac:PaymentMeans>
     <cbc:PaymentMeansCode name="PagoPA">9</cbc:PaymentMeansCode>
+    <cbc:PaymentID>302000000000001404<cbc:PaymentID>
 </cac:PaymentMeans>
 ----
 

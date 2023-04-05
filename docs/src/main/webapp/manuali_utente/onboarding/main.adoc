@@ -1,4 +1,5 @@
 :doctype: book
+:last-update-label!:
 :icons: font
 :stem:
 :lang: it
@@ -8,8 +9,9 @@
 :source-language: xml
 :sectanchors:
 :sectnums:
+:imagesdir: onboarding/images
 
-= [black]#Manuale utente Piattaforma di Onboarding#
+= Manuale utente Piattaforma di Onboarding
 
 
 :leveloffset: +1

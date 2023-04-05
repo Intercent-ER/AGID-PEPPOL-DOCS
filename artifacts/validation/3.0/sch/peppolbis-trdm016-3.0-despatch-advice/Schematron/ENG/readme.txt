@@ -1,6 +1,6 @@
 Documento di Trasporto
 
-Peppol BIS 3.0.6 hotfix
+Peppol BIS 3.0.8
 
 NOTA: Customizzazione del DDT con estensione di elementi.
 

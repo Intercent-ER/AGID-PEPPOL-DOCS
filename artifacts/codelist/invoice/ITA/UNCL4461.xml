@@ -446,8 +446,8 @@
 		<Id>58</Id>
 		<Name>SEPA credit transfer</Name>
 		<Description>Credit transfer inside the Single Euro Payment Area (SEPA) system.</Description>
-		<LocalId>MP19</LocalId>
-		<LocalDescription>SEPA Direct Debit</LocalDescription>
+		<LocalId>MP05</LocalId>
+		<LocalDescription>bonifico</LocalDescription>
 	</Code>
 	<Code>
 		<Id>59</Id>

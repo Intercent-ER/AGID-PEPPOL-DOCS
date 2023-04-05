@@ -3,7 +3,7 @@
 	<Term>OrderAgreement</Term>
 	<agid:Restriction>
 		<agid:ID>urn:www.ubl-italia.org:spec:ordine:ver3.1</agid:ID>
-		<agid:Name>Ordine Pre-Concordato PEPPOL 3.0</agid:Name>
+		<agid:Name>Ordine Pre-Concordato PEPPOL 3.1.0.1</agid:Name>
 		<agid:Version>3.1</agid:Version>
 	</agid:Restriction>
 
@@ -291,14 +291,27 @@
 				<!-- Non è lo stesso nome che c'è nell'ordine -->
 				<Element>
 					<Term>cac:PartyLegalEntity</Term>
-					<Name>Party name - Informazioni legali del Fornitore</Name>
-
+					<Name>Party name</Name>
 					<Element>
 						<Term>cbc:RegistrationName</Term>
-						<Name>Sellers legal registration name - Denominazione legale del Fornitore</Name>
+						<Name>Sellers legal registration name</Name>
 						<Description>Indica la denominazione legale del Fornitore.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir110-013</Reference>
+					</Element>
+					<Element cardinality="0..1">
+						<Term>cbc:CompanyID</Term>
+						<Name>Sellers legal registration identifier</Name>
+						<Description>Contiene l'identificazione di registrazione legale</Description>
+						<Reference type="BUSINESS_TERM">tir110-p010</Reference>
+						<Attribute usage="mandatory">
+							<Term>schemeID</Term>
+							<Name>Scheme identifier</Name>
+							<Description>Indica lo scheme identifier dell'identificativo del Fornitore</Description>
+							<Reference type="CODE_LIST">eas</Reference>
+							<Value type="EXAMPLE">0210</Value>
+						</Attribute>
+						<Value type="EXAMPLE">01598570354</Value>
 					</Element>
 				</Element>
 				<Element cardinality="0..1">
@@ -433,14 +446,27 @@
 				</Element>
 				<Element>
 					<Term>cac:PartyLegalEntity</Term>
-					<Name>Party name - Informazioni legali del Cliente</Name>
-
+					<Name>Party name</Name>
 					<Element>
 						<Term>cbc:RegistrationName</Term>
-						<Name>Buyer name - Denominazione legale del Cliente</Name>
+						<Name>Buyer name</Name>
 						<Description>Indica la denominazione legale del Cliente.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir110-010</Reference>
+					</Element>
+					<Element cardinality="0..1">
+						<Term>cbc:CompanyID</Term>
+						<Name>Buyers legal registration identifier</Name>
+						<Description>Contiene l'identificazione di registrazione legale</Description>
+						<Reference type="BUSINESS_TERM">tir110-p009</Reference>
+						<Attribute usage="mandatory">
+							<Term>schemeID</Term>
+							<Name>Scheme identifier</Name>
+							<Description>Indica lo scheme identifier dell'identificativo del Cliente</Description>
+							<Reference type="CODE_LIST">eas</Reference>
+							<Value type="EXAMPLE">0210</Value>
+						</Attribute>
+						<Value type="EXAMPLE">01598570354</Value>
 					</Element>
 				</Element>
 			</Element>
@@ -1408,20 +1434,26 @@
 						<Description>Indica i riferimenti a ulteriori documenti che descrivono il bene o il servizio e a codifiche, come il CIG, il CUP, il DDT, l’Impegno di spesa ecc.</Description>
 						<Element>
 							<Term>cbc:ID</Term>
-							<Name>Document identifier - Identificativo del documento addizionale</Name>
+							<Name>Document identifier</Name>
 							<Description>Identificativo del documento addizionale.</Description>
 							<DataType>Identifier</DataType>
 							<Reference type="BUSINESS_TERM">tir110-102</Reference>
-							<Value type="EXAMPLE">ES01</Value>
-							<Value type="EXAMPLE">729544145D</Value>
+							<Value type="EXAMPLE">CIG:729544145D</Value>
+						</Element>
+						<Element cardinality="0..1">
+							<Term>cbc:DocumentTypeCode</Term>
+							<Name>External Item Specification Type</Name>
+							<Description>Indica il codice relativo al tipo documento</Description>
+							<DataType>Text</DataType>
+							<Reference type="BUSINESS_TERM">tir110-p008</Reference>
 						</Element>
 						<Element cardinality="0..1">
 							<Term>cbc:DocumentType</Term>
-							<Name>Document description - Tipo di documento</Name>
+							<Name>Document description</Name>
 							<Description>Indica il tipo di documento.</Description>
 							<DataType>Text</DataType>
 							<Reference type="BUSINESS_TERM">tir110-103</Reference>
-							<Value type="EXAMPLE">CIG</Value>
+							<Value type="EXAMPLE">Progetto</Value>
 						</Element>
 						<Element cardinality="0..1">
 							<Term>cac:Attachment</Term>

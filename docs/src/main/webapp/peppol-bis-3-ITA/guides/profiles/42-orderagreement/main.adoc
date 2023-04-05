@@ -1,5 +1,6 @@
 include::../../shared/_links.adoc[]
 :doctype: book
+:last-update-label!:
 :icons: font
 :stem:
 :toc: left
@@ -13,7 +14,7 @@ include::../../shared/_links.adoc[]
 
 image::../../../shared/images/peppol.png[float="right"]
 
-= [black]#BIS Ordinazione Pre-Concordata 3.0#
+= [black]#BIS Ordinazione Pre-Concordata 3.1.0.1#
 
 {author}
 v{ord_agreement_version_it}

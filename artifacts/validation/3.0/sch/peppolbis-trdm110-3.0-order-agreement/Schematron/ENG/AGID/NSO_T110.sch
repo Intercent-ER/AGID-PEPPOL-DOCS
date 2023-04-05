@@ -622,7 +622,7 @@
                  test="if((@schemeID=9906 or @schemeID=0211)) then ( if(u:checkPIVA(substring(.,3,13))!=0) then false() else true() ) else true()" flag="fatal">
 					NSO_230 - La partita IVA indicata nell’elemento non è valida. - The VAT number specified in the element is invalid.
 			</assert>
-
+			
 		</rule>
 		
 	</pattern>

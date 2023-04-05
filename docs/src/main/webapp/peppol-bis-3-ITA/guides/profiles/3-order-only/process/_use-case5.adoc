@@ -5,13 +5,13 @@ Questo use case contiene un ordine con numerosi voci/articoli. L'ordine contiene
 
 [cols="1s,5",options="header"]
 |====
-|Caso d’uso nr.
+|Nr. Caso d'uso
 |5
 
-|Nome
+|Nome Caso d'uso
 |Ordine con luogo di consegna e destinatario
 
-|Descrizione
+|Descrizione caso d'uso
 |Un ordine per articoli numerati con sconti e addebiti sia a livello di testata dell'ordine che a livello di riga
 
 |Ruoli coinvolti

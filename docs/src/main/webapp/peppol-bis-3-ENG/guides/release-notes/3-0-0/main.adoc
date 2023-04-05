@@ -1,5 +1,6 @@
 = Version 3.0.0
 :doctype: book
+:last-update-label!:
 :icons: font
 :toc: left
 :toclevels: 2

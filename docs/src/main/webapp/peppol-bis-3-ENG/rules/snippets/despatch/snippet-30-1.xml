@@ -163,6 +163,10 @@
 			</cac:CarrierParty>
                         <!-- end::carrier[] -->
 		</cac:Consignment>
+				<!-- INFORMAZIONI SULLE MODALITA' DELLA SPEDIZIONE -->
+		<cac:ShipmentStage>
+			<cbc:TransportModeCode>2</cbc:TransportModeCode>
+		</cac:ShipmentStage>					
                 <!-- TEMPI DI CONSEGNA PROMESSI/STIMATI -->
 		<cac:Delivery>
 			<cac:EstimatedDeliveryPeriod>

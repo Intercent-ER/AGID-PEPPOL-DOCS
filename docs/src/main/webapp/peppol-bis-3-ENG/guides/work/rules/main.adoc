@@ -1,5 +1,6 @@
 = Automatic/manual rules
 :doctype: book
+:last-update-label!:
 :icons: font
 :stem:
 :toc: left

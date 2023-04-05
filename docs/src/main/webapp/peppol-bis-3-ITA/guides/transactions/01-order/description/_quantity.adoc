@@ -1,7 +1,7 @@
 [[quantities-and-units]]
 = Quantità e unità di misura
 
-Nell’Ordine PEPPOL possono essere fornite diverse Quantità e le relative Unità di misura. Esse sono relazionate sia al processo dell’ordine che a quello della logistica. +
+Nell’Ordine Peppol possono essere fornite diverse Quantità e le relative Unità di misura. Esse sono relazionate sia al processo dell’ordine che a quello della logistica. +
 
 La tabella seguente elenca le quantità e le relative unità di misura previste. Ogni quantità deve avere la sua unità di misura espressa secondo la codelist "Recommandation 20".
 

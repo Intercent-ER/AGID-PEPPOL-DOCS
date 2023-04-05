@@ -1,6 +1,6 @@
 @echo off
 cls
-echo Fattura-PA-1.2.1-to-PEPPOL-BIS-05a-400_UBL-Invoice-2.1_NoTIER conversion
+echo Fattura-PA-1.2.2-to-PEPPOL-BIS-05a-400_UBL-Invoice-2.1_NoTIER conversion
 set "xml="
 call _fc xml
 IF %ERRORLEVEL% EQU 1 GOTO :done
@@ -9,7 +9,7 @@ echo - Phase 1: Conversion
 echo.
 echo Converting %xml%
 
-call _xslt2 "%xml%" adapters\government\it\Fattura-PA-1.2.1-to-PEPPOL-BIS-05a-400_UBL-Invoice-2.1_NoTIER\adapter.xsl output\converted.xml 2>output\conversion_report.txt
+call _xslt2 "%xml%" adapters\government\it\Fattura-PA-1.2.2-to-PEPPOL-BIS-05a-400_UBL-Invoice-2.1_NoTIER\adapter.xsl output\converted.xml 2>output\conversion_report.txt
 
 echo.
 echo Validating output\converted.xml

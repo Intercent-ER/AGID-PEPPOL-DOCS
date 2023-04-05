@@ -4,6 +4,7 @@ include::_settings.adoc[]
 = Migration plan
 OpenPEPPOL AISBL, Post-Award Community
 :doctype: book
+:last-update-label!:
 :icons: font
 :toc: left
 :toclevels: 2

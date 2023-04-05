@@ -30,7 +30,7 @@
         <Identifier>ubl-peppol</Identifier>
         <Type>native:Schematron</Type>
         <Path>rules/sch/PEPPOL-EN16931-UBL.sch</Path>
-        <Title>Rules for PEPPOL BIS 3.0 Billing</Title>
+        <Title>Rules for Peppol BIS 3.0 Billing</Title>
     </Resource>
     
     <!-- Code lists -->
@@ -113,7 +113,7 @@
     <Resource>
         <Type>native:File</Type>
         <Path>rules/sch/PEPPOL-EN16931-UBL.sch</Path>
-        <Title>Schematron for PEPPOL rules (UBL)</Title>
+        <Title>Schematron for Peppol rules (UBL)</Title>
         <Description>Schematron file containing rules according to ISO Schematron.</Description>
         <Property key="download">PEPPOL-EN16931-UBL.sch</Property>
     </Resource>

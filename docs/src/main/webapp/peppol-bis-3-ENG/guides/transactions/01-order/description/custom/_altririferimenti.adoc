@@ -12,10 +12,11 @@ s|Use
 |*CUP*
 |Unique Project Reference (Codice Unico di Progetto)
 |At document level +
-`cac:AdditionalDocumentReference` (0.n) +
+`cac:ProjectReference` (0..1) +
 
 At line level +
-`cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n)
+`cac:OrderLine/cac:LineItem/cac:Item/`
+`cac:ItemSpecificationDocumentReference/ID` (0..n)
 
 |*DDT*
 |Despatch Advice ID (Documento di Trasporto) +
@@ -65,10 +66,9 @@ At line level +
 .Example of a reference to the CUP code on the header level
 [source, xml, indent=0]
 ----
-<cac:AdditionalDocumentReference>
+<cac:ProjectReference>
     <cbc:ID>J31E01000010004</cbc:ID>
-    <cbc:DocumentType>CUP</cbc:DocumentType>
-</cac:AdditionalDocumentReference>
+</cac:ProjectReference >
 ----
 .Example of a reference to Expenditure Commitment ID and Despatch Advice ID on the line level
 [source, xml, indent=0]

@@ -5,13 +5,13 @@ Usato per fornire riferimento all’ordine d’acquisto sul quale il Documento d
 Ci potrebbero essere molteplici documenti di trasporto a fronte di un ordine d’acquisto. +
 
 Quando tutte le righe del Documento di Trasporto sono relative allo stesso ordine di acquisto, il riferimento dell'ordine è indicato solo in testata. +
-Quando le righe del Documento di Trasporto sono relative a diversi ordini di acquisto, i riferimenti all'ordine devono essere indicati nelle a livello di riga. +
+Quando le righe del Documento di Trasporto sono relative a diversi ordini di acquisto, i riferimenti all’ordine devono essere indicati a livello di riga. +
 
 
 Inoltre, la sintassi UBL richiede di indicare obbligatoriamente nell’elemento *cbc:LineID* il numero della riga d’ordine cui si riferisce la riga del DDT.
 Per soddisfare gli scenari in cui non esiste alcun riferimento alla riga dell'ordine, è necessario applicare un valore fittizio. Il valore fittizio deve essere costituito dai caratteri *NA*.
 
-#Per riferirsi a un ordine è necessario riportare gli elementi che lo identificano mediante la concatenazione dei seguenti campi:#
+#Per riferirsi a un ordine elettronico è necessario riportare gli elementi che lo identificano mediante la concatenazione dei seguenti campi:#
 
 * #ID dell’ordine;#
 * #IssueDate valorizzato con la data dell’ordine;#

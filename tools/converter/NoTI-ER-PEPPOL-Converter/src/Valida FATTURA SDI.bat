@@ -1,6 +1,6 @@
 @echo off
 cls
-echo FatturaPA 1.2.1 validation
+echo FatturaPA 1.2.2 validation
 set "xml="
 call _fc xml
 IF %ERRORLEVEL% EQU 1 GOTO :done
@@ -9,7 +9,7 @@ echo Validating %xml%
 echo ____________________________________________________________
 echo - Phase 1: XSD schema validation
 
-call _w3cschema profiles\national\it\SDI\fatturapa-1.2.1\fatturapa_v1.2.1.xsd "%xml%" >output\syntax_report.txt
+call _w3cschema profiles\national\it\SDI\fatturapa-1.2.2\fatturapa_v1.2.2.xsd "%xml%" >output\syntax_report.txt
 if %errorlevel% neq 0 goto :syntax_error
 echo No schema validation errors.
 

@@ -22,7 +22,7 @@ It is important to ensure that the document typology is compliant whit this Docu
 cac:DespatchLine/cac:DocumentReference (0..n)
 
 | CUP
-| Codice Unico Progetto
+| Codice Unico di Progetto
 | cac:AdditionalDocumentReference (0..n)
 cac:DespatchLine/cac:DocumentReference (0..n)
 

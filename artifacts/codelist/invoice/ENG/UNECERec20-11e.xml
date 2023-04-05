@@ -4885,7 +4885,7 @@
         <Name>inch per second</Name>
         <Description/>
     </Code>
-    <Code>
+	<Code>
         <Id>IUG</Id>
         <Name>international unit per gram</Name>
     </Code>
@@ -6039,11 +6039,15 @@
         <Id>KWH</Id>
         <Name>kilowatt hour</Name>
         <Description/>
-        <LocalId>kwh</LocalId>
+    </Code>
+    <Code>
+        <Id>KWN</Id>
+        <Name>Kilowatt hour per normalized cubic metre</Name>
+	<LocalId>kwh</LocalId>
         <LocalName>chilowatt per ora</LocalName>
         <LocalDescription>Unità di misura della potenza, pari a 1000 watt per ora.</LocalDescription>
     </Code>
-	    <Code>
+    <Code>
         <Id>KWO</Id>
         <Name>kilogram of tungsten trioxide</Name>
         <Description>A unit of mass equal to one thousand grams of tungsten trioxide.</Description>
@@ -8071,7 +8075,7 @@
             relative to the calculated depletion for the reference substance, Trichlorofluoromethane
             (CFC-11).</Description>
     </Code>
-	<Code>
+    <Code>
         <Id>ODG</Id>
         <Name>ODS Grams</Name>
     </Code>
@@ -8937,7 +8941,7 @@
         <Description>Normalized cubic metre (temperature 0°C and pressure 101325 millibars ) per
             hour</Description>
     </Code>
-	<Code>
+    <Code>
         <Id>Q41</Id>
         <Name>Joule per normalised cubic metre</Name>
     </Code>
@@ -10314,6 +10318,9 @@
         <Name>Pallet, CHEP 80 cm x 120 cm</Name>
         <Description>Commonwealth Handling Equipment Pool (CHEP) standard pallet of dimensions 80
             centimeters x 120 centimeters.</Description>
+        <LocalId>bancale</LocalId>
+        <LocalName>pallet</LocalName>
+        <LocalDescription>Piattaforma o scatola aperta, solitamente in legno, su cui vengono trattenute le merci per facilità di movimentazione meccanica durante il trasporto e lo stoccaggio.</LocalDescription>
     </Code>
     <Code>
         <Id>XOC</Id>
@@ -10488,6 +10495,9 @@
         <Id>XPK</Id>
         <Name>Package</Name>
         <Description>Standard packaging unit.</Description>
+		<LocalId>confezione</LocalId>
+		<LocalName>confezione</LocalName>
+        <LocalDescription>Definisce il pacchetto che contiene più unità singole e' il confezionamento minimo vendibile (Es. confezione di compresse).</LocalDescription>
     </Code>
     <Code>
         <Id>XPL</Id>
@@ -11180,7 +11190,7 @@
         <Id>XZY</Id>
         <Name>Intermediate bulk container, reconstituted wood</Name>
     </Code>
-	<Code>
+    <Code>
         <Id>XZZ</Id>
         <Name>Mutually defined </Name>
     </Code>

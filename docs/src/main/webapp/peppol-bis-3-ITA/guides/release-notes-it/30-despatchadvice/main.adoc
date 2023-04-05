@@ -1,7 +1,8 @@
 include::../../shared/_links.adoc[]
-= PEPPOL BIS Documento di Trasporto (DDT) {ddt_version_it}
+= Peppol BIS Documento di Trasporto (DDT) {ddt_version_it}
 Note di Rilascio
 :doctype: book
+:last-update-label!:
 :icons: font
 :encoding: utf-8
 :lang: it
@@ -12,7 +13,7 @@ Note di Rilascio
 
 //[IMPORTANT]
 //====
-//E' aperta la consultazione pubblica del PEPPOL BIS Documento di Trasporto 3.0 secondo questa road map:
+//E' aperta la consultazione pubblica del Peppol BIS Documento di Trasporto 3.0 secondo questa road map:
 
 //* 13/03/2020 - Invio comunicazione pubblicazione bozza per consultazione.
 

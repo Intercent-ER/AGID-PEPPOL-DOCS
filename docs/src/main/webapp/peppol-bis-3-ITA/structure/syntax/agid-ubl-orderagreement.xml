@@ -3,7 +3,7 @@
 	<Term>OrderAgreement</Term>
 	<agid:Restriction>
 		<agid:ID>urn:www.ubl-italia.org:spec:ordine:ver3.1</agid:ID>
-		<agid:Name>Ordine Pre-Concordato PEPPOL 3.0</agid:Name>
+		<agid:Name>Ordine Pre-Concordato Peppol 3.1.0.1</agid:Name>
 		<agid:Version>3.1</agid:Version>
 	</agid:Restriction>
 
@@ -292,13 +292,26 @@
 				<Element>
 					<Term>cac:PartyLegalEntity</Term>
 					<Name>Party name - Informazioni legali del Fornitore</Name>
-
 					<Element>
 						<Term>cbc:RegistrationName</Term>
 						<Name>Sellers legal registration name - Denominazione legale del Fornitore</Name>
 						<Description>Indica la denominazione legale del Fornitore.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir110-013</Reference>
+					</Element>
+					<Element cardinality="0..1">
+						<Term>cbc:CompanyID</Term>
+						<Name>Sellers legal registration identifier - Identificazione di registrazione legale del Fornitore</Name>
+						<Description>Contiene l'identificazione di registrazione legale</Description>
+						<Reference type="BUSINESS_TERM">tir110-p010</Reference>
+						<Attribute usage="mandatory">
+							<Term>schemeID</Term>
+							<Name>Scheme identifier - Schema identificativo</Name>
+							<Description>Indica lo scheme identifier dell'identificativo del Fornitore</Description>
+							<Reference type="CODE_LIST">eas</Reference>
+							<Value type="EXAMPLE">0210</Value>
+						</Attribute>
+						<Value type="EXAMPLE">01598570354</Value>
 					</Element>
 				</Element>
 				<Element cardinality="0..1">
@@ -434,13 +447,26 @@
 				<Element>
 					<Term>cac:PartyLegalEntity</Term>
 					<Name>Party name - Informazioni legali del Cliente</Name>
-
 					<Element>
 						<Term>cbc:RegistrationName</Term>
 						<Name>Buyer name - Denominazione legale del Cliente</Name>
 						<Description>Indica la denominazione legale del Cliente.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir110-010</Reference>
+					</Element>
+					<Element cardinality="0..1">
+						<Term>cbc:CompanyID</Term>
+						<Name>Buyers legal registration identifier - Identificazione di registrazione legale del Cliente</Name>
+						<Description>Contiene l'identificazione di registrazione legale</Description>
+						<Reference type="BUSINESS_TERM">tir110-p009</Reference>
+						<Attribute usage="mandatory">
+							<Term>schemeID</Term>
+							<Name>Scheme identifier - Schema identificativo</Name>
+							<Description>Indica lo scheme identifier dell'identificativo del Cliente</Description>
+							<Reference type="CODE_LIST">eas</Reference>
+							<Value type="EXAMPLE">0210</Value>
+						</Attribute>
+						<Value type="EXAMPLE">01598570354</Value>
 					</Element>
 				</Element>
 			</Element>
@@ -1412,8 +1438,14 @@
 							<Description>Identificativo del documento addizionale.</Description>
 							<DataType>Identifier</DataType>
 							<Reference type="BUSINESS_TERM">tir110-102</Reference>
-							<Value type="EXAMPLE">ES01</Value>
-							<Value type="EXAMPLE">729544145D</Value>
+							<Value type="EXAMPLE">CIG:729544145D</Value>
+						</Element>
+						<Element cardinality="0..1">
+							<Term>cbc:DocumentTypeCode</Term>
+							<Name>External Item Specification Type - Codice del tipo documento</Name>
+							<Description>Indica il codice relativo al tipo documento</Description>
+							<DataType>Text</DataType>
+							<Reference type="BUSINESS_TERM">tir110-p008</Reference>
 						</Element>
 						<Element cardinality="0..1">
 							<Term>cbc:DocumentType</Term>
@@ -1421,7 +1453,7 @@
 							<Description>Indica il tipo di documento.</Description>
 							<DataType>Text</DataType>
 							<Reference type="BUSINESS_TERM">tir110-103</Reference>
-							<Value type="EXAMPLE">CIG</Value>
+							<Value type="EXAMPLE">Progetto</Value>
 						</Element>
 						<Element cardinality="0..1">
 							<Term>cac:Attachment</Term>

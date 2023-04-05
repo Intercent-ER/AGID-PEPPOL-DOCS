@@ -1,7 +1,7 @@
 [[interoperability]]
 = Interoperabilità
 
-La struttura di questo PEPPOL BIS si basa sull'European Interoperability Framework 2.0 {EIF}. Questo PEPPOL BIS applica il Framework come segue:
+La struttura di questo Peppol BIS si basa sull'European Interoperability Framework 2.0 {EIF}. Questo Peppol BIS applica il Framework come segue:
 
 Interoperabilità Legale::
 
@@ -12,13 +12,13 @@ Interoperabilità Legale::
 Interoperabilità Organizzativa::
 
 * Organizzazione (Organizzazione/Business):
-** Questo PEPPOL BIS supporta B2B e B2G.
-** Questo PEPPOL BIS supporta scambi transfrontalieri, regionali e domestici in EU e EEA.
-** Questo PEPPOL BIS può fungere da componente all’interno di un accordo EDI all’interno di una comunità commerciale.
-** Questo PEPPOL BIS supporta il collegamento dei processi di business nelle organizzazioni emittenti o riceventi. Il processo di invio dell’ordine in formato elettronico può essere collegato ai processi interni della parte emittente e ricevente, che possono differire per vari motivi.
+** Questo Peppol BIS supporta B2B e B2G.
+** Questo Peppol BIS supporta scambi transfrontalieri, regionali e domestici in EU e EEA.
+** Questo Peppol BIS può fungere da componente all’interno di un accordo EDI all’interno di una comunità commerciale.
+** Questo Peppol BIS supporta il collegamento dei processi di business nelle organizzazioni emittenti o riceventi. Il processo di invio dell’ordine in formato elettronico può essere collegato ai processi interni della parte emittente e ricevente, che possono differire per vari motivi.
 
 * Organizzazione (Processo):
-** Questo PEPPOL BIS supporta un set di processi di business “comuni” che si assume siano supportati dalla maggior parte delle aziende sia pubbliche che private.  Questi sono processi largamente utilizzati o compresi in quanto rilevanti per la maggior parte delle aziende.
+** Questo Peppol BIS supporta un set di processi di business “comuni” che si assume siano supportati dalla maggior parte delle aziende sia pubbliche che private.  Questi sono processi largamente utilizzati o compresi in quanto rilevanti per la maggior parte delle aziende.
 
 
 Interoperabilità Semantica::
@@ -42,4 +42,4 @@ Interoperabilità Tecnica::
 
 
 * Interazione tecnica (Validazione eSignature):
-** Non obbligatoria in questo PEPPOL BIS. Non supportata.
+** Non obbligatoria in questo Peppol BIS. Non supportata.

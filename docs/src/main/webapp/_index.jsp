@@ -4,7 +4,7 @@
     %><!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>PEPPOL BIS version 3</title>
+        <title>Peppol BIS version 3</title>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -48,7 +48,7 @@
 
                 $.bis.current = $("#peppol-bis a[href='" + defBis + "']");
                 $.bis.initBIS($.bis.current);
-                // Bottone di scelta PEPPOL BIS
+                // Bottone di scelta Peppol BIS
                 $('#peppol-bis a').click(function (e) {
                     e.preventDefault();
 
@@ -265,14 +265,14 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="btn-group" id="peppol-bis">
-                            <button type="button" class="btn btn-primary btn-agid" style="margin-top: 8px;">PEPPOL BIS 3 (altri processi)</button>
+                            <button type="button" class="btn btn-primary btn-agid" style="margin-top: 8px;">Peppol BIS 3 (altri processi)</button>
                             <button type="button" class="btn btn-primary dropdown-toggle btn-agid dropdown-alignment" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 8px;">
                                 <span class="caret"></span>
                                 <span class="sr-only">Toggle Dropdown</span>
                             </button>
                             <ul class="dropdown-menu">
                                 <li><a href="peppol-bis-invoice-3">Peppol BIS 3 Fatturazione</a></li>
-                                <li><a href="peppol-bis-3">PEPPOL BIS 3 (altri processi)</a></li>
+                                <li><a href="peppol-bis-3">Peppol BIS 3 (altri processi)</a></li>
                             </ul>
                         </li>
 

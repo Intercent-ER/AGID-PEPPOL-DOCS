@@ -8,7 +8,7 @@
 
 | 3.0.14.1(IT)
 a| 16/12/2022
-a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/2022-Q4/release-notes/[PEPPOL BIS 3.0.14 - November release 2022]_. +
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/2022-Q4/release-notes/[Peppol BIS 3.0.14 - November release 2022]_. +
 
 In vigore a partire dal *06 febbraio 2023*
 
@@ -50,7 +50,7 @@ La regola si applica per l’indicazione del Fornitore (par. 10.1.1. Il Fornitor
 
 | 3.0.13.1(IT)
 a| 27/05/2022
-a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/release-notes/[PEPPOL BIS 3.0.13 - may release 2022]_. +
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/release-notes/[Peppol BIS 3.0.13 - may release 2022]_. +
 
 [red]#Cambiamenti alle code lists e ai tool di validazione#
 

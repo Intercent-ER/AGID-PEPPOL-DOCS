@@ -1,5 +1,5 @@
 include::../../shared/_links.adoc[]
-= PEPPOL BIS Despatch Advice {ddt_version_it}
+= Peppol BIS Despatch Advice {ddt_version_it}
 Release Notes
 :doctype: book
 :last-update-label!:
@@ -13,7 +13,7 @@ Release Notes
 
 //[IMPORTANT]
 //====
-//E' aperta la consultazione pubblica del PEPPOL BIS Documento di Trasporto 3.0 secondo questa road map:
+//E' aperta la consultazione pubblica del Peppol BIS Documento di Trasporto 3.0 secondo questa road map:
 
 //* 13/03/2020 - Invio comunicazione pubblicazione bozza per consultazione.
 

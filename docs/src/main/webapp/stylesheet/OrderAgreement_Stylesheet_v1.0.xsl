@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Descrizione documento: Foglio di stile per Ordine Pre-Concordato italiano UBL 2.1 PEPPOL BIS 3 Versione : 1.0 Prodotto il : Marzo 2021 Prodotto da : Intercent-ER Ambito: Intercent-ER - Piloti Peppol -->
+<!-- Descrizione documento: Foglio di stile per Ordine Pre-Concordato italiano UBL 2.1 Peppol BIS 3 Versione : 1.0 Prodotto il : Marzo 2021 Prodotto da : Intercent-ER Ambito: Intercent-ER - Piloti Peppol -->
 
 <xsl:stylesheet xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -330,7 +330,7 @@
       <body class="in-body">
         <div class="page-break">
           <h1>Ordine Pre-Concordato</h1>
-          <h2>Rappresentazione UBL PEPPOL BIS 3</h2>
+          <h2>Rappresentazione UBL Peppol BIS 3</h2>
           <div class="box-text">
             CustomizationID: <xsl:value-of select="/in:OrderResponse/cbc:CustomizationID"/>
           <br />

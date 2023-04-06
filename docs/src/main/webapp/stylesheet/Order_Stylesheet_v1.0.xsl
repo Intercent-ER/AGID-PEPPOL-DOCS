@@ -1,5 +1,5 @@
 <!-- 
-    Descrizione documento:      Foglio di stile per Ordine italiano UBL 2.1 PEPPOL BIS 3
+    Descrizione documento:      Foglio di stile per Ordine italiano UBL 2.1 Peppol BIS 3
     Versione : 			     	1.2
     Prodotto il :               Giugno 2020
     Prodotto da :             	Intercent-ER
@@ -99,7 +99,7 @@ Intercent-ER
             <body class="in-body">
                 <div class="page-break">
                     <h1>Ordine</h1>
-                    <h2>Rappresentazione UBL PEPPOL BIS 3</h2>
+                    <h2>Rappresentazione UBL Peppol BIS 3</h2>
                     <div class="box-text">
                         CustomizationID: <xsl:value-of select="/in:Order/cbc:CustomizationID"/>
                     <br />

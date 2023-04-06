@@ -1,7 +1,7 @@
 [[hazardous-item]]
 = Hazardous item
 
-The PEPPOL Despatch Advice also contains the possibility to inform the Consignee about Hazardous Items (also referred to as HAZMAT, Hazard Material o Dangerous Goods). +
+The Peppol Despatch Advice also contains the possibility to inform the Consignee about Hazardous Items (also referred to as HAZMAT, Hazard Material o Dangerous Goods). +
 
 This is done by informing the dangerous regulation code for example ADR (Road transport), IMDG (transport by sea) or RID (railroad transport).  +
 

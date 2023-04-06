@@ -11,7 +11,7 @@ Questo caso d’uso descrive il processo dove un Cliente/Acquirente ordina prodo
 |Nome Caso d'uso
 |Ordine effettuato per telefono o per mail
 
-|Descrizione caso d'uso 
+|Descrizione Caso d'uso 
 |L'Acquirente fa un acquisto chiamando il Venditore per telefono o mandando una mail.
 
 |Ruoli coinvolti

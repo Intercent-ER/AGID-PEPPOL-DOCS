@@ -4,7 +4,7 @@ The following parties/roles may be specified in the message:
 
 == SellerSupplierParty (Seller)
 
-The seller is the legal person or organization acting on behalf of the supplier and who sells goods or services to the buyer. The seller is mandatory in the PEPPOL BIS Order Agreement message.
+The seller is the legal person or organization acting on behalf of the supplier and who sells goods or services to the buyer. The seller is mandatory in the Peppol BIS Order Agreement message.
 
 #In case you want to indicate the VAT number, this must be indicated in the Seller party identification.# + field
 #In case you want to indicate the Tax Code, this must be indicated in the Seller legal registration identifier.#
@@ -122,7 +122,7 @@ The seller is the legal person or organization acting on behalf of the supplier 
 
 == BuyerCustomerParty (Buyer)
 
-The buyer is the legal person or organization acting on behalf of the customer and who buys or purchases the goods or services. The buyer is mandatory in the PEPPOL BIS Order Agreement message.
+The buyer is the legal person or organization acting on behalf of the customer and who buys or purchases the goods or services. The buyer is mandatory in the Peppol BIS Order Agreement message.
 
 
 #If the Contracting Authority is registered in Peppol with the CUU code (Codice Univoco Ufficio, so-called "iPA code"), this must be indicated in the Endpoint (cac:EndpointID):#
@@ -170,7 +170,7 @@ The buyer is the legal person or organization acting on behalf of the customer a
 
 == OriginatorCustomerParty (Originator)
 
-The unit initiating or requesting the ordered items. Most often the end user. The originator information is optional in the PEPPOL BIS Order Agreement message.
+The unit initiating or requesting the ordered items. Most often the end user. The originator information is optional in the Peppol BIS Order Agreement message.
 
 .Example
 [source, xml, indent=0]
@@ -189,7 +189,7 @@ The unit initiating or requesting the ordered items. Most often the end user. Th
 
 == AccountingCustomerParty (Invoicee)
 
-The invoicee is the legal person or organization acting on behalf of the customer and who receives the invoice for the order. The invoicee information is optional in the PEPPOL BIS Order Agreement message.
+The invoicee is the legal person or organization acting on behalf of the customer and who receives the invoice for the order. The invoicee information is optional in the Peppol BIS Order Agreement message.
 
 .Example
 [source, xml, indent=0]

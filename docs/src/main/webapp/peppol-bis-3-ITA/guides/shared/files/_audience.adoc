@@ -2,7 +2,7 @@
 [[audience]]
 = A chi si rivolge
 
-Questo documento si rivolge alle organizzazioni che intendono essere abilitate a {peppol} per scambiare documenti di business elettronici, e/o ai loro fornitori ICT.
+Questo documento si rivolge alle organizzazioni che intendono essere abilitate a https://peppol.eu/?rel=undefined[Peppol] per scambiare documenti di business elettronici, e/o ai loro fornitori ICT.
 
 Queste organizzazioni possono essere:
 
@@ -17,4 +17,4 @@ Più specificatamente, i ruoli previsti sono i seguenti:
 * Sviluppatori ICT
 * Esperti di Business
 
-Per ulteriori informazioni su PEPPOL/OpenPEPPOL, leggete {common}.
+Per ulteriori informazioni su Peppol/OpenPeppol, leggete {common}.

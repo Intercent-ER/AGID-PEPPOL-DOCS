@@ -28,7 +28,7 @@
 									<a href="<%=request.getContextPath()%>/my_index_fatt.jsp">Peppol BIS 3 Fatturazione</a>
 									</li>
 									<li>
-										<a href="<%=request.getContextPath()%>/my_index.jsp">PEPPOL BIS 3 (altri processi)</a>
+										<a href="<%=request.getContextPath()%>/my_index.jsp">Peppol BIS 3 (altri processi)</a>
 										</li>
 									</ul>
 								</li>
@@ -59,7 +59,7 @@
 								</li>
 
 								<li class="dropdown dropdown-agid">
-									<a href="https://peppol-validator.agid.gov.it/" class="dropdown-toggle link-agid" target="_blank" role="button" title="Piattaforma di Validazione PEPPOL (apre un link in nuova finestra)">
+									<a href="https://peppol-validator.agid.gov.it/" class="dropdown-toggle link-agid" target="_blank" role="button" title="Piattaforma di Validazione Peppol (apre un link in nuova finestra)">
 										Validatore
 									</a>
 								</li>

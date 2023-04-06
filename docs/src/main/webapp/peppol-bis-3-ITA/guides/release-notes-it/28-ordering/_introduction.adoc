@@ -30,7 +30,7 @@ Intercent-ER supporterà il passaggio dalle attuali specifiche Peppol BIS in ver
 //image::images/NSO_gantt.JPG[]
 
 
-L’utilizzo della specifica *PEPPOL BIS Ordine semplice 3.0* compatibile con NSO sarà obbligatoria dal 1 Ottobre 2019. A partire da tale data l’utilizzo della specifica Peppol BIS Ordine 3A (versione 2.1) non sarà più disponibile. 
+L’utilizzo della specifica *Peppol BIS Ordine semplice 3.0* compatibile con NSO sarà obbligatoria dal 1 Ottobre 2019. A partire da tale data l’utilizzo della specifica Peppol BIS Ordine 3A (versione 2.1) non sarà più disponibile. 
 
 L’ambiente di Produzione NoTI-ER permetterà l’invio *solo* dell’Ordine semplice compatibile con NSO, a partire dal 1 Settembre 2019.
 

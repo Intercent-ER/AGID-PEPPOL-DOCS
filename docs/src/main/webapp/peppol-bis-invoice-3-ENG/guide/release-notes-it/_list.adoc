@@ -8,7 +8,7 @@
 
 | 3.0.14.1(IT)
 a| 16/12/2022
-a| _Update to specifications https://docs.peppol.eu/poacc/billing/3.0/2022-Q4/release-notes/[PEPPOL BIS 3.0.14 - November release 2022]_. +
+a| _Update to specifications https://docs.peppol.eu/poacc/billing/3.0/2022-Q4/release-notes/[Peppol BIS 3.0.14 - November release 2022]_. +
 
 Effective as of *06 February 2023*
 
@@ -28,8 +28,8 @@ Effective as of *06 February 2023*
 
 * Updated rules GR-S-008-1, GR-R-008-2 and GR-R-008-3, requiring the string \\##INVOICE\|URL## instead of \\##INVOICE-URL## (POAC-518);
 * Eliminated the rule DK-R-015;
-* Correction of rules text DK-R-004 PEPPOL UBL & CII;
-* Correction of DK-R-003 PEPPOL CII rule text.
+* Correction of rules text DK-R-004 Peppol UBL & CII;
+* Correction of DK-R-003 Peppol CII rule text.
 
 | 3.0.13.3(IT)
 a| 02/12/2022
@@ -49,7 +49,7 @@ The rule applies to the indication of the Supplier (par. 10.1.1. The Supplier (A
 
 | 3.0.13.1(IT)
 a| 27/05/2022
-a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/release-notes/[PEPPOL BIS 3.0.13 - may release 2022]_. +
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/release-notes/[Peppol BIS 3.0.13 - may release 2022]_. +
 
 [red]#Changes to code lists and validation artefacts#
 
@@ -71,19 +71,19 @@ a| This version is aligned with the Peppol BIS Billing 3.0.12 (Fall release 2021
 
 | 3.0.9.1(IT)
 a| 13/11/2020
-a| Update to [blue]#PEPPOL BIS Billing 3.0.9 hotfix release#. Review of extension rules.
+a| Update to [blue]#Peppol BIS Billing 3.0.9 hotfix release#. Review of extension rules.
 
 | 3.0.8.1(IT)
 a| 04/11/2020
-a| Update to [blue]#PEPPOL BIS 3.0.8 - Fall release 2020#. Review of extension rules.
+a| Update to [blue]#Peppol BIS 3.0.8 - Fall release 2020#. Review of extension rules.
 
 | 3.0.7.1(IT)
 a| 27/10/2020
-a| Update to [blue]#PEPPOL BIS 3.0.7 hotfix release#. Review of extension rules.
+a| Update to [blue]#Peppol BIS 3.0.7 hotfix release#. Review of extension rules.
 
 | 3.0.6.1(IT)
 a| 13/05/2020
-a| Update to [blue]#PEPPOL BIS 3.0.6 - Spring release 2020#.
+a| Update to [blue]#Peppol BIS 3.0.6 - Spring release 2020#.
 
 | 3.0.5.2(IT)
 a| 24/02/2020
@@ -91,5 +91,5 @@ a| Official codelists mapped onto italian requirements and meanings
 
 | 3.0.5.1(IT)
 a| 21/02/2020
-a| Business rules updated to the last [blue]#PEPPOL BIS 3.0.5 hotfix release#.
+a| Business rules updated to the last [blue]#Peppol BIS 3.0.5 hotfix release#.
 |===

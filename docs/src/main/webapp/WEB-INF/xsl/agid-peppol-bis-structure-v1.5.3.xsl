@@ -19,7 +19,7 @@
     <xsl:template match="/">
         <html data-transaction="{$transaction}">
             <head>
-                <title>PEPPOL BIS Billing 3.0 | Struttura</title>
+                <title>Peppol BIS Billing 3.0 | Struttura</title>
                 <meta charset="utf-8"/>
                 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>

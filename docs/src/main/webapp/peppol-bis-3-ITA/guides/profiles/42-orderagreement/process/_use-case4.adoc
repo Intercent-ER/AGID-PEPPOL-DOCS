@@ -11,7 +11,7 @@ Questo caso d’uso descrive il processo dove un Cliente/Acquirente entra fisica
 |Nome Caso d'uso
 |L'utente configura i beni/servizi
 
-|Descrizione caso d'uso 
+|Descrizione Caso d'uso 
 |L'Acquirente fisicamente acquista e prende in consegna.
 
 |Ruoli coinvolti

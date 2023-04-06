@@ -2,13 +2,13 @@
 <Structure xmlns="urn:fdc:difi.no:2017:vefa:structure-1" xmlns:agid="urn:fdc:agid.gov.it:peppol:customization">
 
     <Term>ubl-creditnote</Term>
-    <Name>PEPPOL Credit Note 3.0</Name>
+    <Name>Peppol Credit Note 3.0</Name>
     <Description>Please note that all element names are inhereted from EN16931 and naming use the term invoice, but this covers both invoice and credit notes. 
         The tag names are correct according to the UBL Credit note schema
     </Description>
     <agid:Extension>
 		<agid:ID>urn:www.agid.gov.it:trns:nota_credito:3.0</agid:ID>
-		<agid:Name>PEPPOL BIS Credit Note 3.0 Structure (Italian extension to EN16931)</agid:Name>
+		<agid:Name>Peppol BIS Credit Note 3.0 Structure (Italian extension to EN16931)</agid:Name>
 		<agid:Version>3.0</agid:Version>
     </agid:Extension>
 

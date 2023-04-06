@@ -11,7 +11,7 @@ Questo caso d’uso è relativo a un ordine composto da voci/articoli numerati.
 |Nome Caso d'uso
 |Ordine con articoli numerati
 
-|Descrizione caso d'uso
+|Descrizione Caso d'uso
 a|
 * Un ordine di articoli numerati.
 

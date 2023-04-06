@@ -18,7 +18,7 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li class="btn-group" id="peppol-bis">
-							<button type="button" class="btn btn-primary btn-agid" style="margin-top: 8px;">PEPPOL BIS 3 (altri processi)</button>
+							<button type="button" class="btn btn-primary btn-agid" style="margin-top: 8px;">Peppol BIS 3 (altri processi)</button>
 							<button type="button" class="btn btn-primary dropdown-toggle btn-agid dropdown-alignment" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 8px;">
 								<span class="caret"></span>
 								<span class="sr-only">Toggle Dropdown</span>
@@ -28,7 +28,7 @@
 									<a href="<%=request.getContextPath()%>/my_index_fatt.jsp">Peppol BIS 3 Fatturazione</a>
 									</li>
 									<li>
-										<a href="<%=request.getContextPath()%>/my_index.jsp">PEPPOL BIS 3 (altri processi)</a>
+										<a href="<%=request.getContextPath()%>/my_index.jsp">Peppol BIS 3 (altri processi)</a>
 										</li>
 									</ul>
 								</li>
@@ -59,7 +59,7 @@
 								</li>
 								
 								<li class="dropdown dropdown-agid">
-									<a href="https://peppol-validator.agid.gov.it/" class="dropdown-toggle link-agid" target="_blank" role="button" title="Piattaforma di Validazione PEPPOL (apre un link in nuova finestra)">
+									<a href="https://peppol-validator.agid.gov.it/" class="dropdown-toggle link-agid" target="_blank" role="button" title="Piattaforma di Validazione Peppol (apre un link in nuova finestra)">
 										Validatore
 									</a>
 								</li>

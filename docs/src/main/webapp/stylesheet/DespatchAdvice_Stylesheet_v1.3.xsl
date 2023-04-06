@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 
-    Descrizione documento:     	Foglio di stile per Documento di trasporto UBL 2.1 PEPPOL BIS 3
+    Descrizione documento:     	Foglio di stile per Documento di trasporto UBL 2.1 Peppol BIS 3
     Versione : 					1.0
     Prodotto il :              	Dicembre 2015       
     PProdotto da :             	Intercent-ER
@@ -335,7 +335,7 @@
             <body class="in-body">
             	<div class="page-break">
                 <h1>DDT </h1>
-                <h2>Rappresentazione UBL PEPPOL BIS 3</h2>
+                <h2>Rappresentazione UBL Peppol BIS 3</h2>
                 <table class="riepilogo-fattura" summary="riepilogo ddt">
                     <tr class="party-row">
                         <td class="party-column">

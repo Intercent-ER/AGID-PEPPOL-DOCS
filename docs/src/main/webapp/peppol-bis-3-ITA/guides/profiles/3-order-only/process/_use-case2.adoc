@@ -11,7 +11,7 @@ Questo caso d’uso è relativo a un ordine composto da articoli descritti in te
 |Nome Caso d'uso
 |Ordine di articoli in testo libero
 
-|Descrizione caso d'uso
+|Descrizione Caso d'uso
 |Un ordine con unità/articoli descritti con testo libero e coppie di attributo-valore. 
 
 |Ruoli coinvolti

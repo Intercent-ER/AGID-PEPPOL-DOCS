@@ -1,5 +1,5 @@
 [preface]
-= Introduzione a openPEPPOL e alla BIS
+= Introduzione a openPeppol e alla BIS
 
 Questa Business Interoperability Specification (BIS) fornisce un insieme di specifiche per l'implementanzione della fatturazione elettronica e pubblicato come parte delle specifiche https://docs.peppol.eu/poacc/billing/3.0/[Peppol].
 
@@ -69,4 +69,4 @@ Più specificatamente, i ruoli affrontati sono i seguenti:
     * Sviluppatori ICT
     * Esperti di Business
 
-Per ulteriori informazioni su PEPPOL/OpenPEPPOL, leggere {common}
+Per ulteriori informazioni su Peppol/OpenPeppol, leggere {common}

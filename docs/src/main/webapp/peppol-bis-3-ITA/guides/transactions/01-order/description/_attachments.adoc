@@ -1,7 +1,7 @@
 [[attachements]]
 = Allegati
 
-I documenti non-XML possono essere inviati come allegato all’Ordine PEPPOL. Questi potrebbero essere disegni o resoconti di ore lavorate o altri documenti rilevanti per l’Ordine. L’allegato può essere inviato come oggetto binario codificato in Base64, incorporato nel message o come URI ad un indirizzo esterno.
+I documenti non-XML possono essere inviati come allegato all’Ordine Peppol. Questi potrebbero essere disegni o resoconti di ore lavorate o altri documenti rilevanti per l’Ordine. L’allegato può essere inviato come oggetto binario codificato in Base64, incorporato nel message o come URI ad un indirizzo esterno.
 
 
 NOTE: Si raccomanda di inviare allegati in modo incorporato, oggetti binari e non come riferimenti esterni.
@@ -10,7 +10,7 @@ NOTE: Si raccomanda di inviare allegati in modo incorporato, oggetti binari e no
 [yellow-background]#I codici validi sono quelli evidenziati nella codifica link:../../../../../../xml/ITA/peppol-bis-3/codelist/MimeCode.html[Mime code], compatibili con NSO.#
 
 
-.Esempio di allegato incorporato, oggetto binario nel messaggio dell’Ordine PEPPOL
+.Esempio di allegato incorporato, oggetto binario nel messaggio dell’Ordine Peppol
 [source, xml, indent=0]
 ----
 <cac:AdditionalDocumentReference> <1>

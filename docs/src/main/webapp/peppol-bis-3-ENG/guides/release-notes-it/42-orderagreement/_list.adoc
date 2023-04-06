@@ -8,7 +8,7 @@
 
 | 3.1.0.1(IT)
 a| 16/12/2022
-a| _Update to specifications https://docs.peppol.eu/poacc/upgrade-3/2022-Q4/release-notes/[PEPPOL BIS 3.0.10 - November release 2022]_. +
+a| _Update to specifications https://docs.peppol.eu/poacc/upgrade-3/2022-Q4/release-notes/[Peppol BIS 3.0.10 - November release 2022]_. +
 
 Effective as of *06 February 2023*
 
@@ -33,7 +33,7 @@ Effective as of *06 February 2023*
 
 | 3.0.0.3(IT)
 a| 27/05/2022
-a|  _Update to https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3.0.9 - may release 2022]_. +
+a|  _Update to https://docs.peppol.eu/poacc/upgrade-3/release-notes/[Peppol BIS 3.0.9 - may release 2022]_. +
 
 
 [red]#Changes to code lists and validation artefacts# +
@@ -49,7 +49,7 @@ a|  _Update to https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 
 
 | 3.0.0.2(IT)
 a| 08/11/2021
-a|  _Update to https://docs.peppol.eu/poacc/upgrade-3/release-notes/[PEPPOL BIS 3.0.8 - Fall release 2021]_. +
+a|  _Update to https://docs.peppol.eu/poacc/upgrade-3/release-notes/[Peppol BIS 3.0.8 - Fall release 2021]_. +
 
 
 [red]#Changes to BIS document (Documentation)# +

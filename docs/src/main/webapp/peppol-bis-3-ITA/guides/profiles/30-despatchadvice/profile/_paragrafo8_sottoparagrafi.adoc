@@ -1,5 +1,5 @@
 [[EndpointID]]
-= #Endpoint ID - Identificativo di instradamento sulla rete PEPPOL#
+= #Endpoint ID - Identificativo di instradamento sulla rete Peppol#
 
 Quando si specifica un Endpoint ID nel documento si vuole mantenere l’informazione dell’indirizzo elettronico del mittente o destinatario utilizzati per l’instradamento dei messaggi (delivery) sul circuito Peppol. 
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project xmlns="urn:fdc:difi.no:2017:vefa:structure:Project-1">
-    <Name>PEPPOL BIS version 3</Name>
+    <Name>Peppol BIS version 3</Name>
     <!-- Introduction -->
     <Documentation path="">INTRODUCTION</Documentation>
     <Documentation path="compliance/">BIS compliance</Documentation>
@@ -25,47 +25,47 @@
     <Resource>
         <Type>Structure-1</Type>
         <Path>structure/syntax/ubl-order.xml</Path>
-        <Title>PEPPOL Order transaction 3.2 (T01)</Title>
+        <Title>Peppol Order transaction 3.2 (T01)</Title>
     </Resource>
     <Resource>
         <Type>Structure-1</Type>
         <Path>structure/syntax/ubl-order-response.xml</Path>
-        <Title>PEPPOL Order Response transaction 3.0 (T76)</Title>
+        <Title>Peppol Order Response transaction 3.0 (T76)</Title>
     </Resource>
     <Resource>
         <Type>Structure-1</Type>
         <Path>structure/syntax/ubl-orderagreement.xml</Path>
-        <Title>PEPPOL Order Agreement transaction 3.0 (T110)</Title>
+        <Title>Peppol Order Agreement transaction 3.0 (T110)</Title>
     </Resource>
     <Resource>
         <Type>Structure-1</Type>
         <Path>structure/syntax/ubl-catalogue.xml</Path>
-        <Title>PEPPOL Catalogue transaction 3.1 (T19)</Title>
+        <Title>Peppol Catalogue transaction 3.1 (T19)</Title>
     </Resource>
     <Resource>
         <Type>Structure-1</Type>
         <Path>structure/syntax/ubl-catalogue-response.xml</Path>
-        <Title>PEPPOL Catalogue Response transaction 3.0 (T58)</Title>
+        <Title>Peppol Catalogue Response transaction 3.0 (T58)</Title>
     </Resource>
     <Resource>
         <Type>Structure-1</Type>
         <Path>structure/syntax/ubl-despatch-advice.xml</Path>
-        <Title>PEPPOL Despatch Advice transaction 3.1 (T16)</Title>
+        <Title>Peppol Despatch Advice transaction 3.1 (T16)</Title>
     </Resource>
     <Resource>
         <Type>Structure-1</Type>
         <Path>structure/syntax/ubl-shoppingcart.xml</Path>
-        <Title>PEPPOL Punch Out transaction 3.1 (T77)</Title>
+        <Title>Peppol Punch Out transaction 3.1 (T77)</Title>
     </Resource>
     <Resource>
         <Type>Structure-1</Type>
         <Path>structure/syntax/ubl-mlr.xml</Path>
-        <Title>PEPPOL Message Level Response 3.0 (T71)</Title>
+        <Title>Peppol Message Level Response 3.0 (T71)</Title>
     </Resource>
     <Resource>
         <Type>Structure-1</Type>
         <Path>structure/syntax/ubl-invoiceresponse.xml</Path>
-        <Title>PEPPOL Invoice Response transaction 3.1 (T111)</Title>
+        <Title>Peppol Invoice Response transaction 3.1 (T111)</Title>
     </Resource>
     <!-- Rules -->
     <Resource>

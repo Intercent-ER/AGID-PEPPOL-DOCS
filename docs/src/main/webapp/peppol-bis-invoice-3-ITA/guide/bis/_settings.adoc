@@ -2,6 +2,6 @@
 :doctitle: image:../../shared/images/peppol.jpg[float="right",width=100%, pdfwidth=100%, scaledwidth=100%] Peppol BIS Fatturazione
 :shared-dir: ../shared
 :snippet-dir: ../../rules/snippets
-:name-op-en: OpenPEPPOL AISBL, Post-Award Coordinating Community
+:name-op-en: OpenPeppolAISBL, Post-Award Coordinating Community
 
 include::../shared/_settings.adoc[]

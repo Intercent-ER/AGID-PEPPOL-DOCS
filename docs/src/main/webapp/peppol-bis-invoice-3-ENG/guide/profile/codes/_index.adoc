@@ -1,7 +1,7 @@
 
 = Codifica per il tipo di fattura (invoice type code) (BT-3)
 
-I sotto paragrafi seguenti forniscono una panoramica sui codici tipo fattura permessi (BT-3) secondo questa specifica PEPPOL BIS Billing.
+I sotto paragrafi seguenti forniscono una panoramica sui codici tipo fattura permessi (BT-3) secondo questa specifica Peppol BIS Billing.
 
 La tabella indica il nome e la descrizione di ogni codice, come pure una colonna "Sinonimo di" per indicare come può essere processato questo tipo di fattura se il destinatario non ha un flusso di elaborazione separato per questo tipo e come potrete osservare, tutte le tipologie di fattura valide in questo profilo possono essere processate come una fattura commerciale (380) e tutte le tipologie di note di credito come nota di credito commerciale (381). Alcuni destinatari potrebbero avere processi separati o flussi di elaborazione per alcuni di questi tipi e possono quindi utilizzare questi processi.
 

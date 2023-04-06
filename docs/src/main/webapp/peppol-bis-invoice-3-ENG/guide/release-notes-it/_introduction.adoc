@@ -4,7 +4,7 @@
 <<<
 
 
-Le specifiche tecniche e relativi tools di validazione PEPPOL BIS Billing 3.0 compatibili con le specifiche EeiSI del CIUS italiano della fattura EN 16931 sono disponibili.
+Le specifiche tecniche e relativi tools di validazione Peppol BIS Billing 3.0 compatibili con le specifiche EeiSI del CIUS italiano della fattura EN 16931 sono disponibili.
 
 L’aggiornamento introduce le seguenti specifiche per ogni BIS (Business Interoperability Specifications):
 

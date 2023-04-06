@@ -10,7 +10,7 @@ include::_settings.adoc[]
 :source-language: xml
 :sectanchors:
 :sectnums:
-:description: La specifica Peppol per l’interoperabilità nel Business, d’ora in poi “BIS”, è stata sviluppata da OpenPEPPOL AISBL Post Award Coordinating Community ed è pubblicata come parte delle specifiche PEPPOL.
+:description: La specifica Peppol per l’interoperabilità nel Business, d’ora in poi “BIS”, è stata sviluppata da OpenPeppolAISBL Post Award Coordinating Community ed è pubblicata come parte delle specifiche PEPPOL.
 :CIUS: Core Invoice Usage Specification (CIUS)
 
 
@@ -29,13 +29,13 @@ image::../../../images/PEPPOL_Authority.jpg[width=100%, pdfwidth=100%, scaledwid
 
 .Statement of copyright
 ****
-This Peppol Business Interoperability Specification (PEPPOL BIS) document is a Core Invoice Usage Specification (CIUS) based on CEN/EN 16931:2017. The restrictions on CEN/EN 16931:2017 implemented in this Peppol BIS appear from the conformance statement provided in appendix A.
+This Peppol Business Interoperability Specification (Peppol BIS) document is a Core Invoice Usage Specification (CIUS) based on CEN/EN 16931:2017. The restrictions on CEN/EN 16931:2017 implemented in this Peppol BIS appear from the conformance statement provided in appendix A.
 
 The copyright of CEN/EN 16931:2107 is owned by CEN and its members - the European National Standards Bodies. A copy of CEN/EN 16931-1:2017 may be obtained free of charge from any CEN member.
 
-OpenPEPPOL AISBL holds the copyright of this Peppol BIS, developed and published subject to the conditions of the agreement between the European Commission and CEN allowing derivate works to be developed and distributed with no additional licensing requirements. CEN and the National  Standards Bodies bears no liability from the content and implementation of this Peppol BIS.
+OpenPeppolAISBL holds the copyright of this Peppol BIS, developed and published subject to the conditions of the agreement between the European Commission and CEN allowing derivate works to be developed and distributed with no additional licensing requirements. CEN and the National  Standards Bodies bears no liability from the content and implementation of this Peppol BIS.
 
-This Peppol BIS document may not be modified, re-distribute, sold or repackaged in any other way without the prior consent of OpenPEPPOL AISBL.
+This Peppol BIS document may not be modified, re-distribute, sold or repackaged in any other way without the prior consent of OpenPeppolAISBL.
 ****
 
 :leveloffset: +1

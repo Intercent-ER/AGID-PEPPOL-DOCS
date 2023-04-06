@@ -34,7 +34,7 @@ ed eventualmente del proprio SMP.
 
 == Scadenza dei certificati
 
-I certificati forniti da OpenPEPPOL ad ogni Service Provider qualificato e necessari per operare sulla rete PEPPOL possiedono un periodo di validità di due anni,
+I certificati forniti da OpenPeppolad ogni Service Provider qualificato e necessari per operare sulla rete Peppol possiedono un periodo di validità di due anni,
 al temine dei quali devono essere rinnovati. +
 Un mese prima della scadenza, OpenPeppol invia un avviso di certificato in scadenza all'indirizzo di contatto indicato dal SP per le comunicazioni relative ai certificati PKI di AP e SMP. +
 L'email contiene, tra le altre cose, il link a cui accedere per effettuare la richiesta di rinnovo.

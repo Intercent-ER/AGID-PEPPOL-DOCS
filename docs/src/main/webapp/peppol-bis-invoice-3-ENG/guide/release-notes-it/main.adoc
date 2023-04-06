@@ -1,5 +1,5 @@
 include::../shared/_settings.adoc[]
-= PEPPOL BIS Billing {version}
+= Peppol BIS Billing {version}
 Release Notes
 :doctype: book
 :last-update-label!:

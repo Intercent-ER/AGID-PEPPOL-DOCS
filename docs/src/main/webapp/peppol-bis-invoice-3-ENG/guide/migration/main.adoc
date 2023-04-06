@@ -2,7 +2,7 @@ include::../cius/_links.adoc[]
 include::_settings.adoc[]
 
 = Migration plan
-OpenPEPPOL AISBL, Post-Award Community
+OpenPeppolAISBL, Post-Award Community
 :doctype: book
 :last-update-label!:
 :icons: font

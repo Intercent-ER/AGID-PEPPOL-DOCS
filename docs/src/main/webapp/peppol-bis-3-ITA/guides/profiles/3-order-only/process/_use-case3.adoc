@@ -11,7 +11,7 @@ Questo caso d’uso è relativo a un ordine di servizi.
 |Nome Caso d'uso
 |Ordine di servizi
 
-|Descrizione caso d'uso
+|Descrizione Caso d'uso
 |Un ordine per servizi di traduzione. +
 Il luogo di consegna e il periodo sono specificati.
 |Ruoli coinvolti

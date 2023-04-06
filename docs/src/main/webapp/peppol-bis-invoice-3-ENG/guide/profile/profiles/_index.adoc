@@ -1,7 +1,7 @@
 
 = Identificatori PEPPOL
 
-PEPPOL ha definito una {policy8} che specifica come utilizzare gli identificatori sia nella sua infrastruttura di trasporto che all’interno dei documenti scambiati su questa.  Essa introduce anche i principi per ogni identificatore utilizzato nell’ambiente PEPPOL.
+Peppol ha definito una {policy8} che specifica come utilizzare gli identificatori sia nella sua infrastruttura di trasporto che all’interno dei documenti scambiati su questa.  Essa introduce anche i principi per ogni identificatore utilizzato nell’ambiente PEPPOL.
 Le regole che si applicano a questo BIS sono le seguenti:
 
 

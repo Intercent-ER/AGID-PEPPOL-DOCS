@@ -31,7 +31,7 @@ Il set di elementi informative si assume sia sufficiente a supportare i requisit
 *** Regole di Business, un set di regole di business che assicurano una modalità comune di processare gli elementi informativi. 
 Le rules sono espresso in modo da permettere la validazione automatica delle istanze dei documenti di business.
 Le parti emittenti e riceventi possono verificare che i documenti scambiati sono conformi alle regole di questo BIS. +
-PEPPOL aggiunge le regole di business al modello dei dati per chiarire alcune scelte di progettazione lasciate aperte dal {bii}.
+Peppol aggiunge le regole di business al modello dei dati per chiarire alcune scelte di progettazione lasciate aperte dal {bii}.
 Queste scelte sono intese per abbassare la soglia di implementazione limitando le opzioni agli implementatori e quindi incrementare l'interoperabilità delle transazioni PEPPOL.
 
 

@@ -3,7 +3,7 @@
     <Term>DespatchAdvice</Term>
     <agid:Extension>
         <agid:ID>urn:www.agid.gov.it:trns:ddt:3.0</agid:ID>
-        <agid:Name>PEPPOL Despatch Advice transaction 3.1 (T16)</agid:Name>
+        <agid:Name>Peppol Despatch Advice transaction 3.1 (T16)</agid:Name>
         <agid:Version>3.0</agid:Version>
     </agid:Extension>
     <Property key="sch:prefix">PEPPOL-T16</Property>

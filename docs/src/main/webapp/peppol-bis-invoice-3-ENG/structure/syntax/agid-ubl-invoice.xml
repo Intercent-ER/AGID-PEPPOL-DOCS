@@ -2,10 +2,10 @@
 <Structure xmlns="urn:fdc:difi.no:2017:vefa:structure-1" xmlns:agid="urn:fdc:agid.gov.it:peppol:customization">
 
 	<Term>ubl-invoice</Term>
-	<Name>PEPPOL BIS Invoice 3.0</Name>
+	<Name>Peppol BIS Invoice 3.0</Name>
 	<agid:Extension>
 		<agid:ID>urn:www.agid.gov.it:trns:fattura:3.0</agid:ID>
-		<agid:Name>PEPPOL BIS Invoice 3.0 Structure (Italian extension to EN16931)</agid:Name>
+		<agid:Name>Peppol BIS Invoice 3.0 Structure (Italian extension to EN16931)</agid:Name>
 		<agid:Version>3.0</agid:Version>
 	</agid:Extension>
 

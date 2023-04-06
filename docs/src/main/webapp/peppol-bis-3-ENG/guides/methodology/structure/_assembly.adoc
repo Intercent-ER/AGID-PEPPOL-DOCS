@@ -7,7 +7,7 @@ In the main folder of the BIS document, a file named `main.adoc` is used to set 
 ----
       include::../../shared/links.adoc[] <1>
 
-      = image:../../shared/images/peppol.png[float="right"]PEPPOL BIS Catalogue Only 3.0 <2>
+      = image:../../shared/images/peppol.png[float="right"]Peppol BIS Catalogue Only 3.0 <2>
       v3.0.0 <3>
       :doctype: book
 :last-update-label!: <4>

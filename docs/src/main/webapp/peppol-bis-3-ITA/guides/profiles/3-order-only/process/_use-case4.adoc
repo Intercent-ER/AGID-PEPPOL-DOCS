@@ -1,7 +1,7 @@
 [[use-case-4-complex-ordering]]
 = Caso d’uso 4 – Ordine di fornitura complesso
 
-Questo caso d’uso è relativo a un ordine contenente quasi tutti gli elementi previsti per il messaggio dell’Ordine PEPPOL.
+Questo caso d’uso è relativo a un ordine contenente quasi tutti gli elementi previsti per il messaggio dell’Ordine Peppol.
 
 [cols="1s,5",options="header"]
 |====
@@ -11,7 +11,7 @@ Questo caso d’uso è relativo a un ordine contenente quasi tutti gli elementi 
 |Nome Caso d'uso
 |Ordine complesso
 
-|Descrizione caso d'uso
+|Descrizione Caso d'uso
 |Un ordine di articoli numerati con sconti e maggiorazioni sia a livello di testata che di riga.
 
 |Ruoli coinvolti

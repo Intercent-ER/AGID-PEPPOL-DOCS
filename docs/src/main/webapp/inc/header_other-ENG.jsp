@@ -18,17 +18,17 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li class="btn-group" id="peppol-bis">
-							<button type="button" class="btn btn-primary btn-agid" style="margin-top: 8px;">PEPPOL BIS 3 (other processes)</button>
+							<button type="button" class="btn btn-primary btn-agid" style="margin-top: 8px;">Peppol BIS 3 (other processes)</button>
 							<button type="button" class="btn btn-primary dropdown-toggle btn-agid dropdown-alignment" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-top: 8px;">
 								<span class="caret"></span>
 								<span class="sr-only">Toggle Dropdown</span>
 							</button>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="<%=request.getContextPath()%>/my_index_fatt-ENG.jsp">PEPPOL BIS Billing 3</a>
+									<a href="<%=request.getContextPath()%>/my_index_fatt-ENG.jsp">Peppol BIS Billing 3</a>
 									</li>
 									<li>
-										<a href="<%=request.getContextPath()%>/my_index-ENG.jsp">PEPPOL BIS 3 (other processes)</a>
+										<a href="<%=request.getContextPath()%>/my_index-ENG.jsp">Peppol BIS 3 (other processes)</a>
 										</li>
 									</ul>
 								</li>

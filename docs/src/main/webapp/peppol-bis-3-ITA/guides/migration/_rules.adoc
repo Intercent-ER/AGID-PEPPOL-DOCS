@@ -1,7 +1,7 @@
 
 = Migration rules ‐ Peppol participants affected by the Migration Policy
 
-The {migration-policy} affects all end‐users registered in a SMP for OpenPEPPOL bis specifications, other than invoice/billing, according to the following rules:
+The {migration-policy} affects all end‐users registered in a SMP for OpenPeppolbis specifications, other than invoice/billing, according to the following rules:
 
 .End‐users registered in a SMP before the phase‐in date ({phase-in})
 ****

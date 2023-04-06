@@ -91,7 +91,7 @@ Il Venditore è un’informazione obbligatoria in quanto destinatario dell’Ord
 ----
 
 
-In caso di invio di un ordine verso un fornitore estero, il campo EndpointID deve essere valorizzato dal relativo identificativo qualificato dallo schemeID corrispondente tratto dall’Electronic Address Scheme previsto dallo standard PEPPOL.
+In caso di invio di un ordine verso un fornitore estero, il campo EndpointID deve essere valorizzato dal relativo identificativo qualificato dallo schemeID corrispondente tratto dall’Electronic Address Scheme previsto dallo standard Peppol.
 
 
 .Esempio di informazioni per un fornitore estero
@@ -115,7 +115,7 @@ In caso di invio di un ordine verso un fornitore estero, il campo EndpointID dev
 			</cac:TaxScheme>
 		</cac:PartyTaxScheme>
 		<cac:PartyLegalEntity>
-			<cbc:RegistrationName>OpenPEPPOL AISBL</cbc:RegistrationName>
+			<cbc:RegistrationName>OpenPeppolAISBL</cbc:RegistrationName>
 			<cbc:CompanyID schemeID="0208">0848934496</cbc:CompanyID>
 		</cac:PartyLegalEntity>
 		<cac:Contact>
@@ -306,7 +306,7 @@ Qualora l’Acquirente (BuyerCustomerParty) sia una Pubblica Amministrazione, l�
 </cac:AccountingCustomerParty>
 ----
 
-==  Consegnatario/Destinatario (DeliveryParty)
+==  #Consegnatario/Destinatario (DeliveryParty)#
 
 Il Consegnatario/Destinatario è la persona giuridica o l’organizzazione che riceve i beni e/o i servizi oggetto dell’ordine.
 L’indicazione del Consegnatario/Destinatario è prevista solo con riferimento all’intero Documento. +

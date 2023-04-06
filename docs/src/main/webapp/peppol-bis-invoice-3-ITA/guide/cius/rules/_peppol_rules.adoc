@@ -5,7 +5,7 @@ The following rules have been defined by {openpeppol} in addition to the rules a
 These rules apply in *all* implementations that follow this {peppol} BIS.
 
 
-.PEPPOL transaction business rules
+.Peppol transaction business rules
 [cols="1,4", options="header"]
 |====
 |Rule

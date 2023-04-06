@@ -12,7 +12,7 @@ Structured fields allowed are solely and strictly the ones listed in the table b
 [cols="3,3", options="header"]
 |===
 ^.^|*Structured fields*
-^.^|*PEPPOL Document*
+^.^|*Peppol Document*
 
 |OrderDocumentReference/ID
 |Order transaction

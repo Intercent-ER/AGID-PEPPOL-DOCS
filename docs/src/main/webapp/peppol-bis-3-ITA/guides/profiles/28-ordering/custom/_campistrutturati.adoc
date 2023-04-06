@@ -13,7 +13,7 @@ I campi strutturati ammessi sono, esclusivamente e tassativamente, quelli elenca
 [cols="3,3", options="header"]
 |===
 ^.^|Campo strutturato
-^.^|Tipo Documento PEPPOL
+^.^|Tipo Documento Peppol
 
 |OrderDocumentReference/ID
 |Ordine Semplice

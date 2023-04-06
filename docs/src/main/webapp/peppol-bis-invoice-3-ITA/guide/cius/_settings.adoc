@@ -5,7 +5,7 @@
 :revision: 3.0.0
 :shared-dir: ../../shared
 
-:name-op-en: OpenPEPPOL AISBL, Post-Award Coordinating Community
+:name-op-en: OpenPeppolAISBL, Post-Award Coordinating Community
 
 include::_links.adoc[]
 

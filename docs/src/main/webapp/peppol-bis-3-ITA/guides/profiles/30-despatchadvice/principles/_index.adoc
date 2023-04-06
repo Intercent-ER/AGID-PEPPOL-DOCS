@@ -1,7 +1,7 @@
 [[principles-and-prerequisites]]
 = Principi e prerequisiti
 
-Questo capitolo descrive i principi e le assunzioni che stanno alla base dell’uso del Documento di Trasporto PEPPOL.
+Questo capitolo descrive i principi e le assunzioni che stanno alla base dell’uso del Documento di Trasporto Peppol.
 Esso si basa sul profilo CEN BII 30 “Despatch only”.
 
 [[despatch-advice-message-in-general]]

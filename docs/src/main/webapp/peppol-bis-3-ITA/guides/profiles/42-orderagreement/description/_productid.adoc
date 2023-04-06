@@ -7,7 +7,7 @@ L’individuazione del prodotto può essere fatta attraverso l'utilizzo di codic
 
 * il codice attribuito dal Cliente (elemento `cac:BuyersItemIdentification/cbc:ID`);
 
-* il codice standard, corrispondente all’identificativo assegnato al prodotto da un sistema di identificazione univoca (elemento `cac:StandardItemIdentification/cbc:ID`) selezionato tra quelli presenti nell’apposita code list PEPPOL "ISO 6523 ICD list".
+* il codice standard, corrispondente all’identificativo assegnato al prodotto da un sistema di identificazione univoca (elemento `cac:StandardItemIdentification/cbc:ID`) selezionato tra quelli presenti nell’apposita code list Peppol "ISO 6523 ICD list".
 
 
 Quale identificatore deve essere usato dipende dalle informazioni conosciute al momento dell’ordine o da quello comunemente utilizzato nel settore business di riferimento.

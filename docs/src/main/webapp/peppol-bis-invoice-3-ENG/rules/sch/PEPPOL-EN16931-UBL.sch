@@ -598,7 +598,7 @@ Last update: 2022 November release 3.0.14.
 
 		<!-- Endpoint Rules -->
 		<rule context="cac:AccountingSupplierParty/cac:Party[$accountingSupplierCountry='GR' or $accountingSupplierCountry='EL']/cbc:EndpointID">
-			<assert id="GR-R-009" test="./@schemeID='9933' and u:TinVerification(.)" flag="fatal">Greek suppliers that send an invoice through the PEPPOL network must use a correct TIN number as an electronic address according to PEPPOL Electronic Address Identifier scheme (schemeID 9933).</assert>
+			<assert id="GR-R-009" test="./@schemeID='9933' and u:TinVerification(.)" flag="fatal">Greek suppliers that send an invoice through the Peppol network must use a correct TIN number as an electronic address according to Peppol Electronic Address Identifier scheme (schemeID 9933).</assert>
 		</rule>
 
 	</pattern>
@@ -614,7 +614,7 @@ Last update: 2022 November release 3.0.14.
 
 		<!-- Endpoint Rules -->
 		<rule context="cac:AccountingCustomerParty[$isGreekSenderandReceiver]/cac:Party/cbc:EndpointID">
-			<assert id="GR-R-010" test="./@schemeID='9933' and u:TinVerification(.)" flag="fatal">Greek Suppliers that send an invoice through the PEPPOL network to a greek buyer must use a correct TIN number as an electronic address according to PEPPOL Electronic Address Identifier scheme (SchemeID 9933)</assert>
+			<assert id="GR-R-010" test="./@schemeID='9933' and u:TinVerification(.)" flag="fatal">Greek Suppliers that send an invoice through the Peppol network to a greek buyer must use a correct TIN number as an electronic address according to Peppol Electronic Address Identifier scheme (SchemeID 9933)</assert>
 		</rule>
 	</pattern>
 	<!-- ICELAND -->
@@ -647,7 +647,7 @@ Last update: 2022 November release 3.0.14.
 		<let name="taxRepresentativeCountryIsNL" value="(upper-case(normalize-space(/*/cac:TaxRepresentativeParty/cac:PostalAddress/cac:Country/cbc:IdentificationCode)) = 'NL')"/>
 		<rule context="cbc:CreditNoteTypeCode[$supplierCountryIsNL]">
 			<!-- Original rule in NLCIUS: BR-NL-9
-       This rule has changed: since 384 is not an allowed invoice type code in PEPPOL BIS,
+       This rule has changed: since 384 is not an allowed invoice type code in Peppol BIS,
        this rule now only applies to credit notes
       -->
 			<assert id="NL-R-001" test="/*/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID" flag="fatal">[NL-R-001] For suppliers in the Netherlands, if the document is a creditnote, the document MUST contain an invoice reference (cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID)</assert>

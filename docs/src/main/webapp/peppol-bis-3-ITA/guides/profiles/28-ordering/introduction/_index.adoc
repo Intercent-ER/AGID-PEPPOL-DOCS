@@ -1,5 +1,5 @@
 
-= Introduzione a openPEPPOL e alla BIS
+= Introduzione a openPeppol e alla BIS
 
 Questa Business Interoperability Specification (BIS) è il risultato del lavoro svolto in https://peppol.eu/about-openpeppol/?rel=tab41[OpenPeppol] e pubblicato come parte delle specifiche https://docs.peppol.eu/poacc/upgrade-3/[Peppol].
 

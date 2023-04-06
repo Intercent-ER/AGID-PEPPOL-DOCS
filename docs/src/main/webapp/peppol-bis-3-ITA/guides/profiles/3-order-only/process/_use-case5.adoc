@@ -11,7 +11,7 @@ Questo use case contiene un ordine con numerosi voci/articoli. L'ordine contiene
 |Nome Caso d'uso
 |Ordine con luogo di consegna e destinatario
 
-|Descrizione caso d'uso
+|Descrizione Caso d'uso
 |Un ordine per articoli numerati con sconti e addebiti sia a livello di testata dell'ordine che a livello di riga
 
 |Ruoli coinvolti

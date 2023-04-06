@@ -9,7 +9,6 @@ Le seguenti parti/ruoli possono essere specificate nel messaggio.  Lo stesso att
 Lo Speditore/Mittente è la persona giuridica o l'organizzazione che spedisce la merce e/o i servizi ed è un’informazione obbligatoria. Questo ruolo viene ricoperto dal Fornitore o per suo conto. +
 #Ai sensi dell’Art. 21, comma 4 del DPR n. 633/1972 lo Speditore/Mittente corrisponde al Venditore qualora la sezione Venditore non sia valorizzata.#
 
-Esempio:
 
 .Esempio di informazioni dello Speditore/Mittente
 [source, xml, indent=0]
@@ -27,8 +26,6 @@ Il Consegnatario/Destinatario è la persona giuridica o l’organizzazione che r
 #Ai sensi dell’Art. 21, comma 4 del DPR n. 633/1972 il Consegnatario/Destinatario corrisponde all’Acquirente qualora la sezione Acquirente non sia valorizzata.#
 
 
-Esempio:
-
 .Esempio di informazioni del Consegnatario/Destinatario
 [source, xml, indent=0]
 ----
@@ -44,9 +41,6 @@ include::{snippet-dir}/snippet-30-1.xml[tags=deliverycustomer]
 L’Acquirente è la persona giuridica o l’organizzazione che acquista beni e/o servizi. +
 #Ai sensi dell’Art. 21, comma 4 del DPR n. 633/1972 il Consegnatario/Destinatario corrisponde all’Acquirente qualora la sezione Acquirente non sia valorizzata.#
 
-
-Esempio:
-
 .Esempio di informazioni dell’Acquirente
 [source, xml, indent=0]
 ----
@@ -59,9 +53,6 @@ include::{snippet-dir}/snippet-30-1.xml[tags=buyer]
 
 Il Venditore è la persona giuridica o l’organizzazione che vende beni e/o servizi. +
 #Ai sensi dell’Art. 21, comma 4 del DPR n. 633/1972 lo Speditore/Mittente corrisponde al Venditore qualora la sezione Venditore non sia valorizzata.#
-
-
-Esempio:
 
 .Esempio di informazioni del Venditore
 [source, xml, indent=0]
@@ -76,9 +67,6 @@ include::{snippet-dir}/snippet-30-1.xml[tags=seller]
 Il Richiedente è la persona giuridica o l’organizzazione che inizializza il processo di emissione dell'Ordine e per la quale l'Acquirente effettua l'acquisto. +
 Il Richiedente è un’informazione opzionale.
 
-
-Esempio:
-
 .Esempio di informazioni del Richiedente
 [source, xml, indent=0]
 ----
@@ -91,9 +79,6 @@ include::{snippet-dir}/snippet-30-1.xml[tags=originator]
 
 Il Vettore è la persona giuridica o l'organizzazione che gestisce la consegna/trasporto fisico della spedizione. Utilizzato se il trasporto è effettuato da una terza parte. +
 #Ai sensi dell’Art. 21, comma 4 del DPR n. 633/1972 il Vettore è un’informazione obbligatoria.#
-
-
-Esempio:
 
 .Esempio di informazioni del Vettore
 [source, xml, indent=0]

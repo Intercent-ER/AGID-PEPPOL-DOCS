@@ -17,7 +17,7 @@
     <xsl:template match="/cl:CodeList">
         <html data-codelist="{$codelist}">
             <head>
-                <title>PEPPOL BIS version 3 | Codelist</title>
+                <title>Peppol BIS version 3 | Codelist</title>
                 <meta charset="utf-8"/>
                 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>

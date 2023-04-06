@@ -130,7 +130,7 @@ L’Acquirente è la persona giuridica o l’organizzazione che acquista beni e/
 L’Acquirente è un’informazione obbligatoria in quanto destinatario dell’Ordine Pre-concordato, pertanto è necessario includere l’EndpointID (ParticipantID) con il quale è registrato su Peppol.
 
 
-#Se l’Amministrazione Aggiudicatrice è identificata in PEPPOL con il Codice Univoco Ufficio (ID Partecipante nei registri SMP), deve essere indicato il suddetto codice come endpoint (cac:EndpointID):#
+#Se l’Amministrazione Aggiudicatrice è identificata in Peppol con il Codice Univoco Ufficio (ID Partecipante nei registri SMP), deve essere indicato il suddetto codice come endpoint (cac:EndpointID):#
 
 [source, xml, indent=0]
 ----
@@ -216,7 +216,7 @@ L’intestatario fattura è un’informazione opzionale nel messaggio dell’Ord
 </cac:AccountingCustomerParty>
 ----
 
-==  Consegnatario/Destinatario (DeliveryParty)
+==  #Consegnatario/Destinatario (DeliveryParty)#
 
 Il Consegnatario/Destinatario è la persona giuridica o l’organizzazione che riceve i beni e/o i servizi oggetto dell’ordine.
 L’indicazione del Consegnatario/Destinatario è prevista solo con riferimento all’intero Documento. +

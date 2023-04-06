@@ -2,7 +2,7 @@
 
 = Fornitore (AccountingSupplierParty)
 
-Il Fornitore è la persona fisica, la persona giuridica o l'organizzazione che fornisce beni e/o servizi ed è un’informazione obbligatoria in quanto emittente del documento. +È quindi obbligatorio includere il l’EndpointID. #Il Fornitore corrisponde al Cedente/Prestatore della fattura ai sensi del DPR n. 633/1972.#
+Il Fornitore è la persona fisica, la persona giuridica o l'organizzazione che fornisce beni e/o servizi ed è un’informazione obbligatoria in quanto emittente del documento. È quindi obbligatorio includere il l’EndpointID. #Il Fornitore corrisponde al Cedente/Prestatore della fattura ai sensi del DPR n. 633/1972.#
 
 
 .Esempio di informazioni per un fornitore italiano con indicazione della Partita Iva nell'Endpoint

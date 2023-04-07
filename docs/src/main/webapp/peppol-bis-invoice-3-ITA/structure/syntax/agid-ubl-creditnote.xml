@@ -250,11 +250,11 @@
 
             <Element>
                 <Term>cac:InvoiceDocumentReference</Term>
-                <Name>INVOICE DOCUMENT REFERENCE</Name>
+                <Name>INVOICE DOCUMENT REFERENCE – FPA 2.1.6 'DatiFattureCollegate' </Name>
 
                 <Element agid:custom="rule">
                     <Term>cbc:ID</Term>
-                    <Name>Preceding Invoice number</Name>
+                    <Name>Numero Fattura Collegata – FPA 2.1.6.2 'IdDocumento'</Name>
                     <Description>The identification of an Invoice that was previously sent by the Seller.</Description>
                     <DataType>Document Reference</DataType>
                     <Reference type="BUSINESS_TERM">BT-25</Reference>
@@ -264,7 +264,7 @@
                 </Element>
                 <Element cardinality="0..1">
                     <Term>cbc:IssueDate</Term>
-                    <Name>Preceding Invoice issue date</Name>
+                    <Name>Data Fattura Collegata – FPA 2.1.6.3 ‘Data’</Name>
                     <Description>The date when the Preceding Invoice was issued.Shall be
                         provided in case the Preceding Invoice identifier is not unique. Format = "YYYY-MM-DD".</Description>
                     <DataType>Date</DataType>
@@ -276,8 +276,8 @@
 			
 			<Element cardinality="0..1" agid:custom="extension">
 				<Term>cac:AdditionalDocumentReference</Term>
-				<Name>Riferimento alla fattura principale</Name>
-
+				<Name>RIFERIMENTO ALLA FATTURA PRINCIPALE</Name>
+                <Description>Da utilizzare nei casi di riferimento a fatture per operazioni accessorie, emesse dagli 'autotrasportatori' per usufruire delle agevolazioni in materia di registrazione e pagamento dell' IVA.</Description>
 				<Element>
 					<Term>cbc:ID</Term>
 					<Name>Numero Fattura Principale - FPA 2.1.10.1 'NumeroFatturaPrincipale'</Name>

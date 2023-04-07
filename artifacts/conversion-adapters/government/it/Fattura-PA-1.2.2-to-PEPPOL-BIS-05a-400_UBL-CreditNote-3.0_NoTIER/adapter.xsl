@@ -751,7 +751,7 @@ the root node.
 			</cac:ServiceProviderParty>
 		</xsl:if>
 	</xsl:template>
-	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiFattureCollegate[not(RiferimentoNumeroLinea)]">
+	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiFattureCollegate">
 		<cac:BillingReference>
 			<cac:InvoiceDocumentReference>
 				<cbc:ID>
@@ -1821,7 +1821,7 @@ the root node.
 						<xsl:text>0002 0003 0004 0005 0006 0007 0008 0009 0010 0011 0012 0013 0014 0015 0016 0017 0018 0019 0020 0021 0022 0023 0024 0025 0026 0027 0028 0029 0030 0031 0032 0033 0034 0035 0036 0037 0038 0039 0040 0041 0042 0043 0044 0045 0046 0047 0048 0049 0050 0051 0052 0053 0054 0055 0056 0057 0058 0059 0060 0061 0062 0063 0064 0065 0066 0067 0068 0069 0070 0071 0072 0073 0074 0075 0076 0077 0078 0079 0080 0081 0082 0083 0084 0085 0086 0087 0088 0089 0090 0091 0093 0094 0095 0096 0097 0098 0099 0100 0101 0102 0104 0105 0106 0107 0108 0109 0110 0111 0112 0113 0114 0115 0116 0117 0118 0119 0120 0121 0122 0123 0124 0125 0126 0127 0128 0129 0130 0131 0132 0133 0134 0135 0136 0137 0138 0139 0140 0141 0142 0143 0144 0145 0146 0147 0148 0149 0150 0151 0152 0153 0154 0155 0156 0157 0158 0159 0160 0161 0162 0163 0164 0165 0166 0167 0168 0169 0170 0171 0172 0173 0174 0175 0176 0177 0178 0179 0180 0183 0184 0185 0186 0187 0188 0189 0190 0191 0192 0193 0194 0195 0196 0197 0198 0199 0200 0201 0202 0203 0204 0205 0206 0207 0208 0209 0210 0211 0212 0213</xsl:text>
 					</xsl:variable>
 					<xsl:variable name="commodityClassificationCodelist">
-						<xsl:text>AA AB AC AD AE AF AG AH AI AJ AK AL AM AN AO AP AQ AR AS AT AU AV AW AX AY AZ BA BB BC BD BE BF BG BH BI BJ BK BL BM BN BO BP BQ BR BS BT BU BV BW BX BY BZ CC CG CL CR CV DR DW EC EF EN FS GB GN GS HS IB IN IS IT IZ MA MF MN MP NB ON PD PL PO PV QS RC RN RU RY SA SG SK SN SRS SRT SRU SRV SRW SRX SRY SRZ SS SSA SSB SSC SSD SSE SSF SSG SSH SSI SSJ SSK SSL SSM SSN SSO SSP SSQ SSR SSS SST SSU SSV SSW SSX SSY SSZ ST STA STB STC STD STE STF STG STH STI STJ STK STL STM STN STO STP STQ STR STS STT STU STV STW STX STY STZ SUA SUB SUC SUD SUE SUF SUG SUH SUI SUJ SUK SUL SUM TG TSN TSO TSP TSQ TSR TSS TST TSU UA UP VN VP VS VX ZZZ</xsl:text>
+						<xsl:text>AA AB AC AD AE AF AG AH AI AJ AK AL AM AN AO AP AQ AR AS AT AU AV AW AX AY AZ BA BB BC BD BE BF BG BH BI BJ BK BL BM BN BO BP BQ BR BS BT BU BV BW BX BY BZ CC CG CL CR CV DM0 DM1 DM2 DR DW EC EF EN FS GB GN GS HS IB IN IS IT IZ MA MF MN MP NB ON PD PL PO PV QS RC RN RU RY SA SG SK SN SRS SRT SRU SRV SRW SRX SRY SRZ SS SSA SSB SSC SSD SSE SSF SSG SSH SSI SSJ SSK SSL SSM SSN SSO SSP SSQ SSR SSS SST SSU SSV SSW SSX SSY SSZ ST STA STB STC STD STE STF STG STH STI STJ STK STL STM STN STO STP STQ STR STS STT STU STV STW STX STY STZ SUA SUB SUC SUD SUE SUF SUG SUH SUI SUJ SUK SUL SUM TG TSN TSO TSP TSQ TSR TSS TST TSU UA UP VN VP VS VX ZZZ</xsl:text>
 					</xsl:variable>
 					<xsl:variable name="carbOrAicFarmacoExist">
 						<xsl:for-each select="CodiceArticolo">
@@ -2080,13 +2080,13 @@ the root node.
 			<xsl:variable name="allowanceTotalAmount" select="format-number(abs(sum(../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO') and format-number(PrezzoTotale,'###########0.00') = '2.00']/PrezzoTotale)),'###########0.00')"/>
 			<xsl:variable name="payableAmountWithoutAllowanceCharge">
 				<xsl:choose>
-					<xsl:when test="../../DatiPagamento[1]/DettaglioPagamento/ImportoPagamento">
-						<xsl:value-of select="format-number(sum(../../DatiPagamento[1]/DettaglioPagamento/ImportoPagamento),'###########0.00')"/>
+					<xsl:when test="../../DatiPagamento[1]/DettaglioPagamento[1]/ImportoPagamento">
+						<xsl:value-of select="format-number(sum(../../DatiPagamento[1]/DettaglioPagamento[1]/ImportoPagamento),'###########0.00')"/>
 					</xsl:when>
-					<xsl:when test="not(../../DatiPagamento[1]/DettaglioPagamento/ImportoPagamento) and ImportoTotaleDocumento and Arrotondamento">
+					<xsl:when test="not(../../DatiPagamento[1]/DettaglioPagamento[1]/ImportoPagamento) and ImportoTotaleDocumento and Arrotondamento">
 						<xsl:value-of select="format-number(ImportoTotaleDocumento+Arrotondamento,'###########0.00')"/>
 					</xsl:when>
-					<xsl:when test="not(../../DatiPagamento[1]/DettaglioPagamento/ImportoPagamento) and ImportoTotaleDocumento and not(Arrotondamento)">
+					<xsl:when test="not(../../DatiPagamento[1]/DettaglioPagamento[1]/ImportoPagamento) and ImportoTotaleDocumento and not(Arrotondamento)">
 						<xsl:value-of select="format-number(ImportoTotaleDocumento,'###########0.00')"/>
 					</xsl:when>
 					<xsl:otherwise>
@@ -2976,7 +2976,7 @@ the root node.
 					</xsl:if>
 				</cac:OrderReference>
 			</xsl:if>
-			<xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiFattureCollegate[not(RiferimentoNumeroLinea)]">
+			<xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiFattureCollegate">
 				<xsl:with-param name="CN" select="current()"/>
 				<xsl:with-param name="CNP" select="position()"/>
 			</xsl:apply-templates>

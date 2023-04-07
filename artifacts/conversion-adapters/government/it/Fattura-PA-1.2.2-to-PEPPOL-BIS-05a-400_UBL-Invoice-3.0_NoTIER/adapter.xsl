@@ -751,7 +751,7 @@ the root node.
 			</cac:ServiceProviderParty>
 		</xsl:if>
 	</xsl:template>
-	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiFattureCollegate[not(RiferimentoNumeroLinea)]">
+	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiFattureCollegate">
 		<cac:BillingReference>
 			<cac:InvoiceDocumentReference>
 				<cbc:ID>
@@ -2948,7 +2948,7 @@ the root node.
 					</xsl:if>
 				</cac:OrderReference>
 			</xsl:if>
-			<xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiFattureCollegate[not(RiferimentoNumeroLinea)]">
+			<xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiFattureCollegate">
 				<xsl:with-param name="CN" select="current()"/>
 				<xsl:with-param name="CNP" select="position()"/>
 			</xsl:apply-templates>

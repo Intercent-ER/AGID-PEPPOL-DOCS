@@ -14,5 +14,8 @@ include::../{snippet-dir}/Snippet-refs.xml[tags=contract]
 .Esempio UBL per il riferimento al contratto dalle righe fattura
 [source, xml, indent=0]
 ----
-include::../{snippet-dir}/Snippet-refs.xml[tags=contratto_riga]
+<cac:DocumentReference>
+    <cbc:ID schemeID="CT">Contratto321</cbc:ID>
+    <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
+</cac:DocumentReference>
 ----

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Stylesheet synthesized using Javest A2A Mapper environment.-->
+		<!--Stylesheet synthesized using Javest A2A Mapper environment.-->
 <xsl:stylesheet xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:in="http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2" xmlns:xsmap="http://www.javest.com/ns/mapper/snippet" xmlns:asmap="http://www.javest.com/ns/mapper/snippet/attribute" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ccts="urn:un:unece:uncefact:documentation:2" xmlns:cr="http://www.ubl-italia.org/ns/CrossReference" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:gc="urn:fdc:difi.no:2017:vefa:structure:CodeList-1" xmlns:doc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/" xmlns:vs="urn:www.ubl-italia.org:spec:fatturapa:codelist:gc:VATSchemes" exclude-result-prefixes="xsmap asmap in ds" version="2.0">
 	<xsl:output indent="no"/>
 	<xsl:param name="UNECE" as="xsd:string">xcl/UNECERec20-11e.xml</xsl:param>
@@ -1358,14 +1358,14 @@ the root node.
 	<xsl:template match="DatiBeniServizi/DatiRiepilogo" mode="Estensione_Arrotondamento_Riepilogo_IVA">
 		<xsl:param name="CN" select="."/>
 		<xsl:param name="CNP" select="1"/>
-		<xsl:if test="Arrotondamento &gt; 0.00 and position() &lt;= 2">
+		<xsl:if test="abs(round(Arrotondamento*100) div 100) &gt; 0.00 and position() &lt;= 2">
 			<ext:UBLExtension>
 				<ext:ExtensionURI>
 					<xsl:value-of select="concat('urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento::', position())"/>
 				</ext:ExtensionURI>
 				<ext:ExtensionContent>
 					<cbc:Amount currencyID="EUR">
-						<xsl:value-of select="Arrotondamento"/>
+						<xsl:value-of select="format-number(Arrotondamento,'###########0.00')"/>
 					</cbc:Amount>
 				</ext:ExtensionContent>
 			</ext:UBLExtension>
@@ -1604,7 +1604,7 @@ the root node.
 	<xsl:template match="FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee">
 		<xsl:param name="CN" select="."/>
 		<xsl:param name="CNP" select="1"/>
-		<xsl:if test="not((contains(upper-case(normalize-space(Descrizione)), 'BOLLO')) and format-number(PrezzoTotale,'###########0.00') = '2.00')"> 
+		<xsl:if test="not((contains(upper-case(normalize-space(Descrizione)), 'BOLLO')) and format-number(PrezzoTotale,'###########0.00') = '2.00')">
 			<cac:InvoiceLine>
 				<cbc:ID>
 					<xsl:value-of select="normalize-space(NumeroLinea)"/>
@@ -2078,26 +2078,26 @@ the root node.
 				<xsl:value-of select="$taxInclusiveAmount"/>
 			</cbc:TaxInclusiveAmount>
 			<xsl:choose>
-			<xsl:when test="(number($chargeTotalAmount) &gt; number('0.00')) or (../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO') and format-number(PrezzoTotale,'###########0.00') = '2.00'])">
-				<cbc:ChargeTotalAmount>
-					<xsl:if test="string($variable_d1e449a1049836)">
-						<xsl:attribute name="currencyID">
-							<xsl:value-of select="string($variable_d1e449a1049836)"/>
-						</xsl:attribute>
-					</xsl:if>
-					<xsl:value-of select="$chargeTotalAmount"/>
-				</cbc:ChargeTotalAmount>
-			</xsl:when>
-			<xsl:when test="(/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/DatiBollo/BolloVirtuale) and not((../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO') and format-number(PrezzoTotale,'###########0.00') = '2.00']))">
-				<cbc:ChargeTotalAmount>
-					<xsl:if test="string($variable_d1e449a1049836)">
-						<xsl:attribute name="currencyID">
-							<xsl:value-of select="string($variable_d1e449a1049836)"/>
-						</xsl:attribute>
-					</xsl:if>
-					<xsl:text>0.00</xsl:text>
-				</cbc:ChargeTotalAmount>
-			</xsl:when>
+				<xsl:when test="(number($chargeTotalAmount) &gt; number('0.00')) or (../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO') and format-number(PrezzoTotale,'###########0.00') = '2.00'])">
+					<cbc:ChargeTotalAmount>
+						<xsl:if test="string($variable_d1e449a1049836)">
+							<xsl:attribute name="currencyID">
+								<xsl:value-of select="string($variable_d1e449a1049836)"/>
+							</xsl:attribute>
+						</xsl:if>
+						<xsl:value-of select="$chargeTotalAmount"/>
+					</cbc:ChargeTotalAmount>
+				</xsl:when>
+				<xsl:when test="(/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/DatiBollo/BolloVirtuale) and not((../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO') and format-number(PrezzoTotale,'###########0.00') = '2.00']))">
+					<cbc:ChargeTotalAmount>
+						<xsl:if test="string($variable_d1e449a1049836)">
+							<xsl:attribute name="currencyID">
+								<xsl:value-of select="string($variable_d1e449a1049836)"/>
+							</xsl:attribute>
+						</xsl:if>
+						<xsl:text>0.00</xsl:text>
+					</cbc:ChargeTotalAmount>
+				</xsl:when>
 			</xsl:choose>
 			<xsl:if test="number($taxInclusiveAmount) &gt; number($payableAmount)">
 				<cbc:PrepaidAmount>
@@ -2112,7 +2112,7 @@ the root node.
 					<xsl:value-of select="format-number(number($taxInclusiveAmount) - number($payableAmount), '###########0.00')"/>
 				</cbc:PrepaidAmount>
 			</xsl:if>
-			<xsl:if test="Arrotondamento &gt; 0.00">
+			<xsl:if test="abs(round(Arrotondamento*100) div 100) &gt; 0.00">
 				<cbc:PayableRoundingAmount>
 					<xsl:variable name="variable_d1e450a1049836">
 						<xsl:value-of select="Divisa"/>
@@ -2967,7 +2967,7 @@ the root node.
 					</cbc:ID>
 				</cac:OriginatorDocumentReference>
 			</xsl:if>
-			<xsl:if test="count(FatturaElettronicaBody/DatiGenerali/DatiContratto[not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea)]) = 1">						 
+			<xsl:if test="count(FatturaElettronicaBody/DatiGenerali/DatiContratto[not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea)]) = 1">
 				<xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiContratto[not(RiferimentoNumeroLinea)][1]">
 					<xsl:with-param name="CN" select="current()"/>
 					<xsl:with-param name="CNP" select="position()"/>

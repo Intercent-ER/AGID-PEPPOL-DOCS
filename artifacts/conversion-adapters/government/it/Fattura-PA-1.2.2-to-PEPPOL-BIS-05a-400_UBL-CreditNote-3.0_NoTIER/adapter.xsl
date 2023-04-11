@@ -1401,7 +1401,7 @@ the root node.
 	<xsl:template match="DatiBeniServizi/DatiRiepilogo" mode="Estensione_Arrotondamento_Riepilogo_IVA">
 		<xsl:param name="CN" select="."/>
 		<xsl:param name="CNP" select="1"/>
-		<xsl:if test="Arrotondamento &gt; 0.00 and position() &lt;= 2">
+		<xsl:if test="abs(round(Arrotondamento*100) div 100) &gt; 0.00 and position() &lt;= 2">
 			<ext:UBLExtension>
 				<ext:ExtensionURI>
 					<xsl:value-of select="concat('urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento::', position())"/>
@@ -1554,8 +1554,8 @@ the root node.
 	<xsl:template match="FatturaElettronicaBody">
 		<xsl:param name="CN" select="."/>
 		<xsl:param name="CNP" select="1"/>
-		<xsl:if test="/in:FatturaElettronica/FatturaElettronicaHeader/SoggettoEmittente 
-      or DatiGenerali/DatiGeneraliDocumento/DatiRitenuta 
+		<xsl:if test="/in:FatturaElettronica/FatturaElettronicaHeader/SoggettoEmittente
+      or DatiGenerali/DatiGeneraliDocumento/DatiRitenuta
       or DatiGenerali/DatiGeneraliDocumento/Art73
       or FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/DatiRitenuta
       or DatiGenerali/DatigeneraliDocumento/ScontoMaggiorazione">
@@ -2170,7 +2170,7 @@ the root node.
 					<xsl:value-of select="format-number(number($taxInclusiveAmount) - number($payableAmount), '###########0.00')"/>
 				</cbc:PrepaidAmount>
 			</xsl:if>
-			<xsl:if test="Arrotondamento &gt; 0.00">
+			<xsl:if test="abs(round(Arrotondamento*100) div 100) &gt; 0.00">
 				<cbc:PayableRoundingAmount>
 					<xsl:variable name="variable_d1e450a1049836">
 						<xsl:value-of select="Divisa"/>

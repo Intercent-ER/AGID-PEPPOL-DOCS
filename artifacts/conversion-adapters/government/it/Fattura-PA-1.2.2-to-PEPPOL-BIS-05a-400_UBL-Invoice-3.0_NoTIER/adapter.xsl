@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-		<!--Stylesheet synthesized using Javest A2A Mapper environment.-->
+<!--Stylesheet synthesized using Javest A2A Mapper environment.-->
 <xsl:stylesheet xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:in="http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2" xmlns:xsmap="http://www.javest.com/ns/mapper/snippet" xmlns:asmap="http://www.javest.com/ns/mapper/snippet/attribute" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ccts="urn:un:unece:uncefact:documentation:2" xmlns:cr="http://www.ubl-italia.org/ns/CrossReference" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:gc="urn:fdc:difi.no:2017:vefa:structure:CodeList-1" xmlns:doc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/" xmlns:vs="urn:www.ubl-italia.org:spec:fatturapa:codelist:gc:VATSchemes" exclude-result-prefixes="xsmap asmap in ds" version="2.0">
 	<xsl:output indent="no"/>
 	<xsl:param name="UNECE" as="xsd:string">xcl/UNECERec20-11e.xml</xsl:param>
@@ -1627,10 +1627,10 @@ the root node.
 							<xsl:value-of select="string($unitCode)"/>
 						</xsl:attribute>
 					</xsl:if>
-					<xsl:if test="Quantita and UnitaMisura and contains(UnitaMisura, ' ')">
-						<xsl:value-of select="format-number(Quantita * number(substring-before(UnitaMisura, ' ')),'###########0.00000000')"/>
+					<xsl:if test="Quantita and $unitCode and contains($unitCode, ' ')">
+						<xsl:value-of select="format-number(Quantita * number(substring-before($unitCode, ' ')),'###########0.00000000')"/>
 					</xsl:if>
-					<xsl:if test="(not(UnitaMisura) or not(contains(UnitaMisura, ' '))) and Quantita">
+					<xsl:if test="(not($unitCode) or not(contains($unitCode, ' '))) and Quantita">
 						<xsl:value-of select="format-number(Quantita, '###########0.00000000')"/>
 					</xsl:if>
 					<xsl:if test="not(Quantita)">

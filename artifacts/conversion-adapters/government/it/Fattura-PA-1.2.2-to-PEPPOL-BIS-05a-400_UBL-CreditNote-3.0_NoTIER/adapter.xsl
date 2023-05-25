@@ -1686,10 +1686,10 @@ the root node.
 							<xsl:value-of select="string($unitCode)"/>
 						</xsl:attribute>
 					</xsl:if>
-					<xsl:if test="Quantita and UnitaMisura and contains(UnitaMisura, ' ')">
-						<xsl:value-of select="format-number(Quantita * number(substring-before(UnitaMisura, ' ')),'###########0.00000000')"/>
+					<xsl:if test="Quantita and $unitCode and contains($unitCode, ' ')">
+						<xsl:value-of select="format-number(Quantita * number(substring-before($unitCode, ' ')),'###########0.00000000')"/>
 					</xsl:if>
-					<xsl:if test="(not(UnitaMisura) or not(contains(UnitaMisura, ' '))) and Quantita">
+					<xsl:if test="(not($unitCode) or not(contains($unitCode, ' '))) and Quantita">
 						<xsl:value-of select="format-number(Quantita, '###########0.00000000')"/>
 					</xsl:if>
 					<xsl:if test="not(Quantita)">

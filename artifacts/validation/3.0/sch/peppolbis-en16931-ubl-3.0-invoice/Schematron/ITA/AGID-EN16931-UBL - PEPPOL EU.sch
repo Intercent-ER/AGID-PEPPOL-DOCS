@@ -1,17 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-This schematron uses business terms defined the CEN/EN16931-1 and is reproduced with permission from CEN. CEN bears no liability from the use of the content and implementation of this schematron and gives no warranties expressed or implied for any purpose.
 
-Last update: 2022 November release 3.0.14.
- -->
+    Licensed under European Union Public Licence (EUPL) version 1.2.
+	This schematron uses business terms defined the CEN/EN16931-1 and is reproduced with permission from CEN. CEN bears no liability from the use of the content and implementation of this schematron and gives no warranties expressed or implied for any purpose.
+	
+	Peppol BIS Billing 3.0.14
+-->
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:u="utils" schemaVersion="iso" queryBinding="xslt2">
-	<title>Rules for Peppol BIS 3.0 Billing</title>
-	<ns uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" prefix="cbc"/>
-	<ns uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" prefix="cac"/>
-	<ns uri="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2" prefix="ubl-creditnote"/>
-	<ns uri="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" prefix="ubl-invoice"/>
-	<ns uri="http://www.w3.org/2001/XMLSchema" prefix="xs"/>
+	<title>EN16931 model bound to UBL</title>
+	<ns prefix="ext" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"/>
+	<ns prefix="cbc" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"/>
+	<ns prefix="cac" uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"/>
+	<ns prefix="qdt" uri="urn:oasis:names:specification:ubl:schema:xsd:QualifiedDataTypes-2"/>
+	<ns prefix="udt" uri="urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2"/>
+	<ns prefix="cn" uri="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2"/>
+	<ns prefix="ubl" uri="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"/>
+	<ns prefix="xs" uri="http://www.w3.org/2001/XMLSchema"/>
+	<ns prefix="ubl-creditnote" uri="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2"/>
+	<ns prefix="ubl-invoice" uri="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"/>
 	<ns uri="utils" prefix="u"/>
+	<!--CEN phases-->
+	<phase id="EN16931model_phase">
+		<active pattern="UBL-model"/>
+	</phase>
+	<phase id="codelist_phase">
+		<active pattern="Codesmodel"/>
+	</phase>
+	<!--OpenPEPPOL phases-->
+	<phase id="OP_empty_check_phase">
+		<active pattern="OP-empty-elements"/>
+	</phase>
+	<phase id="OP_transaction_phase">
+		<active pattern="OP-transaction-rules"/>
+	</phase>
+	<phase id="OP_Norway_phase">
+		<active pattern="OP-Norway-rules"/>
+	</phase>
+	<phase id="OP_Denmark_phase">
+		<active pattern="OP-Denmark-rules"/>
+	</phase>
+	<phase id="OP_Italy_phase">
+		<active pattern="OP-Italy-rules"/>
+	</phase>
+	<phase id="OP_Sweden_phase">
+		<active pattern="OP-Sweden-rules"/>
+	</phase>
+	<phase id="OP_Greece_phase">
+		<active pattern="OP-Greece-sender-rules"/>
+		<active pattern="OP-Greece-sender-receiver-rules"/>
+	</phase>
+	<phase id="OP_Iceland_phase">
+		<active pattern="OP-Iceland-rules"/>
+	</phase>
+	<phase id="OP_Netherlands_phase">
+		<active pattern="OP-Netherlands-rules"/>
+	</phase>
+	<phase id="OP_codelist_phase">
+		<active pattern="OP-cl-formatting-rules"/>
+	</phase>
+	
+	
+	<!-- OPENPEPPOL FUNCTIONS AND DEFINITIONS -->
+	
 	<!-- Parameters -->
 	<let name="profile" value="
       if (/*/cbc:ProfileID and matches(normalize-space(/*/cbc:ProfileID), 'urn:fdc:peppol.eu:2017:poacc:billing:([0-9]{2}):1.0')) then
@@ -225,37 +275,46 @@ Last update: 2022 November release 3.0.14.
     upper-case(normalize-space(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode))
     else
     'XX'"/>
-  
-	<include href="./1-PEPPOL-EN16931-UBL-emptyElements.inc"/>
-	<include href="./2-PEPPOL-EN16931-UBL-creditNote.inc"/>
-	<include href="./3-PEPPOL-EN16931-UBL-general.inc"/>
+	
+	
+	
+	
+	
+	<!-- EN16931 UBL Validation -->
+	<include href="CEN/CEN-EN16931-UBL-syntax.inc"/>
+	<include href="CEN/CEN-EN16931-UBL-model.inc"/>
+	<include href="CEN/CEN-EN16931-UBL-codelist.inc"/>
+	<!-- OpenPEPPOL UBL Validation -->
+	<include href="OPENPEPPOL/1-PEPPOL-EN16931-UBL-emptyElements.inc"/>
+	<include href="OPENPEPPOL/2-PEPPOL-EN16931-UBL-creditNote.inc"/>
+	<include href="OPENPEPPOL/3-PEPPOL-EN16931-UBL-general.inc"/>
 	
 	<!-- National rules -->
-	<include href="./4-PEPPOL-EN16931-UBL-norway.inc"/>
+	<include href="OPENPEPPOL/4-PEPPOL-EN16931-UBL-norway.inc"/>
 	
 	<!-- DENMARK -->
-	<include href="./5-PEPPOL-EN16931-UBL-denmark.inc"/>
+	<include href="OPENPEPPOL/5-PEPPOL-EN16931-UBL-denmark.inc"/>
 	
 	<!-- ITALY -->
-	<include href="./6-PEPPOL-EN16931-UBL-italy.inc"/>
+	<include href="OPENPEPPOL/6-PEPPOL-EN16931-UBL-italy.inc"/>
 	
 	<!-- SWEDEN -->
-	<!--<include href="./7-PEPPOL-EN16931-UBL-sweden.inc"/>-->
+	<include href="OPENPEPPOL/7-PEPPOL-EN16931-UBL-sweden.inc"/>
 
 	<!-- Sender Rules -->
-	<!--<include href="./8-PEPPOL-EN16931-UBL-greece-sender.inc"/>-->
+	<include href="OPENPEPPOL/8-PEPPOL-EN16931-UBL-greece-sender.inc"/>
 	
 
 	<!-- Greek Sender and Greek Receiver rules -->
-	<!--<include href="./9-PEPPOL-EN16931-UBL-greece-senderreceiver.inc"/>-->
+	<include href="OPENPEPPOL/9-PEPPOL-EN16931-UBL-greece-senderreceiver.inc"/>
 	
 	<!-- ICELAND -->
-	<include href="./10-PEPPOL-EN16931-UBL-iceland.inc"/>
+	<include href="OPENPEPPOL/10-PEPPOL-EN16931-UBL-iceland.inc"/>
 	
 	<!-- NETHERLANDS -->
-	<include href="./11-PEPPOL-EN16931-UBL-netherlands.inc"/>
+	<include href="OPENPEPPOL/11-PEPPOL-EN16931-UBL-netherlands.inc"/>
 	
 	<!-- Restricted code lists and formatting -->
-	<include href="./12-PEPPOL-EN16931-UBL-codelists.inc"/>
+	<include href="OPENPEPPOL/12-PEPPOL-EN16931-UBL-codelists.inc"/>
 	
 </schema>

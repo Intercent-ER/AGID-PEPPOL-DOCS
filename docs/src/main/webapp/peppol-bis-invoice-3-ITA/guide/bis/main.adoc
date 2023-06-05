@@ -12,7 +12,7 @@ include::_settings.adoc[]
 :sectnums:
 :description: La specifica Peppol per l’interoperabilità nel Business, d’ora in poi “BIS”, è stata sviluppata da OpenPeppolAISBL Post Award Coordinating Community ed è pubblicata come parte delle specifiche PEPPOL.
 :CIUS: Core Invoice Usage Specification (CIUS)
-
+:table-caption: Tabella
 
 
 {name-op-en}

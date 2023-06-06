@@ -165,7 +165,7 @@ Trattasi di CIUS domestica.
 </cac:PartyIdentification>
 ----
 
-#Il campo *cac:PartyLegalEntity/cbc:RegistrationName* può essere usato per indicare il dato FPA 1.2.1.3.1 Denominazione. [lime]#In caso di Fornitore persona fisica#, lo stesso può essere usato per indicare i dati FPA 1.4.1.3.2 Nome e 1.4.1.3.3 Cognome preceduti dalla stringa "Nome#Cognome:" e concatenati dal simbolo ""&#x0023;".#
+#Il campo *cac:PartyLegalEntity/cbc:RegistrationName* può essere usato per indicare il dato FPA 1.2.1.3.1 Denominazione. [lime-background]#In caso di Fornitore persona fisica#, lo stesso può essere usato per indicare i dati FPA 1.4.1.3.2 Nome e 1.4.1.3.3 Cognome preceduti dalla stringa "Nome#Cognome:" e concatenati dal simbolo ""&#x0023;".#
 
 #Il campo *cac:PartyLegalEntity/cbc:CompanyLegalForm* può essere usato per indicare informazioni legali addizionali quali FPA 1.2.4.3 CapitaleSociale, FPA 1.2.4.4 SocioUnico e FPA  1.2.4.5 StatoLiquidazione, concatenando i campi con il simbolo "&#x0023;".#
 
@@ -221,7 +221,7 @@ Trattasi di CIUS domestica
 Il Cliente è la persona fisica, la persona giuridica o l'organizzazione che richiede beni e/o servizi ed è un’informazione obbligatoria in quanto destinatario del documento.
 È quindi obbligatorio includere l’EndpointID. #Il Cliente corrisponde al Cessionario/Committente della fattura ai sensi del DPR n. 633/1972.# +
 
-Il cliente può essere una PA, [lime]#un operatore economico, un cittadino o un soggetto residente, non residente, non stabilito/identificato in Italia.#
+Il cliente può essere una PA, [lime-background]#un operatore economico, un cittadino o un soggetto residente, non residente, non stabilito/identificato in Italia.#
 
 Le informazioni inerenti al cliente vengono fornite nell'elemento 'cac:AccountingCustomerParty'. +
 
@@ -236,7 +236,7 @@ Almeno uno tra Partita IVA e Codice Fiscale deve essere presente
 #Il campo *cac:PartyLegalEntity/cbc:RegistrationName* può essere usato per indicare il dato FPA 1.2.1.3.1 Denominazione. In caso di Fornitore persona fisica, lo stesso può essere usato per indicare i dati FPA 1.2.1.3.2 Nome e 1.2.1.3.3 Cognome preceduti dalla stringa "Nome#Cognome:" e concatenati dal simbolo "&#x0023;".#
 
 
-[lime]#Il Codice EORI può essere espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.#
+[lime-background]#Il Codice EORI può essere espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.#
 
 
 .Esempio UBL per esprimere il codice EORI
@@ -463,7 +463,7 @@ In caso di Stabile Organizzazione in Italia del Cessionario/Committente non resi
 ----
 
 
-= #Vettore (Delivery/CarrierParty)- Estensione#
+= #Vettore (Delivery/CarrierParty) - Estensione#
 
 Il Vettore è la persona giuridica o l'organizzazione che gestisce la consegna/trasporto fisico della spedizione. Utilizzato se il trasporto è effettuato da una terza parte.
 

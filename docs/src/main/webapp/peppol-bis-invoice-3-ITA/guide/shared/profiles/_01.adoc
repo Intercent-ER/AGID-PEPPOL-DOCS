@@ -6,7 +6,6 @@ Nella tabella seguente sono riportati i valori da utilizzare per l’identificat
 
 include::../../syntax/_profile.adoc[]
 
-#Per la fatturazione dall’estero l’identificatore della specifica (BT-24) è riportato nel paragrafo C.1.#
+#Per la fatturazione dall’estero e per la fatturazione domestica (anche ai fini dell’esterometro e dei documenti di integrazione) nella tabella seguente sono riportati i valori da utilizzare per l’identificatore della specifica (BT-24) e per il tipo di processo di business (BT-23).#
 
-#Per la fatturazione domestica e ai fini dell’esterometro e dei documenti di integrazione l’identificatore della specifica (BT-24) è riportato nel paragrafo C.2.#
-
+include::../../syntax/_profilefatt.adoc[]

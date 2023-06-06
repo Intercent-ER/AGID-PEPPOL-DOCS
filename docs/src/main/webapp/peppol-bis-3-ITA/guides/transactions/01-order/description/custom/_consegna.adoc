@@ -141,12 +141,12 @@ Se necessario, il Cliente può richiedere al Fornitore di stampare un testo sull
 [source, xml, indent=0]
 ----
 <cac:Delivery>
-    <cbc:ID>NA</cbc:ID> 
-    <cac:Shipment>
-        <cac:TransportHandlingUnit>
-            <cbc:ShippingMarks>aaaaaaaaaa</cbc:ShippingMarks>
-        </cac:TransportHandlingUnit>
-    </cac:Shipment>
+     <cac:Shipment>
+          <cbc:ID>NA</cbc:ID>
+          <cac:TransportHandlingUnit>
+              <cbc:ShippingMarks>aaaaaaaaaa</cbc:ShippingMarks>
+          </cac:TransportHandlingUnit>
+     </cac:Shipment>
 </cac:Delivery>
 ---- 
 

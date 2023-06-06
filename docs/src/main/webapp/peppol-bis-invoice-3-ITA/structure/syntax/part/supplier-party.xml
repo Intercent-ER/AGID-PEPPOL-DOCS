@@ -266,7 +266,7 @@
                     <Value type="EXAMPLE">Fornitore S.p.A.</Value>
                 </Element>
 
-                <Element cardinality="1..1" agid:custom="cardinality">
+                <Element cardinality="0..1">
                     <Term>cbc:CompanyID</Term>
                     <Name>Seller legal registration identifier - Identificativo di registrazione legale Fornitore - FPA 1.2.1.2 'CodiceFiscale'</Name>
                     <Description>Identificativo rilasciato da un'Agenzia ufficiale che identifica il venditore come entità legale o persona.</Description>
@@ -284,7 +284,7 @@
                         <Name>Seller legal registration identifier identification scheme identifier</Name>
                         <Description>Indica lo scheme identifier dell'identificativo di registrazione legale Fornitore.</Description>
                         <Reference type="CODE_LIST">ICD</Reference>
-                        <Value type="EXAMPLE">0210</Value>
+                        <Value type="FIXED">0210</Value>
                     </Attribute>
                     <Value type="EXAMPLE">01598570354</Value>
                 </Element>

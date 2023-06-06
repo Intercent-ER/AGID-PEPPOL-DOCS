@@ -7,7 +7,9 @@ Si consiglia di consultare anche i <<anchor-17, VAT category codes>> per dettagl
 
 == Informazioni IVA su riga
 
-=== Regole per la fatturazione dall'estero (cross-border)
+Per ogni riga della fattura deve essere indicato il codice della categoria IVA (BT-151 Invoiced item VAT category code), e per tutte le categorie IVA deve essere indicata l'aliquota IVA.
+
+=== #Regole per la fatturazione dall'estero (cross-border)#
 
 Per ogni riga della fattura deve essere indicato il codice della categoria IVA nel *cac:ClassifiedTaxCategory/cbc:ID* (BT-151 Invoiced item VAT category code). +
 Per le categorie IVA è Z, E, G, K e AE il *cac:ClassifiedTaxCategory/cbc:Percent* (BT-152 Invoiced item VAT rate) va posto uguale a 0.
@@ -15,15 +17,15 @@ Per le categorie IVA è Z, E, G, K e AE il *cac:ClassifiedTaxCategory/cbc:Percen
 .Tabella di relazione tra natura e Invoiced item VAT Category Code
 image::../../../images/7.1.1.vatex-table-cross-border.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
 
-=== Regole per la fatturazione domestica
+=== #Regole per la fatturazione domestica#
 
-#Per ogni riga della fattura deve essere indicato il codice della categoria IVA nel *cac:ClassifiedTaxCategory/cbc:ID* (BT-151 Invoiced item VAT category code).#
+Per ogni riga della fattura deve essere indicato il codice della categoria IVA nel *cac:ClassifiedTaxCategory/cbc:ID* (BT-151 Invoiced item VAT category code).
 
-#Per le categorie IVA Z, E, G, K e AE il *cac:ClassifiedTaxCategory/cbc:Percent* (BT-152 Invoiced item VAT rate) va posto uguale a 0.#
+Per le categorie IVA E, G e K il *cac:ClassifiedTaxCategory/cbc:Percent* (BT-152 Invoiced item VAT rate) va posto uguale a 0.
 
-#Per le categorie IVA S e B l’aliquota IVA va inserita nel *cac:ClassifiedTaxCategory/cbc:Percent* (BT-152 Invoiced item VAT rate).#
+Per le categorie IVA S e B l’aliquota IVA va inserita nel *cac:ClassifiedTaxCategory/cbc:Percent* (BT-152 Invoiced item VAT rate).
 
-#La gestione della natura della riga è operata a mezzo dell’utilizzo del *cac:AdditionalItemProperty/cbc:Name* (BT-160) e *cac:AdditionalItemProperty/cbc:Value* (BT-161), valorizzando il cbc:name con la stringa “NATURA” ed il cbc:value con il codice natura secondo le specifiche FatturaPA.#
+La gestione della natura della riga è operata a mezzo dell’utilizzo del *cac:AdditionalItemProperty/cbc:Name* (BT-160) e *cac:AdditionalItemProperty/cbc:Value* (BT-161), valorizzando il cbc:name con la stringa “NATURA” ed il cbc:value con il codice natura secondo le specifiche FatturaPA.
 
 [source, xml, indent=0]
 ----
@@ -57,13 +59,13 @@ image::../../../images/7.1.1.vatex-table-cross-border.png[Vatex table, width=100
 </cac:InvoiceLine>
 ----
 
-=== Indicazioni per la fatturazione verso l'estero
+=== #Indicazioni per la fatturazione verso l'estero#
 
 Per la fatturazione verso l'estero verificare con l'acquirente l'eventuale presenza di CIUS. +
 Per approfondimenti consultare il seguente https://ec.europa.eu/digital-building-blocks/wikis/display/DIGITAL/CIUS+and+Extension+-+What+is+allowed[link].
 
 
-=== Indicazioni per l'esterometro e per i documenti di integrazione
+=== #Indicazioni per l'esterometro e per i documenti di integrazione#
 
 La gestione della natura è analoga a quanto previsto per la fatturazione domestica (vedi paragrafo 7.1.2).
 
@@ -80,7 +82,22 @@ Per le categorie IVA S e B, l’aliquota IVA va inserita nel *cac:ClassifiedTaxC
 
 == Riepiloghi IVA
 
-=== Regole per la fatturazione dall’estero (cross-border)
+Deve essere fornito un solo riepilogo IVA per ogni combinazione distinta di categoria e aliquota IVA sia a livello di riga che negli sconti e maggiorazioni a livello di testata. Per alcune categorie IVA, l’aliquota deve essere posta a zero e quindi non viene utilizzata in questi casi per raggruppare il riepilogo IVA. +
+Per l’aliquota dell’IVA devono essere considerati solo i decimali significativi, ovvero qualsiasi differenza nei decimali non deve determinare differenti riepiloghi IVA.
+
+[IMPORTANT]
+#Non è possibile inserire nella medesima fattura operazioni con il medesimo Tax Category ID (BT-118 VAT category code) e natura differente.#
+
+_Esempio:_
+====
+Riga 1 della fattura ha categoria IVA = S e aliquota IVA = *25,00* +
+Riga 2 della fattura ha categoria IVA = S e aliquota IVA = *25,00* +
+Questo dovrebbe originare un singolo riepilogo IVA.
+====
+
+Per altri dettagli vedi anche il paragrafo <<anchor-11,9.4. Calcolo dell’IVA>>.
+
+=== #Regole per la fatturazione dall’estero (cross-border)#
 
 La gestione della natura dell’operazione (FPA 2.2.2.2 Natura) per le fatture dall’estero è operata a mezzo dell’utilizzo di:
 
@@ -91,15 +108,15 @@ La gestione della natura dell’operazione (FPA 2.2.2.2 Natura) per le fatture d
 image::../../../images/7.3.1.vatex-table-cross-border.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
 
 [IMPORTANT]
-La fattura non può contenere più di un TaxSubtotal.
+La fattura non può contenere più di un TaxSubtotal per la medesima categoria IVA.
 
-=== Regole per la fatturazione domestica
+=== #Regole per la fatturazione domestica#
 
-#La gestione della natura dell'operazione (FPA 2.2.2.2 Natura) per le fatture domestiche è operata a mezzo dell’utilizzo di:# +
+La gestione della natura dell'operazione (FPA 2.2.2.2 Natura) per le fatture domestiche è operata a mezzo dell’utilizzo di: +
 
-1. #*cac:TaxCategory/cbc:ID* (BT-118 VAT category code);#
-2. #*cbc:TaxExemptionReasonCode* (BT-121 VAT exemption reason code);#
-3. #*cbc:TaxExemptionReason* (BT-120 VAT exemption reason text), in cui viene inserita il codice natura secondo le specifiche FatturaPA ed il Riferimento Normativo.#
+1. *cac:TaxCategory/cbc:ID* (BT-118 VAT category code);
+2. *cbc:TaxExemptionReasonCode* (BT-121 VAT exemption reason code);
+3. *cbc:TaxExemptionReason* (BT-120 VAT exemption reason text), in cui viene inserita il codice natura secondo le specifiche FatturaPA ed il Riferimento Normativo.
 
 [NOTE]
 Trattasi di CIUS domestica (DC)
@@ -107,22 +124,6 @@ Trattasi di CIUS domestica (DC)
 
 .Tabella di relazione tra natura, VAT Category Code, VAT exemption reason code e VAT exemption reason text.
 image::../../../images/vatex-table.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
-
-#Deve essere fornito un solo riepilogo IVA per ogni combinazione distinta di categoria e aliquota IVA sia a livello di riga che negli sconti e maggiorazioni a livello di testata. Per alcune categorie IVA, l’aliquota deve essere posta a zero e quindi non viene utilizzata in questi casi per raggruppare il riepilogo IVA.# +
-#Per l’aliquota dell’IVA devono essere considerati solo i decimali significativi, ovvero qualsiasi differenza nei decimali non deve determinare differenti riepiloghi IVA.#
-
-[IMPORTANT]
-#Non è possibile inserire nella medesima fattura operazioni con il medesimo Tax Category ID (BT-118 VAT category code) e natura differente.#
-
-
-_Esempio:_
-====
-Riga 1 della fattura ha categoria IVA = S e aliquota IVA = *25,00* +
-Riga 2 della fattura ha categoria IVA = S e aliquota IVA = *25,00* +
-Questo dovrebbe originare un singolo riepilogo IVA.
-====
-
-Per altri dettagli vedi anche il paragrafo <<anchor-11,9.4. Calcolo dell’IVA>>.
 
 ==== #Caso 1 - natura diversa da N1 – esempio riferito ad un’operazione in regime di reverse charge#
 
@@ -222,12 +223,12 @@ Per altri dettagli vedi anche il paragrafo <<anchor-11,9.4. Calcolo dell’IVA>>
 </cac:InvoiceLine>
 ----
 
-=== Indicazioni per la fatturazione verso l'estero
+=== #Indicazioni per la fatturazione verso l'estero#
 
 Per la fatturazione verso l'estero verificare con l'acquirente l'eventuale presenza di CIUS. +
 Per approfondimenti consultare il seguente https://ec.europa.eu/digital-building-blocks/wikis/display/DIGITAL/CIUS+and+Extension+-+What+is+allowed[link].
 
-=== Indicazioni per l'esterometro e per i documenti di integrazione
+=== #Indicazioni per l'esterometro e per i documenti di integrazione#
 
 La gestione della natura è analoga a quanto previsto per la fatturazione domestica (vedi paragrafo 7.3.2).
 

@@ -61,6 +61,12 @@ A livello di riga +
 A livello di riga +
 `cac:OrderLine/cac:LineItem/cac:Item/cac: ItemSpecificationDocumentReference/ID` (0..n)
 
+|*CATALOGO*
+|Codice di Catalogo
+|In testata si usa +
+`cac:CatalogueReference` (0..1)
+
+
 |====
 
 In caso di riferimento in testata, diverso dal CUP e dal Contratto, l'identificativo del documento deve essere inserito nel campo cbc:ID mentre il Tipo di riferimento deve essere inserito all'interno del campo cbc:DocumentType.  

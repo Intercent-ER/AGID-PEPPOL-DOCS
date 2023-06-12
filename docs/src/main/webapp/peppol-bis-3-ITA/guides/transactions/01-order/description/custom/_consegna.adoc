@@ -151,3 +151,24 @@ Se necessario, il Cliente può richiedere al Fornitore di stampare un testo sull
 ---- 
 
 :leveloffset: -1
+
+
+:leveloffset: +1
+
+
+= Indicazione della priorità della consegna
+
+Il Cliente può indicare al Fornitore il livello di piorità richiesta nell'evasione dell'ordine valorizzando il campo "ShippingPriorityLevelCode" dell'elemento "Shipment", inserendo il relativo codice tra quelli presenti nella codelist "Transport service priority code (UNCL4219)" come mostrato nell'esempio.
+
+.Esempio di indicazione di un ordine urgente (consegna entro 24 ore)
+[source, xml, indent=0]
+----
+<cac:Delivery>
+    <cac:Shipment>
+         <cbc:ID>NA</cbc:ID>
+         <cbc:ShippingPriorityLevelCode>1</cbc:ShippingPriorityLevelCode>
+   </cac:Shipment>
+</cac:Delivery>
+----
+
+:leveloffset: -1

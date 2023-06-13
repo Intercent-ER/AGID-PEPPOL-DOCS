@@ -261,7 +261,7 @@ BT-125 Attached document
 |Value domain for an element - Restrict  text or byte array length
 |BT-147 Item price discount
 |2.2.1.10.3 - Importo
-|La lunghezza dell'elemento non può superare i 20 caratteri
+|La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali.
 
 |BR-IT-430
 |Value domain for an element - Restrict  text or byte array length

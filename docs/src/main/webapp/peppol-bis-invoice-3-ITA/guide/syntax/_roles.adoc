@@ -165,7 +165,7 @@ Trattasi di CIUS domestica.
 </cac:PartyIdentification>
 ----
 
-#Il campo *cac:PartyLegalEntity/cbc:RegistrationName* può essere usato per indicare il dato FPA 1.2.1.3.1 Denominazione.# [lime-background]#In caso di Fornitore persona fisica#, lo stesso può essere usato per indicare i dati FPA 1.4.1.3.2 Nome e 1.4.1.3.3 Cognome preceduti dalla stringa "Nome#Cognome:" e concatenati dal simbolo ""&#x0023;".
+#Il campo *cac:PartyLegalEntity/cbc:RegistrationName* può essere usato per indicare il dato FPA 1.2.1.3.1 Denominazione. In caso di Fornitore persona fisica, lo stesso può essere usato per indicare i dati FPA 1.2.1.3.2 Nome e 1.2.1.3.3 Cognome preceduti dalla stringa "Nome#Cognome:" e concatenati dal simbolo "&#x0023;".#
 
 #Il campo *cac:PartyLegalEntity/cbc:CompanyLegalForm* può essere usato per indicare informazioni legali addizionali quali FPA 1.2.4.3 CapitaleSociale, FPA 1.2.4.4 SocioUnico e FPA  1.2.4.5 StatoLiquidazione, concatenando i campi con il simbolo "&#x0023;".#
 
@@ -233,7 +233,7 @@ Le informazioni inerenti al cliente vengono fornite nell'elemento 'cac:Accountin
 Almeno uno tra Partita IVA e Codice Fiscale deve essere presente
 
 
-#Il campo *cac:PartyLegalEntity/cbc:RegistrationName* può essere usato per indicare il dato FPA 1.2.1.3.1 Denominazione. [lime-background]#In caso di Fornitore persona fisica#, lo stesso può essere usato per indicare i dati FPA 1.4.1.3.2 Nome e 1.4.1.3.3 Cognome preceduti dalla stringa "Nome#Cognome:" e concatenati dal simbolo "&#x0023;".#
+#Il campo *cac:PartyLegalEntity/cbc:RegistrationName* può essere usato per indicare il dato FPA 1.4.1.3.1 Denominazione.# [lime-background]#In caso di Fornitore persona fisica, lo stesso può essere usato per indicare i dati FPA 1.4.1.3.2 Nome e 1.4.1.3.3 Cognome preceduti dalla stringa "Nome#Cognome:" e concatenati dal simbolo "&#x0023;".#
 
 
 [lime-background]#Il Codice EORI può essere espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.#

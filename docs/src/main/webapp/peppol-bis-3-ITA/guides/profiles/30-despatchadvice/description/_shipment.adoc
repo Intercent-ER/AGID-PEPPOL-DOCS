@@ -4,7 +4,9 @@
 Descrizione della spedizione effettiva che contiene la merce che è stata spedita.
 
 [[shipment-id]]
-== ID Spedizione, Vettore, informazioni di trasporto, consegna ed evasione 
+== ID Spedizione, #informazioni di trasporto ed evasione#
+
+#L’identificativo indica una determinata spedizione ed, in particolare, è utilizzato per restituire informazioni sull’esito della stessa all'interno dell’avviso di ricezione. Pertanto, nei casi in cui è applicabile, è obbligatorio valorizzare il campo con un codice identificativo.#
 
 In alcuni usi del Documento di Trasporto, non c’è un unico identificatore assegnato alla spedizione.
 
@@ -16,42 +18,40 @@ Per supportare scenari dove non è disponibile o non è utilizzato l’ID della 
 
 Come parte delle informazioni di spedizione (Shipment) vengono forniti: peso, volume, colli, vettore, tempi di consegna stimati e di effettiva evasione.
 
-NOTA: #Le misure (***Measure) come peso e volume sono obbligatoriamente espresse secondo la codifica link:../../../../../../xml/ITA/peppol-bis-3/codelist/UNECERec20-11e.html[UN/ECE Recommendation 20] e non è richiesto qualificarle con ulteriori attributi.#
+[NOTE]
+#Le misure come peso e volume sono obbligatoriamente espresse secondo unità di misura in base alla codifica link:../../../../../../xml/ITA/peppol-bis-3/codelist/UNECERec20-11e.html[UN/ECE Recommendation 20]. Le codifiche utilizzabili sono quelle correlate ad unità di misura italiane ed evidenziate in azzuro.#
 
 .Esempio:
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/snippet-30-3.xml[tags=shipment]
 ----
-<1> Peso lordo
-<2> Volume lordo
-<3> Nr. Colli, espresso come numero intero (vedi regola IT-T16-R005)
-<4> Identificativo assegnato a questa consegna
-<5> Identificativo Fiscale Vettore
-<6> Ragione Sociale o denominazione del Vettore
-<7> Indirizzo
-<8> Tempi di consegna promessi/stimati
-<9> Data/ora effettiva di evasione
 
+<1> Codice identificativo della spedizione;
+<2> Peso lordo – #informazione obbligatoria ai sensi dell’Art. 1, comma 3 del DPR n. 472/1996;#
+<3> Volume lordo;
+<4> Numero di colli #(da esprimere come numero intero) – informazione obbligatoria ai sensi Art. 1, comma 3 del DPR n. 472/1996;#
+<5> Codice identificativo del trasporto;
+<6> Informazioni sul Vettore, si rimanda al paragrafo 6.1.6 Vettore (CarrierParty);
+<7> Informazioni sulle modalità di spedizione;
+<8> Tempi di consegna stimati;
+<9> Tempi di evasione effettiva;
+<10> Indirizzo di consegna, si rimanda al paragrafo 6.3.2 Luogo di consegna.
+
+
+[[despatchaddress]]
+== #Indirizzo di consegna#
+
+Le informazioni relative al luogo di consegna devono essere indicate all’interno della struttura cac:DespatchAddress in cui è possibile specificare l’indirizzo e la denominazione del luogo di consegna.
 
 Se il luogo di consegna è un indirizzo istituzionale del Cliente a cui è stato associato un identificativo univoco reso disponibile al Fornitore, come avviene nel caso dei luogo di consegna per le PA censiti secondo la codifica https://www.puntidiconsegna-nso.it/[Punti di consegna], è possibile indicare anche tale identificativo, come mostrato nel seguente esempio:
 
-
-.Esempio di consegna al Punto Istituzionale di un Ente:
+.Esempio:
 [source, xml, indent=0]
 ----
-<cac:DespatchAddress>
-	<cac:ID>CF-IdShipTo</cac:ID>
-	<cbc:StreetName>Via Attanasio Soldati 80</cbc:StreetName>
-	<cbc:AdditionalStreetName>Località La Rustica</cbc:AdditionalStreetName>
-	<cbc:CityName>Roma</cbc:CityName>
-	<cbc:PostalZone>00155</cbc:PostalZone>
-	<cbc:CountrySubentity>Lazio</cbc:CountrySubentity>
-	<cac:AddressLine>
-		<cbc:Line>Edificio C, Quarto piano, Stanza 01</cbc:Line>
-	</cac:AddressLine>
-	<cac:Country>
-		<cbc:IdentificationCode>IT</cbc:IdentificationCode>
-	</cac:Country>
-</cac:DespatchAddress>
+include::{snippet-dir}/snippet-30-3.xml[tags=despatchaddress]
 ----
+
+<1> Codice identificativo del luogo di consegna secondo un sistema di codifica conosciuto dalle parti
+<2> Indirizzo del luogo di consegna
+<3> #Denominazione del luogo di consegna#

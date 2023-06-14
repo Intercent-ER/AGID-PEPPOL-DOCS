@@ -14,8 +14,8 @@ Per soddisfare gli scenari in cui non esiste alcun riferimento alla riga dell'or
 #Per riferirsi a un ordine elettronico è necessario riportare gli elementi che lo identificano mediante la concatenazione dei seguenti campi:#
 
 * #ID dell’ordine;#
-* #IssueDate valorizzato con la data dell’ordine;#
-* #EndpointID dell’elemento BuyerCustomerParty dell’ordine;#
+* #IssueDate dell’ordine (nel formato aaaa-mm-gg);#
+* #EndpointID del Cliente dell’ordine (BuyerCustomerParty).#
 
 .Esempio a livello di testata
 [source, xml, indent=0]

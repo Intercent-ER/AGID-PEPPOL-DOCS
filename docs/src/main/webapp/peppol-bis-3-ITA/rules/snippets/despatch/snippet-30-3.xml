@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DespatchAdvice xmlns="urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2"
-	xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
-	xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">
+<DespatchAdvice xmlns="urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">
 	<cbc:CustomizationID>urn:fdc:peppol.eu:poacc:trns:despatch_advice:3</cbc:CustomizationID>
 	<cbc:ProfileID>urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</cbc:ProfileID>
 	<cbc:ID>1234</cbc:ID>
@@ -14,11 +12,11 @@
 	<cac:DespatchSupplierParty>
 		<cac:Party>
 			<cbc:EndpointID schemeID="0211">IT01234567890</cbc:EndpointID>
-                        <!-- tag::partyid-it[] -->
+			<!-- tag::partyid-it[] -->
 			<cac:PartyIdentification>
 				<cbc:ID schemeID="0211">IT01234567890</cbc:ID>
 			</cac:PartyIdentification>
-                        <!-- end::partyid-it[] -->
+			<!-- end::partyid-it[] -->
 			<!-- tag::partyid-se[] -->
 			<cac:PartyIdentification>
 				<cbc:ID schemeID="0007">5541277711</cbc:ID>
@@ -41,7 +39,7 @@
 			<cac:PartyIdentification>
 				<cbc:ID schemeID="0201">ABCDEF</cbc:ID>
 			</cac:PartyIdentification>
-                        <!--cac:PartyName>
+			<!--cac:PartyName>
                                 <cbc:Name>Consegnatario/Cliente</cbc:Name>
                         </cac:PartyName-->
 			<cac:PostalAddress>
@@ -95,7 +93,7 @@
 			<cac:PartyName>
 				<cbc:Name>Venditore p/c Fornitore</cbc:Name>
 			</cac:PartyName>
-                	<cac:PostalAddress>
+			<cac:PostalAddress>
 				<cbc:StreetName>Via Ferrara 300</cbc:StreetName>
 				<cbc:CityName>Milano</cbc:CityName>
 				<cbc:PostalZone>20100</cbc:PostalZone>
@@ -130,27 +128,32 @@
 	<!-- end::originator[] -->
 	<!-- tag::shipment[] -->
 	<cac:Shipment>
-		<cbc:ID>NA</cbc:ID>
+		<cbc:ID>2023-E-01</cbc:ID>
+		<!--1-->
 		<cbc:Information>Informazioni testuali libere relative alla Spedizione</cbc:Information>
-		<!-- Peso lordo, obbligatorio in base all'Art. 21, comma 4 del DPR n. 633/1972 -->
-		<cbc:GrossWeightMeasure unitCode="KGM">23</cbc:GrossWeightMeasure><!--1-->
-		<!-- Volume lordo -->
-		<cbc:GrossVolumeMeasure unitCode="MTQ">27</cbc:GrossVolumeMeasure><!--2-->
-		<!-- Nr. Colli, obbligatorio in base all'Art. 21, comma 4 del DPR n. 633/1972 -->
-		<cbc:TotalTransportHandlingUnitQuantity>3</cbc:TotalTransportHandlingUnitQuantity><!--3-->
-		<!--TRASPORTO, VETTORE-->
+		<cbc:GrossWeightMeasure unitCode="KGM">23</cbc:GrossWeightMeasure>
+		<!--2-->
+		<cbc:GrossVolumeMeasure unitCode="MTQ">27</cbc:GrossVolumeMeasure>
+		<!--3-->
+		<cbc:TotalTransportHandlingUnitQuantity>3</cbc:TotalTransportHandlingUnitQuantity>
+		<!--4-->
 		<cac:Consignment>
-			<cbc:ID>12345</cbc:ID><!--4-->
+			<cbc:ID>12345</cbc:ID>
+			<!--5-->
 			<cac:CarrierParty>
+				<!--6-->
 				<cac:PartyIdentification>
 					<!-- Identificativo Fiscale Vettore -->
-					<cbc:ID schemeID="0211">IT01245267890</cbc:ID><!--5-->
+					<cbc:ID schemeID="0211">IT01245267890</cbc:ID>
+					<!--5-->
 				</cac:PartyIdentification>
 				<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
 				<cac:PartyName>
-					<cbc:Name>Trasportatore S.r.l.</cbc:Name><!--6-->
+					<cbc:Name>Trasportatore S.r.l.</cbc:Name>
+					<!--6-->
 				</cac:PartyName>
-				<cac:PostalAddress><!--7-->
+				<cac:PostalAddress>
+					<!--7-->
 					<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
 					<cbc:StreetName>Via Europa 100</cbc:StreetName>
 					<cbc:AdditionalStreetName>Palazzo A</cbc:AdditionalStreetName>
@@ -166,22 +169,38 @@
 				</cac:PostalAddress>
 			</cac:CarrierParty>
 		</cac:Consignment>
-		<!-- INFORMAZIONI SULLE MODALITA' DELLA SPEDIZIONE -->
 		<cac:ShipmentStage>
 			<cbc:TransportModeCode>2</cbc:TransportModeCode>
-		</cac:ShipmentStage>	
-		<!-- TEMPI DI CONSEGNA PROMESSI/STIMATI -->
-		<cac:Delivery><!--8-->
+		</cac:ShipmentStage>
+		<cac:Delivery>
 			<cac:EstimatedDeliveryPeriod>
-				<cbc:StartDate>2013-03-15</cbc:StartDate>
+				<cbc:StartDate>2023-03-15</cbc:StartDate>
 				<cbc:StartTime>08:00:00</cbc:StartTime>
-				<cbc:EndDate>2013-03-16</cbc:EndDate>
+				<cbc:EndDate>2023-03-16</cbc:EndDate>
 				<cbc:EndTime>12:00:00</cbc:EndTime>
 			</cac:EstimatedDeliveryPeriod>
-			<!-- DATA/ORA EVASIONE EFFETTIVA -->
-			<cac:Despatch><!--9-->
-				<cbc:ActualDespatchDate>2013-03-13</cbc:ActualDespatchDate>
+			<cac:Despatch>
+				<cbc:ActualDespatchDate>2023-03-15</cbc:ActualDespatchDate>
 				<cbc:ActualDespatchTime>08:00:00</cbc:ActualDespatchTime>
+				<cbc:DespatchAddress>
+					<cac:DespatchAddress>
+						<cac:ID>02483810392-CEC095</cac:ID>
+						<!--1-->
+						<cbc:StreetName>Viale I Maggio 280</cbc:StreetName>
+						<!--2-->
+						<cbc:AdditionalStreetName>Frazione Pievesestina</cbc:AdditionalStreetName>
+						<cbc:CityName>Cesena</cbc:CityName>
+						<cbc:PostalZone>47522</cbc:PostalZone>
+						<cbc:CountrySubentity>FC</cbc:CountrySubentity>
+						<cac:AddressLine>
+							<cbc:Line>Magazzino Unico AUSL</cbc:Line>
+							<!--3-->
+						</cac:AddressLine>
+						<cac:Country>
+							<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+						</cac:Country>
+					</cac:DespatchAddress>
+				</cbc:DespatchAddress>
 			</cac:Despatch>
 		</cac:Delivery>
 	</cac:Shipment>
@@ -189,7 +208,7 @@
 	<cac:DespatchLine>
 		<cbc:ID>1</cbc:ID>
 		<cbc:DeliveredQuantity unitCode="EA">10</cbc:DeliveredQuantity>
-                <!-- tag::ref-orderlinemulti[] -->
+		<!-- tag::ref-orderlinemulti[] -->
 		<cac:OrderLineReference>
 			<cbc:LineID>5</cbc:LineID>
 			<cac:OrderReference>
@@ -202,7 +221,7 @@
 				<cbc:ID>456#2013-01-30#ABCDEF</cbc:ID>
 			</cac:OrderReference>
 		</cac:OrderLineReference>
-                <!-- end::ref-orderlinemulti[] -->
+		<!-- end::ref-orderlinemulti[] -->
 		<cac:Item>
 			<cbc:Name>Item123</cbc:Name>
 			<cac:SellersItemIdentification>
@@ -252,15 +271,20 @@
 			<!-- end::transporthandling[] -->
 		</cac:Shipment>
 	</cac:DespatchLine>
-        <!-- tag::antiblastici[] -->
+	<!-- tag::antiblastici[] -->
 	<cac:DespatchLine>
 		<cac:Item>
 			<cac:HazardousItem>
-				<cbc:ID>3249</cbc:ID><!--1-->
-				<cbc:UNDGCode>ADR</cbc:UNDGCode><!--2-->
-				<cbc:TechnicalName>Medicine, solid, toxic, n.o.s</cbc:TechnicalName><!--3-->
-				<cbc:CategoryName>ANTIBLASTICI</cbc:CategoryName><!--4-->
-				<cbc:HazardClassID>6.1</cbc:HazardClassID><!--5-->
+				<cbc:ID>3249</cbc:ID>
+				<!--1-->
+				<cbc:UNDGCode>ADR</cbc:UNDGCode>
+				<!--2-->
+				<cbc:TechnicalName>Medicine, solid, toxic, n.o.s</cbc:TechnicalName>
+				<!--3-->
+				<cbc:CategoryName>ANTIBLASTICI</cbc:CategoryName>
+				<!--4-->
+				<cbc:HazardClassID>6.1</cbc:HazardClassID>
+				<!--5-->
 			</cac:HazardousItem>
 		</cac:Item>
 		<cac:Shipment>
@@ -270,5 +294,5 @@
 			</cac:TransportHandlingUnit>
 		</cac:Shipment>
 	</cac:DespatchLine>
-        <!-- end::antiblastici[] -->
+	<!-- end::antiblastici[] -->
 </DespatchAdvice>

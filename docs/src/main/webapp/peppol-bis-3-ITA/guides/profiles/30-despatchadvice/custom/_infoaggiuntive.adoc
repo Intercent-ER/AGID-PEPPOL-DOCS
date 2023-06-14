@@ -8,11 +8,11 @@ Per fornire informazioni aggiuntive come gli omaggi e gli sconti nelle righe del
 ----
 <cbc:DespatchLine>
 	<cbc:ID>3</cbc:ID>
-	<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
+	<!-- Obbligatorio: Art. 1, comma 3 del DPR n. 472/1996 -->
 	<cbc:DeliveredQuantity unitCode="SR">20</cbc:DeliveredQuantity>
 	…
 	<cac:Item>
-		<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
+		<!-- Obbligatorio: Art. 1, comma 3 del DPR n. 472/1996 -->
 		<cbc:Name>Striscie per glucosio</cbc:Name>
 		<cbc:AdditionalInformation>OMAGGIO</cbc: AdditionalInformation>
 	</cac:Item>
@@ -25,11 +25,11 @@ Per fornire informazioni aggiuntive come gli omaggi e gli sconti nelle righe del
 ----
 <cbc:DespatchLine>
 	<cbc:ID>3</cbc:ID>
-	<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
+	<!-- Obbligatorio: Art. 1, comma 3 del DPR n. 472/1996 -->
 	<cbc:DeliveredQuantity unitCode="SR">20</cbc:DeliveredQuantity>
 	…
 	<cac:Item>
-		<!-- Obbligatorio: Art. 21, comma 4 del DPR n. 633/1972 -->
+		<!-- Obbligatorio: Art. 1, comma 3 del DPR n. 472/1996 -->
 		<cbc:Name>Striscie per glucosio</cbc:Name>
 		<cbc:AdditionalInformation>SCONTO MERCE</cbc: AdditionalInformation>
 	</cac:Item>

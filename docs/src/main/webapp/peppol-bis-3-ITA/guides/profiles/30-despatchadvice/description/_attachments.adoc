@@ -1,5 +1,5 @@
 [[attachements]]
-= Allegati
+= #Allegati#
 
 I documenti non-XML possono essere inviati come allegato al DDT Peppol. Questi potrebbero essere disegni o resoconti di ore lavorate o altri documenti rilevanti per il DDT. L’allegato può essere inviato come oggetto binario codificato in Base64, incorporato nel message o come URI ad un indirizzo esterno.
 

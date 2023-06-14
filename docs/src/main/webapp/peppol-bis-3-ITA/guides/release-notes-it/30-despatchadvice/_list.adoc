@@ -6,6 +6,40 @@
 ^.^| Data
 ^.^| Cosa è cambiato
 
+| 3.0.0.5(IT)
+a| 16/12/2022
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2022-Q4/release-notes/[Peppol BIS 3.0.11 - May release 2023]_. +
+
+In vigore a partire dal 07 agosto 2023 *
+
+[red]#Cambiamenti alla specifica (Documentazione)#
+
+* Eliminata l’indicazione del “Last updated” nel piè di pagina;
+* Aggiornati gli esempi in funzione delle modifiche alla sintassi.
+
+[red]#Cambiamenti alla sintassi#
+
+* Aggiunto cbc:SalesOrderLineID - Identificativo linea d’ordine di vendita come campo opzionale a livello di riga di DDT;
+* Aggiunto cac:CommodityClassification – Classificazione prodotto come struttura opzionale a livello di riga di DDT;
+* Aggiunta cac:AdditionalDocumentReference – Documenti addizionali come struttura opzionale a livello di testata. Aggiunta cac:DocumentiReference – Riferimento a documento addizionale come struttura a livello di riga;
+* Aggiunta cac:ShipmentStage – Informazioni sullo stato della spedizione come struttura opzionale a livello di testata. Il relativo campo cbc:TransportModeCode – Modalità di trasporto è opzionale e valorizzabile tramite codelist UN/ECE Recommendation 19;
+* Recepita la richiesta della Peppol Authority italiana di inserire la struttura cac:PartyIdentification del Vettore (cac:CarrierParty), che ora non risulta più un’estensione della sintassi italiana;
+* Recepita la richiesta della Peppol Authority italiana di rendere obbligatorio il campo cbc:DeliveredQuantity della struttura cac:DespatchLine.
+
+[red]#Cambiamenti alle code lists e artefatti di validazione#
+
+* Modificata da “warning” a “fatal” la severità della regola PEPPOL-COMMON-R049 (ICD 0007) per la validazione del formato della “Swedish organisation number”, come annunciato nella May Release 2022;
+* Corretta la regola PEPPOL-COMMON-R050 per la validazione del “Australian Business Number (ABN)”;
+* Aggiunto il codice statunitense 9959 alla codifica EAS. Rimossi i codici italiani 9906 e 9907 dalla stessa codifica. Adeguati gli artefatti di validazione;
+* Aggiunti i codici 0217 (Paesi Bassi), 0218, 0219 e 0220 (Lettonia) alla codifica ICD e adeguati gli artefatti di validazione.
+
+
+
+
+
+
+
+
 | 3.1.0.1(IT)
 a| 16/12/2022
 a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2022-Q4/release-notes/[Peppol BIS 3.0.10 - November release 2022]_. +

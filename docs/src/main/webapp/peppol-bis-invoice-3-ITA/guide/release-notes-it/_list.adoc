@@ -6,6 +6,28 @@
 ^.^| Data
 ^.^| Cosa è cambiato
 
+| 3.0.15.1(IT)
+a| 15/06/2023
+a| Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/2023-Q2/release-notes/[PEPPOL BIS 3.0.11 - May release 2023]_. +
+
+In vigore a partire dal 07 agosto 2023 
+
+[red]#Cambiamenti alle code lists e artefatti di validazione# +
+
+* Modificata da “warning” a “fatal” la severità della regola PEPPOL-COMMON-R050 per la validazione dell’Australian Business Number (ABN);
+* Aggiunti i codici 0221 (Giappone) e 0230 (Malesia) alla codifica EAS. Rimosso il codice svedese 9955 dalla stessa codifica;
+* Aggiunti i codici 0221 (Giappone), 0222, 0223 (Francia), 0224 (Francia), 0225 (Francia), 0226 (Francia), 0227 (Francia), 0228 (Francia), 0229 (Francia), 0230 (Malesia) alla codifica ICD;
+* Aggiunto il codice EMD nella codelist Item type identification code (UNCL7143) per indicare l’identificativo del Dispositivo Medico secondo l’European Medical Device Nomenclature (EMDN). 
+* Corrette specifiche regole di business derivanti dagli aggiornamenti della EN16931 e relativi schematron (per ulteriori informazioni si rimanda al link: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.10).
+
+[red]#Cambiamenti alle regole specifiche per Paese# +
+
+* Rimosse le regole GR-R-007-1, GR-R-007-2 e GR-R-007-3;
+* Aggiornato il contesto di applicazione delle regole GR-R-004-1 e GR-R-004-2 che non si applicano più quando il Rappresentante Fiscale è greco;
+* Aggiunta la regola GR-R-011 che rende obbligatorio il Codice Fiscale per il Fornitore greco;
+* Rinominata la regola GR-R-011 in GR-S-011 e modificata da “fatal” a “warning” la severità. 
+
+
 | 3.0.14.2(IT)
 a| 13/06/2023
 a| La presente specifica implementa la versione aggiornata delle Regole tecniche dell’Agenzia delle Entrate relative alla gestione delle fatture europee - versione 2.3 pubblicate il 15/05/2023, in relazione al Provvedimento 99370 pubblicato il 18/04/2019. 

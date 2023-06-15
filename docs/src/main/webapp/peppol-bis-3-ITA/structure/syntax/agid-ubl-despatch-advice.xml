@@ -131,7 +131,7 @@
         </Element>
         <Element>
             <Term>cac:DespatchSupplierParty</Term>
-            <Name>Speditore</Name>
+            <Name>Despatching party information - Speditore</Name>
             <Description>Lo Speditore è la persona o organizzazione che spedisce la merce o eroga i servizi. Questo ruolo viene ricoperto dal fornitore o per suo conto. (Lo Speditore è anche detto Mittente).</Description>
             <Element>
                 <Term>cac:Party</Term>
@@ -154,24 +154,24 @@
                     </Attribute>
                     <Value type="EXAMPLE">IT01234567890</Value>
                 </Element>
-                <Element cardinality="0..1">
+                <Element agid:custom="cardinality">
                     <Term>cac:PartyIdentification</Term>
-                  	<Name>Party identification - Ulteriori indicazioni sullo Speditore</Name>
+                  	<Name>Party identification - Identificazione del soggetto Speditore</Name>
                     <Element>
                         <Term>cbc:ID</Term>
                         <Name>Despatching party identification - Identificativo dello Speditore</Name>
-            						<Description>Ulteriore identificativo relativo allo Speditore.</Description>
+            						<Description>Identificativo IVA relativo allo Speditore</Description>
                         <DataType>Identifier</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p001</Reference>
                         <Attribute usage="optional">
                             <Term>schemeID</Term>
                             <Name>Scheme identifier</Name>
-              							<Description>Scheme identifier dell'identificativo del Cliente</Description>
+              							<Description>Scheme identifier dell'identificativo dello Speditore</Description>
                             <Reference type="CODE_LIST">ICD</Reference>
                             <Reference type="RULE">IT-T16-R002</Reference>
-                            <Value type="EXAMPLE">0202</Value>
+                            <Value type="EXAMPLE">0211</Value>
                         </Attribute>
-                        <Value type="EXAMPLE">nome.cognome@pec.it</Value>
+                        <Value type="EXAMPLE">IT01234567890</Value>
                     </Element>
                 </Element>
                 <Element agid:custom="cardinality">
@@ -189,9 +189,10 @@
                     <Element cardinality="0..1">
                         <Term>cbc:AdditionalStreetName</Term>
                         <Name>Address line 2 - Informazioni addizionali indirizzo</Name>
-            						<Description>Informazioni addizionali indirizzo.</Description>
+            						<Description>Informazioni addizionali indirizzo.</Description>						
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p013</Reference>
+						<Value type="EXAMPLE">Palazzo C</Value>
                     </Element>
                     <Element agid:custom="cardinality">
                         <Term>cbc:CityName</Term>
@@ -200,6 +201,7 @@
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p014</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
+						<Value type="EXAMPLE">Bologna</Value>
                     </Element>
                     <Element agid:custom="cardinality">
                         <Term>cbc:PostalZone</Term>
@@ -208,6 +210,7 @@
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p015</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
+						<Value type="EXAMPLE">40121</Value>
                     </Element>
                     <Element agid:custom="cardinality">
                         <Term>cbc:CountrySubentity</Term>
@@ -216,6 +219,7 @@
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p016</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
+						<Value type="EXAMPLE">BO</Value>
                     </Element>
                     <Element cardinality="0..1">
                         <Term>cac:AddressLine</Term>
@@ -226,7 +230,7 @@
                           	<Description>Ulteriori informazioni indirizzo</Description>
                             <DataType>Text</DataType>
                             <Reference type="BUSINESS_TERM">tir16-p017</Reference>
-                            <Value type="EXAMPLE">Ingresso 34</Value>
+                            <Value type="EXAMPLE">Citofono 124</Value>
                         </Element>
                     </Element>
                     <Element>
@@ -245,7 +249,7 @@
                 </Element>
                 <Element>
                     <Term>cac:PartyLegalEntity</Term>
-                    <Name>Dispatching party legal information - Informazioni legali del Cliente</Name>
+                    <Name>Dispatching party legal information - Informazioni legali dello Speditore</Name>
                     <Element>
                         <Term>cbc:RegistrationName</Term>
                         <Name>Dispatching party name- Denominazione legale dello Speditore.</Name>
@@ -253,6 +257,7 @@
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-007</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
+						<Value type="EXAMPLE">Speditore S.p.A.</Value>
                     </Element>
                 </Element>
                 <Element cardinality="0..1">
@@ -284,8 +289,8 @@
         </Element>
         <Element>
             <Term>cac:DeliveryCustomerParty</Term>
-            <Name>Consegnatario</Name>
-            <Description>Il consegnatario è la persona o organizzazione alla quale i prodotti saranno spediti e che ne prenderà il possesso. Questo ruolo viene ricoperto dal cliente o per suo conto. (Il Consegnatario è anche detto Destinatario).</Description>
+            <Name>Consignee information - Consegnatario</Name>
+            <Description>Il Consegnatario è la persona giuridica o l’organizzazione che riceve beni e/o servizi oggetto dell’ordine. Questo ruolo viene ricoperto dal cliente o per suo conto. (Il Consegnatario è anche detto Destinatario)</Description>
             <Element>
                 <Term>cac:Party</Term>
                 <Name>Party information - Informazioni della parte</Name>
@@ -307,13 +312,13 @@
                     </Attribute>
                     <Value type="EXAMPLE">ABCDEF</Value>
                 </Element>
-                <Element cardinality="0..1">
+                <Element agid:custom="cardinality">
                     <Term>cac:PartyIdentification</Term>
-                    <Name>Party identification - Ulteriori indicazioni sul Cliente</Name>
+                    <Name>Party identification - Identificazione del soggetto Consegnatario</Name>
                     <Element>
                         <Term>cbc:ID</Term>
                         <Name>Consignee party identifier - Identificativo del Consegnatario</Name>
-            						<Description>Ulteriore identificativo relativo al Consegnatario.</Description>
+            						<Description>Codice Fiscale relativo al Consegnatario, o altro identificativo del soggetto</Description>
                         <DataType>Identifier</DataType>
                         <Reference type="BUSINESS_TERM">tir16-015</Reference>
                         <Attribute usage="optional">
@@ -321,9 +326,9 @@
                             <Name>Scheme identifier</Name>
               							<Description>Scheme identifier dell'identificativo del Consegnatario</Description>
                             <Reference type="CODE_LIST">ICD</Reference>
-                            <Value type="EXAMPLE">0201</Value>
+                            <Value type="EXAMPLE">0210</Value>
                         </Attribute>
-                        <Value type="EXAMPLE">ABCDEF</Value>
+                        <Value type="EXAMPLE">02483810392</Value>
                     </Element>
                 </Element>
                 <Element agid:custom="cardinality">
@@ -333,10 +338,11 @@
                     <Element agid:custom="cardinality">
                         <Term>cbc:StreetName</Term>
                         <Name>Address line 1 - Indirizzo</Name>
-            						<Description>Strada, via, piazza ecc. e numero civico</Description>
+            						<Description>Via Antonio Gramsci 6</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-018</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
+						<Value type="EXAMPLE">Via del Pozzo 71/A</Value>
                     </Element>
                     <Element cardinality="0..1">
                         <Term>cbc:AdditionalStreetName</Term>
@@ -344,6 +350,7 @@
                         <Description>Informazioni addizionali indirizzo.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-019</Reference>
+						<Value type="EXAMPLE">Località Ponte Alto</Value>
                     </Element>
                     <Element agid:custom="cardinality">
                         <Term>cbc:CityName</Term>
@@ -352,6 +359,7 @@
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-020</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
+						<Value type="EXAMPLE">Modena</Value>
                     </Element>
                     <Element agid:custom="cardinality">
                         <Term>cbc:PostalZone</Term>
@@ -359,6 +367,7 @@
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-021</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
+						<Value type="EXAMPLE">40124</Value>
                     </Element>
                     <Element agid:custom="cardinality">
                         <Term>cbc:CountrySubentity</Term>
@@ -367,6 +376,7 @@
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-022</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
+						<Value type="EXAMPLE">MO</Value>
                     </Element>
                     <Element cardinality="0..1">
                         <Term>cac:AddressLine</Term>
@@ -377,7 +387,7 @@
                           <Description>Ulteriori informazioni indirizzo</Description>
                           <DataType>Text</DataType>
                           <Reference type="BUSINESS_TERM">tir01-p003</Reference>
-                          <Value type="EXAMPLE">Ingresso 34</Value>
+                          <Value type="EXAMPLE">Citofono 124</Value>
                         </Element>
                     </Element>
                     <Element>
@@ -404,7 +414,7 @@
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-014</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
-                        <Value type="EXAMPLE">Consegnatario S.r.l. AS</Value>
+                        <Value type="EXAMPLE">Azienda Consegnataria</Value>
                     </Element>
                 </Element>
             </Element>
@@ -437,20 +447,20 @@
                 </Element>
             </Element>
         </Element>
-        <Element cardinality="0..1">
+        <Element agid:custom="cardinality">
             <Term>cac:BuyerCustomerParty</Term>
-            <Name>Acquirente</Name>
+            <Name>Buyer - Acquirente</Name>
             <Description>L’acquirente è la persona giuridica che acquista la merce o i servizi. Questo ruolo viene ricoperto dal Cliente o per suo conto.</Description>
             <Element>
                 <Term>cac:Party</Term>
                 <Name>Party information - Informazioni della parte</Name>
-                <Element cardinality="0..1">
+                <Element agid:custom="cardinality">
                     <Term>cac:PartyIdentification</Term>
-                    <Name>Party identification - Identificativo parte</Name>
+                    <Name>Party identification - Identificazione del soggetto Acquirente</Name>
                     <Element>
                         <Term>cbc:ID</Term>
                         <Name>Buying party - Identificativo Acquirente</Name>
-              					<Description>Informazioni sull'identificativo dell'Acquirente.</Description>
+              					<Description>Codice Fiscale relativo all'Acquirente, o altro identificativo del soggetto</Description>
                         <DataType>Identifier</DataType>
                         <Reference type="BUSINESS_TERM">tir16-030</Reference>
                         <Attribute usage="optional">
@@ -458,9 +468,9 @@
                             <Name>Scheme identifier</Name>
               							<Description>Indica lo scheme identifier dell'identificativo dell'Acquirente.</Description>
                             <Reference type="CODE_LIST">ICD</Reference>
-                            <Value type="EXAMPLE">0201</Value>
+                            <Value type="EXAMPLE">0210</Value>
                         </Attribute>
-                        <Value type="EXAMPLE">IT01234567890</Value>
+                        <Value type="EXAMPLE">02483810392</Value>
                     </Element>
                 </Element>
                 <Element agid:custom="cardinality">
@@ -468,11 +478,12 @@
                     <Name>Party name - Denominazione parte</Name>
                     <Element>
                         <Term>cbc:Name</Term>
-                        <Name>Buying party name - Denominazione parte</Name>
-              					<Description>Denominazione parte</Description>
+                        <Name>Buying party name - Denominazione legale dell'Acquirente</Name>
+              					<Description>Indica la denominazione legale dell'Acquirente</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-029</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
+						<Value type="EXAMPLE">Azienda Acquirente</Value>
                     </Element>
                 </Element>
                 <Element agid:custom="cardinality">
@@ -486,6 +497,7 @@
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p025</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
+						<Value type="EXAMPLE">Via del Pozzo 71/A</Value>
                     </Element>
                     <Element cardinality="0..1">
                         <Term>cbc:AdditionalStreetName</Term>
@@ -493,6 +505,7 @@
             						<Description>Informazioni addizionali indirizzo.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p026</Reference>
+						<Value type="EXAMPLE">Località Ponte Alto</Value>
                     </Element>
                     <Element agid:custom="cardinality">
                         <Term>cbc:CityName</Term>
@@ -501,6 +514,7 @@
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p027</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
+						<Value type="EXAMPLE">Modena</Value>
                     </Element>
                     <Element agid:custom="cardinality">
                         <Term>cbc:PostalZone</Term>
@@ -509,6 +523,7 @@
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p028</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
+						<Value type="EXAMPLE">40124</Value>
                     </Element>
                     <Element agid:custom="cardinality">
                         <Term>cbc:CountrySubentity</Term>
@@ -517,6 +532,7 @@
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p029</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
+						<Value type="EXAMPLE">MO</Value>
                     </Element>
                     <Element cardinality="0..1">
                         <Term>cac:AddressLine</Term>
@@ -527,7 +543,7 @@
             							<Description>Ulteriori informazioni indirizzo.</Description>
                             <DataType>Text</DataType>
                             <Reference type="BUSINESS_TERM">tir16-p030</Reference>
-                            <Value type="EXAMPLE">Ingresso 34</Value>
+                            <Value type="EXAMPLE">Citofono 124</Value>
                         </Element>
                     </Element>
                     <Element>
@@ -546,16 +562,16 @@
                 </Element>
             </Element>
         </Element>
-        <Element cardinality="0..1">
+        <Element agid:custom="cardinality">
             <Term>cac:SellerSupplierParty</Term>
-            <Name>Venditore</Name>
+            <Name>Seller - Venditore</Name>
             <Description>Il Venditore è la persona giuridica che vende la merce o i servizi al cliente. Questo ruolo viene ricoperto dal Fornitore o per suo conto.</Description>
             <Element>
                 <Term>cac:Party</Term>
                 <Name>Party information - Informazioni della parte</Name>
-                <Element cardinality="0..1">
+                <Element agid:custom="cardinality">
                     <Term>cac:PartyIdentification</Term>
-                    <Name>Party identification - Identificativo parte</Name>
+                    <Name>Party identification - Identificazione del soggetto Venditore</Name>
                     <Element>
                         <Term>cbc:ID</Term>
                         <Name>Selling party identifier - Identificativo del Venditore</Name>

@@ -99,9 +99,9 @@
         <cac:Delivery>
             <cac:PromisedDeliveryPeriod>
                 <cbc:StartDate>2018-07-15</cbc:StartDate>
-				<cbc:StartTime>12:10:33</cbc:StartTime> 
+                <cbc:StartTime>12:10:33</cbc:StartTime> 
                 <cbc:EndDate>2018-07-15</cbc:EndDate>
-				<cbc:EndTime>14:20:00</cbc:EndTime> 
+                <cbc:EndTime>14:20:00</cbc:EndTime> 
             </cac:PromisedDeliveryPeriod>
         </cac:Delivery>
         <cac:Item>
@@ -134,9 +134,9 @@ Per la stessa riga dell’ordine quindi, aggiungiamo una ulteriore modifica dell
         <cac:Delivery>
             <cac:PromisedDeliveryPeriod>
                 <cbc:StartDate>2018-08-15</cbc:StartDate>
-				<cbc:StartTime>12:10:33</cbc:StartTime>
+                <cbc:StartTime>12:10:33</cbc:StartTime>
                 <cbc:EndDate>2018-08-15</cbc:EndDate>
-				<cbc:EndTime>14:20:00</cbc:EndTime> 
+                <cbc:EndTime>14:20:00</cbc:EndTime> 
             </cac:PromisedDeliveryPeriod>
         </cac:Delivery>
         <cac:Item>
@@ -221,9 +221,9 @@ L’effetto delle due righe di risposta d’ordine di cui sopra dovrebbe essere 
         <cac:Delivery>
             <cac:PromisedDeliveryPeriod>
                 <cbc:StartDate>2018-06-30</cbc:StartDate>
-				<cbc:StartTime>12:10:33</cbc:StartTime>
+                <cbc:StartTime>12:10:33</cbc:StartTime>
                 <cbc:EndDate>2018-06-30</cbc:EndDate
-				<cbc:EndTime>14:20:00</cbc:EndTime>				
+                <cbc:EndTime>14:20:00</cbc:EndTime>				
             </cac:PromisedDeliveryPeriod>
         </cac:Delivery>
         <cac:Price>

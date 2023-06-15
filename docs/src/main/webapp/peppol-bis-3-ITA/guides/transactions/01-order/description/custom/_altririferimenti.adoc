@@ -1,7 +1,7 @@
 [[altri-riferimenti]]
 = #Altri riferimenti#
 
-Per fornire gli estremi di CUP, DDT, IMPEGNO, DELIBERA, CONTRATTO e CONVENZIONE vedasi tabella.
+Per fornire gli estremi di CUP, DDT, IMPEGNO, DELIBERA, CONTRATTO, CONVENZIONE e CATALOGO vedasi tabella.
 
 
 [cols="1,2,7", options="header"]

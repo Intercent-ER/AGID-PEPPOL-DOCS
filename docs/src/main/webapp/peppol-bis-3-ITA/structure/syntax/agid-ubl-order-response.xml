@@ -4,7 +4,7 @@
 	<Term>OrderResponse</Term>
 	<agid:Restriction>
 		<agid:ID>urn:www.ubl-italia.org:spec:ordine:ver3.1</agid:ID>
-		<agid:Name>Risposta all'Ordine Peppol 3.1.0.1</agid:Name>
+		<agid:Name>Risposta all'Ordine Peppol 3.2.0.1</agid:Name>
 		<agid:Version>3.1</agid:Version>
 	</agid:Restriction>
 
@@ -240,13 +240,6 @@
 					<Value type="EXAMPLE">2018-06-01</Value>
 				</Element>
 				<Element cardinality="0..1">
-					<Term>cbc:StartTime</Term>
-					<Name>Period start time - Ora di inizio</Name>
-					<Description>Indica l'orario in cui deve avere inizio la fornitura, nel formato oo:mm:ss</Description>
-					<Reference type="BUSINESS_TERM">tir76-p010</Reference>
-					<Value type="EXAMPLE">12:10:33</Value>
-				</Element>
-				<Element cardinality="0..1">
 					<Term>cbc:EndDate</Term>
 					<Name>Period end date - Data di fine</Name>
 					<Description>Indica la data entro cui deve terminare la fornitura, nel formato aaaa-mm-gg.</Description>
@@ -254,13 +247,6 @@
 					<Reference type="BUSINESS_TERM">tir76-100</Reference>
 					<Reference type="RULE">PEPPOL-T76-R004</Reference>
 					<Value type="EXAMPLE">2018-06-30</Value>
-				</Element>
-				<Element cardinality="0..1">
-					<Term>cbc:EndTime</Term>
-					<Name>Period end time - Ora di fine</Name>
-					<Description>Indica l'orario in cui deve terminare la fornitura, nel formato oo:mm:ss</Description>
-					<Reference type="BUSINESS_TERM">tir76-p011</Reference>
-					<Value type="EXAMPLE">14:20:00</Value>
 				</Element>
 			</Element>
 		</Element>
@@ -338,6 +324,20 @@
 							<Value type="EXAMPLE">2018-05-28</Value>
 						</Element>
 						<Element cardinality="0..1">
+							<Term>cbc:EndTime</Term>
+							<Name>Period end time - Ora di fine</Name>
+							<Description>Indica l'orario in cui deve terminare la fornitura, nel formato oo:mm:ss</Description>
+							<Reference type="BUSINESS_TERM">tir76-p011</Reference>
+							<Value type="EXAMPLE">14:20:00</Value>
+						</Element>
+						<Element cardinality="0..1">
+							<Term>cbc:StartTime</Term>
+							<Name>Period start time - Ora di inizio</Name>
+							<Description>Indica l'orario in cui deve avere inizio la fornitura, nel formato oo:mm:ss</Description>
+							<Reference type="BUSINESS_TERM">tir76-p010</Reference>
+							<Value type="EXAMPLE">12:10:33</Value>
+						</Element>
+						<Element cardinality="0..1">
 							<Term>cbc:EndDate</Term>
 							<Name>Period end date - Data di fine</Name>
 							<Description>Indica la data entro cui deve terminare la fornitura, nel formatto aaaa-mm-gg.</Description>
@@ -347,6 +347,7 @@
 							<Value type="EXAMPLE">2018-05-29</Value>
 						</Element>
 					</Element>
+						
 				</Element>
 				<Element cardinality="0..1">
 					<Term>cac:Price</Term>

@@ -4,14 +4,22 @@
 	<Term>Order</Term>
 	<agid:Restriction>
 		<agid:ID>urn:www.ubl-italia.org:spec:ordine:ver3.1</agid:ID>
-		<agid:Name>Ordine Peppol 3.3.0.1</agid:Name>
+		<agid:Name>Ordine Peppol 3.4.0.1</agid:Name>
 		<agid:Version>3.2</agid:Version>
 	</agid:Restriction>
+
+
 	<Property key="sch:prefix">PEPPOL-T01</Property>
 	<Property key="sch:identifier">T01-basic</Property>
+
+
 	<Namespace prefix="ubl">urn:oasis:names:specification:ubl:schema:xsd:Order-2</Namespace>
-	<Namespace prefix="cac">urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"</Namespace>
-	<Namespace prefix="cbc">urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2</Namespace>
+	<Namespace prefix="cac"
+		>urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"</Namespace>
+	<Namespace prefix="cbc"
+		>urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2</Namespace>
+
+
 	<Document>
 		<Term>ubl:Order</Term>
 		<Element>
@@ -143,17 +151,17 @@
 				<Description>Contiene gli estremi del Documento, precedentemente emesso, a cui fa riferimento il presente Ordine ed il suo nuovo stato ("Connected", “Revised”, "Invoice", etc.).</Description>
 				<DataType>Document reference</DataType>
 				<Reference type="BUSINESS_TERM">tir01-011</Reference>
-				<Reference type="RULE">NSO0000</Reference>
-				<Reference type="RULE">NSO_040</Reference>
-				<Reference type="RULE">NSO_041</Reference>
-				<Reference type="RULE">NSO_042</Reference>
-				<Reference type="RULE">NSO_043</Reference>
-				<Reference type="RULE">NSO_044</Reference>
-				<Reference type="RULE">NSO_045</Reference>
+                                <Reference type="RULE">NSO0000</Reference>
+                                <Reference type="RULE">NSO_040</Reference>
+                                <Reference type="RULE">NSO_041</Reference>
+                                <Reference type="RULE">NSO_042</Reference>
+                                <Reference type="RULE">NSO_043</Reference>
+                                <Reference type="RULE">NSO_044</Reference>
+                                <Reference type="RULE">NSO_045</Reference>
 				<Value type="EXAMPLE">110#2018-01-30#aaaaaa#Revised</Value>
 			</Element>
-		</Element>
-		<Element cardinality="0..1">
+				</Element>
+				<Element cardinality="0..1">
 			<Term>cac:OriginatorDocumentReference</Term>
 			<Name>Originator document </Name>
 			<Element agid:custom="rule">
@@ -169,21 +177,12 @@
 			</Element>
 		</Element>
 		<Element cardinality="0..1">
-					<Term>cbc:ShippingPriorityLevelCode</Term>
-					<Name>Requested shipping priority - Priorità di spedizione richiesta</Name>
-					<Description>Indica il livello di priorità richiesta dall'Acquirente per l'evasione dell'Ordine. Il valore "1" esprime la massima urgenza.</Description>
-					<DataType>code</DataType>
-					<Reference type="BUSINESS_TERM">tir01-p47</Reference>
-					<Reference type="CODE_LIST">UNCL4219</Reference>
-					<Value type="EXAMPLE">1</Value>
-				</Element>
-		<Element cardinality="0..1">
 			<Term>cac:CatalogueReference</Term>
-			<Name>Catalogue reference - Riferimento al catalogo</Name>
-			<Element>
+			<Name>Riferimento al catalogo</Name>
+			<Element cardinality="0..1">
 				<Term>cbc:ID</Term>
-				<Name>Catalogue reference - Identificativo del catalogo</Name>
-				<Description>A reference to the Catalogue on which this Order is based.</Description>
+				<Name>Identificativo del catalogo</Name>
+				<Description>Indica l'identificato del catalogo al quale l'Ordine fa riferimento</Description>
 				<DataType>Document reference</DataType>
 				<Reference type="BUSINESS_TERM">tir01-p45</Reference>
 				<Value type="EXAMPLE">Cat2023-03-07</Value>
@@ -308,7 +307,7 @@
 							<Name>Scheme identifier</Name>
 							<Description>Scheme identifier dell'identificativo del Cliente</Description>
 							<Reference type="CODE_LIST">ICD</Reference>
-						</Attribute>
+                                                </Attribute>
 					</Element>
 				</Element>
 				<Element cardinality="0..1">
@@ -398,7 +397,7 @@
 						<DataType>Identifier</DataType>
 						<Reference type="BUSINESS_TERM">tir01-034</Reference>
 						<Reference type="RULE">PEPPOL-T01-R026</Reference>
-						<Reference type="RULE">NSO_030</Reference>
+                                                <Reference type="RULE">NSO_030</Reference>
 					</Element>
 					<Element>
 						<Term>cac:TaxScheme</Term>
@@ -429,7 +428,7 @@
 						<Description>Contiene l'identificativo di registrazione legale</Description>
 						<DataType>Identifier</DataType>
 						<Reference type="BUSINESS_TERM">tir01-043</Reference>
-						<Reference type="RULE">NSO_010</Reference>
+                                                <Reference type="RULE">NSO_010</Reference>
 						<Attribute usage="Optional">
 							<Term>schemeID</Term>
 							<Name>Scheme identifier</Name>
@@ -533,7 +532,7 @@
 							<Name>Scheme identifier</Name>
 							<Description>Scheme identifier dell'identificativo del Fornitore.</Description>
 							<Reference type="CODE_LIST">ICD</Reference>
-						</Attribute>
+                                                </Attribute>
 					</Element>
 				</Element>
 				<Element cardinality="0..1">
@@ -631,7 +630,7 @@
 						<Description>Contiene l'identificativo di registrazione legale del Fornitore.</Description>
 						<DataType>Identifier</DataType>
 						<Reference type="BUSINESS_TERM">tir01-p039</Reference>
-						<Reference type="RULE">NSO_010</Reference>
+                                                <Reference type="RULE">NSO_010</Reference>
 						<Attribute usage="Optional">
 							<Term>schemeID</Term>
 							<Name>Scheme identifier</Name>
@@ -713,7 +712,7 @@
 						<Description>Indica il codice identificativo del soggetto che ha predisposto il Documento.</Description>
 						<DataType>Identifier</DataType>
 						<Reference type="BUSINESS_TERM">tir01-081</Reference>
-						<Reference type="RULE">NSO_010</Reference>
+                                                <Reference type="RULE">NSO_010</Reference>
 						<Attribute usage="optional">
 							<Term>schemeID</Term>
 							<Name>Scheme identifier</Name>
@@ -780,9 +779,9 @@
 					<Description>Indica l’identificativo elettronico univoco dell'Intestatario fattura.</Description>
 					<DataType>Identifier</DataType>
 					<Reference type="BUSINESS_TERM">tir01-157</Reference>
-					<Reference type="RULE">NSO_010</Reference>
-					<Reference type="RULE">NSO_020</Reference>
-					<Reference type="RULE">NSO_030</Reference>
+                                        <Reference type="RULE">NSO_010</Reference>
+                                        <Reference type="RULE">NSO_020</Reference>
+                                        <Reference type="RULE">NSO_030</Reference>
 					<Attribute>
 						<Term>schemeID</Term>
 						<Name>Scheme identifier</Name>
@@ -802,7 +801,7 @@
 						<Description>Ulteriore identificativo relativo all’Intestatario della fattura.</Description>
 						<DataType>Identifier</DataType>
 						<Reference type="BUSINESS_TERM">tir01-156</Reference>
-						<Reference type="RULE">NSO_010</Reference>
+                                                <Reference type="RULE">NSO_010</Reference>
 						<Attribute usage="optional">
 							<Term>schemeID</Term>
 							<Name>Scheme identifier</Name>
@@ -902,7 +901,7 @@
 						<DataType>Identifier</DataType>
 						<Reference type="BUSINESS_TERM">tir01-p018</Reference>
 						<Reference type="RULE">PEPPOL-T01-R026</Reference>
-						<Reference type="RULE">NSO_030</Reference>
+                                                <Reference type="RULE">NSO_030</Reference>
 					</Element>
 					<Element>
 						<Term>cac:TaxScheme</Term>
@@ -933,7 +932,7 @@
 						<Description>Contiene l'dentificativo di registrazione legale.</Description>
 						<DataType>Identifier</DataType>
 						<Reference type="BUSINESS_TERM">tir01-158</Reference>
-						<Reference type="RULE">NSO_010</Reference>
+                                                <Reference type="RULE">NSO_010</Reference>
 						<Attribute usage="Optional">
 							<Term>schemeID</Term>
 							<Name>Buyer legal registration identifier identification scheme
@@ -1010,7 +1009,7 @@
 					<Description>Indica il codice attribuito al luogo in cui deve essere eseguita la fornitura.</Description>
 					<DataType>Identifier</DataType>
 					<Reference type="BUSINESS_TERM">tir01-169</Reference>
-					<Reference type="RULE">NSO_010</Reference>
+                                        <Reference type="RULE">NSO_010</Reference>
 					<Attribute usage="Optional">
 						<Term>schemeID</Term>
 						<Name>Deliver to location identifier identification scheme identifier - Scheme identifier identificativo luogo di consegna</Name>
@@ -1107,7 +1106,6 @@
 					<Term>cbc:StartTime</Term>
 					<Name>Period start time - Ora di inizio</Name>
 					<Description>Indica l'orario in cui deve avere inizio la fornitura, nel formato oo:mm:ss</Description>
-					<DataType>Time</DataType>
 					<Reference type="BUSINESS_TERM">tir01-p042</Reference>
 					<Value type="EXAMPLE">12:10:33</Value>
 				</Element>
@@ -1122,7 +1120,6 @@
 					<Term>cbc:EndTime</Term>
 					<Name>Period end time - Ora di fine</Name>
 					<Description>Indica l'orario in cui deve terminare la fornitura, nel formato oo:mm:ss</Description>
-					<DataType>Time</DataType>
 					<Reference type="BUSINESS_TERM">tir01-p043</Reference>
 					<Value type="EXAMPLE">14:20:00</Value>
 				</Element>
@@ -1139,7 +1136,7 @@
 						<Name>Delivery party identifier - Identificativo beneficiario della fornitura</Name>
 						<Description>Indica il codice attribuito al beneficiario della fornitura.</Description>
 						<Reference type="BUSINESS_TERM">tir01-101</Reference>
-						<Reference type="RULE">NSO_010</Reference>
+                                                <Reference type="RULE">NSO_010</Reference>
 						<Attribute usage="Optional">
 							<Term>schemeID</Term>
 							<Name>Deliver party registration identifier identification scheme identifier - Scheme identifier identificativo beneficiario fornitura</Name>
@@ -1262,6 +1259,15 @@
 					<Term>cbc:ID</Term>
 					<Name>Shipment identifier</Name>
 					<Description>L'elemento è imposto dalla struttura della sintassi. Il valore fisso è 'NA'</Description>
+				</Element>
+				<Element cardinality="0..1">
+					<Term>cbc:ShippingPriorityLevelCode</Term>
+					<Name>Priorità di spedizione richiesta</Name>
+					<Description>Indica il livello di priorità richiesta dall'Acquirente per l'evasione dell'Ordine. Il valore "1" esprime la massima urgenza.</Description>
+					<DataType>code</DataType>
+					<Reference type="BUSINESS_TERM">tir01-p47</Reference>
+					<Reference type="CODE_LIST">UNCL4219</Reference>
+					<Value type="EXAMPLE">1</Value>
 				</Element>
 				<Element cardinality="0..1">
 					<Term>cac:TransportHandlingUnit</Term>
@@ -1605,19 +1611,19 @@
 			<Term>cac:OrderLine</Term>
 			<Name>Order line - Linea d’ordine</Name>
 			<Description>Linea d’ordine.</Description>
-			<Reference type="RULE">NSO_050</Reference>
-			<Reference type="RULE">NSO_051</Reference>
-			<Reference type="RULE">NSO_052</Reference>
-			<Reference type="RULE">NSO_053</Reference>
-			<Reference type="RULE">NSO_054</Reference>
-			<Reference type="RULE">NSO_056</Reference>
+                        <Reference type="RULE">NSO_050</Reference>
+                        <Reference type="RULE">NSO_051</Reference>
+                        <Reference type="RULE">NSO_052</Reference>
+                        <Reference type="RULE">NSO_053</Reference>
+                        <Reference type="RULE">NSO_054</Reference>
+                        <Reference type="RULE">NSO_056</Reference>
 			<Element cardinality="0..1" agid:custom="rule">
 				<Term>cbc:Note</Term>
 				<Name>Order line note - Note alla linea d’ordine</Name>
 				<Description>Riporta informazioni in testo libero (non strutturate) che, perciò, non sono elaborabili con sistemi automatizzati.</Description>
 				<DataType>Text</DataType>
 				<Reference type="BUSINESS_TERM">tir01-123</Reference>
-				<Reference type="RULE">NSO_051</Reference>
+                                <Reference type="RULE">NSO_051</Reference>
 			</Element>
 			<Element>
 				<Term>cac:LineItem</Term>
@@ -1716,12 +1722,28 @@
 							<Value type="EXAMPLE">2018-09-03</Value>
 						</Element>
 						<Element cardinality="0..1">
+							<Term>cbc:StartTime</Term>
+							<Name>Ora di inizio</Name>
+							<Description>Indica l'orario in cui deve avere inizio la fornitura, nel formato oo:mm:ss</Description>
+							<DataType>Time</DataType>
+							<Reference type="BUSINESS_TERM">tir01-p48</Reference>
+							<Value type="EXAMPLE">12:10:33</Value>
+						</Element>
+						<Element cardinality="0..1">
 							<Term>cbc:EndDate</Term>
 							<Name>Period end date - Data di fine</Name>
 							<Description>Indica la data entro cui deve terminare la fornitura, nel formato aaaa-mm-gg.</Description>
 							<DataType>Date</DataType>
 							<Reference type="BUSINESS_TERM">tir01-127</Reference>
 							<Value type="EXAMPLE">2018-09-15</Value>
+						</Element>
+						<Element cardinality="0..1">
+							<Term>cbc:EndTime</Term>
+							<Name>Ora di fine</Name>
+							<Description>Indica l'orario in cui deve terminare la fornitura, nel formato oo:mm:ss</Description>
+							<DataType>Time</DataType>
+							<Reference type="BUSINESS_TERM">tir01-p49</Reference>
+							<Value type="EXAMPLE">14:20:00</Value>
 						</Element>
 					</Element>
 				</Element>
@@ -1738,7 +1760,7 @@
 							<Name>Order line originator party ID - Identificativo del richiedente della linea d’ordine</Name>
 							<Description>Indica il codice identificativo del soggetto che ha richiesto la linea d’ordine.</Description>
 							<Reference type="BUSINESS_TERM">tir01-121</Reference>
-							<Reference type="RULE">NSO_010</Reference>
+                                                        <Reference type="RULE">NSO_010</Reference>
 							<Attribute usage="optional">
 								<Term>schemeID</Term>
 								<Name>Scheme identifier</Name>
@@ -1964,18 +1986,18 @@
 							<Value type="EXAMPLE">3249834</Value>
 						</Element>
 					</Element>
-					<Element cardinality="0..1">
-						<Term>cac:ManufacturersItemIdentification - Identificativo prodotto attribuito dal Produttore</Term>
-						<Name>Manufacturers Item Identifier</Name>
-						<Element>
-							<Term>cbc:ID</Term>
-							<Name>Manufacturers Item Identifier - Identificativo prodotto attribuito dal Produttore</Name>
-							<Description>Indica l'identificativo del bene attribuito dal Produttore</Description>
-							<DataType>Identifier</DataType>
-							<Reference type="BUSINESS_TERM">tir01-p46</Reference>
-							<Value type="EXAMPLE">ManID659</Value>
+						<Element cardinality="0..1">
+						<Term>cac:ManufacturersItemIdentification</Term>
+						<Name>Identificativo prodotto attribuito dal Produttore</Name>
+							<Element cardinality="1..1">
+								<Term>cbc:ID</Term>
+								<Name>Identificativo prodotto attribuito dal Produttore</Name>
+								<Description>Indica l'identificativo del bene attribuito dal Produttore</Description>
+								<DataType>Identifier</DataType>
+								<Reference type="BUSINESS_TERM">tir01-p46</Reference>
+								<Value type="EXAMPLE">ManID659</Value>
+							</Element>
 						</Element>
-					</Element>
 					<Element cardinality="0..1">
 						<Term>cac:StandardItemIdentification</Term>
 						<Name>Standard item identification - Identificativo standard</Name>
@@ -1985,7 +2007,7 @@
 							<Description>Indica l’identificativo del bene o del servizio assegnato da un sistema di identificazione univoca.</Description>
 							<DataType>Identifier</DataType>
 							<Reference type="BUSINESS_TERM">tir01-136</Reference>
-							<Reference type="RULE">NSO_010</Reference>
+                                                        <Reference type="RULE">NSO_010</Reference>
 							<Attribute>
 								<Term>schemeID</Term>
 								<Name>Item standard identifier identification scheme identifier - Scheme identifier dell'identificativo standard</Name>
@@ -2158,6 +2180,6 @@
 					</Element>
 				</Element>
 			</Element>
-		</Element>
+				</Element>
 	</Document>
 </Structure>

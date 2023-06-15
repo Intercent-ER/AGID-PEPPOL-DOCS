@@ -10,17 +10,17 @@
     <Code>
         <Id>1</Id>
         <Name>Express</Name>
-        <Description>Express</Description>
+        <LocalDescription>Urgente (24h)</LocalDescription>
     </Code>
     <Code>
         <Id>2</Id>
         <Name>High speed</Name>
-        <Description>High speed</Description>
+        <LocalDescription>Urgente differibile</LocalDescription>
     </Code>
     <Code>
         <Id>3</Id>
         <Name>Normal speed</Name>
-        <Description>Normal speed</Description>
+        <LocalDescription>Normale</LocalDescription>
     </Code>
     <Code>
         <Id>4</Id>

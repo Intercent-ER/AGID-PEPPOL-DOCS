@@ -278,7 +278,7 @@
 | Swedish organization number MUST be stated in the correct format.
 | cbc:EndpointID[@schemeID = '0007'] \| cac:PartyIdentification/cbc:ID[@schemeID = '0007'] \| cbc:CompanyID[@schemeID = '0007']
 | string-length(normalize-space()) = 10 and string(number(normalize-space())) != 'NaN'
-.3+| PEPPOL-COMMON-R050 *(warning)*
+.3+| PEPPOL-COMMON-R050 *(fatal)*
 | Australian Business Number (ABN) MUST be stated in the correct format.
 | cbc:EndpointID[@schemeID = '0151'] \| cac:PartyIdentification/cbc:ID[@schemeID = '0151'] \| cbc:CompanyID[@schemeID = '0151']
 | matches(normalize-space(), '^[0-9]{11}$') and u:abn(normalize-space())

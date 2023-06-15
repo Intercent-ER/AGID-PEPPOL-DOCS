@@ -1965,8 +1965,8 @@
 						</Element>
 					</Element>
 					<Element cardinality="0..1">
-						<Term>cac:ManufacturersItemIdentification - Identificativo prodotto attribuito dal Produttore</Term>
-						<Name>Manufacturers Item Identifier</Name>
+						<Term>cac:ManufacturersItemIdentification</Term>
+						<Name>Manufacturers Item Identifier - Identificativo prodotto attribuito dal Produttore</Name>
 						<Element>
 							<Term>cbc:ID</Term>
 							<Name>Manufacturers Item Identifier - Identificativo prodotto attribuito dal Produttore</Name>

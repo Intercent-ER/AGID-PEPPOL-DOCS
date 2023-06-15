@@ -14,9 +14,9 @@ In vigore a partire dal *07 agosto 2023*
 
 [red]#Cambiamenti alla specifica (Documentazione)#
 
-* Integrata la sezione 6.4 Identificazione del prodotto con l’indicazione dell’identificativo prodotto attribuito dal Produttore; 
-* Integrata la sezione 6.13 Gestione ordini particolari con la descrizione della modalità di indicazione della priorità richiesta dall’Acquirente per l’evasione dell’ordine; 
-* Integrata la sezione 6.14 Altri riferimenti con l’indicazione del riferimento al catalogo in testata;
+* Integrata la sezione _6.4 Identificazione del prodotto_ con l’indicazione dell’identificativo prodotto attribuito dal Produttore; 
+* Integrata la sezione _6.16 Consegna (Delivery)_ con la descrizione della modalità di indicazione della priorità richiesta dall’Acquirente per l’evasione dell’ordine; 
+* Integrata la sezione _6.14 Altri riferimenti_ con l’indicazione del riferimento al catalogo in testata;
 * Aggiornati gli esempi in funzione delle modifiche alla sintassi. 
 
 [red]#Cambiamenti alla sintassi#

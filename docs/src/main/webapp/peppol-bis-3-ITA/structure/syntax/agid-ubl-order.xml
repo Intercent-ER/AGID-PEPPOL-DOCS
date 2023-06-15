@@ -183,7 +183,7 @@
 			<Element>
 				<Term>cbc:ID</Term>
 				<Name>Catalogue reference - Identificativo del catalogo</Name>
-				<Description>A reference to the Catalogue on which this Order is based.</Description>
+				<Description>“Indica il l'identificato del catalogo al quale l'Ordine fa riferimento</Description>
 				<DataType>Document reference</DataType>
 				<Reference type="BUSINESS_TERM">tir01-p45</Reference>
 				<Value type="EXAMPLE">Cat2023-03-07</Value>

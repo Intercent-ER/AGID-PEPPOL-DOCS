@@ -177,7 +177,7 @@
       <rule context="cbc:EndpointID[@schemeID = '0151'] | cac:PartyIdentification/cbc:ID[@schemeID = '0151'] | cbc:CompanyID[@schemeID = '0151']">
          <assert id="PEPPOL-COMMON-R050"
                  test="matches(normalize-space(), '^[0-9]{11}$') and u:abn(normalize-space())"
-                 flag="warning">Australian Business Number (ABN) MUST be stated in the correct format.</assert>
+                 flag="fatal">Australian Business Number (ABN) MUST be stated in the correct format.</assert>
       </rule> 
    </pattern>
     <pattern xmlns:ns2="http://www.schematron-quickfix.com/validator/process">

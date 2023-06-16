@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DespatchAdvice xmlns="urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2"
-	xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
-	xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">
-
+<DespatchAdvice xmlns="urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">
 	<cbc:CustomizationID>urn:fdc:peppol.eu:poacc:trns:despatch_advice:3</cbc:CustomizationID>
 	<cbc:ProfileID>urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</cbc:ProfileID>
 	<cbc:ID>1234</cbc:ID>
@@ -16,132 +13,147 @@
 	<!-- end::ref-order[] -->
 	<!-- tag::despatchsupplier[] -->
 	<cac:DespatchSupplierParty>
-	<cac:Party>
-		<cbc:EndpointID schemeID="0211">IT01234567890</cbc:EndpointID>
-<cac:PartyIdentification>
-<cbc:ID schemeID="0211">IT01234567890</cbc:ID><!--1-->
-</cac:PartyIdentification>
-<cac:PostalAddress><!--2-->
-	<cbc:StreetName>Via Antonio Gramsci 6</cbc:StreetName >
-<cbc:AdditionalStreetName>Palazzo C</cbc:AdditionalStreetName >
-<cbc:CityName>Bologna</cbc:CityName >
-<cbc:PostalZone>40121</cbc:PostalZone>
-<cbc:CountrySubentity>BO</cbc:CountrySubentity>
-<cac:Country>
-<cbc:IdentificationCode>IT</cbc:IdentificationCode>
-</cac:Country>
-</cac:PostalAddress>
-<cac:PartyLegalEntity>
-<cbc:RegistrationName>Speditore/Fornitore S.p.A.</cbc:RegistrationName>
-</cac:PartyLegalEntity>
-<cac:Contact>
-<cbc:Name>Giovanni</cbc:Name>
-<cbc:Telephone>123456789</cbc:Telephone>
-<cbc:ElectronicMail>giovanni@speditore.it</cbc:ElectronicMail>
-</cac:Contact>
-</cac:Party>
-</cac:DespatchSupplierParty>
+		<cac:Party>
+			<cbc:EndpointID schemeID="0211">IT01234567890</cbc:EndpointID>
+			<cac:PartyIdentification>
+				<cbc:ID schemeID="0211">IT01234567890</cbc:ID>
+				<!--1-->
+			</cac:PartyIdentification>
+			<cac:PostalAddress>
+				<!--2-->
+				<cbc:StreetName>Via Antonio Gramsci 6</cbc:StreetName>
+				<cbc:AdditionalStreetName>Palazzo C</cbc:AdditionalStreetName>
+				<cbc:CityName>Bologna</cbc:CityName>
+				<cbc:PostalZone>40121</cbc:PostalZone>
+				<cbc:CountrySubentity>BO</cbc:CountrySubentity>
+				<cac:Country>
+					<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+				</cac:Country>
+			</cac:PostalAddress>
+			<cac:PartyLegalEntity>
+				<cbc:RegistrationName>Speditore/Fornitore S.p.A.</cbc:RegistrationName>
+			</cac:PartyLegalEntity>
+			<cac:Contact>
+				<cbc:Name>Giovanni</cbc:Name>
+				<cbc:Telephone>123456789</cbc:Telephone>
+				<cbc:ElectronicMail>giovanni@speditore.it</cbc:ElectronicMail>
+			</cac:Contact>
+		</cac:Party>
+	</cac:DespatchSupplierParty>
 	<!-- end::despatchsupplier[] -->
 	<!-- tag::despatchsupplierpa -->
 	<cac:DespatchSupplierParty>
-	<cac:Party>
-		<cbc:EndpointID schemeID="0201">FEDCBA</cbc:EndpointID><!--1-->
-<cac:PartyIdentification>
-<cbc:ID schemeID="0211">IT02241740360</cbc:ID><!--2--> 
-</cac:PartyIdentification>
-<cac:PostalAddress><!--3-->  
-	<cbc:StreetName>Via del Pozzo 71</cbc:StreetName >
-<cbc:AdditionalStreetName>Località Ponte Alto</cbc:AdditionalStreetName >
-<cbc:CityName>Modena</cbc:CityName >
-<cbc:PostalZone>41124</cbc:PostalZone>
-<cbc:CountrySubentity>MO</cbc:CountrySubentity>
-<cac:Country>
-<cbc:IdentificationCode>IT</cbc:IdentificationCode>
-</cac:Country>
-</cac:PostalAddress>
-<cac:PartyLegalEntity>
-<cbc:RegistrationName>Azienda Ospedaliero-Universitaria di Modena</cbc:RegistrationName><!--4--> 
-</cac:PartyLegalEntity>
-</cac:Party>
-</cac:DespatchSupplierParty>
+		<cac:Party>
+			<cbc:EndpointID schemeID="0201">FEDCBA</cbc:EndpointID>
+			<!--1-->
+			<cac:PartyIdentification>
+				<cbc:ID schemeID="0211">IT02241740360</cbc:ID>
+				<!--2-->
+			</cac:PartyIdentification>
+			<cac:PostalAddress>
+				<!--3-->
+				<cbc:StreetName>Via del Pozzo 71</cbc:StreetName>
+				<cbc:AdditionalStreetName>Località Ponte Alto</cbc:AdditionalStreetName>
+				<cbc:CityName>Modena</cbc:CityName>
+				<cbc:PostalZone>41124</cbc:PostalZone>
+				<cbc:CountrySubentity>MO</cbc:CountrySubentity>
+				<cac:Country>
+					<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+				</cac:Country>
+			</cac:PostalAddress>
+			<cac:PartyLegalEntity>
+				<cbc:RegistrationName>Azienda Ospedaliero-Universitaria di Modena</cbc:RegistrationName>
+				<!--4-->
+			</cac:PartyLegalEntity>
+		</cac:Party>
+	</cac:DespatchSupplierParty>
 	<!-- end::despatchsupplierpa -->
 	<!-- tag::deliverycustomer[] -->
 	<cac:DeliveryCustomerParty>
-	<cac:Party>
-		<cbc:EndpointID schemeID="0201">ABCDEF</cbc:EndpointID><!--1-->
-<cac:PartyIdentification>
-<cbc:ID schemeID="0210">02483810392</cbc:ID><!--2-->  
-</cac:PartyIdentification>
-<cac:PostalAddress><!--3-->  
-	<cbc:StreetName>Via Castiglione 29</cbc:StreetName >
-<cbc:CityName>Bologna</cbc:CityName >
-<cbc:PostalZone>40124</cbc:PostalZone>
-<cbc:CountrySubentity>BO</cbc:CountrySubentity>
-<cac:Country>
-<cbc:IdentificationCode>IT</cbc:IdentificationCode>
-</cac:Country>
-</cac:PostalAddress>
-<cac:PartyLegalEntity>
-<cbc:RegistrationName>Azienda USL di Bologna</cbc:RegistrationName><!--4--> 
-</cac:PartyLegalEntity>
-<cac:Contact>
-<cbc:Name>Gianfranco Verdi</cbc:Name>
-<cbc:Telephone>987654321</cbc:Telephone>
-<cbc:ElectronicMail>g.verdi@auslbo.it</cbc:ElectronicMail>
-</cac:Contact>
-</cac:Party>
-</cac:DeliveryCustomerParty>
+		<cac:Party>
+			<cbc:EndpointID schemeID="0201">ABCDEF</cbc:EndpointID>
+			<!--1-->
+			<cac:PartyIdentification>
+				<cbc:ID schemeID="0210">02483810392</cbc:ID>
+				<!--2-->
+			</cac:PartyIdentification>
+			<cac:PostalAddress>
+				<!--3-->
+				<cbc:StreetName>Via Castiglione 29</cbc:StreetName>
+				<cbc:CityName>Bologna</cbc:CityName>
+				<cbc:PostalZone>40124</cbc:PostalZone>
+				<cbc:CountrySubentity>BO</cbc:CountrySubentity>
+				<cac:Country>
+					<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+				</cac:Country>
+			</cac:PostalAddress>
+			<cac:PartyLegalEntity>
+				<cbc:RegistrationName>Azienda USL di Bologna</cbc:RegistrationName>
+				<!--4-->
+			</cac:PartyLegalEntity>
+			<cac:Contact>
+				<cbc:Name>Gianfranco Verdi</cbc:Name>
+				<cbc:Telephone>987654321</cbc:Telephone>
+				<cbc:ElectronicMail>g.verdi@auslbo.it</cbc:ElectronicMail>
+			</cac:Contact>
+		</cac:Party>
+	</cac:DeliveryCustomerParty>
 	<!-- end::deliverycustomer[] -->
 	<!-- tag::buyer[] -->
 	<cac:BuyerCustomerParty>
-	<cac:Party>
-		<cac:PartyIdentification>
-<cbc:ID schemeID="0210">02483810392</cbc:ID><!--1-->
-</cac:PartyIdentification>
-<cac:PartyName>
-<cbc:Name>Azienda USL di Bologna</cbc:Name><!--2-->  
-</cac:PartyName>
-<cac:PostalAddress><!--3-->  
-	<cbc:StreetName>Via Castiglione 29</cbc:StreetName >
-<cbc:CityName>Bologna</cbc:CityName >
-<cbc:PostalZone>40124</cbc:PostalZone>
-<cbc:CountrySubentity>BO</cbc:CountrySubentity>
-<cac:Country>
-<cbc:IdentificationCode>IT</cbc:IdentificationCode>
-</cac:Country>
-</cac:PostalAddress>
-</cac:Party>
-</cac:BuyerCustomerParty>
+		<cac:Party>
+			<cac:PartyIdentification>
+				<cbc:ID schemeID="0210">02483810392</cbc:ID>
+				<!--1-->
+			</cac:PartyIdentification>
+			<cac:PartyName>
+				<cbc:Name>Azienda USL di Bologna</cbc:Name>
+				<!--2-->
+			</cac:PartyName>
+			<cac:PostalAddress>
+				<!--3-->
+				<cbc:StreetName>Via Castiglione 29</cbc:StreetName>
+				<cbc:CityName>Bologna</cbc:CityName>
+				<cbc:PostalZone>40124</cbc:PostalZone>
+				<cbc:CountrySubentity>BO</cbc:CountrySubentity>
+				<cac:Country>
+					<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+				</cac:Country>
+			</cac:PostalAddress>
+		</cac:Party>
+	</cac:BuyerCustomerParty>
 	<!-- end::buyer[] -->
 	<!-- tag::seller[] -->
 	<cac:SellerSupplierParty>
-	<cac:Party>
-		<cac:PartyIdentification>
-<cbc:ID schemeID="0211">IT01234567890</cbc:ID><!--1-->  
-</cac:PartyIdentification>
-<cac:PartyName>
-<cbc:Name>Fornitore S.p.A.</cbc:Name>
-</cac:PartyName>
-<cac:PostalAddress><!--2-->  
-	<cbc:StreetName>Via Antonio Gramsci 6</cbc:StreetName >
-<cbc:CityName>Bologna</cbc:CityName >
-<cbc:PostalZone>40121</cbc:PostalZone>
-<cbc:CountrySubentity>BO</cbc:CountrySubentity>
-<cac:Country>
-<cbc:IdentificationCode>IT</cbc:IdentificationCode>
-</cac:Country>
-</cac:PostalAddress>
-</cac:Party>
-</cac:SellerSupplierParty>
+		<cac:Party>
+			<cac:PartyIdentification>
+				<cbc:ID schemeID="0211">IT01234567890</cbc:ID>
+				<!--1-->
+			</cac:PartyIdentification>
+			<cac:PartyName>
+				<cbc:Name>Fornitore S.p.A.</cbc:Name>
+			</cac:PartyName>
+			<cac:PostalAddress>
+				<!--2-->
+				<cbc:StreetName>Via Antonio Gramsci 6</cbc:StreetName>
+				<cbc:CityName>Bologna</cbc:CityName>
+				<cbc:PostalZone>40121</cbc:PostalZone>
+				<cbc:CountrySubentity>BO</cbc:CountrySubentity>
+				<cac:Country>
+					<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+				</cac:Country>
+			</cac:PostalAddress>
+		</cac:Party>
+	</cac:SellerSupplierParty>
 	<!-- end::seller[] -->
 	<!-- tag::originator[] -->
 	<cac:OriginatorCustomerParty>
-	<cac:Party>
-		<cac:PartyName>
-<cbc:Name>Unità Organizzativa di Ortopedia</cbc:Name> 
-</cac:PartyName>
-</cac:Party>
-</cac:OriginatorCustomerParty>
+		<cac:Party>
+			<cac:PartyName>
+				<cbc:Name>Unità Organizzativa di Ortopedia</cbc:Name>
+			</cac:PartyName>
+		</cac:Party>
+	</cac:OriginatorCustomerParty>
 	<!-- end::originator[] -->
 	<!-- tag::shipment[] -->
 	<cac:Shipment>
@@ -156,38 +168,39 @@
 		<!--TRASPORTO, VETTORE-->
 		<cac:Consignment>
 			<cbc:ID>12345</cbc:ID>
-                        <!-- tag::carrier[] -->
+			<!-- tag::carrier[] -->
 			<cac:CarrierParty>
-	<cac:PartyIdentification>
-<cbc:ID schemeID="0211">IT01245267890</cbc:ID><!--1--> 
-</cac:PartyIdentification>
-<cac:PartyName>
-<cbc:Name>Vettore S.r.l.</cbc:Name> 
-</cac:PartyName>
-<cac:PostalAddress><!--2-->  
-<cbc:StreetName>Via Europa 100</cbc:StreetName >
-<cbc:CityName>Bologna</cbc:CityName >
-<cbc:PostalZone>40121</cbc:PostalZone>
-<cbc:CountrySubentity>BO</cbc:CountrySubentity>
-<cac:Country>
-<cbc:IdentificationCode>IT</cbc:IdentificationCode>
-</cac:Country>
-</cac:PostalAddress>
-<cac:Person>
-	<cac:IdentityDocumentReference>
-		<cbc:ID>U011B3204H</cbc:ID>
-		<cbc:DocumentType>Patente di guida</cbc:DocumentType>
-</cac:IdentityDocumentReference>
-</cac:Person>
-</cac:CarrierParty>
-
-                        <!-- end::carrier[] -->
+				<cac:PartyIdentification>
+					<cbc:ID schemeID="0211">IT01245267890</cbc:ID>
+					<!--1-->
+				</cac:PartyIdentification>
+				<cac:PartyName>
+					<cbc:Name>Vettore S.r.l.</cbc:Name>
+				</cac:PartyName>
+				<cac:PostalAddress>
+					<!--2-->
+					<cbc:StreetName>Via Europa 100</cbc:StreetName>
+					<cbc:CityName>Bologna</cbc:CityName>
+					<cbc:PostalZone>40121</cbc:PostalZone>
+					<cbc:CountrySubentity>BO</cbc:CountrySubentity>
+					<cac:Country>
+						<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+					</cac:Country>
+				</cac:PostalAddress>
+				<cac:Person>
+					<cac:IdentityDocumentReference>
+						<cbc:ID>U011B3204H</cbc:ID>
+						<cbc:DocumentType>Patente di guida</cbc:DocumentType>
+					</cac:IdentityDocumentReference>
+				</cac:Person>
+			</cac:CarrierParty>
+			<!-- end::carrier[] -->
 		</cac:Consignment>
-				<!-- INFORMAZIONI SULLE MODALITA' DELLA SPEDIZIONE -->
+		<!-- INFORMAZIONI SULLE MODALITA' DELLA SPEDIZIONE -->
 		<cac:ShipmentStage>
 			<cbc:TransportModeCode>2</cbc:TransportModeCode>
-		</cac:ShipmentStage>	
-                <!-- TEMPI DI CONSEGNA PROMESSI/STIMATI -->
+		</cac:ShipmentStage>
+		<!-- TEMPI DI CONSEGNA PROMESSI/STIMATI -->
 		<cac:Delivery>
 			<cac:EstimatedDeliveryPeriod>
 				<cbc:StartDate>2013-03-15</cbc:StartDate>
@@ -195,7 +208,7 @@
 				<cbc:EndDate>2013-03-16</cbc:EndDate>
 				<cbc:EndTime>12:00:00</cbc:EndTime>
 			</cac:EstimatedDeliveryPeriod>
-                        <!-- DATA/ORA EVASIONE EFFETTIVA -->
+			<!-- DATA/ORA EVASIONE EFFETTIVA -->
 			<cac:Despatch>
 				<cbc:ActualDespatchDate>2013-03-13</cbc:ActualDespatchDate>
 				<cbc:ActualDespatchTime>08:00:00</cbc:ActualDespatchTime>
@@ -220,14 +233,17 @@
 		<!-- end::ref-orderline1[] -->
 		<!-- tag::item[] -->
 		<cac:Item>
-<cbc:Name>Item123</cbc:Name><!--1--> 
-<cac:SellersItemIdentification><!--2--> 
-<cbc:ID>010120401</cbc:ID>
- 	</cac:SellersItemIdentification>
-<cac:StandardItemIdentification>
-<cbc:ID schemeID="0160">7611104117056</cbc:ID><!--3--> 
-</cac:StandardItemIdentification>
-</cac:Item>
+			<cbc:Name>Item123</cbc:Name>
+			<!--1-->
+			<cac:SellersItemIdentification>
+				<!--2-->
+				<cbc:ID>010120401</cbc:ID>
+			</cac:SellersItemIdentification>
+			<cac:StandardItemIdentification>
+				<cbc:ID schemeID="0160">7611104117056</cbc:ID>
+				<!--3-->
+			</cac:StandardItemIdentification>
+		</cac:Item>
 		<!-- end::item[] -->
 	</cac:DespatchLine>
 	<cac:DespatchLine>
@@ -311,8 +327,6 @@
 				</cac:LotIdentification>
 			</cac:ItemInstance>
 			<!-- end::lotid[] -->
-
 		</cac:Item>
-
 	</cac:DespatchLine>
 </DespatchAdvice>

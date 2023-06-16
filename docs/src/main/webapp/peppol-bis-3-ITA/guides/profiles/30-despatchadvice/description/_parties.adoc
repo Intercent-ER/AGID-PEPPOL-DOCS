@@ -56,6 +56,8 @@ include::{snippet-dir}/snippet-30-1.xml[tags=deliverycustomer]
 == Acquirente (BuyerCustomerParty)
 
 #L'Acquirente corrisponde alla parte Cessionaria ai sensi dell’Art. 1, comma 3 del DPR n. 472/1996 ed è un'informazione obbligatoria.#
+
+
 .Esempio di informazioni dell’Acquirente
 [source, xml, indent=0]
 ----

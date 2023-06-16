@@ -3,7 +3,7 @@
     <Term>DespatchAdvice</Term>
     <agid:Extension>
         <agid:ID>urn:www.agid.gov.it:trns:ddt:3.0</agid:ID>
-        <agid:Name>Documento di Trasporto Peppol 3.2.0.1</agid:Name>
+        <agid:Name>Documento di Trasporto Peppol 3.2.0.2</agid:Name>
         <agid:Version>3.0</agid:Version>
     </agid:Extension>
     <Property key="sch:prefix">PEPPOL-T16</Property>
@@ -1028,7 +1028,7 @@
                 </Element>
                 <Element agid:custom="cardinality">
                     <Term>cac:Despatch</Term>
-                    <Name>Actual or expected despatch period - Tempi di evasione effettiva</Name>
+                    <Name>Actual or expected despatch period – Ulteriori informazioni sulla consegna</Name>
                     <Element cardinality="0..1">
                         <Term>cbc:ActualDespatchDate</Term>
                         <Name>Shipment dispatch date - Data di inizio</Name>

@@ -8,7 +8,7 @@
 
 | 3.1.0.2(IT)
 a| 16/06/2023
-a| _Aggiornamento della specifica italiana sul Documento di Trasporto in relazione alle disposizioni contenute nel DPR n. 472/1996. +
+a| _Aggiornamento della specifica italiana sul Documento di Trasporto in relazione alle disposizioni contenute nel DPR n. 472/1996._ +
 
 In vigore a partire dal *07 agosto 2023*
 
@@ -46,9 +46,9 @@ In vigore a partire dal *07 agosto 2023*
 * Aggiornato il foglio di stile per il Documento di Trasporto Peppol 3;
 * Aggiornati i file di esempio in funzione delle modifiche alla specifica.  
 
- * _Rilascio previsto per il 23 giugno 2023_
+(*) _Rilascio previsto per il 23 giugno 2023_
 
-a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2023-Q2/release-notes/[Peppol BIS 3.0.11 - May release 2023]_. +
+_Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2023-Q2/release-notes/[Peppol BIS 3.0.11 - May release 2023]_. +
 
 In vigore a partire dal *07 agosto 2023*
 

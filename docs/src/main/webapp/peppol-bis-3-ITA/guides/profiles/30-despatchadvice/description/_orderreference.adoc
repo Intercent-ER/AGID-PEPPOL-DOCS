@@ -17,7 +17,7 @@ Per soddisfare gli scenari in cui non esiste alcun riferimento alla riga dell'or
 * #IssueDate dell’ordine (nel formato aaaa-mm-gg);#
 * #EndpointID del Cliente dell’ordine (BuyerCustomerParty).#
 
-#Nel caso in cui il Documento di Trasporto preceda l’Ordine d’acquisto o non promani da un processo di ordinazione, è necessario inserire a livello di testata la stringa “#NO#” all’interno dell’elemento cbc:ID della struttura cac:OrderReference (Riferimento all’Ordine).#
+#Nel caso in cui il Documento di Trasporto preceda l’Ordine d’acquisto o non promani da un processo di ordinazione, è necessario inserire a livello di testata la stringa “#NO##” all’interno dell’elemento cbc:ID della struttura cac:OrderReference (Riferimento all’Ordine).#
 
 .Esempio a livello di testata
 [source, xml, indent=0]

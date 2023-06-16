@@ -19,9 +19,9 @@ Per supportare scenari dove non è disponibile o non è utilizzato l’ID della 
 Come parte delle informazioni di spedizione (Shipment) vengono forniti: peso, volume, colli, vettore, tempi di consegna stimati e di effettiva evasione.
 
 [NOTE]
-#Le misure come peso e volume sono obbligatoriamente espresse secondo unità di misura in base alla codifica link:../../../../../../xml/ITA/peppol-bis-3/codelist/UNECERec20-11e.html[UN/ECE Recommendation 20]. Le codifiche utilizzabili sono quelle correlate ad unità di misura italiane ed evidenziate in azzuro.#
+#Le misure come peso e volume sono obbligatoriamente espresse secondo unità di misura in base alla codifica link:../../../../../../xml/ITA/peppol-bis-3/codelist/UNECERec20-11e.html[UN/ECE Recommendation 20, including Recommendation 21 codes]. Le codifiche utilizzabili sono quelle correlate ad unità di misura italiane ed evidenziate in azzuro.#
 
-.Esempio:
+.Esempio di informazioni relative a spedizione, trasporto ed evasione:
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/snippet-30-3.xml[tags=shipment]
@@ -46,7 +46,7 @@ Le informazioni relative al luogo di consegna devono essere indicate all’inter
 
 Se il luogo di consegna è un indirizzo istituzionale del Cliente a cui è stato associato un identificativo univoco reso disponibile al Fornitore, come avviene nel caso dei luogo di consegna per le PA censiti secondo la codifica https://www.puntidiconsegna-nso.it/[Punti di consegna], è possibile indicare anche tale identificativo, come mostrato nel seguente esempio:
 
-.Esempio:
+.Esempio di indicazione dell’indirizzo di consegna:
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/snippet-30-3.xml[tags=despatchaddress]

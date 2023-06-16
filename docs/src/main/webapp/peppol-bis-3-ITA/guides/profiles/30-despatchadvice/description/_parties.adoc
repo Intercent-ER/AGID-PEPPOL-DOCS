@@ -15,8 +15,8 @@ Lo Speditore/Mittente è la persona giuridica o l’organizzazione che spedisce 
 include::{snippet-dir}/snippet-30-1.xml[tags=despatchsupplier]
 ----
 
-<1> Il campo cbc:ID deve contenere l’identificativo fiscale dello Speditore/Mittente, preceduto dal prefisso corrispondente al paese in cui risiede, e valorizzato dallo @schemeID corrispondente secondo la codelist ISO 6523 ICD list. In caso di OE italiano, il campo DEVE contenere la Partita IVA del soggetto, preceduta dal prefisso “IT”, valorizzata con lo @schemeID pari a “0211”. 
-<2> Le informazioni di indirizzo dello Speditore/Mittente sono obbligatorie. +
+<1> Il campo cbc:ID deve contenere l’identificativo fiscale dello Speditore/Mittente, preceduto dal prefisso corrispondente al paese in cui risiede, e valorizzato dallo @schemeID corrispondente secondo la codelist ISO 6523 ICD list. #In caso di OE italiano, il campo DEVE contenere la Partita IVA del soggetto, preceduta dal prefisso “IT”, valorizzata con lo @schemeID pari a “0211”.# 
+<2> #Le informazioni di indirizzo dello Speditore/Mittente sono obbligatorie.# +
 
 Se lo Speditore/Mittente è un’amministrazione pubblica, il campo EndpointID deve contenere il Codice Univoco Ufficio (c.d. "Codice IPA", riportato nell’Indice delle Pubbliche Amministrazioni) della PA e il relativo @schemeID deve essere valorizzato con “0201”. In aggiunta, il campo RegistrationName deve contenere la denominazione della PA in forma estesa. 
 

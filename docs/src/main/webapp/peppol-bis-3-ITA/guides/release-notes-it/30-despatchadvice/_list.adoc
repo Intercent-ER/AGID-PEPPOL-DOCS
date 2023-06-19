@@ -18,7 +18,7 @@ In vigore a partire dal *07 agosto 2023*
 * Aggiunta l’obbligatorietà di indicazione delle parti Acquirente (BuyerCustomerParty) e Venditore (SellerSupplierParty);
 * Aggiunta l’obbligatorietà di indicazione degli identificativi (Partita IVA / Codice fiscale) delle parti Speditore/Mittente (DespatchSupplierParty), Destinatario/Consegnatario (DespatchCustomerParty), Acquirente (BuyerCustomerParty), Venditore (SellerSupplierParty) e Vettore (CarrierParty);
 * Specificate le modalità di indicazione degli identificativi (Partita IVA / Codice fiscale) delle parti, attraverso l’utilizzo di specifici schemeID;
-* Aggiunto un paragrafo specifico relativo all’indicazione dell’Indirizzo di consegna dei beni (§ 6.3.2 Indirizzo di consegna);
+* Aggiunto un paragrafo specifico relativo all’indicazione dell’Indirizzo di consegna dei beni (§ 6.3.2 Indirizzo di consegna) e definita la sua obbligatorietà;
 * Aggiornati gli esempi in funzione delle modifiche alla specifica.
 
 [red]#Cambiamenti alla sintassi#
@@ -46,7 +46,7 @@ In vigore a partire dal *07 agosto 2023*
 * Aggiornato il foglio di stile per il Documento di Trasporto Peppol 3;
 * Aggiornati i file di esempio in funzione delle modifiche alla specifica.  
 
-(*) _Rilascio previsto per il 23 giugno 2023_
+*(***) _Rilascio previsto per il 23 giugno 2023_*
 
 _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2023-Q2/release-notes/[Peppol BIS 3.0.11 - May release 2023]_. +
 

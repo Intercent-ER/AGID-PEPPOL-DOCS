@@ -18,7 +18,7 @@ include::{snippet-dir}/snippet-30-1.xml[tags=despatchsupplier]
 <1> Il campo cbc:ID deve contenere l’identificativo fiscale dello Speditore/Mittente, preceduto dal prefisso corrispondente al paese in cui risiede, e valorizzato dallo @schemeID corrispondente secondo la codelist ISO 6523 ICD list. #In caso di OE italiano, il campo DEVE contenere la Partita IVA del soggetto, preceduta dal prefisso “IT”, valorizzata con lo @schemeID pari a “0211”.# 
 <2> #Le informazioni di indirizzo dello Speditore/Mittente sono obbligatorie.# +
 
-Se lo Speditore/Mittente è un’amministrazione pubblica, il campo EndpointID deve contenere il Codice Univoco Ufficio (c.d. "Codice IPA", riportato nell’Indice delle Pubbliche Amministrazioni) della PA e il relativo @schemeID deve essere valorizzato con “0201”. In aggiunta, il campo RegistrationName deve contenere la denominazione della PA in forma estesa. 
+#Se lo Speditore/Mittente è un’amministrazione pubblica, il campo EndpointID deve contenere il Codice Univoco Ufficio (c.d. "Codice IPA", riportato nell’Indice delle Pubbliche Amministrazioni) della PA e il relativo @schemeID deve essere valorizzato con “0201”. In aggiunta, il campo RegistrationName deve contenere la denominazione della PA in forma estesa.#
 
 .Esempio di informazioni dello Speditore/Mittente in caso di Pubblica Amministrazione italiana
 [source, xml, indent=0]
@@ -55,6 +55,7 @@ include::{snippet-dir}/snippet-30-1.xml[tags=deliverycustomer]
 [[buyer-buyercustomerparty]]
 == Acquirente (BuyerCustomerParty)
 
+L’Acquirente è la persona giuridica o l’organizzazione che acquista beni e/o servizi. +
 #L'Acquirente corrisponde alla parte Cessionaria ai sensi dell’Art. 1, comma 3 del DPR n. 472/1996 ed è un'informazione obbligatoria.#
 
 
@@ -74,6 +75,7 @@ In caso di coincidenza tra Acquirente e Consegnatario/Destinatario entrambe le p
 [[seller-sellersupplierparty]]
 == Venditore (SellerSupplierParty)
 
+Il Venditore è la persona giuridica o l’organizzazione che vende beni e/o servizi. +
 #Il Venditore corrisponde alla parte Cedente ai sensi dell’Art. 1, comma 3 del DPR n. 472/1996 ed è un'informazione obbligatoria.#
 
 .Esempio di informazioni del Venditore
@@ -102,6 +104,7 @@ include::{snippet-dir}/snippet-30-1.xml[tags=originator]
 [[carrier-party-carrierparty]]
 == Vettore (CarrierParty)
 
+Il Vettore è la persona giuridica o l’organizzazione che gestisce la consegna/trasporto fisico della spedizione. Utilizzato se il trasporto è effettuato da una terza parte. +
 #Il Vettore è un'informazione obbligatoria ai sensi dell’Art. 1, comma 3 del DPR n. 472/1996.#
 
 .Esempio di informazioni del Vettore

@@ -3,7 +3,7 @@
 :author: OpenPeppolAISBL, Post-Award Coordinating Community
 :version: 3.0.8
 :ord_version_it: 3.3.0.2(IT)
-:ddt_version_it: 3.2.0.2(IT)
+:ddt_version_it: 3.1.0.2(IT)
 :ord_agreement_version_it: 3.0.0.5(IT)
 //PEPPOL
 :peppol: https://peppol.eu/?rel=undefined[PEPPOL]

@@ -149,10 +149,8 @@
 				<cbc:EndDate>2023-03-16</cbc:EndDate>
 				<cbc:EndTime>12:00:00</cbc:EndTime>
 			</cac:EstimatedDeliveryPeriod>
-			<cac:Despatch><!--9-->
-				<cbc:ActualDespatchDate>2023-03-15</cbc:ActualDespatchDate>
-				<cbc:ActualDespatchTime>08:00:00</cbc:ActualDespatchTime>
-				<cbc:DespatchAddress><!--10-->
+			<cac:Despatch>
+				<cbc:DespatchAddress><!--9-->
 				[...]
 				</cbc:DespatchAddress>
 			</cac:Despatch>

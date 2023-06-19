@@ -29,8 +29,7 @@ include::{snippet-dir}/snippet-30-3.xml[tags=shipment]
 <6> Informazioni sul Vettore, si rimanda al paragrafo 6.1.6 Vettore (CarrierParty);
 <7> Informazioni sulle modalità di spedizione;
 <8> Tempi di consegna stimati;
-<9> Tempi di evasione effettiva;
-<10> Indirizzo di consegna, si rimanda al paragrafo 6.3.2 Luogo di consegna.
+<9> Indirizzo di consegna, si rimanda al paragrafo 6.3.2 Luogo di consegna.
 
 
 [[despatchaddress]]

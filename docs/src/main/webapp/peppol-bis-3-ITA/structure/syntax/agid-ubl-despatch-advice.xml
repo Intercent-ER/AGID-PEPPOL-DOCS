@@ -880,11 +880,13 @@
 							<Value type="EXAMPLE">Vettore s.r.l.</Value>
                         </Element>
                     </Element>
-                    <Element agid:custom="extension">
+
+                    <Element cardinality="1..1" agid:custom="extension">
                         <Term>cac:PostalAddress</Term>
                         <Name>Postal address - Indirizzo del Vettore</Name>
               					<Description>Contiene informazioni relative all’indirizzo del Vettore.</Description>
-                        <Element agid:custom="fixed-value">
+								
+                        <Element cardinality="1..1">
                             <Term>cbc:StreetName</Term>
                             <Name>Address line 1 - Indirizzo</Name>
                 						<Description>Strada, via, piazza ecc. e numero civico</Description>
@@ -893,7 +895,7 @@
                             <Reference type="RULE">IT-T16-R002</Reference>
 							<Value type="EXAMPLE">Via Europa 100</Value>
                         </Element>
-                        <Element agid:custom="fixed-value" cardinality="0..1">
+                        <Element cardinality="0..1">
                             <Term>cbc:AdditionalStreetName</Term>
                             <Name>Address line 2 - Informazioni addizionali indirizzo</Name>
                 						<Description>Informazioni addizionali indirizzo.</Description>
@@ -901,7 +903,7 @@
                             <Reference type="BUSINESS_TERM">tir16-p013</Reference>
 							<Value type="EXAMPLE">Interno 1</Value>
                         </Element>
-                        <Element agid:custom="fixed-value">
+                        <Element cardinality="1..1">
                             <Term>cbc:CityName</Term>
                             <Name>City - Città</Name>
                 						<Description>Nome della città.</Description>
@@ -910,7 +912,7 @@
                             <Reference type="RULE">IT-T16-R002</Reference>
 							<Value type="EXAMPLE">Bologna</Value>
                         </Element>
-                        <Element agid:custom="fixed-value">
+                        <Element cardinality="1..1">
                             <Term>cbc:PostalZone</Term>
                             <Name>Post code - CAP</Name>
                 						<Description>Codice Postale</Description>
@@ -919,7 +921,7 @@
                             <Reference type="RULE">IT-T16-R002</Reference>
 							<Value type="EXAMPLE">40121</Value>
                         </Element>
-                        <Element agid:custom="fixed-value">
+                        <Element cardinality="1..1">
                             <Term>cbc:CountrySubentity</Term>
                             <Name>Country subdivision - Provincia</Name>
                             <Description>Provincia.</Description>
@@ -928,22 +930,22 @@
                             <Reference type="RULE">IT-T16-R002</Reference>
 							<Value type="EXAMPLE">BO</Value>
                         </Element>
-                        <Element agid:custom="fixed-value" cardinality="0..1">
+                        <Element cardinality="0..1">
                             <Term>cac:AddressLine</Term>
                             <Name>Address Line - Ulteriori informazioni indirizzo</Name>
-                            <Element agid:custom="fixed-value" cardinality="0..1">
+                            <Element cardinality="0..1">
                                 <Term>cbc:Line</Term>
                                 <Name>Address line 3 - Ulteriori informazioni indirizzo</Name>
-                  							<Description>Ulteriori informazioni indirizzo</Description>
+                  				<Description>Ulteriori informazioni indirizzo</Description>
                                 <DataType>Text</DataType>
                                 <Reference type="BUSINESS_TERM">tir16-p017</Reference>
                                 <Value type="EXAMPLE">Citofono 124</Value>
                             </Element>
                         </Element>
-                        <Element agid:custom="fixed-value" cardinality="1..1">
+                        <Element cardinality="1..1">
                             <Term>cac:Country</Term>
                             <Name>Country - Nazione</Name>
-                            <Element agid:custom="fixed-value" cardinality="1..1">
+                            <Element cardinality="1..1">
                                 <Term>cbc:IdentificationCode</Term>
                                 <Name>Country code - Codice nazione</Name>
                                 <Description>Codice identificativo nazione.</Description>
@@ -955,6 +957,7 @@
                             </Element>
                         </Element>
                     </Element>
+					
                     <Element cardinality="0..1">
                         <Term>cac:Person</Term>
                         <Name>Information about the driver - Informazioni sul conducente.</Name>

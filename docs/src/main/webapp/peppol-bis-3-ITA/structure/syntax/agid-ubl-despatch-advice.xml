@@ -606,14 +606,14 @@
                     <Term>cac:PostalAddress</Term>
                     <Name>Postal address - Indirizzo</Name>
                     <Description>Contiene informazioni relative all’indirizzo del Venditore.</Description>
-					<Value type="EXAMPLE">Via Antonio Gramsci 6</Value>
                     <Element agid:custom="cardinality">
                         <Term>cbc:StreetName</Term>
                         <Name>Address line 1 - Indirizzo</Name>
-            						<Description>Via Antonio Gramsci 6</Description>
+            						<Description>Strada, via, piazza ecc. e numero civico</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p018</Reference>
                         <Reference type="RULE">IT-T16-R002</Reference>
+						<Value type="EXAMPLE">Via Antonio Gramsci 6</Value>
                     </Element>
                     <Element cardinality="0..1">
                         <Term>cbc:AdditionalStreetName</Term>
@@ -1175,7 +1175,7 @@ Utilizzato per indicare il codice del Punto di consegna NSO degli Enti</Descript
                 <Element>
                     <Term>cbc:LineID</Term>
                     <Name>Order line identifier - Identificativo linea d'ordine</Name>
-                    <Description>Identifica l'ordine contenente la riga d'ordine a cui si fa riferimento, attraverso gli estremi dell'ordine (c.d. Tripletta).</Description>
+                    <Description>Indica il numero della riga d’ordine a cui si riferisce la riga del DDT.</Description>
                     <Reference type="BUSINESS_TERM">tir16-051</Reference>
                 </Element>
                 <Element cardinality="0..1">
@@ -1190,7 +1190,7 @@ Utilizzato per indicare il codice del Punto di consegna NSO degli Enti</Descript
                     <Element>
                         <Term>cbc:ID</Term>
                         <Name>Order identifier - Identificativo dell'ordine</Name>
-                        <Description>Identifica l'ordine al quale la riga d'ordine si riferisce. Contiene gli estremi dell'ordine (c.d. Tripletta).</Description>
+                        <Description>Identifica l'ordine contenente la riga d'ordine a cui si fa riferimento, attraverso gli estremi dell'ordine (c.d. Tripletta).</Description>
                         <Reference type="BUSINESS_TERM">tir16-p010</Reference>
                         <Reference type="RULE">PEPPOL-T16-R002</Reference>
                         <Value type="EXAMPLE">4321#2013-01-30#ABCDEF</Value>
@@ -1257,10 +1257,10 @@ Utilizzato per indicare il codice del Punto di consegna NSO degli Enti</Descript
                 </Element>
                 <Element cardinality="0..1">
                     <Term>cac:SellersItemIdentification</Term>
-                    <Name>Sellers item identifier - Identificativo articolo attribuito dal Fornitore</Name>
+                    <Name>Sellers item identification - Identificativo articolo attribuito dal Fornitore</Name>
         						<Element>
         							<Term>cbc:ID</Term>
-        							<Name>The Sellers item identifier - Identificativo prodotto attribuito dal Fornitore</Name>
+        							<Name>Sellers item identifier - Identificativo articolo attribuito dal Fornitore</Name>
         							<Description>Indica l’identificativo dell'articolo assegnato dal Fornitore.</Description>
                         <DataType>Identifier</DataType>
                         <Reference type="BUSINESS_TERM">tir16-053</Reference>

@@ -46,6 +46,8 @@ In vigore a partire dal *07 agosto 2023*
 * Aggiornato il foglio di stile per il Documento di Trasporto Peppol 3;
 * Aggiornati i file di esempio in funzione delle modifiche alla specifica.  
 
+{nbsp} +
+
 *(***) _Rilascio previsto per il 23 giugno 2023_* +
 
 

@@ -880,7 +880,7 @@
 							<Value type="EXAMPLE">Vettore s.r.l.</Value>
                         </Element>
                     </Element>
-                    <Element agid:custom="fixed-value">
+                    <Element agid:custom="extension">
                         <Term>cac:PostalAddress</Term>
                         <Name>Postal address - Indirizzo del Vettore</Name>
               					<Description>Contiene informazioni relative all’indirizzo del Vettore.</Description>

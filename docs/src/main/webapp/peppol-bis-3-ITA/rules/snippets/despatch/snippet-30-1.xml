@@ -48,7 +48,6 @@
 			</cac:PartyIdentification>
 			<cac:PostalAddress><!--3-->
 				<cbc:StreetName>Via del Pozzo 71</cbc:StreetName>
-				<cbc:AdditionalStreetName>Località Ponte Alto</cbc:AdditionalStreetName>
 				<cbc:CityName>Modena</cbc:CityName>
 				<cbc:PostalZone>41124</cbc:PostalZone>
 				<cbc:CountrySubentity>MO</cbc:CountrySubentity>

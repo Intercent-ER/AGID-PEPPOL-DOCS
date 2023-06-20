@@ -8,7 +8,7 @@
 
 | 3.3.0.2(IT)
 a| 15/06/2023
-a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2023-Q2/release-notes/[PEPPOL BIS 3.0.11 - May release 2023]_. +
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2023-Q2/release-notes/[Peppol BIS 3.0.11 - May release 2023]_. +
 
 In vigore a partire dal *07 agosto 2023*
 

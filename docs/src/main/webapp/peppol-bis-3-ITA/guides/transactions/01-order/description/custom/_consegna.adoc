@@ -158,7 +158,7 @@ Se necessario, il Cliente può richiedere al Fornitore di stampare un testo sull
 
 = Indicazione della priorità della consegna
 
-Il Cliente può indicare al Fornitore il livello di piorità richiesta nell'evasione dell'ordine valorizzando il campo "ShippingPriorityLevelCode" dell'elemento "Shipment", inserendo il relativo codice tra quelli presenti nella codelist "Transport service priority code (UNCL4219)" come mostrato nell'esempio.
+Il Cliente può indicare al Fornitore il livello di priorità richiesta nell'evasione dell'ordine valorizzando il campo "ShippingPriorityLevelCode" dell'elemento "Shipment", inserendo il relativo codice tra quelli presenti nella codelist "Transport service priority code (UNCL4219)" come mostrato nell'esempio.
 
 .Esempio di indicazione di un ordine urgente (consegna entro 24 ore)
 [source, xml, indent=0]

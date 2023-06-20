@@ -60,7 +60,7 @@
 		<Element cardinality="0..1">
 			<Term>cbc:IssueTime</Term>
 			<Name>Order issue time - Ora di emissione del Documento</Name>
-			<Description>Indica l’orario di emissione che il Cliente ha apposto sull’Ordine, nel formato hh:mm:ss.</Description>
+			<Description>Indica l’orario di emissione che il Cliente ha apposto sull’Ordine, nel formato oo:mm:ss.</Description>
 			<DataType>Time</DataType>
 			<Reference type="BUSINESS_TERM">tir76-005</Reference>
 			<Value type="EXAMPLE">09:23:56</Value>

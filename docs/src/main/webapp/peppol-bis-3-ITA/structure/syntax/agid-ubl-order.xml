@@ -66,7 +66,7 @@
 		<Element cardinality="0..1">
 			<Term>cbc:IssueTime</Term>
 			<Name>Order issue time - Ora di emissione del Documento</Name>
-			<Description>Indica l’orario di emissione che il Cliente ha apposto sull’Ordine, nel formato hh:mm:ss.</Description>
+			<Description>Indica l’orario di emissione che il Cliente ha apposto sull’Ordine, nel formato oo:mm:ss.</Description>
 			<DataType>Time</DataType>
 			<Reference type="BUSINESS_TERM">tir01-005</Reference>
 			<Value type="EXAMPLE">14:12:32</Value>
@@ -178,11 +178,11 @@
 		</Element>
 		<Element cardinality="0..1">
 			<Term>cac:CatalogueReference</Term>
-			<Name>Riferimento al catalogo</Name>
+			<Name>Catalogue reference – Riferimento al catalogo</Name>
 			<Element cardinality="0..1">
 				<Term>cbc:ID</Term>
-				<Name>Identificativo del catalogo</Name>
-				<Description>Indica l'identificato del catalogo al quale l'Ordine fa riferimento</Description>
+				<Name>Catalogue reference – Identificativo del catalogo</Name>
+				<Description>Indica l'identificativo del catalogo al quale l'Ordine fa riferimento</Description>
 				<DataType>Document reference</DataType>
 				<Reference type="BUSINESS_TERM">tir01-p45</Reference>
 				<Value type="EXAMPLE">Cat2023-03-07</Value>
@@ -1262,7 +1262,7 @@
 				</Element>
 				<Element cardinality="0..1">
 					<Term>cbc:ShippingPriorityLevelCode</Term>
-					<Name>Priorità di spedizione richiesta</Name>
+					<Name>Requested shipping priority – Priorità di spedizione richiesta</Name>
 					<Description>Indica il livello di priorità richiesta dall'Acquirente per l'evasione dell'Ordine. Il valore "1" esprime la massima urgenza.</Description>
 					<DataType>code</DataType>
 					<Reference type="BUSINESS_TERM">tir01-p47</Reference>
@@ -1723,7 +1723,7 @@
 						</Element>
 						<Element cardinality="0..1">
 							<Term>cbc:StartTime</Term>
-							<Name>Ora di inizio</Name>
+							<Name>Period start time - Ora di inizio</Name>
 							<Description>Indica l'orario in cui deve avere inizio la fornitura, nel formato oo:mm:ss</Description>
 							<DataType>Time</DataType>
 							<Reference type="BUSINESS_TERM">tir01-p48</Reference>
@@ -1739,7 +1739,7 @@
 						</Element>
 						<Element cardinality="0..1">
 							<Term>cbc:EndTime</Term>
-							<Name>Ora di fine</Name>
+							<Name>Period end time - Ora di fine</Name>
 							<Description>Indica l'orario in cui deve terminare la fornitura, nel formato oo:mm:ss</Description>
 							<DataType>Time</DataType>
 							<Reference type="BUSINESS_TERM">tir01-p49</Reference>
@@ -1988,10 +1988,10 @@
 					</Element>
 						<Element cardinality="0..1">
 						<Term>cac:ManufacturersItemIdentification</Term>
-						<Name>Identificativo prodotto attribuito dal Produttore</Name>
+						<Name>Manufacturers Item Identifier - Identificativo prodotto attribuito dal Produttore</Name>
 							<Element cardinality="1..1">
 								<Term>cbc:ID</Term>
-								<Name>Identificativo prodotto attribuito dal Produttore</Name>
+								<Name>Manufacturers Item Identifier - Identificativo prodotto attribuito dal Produttore</Name>
 								<Description>Indica l'identificativo del bene attribuito dal Produttore</Description>
 								<DataType>Identifier</DataType>
 								<Reference type="BUSINESS_TERM">tir01-p46</Reference>

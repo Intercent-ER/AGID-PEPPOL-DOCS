@@ -14,7 +14,7 @@ Per ogni riga della fattura deve essere indicato il codice della categoria IVA (
 Per ogni riga della fattura deve essere indicato il codice della categoria IVA nel *cac:ClassifiedTaxCategory/cbc:ID* (BT-151 Invoiced item VAT category code). +
 Per le categorie IVA è E, G e K il *cac:ClassifiedTaxCategory/cbc:Percent* (BT-152 Invoiced item VAT rate) va posto uguale a 0.
 
-.Tabella di relazione tra natura e Invoiced item VAT Category Code
+.Tabella di relazione tra Invoiced item VAT Category Code e Natura FPA
 image::../../../images/7.1.1.vatex-table-cross-border.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
 
 === #Regole per la fatturazione domestica#
@@ -103,7 +103,7 @@ La gestione della natura dell’operazione (FPA 2.2.2.2 Natura) per le fatture d
 1. *cac:TaxCategory/cbc:ID* (BT-118 VAT category code);
 2. *cbc:TaxExemptionReasonCode* (BT-121 VAT exemption reason code);
 
-.Tabella di relazione tra natura, VAT Category Code e VAT exemption reason code
+.Tabella di relazione tra VAT Category Code, VAT exemption reason code e Natura FPA
 image::../../../images/7.3.1.vatex-table-cross-border.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
 
 [IMPORTANT]
@@ -111,17 +111,17 @@ La fattura non può contenere più di un TaxSubtotal per la medesima categoria I
 
 === #Regole per la fatturazione domestica#
 
-La gestione della natura dell'operazione (FPA 2.2.2.2 Natura) per le fatture domestiche è operata a mezzo dell’utilizzo di:# +
+La gestione della natura dell'operazione (FPA 2.2.2.2 Natura) per le fatture domestiche è operata a mezzo dell’utilizzo di: +
 
 1. *cac:TaxCategory/cbc:ID* (BT-118 VAT category code);
 2. *cbc:TaxExemptionReasonCode* (BT-121 VAT exemption reason code);
-3. *cbc:TaxExemptionReason* (BT-120 VAT exemption reason text), in cui viene inserita il codice natura secondo le specifiche FatturaPA ed il Riferimento Normativo.
+3. *cbc:TaxExemptionReason* (BT-120 VAT exemption reason text), in cui viene inserita il codice natura secondo le specifiche FatturaPA ed il Riferimento Normativo concatenati a mezzo di #.
 
 [NOTE]
 Trattasi di CIUS domestica (DC)
 
 
-.Tabella di relazione tra natura, VAT Category Code, VAT exemption reason code e VAT exemption reason text.
+.Tabella di relazione tra natura FPA, VAT Category Code e VAT exemption reason code
 image::../../../images/vatex-table.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
 
 ==== Caso 1 - natura diversa da N1 – esempio riferito ad un’operazione in regime di reverse charge

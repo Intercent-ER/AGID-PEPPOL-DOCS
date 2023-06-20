@@ -115,7 +115,7 @@ La gestione della natura dell'operazione (FPA 2.2.2.2 Natura) per le fatture dom
 
 1. *cac:TaxCategory/cbc:ID* (BT-118 VAT category code);
 2. *cbc:TaxExemptionReasonCode* (BT-121 VAT exemption reason code);
-3. *cbc:TaxExemptionReason* (BT-120 VAT exemption reason text), in cui viene inserita il codice natura secondo le specifiche FatturaPA ed il Riferimento Normativo _concatenati a mezzo di #._
+3. *cbc:TaxExemptionReason* (BT-120 VAT exemption reason text), in cui viene inserita il codice natura secondo le specifiche FatturaPA ed il Riferimento Normativo concatenati a mezzo di #.
 
 [NOTE]
 Trattasi di CIUS domestica (DC)

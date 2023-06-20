@@ -8,6 +8,7 @@
     <packaging>pom</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+            <agid.peppoldocs.version>2.1</agid.peppoldocs.version>
     </properties>
     <modules>
 		<module>artifacts/validation/</module>
@@ -19,9 +20,9 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/Intercent-ER/AGID-PEPPOL-DOCS</developerConnection>
-        <tag>NoTI-ER-PEPPOL-2.1</tag>
+        <tag>NoTI-ER-PEPPOL-${agid.peppoldocs.version}</tag>
     </scm>
-	
+
 	<pluginRepositories>
         <pluginRepository>
             <id>central</id>

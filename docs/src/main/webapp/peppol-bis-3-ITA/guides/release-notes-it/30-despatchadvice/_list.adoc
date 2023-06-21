@@ -7,7 +7,7 @@
 ^.^| Cosa è cambiato
 
 | 3.1.0.2(IT)
-a| 16/06/2023
+a| 21/06/2023
 a| _Aggiornamento della specifica italiana sul Documento di Trasporto in relazione alle disposizioni contenute nel DPR n. 472/1996._ +
 
 In vigore a partire dal *07 agosto 2023*

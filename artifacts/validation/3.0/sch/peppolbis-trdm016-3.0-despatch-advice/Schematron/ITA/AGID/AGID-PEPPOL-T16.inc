@@ -2,7 +2,7 @@
 <pattern id="IT-UBL-T16" xmlns="http://purl.oclc.org/dsdl/schematron">
 
 	<rule context="//cbc:EndpointID" flag="fatal">
-		<assert test="(@schemeID='0201' and matches(.,'^[a-zA-Z0-9]{6,7}$')) or @schemeID!='0201'" flag="warning" id="IT-T16-R026">[IT-T16-R026] - Se l'identificatore di endpoint si basa sullo schema di identificatori IT:IPA (ICD: 0201), questo dovrà seguire la sintassi [A-Z0-9]{6,7}.</assert>
+		<assert test="(@schemeID='0201' and matches(.,'^[a-zA-Z0-9]{6}$')) or @schemeID!='0201'" flag="warning" id="IT-T16-R026">[IT-T16-R026] - Se l'identificatore di endpoint si basa sullo schema di identificatori IT:IPA (ICD: 0201), questo dovrà seguire la sintassi [A-Z0-9]{6,7}.</assert>
 		<assert test="((@schemeID='9906' or @schemeID='0211') and matches(.,'^(IT)?[0-9]{11}$')) or (@schemeID!='9906' and @schemeID!='0211')" flag="warning" id="IT-T16-R027">[IT-T16-R027] - Se l'identificatore di endpoint si basa sullo schema di identificatori IT:VAT (ICD: 9906, 0211), questo dovrà seguire la sintassi (IT)?[0-9]{11}.</assert>
 		<assert test="((@schemeID='9907' or @schemeID='0210') and matches(.,'^[0-9]{11}$|^[A-Z]{6}\d{2}[ABCDEHLMPRST]{1}\d{2}[A-Z]{1}\d{3}[A-Z]{1}$')) or (@schemeID!='9907' and @schemeID!='0210')" flag="warning" id="IT-T16-R028">[IT-T16-R028] - Se l'identificatore di endpoint si basa sullo schema di identificatori IT:CF (ICD: 9907, 0211), questo dovrà seguire la sintassi [0-9]{11} per le persone giuridiche e la sintassi [A-Z]{6}\d{2}[ABCDEHLMPRST]{1}\d{2}[A-Z]{1}\d{3}[A-Z]{1} per quelle fisiche.</assert>
 	</rule>

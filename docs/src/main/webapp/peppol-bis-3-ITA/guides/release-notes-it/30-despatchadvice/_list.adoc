@@ -37,18 +37,17 @@ In vigore a partire dal *07 agosto 2023*
 ** cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress – Indirizzo di consegna.
 * Aggiornate  le descrizioni dei campi e i relativi esempi in funzione delle modifiche alla specifica.
 
-[red]#Cambiamenti alle code lists e artefatti di validazione *# 
+[red]#Cambiamenti alle code lists e artefatti di validazione # 
 
 * Aggiornate le Regole di business per il Documento di Trasporto Peppol.
 
-[red]#Cambiamenti a fogli di stile ed esempi *#
+[red]#Cambiamenti a fogli di stile ed esempi #
 
 * Aggiornato il foglio di stile per il Documento di Trasporto Peppol 3;
 * Aggiornati i file di esempio in funzione delle modifiche alla specifica.  
 
 {nbsp} +
 
-*(***) _Rilascio previsto per il 23 giugno 2023_* +
 
 
 _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2023-Q2/release-notes/[Peppol BIS 3.0.11 - May release 2023]_. +

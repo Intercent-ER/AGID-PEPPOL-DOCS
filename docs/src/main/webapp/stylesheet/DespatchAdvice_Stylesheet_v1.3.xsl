@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 
-    Descrizione documento:     	Foglio di stile per Documento di trasporto UBL 2.1 Peppol BIS 3
-    Versione : 					1.0
-    Prodotto il :              	Dicembre 2015       
-    PProdotto da :             	Intercent-ER
-    Ambito:                    	Intercent-ER - Piloti Peppol
+<!--
+    Descrizione documento:     	Foglio di stile per Documento di trasporto UBL 2.1 PEPPOL BIS 3
+    Versione:                   3.2.0.2(IT)
+    Prodotto il:                Giugno 2023
+    Prodotto da:                Intercent-ER
+    Ambito:                     Intercent-ER - Piloti Peppol
 -->
 <xsl:stylesheet xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:in="urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:cr="http://www.ubl-italia.org/ns/CrossReference" version="2.0" exclude-result-prefixes="cac cbc in">
     <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" scope="stylesheet">
@@ -335,7 +335,7 @@
             <body class="in-body">
             	<div class="page-break">
                 <h1>DDT </h1>
-                <h2>Rappresentazione UBL Peppol BIS 3</h2>
+                <h2>Rappresentazione UBL PEPPOL BIS 3</h2>
                 <table class="riepilogo-fattura" summary="riepilogo ddt">
                     <tr class="party-row">
                         <td class="party-column">
@@ -366,29 +366,8 @@
 										</span>
                                     </td>
 									<td class="no-border border-bottom h100px w-33 in-cell-filler-background">
-                                        <h2 class="in-box-label">Ordine</h2>
-										<xsl:if test="/in:DespatchAdvice/cac:OrderReference"> 
-											<div class="box-text"> Numero: <xsl:value-of select="/in:DespatchAdvice/cac:OrderReference/cbc:ID"/>
-											</div>
-											<div class="box-text"> Data: 
-												<xsl:call-template name="format-date">
-													<xsl:with-param name="date">
-														<xsl:value-of select="/in:DespatchAdvice/cac:OrderReference/cbc:IssueDate"/>
-													</xsl:with-param>
-												</xsl:call-template>
-											</div>
-											<div class="box-text"> Tipo: 
-												<xsl:variable name="orderTypeCodeVar">
-													<xsl:value-of select="/in:DespatchAdvice/cac:OrderReference/cbc:OrderTypeCode"/>
-												</xsl:variable>
-												<xsl:value-of select="$orderTypeCodeVar"/>
-												<xsl:for-each select="document($xclOrderTypeCode)//SimpleCodeList/Row">
-													<xsl:if test="Value[@ColumnRef='code']/SimpleValue=$orderTypeCodeVar">
-														- <xsl:value-of select="Value[@ColumnRef='nome']/SimpleValue"/>
-													</xsl:if>
-												</xsl:for-each>
-											</div>
-											
+                                        <h2 class="in-box-label">Riferimento Ordine</h2>
+										<xsl:if test="/in:DespatchAdvice/cac:OrderReference">										
 											<xsl:if test="/in:DespatchAdvice/cac:OrderReference/cbc:DocumentStatuCode">
 												<div class="box-text"> Stato: <xsl:value-of select="/in:DespatchAdvice/cac:OrderReference/cbc:DocumentStatuCode"/>
 												</div>
@@ -432,7 +411,7 @@
 							</xsl:if>
                         </td>
 						<td>
-                            <h2 class="in-box-label">Fornitore</h2>
+                            <h2 class="in-box-label">Fornitore / Venditore</h2>
                             <xsl:call-template name="in-party">
 								<xsl:with-param name="party" select="/in:DespatchAdvice/cac:SellerSupplierParty/cac:Party"/>
 							</xsl:call-template>
@@ -440,13 +419,13 @@
                     </tr>
 					<tr class="party-row">
                         <td>
-                            <h2 class="in-box-label">Cliente/Intestatario Fattura</h2>
+                            <h2 class="in-box-label">Cliente/Acquirente</h2>
                             <xsl:call-template name="in-party">
 								<xsl:with-param name="party" select="/in:DespatchAdvice/cac:BuyerCustomerParty/cac:Party"/>
 							</xsl:call-template>
                         </td>		
 						<td>
-                            <h2 class="in-box-label">Committente</h2>
+                            <h2 class="in-box-label">Richiedente</h2>
                             <xsl:call-template name="in-party">
 								<xsl:with-param name="party" select="/in:DespatchAdvice/cac:OriginatorCustomerParty/cac:Party"/>
 							</xsl:call-template>
@@ -473,7 +452,6 @@
 							<th scope="col" class="in-cell-filler-background">Quantità per Confezione</th>
 							<th scope="col" class="in-cell-filler-background">Informazioni Articolo</th>
                             <th scope="col" class="in-cell-filler-background">Quantità Inevasa / Motivo</th>
-							<th scope="col" class="in-cell-filler-background">CIG / Contratto</th>
 							<th scope="col" class="in-cell-filler-background">Pericolosità Articolo</th>
 							<th scope="col" class="in-cell-filler-background">Tipo Consegna</th>
 							<th scope="col" class="in-cell-filler-background">Codici Imballo</th>
@@ -540,16 +518,11 @@
                                 </td>
 								
 								<!-- Quantità per Confezione -->
-								<td class="in-cell-base  in-cell-data-center">
+								<td class="in-cell-base in-cell-data-center">
 									<div class="box-text">
-										<xsl:choose>
-											<xsl:when test="cbc:DeliveredQuantity[@unitCode='PK']">
-												<xsl:value-of select="cac:Item/cbc:PackQuantity"/>
-											</xsl:when>
-											<xsl:otherwise>
-												<xsl:value-of select="cac:Item/cbc:PackSizeNumeric"/>
-											</xsl:otherwise>
-										</xsl:choose>
+										<xsl:if test="cac:Item/cac:AdditionalItemProperty[cbc:Name = 'PackQuantity' or cbc:Name = 'PackSizeNumeric']">
+											<xsl:value-of select="cac:Item/cac:AdditionalItemProperty[cbc:Name = 'PackQuantity' or cbc:Name = 'PackSizeNumeric'][1]/cbc:Value"/>
+										</xsl:if>
 									</div>
 								</td>
 								
@@ -593,28 +566,7 @@
 										<xsl:if test="cbc:OutstandingReason"><div class="box-text"><b>Motivo:</b> <xsl:value-of select="cbc:OutstandingReason"/></div></xsl:if>
 									</div>
                                 </td>
-								
-								<!-- CIG / Contratto -->
-								<td class="in-cell-base">
-									<xsl:if test="cac:DocumentReference">
-										<xsl:for-each select="cac:DocumentReference">
-											<div>
-												<div class="box-text"><b>Id. doc.: </b><xsl:value-of select="cbc:ID"/></div>
-												<div class="box-text"><b>Tipo doc.: </b><xsl:value-of select="cbc:DocumentType"/></div>
-												<xsl:if test="cbc:IssueDate">
-													<div class="box-text"><b>Data: </b>
-														<xsl:call-template name="format-date">
-															<xsl:with-param name="date">
-																<xsl:value-of select="cbc:IssueDate"/>
-															</xsl:with-param>
-														</xsl:call-template>
-													</div>
-												</xsl:if>
-											</div>
-										</xsl:for-each>
-									</xsl:if>
-								</td>
-																														
+																												
 								 <!-- Pericolosità Articolo -->
 								 <td class="in-cell-base">
 										<div>
@@ -790,8 +742,8 @@
 							
 							<xsl:if test="/in:DespatchAdvice/cac:Shipment/cac:Consignment">
 								<td class="in-cell-base">
-									<h2 class="in-box-label">Dettaglio Consegna</h2>
-									<div class="box-text">Id. consegna: <xsl:value-of select="/in:DespatchAdvice/cac:Shipment/cac:Consignment/cbc:ID"/>
+									<h2 class="in-box-label">Dettaglio Trasporto</h2>
+									<div class="box-text">Id. trasporto: <xsl:value-of select="/in:DespatchAdvice/cac:Shipment/cac:Consignment/cbc:ID"/>
 									</div>
 									<xsl:if test="/in:DespatchAdvice/cac:Shipment/cbc:Information">
 										<div class="box-text">Informazioni/Note: <xsl:value-of select="/in:DespatchAdvice/cac:Shipment/cac:Consignment/cbc:Information"/>
@@ -799,7 +751,7 @@
 									</xsl:if>
 									
 									<xsl:if test="/in:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty">
-											<h2 class="in-box-label margin-top-20">Trasportatore</h2>
+											<h2 class="in-box-label margin-top-20">Vettore</h2>
 											<xsl:call-template name="in-party">
 												<xsl:with-param name="party" select="/in:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty"/>
 											</xsl:call-template>
@@ -809,14 +761,14 @@
 							
 							<xsl:if test="/in:DespatchAdvice/cac:Shipment/cac:Delivery">
 								<td class="in-cell-base">
-									<h2 class="in-box-label">Spedizione</h2>
+									<h2 class="in-box-label">Dettaglio Consegna</h2>
 									
 									<xsl:if test="/in:DespatchAdvice/cac:Shipment/cac:Delivery/cbc:TrackingID"><div class="box-text"><b>Identificativo: </b><xsl:value-of select="/in:DespatchAdvice/cac:Shipment/cac:Delivery/cbc:TrackingID"/></div></xsl:if>
 									
 									
 									<xsl:if test="/in:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch">
 										  <div class="box-text">
-											<b>Data/Ora spedizione:  </b>
+											Identificativo del luogo di consegna:
 												<xsl:call-template name="format-date">
 													<xsl:with-param name="date">
 														<xsl:value-of select="/in:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cbc:ActualDespatchDate"/>
@@ -828,7 +780,7 @@
 										   
 											<xsl:if test="/in:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch">
 											 <div class="box-text">
-											 <b>Indirizzo: </b>
+											 Indirizzo: 
 												<xsl:call-template name="postal-address">
 													<xsl:with-param name="address" select="/in:DespatchAdvice/cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress"/>
 												</xsl:call-template>
@@ -836,7 +788,7 @@
 											</xsl:if>
 									</xsl:if>
 									<xsl:if test="/in:DespatchAdvice/cac:Shipment/cac:Delivery/cac:EstimatedDeliveryPeriod">
-											<div class="box-text"><b>Periodo consegna previsto:</b> dal <xsl:value-of select="/in:DespatchAdvice/cac:Shipment/cac:Delivery/cac:EstimatedDeliveryPeriod/cbc:StartDate"/>
+											<div class="box-text">Periodo consegna previsto: dal <xsl:value-of select="/in:DespatchAdvice/cac:Shipment/cac:Delivery/cac:EstimatedDeliveryPeriod/cbc:StartDate"/>
 											 al <xsl:value-of select="/in:DespatchAdvice/cac:Shipment/cac:Delivery/cac:EstimatedDeliveryPeriod/cbc:EndDate"/></div>
 									</xsl:if>
 								</td>

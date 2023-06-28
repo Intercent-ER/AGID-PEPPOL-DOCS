@@ -1263,7 +1263,7 @@
 				<Element cardinality="0..1">
 					<Term>cbc:ShippingPriorityLevelCode</Term>
 					<Name>Requested shipping priority – Priorità di spedizione richiesta</Name>
-					<Description>Indica il livello di priorità richiesta dall'Acquirente per l'evasione dell'Ordine. Il valore "1" esprime la massima urgenza.</Description>
+					<Description>Indica il livello di priorità richiesta dal Cliente per l'evasione dell'Ordine. Il valore "1" esprime la massima urgenza.</Description>
 					<DataType>code</DataType>
 					<Reference type="BUSINESS_TERM">tir01-p47</Reference>
 					<Reference type="CODE_LIST">UNCL4219</Reference>

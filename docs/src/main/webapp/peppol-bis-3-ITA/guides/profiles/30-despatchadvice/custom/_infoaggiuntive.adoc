@@ -9,7 +9,7 @@ Per fornire informazioni aggiuntive come gli omaggi e gli sconti nelle righe del
 <cbc:DespatchLine>
 	<cbc:ID>3</cbc:ID>
 	<!-- Obbligatorio: Art. 1, comma 3 del DPR n. 472/1996 -->
-	<cbc:DeliveredQuantity unitCode="SR">20</cbc:DeliveredQuantity>
+	<cbc:DeliveredQuantity unitCode="C62">20</cbc:DeliveredQuantity>
 	…
 	<cac:Item>
 		<!-- Obbligatorio: Art. 1, comma 3 del DPR n. 472/1996 -->
@@ -26,7 +26,7 @@ Per fornire informazioni aggiuntive come gli omaggi e gli sconti nelle righe del
 <cbc:DespatchLine>
 	<cbc:ID>3</cbc:ID>
 	<!-- Obbligatorio: Art. 1, comma 3 del DPR n. 472/1996 -->
-	<cbc:DeliveredQuantity unitCode="SR">20</cbc:DeliveredQuantity>
+	<cbc:DeliveredQuantity unitCode="C62">20</cbc:DeliveredQuantity>
 	…
 	<cac:Item>
 		<!-- Obbligatorio: Art. 1, comma 3 del DPR n. 472/1996 -->

@@ -202,8 +202,8 @@
 		<cbc:ID>1</cbc:ID>
 		<!-- tag::quantity1[] -->
 		<!-- Obbligatorio: Art. 1, comma 3 del DPR n. 472/1996 -->
-		<cbc:DeliveredQuantity unitCode="EA">6</cbc:DeliveredQuantity>
-		<cbc:OutstandingQuantity unitCode="EA">4</cbc:OutstandingQuantity>
+		<cbc:DeliveredQuantity unitCode="C62">6</cbc:DeliveredQuantity>
+		<cbc:OutstandingQuantity unitCode="C62">4</cbc:OutstandingQuantity>
 		<cbc:OutstandingReason>Backorder</cbc:OutstandingReason>
 		<!-- end::quantity1[] -->
 		<cac:OrderLineReference>
@@ -229,8 +229,8 @@
 		<cbc:ID>2</cbc:ID>
 		<!-- tag::quantity2[] -->
 		<!-- Obbligatorio: Art. 1, comma 3 del DPR n. 472/1996 -->
-		<cbc:DeliveredQuantity unitCode="EA">6</cbc:DeliveredQuantity>
-		<cbc:OutstandingQuantity unitCode="EA">0</cbc:OutstandingQuantity>
+		<cbc:DeliveredQuantity unitCode="C62">6</cbc:DeliveredQuantity>
+		<cbc:OutstandingQuantity unitCode="C62">0</cbc:OutstandingQuantity>
 		<cbc:OutstandingReason>Out of stock</cbc:OutstandingReason>
 		<!-- end::quantity2[] -->
 		<!-- tag::ref-orderline2[] -->
@@ -274,8 +274,8 @@
 		<cbc:ID>3</cbc:ID>
 		<!-- tag::quantity3[] -->
 		<!-- Obbligatorio: Art. 1, comma 3 del DPR n. 472/1996 -->
-		<cbc:DeliveredQuantity unitCode="EA">6</cbc:DeliveredQuantity>
-		<cbc:OutstandingQuantity unitCode="EA">3</cbc:OutstandingQuantity>
+		<cbc:DeliveredQuantity unitCode="C62">6</cbc:DeliveredQuantity>
+		<cbc:OutstandingQuantity unitCode="C62">3</cbc:OutstandingQuantity>
 		<cbc:OutstandingReason>Production error</cbc:OutstandingReason>
 		<!-- end::quantity3[] -->
 		<cac:OrderLineReference>

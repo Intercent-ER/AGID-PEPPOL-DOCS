@@ -84,7 +84,7 @@
 		<assert test="not (@schemeID='0211') or (@schemeID='0211' and matches(.,'^IT?[0-9]{11}$'))" flag="warning" id="IT-T16-R023">[IT-T16-R023] - Se il Venditore è un soggetto italiano (cac:PostalAddress/cac:Country/cbc:IdentificationCode = "IT") e lo schemeID dell'Identificativo del Venditore (cac:SellerSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID/@schemeID) è pari a "0211", allora l'elemento 'Identificativo del Venditore' (cac:SellerSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID) deve avere una lunghezza pari a 13 caratteri alfanumerici e deve iniziare con la stringa "IT" seguita da 11 cifre.</assert>
 	</rule>
 	
-	<rule context="ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:Party/cac:PartyIdentification/cbc:ID" flag="warning">
+	<rule context="ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyIdentification/cbc:ID" flag="warning">
 		<assert test="not (@schemeID='0211') or (@schemeID='0211' and matches(.,'^IT?[0-9]{11}$'))" flag="warning" id="IT-T16-R030">[IT-T16-R030] - Se il Vettore è un soggetto italiano (cac:PostalAddress/cac:Country/cbc:IdentificationCode = "IT") e lo schemeID dell'Identificativo del Vettore (cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyIdentification/cbc:ID/@schemeID) è pari a "0211", allora l'elemento 'Identificativo del Vettore' (cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyIdentification/cbc:ID/@schemeID) deve avere una lunghezza pari a 13 caratteri alfanumerici e deve iniziare con la stringa "IT" seguita da 11 cifre.</assert>
 	</rule>
 	

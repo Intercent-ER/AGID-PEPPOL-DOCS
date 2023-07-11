@@ -1,6 +1,0 @@
-:lang: it
-:shared-dir: ../shared
-:snippet-dir: ../../rules/snippets
-:name-op-en: OpenPeppolAISBL, Post-Award Coordinating Community
-
-include::../shared/_settings.adoc[]

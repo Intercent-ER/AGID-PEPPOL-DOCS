@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" cardinality="0..n" xmlns:agid="urn:fdc:agid.gov.it:peppol:customization" agid:custom="rule">
+<Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" cardinality="0..n">
 
         <Term>cac:PaymentMeans</Term>
         <Name>PAYMENT INSTRUCTIONS</Name>
         <Description>A group of business terms providing information about the payment.</Description>
         <Reference type="BUSINESS_TERM">BG-16</Reference>
-		<Reference type="RULE">BR-IT-260</Reference>
         
         <Element>
             <Term>cbc:PaymentMeansCode</Term>
@@ -17,7 +16,6 @@
             <Reference type="RULE">BR-49</Reference>
             <Reference type="RULE">BR-CL-16</Reference>
             <Reference type="RULE">DK-R-005</Reference>
-            <Reference type="RULE">DK-R-012</Reference>
             <Reference type="RULE">SE-R-011</Reference>
             <Reference type="CODE_LIST">UNCL4461</Reference>
             
@@ -93,7 +91,7 @@
             <Description>A group of business terms to specify credit transfer payments.</Description>
             <Reference type="BUSINESS_TERM">BG-17</Reference>
             
-            <Element agid:custom="rule">
+            <Element>
                 <Term>cbc:ID</Term>
                 <Name>Payment account identifier</Name>
                 <Description>A unique identifier of the financial payment account, at a payment service provider, to which
@@ -110,8 +108,7 @@
                 <Reference type="RULE">SE-R-008</Reference>
                 <Reference type="RULE">SE-R-009</Reference>
                 <Reference type="RULE">SE-R-010</Reference>
-				<Reference type="RULE">BR-IT-270</Reference>
-                <Value type="EXAMPLE">IT001122334455667788990</Value>
+                <Value type="EXAMPLE">NO99991122222</Value>
             </Element>
             
             <Element cardinality="0..1">
@@ -121,14 +118,14 @@
                 </Description>
                 <DataType>Text</DataType>
                 <Reference type="BUSINESS_TERM">BT-85</Reference>
-                <Value type="EXAMPLE">Fornitore S.p.A.</Value>
+                <Value type="EXAMPLE">Payment Account</Value>
             </Element>
             
             <Element cardinality="0..1">
                 <Term>cac:FinancialInstitutionBranch</Term>
                 <Name>FINANCIAL INSTITUTION BRANCH</Name>
                 
-                <Element agid:custom="rule">
+                <Element>
                     <Term>cbc:ID</Term>
                     <Name>Payment service provider identifier</Name>
                     <Description>An identifier for the payment service provider where a payment account is located.
@@ -136,8 +133,7 @@
                     <DataType>Identifier</DataType>
                     <Reference type="BUSINESS_TERM">BT-86</Reference>
                     <Reference type="RULE">DK-R-006</Reference>
-					<Reference type="RULE">BR-IT-280</Reference>
-                    <Value type="EXAMPLE">BIC32409</Value>
+                    <Value type="EXAMPLE">9999</Value>
                 </Element>
             </Element>
         </Element>

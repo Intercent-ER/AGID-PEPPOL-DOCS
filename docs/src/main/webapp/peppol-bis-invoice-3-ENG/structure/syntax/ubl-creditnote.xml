@@ -2,7 +2,7 @@
 <Structure xmlns="urn:fdc:difi.no:2017:vefa:structure-1">
 
     <Term>ubl-creditnote</Term>
-    <Name>Peppol Credit Note 3.0</Name>
+    <Name>PEPPOL Credit Note 3.0</Name>
     <Description>Please note that all element names are inhereted from EN16931 and naming use the term invoice, but this covers both invoice and credit notes. 
     The tag names are correct according to the UBL Credit note schema
     </Description>
@@ -39,6 +39,7 @@
             <DataType>Text</DataType>
             <Reference type="BUSINESS_TERM">BT-23</Reference>
             <Reference type="RULE">PEPPOL-EN16931-R001</Reference>
+            <Reference type="RULE">PEPPOL-EN16931-R007</Reference>
             <Value type="DEFAULT">urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</Value>
         </Element>
 
@@ -84,6 +85,7 @@
             <DataType>Code</DataType>
             <Reference type="BUSINESS_TERM">BT-3</Reference>
             <Reference type="RULE">BR-04</Reference>
+            <Reference type="RULE">BR-CL-01</Reference>
             <Reference type="RULE">PEPPOL-EN16931-P0101</Reference>
             <Reference type="CODE_LIST">UNCL1001-cn</Reference>
             <Value type="EXAMPLE">381</Value>
@@ -98,7 +100,8 @@
             <DataType>Text</DataType>
             <Reference type="BUSINESS_TERM">BT-22</Reference>
             <Reference type="RULE">PEPPOL-EN16931-R002</Reference>
-            <Value type="EXAMPLE">Consegne mese di Maggio</Value>
+            <Reference type="RULE">BR-CL-08</Reference>
+            <Value type="EXAMPLE">Please note our new phone number 33 44 55 66</Value>
         </Element>
 
 
@@ -140,7 +143,6 @@
             </Description>
             <DataType>Text</DataType>
             <Reference type="BUSINESS_TERM">BT-19</Reference>
-            <Reference type="RULE">DK-R-001</Reference>
             <Value type="EXAMPLE">4217:2323:2323</Value>
         </Element>
 
@@ -151,13 +153,14 @@
             <DataType>Text</DataType>
             <Reference type="BUSINESS_TERM">BT-10</Reference>
             <Reference type="RULE">PEPPOL-EN16931-R003</Reference>
-            <Value type="EXAMPLE">202268004#2017-06-27#ABCDEF</Value>
+            <Value type="EXAMPLE">abs1234</Value>
         </Element>
 
         <Element cardinality="0..1">
             <Term>cac:InvoicePeriod</Term>
             <Name>DELIVERY OR INVOICE PERIOD</Name>
-            <Description>A group of business terms providing information on the invoice period. Also called delivery period.</Description>
+            <Description>A group of business terms providing information on the invoice period. Also called delivery period. 
+                If the group is used, the invoiceing period start date and/or end date must be used.</Description>
             <Reference type="BUSINESS_TERM">BG-14</Reference>
             <Reference type="RULE">BR-IC-11</Reference>
 
@@ -192,6 +195,7 @@
                 <Reference type="BUSINESS_TERM">BT-8</Reference>
                 <Reference type="RULE">BR-CO-03</Reference>
                 <Reference type="RULE">BR-CL-06</Reference>
+				<Reference type="RULE">PEPPOL-EN16931-CL006</Reference>
                 <Reference type="CODE_LIST">UNCL2005</Reference>
                 <Value type="EXAMPLE">35</Value>
             </Element>
@@ -238,7 +242,7 @@
                     <DataType>Document Reference</DataType>
                     <Reference type="BUSINESS_TERM">BT-25</Reference>
                     <Reference type="RULE">BR-55</Reference>
-                    <Value type="EXAMPLE">ft123</Value>
+                    <Value type="EXAMPLE">inv123</Value>
                 </Element>
                 <Element cardinality="0..1">
                     <Term>cbc:IssueDate</Term>
@@ -263,7 +267,7 @@
                 <Description>An identifier of a referenced despatch advice.</Description>
                 <DataType>Document Reference</DataType>
                 <Reference type="BUSINESS_TERM">BT-16</Reference>
-                <Value type="EXAMPLE">ddt456</Value>
+                <Value type="EXAMPLE">desp98</Value>
             </Element>
         </Element>
 
@@ -291,7 +295,7 @@
                 <Description>The identification of a contract.</Description>
                 <DataType>Document Reference</DataType>
                 <Reference type="BUSINESS_TERM">BT-12</Reference>
-                <Value type="EXAMPLE">Contratto321</Value>
+                <Value type="EXAMPLE">123Contractref</Value>
             </Element>
         </Element>
 
@@ -303,6 +307,10 @@
                 The additional supporting documents can be used for both referencing a document number which is expected to be known by the receiver, 
                 an external document (referenced by a URL) or as an embedded document, Base64 encoded (such as a time report).</Description>
             <Reference type="BUSINESS_TERM">BG-24</Reference>
+            <Reference type="RULE">PEPPOL-EN16931-R006</Reference>
+            <Reference type="RULE">PEPPOL-EN16931-R080</Reference>
+           
+
             
             <Element>
                 <Term>cbc:ID</Term>
@@ -340,7 +348,7 @@
                 <Description>A description of the supporting document, such as: timesheet, usage report etc.</Description>
                 <DataType>Text</DataType>
                 <Reference type="BUSINESS_TERM">BT-123</Reference>
-                <Value type="EXAMPLE">Documento aggiuntivo</Value>
+                <Value type="EXAMPLE">Time list</Value>
             </Element>
             
             <Element cardinality="0..1">
@@ -355,6 +363,7 @@
                     <Reference type="BUSINESS_TERM">BT-125</Reference>
                     
                     
+                    
                     <Attribute>
                         <Term>mimeCode</Term>
                         <Name>Attached document Mime code</Name>
@@ -362,7 +371,8 @@
                         <Reference type="RULE">PEPPOL-EN16931-CL001</Reference>
                         <Reference type="RULE">UBL-DT-06</Reference>
                         <Reference type="CODE_LIST">MimeCode</Reference>
-                        <Value type="EXAMPLE">PDF</Value>
+                        <Reference type="RULE">BR-CL-24</Reference>
+                        <Value type="EXAMPLE">text/csv</Value>
                     </Attribute>
                     
                     <Attribute>
@@ -370,7 +380,7 @@
                         <Name>Attached document Filename</Name>
                         <Description>The file name of the attached document</Description>
                         <Reference type="RULE">UBL-DT-07</Reference>
-                        <Value type="EXAMPLE">Fattura ft123 del 16-11-2017.pdf</Value>
+                        <Value type="EXAMPLE">Hours-spent.csv</Value>
                         
                     </Attribute>
                     
@@ -407,7 +417,7 @@
                 <Description>The identification of the call for tender or lot the invoice relates to.</Description>
                 <DataType>Document Reference</DataType>
                 <Reference type="BUSINESS_TERM">BT-17</Reference>
-                <Value type="EXAMPLE">90305884F7</Value>
+                <Value type="EXAMPLE">PPID-123</Value>
             </Element>
         </Element>
 
@@ -521,6 +531,7 @@
             <Description>A group of business terms providing information on individual Invoice lines.</Description>
             <Reference type="BUSINESS_TERM">BG-25</Reference>
             <Reference type="RULE">BR-16</Reference>
+           
 
 
             <Element>
@@ -540,7 +551,7 @@
                 </Description>
                 <DataType>Text</DataType>
                 <Reference type="BUSINESS_TERM">BT-127</Reference>
-                <Value type="EXAMPLE">Nuovo articolo n. 12345</Value>
+                <Value type="EXAMPLE">New article number 12345</Value>
             </Element>
 
             <Element>
@@ -562,7 +573,6 @@
                     <Reference type="BUSINESS_TERM">BT-130</Reference>
                     <Reference type="RULE">BR-23</Reference>
                     <Reference type="CODE_LIST">UNECERec20</Reference>
-                    <Reference type="CODE_LIST">UNECERec21</Reference>
                     <Value type="EXAMPLE">C62</Value>
                 </Attribute>
                 <Value type="EXAMPLE">40</Value>
@@ -580,6 +590,7 @@
                 <Reference type="RULE">PEPPOL-EN16931-R120</Reference>
                 <Reference type="RULE">BR-DEC-23</Reference>
                 <Reference type="RULE">UBL-DT-01</Reference>
+                <Reference type="RULE">BR-CL-03</Reference>
                 <Attribute>
                     <Term>currencyID</Term>
                     <Description>Mandatory attribute. Use BT-5</Description>
@@ -624,6 +635,8 @@
             <Element cardinality="0..1">
                 <Term>cac:DocumentReference</Term>
                 <Name>LINE OBJECT IDENTIFIER</Name>
+                 <Reference type="RULE">PEPPOL-EN16931-R100</Reference>
+                 <Reference type="RULE">PEPPOL-EN16931-R101</Reference>
 
                 <Element>
                     <Term>cbc:ID</Term>

@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" cardinality="0..n" xmlns:agid="urn:fdc:agid.gov.it:peppol:customization">
-
+<Element xmlns="urn:fdc:difi.no:2017:vefa:structure-1" cardinality="0..n">
+    
         <Term>cac:AllowanceCharge</Term>
-        <Name>INVOICE LINE ALLOWANCES OR CHARGES - FPA 2.2.1.10 'ScontoMaggiorazione'</Name>
+        <Name>INVOICE LINE ALLOWANCES OR CHARGES</Name>
         <Description>A group of business terms providing information about allowances or charges applicable to the individual
             Invoice line.
         </Description>
         <Reference type="BUSINESS_TERM">BG-27, BG-28</Reference>
-
+         <Reference type="RULE">BR-CO-23</Reference>
+         <Reference type="RULE">BR-CO-24</Reference>
+        
         <Element>
             <Term>cbc:ChargeIndicator</Term>
-			<Name>Tipo (Sconto o Maggiorazione) - FPA 2.2.1.10.1 'Tipo'</Name>
-            <Description>Usare "true" per indicare una Maggiorazione e "false" per uno Sconto.
+            <Description> Use “true” when informing about Charges and “false” when informing about
+                Allowances
             </Description>
             <Value type="EXAMPLE">false</Value>
+            PEPPOL-EN16931-R043
+            <Reference type="RULE">PEPPOL-EN16931-R043</Reference>
         </Element>
-
-
+        
+        
         <Element cardinality="0..1">
             <Term>cbc:AllowanceChargeReasonCode</Term>
             <Name>Line level allowance or charge reason code</Name>
@@ -32,9 +36,11 @@
             <Reference type="CODE_LIST">UNCL7161</Reference>
             <Reference type="RULE">PEPPOL-EN16931-CL002</Reference>
             <Reference type="RULE">DK-R-004</Reference>
+            <Reference type="RULE">BR-CL-19</Reference>
+            <Reference type="RULE">BR-CL-20</Reference>
             <Value type="EXAMPLE">95</Value>
         </Element>
-
+        
         <Element cardinality="0..1">
             <Term>cbc:AllowanceChargeReason</Term>
             <Name>Line level allowance or charge reason</Name>
@@ -47,35 +53,35 @@
             <Reference type="RULE">BR-CO-08</Reference>
             <Reference type="RULE">DK-R-004</Reference>
             <Value type="EXAMPLE">Discount</Value>
-
+            
         </Element>
-
+        
         <Element cardinality="0..1">
             <Term>cbc:MultiplierFactorNumeric</Term>
-            <Name>Percentuale dello sconto o della maggiorazione a livello di riga - FPA 2.2.1.10.2 'Percentuale'</Name>
+            <Name>Line level allowance or charge percentage</Name>
             <Description>The percentage that may be used, in conjunction with the line level allowance base amount, to
                 calculate the line level allowance or charge amount.
             </Description>
             <DataType>Percentage</DataType>
             <Reference type="BUSINESS_TERM">BT-138,BT-143</Reference>
             <Reference type="RULE">PEPPOL-EN16931-R042</Reference>
-            <Value type="EXAMPLE">20</Value>
+            <Value type="EXAMPLE">20</Value>            
         </Element>
-
-        <Element agid:custom="rule">
+        
+        <Element>
             <Term>cbc:Amount</Term>
-            <Name>Importo dello sconto o della maggiorazione a livello di riga - FPA 2.2.1.10.3 'Importo'</Name>
+            <Name>Line level allowance or charge amount</Name>
             <Description>The amount of an allowance or a charge, without VAT. Must be rounded to maximum 2 decimals</Description>
             <DataType>Amount</DataType>
             <Reference type="BUSINESS_TERM">BT-136,BT-141</Reference>
             <Reference type="RULE">BR-41</Reference>
             <Reference type="RULE">BR-43</Reference>
+            <Reference type="RULE">BR-CL-03</Reference>
             <Reference type="RULE">PEPPOL-EN16931-R040</Reference>
             <Reference type="RULE">BR-DEC-24</Reference>
             <Reference type="RULE">BR-DEC-27</Reference>
             <Reference type="RULE">UBL-DT-01</Reference>
-			<Reference type="RULE">BR-IT-421</Reference>
-
+            
             <Attribute>
                 <Term>currencyID</Term>
                 <Description>Mandatory attribute. Use BT-5</Description>
@@ -84,10 +90,10 @@
                 <Reference type="CODE_LIST">ISO4217</Reference>
                 <Value type="EXAMPLE">EUR</Value>
             </Attribute>
-
-            <Value type="EXAMPLE">200</Value>
+            
+            <Value type="EXAMPLE">200</Value>  
         </Element>
-
+        
         <Element cardinality="0..1">
             <Term>cbc:BaseAmount</Term>
             <Name>Line level allowance or charge base amount</Name>
@@ -100,8 +106,10 @@
             <Reference type="RULE">BR-DEC-25</Reference>
             <Reference type="RULE">BR-DEC-28</Reference>
             <Reference type="RULE">UBL-DT-01</Reference>
-
-
+            <Reference type="RULE">BR-CL-03</Reference>
+            
+            
+            
             <Attribute>
                 <Term>currencyID</Term>
                 <Description>Mandatory attribute. Use BT-5</Description>
@@ -110,8 +118,8 @@
                 <Reference type="CODE_LIST">ISO4217</Reference>
                 <Value type="EXAMPLE">EUR</Value>
             </Attribute>
-
-            <Value type="EXAMPLE">1000</Value>
-
+            
+            <Value type="EXAMPLE">1000</Value>  
+            
         </Element>
     </Element>

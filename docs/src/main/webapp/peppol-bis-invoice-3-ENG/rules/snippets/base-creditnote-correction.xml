@@ -156,7 +156,7 @@
     </cac:LegalMonetaryTotal>
     <!-- end::negative[] -->
     <!-- tag::negative[] -->
-
+    
 <cac:CreditNoteLine>
     <cbc:ID>1</cbc:ID><!--3-->
     <cbc:CreditedQuantity unitCode="DAY">7</cbc:CreditedQuantity>
@@ -189,17 +189,12 @@
     <!-- tag::negative[] -->
     <!-- Code omitted for clarity -->
     <cac:Price>
-        <cbc:PriceAmount currencyID="EUR">400.00</cbc:PriceAmount>
-		<cac:AllowanceCharge>
-			<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-			<cbc:Amount currencyID="EUR">0.00</cbc:Amount>
-			<cbc:BaseAmount currencyID="EUR">400.00</cbc:BaseAmount>
-		</cac:AllowanceCharge>
+        <cbc:PriceAmount currencyID="EUR">400</cbc:PriceAmount>
     </cac:Price>
-  </cac:CreditNoteLine>
     <!-- end::negative[] -->
+    </cac:CreditNoteLine>
     <!-- tag::negative[] -->
-
+    
 <cac:CreditNoteLine>
     <cbc:ID>2</cbc:ID><!--4-->
     <cbc:CreditedQuantity unitCode="DAY">-3</cbc:CreditedQuantity>
@@ -231,13 +226,8 @@
     <!-- tag::negative[] -->
     <!-- Code omitted for clarity -->
     <cac:Price>
-        <cbc:PriceAmount currencyID="EUR">500.00</cbc:PriceAmount>
-		<cac:AllowanceCharge>
-			<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-			<cbc:Amount currencyID="EUR">0.00</cbc:Amount>
-			<cbc:BaseAmount currencyID="EUR">500.00</cbc:BaseAmount>
-		</cac:AllowanceCharge>
+        <cbc:PriceAmount currencyID="EUR">500</cbc:PriceAmount>
     </cac:Price>
-  </cac:CreditNoteLine>
     <!-- end::negative[] -->
+</cac:CreditNoteLine>
 </CreditNote>

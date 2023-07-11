@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Peppol BIS Billing, testfile showing the use of VAT category Z (Zero rated goods) -->
+<!-- PEPPOL BIS Billing, testfile showing the use of VAT category Z (Zero rated goods) -->
 <Invoice  xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
  xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
  xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
@@ -72,8 +72,8 @@
             <cbc:TaxAmount currencyID="GBP">0.00</cbc:TaxAmount>
             <cac:TaxCategory>
                 <cbc:ID>E</cbc:ID>
-                <cbc:TaxExemptionReasonCode>VATEX-EU-F</cbc:TaxExemptionReasonCode>
                 <cbc:Percent>0</cbc:Percent>
+                <cbc:TaxExemptionReasonCode>VATEX-EU-F</cbc:TaxExemptionReasonCode>
                 <cac:TaxScheme>
                     <cbc:ID>VAT</cbc:ID>
                 </cac:TaxScheme>
@@ -88,7 +88,7 @@
     </cac:LegalMonetaryTotal>
     <cac:InvoiceLine>
         <cbc:ID>1</cbc:ID>
-        <cbc:InvoicedQuantity unitCode="EA">10.00</cbc:InvoicedQuantity>
+        <cbc:InvoicedQuantity unitCode="EA">10</cbc:InvoicedQuantity>
         <cbc:LineExtensionAmount currencyID="GBP">1200.00</cbc:LineExtensionAmount>
         <cac:OrderLineReference>
             <cbc:LineID>1</cbc:LineID>
@@ -108,11 +108,6 @@
         </cac:Item>
         <cac:Price>
             <cbc:PriceAmount currencyID="GBP">120.00</cbc:PriceAmount>
-            <cac:AllowanceCharge>
-                <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-                <cbc:Amount currencyID="EUR">0.00</cbc:Amount>
-                <cbc:BaseAmount currencyID="EUR">120.00</cbc:BaseAmount>
-            </cac:AllowanceCharge>
         </cac:Price>
     </cac:InvoiceLine>
 

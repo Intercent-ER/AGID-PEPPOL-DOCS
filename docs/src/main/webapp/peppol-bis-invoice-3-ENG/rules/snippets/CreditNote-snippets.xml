@@ -18,8 +18,8 @@
     </cac:BillingReference>
     <!-- tag::project[] -->
     <cac:AdditionalDocumentReference>
-        <cbc:ID>J31E01000010004</cbc:ID><!--2-->
-        <cbc:DocumentTypeCode>50</cbc:DocumentTypeCode><!--1-->
+        <cbc:ID>p-2347234</cbc:ID><!--2-->   
+        <cbc:DocumentTypeCode>50</cbc:DocumentTypeCode><!--1-->      
     </cac:AdditionalDocumentReference>
     <!-- end::project[] -->
     <cac:AccountingSupplierParty>
@@ -154,7 +154,7 @@
         <cbc:ChargeTotalAmount currencyID="EUR">25</cbc:ChargeTotalAmount>
         <cbc:PayableAmount currencyID="EUR">1656.25</cbc:PayableAmount>
     </cac:LegalMonetaryTotal>
-
+    
 <cac:CreditNoteLine>
     <cbc:ID>1</cbc:ID>
     <cbc:CreditedQuantity unitCode="DAY">7</cbc:CreditedQuantity>
@@ -185,15 +185,10 @@
             </cac:ClassifiedTaxCategory>
         </cac:Item>
     <cac:Price>
-        <cbc:PriceAmount currencyID="EUR">400.00</cbc:PriceAmount>
-		<cac:AllowanceCharge>
-			<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-			<cbc:Amount currencyID="EUR">0.00</cbc:Amount>
-			<cbc:BaseAmount currencyID="EUR">400.00</cbc:BaseAmount>
-		</cac:AllowanceCharge>
+        <cbc:PriceAmount currencyID="EUR">400</cbc:PriceAmount>
     </cac:Price>
     </cac:CreditNoteLine>
-
+    
 <cac:CreditNoteLine>
     <cbc:ID>2</cbc:ID>
     <cbc:CreditedQuantity unitCode="DAY">-3</cbc:CreditedQuantity>
@@ -222,12 +217,7 @@
         </cac:ClassifiedTaxCategory>
     </cac:Item>
     <cac:Price>
-        <cbc:PriceAmount currencyID="EUR">500.00</cbc:PriceAmount>
-		<cac:AllowanceCharge>
-			<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-			<cbc:Amount currencyID="EUR">0.00</cbc:Amount>
-			<cbc:BaseAmount currencyID="EUR">500.00</cbc:BaseAmount>
-		</cac:AllowanceCharge>
+        <cbc:PriceAmount currencyID="EUR">500</cbc:PriceAmount>
     </cac:Price>
 </cac:CreditNoteLine>
 </CreditNote>

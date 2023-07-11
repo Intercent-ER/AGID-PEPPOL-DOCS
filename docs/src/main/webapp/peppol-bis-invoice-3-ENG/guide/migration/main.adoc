@@ -1,10 +1,9 @@
-include::../cius/_links.adoc[]
-include::_settings.adoc[]
+include::../cius/links.adoc[]
+include::settings.adoc[]
 
 = Migration plan
-OpenPeppolAISBL, Post-Award Community
+OpenPeppol AISBL, Post-Award Community
 :doctype: book
-:last-update-label!:
 :icons: font
 :toc: left
 :toclevels: 2
@@ -12,8 +11,9 @@ OpenPeppolAISBL, Post-Award Community
 :source-language: xml
 :sectanchors:
 :sectnums:
+:last-update-label!:
 :CIUS: Core Invoice Usage Specification (CIUS)
-:title-logo-image: ../../images/peppol.jpg
+:title-logo-image: ../images/peppol.jpg
 
 
 This document is the migration plan for the transition event from the Peppol BIS Billing 5a, (version 2.3) to the Peppol BIS Billing 3.0, as well as the phase out of Peppol BIS Invoice 4a, (version 2.3).
@@ -21,7 +21,7 @@ This document is the migration plan for the transition event from the Peppol BIS
 
 :leveloffset: +1
 
-include::_introduction.adoc[]
-include::_overview.adoc[]
-include::_rules.adoc[]
-include::_derivative.adoc[]
+include::introduction.adoc[]
+include::overview.adoc[]
+include::rules.adoc[]
+include::derivative.adoc[]

@@ -68,16 +68,20 @@ Qualora non si intenda effettuare la rivalsa del bollo non è richiesto l’inse
 
 == Rivalsa del bollo
 
-Qualora il fornitore voglia effettuare la rivalsa del bollo sul cliente deve inserire una riga recante: 
+Qualora il fornitore voglia effettuare la rivalsa del bollo sul cliente deve inserire una riga recante:
+
 * l’elemento cac:Item/cbc:Description (BT-154 Item description) valorizzato a “Rivalsa Bollo”;
 * gli elementi cac:Price/cbc:PriceAmount (BT-146 Item net price) e cac:AllowanceCharge/cbc:BaseAmount (BT-148 Item gross price) valorizzati a
 ** 2.00 in caso di fattura (vedi esempi Fattura n. 04_FT, 14_FT, 17_FT e 30_FT).
 ** - 2.00 in caso di nota di credito (vedi esempio Nota di Credito n. 04_NC).
+
 La riga di rivalsa ha la medesima natura della prestazione sulla quale la rivalsa viene applicata.
 
 
 == Restituzione del bollo
 Qualora il fornitore, in sede di emissione di una nota di credito, voglia rimborsare il bollo su cui ha effettuato rivalsa in sede di emissione della fattura deve inserire una riga recante:
+
 * l’elemento cac:Item/cbc:Description (BT-154 Item description) valorizzato a “Rimborso Bollo”;
 * gli elementi cac:Price/cbc:PriceAmount (BT-146 Item net price) e cac:AllowanceCharge/cbc:BaseAmount (BT-148 Item gross price) valorizzati a 2.00 (vedi esempio Nota di Credito n. 05_NC).
+
 La riga di rimborso ha la medesima natura della prestazione sulla quale la rivalsa era stata applicata.

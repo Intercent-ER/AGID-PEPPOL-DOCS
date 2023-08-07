@@ -39,7 +39,9 @@ In vigore a partire dal *07 agosto 2023*
 
 [red]#Cambiamenti alle code lists e artefatti di validazione# 
 
-* Aggiornate le Regole di business per il Documento di Trasporto Peppol. Le nuove regole sono state tutte impostate a livello di WARNING per non bloccare il traffico dei documenti al momento dell'entrata in vigore, consentendo però di avere evidenza dei problemi. Le regole diventeranno FATAL e quindi bloccanti a partire dall'entrate in produzione della November Release di OpenPEPPOL, previsto per Febbraio 2024.
+* Aggiornate le Regole di business per il Documento di Trasporto Peppol. Le nuove regole sono state tutte impostate a livello di WARNING per non bloccare il traffico dei documenti al momento dell'entrata in vigore, consentendo però di avere evidenza dei problemi. Le regole diventeranno FATAL e quindi bloccanti a partire dall'entrate in produzione della November Release di OpenPEPPOL, previsto per Febbraio 2024. +
+
+In sede di entrata in vigore della May Release Peppol 2023 in data 07/08/2023, è stata aggiunta la regola IT-T16-R045 alle Regole di business per il Documento di Trasporto Peppol, con severità WARNING.
 
 [red]#Cambiamenti a fogli di stile ed esempi#
 

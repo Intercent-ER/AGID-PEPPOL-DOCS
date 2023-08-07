@@ -322,5 +322,6 @@
 	<include href="OPENPEPPOL/12-PEPPOL-EN16931-UBL-codelists.inc"/>
 	<!-- Italian rules -->
 	<include href="AGID/AGID-EN16931-CIUS-UBL.inc"/>
+	<include href="AGID/SDI.inc"/>
 	<include href="AGID/AGID-EN16931-EXT-UBL.inc"/>
 </schema>

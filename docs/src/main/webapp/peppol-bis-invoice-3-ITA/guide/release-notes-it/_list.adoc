@@ -8,7 +8,7 @@
 
 
 | 3.0.15.2(IT)
-a| 27/07/2023
+a| 07/08/2023
 a|Aggiornamento delle modalità di indicazione del bollo virtuale in Fattura e Nota di Credito, revisione del paragrafo 4.9 Imposta di bollo.
 
 | 3.0.15.1(IT)

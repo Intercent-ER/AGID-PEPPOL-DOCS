@@ -171,7 +171,7 @@
 	</rule>
 
 <rule context="/*/cac:InvoiceLine/cac:Item | /*/cac:CreditNoteLine/cac:Item" flag="fatal">
-		<assert test="(not(./cbc:Description) and not(./cbc:Name)) or matches(concat(./cbc:Description,./cbc:Name),'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{0,1000}$')" flag="fatal" id="BR-IT-530">[BR-IT-530][FPA 2.2.1.4 – Descrizione] – The concatenation of BT-153 (Item Name) and BT-154 (Item Description) maximum lenght shall be 1000 chars from Unicode Basic Latin and/or Latin 1-Supplement blocks – La lunghezza della concatenazione degli elementi non può superare i 1000 caratteri riconducibili ai blocchi Unicode Basic Latin e/o Latin 1-Supplement</assert>
+		<assert test="(not(./cbc:Description) and not(./cbc:Name)) or matches(concat(./cbc:Description,./cbc:Name),'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{0,1000}$')" flag="fatal" id="BR-IT-530">[BR-IT-530][FPA 2.2.1.4 - Descrizione] - The concatenation of BT-153 (Item Name) and BT-154 (Item Description) maximum lenght shall be 1000 chars from Unicode Basic Latin and/or Latin 1-Supplement blocks - La lunghezza della concatenazione degli elementi non può superare i 1000 caratteri riconducibili ai blocchi Unicode Basic Latin e/o Latin 1-Supplement</assert>
 	</rule>
 		
 	<!-- Line Level -->

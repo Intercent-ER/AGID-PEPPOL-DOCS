@@ -6,6 +6,64 @@
 ^.^| Data
 ^.^| Cosa è cambiato
 
+| 3.1.0.2(IT)
+a| 21/06/2023
+a| _Aggiornamento della specifica italiana sul Documento di Trasporto in relazione alle disposizioni contenute nel DPR n. 472/1996._ +
+
+In vigore a partire dal *07 agosto 2023*
+
+[red]#Cambiamenti alla specifica (Documentazione)#
+
+* Specificati gli scenari di business in relazione ai quali la specifica fornisce le linee guida per il supporto e l’implementazione del Documento di Trasporto (B2G – Business to Government; G2G – Government to Government);
+* Aggiunta l’obbligatorietà di indicazione delle parti Acquirente (BuyerCustomerParty) e Venditore (SellerSupplierParty);
+* Aggiunta l’obbligatorietà di indicazione degli identificativi (Partita IVA / Codice fiscale) delle parti Speditore/Mittente (DespatchSupplierParty), Destinatario/Consegnatario (DespatchCustomerParty), Acquirente (BuyerCustomerParty), Venditore (SellerSupplierParty) e Vettore (CarrierParty);
+* Specificate le modalità di indicazione degli identificativi (Partita IVA / Codice fiscale) delle parti, attraverso l’utilizzo di specifici schemeID;
+* Aggiunto un paragrafo specifico relativo all’indicazione dell’Indirizzo di consegna dei beni (§ 6.3.2 Indirizzo di consegna) e definita la sua obbligatorietà;
+* Aggiornati gli esempi in funzione delle modifiche alla specifica.
+
+[red]#Cambiamenti alla sintassi#
+
+* Modificata da “0..1” a “1..1” la cardinalità dei campi: 
+** cac:DespatchSupplierParty/cac:Party/cac:PartyIdentification – Identificazione del soggetto Speditore;
+** cac:DeliveryCustomerParty/cac:Party/cac:PartyIdentification – Identificazione del soggetto Consegnatario;
+** cac:BuyerCustomerParty – Acquirente;
+** cac:BuyerCustomerParty/cac:Party/cac:PartyIdentification – Identificazione del soggetto Acquirente;
+** cac:SellerSupplierParty – Venditore;
+** cac:SellerSupplierParty/cac:Party/cac:PartyIdentification – Identificazione del soggetto Venditore;
+** cac:Consignment – Informazioni sul trasporto;
+** cac:CarrierParty/cac:PartyIdentification – Identificazione del soggetto Vettore;
+** cac:Shipment/cac:Delivery – Informazioni sulla consegna;
+** cac:Shipment/cac:Delivery/cac:Despatch – Ulteriori informazioni sulla consegna;
+** cac:Shipment/cac:Delivery/cac:Despatch/cac:DespatchAddress – Indirizzo di consegna.
+* Aggiornate  le descrizioni dei campi e i relativi esempi in funzione delle modifiche alla specifica.
+
+[red]#Cambiamenti alle code lists e artefatti di validazione# 
+
+* Aggiornate le Regole di business per il Documento di Trasporto Peppol. Le nuove regole sono state tutte impostate a livello di WARNING per non bloccare il traffico dei documenti al momento dell'entrata in vigore, consentendo però di avere evidenza dei problemi. Le regole diventeranno FATAL e quindi bloccanti a partire dall'entrate in produzione della November Release di OpenPEPPOL, previsto per Febbraio 2024. +
+
+In sede di entrata in vigore della May Release Peppol 2023 in data 07/08/2023, è stata aggiunta la regola IT-T16-R045 alle Regole di business per il Documento di Trasporto Peppol, con severità WARNING.
+
+[red]#Cambiamenti a fogli di stile ed esempi#
+
+* Aggiornato il foglio di stile per il Documento di Trasporto Peppol 3;
+* Aggiornati i file di esempio in funzione delle modifiche alla specifica.  
+
+{nbsp} +
+
+
+
+_Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2023-Q2/release-notes/[Peppol BIS 3.0.11 - May release 2023]_. +
+
+In vigore a partire dal *07 agosto 2023*
+
+[red]#Cambiamenti alle code lists e artefatti di validazione#
+
+* Modificata da “warning” a “fatal” la severità della regola PEPPOL-COMMON-R050 per la validazione dell’Australian Business Number (ABN);
+* Aggiunti i codici 0221 (Giappone) e 0230 (Malesia) alla codifica EAS. Rimosso il codice svedese 9955 dalla stessa codifica;
+* Aggiunti i codici 0221 (Giappone), 0222, 0223 (Francia), 0224 (Francia), 0225 (Francia), 0226 (Francia), 0227 (Francia), 0228 (Francia), 0229 (Francia), 0230 (Malesia) alla codifica ICD;
+* Aggiunto il codice EMD nella codelist Item type identification code (UNCL7143) per indicare l’identificativo del Dispositivo Medico secondo l’European Medical Device Nomenclature (EMDN). 
+
+
 | 3.1.0.1(IT)
 a| 16/12/2022
 a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2022-Q4/release-notes/[Peppol BIS 3.0.10 - November release 2022]_. +

@@ -1,298 +1,87 @@
 
 = #Imposta di Bollo# (CIUS domestica)
 
-L’emittente fattura può decidere se effettuare o non effettuare la rivalsa del bollo all’interno del documento fiscale. +
-La gestione del bollo è operata come sconto o maggiorazione a livello di testata del documento a mezzo dell’utilizzo della struttura *cac:AllowanceCharge* (BG-21 Document level charge).
-
-
-== Caso 1 - Bollo su fattura addebitato al Cliente
-
-Se l’emittente decide di effettuare la rivalsa del bollo addebitandolo in fattura, questa viene eseguita attraverso una maggiorazione di 2 euro, indicando nella struttura *cac:AllowanceCharge*:
+L’indicazione del bollo virtuale è operata sia in fattura che su nota di credito come maggiorazione a livello di testata del documento a mezzo dell’utilizzo della struttura *cac:AllowanceCharge* (BG-21 Document level charge) indicando: 
 
 * l’elemento cbc:ChargeIndicator pari a “true”;
 * l’elemento cbc:AllowanceChargeReasonCode (BT-105 Document level charge reason code) pari a “SAE”;
 * l’elemento cbc:AllowanceChargeReason (BT-104 Document level charge reason) con la stringa “BOLLO”;
-* l’elemento cbc:Amount (BT-99 Document level charge amount) con il valore 2;
-* l’elemento cac:TaxCategory/cbc:ID (BT-95 Document level charge VAT category code) posto a Z (zero) per indicare che l’importo è escluso IVA ex art. 15 DPR n. 633 del 1972 (per ulteriori dettagli vedi paragrafo 7.3).
-
-Attraverso questa modalità di gestione, il valore dell’imposta di bollo di 2 euro influisce sul cbc:TaxInclusiveAmount (BT-112 Invoice total amount with VAT).
-
-
-.Esempio di fattura per prestazione esente del valore di 100 euro con bollo addebitato al Cliente
-[source, xml, indent=0]
-----
-<ubl:Invoice>
-...
-<cac:AllowanceCharge>
-	<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
-	<cbc:AllowanceChargeReasonCode>SAE</cbc:AllowanceChargeReasonCode>
-	<cbc:AllowanceChargeReason>BOLLO</cbc:AllowanceChargeReason>
-	<cbc:Amount currencyID="EUR">2.00</cbc:Amount>
- 	<cac:TaxCategory>
-    		<cbc:ID>Z</cbc:ID>
-    		<cbc:Percent>0</cbc:Percent>
-    		<cac:TaxScheme>
-      			<cbc:ID>VAT</cbc:ID>
-    		</cac:TaxScheme>
-  	</cac:TaxCategory>
-</cac:AllowanceCharge>
-<cac:TaxTotal>
-	<cbc:TaxAmount currencyID="EUR">0.00</cbc:TaxAmount>
-	<cac:TaxSubtotal>
-		<cbc:TaxableAmount currencyID="EUR">100.00</cbc:TaxableAmount>
-		<cbc:TaxAmount currencyID="EUR">0.00</cbc:TaxAmount>
-		<cac:TaxCategory>
-      			<cbc:ID>E</cbc:ID>
-      		</cac:TaxCategory>
-      		<cbc:TaxExemptionReasonCode>vatex-eu-132</cbc:TaxExemptionReasonCode>
-      		<cbc:TaxExemptionReason>N4</cbc:TaxExemptionReason>
-     		<cac:TaxScheme>
-        			<cbc:ID>VAT</cbc:ID>
-    		</cac:TaxScheme>
-   	 </cac:TaxSubtotal>
-	<cac:TaxSubtotal>
-		<cbc:TaxableAmount currencyID="EUR">2.00</cbc:TaxableAmount>
-      		<cbc:TaxAmount currencyID="EUR">0.00</cbc:TaxAmount>
-      		<cac:TaxCategory>
-        			<cbc:ID>Z</cbc:ID>
-        			<cbc:Percent>0</cbc:Percent>
-      		</cac:TaxCategory>
-     		<cac:TaxScheme>
-        			<cbc:ID>VAT</cbc:ID>
-      		</cac:TaxScheme>
-    	</cac:TaxSubtotal>
-</cac:TaxTotal>
-<cac:LegalMonetaryTotal>
-	<cbc:LineExtensionAmount currencyID="EUR">100.00</cbc:LineExtensionAmount>
-	<cbc:TaxExclusiveAmount currencyID="EUR">102.00</cbc:TaxExclusiveAmount>
-	<cbc:TaxInclusiveAmount currencyID="EUR">102.00</cbc:TaxInclusiveAmount>
-	<cbc:ChargeTotalAmount currencyID="EUR">2.00</cbc:ChargeTotalAmount>
-	<cbc:PayableAmount currencyID="EUR">102.00</cbc:PayableAmount>
-</cac:LegalMonetaryTotal>
-----
-
-
-== Caso 2 - Bollo su nota di credito addebitato al Cliente
-
-Se l’emittente decide di effettuare la rivalsa del bollo addebitandolo in nota di credito, questa viene eseguita attraverso una trattenuta di 2 euro, indicando nella struttura *cac:AllowanceCharge*:  
-
-* l’elemento cbc:ChargeIndicator pari a “false”;
-* l’elemento cbc:AllowanceChargeReasonCode (BT-98 Document level charge reason code) pari a “95”;
-* l’elemento cbc:AllowanceChargeReason (BT-97 Document level charge reason) con la stringa “BOLLO”;
-* l’elemento cbc:Amount (BT-92 Document level allowance amount) con il valore 2;
-* l’elemento cac:TaxCategory/cbc:ID (BT-95 Document level charge VAT category code) posto a Z (zero) per indicare che l’importo è escluso IVA ex art. 15 DPR n. 633 del 1972 (per ulteriori dettagli vedi paragrafo 7.3).
-
-Attraverso questa modalità di gestione, il valore dell’imposta di bollo di 2 euro influisce sul cbc:TaxInclusiveAmount (BT-112 Invoice total amount with VAT).
-
-
-.Esempio di nota di credito per prestazione esente del valore di 100 euro con bollo addebitato al Cliente
-[source, xml, indent=0]
-----
-<ubl:CreditNote>
-...
-<cac:AllowanceCharge>
-	<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
- 	<cbc:AllowanceChargeReasonCode>95</cbc:AllowanceChargeReasonCode>
-  	<cbc:AllowanceChargeReason>BOLLO</cbc:AllowanceChargeReason>
-  	<cbc:Amount currencyID="EUR">2.00</cbc:Amount>
-  	<cac:TaxCategory>
-   		<cbc:ID>Z</cbc:ID>
-    		<cbc:Percent>0</cbc:Percent>
-    		<cac:TaxScheme>
-      			<cbc:ID>VAT</cbc:ID>
-    		</cac:TaxScheme>
-  	</cac:TaxCategory>
-</cac:AllowanceCharge>
-<cac:TaxTotal>
-	<cbc:TaxAmount currencyID="EUR">0.00</cbc:TaxAmount>
-    	<cac:TaxSubtotal>
-      		<cbc:TaxableAmount currencyID="EUR">100.00</cbc:TaxableAmount>
-      		<cbc:TaxAmount currencyID="EUR">0.00</cbc:TaxAmount>
-      		<cac:TaxCategory>
-        			<cbc:ID>E</cbc:ID>
-      		</cac:TaxCategory>
-      		<cbc:TaxExemptionReasonCode>vatex-eu-132</cbc:TaxExemptionReasonCode>
-      		<cbc:TaxExemptionReason>N4</cbc:TaxExemptionReason>
-      		<cac:TaxScheme>
-        			<cbc:ID>VAT</cbc:ID>
-     		</cac:TaxScheme>
-    	</cac:TaxSubtotal>
-	<cac:TaxSubtotal>
-      		<cbc:TaxableAmount currencyID="EUR">-2.00</cbc:TaxableAmount>
-      		<cbc:TaxAmount currencyID="EUR">0.00</cbc:TaxAmount>
-      		<cac:TaxCategory>
-        			<cbc:ID>Z</cbc:ID>
-        			<cbc:Percent>0</cbc:Percent>
-      		</cac:TaxCategory>
-      		<cac:TaxScheme>
-        			<cbc:ID>VAT</cbc:ID>
-      		</cac:TaxScheme>
-    	</cac:TaxSubtotal>
-</cac:TaxTotal>
-<cac:LegalMonetaryTotal>
-    	<cbc:LineExtensionAmount currencyID="EUR">100.00</cbc:LineExtensionAmount>
-    	<cbc:TaxExclusiveAmount currencyID="EUR">98.00</cbc:TaxExclusiveAmount>
-    	<cbc:TaxInclusiveAmount currencyID="EUR">98.00</cbc:TaxInclusiveAmount>
-    	<cbc:AllowanceTotalAmount currencyID="EUR">2.00</cbc:AllowanceTotalAmount>
-    	<cbc:PayableAmount currencyID="EUR">98.00</cbc:PayableAmount>
-</cac:LegalMonetaryTotal>
-----
-
-== Caso 3 - Bollo non addebitato al Cliente
-
-Se l’emittente decide di non effettuare la rivalsa del bollo, questa viene indicata sia su fattura che su nota di credito indicando nella struttura *cac:AllowanceCharge*:  
-
-* *l’elemento cbc:ChargeIndicator pari a “true”;
-* l’elemento cbc:AllowanceChargeReasonCode (BT-105 Document level charge reason code) pari a “SAE”;
-* l’elemento cbc:AllowanceChargeReason (BT-104 Document level charge reason) con la stringa “BOLLO”;
 * l’elemento cbc:Amount (BT-99 Document level charge amount) con il valore 0;
-* l’elemento cac:TaxCategory/cbc:ID (BT-95 Document level charge VAT category code) posto a Z (zero) per indicare che l’importo è escluso IVA ex art. 15 DPR n. 633 del 1972 (per ulteriori dettagli vedi paragrafo 7.3).
+* l’elemento cac:TaxCategory/cbc:ID (BT-95 Document level charge VAT category code) posto a Z (zero).
 
+Qualora non si intenda effettuare la rivalsa del bollo non è richiesto l’inserimento di una specifica riga ad essa riferita.
 
-Attraverso questa modalità di gestione, il valore dell’imposta di bollo non influisce sul cbc:TaxInclusiveAmount (BT-112 Invoice total amount with VAT).
-
-
-.Esempio di fattura per prestazione esente del valore di 100 euro con bollo non addebitato al Cliente
+.Esempio di fattura per prestazione esente del valore di 100 euro senza rivalsa del bollo
 [source, xml, indent=0]
 ----
 <ubl:Invoice>
 ...
 <cac:AllowanceCharge>
-  	<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
-  	<cbc:AllowanceChargeReasonCode>SAE</cbc:AllowanceChargeReasonCode>
-  	<cbc:AllowanceChargeReason>BOLLO</cbc:AllowanceChargeReason>
-  	<cbc:Amount currencyID="EUR">0</cbc:Amount>
-  	<cac:TaxCategory>
-    		<cbc:ID>Z</cbc:ID>
-    		<cbc:Percent>0</cbc:Percent>
-    		<cac:TaxScheme>
-      			<cbc:ID>VAT</cbc:ID>
-    		</cac:TaxScheme>
-  	</cac:TaxCategory>
+          <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+          <cbc:AllowanceChargeReasonCode>SAE</cbc:AllowanceChargeReasonCode>
+          <cbc:AllowanceChargeReason>BOLLO</cbc:AllowanceChargeReason>
+          <cbc:Amount currencyID="EUR">0</cbc:Amount>
+          <cac:TaxCategory>
+                    <cbc:ID>Z</cbc:ID>
+                    <cbc:Percent>0</cbc:Percent>
+                    <cac:TaxScheme>
+                              <cbc:ID>VAT</cbc:ID>
+                    </cac:TaxScheme>
+          </cac:TaxCategory>
 </cac:AllowanceCharge>
 <cac:TaxTotal>
-    	<cbc:TaxAmount currencyID="EUR">0.00</cbc:TaxAmount>
-    	<cac:TaxSubtotal>
-      		<cbc:TaxableAmount currencyID="EUR">100.00</cbc:TaxableAmount>
-      		<cbc:TaxAmount currencyID="EUR">0</cbc:TaxAmount>
-      		<cac:TaxCategory>
-        			<cbc:ID>E</cbc:ID>
-      		</cac:TaxCategory>
-      		<cbc:TaxExemptionReasonCode>vatex-eu-132</cbc:TaxExemptionReasonCode>
-      		<cbc:TaxExemptionReason>N4</cbc:TaxExemptionReason>
-      		<cac:TaxScheme>
-        			<cbc:ID>VAT</cbc:ID>
-      		</cac:TaxScheme>
-    	</cac:TaxSubtotal>
-    	<cac:TaxSubtotal>
-      		<cbc:TaxableAmount currencyID="EUR">0.00</cbc:TaxableAmount>
-      		<cbc:TaxAmount currencyID="EUR">0.00</cbc:TaxAmount>
-      		<cac:TaxCategory>
-        			<cbc:ID>Z</cbc:ID>
-        			<cbc:Percent>0</cbc:Percent>
-      			<cac:TaxScheme>
-        				<cbc:ID>VAT</cbc:ID>
-      			</cac:TaxScheme>
-      		</cac:TaxCategory>
-    	</cac:TaxSubtotal>
+            <cbc:TaxAmount currencyID="EUR">0.00</cbc:TaxAmount>
+            <cac:TaxSubtotal>
+                      <cbc:TaxableAmount currencyID="EUR">100.00</cbc:TaxableAmount>
+                      <cbc:TaxAmount currencyID="EUR">0</cbc:TaxAmount>
+                      <cac:TaxCategory>
+                              <cbc:ID>E</cbc:ID>
+                              <cbc:Percent>0</cbc:Percent>
+                              <cbc:TaxExemptionReasonCode>vatex-eu-132</cbc:TaxExemptionReasonCode>
+                              <cbc:TaxExemptionReason>N4</cbc:TaxExemptionReason>
+                              <cac:TaxScheme>
+                                        <cbc:ID>VAT</cbc:ID>
+                              </cac:TaxScheme>
+              	</cac:TaxCategory>
+            </cac:TaxSubtotal>
+            <cac:TaxSubtotal>
+                      <cbc:TaxableAmount currencyID="EUR">0.00</cbc:TaxableAmount>
+                      <cbc:TaxAmount currencyID="EUR">0.00</cbc:TaxAmount>
+                      <cac:TaxCategory>
+                                <cbc:ID>Z</cbc:ID>
+                                <cbc:Percent>0</cbc:Percent>
+                                <cac:TaxScheme>
+                                        <cbc:ID>VAT</cbc:ID>
+                                </cac:TaxScheme>
+                      </cac:TaxCategory>
+            </cac:TaxSubtotal>
 </cac:TaxTotal>
 <cac:LegalMonetaryTotal>
-		<cbc:LineExtensionAmount currencyID="EUR">100.00</cbc:LineExtensionAmount>
-    	<cbc:TaxExclusiveAmount currencyID="EUR">100.00</cbc:TaxExclusiveAmount>
-    	<cbc:TaxInclusiveAmount currencyID="EUR">100.00</cbc:TaxInclusiveAmount>
-    	<cbc:ChargeTotalAmount currencyID="EUR">0.00</cbc:ChargeTotalAmount>
-    	<cbc:PayableAmount currencyID="EUR">100.00</cbc:PayableAmount>
+        <cbc:LineExtensionAmount currencyID="EUR">100.00</cbc:LineExtensionAmount>
+            <cbc:TaxExclusiveAmount currencyID="EUR">100.00</cbc:TaxExclusiveAmount>
+            <cbc:TaxInclusiveAmount currencyID="EUR">100.00</cbc:TaxInclusiveAmount>
+            <cbc:ChargeTotalAmount currencyID="EUR">0.00</cbc:ChargeTotalAmount>
+            <cbc:PayableAmount currencyID="EUR">100.00</cbc:PayableAmount>
 </cac:LegalMonetaryTotal>
 ----
 
 
-== Caso 4 - Bollo restituito al Cliente in nota di credito con bollo non accreditato
+== Rivalsa del bollo
 
-Se in sede di emissione di nota di credito, l’emittente decide di non effettuare la rivalsa del bollo e, in aggiunta, di rimborsare il bollo addebitato sulla fattura precedente allora:
+Qualora il fornitore voglia effettuare la rivalsa del bollo sul cliente deve inserire una riga recante:
 
-* L’esenzione dal bollo viene indicata nella struttura *cac:AllowanceCharge*, per la cui compilazione si rimanda al punto 4.9.3;
-* Il rimborso del bollo addebitato sulla fattura precedente viene indicato in un’apposita linea di nota di credito (struttura *cac:CreditNoteLine*), di importo pari al bollo da rimborsare (2 euro).
+* l’elemento cac:Item/cbc:Description (BT-154 Item description) valorizzato a “Rivalsa Bollo”;
+* gli elementi cac:Price/cbc:PriceAmount (BT-146 Item net price) e cac:AllowanceCharge/cbc:BaseAmount (BT-148 Item gross price) valorizzati a
+** 2.00 in caso di fattura (vedi esempi Fattura n. 04_FT, 14_FT, 17_FT e 30_FT).
+** - 2.00 in caso di nota di credito (vedi esempio Nota di Credito n. 04_NC).
 
-Attraverso questa modalità di gestione, il valore dell’imposta di bollo pagata sul precedente documento fiscale va ad influire sul cbc:TaxInclusiveAmount (BT-112 Invoice total amount with VAT) e consente il suo rimborso. 
+La riga di rivalsa ha la medesima natura della prestazione sulla quale la rivalsa viene applicata.
 
 
-.Esempio di nota di credito per prestazione esente del valore di 100 euro con bollo non addebitato al Cliente e con rimborso del bollo pagato sulla fattura precedente
-[source, xml, indent=0]
-----
-<ubl:CreditNote>
-...
-<cac:AllowanceCharge>
-	<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
- 	<cbc:AllowanceChargeReasonCode>SAE</cbc:AllowanceChargeReasonCode>
-  	<cbc:AllowanceChargeReason>BOLLO</cbc:AllowanceChargeReason>
-  	<cbc:Amount currencyID="EUR">0.00</cbc:Amount>
-  	<cac:TaxCategory>
-   		<cbc:ID>Z</cbc:ID>
-    		<cbc:Percent>0</cbc:Percent>
-    		<cac:TaxScheme>
-      			<cbc:ID>VAT</cbc:ID>
-    		</cac:TaxScheme>
-  	</cac:TaxCategory>
-</cac:AllowanceCharge>
-<cac:TaxTotal>
-    	<cbc:TaxAmount currencyID="EUR">0.00</cbc:TaxAmount>
-    	<cac:TaxSubtotal>
-      		<cbc:TaxableAmount currencyID="EUR">100.00</cbc:TaxableAmount>
-      		<cbc:TaxAmount currencyID="EUR">0</cbc:TaxAmount>
-      		<cac:TaxCategory>
-        			<cbc:ID>E</cbc:ID>
-      		</cac:TaxCategory>
-      		<cbc:TaxExemptionReasonCode>vatex-eu-132</cbc:TaxExemptionReasonCode>
-      		<cbc:TaxExemptionReason>N4</cbc:TaxExemptionReason>
-      		<cac:TaxScheme>
-        			<cbc:ID>VAT</cbc:ID>
-      		</cac:TaxScheme>
-    	</cac:TaxSubtotal>
-    	<cac:TaxSubtotal>
-      		<cbc:TaxableAmount currencyID="EUR">2.00</cbc:TaxableAmount>
-      		<cbc:TaxAmount currencyID="EUR">0.00</cbc:TaxAmount>
-      		<cac:TaxCategory>
-        			<cbc:ID>Z</cbc:ID>
-        			<cbc:Percent>0</cbc:Percent>
-      			<cac:TaxScheme>
-        				<cbc:ID>VAT</cbc:ID>
-      			</cac:TaxScheme>
-      		</cac:TaxCategory>
-    	</cac:TaxSubtotal>
-</cac:TaxTotal>
-<cac:LegalMonetaryTotal>
-		<cbc:LineExtensionAmount currencyID="EUR">102.00</cbc:LineExtensionAmount>
-    	<cbc:TaxExclusiveAmount currencyID="EUR">102.00</cbc:TaxExclusiveAmount>
-    	<cbc:TaxInclusiveAmount currencyID="EUR">102.00</cbc:TaxInclusiveAmount>
-    	<cbc:ChargeTotalAmount currencyID="EUR">0.00</cbc:ChargeTotalAmount>
-    	<cbc:PayableAmount currencyID="EUR">102.00</cbc:PayableAmount>
-</cac:LegalMonetaryTotal>
-…
-<cac:CreditNoteLine>
-	<cbc:ID>100</cbc:ID>
-	<cbc:CreditedQuantity unitCode="C62">1.00000000</cbc:CreditedQuantity>
-	<cbc:LineExtensionAmount currencyID="EUR">2.00</cbc:LineExtensionAmount>
-	<cac:Item>
-		<cbc:Name>Rimborso Bollo</cbc:Name>
-		<cac:ClassifiedTaxCategory>
-			<cbc:ID>Z</cbc:ID>
-			<cbc:Percent>0</cbc:Percent>
-			<cac:TaxScheme>
-				<cbc:ID>VAT</cbc:ID>
-			</cac:TaxScheme>
-		</cac:ClassifiedTaxCategory>
-		<cac:AdditionalItemProperty>
-			<cbc:Name>NATURA</cbc:Name>
-			<cbc:Value>N1</cbc:Value>
-		</cac:AdditionalItemProperty>
-	</cac:Item>
-	<cac:Price>
-		<cbc:PriceAmount currencyID="EUR">2.00</cbc:PriceAmount>
-		<cac:AllowanceCharge>
-			<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
-			<cbc:Amount currencyID="EUR">0.00</cbc:Amount>
-			<cbc:BaseAmount currencyID="EUR">2.00</cbc:BaseAmount>
-		</cac:AllowanceCharge>
-	</cac:Price>
-</cac:CreditNoteLine>
-----
+== Restituzione del bollo
+Qualora il fornitore, in sede di emissione di una nota di credito, voglia rimborsare il bollo su cui ha effettuato rivalsa in sede di emissione della fattura deve inserire una riga recante:
+
+* l’elemento cac:Item/cbc:Description (BT-154 Item description) valorizzato a “Rimborso Bollo”;
+* gli elementi cac:Price/cbc:PriceAmount (BT-146 Item net price) e cac:AllowanceCharge/cbc:BaseAmount (BT-148 Item gross price) valorizzati a 2.00 (vedi esempio Nota di Credito n. 05_NC).
+
+La riga di rimborso ha la medesima natura della prestazione sulla quale la rivalsa era stata applicata.

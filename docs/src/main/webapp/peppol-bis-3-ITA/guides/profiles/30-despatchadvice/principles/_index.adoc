@@ -14,8 +14,13 @@ Le attività principali supportate da questo messaggio sono:
 
 * *Trasporto* Descrizione completa di come la merce è imballata e consegnata.
 Una consegna è intesa come un numero di unità (articoli) che vengono spediti come singola spedizione ad un singolo indirizzo di consegna.
-* *Ordinativo* Indica cosa viene spedito; la quantità della merca spedita e cosa rimane inevaso.
+* *Oggetto della spedizione* Indica cosa viene spedito; la quantità della merca spedita e cosa rimane inevaso.
 * *Accettazione della merce* Supporto completo al processo di accettazione della merce in un magazzino, all’inventario, nei negozi o semplicemente al banco di accettazione.
+
+#La presente specifica fornisce le linee guida per il supporto e l’implementazione del Documento di Trasporto nei seguenti scenari di business:#
+
+* #B2G – Business to Government#
+* #G2G – Government to Government#
 
 :leveloffset: +1
 

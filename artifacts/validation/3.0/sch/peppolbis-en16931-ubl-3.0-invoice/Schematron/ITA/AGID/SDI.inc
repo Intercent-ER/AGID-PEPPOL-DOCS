@@ -1,13 +1,14 @@
-<pattern id="Italy-SDI-rules" xmlns="http://purl.oclc.org/dsdl/schematron">
+<?xml version="1.0" encoding="UTF-8"?>
 
+<pattern id="Italy-SDI-rules" xmlns="http://purl.oclc.org/dsdl/schematron">
 	<let name="vUpper" value="ABCDEFGHIJKLMNOPQRSTUVWXYZ"/>
 	<let name="vLower" value="abcdefghijklmnopqrstuvwxyz"/>
-	<let name="vOtherAscii" value="&lt;![CDATA[!&quot;#$%&amp;'()*+,-./:;&lt;=>?@[\]^_`{|}~]]&gt;"/>
+	<let name="vOtherAscii" value="!&quot;#$%&'()*+,-./:;<=>?@[\]^_`{|}~"/>
 	<let name="vAlpha" value="concat($vUpper, $vLower)"/>
 	<let name="vDigits" value="0123456789"/>
 	<let name="AlphaNumeric" value="concat($vAlpha, $vDigits)"/>
 	<let name="vBasicLatin" value="concat($vAlphaNumeric, $vOtherAscii)"/>
-	<let name="vLatin1Supplement" value="&lt;![CDATA[¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ]]&gt;"/>
+	<let name="vLatin1Supplement" value="¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ"/>
 	<let name="vBasicLatinWithSupplement" value="concat($vBasicLatin, $vLatin1Supplement)"/>
 
 	<rule context="//cac:AccountingSupplierParty/cac:Party/cac:PostalAddress[cac:Country/cbc:IdentificationCode = 'IT']" flag="fatal">

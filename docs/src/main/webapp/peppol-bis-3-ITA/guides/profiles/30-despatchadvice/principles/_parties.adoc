@@ -23,7 +23,7 @@ a|
 
 `cac:DespatchSupplierParty`
 
- |Lo Speditore/Mittente è la persona giuridica o l'organizzazione che spedisce la merce e/o i servizi.
+ |Lo Speditore/Mittente è la persona giuridica o l’organizzazione che spedisce la merce e/o eroga i servizi.
 
 a|
 *Consegnatario/Destinatario*

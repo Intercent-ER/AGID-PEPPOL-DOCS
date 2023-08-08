@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Structure xmlns="urn:fdc:difi.no:2017:vefa:structure-1">
 	<Term>OrderResponse</Term>
-
-
 	<Property key="sch:prefix">PEPPOL-T76</Property>
 	<Property key="sch:identifier">T76-basic</Property>
-
-
 	<Namespace prefix="ubl">urn:oasis:names:specification:ubl:schema:xsd:OrderResponse-2</Namespace>
 	<Namespace prefix="cac">urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2</Namespace>
 	<Namespace prefix="cbc">urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2</Namespace>
@@ -19,7 +15,6 @@
                 transaction.</Description>
 			<DataType>Identifier</DataType>
 			<Reference type="BUSINESS_TERM">tir76-001</Reference>
-
 			<Value type="EXAMPLE">urn:fdc:peppol.eu:poacc:trns:order_response:3</Value>
 		</Element>
 		<Element>
@@ -29,7 +24,6 @@
                 transaction appears.</Description>
 			<DataType>Identifier</DataType>
 			<Reference type="BUSINESS_TERM">tir76-002</Reference>
-
 			<Value type="FIXED">urn:fdc:peppol.eu:poacc:bis:ordering:3</Value>
 		</Element>
 		<Element>
@@ -40,7 +34,6 @@
                 that are part of the same process.</Description>
 			<DataType>Identifier</DataType>
 			<Reference type="BUSINESS_TERM">tir76-003</Reference>
-
 			<Value type="EXAMPLE">or0987</Value>
 		</Element>
 		<Element cardinality="0..1">
@@ -57,7 +50,6 @@
 			<Description>The date on which the transaction instance was issued.</Description>
 			<DataType>Date</DataType>
 			<Reference type="BUSINESS_TERM">tir76-004</Reference>
-
 			<Value type="EXAMPLE">2018-05-15</Value>
 		</Element>
 		<Element cardinality="0..1">
@@ -77,7 +69,6 @@
 			<DataType>Code</DataType>
 			<Reference type="BUSINESS_TERM">tir76-200</Reference>
 			<Reference type="CODE_LIST">UNCL4343-T76</Reference>
-
 			<Value type="EXAMPLE">AP</Value>
 		</Element>
 		<Element cardinality="0..1">
@@ -92,7 +83,6 @@
 			<Name>Document currency</Name>
 			<Description>The default currency for the offer.</Description>
 			<Reference type="BUSINESS_TERM">tir76-007</Reference>
-
 			<Reference type="CODE_LIST">ISO4217</Reference>
 			<Value type="EXAMPLE">EUR</Value>
 		</Element>
@@ -115,7 +105,6 @@
 				<Description>Used to reference the order that is being responded to.</Description>
 				<DataType>Document reference</DataType>
 				<Reference type="BUSINESS_TERM">tir76-011</Reference>
-
 				<Value type="EXAMPLE">o-23424</Value>
 			</Element>
 		</Element>
@@ -150,7 +139,6 @@
 						<Description>Identifies a party.</Description>
 						<DataType>Identifier</DataType>
 						<Reference type="BUSINESS_TERM">tir76-059</Reference>
-
 						<Attribute usage="optional">
 							<Term>schemeID</Term>
 							<Name>Scheme identifier</Name>
@@ -161,12 +149,10 @@
 						<Value type="EXAMPLE">DK88777654</Value>
 					</Element>
 				</Element>
-
 				<Element cardinality="0..1">
 					<Term>cac:PartyLegalEntity</Term>
 					<Name>Name of seller</Name>
 					<Reference type="RULE">PEPPOL-T76-R002</Reference>
-
 					<Element>
 						<Term>cbc:RegistrationName</Term>
 						<Name>Seller party name</Name>
@@ -176,7 +162,6 @@
 						<Value type="EXAMPLE">Seller Inc.</Value>
 					</Element>
 				</Element>
-
 			</Element>
 		</Element>
 		<Element>
@@ -209,8 +194,6 @@
 						<Name>Buyer party identification</Name>
 						<Description>An identification for the buyer party.</Description>
 						<Reference type="BUSINESS_TERM">tir76-022</Reference>
-
-
 						<Attribute usage="optional">
 							<Term>schemeID</Term>
 							<Name>Scheme identifier</Name>
@@ -221,12 +204,10 @@
 						<Value type="EXAMPLE">DK88777654</Value>
 					</Element>
 				</Element>
-
 				<Element cardinality="0..1">
 					<Term>cac:PartyLegalEntity</Term>
 					<Name>Party name</Name>
 					<Reference type="RULE">PEPPOL-T76-R001</Reference>
-
 					<Element>
 						<Term>cbc:RegistrationName</Term>
 						<Name>Buyer party name</Name>
@@ -238,7 +219,6 @@
 						<Value type="EXAMPLE">Buyer name</Value>
 					</Element>
 				</Element>
-
 			</Element>
 		</Element>
 		<Element cardinality="0..1">
@@ -261,6 +241,7 @@
 					<Term>cbc:StartTime</Term>
 					<Name>Period start time - Ora di inizio</Name>
 					<Description>Indica l'orario in cui deve avere inizio la fornitura, nel formato oo:mm:ss</Description>
+					<DataType>Time</DataType>
 					<Reference type="BUSINESS_TERM">tir76-p010</Reference>
 					<Value type="EXAMPLE">12:10:33</Value>
 				</Element>
@@ -277,6 +258,7 @@
 					<Term>cbc:EndTime</Term>
 					<Name>Period end time - Ora di fine</Name>
 					<Description>Indica l'orario in cui deve terminare la fornitura, nel formato oo:mm:ss</Description>
+					<DataType>Time</DataType>
 					<Reference type="BUSINESS_TERM">tir76-p011</Reference>
 					<Value type="EXAMPLE">14:20:00</Value>
 				</Element>
@@ -314,7 +296,6 @@
                         change.</Description>
 					<Reference type="BUSINESS_TERM">tir76-202</Reference>
 					<Reference type="CODE_LIST">UNCL1229</Reference>
-
 					<Value type="EXAMPLE">3</Value>
 				</Element>
 				<Element cardinality="0..1">
@@ -428,7 +409,6 @@
 					<Element cardinality="0..1">
 						<Term>cac:BuyersItemIdentification</Term>
 						<Name>Buyer item identification</Name>
-
 						<Element>
 							<Term>cbc:ID</Term>
 							<Name>Buyers item identifier</Name>
@@ -440,7 +420,6 @@
 							<Value type="EXAMPLE">111111</Value>
 						</Element>
 					</Element>
-
 					<Element cardinality="0..1">
 						<Term>cac:SellersItemIdentification</Term>
 						<Name>Sellers item identification</Name>
@@ -452,7 +431,6 @@
 								seller's system. </Description>
 							<DataType>Identifier</DataType>
 							<Reference type="BUSINESS_TERM">tir76-206</Reference>
-
 							<Value type="EXAMPLE">3249834</Value>
 						</Element>
 					</Element>
@@ -466,7 +444,6 @@
 								the item with its identification according to a standard system.</Description>
 							<DataType>Identifier</DataType>
 							<Reference type="BUSINESS_TERM">tir76-207</Reference>
-
 							<Attribute>
 								<Term>schemeID</Term>
 								<Name>Item standard identifier identification scheme identifier</Name>
@@ -477,7 +454,6 @@
 							<Value type="EXAMPLE">05704066204093</Value>
 						</Element>
 					</Element>
-
 				</Element>
 			</Element>
 			<Element cardinality="0..1">
@@ -565,9 +541,8 @@
 								<Term>name</Term>
 								<Name>Clear text name equivalent of classification code</Name>
 								<Description>The textual equivalent of the code value</Description>
-								<Value type="EXAMPLE">Office furniture</Value>	
-							</Attribute>							
-							
+								<Value type="EXAMPLE">Office furniture</Value>
+							</Attribute>
 						</Element>
 					</Element>
 					<Element cardinality="0..1">
@@ -579,7 +554,6 @@
 							<Description>The TAX category code for the item.</Description>
 							<DataType>Code</DataType>
 							<Reference type="BUSINESS_TERM">tir76-150</Reference>
-
 							<Reference type="CODE_LIST">UNCL5305</Reference>
 							<Value type="EXAMPLE">S</Value>
 						</Element>
@@ -646,7 +620,6 @@
                                 descriptive.</Description>
 							<DataType>Quantity</DataType>
 							<Reference type="BUSINESS_TERM">tir76-p008</Reference>
-
 							<Attribute>
 								<Term>unitCode</Term>
 								<Name>Value quantity unit of measure</Name>
@@ -660,7 +633,7 @@
 						<Element cardinality="0..1">
 							<Term>cbc:ValueQualifier</Term>
 							<Name>Property classification</Name>
-              <Description>Standardized and predefined classification of items properties.</Description>
+							<Description>Standardized and predefined classification of items properties.</Description>
 							<DataType>Text</DataType>
 							<Reference type="BUSINESS_TERM">tir76-p009</Reference>
 						</Element>
@@ -676,7 +649,6 @@
 					<Description>Used to reference the initial order line that correspondes to the
 						response.All order lines should be stated when an order is changed.</Description>
 					<Reference type="BUSINESS_TERM">tir76-201</Reference>
-
 					<Value type="EXAMPLE">34</Value>
 				</Element>
 			</Element>

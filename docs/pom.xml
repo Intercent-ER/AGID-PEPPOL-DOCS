@@ -8,7 +8,7 @@
 	<parent>
 		<groupId>it.gov.agid</groupId>
 		<artifactId>AGID-PEPPOL</artifactId>
-		<version>2.1</version>
+		<version>3.0</version>
 		<relativePath>../</relativePath>
 	</parent>
 	<packaging>war</packaging>
@@ -18,9 +18,9 @@
 	<properties>
 		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<validator.version>2.7.0</validator.version>
-		<converter.version>2.9.0</converter.version>
-		<schematron.version>2.7.0</schematron.version>
+		<validator.version>3.0.0</validator.version>
+		<converter.version>3.0.0</converter.version>
+		<schematron.version>3.0.0</schematron.version>
 		<mapping_peppol_fpa.version>3.3</mapping_peppol_fpa.version>
 		<mapping_fpa_peppol.version>3.2</mapping_fpa_peppol.version>
 	</properties>

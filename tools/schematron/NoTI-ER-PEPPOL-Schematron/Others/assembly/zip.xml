@@ -14,7 +14,7 @@
     <fileSets>
         <fileSet> <!-- Copy resources -->
             <outputDirectory>/</outputDirectory>
-            <directory>/target/sch/</directory>
+            <directory>target/sch/</directory>
 			<includes>
                 <include>**/*</include>
             </includes>

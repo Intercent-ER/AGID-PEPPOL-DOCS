@@ -3,6 +3,6 @@
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:u="utils" schemaVersion="iso" queryBinding="xslt2">
 	<title>Regole di business CIUS italiana</title>		
 	  <include href="./AGID-EN16931-CIUS-UBL.inc"/>
-	  <include href="./SDI.inc"/>
+	  <!--<include href="./SDI.inc"/>-->
 
 </schema>

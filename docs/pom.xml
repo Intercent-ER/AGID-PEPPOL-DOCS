@@ -18,9 +18,9 @@
 	<properties>
 		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<validator.version>3.0.0</validator.version>
-		<converter.version>3.0.0</converter.version>
-		<schematron.version>3.0.0</schematron.version>
+		<validator.version>3.0.2</validator.version>
+		<converter.version>3.0.2</converter.version>
+		<schematron.version>3.0.2</schematron.version>
 		<mapping_peppol_fpa.version>3.3</mapping_peppol_fpa.version>
 		<mapping_fpa_peppol.version>3.2</mapping_fpa_peppol.version>
 	</properties>
@@ -631,7 +631,7 @@
 			
 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.0.1</version>
+				<version>3.0.2</version>
 				<executions>
 					<!-- copia delle codelist da artifacts alle cartelle della documentazione-->
 					<!-- INVOICE-->

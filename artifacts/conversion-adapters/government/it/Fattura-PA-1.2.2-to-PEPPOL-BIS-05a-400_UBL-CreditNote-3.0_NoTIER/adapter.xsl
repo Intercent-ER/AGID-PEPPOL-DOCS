@@ -1663,7 +1663,7 @@ the root node.
 	<xsl:template match="FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee">
 		<xsl:param name="CN" select="."/>
 		<xsl:param name="CNP" select="1"/>
-		<xsl:if test="not((contains(upper-case(normalize-space(Descrizione)), 'BOLLO')) and format-number(PrezzoTotale,'###########0.00') = '2.00')">
+		
 			<cac:CreditNoteLine>
 				<cbc:ID>
 					<xsl:value-of select="normalize-space(NumeroLinea)"/>
@@ -2058,13 +2058,13 @@ the root node.
 					</cac:AllowanceCharge>
 				</cac:Price>
 			</cac:CreditNoteLine>
-		</xsl:if>
+		
 	</xsl:template>
 	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento" mode="LegalMonetaryTotal">
 		<xsl:param name="CN" select="."/>
 		<xsl:param name="CNP" select="1"/>
 		<cac:LegalMonetaryTotal>
-			<xsl:variable name="lineExtensionAmount" select="format-number(sum(../../DatiBeniServizi/DettaglioLinee[not(contains(upper-case(normalize-space(Descrizione)), 'BOLLO')) and not(Descrizione = 'SCONTO') and not(Descrizione = 'MAGGIORAZIONE')]/PrezzoTotale),'###########0.00')"/>
+			<xsl:variable name="lineExtensionAmount" select="format-number(sum(../../DatiBeniServizi/DettaglioLinee[not(Descrizione = 'SCONTO') and not(Descrizione = 'MAGGIORAZIONE')]/PrezzoTotale),'###########0.00')"/>
 			<xsl:variable name="variable_d1e449a1049836">
 				<xsl:value-of select="Divisa"/>
 			</xsl:variable>
@@ -2073,11 +2073,13 @@ the root node.
 					<xsl:value-of select="format-number(ImportoTotaleDocumento,'###########0.00')"/>
 				</xsl:if>
 				<xsl:if test="not(ImportoTotaleDocumento) or ScontoMaggiorazione">
-					<xsl:value-of select="format-number((sum(../../DatiBeniServizi/DatiRiepilogo/Imposta)+sum(DatiCassaPrevidenziale/ImportoContributoCassa)+sum(../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO') and format-number(PrezzoTotale,'###########0.00') = '2.00']/PrezzoTotale)+sum(../../DatiBeniServizi/DettaglioLinee[not(Descrizione = 'BOLLO') and not(Descrizione = 'SCONTO') and not(Descrizione = 'MAGGIORAZIONE')]/PrezzoTotale)),'###########0.00')"/>
+					<xsl:value-of select="format-number((sum(../../DatiBeniServizi/DatiRiepilogo/Imposta)+sum(DatiCassaPrevidenziale/ImportoContributoCassa)+sum(../../DatiBeniServizi/DettaglioLinee[not(Descrizione = 'SCONTO') and not(Descrizione = 'MAGGIORAZIONE')]/PrezzoTotale)),'###########0.00')"/>
 				</xsl:if>
 			</xsl:variable>
 			<xsl:variable name="chargeTotalAmount" select="format-number(sum(DatiCassaPrevidenziale/ImportoContributoCassa),'###########0.00')"/>
-			<xsl:variable name="allowanceTotalAmount" select="format-number(abs(sum(../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO') and format-number(PrezzoTotale,'###########0.00') = '2.00']/PrezzoTotale)),'###########0.00')"/>
+			<xsl:variable name="allowanceTotalAmount">
+				<xsl:text>0.00</xsl:text>
+			</xsl:variable>
 			<xsl:variable name="payableAmountWithoutAllowanceCharge">
 				<xsl:choose>
 					<xsl:when test="../../DatiPagamento[1]/DettaglioPagamento[1]/ImportoPagamento">
@@ -2127,7 +2129,7 @@ the root node.
 						<xsl:value-of select="string($variable_d1e449a1049836)"/>
 					</xsl:attribute>
 				</xsl:if>
-				<xsl:value-of select="format-number(number($lineExtensionAmount)+sum(DatiCassaPrevidenziale/ImportoContributoCassa)+sum(../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO') and format-number(PrezzoTotale,'###########0.00') = '2.00']/PrezzoTotale),'###########0.00')"/>
+				<xsl:value-of select="format-number(number($lineExtensionAmount)-number($allowanceTotalAmount)+sum(DatiCassaPrevidenziale/ImportoContributoCassa),'###########0.00')"/>
 			</cbc:TaxExclusiveAmount>
 			<cbc:TaxInclusiveAmount>
 				<xsl:if test="string($variable_d1e449a1049836)">
@@ -2201,10 +2203,10 @@ the root node.
 		<xsl:param name="CNP" select="1"/>
 		<cac:AllowanceCharge>
 			<cbc:ChargeIndicator>
-				<xsl:text>false</xsl:text>
+				<xsl:text>true</xsl:text>
 			</cbc:ChargeIndicator>
 			<cbc:AllowanceChargeReasonCode>
-				<xsl:text>95</xsl:text>
+				<xsl:text>SAE</xsl:text>
 			</cbc:AllowanceChargeReasonCode>
 			<cbc:AllowanceChargeReason>
 				<xsl:text>BOLLO</xsl:text>
@@ -2218,17 +2220,7 @@ the root node.
 						<xsl:value-of select="string($currencyID_value)"/>
 					</xsl:attribute>
 				</xsl:if>
-				<xsl:choose>
-					<xsl:when test="ImportoBollo">
-						<xsl:value-of select="format-number(ImportoBollo,'###########0.00')"/>
-					</xsl:when>
-					<xsl:when test="../../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO') and format-number(PrezzoTotale,'###########0.00') = '2.00'][1]">
-						<xsl:value-of select="format-number(../../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO') and format-number(PrezzoTotale,'###########0.00') = '2.00'][1]/PrezzoTotale,'###########0.00')"/>
-					</xsl:when>
-					<xsl:otherwise>
-						<xsl:text>0.00</xsl:text>
-					</xsl:otherwise>
-				</xsl:choose>
+				<xsl:text>0.00</xsl:text>
 			</cbc:Amount>
 			<cac:TaxCategory>
 				<cbc:ID>

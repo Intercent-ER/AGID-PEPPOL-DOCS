@@ -93,14 +93,14 @@
 	<xsl:template match="cac:AllowanceCharge" mode="BOLLO">
 		<xsl:param name="CN" select="."/>
 		<xsl:param name="CNP" select="1"/>
-		<xsl:if test="./cbc:AllowanceChargeReasonCode = '95'">
+		<xsl:if test="./cbc:AllowanceChargeReasonCode = 'SAE'">
 			<DatiBollo>
 				<BolloVirtuale>
 					<xsl:text>SI</xsl:text>
 				</BolloVirtuale>
-				<ImportoBollo>
+				<!-- <ImportoBollo>
 					<xsl:value-of select="format-number(cbc:Amount,'###########0.00')"/>
-				</ImportoBollo>
+				</ImportoBollo> -->
 			</DatiBollo>
 		</xsl:if>
 	</xsl:template>

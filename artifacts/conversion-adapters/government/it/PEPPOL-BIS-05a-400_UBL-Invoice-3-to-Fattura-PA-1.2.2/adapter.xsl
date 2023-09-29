@@ -1591,10 +1591,6 @@
 	<xsl:template match="cac:TaxTotal/cac:TaxSubtotal" mode="DatiRiepilogo">
 		<xsl:param name="CN" select="."/>
 		<xsl:param name="CNP" select="1"/>
-		<xsl:when test="cac:TaxCategory/cbc:ID='Z' and cac:TaxCategory/cbc:TaxScheme='VAT' and cbc:TaxableAmount='0.00' and cbc:TaxAmount='0.00' and cac:TaxCategory/cbc:Percent = '0'"><!--verificare condizione con Pietro-->
-			
-		</xsl:when>
-		<xsl:otherwise>
 			<DatiRiepilogo>
 				<AliquotaIVA>
 					<xsl:value-of select="if (cac:TaxCategory/cbc:Percent &gt;= 0) then format-number(cac:TaxCategory/cbc:Percent,'##0.00') else '0.00'"/>
@@ -1703,7 +1699,6 @@
 					</RiferimentoNormativo>
 				</xsl:if>
 			</DatiRiepilogo>
-		</xsl:otherwise>
 	</xsl:template>
 	<xsl:template match="/in:Invoice/cac:AccountingSupplierParty/cac:Party" mode="RitenutaPersoneFisiche2">
 		<xsl:param name="CN" select="."/>

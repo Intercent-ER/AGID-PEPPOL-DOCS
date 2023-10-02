@@ -88,7 +88,7 @@
 					<xsl:text>SI</xsl:text>
 				</BolloVirtuale>
 				<!--<ImportoBollo>
-					<xsl:value-of select="format-number(cbc:Amount,'###########0.00')"/>siamo sicuri che vada eliminato?
+					<xsl:value-of select="format-number(cbc:Amount,'###########0.00')"/>
 				</ImportoBollo>-->
 			</DatiBollo>
 		</xsl:if>
@@ -2099,45 +2099,6 @@
 						<xsl:with-param name="CN" select="current()"/>
 						<xsl:with-param name="CNP" select="position()"/>
 					</xsl:apply-templates>
-					<xsl:for-each select="cac:AllowanceCharge">
-						<xsl:if test=" lower-case(cbc:AllowanceChargeReason)='bollo'">
-							<DettaglioLinee>
-								<NumeroLinea>
-									<xsl:text>9999</xsl:text>
-								</NumeroLinea>
-								<TipoCessionePrestazione>
-									<xsl:text>SC</xsl:text>
-								</TipoCessionePrestazione>
-								<Descrizione>
-									<xsl:text>BOLLO</xsl:text>
-								</Descrizione>
-								<Quantita>
-									<xsl:text>1.00000000</xsl:text>
-								</Quantita>
-								<PrezzoUnitario>
-									<xsl:value-of select="format-number(cbc:Amount,'##0.000000')"/>
-								</PrezzoUnitario>
-								<PrezzoTotale>
-									<xsl:value-of select="format-number(cbc:Amount,'##0.000000')"/>
-								</PrezzoTotale>
-								<AliquotaIVA>0.00</AliquotaIVA>
-								<Natura>
-									<xsl:text>N1</xsl:text>
-								</Natura>
-								<RiferimentoAmministrazione>
-									<xsl:text>TC01</xsl:text>
-								</RiferimentoAmministrazione>
-								<AltriDatiGestionali>
-									<TipoDato>
-										<xsl:text>BT-104</xsl:text>
-									</TipoDato>
-									<RiferimentoTesto>
-										<xsl:text>BOLLO</xsl:text>
-									</RiferimentoTesto>
-								</AltriDatiGestionali>
-							</DettaglioLinee>
-						</xsl:if>
-					</xsl:for-each>
 					<xsl:for-each select="cac:AllowanceCharge">
 						<xsl:if test="not (lower-case(cbc:AllowanceChargeReason)='bollo') and not(lower-case(cbc:AllowanceChargeReasonCode)='zzz')">
 							<DettaglioLinee>

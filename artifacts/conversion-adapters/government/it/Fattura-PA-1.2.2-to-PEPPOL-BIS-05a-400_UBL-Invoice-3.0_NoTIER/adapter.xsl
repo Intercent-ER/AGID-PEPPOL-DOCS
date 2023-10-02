@@ -2078,28 +2078,26 @@ the root node.
 				</xsl:if>
 				<xsl:value-of select="$taxInclusiveAmount"/>
 			</cbc:TaxInclusiveAmount>
-			<xsl:choose>
-				<xsl:when test="(number($chargeTotalAmount) &gt; number('0.00')) or (../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO') and format-number(PrezzoTotale,'###########0.00') = '2.00'])">
-					<cbc:ChargeTotalAmount>
-						<xsl:if test="string($variable_d1e449a1049836)">
-							<xsl:attribute name="currencyID">
-								<xsl:value-of select="string($variable_d1e449a1049836)"/>
-							</xsl:attribute>
-						</xsl:if>
-						<xsl:value-of select="$chargeTotalAmount"/>
-					</cbc:ChargeTotalAmount>
-				</xsl:when>
-				<xsl:when test="(/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/DatiBollo/BolloVirtuale) and not((../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO') and format-number(PrezzoTotale,'###########0.00') = '2.00']))">
-					<cbc:ChargeTotalAmount>
-						<xsl:if test="string($variable_d1e449a1049836)">
-							<xsl:attribute name="currencyID">
-								<xsl:value-of select="string($variable_d1e449a1049836)"/>
-							</xsl:attribute>
-						</xsl:if>
-						<xsl:text>0.00</xsl:text>
-					</cbc:ChargeTotalAmount>
-				</xsl:when>
-			</xsl:choose>
+			<xsl:if test="number($allowanceTotalAmount) &gt; number('0.00') ">
+				<cbc:AllowanceTotalAmount>
+					<xsl:if test="string($variable_d1e449a1049836)">
+						<xsl:attribute name="currencyID">
+							<xsl:value-of select="string($variable_d1e449a1049836)"/>
+						</xsl:attribute>
+					</xsl:if>
+					<xsl:value-of select="$allowanceTotalAmount"/>
+				</cbc:AllowanceTotalAmount>
+			</xsl:if>
+			<xsl:if test="(number($chargeTotalAmount) &gt; number('0.00'))">
+				<cbc:ChargeTotalAmount>
+					<xsl:if test="string($variable_d1e449a1049836)">
+						<xsl:attribute name="currencyID">
+							<xsl:value-of select="string($variable_d1e449a1049836)"/>
+						</xsl:attribute>
+					</xsl:if>
+					<xsl:value-of select="$chargeTotalAmount"/>
+				</cbc:ChargeTotalAmount>
+			</xsl:if>
 			<xsl:if test="number($taxInclusiveAmount) &gt; number($payableAmount)">
 				<cbc:PrepaidAmount>
 					<xsl:variable name="variable_d1e450a1049836">

@@ -1660,10 +1660,52 @@ the root node.
 			</cac:TaxCategory>
 		</cac:TaxSubtotal>
 	</xsl:template>
+	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/DatiBollo/ImportoBollo">
+		<xsl:param name="CN" select="."/>
+		<xsl:param name="CNP" select="1"/>
+		<xsl:if test="not(/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO') and format-number(PrezzoTotale,'###########0.00') = '2.00']) and not(//DatiRiepilogo/Natura = 'N1')">
+			<cac:TaxSubtotal>
+				<cbc:TaxableAmount>
+					<xsl:variable name="variable_d1e427a1049836">
+						<xsl:value-of select="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Divisa"/>
+					</xsl:variable>
+					<xsl:if test="string($variable_d1e427a1049836)">
+						<xsl:attribute name="currencyID">
+							<xsl:value-of select="string($variable_d1e427a1049836)"/>
+						</xsl:attribute>
+					</xsl:if>
+					<xsl:text>0.00</xsl:text>
+				</cbc:TaxableAmount>
+				<cbc:TaxAmount>
+					<xsl:variable name="variable_d1e428a1049836">
+						<xsl:value-of select="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/Divisa"/>
+					</xsl:variable>
+					<xsl:if test="string($variable_d1e428a1049836)">
+						<xsl:attribute name="currencyID">
+							<xsl:value-of select="string($variable_d1e428a1049836)"/>
+						</xsl:attribute>
+					</xsl:if>
+					<xsl:text>0.00</xsl:text>
+				</cbc:TaxAmount>
+				<cac:TaxCategory>
+					<cbc:ID>
+						<xsl:text>Z</xsl:text>
+					</cbc:ID>
+					<cbc:Percent>
+						<xsl:text>0</xsl:text>
+					</cbc:Percent>
+					<cac:TaxScheme>
+						<cbc:ID>
+							<xsl:text>VAT</xsl:text>
+						</cbc:ID>
+					</cac:TaxScheme>
+				</cac:TaxCategory>
+			</cac:TaxSubtotal>
+		</xsl:if>
+	</xsl:template>
 	<xsl:template match="FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee">
 		<xsl:param name="CN" select="."/>
 		<xsl:param name="CNP" select="1"/>
-		
 			<cac:CreditNoteLine>
 				<cbc:ID>
 					<xsl:value-of select="normalize-space(NumeroLinea)"/>
@@ -2058,7 +2100,6 @@ the root node.
 					</cac:AllowanceCharge>
 				</cac:Price>
 			</cac:CreditNoteLine>
-		
 	</xsl:template>
 	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento" mode="LegalMonetaryTotal">
 		<xsl:param name="CN" select="."/>
@@ -2149,7 +2190,7 @@ the root node.
 					<xsl:value-of select="$allowanceTotalAmount"/>
 				</cbc:AllowanceTotalAmount>
 			</xsl:if>
-			<xsl:if test="(number($chargeTotalAmount) &gt; number('0.00')) or (../../DatiBeniServizi/DettaglioLinee[contains(upper-case(normalize-space(Descrizione)), 'BOLLO') and format-number(PrezzoTotale,'###########0.00') = '2.00'])">
+			<xsl:if test="(number($chargeTotalAmount) &gt; number('0.00'))">
 				<cbc:ChargeTotalAmount>
 					<xsl:if test="string($variable_d1e449a1049836)">
 						<xsl:attribute name="currencyID">
@@ -3078,6 +3119,10 @@ the root node.
 					<xsl:value-of select="format-number(sum(FatturaElettronicaBody/DatiBeniServizi/DatiRiepilogo/Imposta),'###########0.00')"/>
 				</cbc:TaxAmount>
 				<xsl:apply-templates select="FatturaElettronicaBody/DatiBeniServizi/DatiRiepilogo">
+					<xsl:with-param name="CN" select="current()"/>
+					<xsl:with-param name="CNP" select="position()"/>
+				</xsl:apply-templates>
+				<xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiGeneraliDocumento/DatiBollo/ImportoBollo">
 					<xsl:with-param name="CN" select="current()"/>
 					<xsl:with-param name="CNP" select="position()"/>
 				</xsl:apply-templates>

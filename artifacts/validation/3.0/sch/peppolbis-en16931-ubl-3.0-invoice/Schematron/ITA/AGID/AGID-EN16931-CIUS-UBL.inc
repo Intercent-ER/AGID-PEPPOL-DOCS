@@ -150,7 +150,7 @@
 
 	<!-- BOLLO -->
 	<rule context="/*/cac:AllowanceCharge[cbc:AllowanceChargeReasonCode = 'SAE' and ../cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']]" flag="fatal">
-		<assert test="cbc:ChargeIndicator = true() and cbc:AllowanceChargeReason = 'BOLLO' and cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0] and ../cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount &gt; 77.47 and  ../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0]" flag="fatal" id="BR-IT-DC-480">[BR-IT-DC-480] - Se l'elemento BT-40 Seller country code ha valore "IT e la fattura è soggetta alla marca da bollo, il motivo della maggiorazione deve essere posto a "BOLLO" e l'importo deve essere superiore a 77.47 EURO. Se l'importo del bollo viene rifatturato al cliente, il suo valore deve essere posto a 2.00 EUR come operazione non imponibile IVA (TaxCategory/ID = 'Z') e il relativo riepilogo IVA deve riportare un imponibile di 2.00 EUR".</assert>
+		<assert test="cbc:ChargeIndicator = true() and cbc:AllowanceChargeReason = 'BOLLO' and cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0] and cbc:Amount=0 and ../cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount &gt; 77.47 and ../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0]" flag="fatal" id="BR-IT-DC-480">[BR-IT-DC-480] - Se l’elemento BT-40 (Seller country code) ha valore "IT" e la fattura è soggetta alla marca da bollo, l'importo imponibile deve essere superiore a 77,47 euro, il BT-105 (Document level charge reason code) deve essere posto a “SAE”; il BT-104 (Document level charge reason) deve essere posto a  “BOLLO”; il BT-99 (Document level charge amount) deve essere posto a 0; il BT-95 (Document level charge VAT category code) deve essere posto a "Z" (zero).</assert>
 	</rule>
 	
 	<rule context="/*/cac:AccountingCustomerParty/cac:Party" flag="fatal">
@@ -177,7 +177,7 @@
 	<!-- Line Level -->
 	
 	<rule context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID | /*/cac:CreditNoteLine/cac:DocumentReference/cbc:ID" flag="fatal">
-		<assert test="matches(.,'^(\p{IsBasicLatin}){0,100}$')" flag="fatal" id="BR-IT-370">[BR-IT-370][FPA 2.2.1.3.2 CodiceValore] - BT-128 (Invoice line object identifier) maximum lenght shall be 35 chars - La lunghezza dell'elemento non può superare i 35 caratteri.</assert>
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,35}$')" flag="fatal" id="BR-IT-370">[BR-IT-370][FPA 2.2.1.3.2 CodiceValore] - BT-128 (Invoice line object identifier) maximum lenght shall be 35 chars - La lunghezza dell'elemento non può superare i 35 caratteri.</assert>
 	</rule>
 	
 	<rule context="/*/cac:InvoiceLine/cbc:InvoicedQuantity | /*/cac:CreditNoteLine/cbc:CreditedQuantity" flag="fatal">

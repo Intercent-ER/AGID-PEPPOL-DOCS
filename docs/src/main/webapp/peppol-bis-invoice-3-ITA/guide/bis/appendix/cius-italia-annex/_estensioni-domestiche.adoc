@@ -55,7 +55,7 @@
 
 |BR-IT-DE-011
 |2.1.1.5 Dati Ritenuta
-|Il cac:WithholdingTaxTotal deve contenere almeno una ritenuta (cac:TaxSubtotal)
+|Il cac:WithholdingTaxTotal deve contenere almeno una e al massimo due ritenute (cac:TaxSubtotal).
 
 |BR-IT-DE-012
 |2.1.1.5 Dati Ritenuta

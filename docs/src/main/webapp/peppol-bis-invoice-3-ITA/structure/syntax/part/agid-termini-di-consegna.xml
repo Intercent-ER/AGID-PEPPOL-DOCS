@@ -5,7 +5,7 @@
 	<Name>Termini di Consegna</Name>
 	<Description>Un set di termini di consegna associato a questo documento.</Description>
 
-	<Element>
+	<Element cardinality="0..1">
 		<Term>cbc:ID</Term>
 		<Name>Tipo Resa Merce - FPA 2.1.9.11 'TipoResa'</Name>
 		<Description>An identifier for this description of delivery terms. (e.g. ICC Incoterms 2000). Codifica del termine di resa espresso secondo lo standard ICC-Camera di Commercio Internazionale (Incoterms).</Description>

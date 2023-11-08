@@ -35,12 +35,12 @@
     </rule>
 	
 	<rule context="/ubl-creditnote:CreditNote/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Ritenuta']/ext:ExtensionContent" flag="fatal">
-		<assert test="count(cac:WithholdingTaxTotal) = 1 and count(/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Ritenuta']) = 1" flag="fatal" id="BR-IT-DE-009NC1">[BR-IT-DE-009NC1][FPA 2.1.1.5 - Dati Ritenuta] - L'estensione deve contenere uno elemento cac:WithholdingTaxTotal.</assert>
+		<assert test="count(cac:WithholdingTaxTotal) = 1 and count(/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Ritenuta']) = 1" flag="fatal" id="BR-IT-DE-009NC1">[BR-IT-DE-009NC1][FPA 2.1.1.5 - Dati Ritenuta] - L'estensione deve contenere un elemento cac:WithholdingTaxTotal.</assert>
 	</rule>
 
 	<rule context="//cac:WithholdingTaxTotal" flag="fatal">
 		<assert test="matches(cbc:TaxAmount,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-DE-010">[BR-IT-DE-010][FPA 2.1.1.5 - Dati Ritenuta] - L'importo totale delle ritenute (cbc:TaxAmount) deve contenere da 4 fino a 15 caratteri incluso 2 cifre decimali.</assert>
-		<assert test="count(cac:TaxSubtotal) &gt;= 1" flag="fatal" id="BR-IT-DE-011">[BR-IT-DE-011][FPA 2.1.1.5 - Dati Ritenuta] - Il cac:WithholdingTaxTotal deve contenere almeno una ritenuta (cac:TaxSubtotal).</assert>
+		<assert test="count(cac:TaxSubtotal) &gt;= 1" flag="fatal" id="BR-IT-DE-011">[BR-IT-DE-011][FPA 2.1.1.5 - Dati Ritenuta] - Il cac:WithholdingTaxTotal deve contenere almeno una e al massimo due ritenute (cac:TaxSubtotal).</assert>
 	</rule>
 
 	<rule context="//cac:WithholdingTaxTotal/cac:TaxSubtotal" flag="fatal">

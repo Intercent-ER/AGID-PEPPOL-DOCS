@@ -83,7 +83,7 @@ con @schemeID = AVV
 |Riferimento alla fase di un SAL
 |2.1.7.1 RiferimentoFase
 |In testata si usa +
-`cac:AdditionalDocumentReference/cbc:ID`+
+`cac:AdditionalDocumentReference/cbc:ID` +
 con @schemeID = AOR
 
 

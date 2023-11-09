@@ -125,7 +125,7 @@ In caso di invio di un ordine verso un fornitore estero, il campo EndpointID dev
 </cac:SellerSupplierParty>
 ----
 
-[yellow-background]#Il Venditore è un elemento essenziale del processo che, eccezionalmente, può non essere determinato a priori, ma divenirlo solo al momento della cessione dei beni e/o della prestazione dei servizi. Ad esempio quando la facoltà di scegliere il Venditore è riservata al Beneficiario.# 
+[yellow-background]#Il Venditore è un elemento essenziale del processo che, eccezionalmente, può non essere determinato a priori, ma divenirlo solo al momento della cessione dei beni e/o della prestazione dei servizi. Ad esempio quando la facoltà di scegliere il Venditore è riservata al Consegnatario/Destinatario.# 
 
 [yellow-background]#In questo caso (Venditore non predeterminato) l’elemento “SellerSupplierParty/Party” deve contenere solo i campi di seguito indicati:# 
 
@@ -206,11 +206,11 @@ Il campo cac:PartyLegalEntity/cbc:RegistrationName viene utilizzato per indicare
 [[originatorcustomerparty-originator]]
 == Richiedente (OriginatorCustomerParty)
 
-Il Richiedente è la persona giuridica o l’organizzazione che inizializza il processo di emissione dell'Ordine e per la quale l'Acquirente effettua l'acquisto. +
+Il Richiedente è l'Unità Organizzativa facente parte dell'Acquirente o la persona fisica che esprime il fabbisogno che dà avvio al processo di emissione dell’Ordine. +
 Il Richiedente è un’informazione opzionale nel messaggio dell’Ordine.
 
 
-.Esempio di informazioni del committente appartenente alla medesima organizzazione del cliente/acquirente
+.Esempio di informazioni del Richiedente appartenente alla medesima organizzazione del cliente/acquirente
 [source, xml, indent=0]
 ----
 <cac:OriginatorCustomerParty>
@@ -232,7 +232,7 @@ Il Richiedente è un’informazione opzionale nel messaggio dell’Ordine.
 
 [yellow-background]#Qualora il Documento sia emesso con l’uso di strumenti messi a disposizione da un Intermediario (ad esempio, un Ordine emesso utilizzando la piattaforma telematica di una centrale di acquisto), è possibile evidenziare il committente valorizzando l’elemento “OriginatorCustomerParty”, come mostrato nel seguente esempio.#
 
-.Esempio di informazioni del committente che utilizza una piattaforma telematica di un terzo intermediario per l’emissione dell’ordine
+.Esempio di informazioni del Richiedente che utilizza una piattaforma telematica di un terzo intermediario per l’emissione dell’ordine
 [source, xml, indent=0]
 ----
 <cac:OriginatorCustomerParty>
@@ -308,7 +308,7 @@ Qualora l’Acquirente (BuyerCustomerParty) sia una Pubblica Amministrazione, l�
 
 ==  #Consegnatario/Destinatario (DeliveryParty)#
 
-Il Consegnatario/Destinatario è la persona giuridica o l’organizzazione che riceve i beni e/o i servizi oggetto dell’ordine.
+Il Consegnatario/Destinatario è la persona fisica, giuridica o l’organizzazione che riceve i beni e/o i servizi oggetto dell’ordine.
 L’indicazione del Consegnatario/Destinatario è prevista solo con riferimento all’intero Documento. +
 Il Consegnatario/Destinatario è un’informazione opzionale nel messaggio dell’Ordine.
 
@@ -333,14 +333,14 @@ Il Consegnatario/Destinatario è un’informazione opzionale nel messaggio dell�
 </cac:Delivery>
 ---- 
 
-Qualora si indichi il Beneficiario, l’identificativo (campo “ID”) e la denominazione (campo “Name”) dell’unità organizzativa sono entrambi obbligatori. Se l’identificativo non è noto o non esiste, è sufficiente valorizzare il campo con il testo “UO”, che sta per unità organizzativa. +
+Qualora si indichi il Consegnatario, l’identificativo (campo “ID”) e la denominazione (campo “Name”) dell’unità organizzativa sono entrambi obbligatori. Se l’identificativo non è noto o non esiste, è sufficiente valorizzare il campo con il testo “UO”, che sta per unità organizzativa. +
 
-Se invece il Beneficiario è una persona fisica è necessario contemperare l’esigenza di
+Se invece il Consegnatario è una persona fisica è necessario contemperare l’esigenza di
 tutelarne la riservatezza con la necessità di dare indicazioni complete ed esaurienti per
 la consegna. A tal fine: +
 
-* se non è strettamente necessario indicare per esteso il nome del Beneficiario, il
+* se non è strettamente necessario indicare per esteso il nome del Consegnatario, il
 campo “Name” deve essere valorizzato con “PF”, che sta per persona fisica;
-* se al Beneficiario è stato assegnato un identificativo, questo deve essere indicato
+* se al Consegnatario è stato assegnato un identificativo, questo deve essere indicato
 nel campo “ID”, altrimenti anche questo campo va valorizzato con “PF”.
 

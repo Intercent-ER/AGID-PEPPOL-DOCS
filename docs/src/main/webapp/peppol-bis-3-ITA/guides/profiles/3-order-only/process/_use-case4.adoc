@@ -17,7 +17,7 @@ Questo caso d’uso è relativo a un ordine contenente quasi tutti gli elementi 
 |Ruoli coinvolti
 |Acquirente +
 Venditore +
-Committente
+Richiedente
 
 |Assunzioni
 |L’acquirente ha a disposizione un catalogo o una lista di prodotti per effettuare l’ordine. +

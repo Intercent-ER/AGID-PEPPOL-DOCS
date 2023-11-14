@@ -89,7 +89,7 @@
 								</transformationSet>
 							</transformationSets>
 						</configuration>
-					</execution>
+					</execution>				
 				</executions>
 				<dependencies>
 					<dependency>
@@ -99,7 +99,6 @@
 					</dependency>
 				</dependencies>
 			</plugin>
-
 		</plugins>
 	</build>
 

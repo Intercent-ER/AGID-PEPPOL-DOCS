@@ -14,11 +14,11 @@
 2.1.2.3 Data +
 2.1.2.5 CodiceCommessaConvenzione
 |In testata si usa +
-`cac:OrderReference` e +
+`cac:OrderReference/cbc:ID` e +
 `cbc:BuyerReference` +
 
 A livello di riga +
-`cac:InvoiceLine/cac:OrderLineReference/cac:OrderReference`  +
+`cac:InvoiceLine/cac:OrderLineReference/cac:OrderReference/cbc:ID`  +
 e +
 `cac:InvoiceLine/cac:DocumentReference/cbc:ID`  +
 con @schemeID = ON

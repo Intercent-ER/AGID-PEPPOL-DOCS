@@ -702,7 +702,7 @@
 				<Element cardinality="0..1">
 					<Term>cac:PartyIdentification</Term>
 					<Name>Party identification - Identificativo parte</Name>
-					<Description>Informazioni sull'identificativo del Committente.</Description>
+					<Description>Informazioni sull'identificativo del Richiedente.</Description>
 					<Reference type="RULE">PEPPOL-T01-R014</Reference>
 					<Element agid:custom="rule">
 						<Term>cbc:ID</Term>
@@ -1268,8 +1268,8 @@
 					<Value type="EXAMPLE">1</Value>
 				</Element>
 				<Element cardinality="0..1">
-					<Term>cac:TransportHandlingUnit - Unità di Trasporto</Term>
-					<Name>Transport handling unit</Name>
+					<Term>cac:TransportHandlingUnit</Term>
+					<Name>Transport handling unit - Unità di Trasporto</Name>
 					<Element cardinality="0..1">
 						<Term>cbc:ShippingMarks</Term>
 						<Name>Packing label - Etichetta di imballaggio</Name>
@@ -1789,6 +1789,7 @@
 					<Description>Contiene l’indicazione degli sconti e delle maggiorazioni applicate a livello di linea d’ordine.</Description>
 					<Element>
 						<Term>cbc:ChargeIndicator</Term>
+						<Name>Line level allowance or charge indicator - Indicatore sconto/maggiorazione</Name>
 						<Description>Indica se si sta applicando uno sconto (“false”) o una maggiorazione (“true”).</Description>
 						<Reference type="BUSINESS_TERM">tir01-p014</Reference>
 						<Value type="EXAMPLE">false</Value>

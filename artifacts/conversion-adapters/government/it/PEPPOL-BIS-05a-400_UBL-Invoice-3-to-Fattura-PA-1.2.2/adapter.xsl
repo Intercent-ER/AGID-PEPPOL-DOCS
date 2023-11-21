@@ -88,7 +88,7 @@
 					<xsl:text>SI</xsl:text>
 				</BolloVirtuale>
 				<!--<ImportoBollo>
-					<xsl:value-of select="format-number(cbc:Amount,'###########0.00')"/>siamo sicuri che vada eliminato?
+					<xsl:value-of select="format-number(cbc:Amount,'###########0.00')"/>
 				</ImportoBollo>-->
 			</DatiBollo>
 		</xsl:if>
@@ -1591,10 +1591,7 @@
 	<xsl:template match="cac:TaxTotal/cac:TaxSubtotal" mode="DatiRiepilogo">
 		<xsl:param name="CN" select="."/>
 		<xsl:param name="CNP" select="1"/>
-		<xsl:when test="cac:TaxCategory/cbc:ID='Z' and cac:TaxCategory/cbc:TaxScheme='VAT' and cbc:TaxableAmount='0.00' and cbc:TaxAmount='0.00' and cac:TaxCategory/cbc:Percent = '0'"><!--verificare condizione con Pietro-->
-			
-		</xsl:when>
-		<xsl:otherwise>
+			<xsl:if test="(cbc:TaxableAmount &gt; 0 and cac:TaxCategory/cbc:ID ='Z') or cac:TaxCategory/cbc:ID != 'Z'">
 			<DatiRiepilogo>
 				<AliquotaIVA>
 					<xsl:value-of select="if (cac:TaxCategory/cbc:Percent &gt;= 0) then format-number(cac:TaxCategory/cbc:Percent,'##0.00') else '0.00'"/>
@@ -1703,7 +1700,7 @@
 					</RiferimentoNormativo>
 				</xsl:if>
 			</DatiRiepilogo>
-		</xsl:otherwise>
+			</xsl:if>
 	</xsl:template>
 	<xsl:template match="/in:Invoice/cac:AccountingSupplierParty/cac:Party" mode="RitenutaPersoneFisiche2">
 		<xsl:param name="CN" select="."/>
@@ -2104,45 +2101,6 @@
 						<xsl:with-param name="CN" select="current()"/>
 						<xsl:with-param name="CNP" select="position()"/>
 					</xsl:apply-templates>
-					<xsl:for-each select="cac:AllowanceCharge">
-						<xsl:if test=" lower-case(cbc:AllowanceChargeReason)='bollo'">
-							<DettaglioLinee>
-								<NumeroLinea>
-									<xsl:text>9999</xsl:text>
-								</NumeroLinea>
-								<TipoCessionePrestazione>
-									<xsl:text>SC</xsl:text>
-								</TipoCessionePrestazione>
-								<Descrizione>
-									<xsl:text>BOLLO</xsl:text>
-								</Descrizione>
-								<Quantita>
-									<xsl:text>1.00000000</xsl:text>
-								</Quantita>
-								<PrezzoUnitario>
-									<xsl:value-of select="format-number(cbc:Amount,'##0.000000')"/>
-								</PrezzoUnitario>
-								<PrezzoTotale>
-									<xsl:value-of select="format-number(cbc:Amount,'##0.000000')"/>
-								</PrezzoTotale>
-								<AliquotaIVA>0.00</AliquotaIVA>
-								<Natura>
-									<xsl:text>N1</xsl:text>
-								</Natura>
-								<RiferimentoAmministrazione>
-									<xsl:text>TC01</xsl:text>
-								</RiferimentoAmministrazione>
-								<AltriDatiGestionali>
-									<TipoDato>
-										<xsl:text>BT-104</xsl:text>
-									</TipoDato>
-									<RiferimentoTesto>
-										<xsl:text>BOLLO</xsl:text>
-									</RiferimentoTesto>
-								</AltriDatiGestionali>
-							</DettaglioLinee>
-						</xsl:if>
-					</xsl:for-each>
 					<xsl:for-each select="cac:AllowanceCharge">
 						<xsl:if test="not (lower-case(cbc:AllowanceChargeReason)='bollo') and not(lower-case(cbc:AllowanceChargeReasonCode)='zzz')">
 							<DettaglioLinee>

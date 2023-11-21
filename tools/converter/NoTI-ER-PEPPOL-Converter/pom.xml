@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
     <name>AGID-PEPPOL-Converter</name>
     <artifactId>AGID-PEPPOL-Converter</artifactId>
-	<version>3.0.2</version>
+	<version>3.1.0</version>
     <parent>
 		<groupId>it.gov.agid</groupId>
 		<artifactId>AGID-PEPPOL</artifactId>
-		<version>3.0</version>
+		<version>3.1</version>
 		<relativePath>../../..</relativePath>
 	</parent>
     <packaging>pom</packaging>

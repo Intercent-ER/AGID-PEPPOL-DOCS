@@ -4,11 +4,11 @@
     <name>AGID-PEPPOL</name>
     <groupId>it.gov.agid</groupId>
     <artifactId>AGID-PEPPOL</artifactId>
-    <version>3.0</version>
+    <version>3.1</version>
     <packaging>pom</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-            <agid.peppoldocs.version>3.0</agid.peppoldocs.version>
+            <agid.peppoldocs.version>3.1</agid.peppoldocs.version>
     </properties>
     <modules>
 		<module>artifacts/validation/</module>

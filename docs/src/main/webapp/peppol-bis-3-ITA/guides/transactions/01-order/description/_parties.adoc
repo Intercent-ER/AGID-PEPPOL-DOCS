@@ -230,7 +230,7 @@ Il Richiedente è un’informazione opzionale nel messaggio dell’Ordine.
 </cac:OriginatorCustomerParty>
 ----
 
-[yellow-background]#Qualora il Documento sia emesso con l’uso di strumenti messi a disposizione da un Intermediario (ad esempio, un Ordine emesso utilizzando la piattaforma telematica di una centrale di acquisto), è possibile evidenziare il committente valorizzando l’elemento “OriginatorCustomerParty”, come mostrato nel seguente esempio.#
+[yellow-background]#Qualora il Documento sia emesso con l’uso di strumenti messi a disposizione da un Intermediario (ad esempio, un Ordine emesso utilizzando la piattaforma telematica di una centrale di acquisto), è possibile evidenziare il Richiedente valorizzando l’elemento “OriginatorCustomerParty”, come mostrato nel seguente esempio.#
 
 .Esempio di informazioni del Richiedente che utilizza una piattaforma telematica di un terzo intermediario per l’emissione dell’ordine
 [source, xml, indent=0]

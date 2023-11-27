@@ -1907,7 +1907,7 @@
         <Description/>
         <LocalId>°C</LocalId>
         <LocalName>grado Celsius</LocalName>
-        <LocalDescription>Refer ISO 80000-5 (Quantities and units — Part 5: Thermodynamics)</LocalDescription>
+        <LocalDescription>Unità di misura della temperatura</LocalDescription>
     </Code>
     <Code>
         <Id>CEN</Id>

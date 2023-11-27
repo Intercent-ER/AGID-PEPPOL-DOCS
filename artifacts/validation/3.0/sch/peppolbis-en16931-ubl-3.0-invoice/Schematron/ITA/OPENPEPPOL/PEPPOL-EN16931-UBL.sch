@@ -240,7 +240,7 @@ Last update: 2022 November release 3.0.14.
 	<include href="./6-PEPPOL-EN16931-UBL-italy.inc"/>
 	
 	<!-- SWEDEN -->
-	<!--<include href="./7-PEPPOL-EN16931-UBL-sweden.inc"/>-->
+	<include href="./7-PEPPOL-EN16931-UBL-sweden.inc"/>
 
 	<!-- Sender Rules -->
 	<include href="./8-PEPPOL-EN16931-UBL-greece-sender.inc"/>

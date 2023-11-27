@@ -5,6 +5,6 @@
 		<rule context="cac:AccountingSupplierParty/cac:Party[$supplierCountry = 'IT']">
 			<assert id="IT-R-002" test="cac:PostalAddress/cbc:StreetName" flag="fatal">[IT-R-002] BT-35 (Seller address line 1) - Italian suppliers MUST provide the postal address line 1 - I fornitori italiani devono indicare l'indirizzo postale.</assert>
 			<assert id="IT-R-003" test="cac:PostalAddress/cbc:CityName" flag="fatal">[IT-R-003] BT-37 (Seller city) - Italian suppliers MUST provide the postal address city - I fornitori italiani devono indicare la città di residenza.</assert>
-			<assert id="IT-R-004" test="cac:PostalAddress/cbc:PostalZone" flag="fatal">">[IT-R-004] BT-38 (Seller post code) - Italian suppliers MUST provide the postal address post code - I fornitori italiani devono indicare il CAP di residenza.</assert>
+			<assert id="IT-R-004" test="cac:PostalAddress/cbc:PostalZone" flag="fatal">"[IT-R-004] BT-38 (Seller post code) - Italian suppliers MUST provide the postal address post code - I fornitori italiani devono indicare il CAP di residenza.</assert>
 		</rule>
 	</pattern>

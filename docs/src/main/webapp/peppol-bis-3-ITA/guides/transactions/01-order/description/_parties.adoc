@@ -7,7 +7,7 @@ Le seguenti parti/I seguenti ruoli possono essere specificate/i nel messaggio:
 == Fornitore/Venditore (SellerSupplierParty)
 
 Il Venditore è la persona giuridica o l’organizzazione che vende beni e/o servizi. +
-Il Venditore è un’informazione obbligatoria in quanto destinatario dell’Ordine, pertanto è necessario includere l’EndpointID (ParticipantID) con il quale è registrato su Peppol.
+Il Venditore è un’informazione obbligatoria in quanto destinatario dell’Ordine, pertanto è necessario includere l’EndpointID (ParticipantID) con il quale è registrato su Peppol. 
 
 
 .Esempio di informazioni per un fornitore italiano con indicazione della Partita Iva nell'Endpoint

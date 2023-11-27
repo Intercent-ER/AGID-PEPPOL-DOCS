@@ -7,7 +7,7 @@ Le seguenti parti/I seguenti ruoli possono essere specificate/i nel messaggio:
 == Fornitore/Venditore (SellerSupplierParty)
 
 Il Venditore è la persona giuridica o l’organizzazione che vende beni e/o servizi. +
-Il Venditore è un’informazione obbligatoria in quanto destinatario dell’Ordine, pertanto è necessario includere l’EndpointID (ParticipantID) con il quale è registrato su Peppol.
+Il Venditore è un’informazione obbligatoria in quanto destinatario dell’Ordine, pertanto è necessario includere l’EndpointID (ParticipantID) con il quale è registrato su Peppol. 
 
 
 .Esempio di informazioni per un fornitore italiano con indicazione della Partita Iva nell'Endpoint
@@ -230,7 +230,7 @@ Il Richiedente è un’informazione opzionale nel messaggio dell’Ordine.
 </cac:OriginatorCustomerParty>
 ----
 
-[yellow-background]#Qualora il Documento sia emesso con l’uso di strumenti messi a disposizione da un Intermediario (ad esempio, un Ordine emesso utilizzando la piattaforma telematica di una centrale di acquisto), è possibile evidenziare il committente valorizzando l’elemento “OriginatorCustomerParty”, come mostrato nel seguente esempio.#
+[yellow-background]#Qualora il Documento sia emesso con l’uso di strumenti messi a disposizione da un Intermediario (ad esempio, un Ordine emesso utilizzando la piattaforma telematica di una centrale di acquisto), è possibile evidenziare il Richiedente valorizzando l’elemento “OriginatorCustomerParty”, come mostrato nel seguente esempio.#
 
 .Esempio di informazioni del Richiedente che utilizza una piattaforma telematica di un terzo intermediario per l’emissione dell’ordine
 [source, xml, indent=0]

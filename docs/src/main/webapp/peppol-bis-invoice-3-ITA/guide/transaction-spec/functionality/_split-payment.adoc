@@ -61,7 +61,7 @@ La riga di acconto ha la medesima natura della prestazione oggetto della fattura
                               <cac:TaxScheme> 
                                         <cbc:ID>VAT</cbc:ID> 
                               </cac:TaxScheme> 
-                    </cac: ClassifiedTaxCategory > 
+                    </cac:ClassifiedTaxCategory> 
           </cac:Item> 
           <cac:Price > 
                     <cbc:PriceAmount currencyID="EUR">100.00</cbc:PriceAmount> 

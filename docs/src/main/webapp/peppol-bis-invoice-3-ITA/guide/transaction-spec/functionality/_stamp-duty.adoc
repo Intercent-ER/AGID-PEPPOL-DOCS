@@ -247,7 +247,7 @@ La riga di rivalsa ha la medesima natura della prestazione sulla quale la rivals
 == Restituzione del bollo
 Qualora il fornitore, in sede di emissione di una nota di credito, voglia rimborsare il bollo su cui ha effettuato rivalsa in sede di emissione della precedente fattura deve inserire una riga recante: 
 
-* l’elemento cac:Item/cbc:Name (BT-153 Item name) valorizzato in modo da esprimere l’attuazione del rimborso (ad esempio tramite la stringa “Rimborso del bollo applicato su fattura precedente”); 
+* l’elemento cac:Item/cbc:Name (BT-153 Item name) valorizzato in modo da esprimere l’attuazione del rimborso (ad esempio tramite la stringa “Restituzione del bollo applicato si fattura precedente”); 
 * gli elementi cac:Price/cbc:PriceAmount (BT-146 Item net price) e cac:AllowanceCharge/cbc:BaseAmount (BT-148 Item gross price) valorizzati a 2.00. 
 
 La riga di rimborso ha la medesima natura della prestazione sulla quale la rivalsa era stata applicata. 

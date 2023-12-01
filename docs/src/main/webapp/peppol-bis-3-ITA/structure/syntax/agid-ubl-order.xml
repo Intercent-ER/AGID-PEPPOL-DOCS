@@ -73,7 +73,7 @@
 		</Element>
 		<Element cardinality="0..1">
 			<Term>cbc:OrderTypeCode</Term>
-			<Name>Consignment order indication - Tipo di Ordinazione</Name>
+			<Name>Order Type Code - Tipo di Ordinazione</Name>
 			<Description>Indica la causa dell’Ordinazione, ossia il fatto che la fornitura sia a titolo oneroso (codice “220”) o gratuito (codice “227“).</Description>
 			<Reference type="BUSINESS_TERM">tir01-153</Reference>
 			<Reference type="CODE_LIST">UNCL1001_T01</Reference>

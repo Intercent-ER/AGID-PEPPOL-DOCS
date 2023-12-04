@@ -14,6 +14,7 @@
 	<ns prefix="cn" uri="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2"/>
 	<ns prefix="ubl" uri="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"/>
 	<ns prefix="xs" uri="http://www.w3.org/2001/XMLSchema"/>
+	<title>Regole di business EN16931 modellate su UBL</title>
 	<phase id="EN16931model_phase">
 		<active pattern="UBL-model"/>
 	</phase>

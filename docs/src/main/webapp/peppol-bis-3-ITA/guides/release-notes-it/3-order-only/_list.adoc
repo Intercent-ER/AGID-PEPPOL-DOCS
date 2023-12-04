@@ -6,6 +6,30 @@
 ^.^| Data
 ^.^| Cosa è cambiato
 
+| 3.3.0.3(IT)
+a| DATA DA DEFINIRE
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2023-Q4/release-notes/[Peppol BIS 3.0.12 - November release 2023]_. +
+
+In vigore a partire dal *26 febbraio 2024*
+
+[red]#Cambiamenti alla specifica (Documentazione)#
+
+* Correzione di un errore nella sezione _4. Tipi di dato semantici_, in cui l’indicatore booleano era caratterizzato dal tipo primitivo “String” invece che “Boolean”. Modifica puramente editoriale; 
+* Piccole modifiche editoriali. 
+ 
+
+[red]#Cambiamenti alla sintassi#
+
+* Aggiornata la denominazione inglese del campo cbc:OrderTypeCode, da "Consignment Order" a "Order Type" per evitare confusione. Nessuna modifica alla specifica italiana;
+* Piccole modifiche editoriali. 
+
+[red]#Cambiamenti alle code lists e artefatti di validazione#
+
+* Aggiunti i codici 105 "Purchase order" e 402 "Intermediate handling cross docking order alla codifica Order Type Code;
+* Aggiunto il codice 0218 (Lettonia) alla codifica EAS;
+* Aggiunta correlazione tra codice CEL e l’unità di misura °C [grado Celsius] nella codifica Recommendation 20, including Recommendation 21 codes - prefixed with X (UN/ECE).
+
+
 | 3.3.0.2(IT)
 a| 21/06/2023
 a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2023-Q2/release-notes/[Peppol BIS 3.0.11 - May release 2023]_. +

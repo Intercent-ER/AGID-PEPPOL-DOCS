@@ -26,7 +26,7 @@ In vigore a partire dal *26 febbraio 2024*
 
 [red]#Cambiamenti alle code lists e artefatti di validazione#
 
-* Aggiunti i codici 105 "Purchase order" e 402 "Intermediate handling cross docking order alla codifica Order Type Code;
+* Aggiunti i codici 105 "Purchase order" e 402 "Intermediate handling cross docking order" alla codifica Order Type Code;
 * Aggiunto il codice 0218 (Lettonia) alla codifica EAS; 
 * Aggiunta correlazione tra codice CEL e l’unità di misura °C [grado Celsius] nella codifica Recommendation 20, including Recommendation 21 codes - prefixed with X (UN/ECE).
 

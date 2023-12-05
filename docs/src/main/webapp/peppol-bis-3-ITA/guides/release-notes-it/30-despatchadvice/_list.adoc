@@ -13,6 +13,7 @@ a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2023-Q4
 In vigore a partire dal *26 febbraio 2024*
 
 [red]#Cambiamenti alla specifica (Documentazione)#
+
 * Correzione di un errore nella sezione _4. Tipi di dato semantici_, in cui l’indicatore booleano era caratterizzato dal tipo primitivo “String” invece che “Boolean”. Modifica puramente editoriale; 
 * Integrazione della sezione 6.3.2. Indirizzo di consegna con la modalità di indicazione della consegna di tipo domiciliare in analogia con la specifica dell’ordine;
 * Piccole modifiche editoriali.

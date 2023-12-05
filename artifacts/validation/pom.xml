@@ -17,6 +17,31 @@
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>com.helger.maven</groupId>
+				<artifactId>ph-schematron-maven-plugin</artifactId>
+				<version>7.1.2</version>
+				<executions>
+					<!-- Rule CAP -->
+					<execution>
+					<id>rule-cap</id>
+						<goals>
+							<goal>validate</goal>
+						</goals>
+						<configuration>
+							<schematronFile>3.0/sch/peppolbis-en16931-ubl-3.0-invoice/Schematron/ITA/AGID-EN16931-UBL - PEPPOL ITA.sch</schematronFile>
+							<xmlDirectory>examples/</xmlDirectory>
+							<svrlDirectory>target/svrl/</svrlDirectory>
+							<!--<xmlErrorDirectory>src/test/resources/</xmlErrorDirectory>-->
+							<svrlErrorDirectory>target/svrl-error/</svrlErrorDirectory>
+							<schematronProcessingEngine>schematron</schematronProcessingEngine>
+							<failFast>false</failFast>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		
+		
+			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>xml-maven-plugin</artifactId>
 				<version>1.0.2</version>

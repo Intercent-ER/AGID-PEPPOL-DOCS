@@ -156,8 +156,8 @@ BT-38 Seller post code
 |BR-IT-DC-340
 |Cardinality - Make a conditional element mandatory (0..x --> 1..x)
 |BT-13 Purchase order reference
-|FPA 2.1.2.2 IdDocumento
-Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT" e in una riga di fattura è presente il riferimento ad una riga d'ordine (BT-132 Referenced purchase order line reference), DEVE essere indicato il riferimento all'ordine in testata (BT-13 Purchase order reference) o in riga.
+|2.1.2.2 IdDocumento
+|Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT" e in una riga di fattura è presente il riferimento ad una riga d'ordine (BT-132 Referenced purchase order line reference), DEVE essere indicato il riferimento all'ordine in testata (BT-13 Purchase order reference) o in riga.
 
 |BR-IT-DC-480
 |Value domain for an element - Require defined structured values

@@ -78,6 +78,12 @@ valorizzato come segue: +
 |1.2.6 RiferimentoAmministrazione
 |La lunghezza dell'elemento non può superare i 20 caratteri.
 
+|BR-IT-081
+|Value domain for an element - Restrict text or byte array length
+|BT-22 Invoice note
+|2.1.1.11 Causale
+|La lunghezza dell'elemento non può superare i 200 caratteri. 
+
 |BR-IT-090
 |Value domain for an element - Restrict text or byte array length
 |BT-25 Preceding Invoice number

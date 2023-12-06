@@ -66,6 +66,12 @@ valorizzato come segue: +
 |2.1.3.7 CodiceCIG
 |La lunghezza dell'elemento non può superare i 15 caratteri.
 
+|BR-IT-071
+|Value domain for an element - Restrict text or byte array length
+|BT-18 Invoiced object identifier
+|2.1.4.2 IdDocumento (Convenzione)
+|La lunghezza dell'elemento non può superare i 20 caratteri.
+
 |BR-IT-080
 |Value domain for an element - Restrict text or byte array length
 |BT-19 Buyer accounting reference
@@ -84,12 +90,6 @@ valorizzato come segue: +
 |1.2.1.1.1 IdPaese +
 1.2.1.1.2 IdCodice
 |La lunghezza dell'elemento non può superare i 30 caratteri e deve iniziare con due caratteri alfabetici.
-
-|BR-IT-071
-|Value domain for an element - Restrict text or byte array length
-|BT-18 Invoiced object identifier
-|2.1.4.2 IdDocumento (Convenzione)
-|La lunghezza dell'elemento non può superare i 20 caratteri.
 
 |BR-IT-100
 |Value domain for an element - Restrict text or byte array length

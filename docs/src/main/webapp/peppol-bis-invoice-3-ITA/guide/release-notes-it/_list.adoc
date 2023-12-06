@@ -14,6 +14,7 @@ a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/2023-
 In vigore a partire dal *26 febbraio 2024*
 
 [red]#Cambiamenti alle code lists e artefatti di validazione# +
+
 * Aggiornamento della sezione _4.6 Fatture negative e note di credito_, e rimozione del riferimento al formato BIS2. Modifica puramente editoriale;  
 * Inserimento di esempi specifici nelle sezioni _4.9.1. Rivalsa del bollo_ e _4.9.2. Restituzione del bollo_; 
 * Aggiunta della nuova sezione _4.11 Indicazione acconto in fattura_ contenente le modalità operative previste per l’indicazione di un acconto nella fattura di saldo; 

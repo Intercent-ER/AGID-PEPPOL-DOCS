@@ -26,7 +26,7 @@
       <assert id="UBL-SR-31" flag="fatal" test="(count(cbc:AllowanceChargeReason) &lt;= 1)">[UBL-SR-31]-Document level charge reason shall occur maximum once</assert>
     </rule>
     <rule context="/ubl:Invoice | /cn:CreditNote">
-      <!--<assert id="UBL-CR-001" flag="warning" test="not(ext:UBLExtensions)">[UBL-CR-001]-A UBL invoice should not include extensions</assert>-->
+      <assert id="UBL-CR-001" flag="warning" test="not(ext:UBLExtensions)">[UBL-CR-001]-A UBL invoice should not include extensions</assert>
       <assert id="UBL-CR-002" flag="warning" test="not(cbc:UBLVersionID) or cbc:UBLVersionID = '2.1'">[UBL-CR-002]-A UBL invoice should not include the UBLVersionID or it should be 2.1</assert>
       <assert id="UBL-CR-003" flag="warning" test="not(cbc:ProfileExecutionID)">[UBL-CR-003]-A UBL invoice should not include the ProfileExecutionID </assert>
       <assert id="UBL-CR-004" flag="warning" test="not(cbc:CopyIndicator)">[UBL-CR-004]-A UBL invoice should not include the CopyIndicator </assert>

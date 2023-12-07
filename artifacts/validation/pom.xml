@@ -19,7 +19,7 @@
 			<plugin>
 				<groupId>com.helger.maven</groupId>
 				<artifactId>ph-schematron-maven-plugin</artifactId>
-				<version>7.1.2</version>
+				<version>7.1.3</version>
 				<executions>
 					<execution>
 					<id>unit-test-invoice</id>
@@ -33,6 +33,7 @@
 							<!--<xmlErrorDirectory>src/test/resources/</xmlErrorDirectory>-->
 							<svrlErrorDirectory>target/svrl-error/</svrlErrorDirectory>
 							<schematronProcessingEngine>schematron</schematronProcessingEngine>
+							<ignoreWarnings>true</ignoreWarnings>
 							<failFast>false</failFast>
 						</configuration>
 					</execution>

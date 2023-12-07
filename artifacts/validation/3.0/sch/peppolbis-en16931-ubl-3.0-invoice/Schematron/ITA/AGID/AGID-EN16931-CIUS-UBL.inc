@@ -43,7 +43,7 @@
 	</rule>
 
 	<rule context="//Invoice/cbc:Note" flag="fatal">
-    		<assert test="string-length(translate(.,$vBasicLatinWithSupplement,'')) = 0 and string-length() &gt;= 1 and string-length() &lt;= 200"
+    		<assert test="matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,200}$')"
     		        flag="fatal" id="BR-IT-081">
     		        [BR-IT-081][FPA 2.1.1.11 Causale] - BT-22 (Invoice note) maximum lenght shall be 200 chars - La lunghezza dell'elemento non può superare i 200 caratteri. </assert>
     </rule>
@@ -74,12 +74,10 @@
 
    <rule context="/*/cac:SellerSupplierParty/*/cbc:RegistrationName" flag="fatal">
 		<assert test="(matches(.,'NomeCognome#.*$' )
-		                and string-length(translate(.,$vBasicLatinWithSupplement,'')) = 0
-		                and string-length() &gt;= 1 and string-length() &lt;= 120)
+		                and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,120}$'))
                     	or
                       (not (matches(.,'NomeCognome#.*$' ))
-                        and string-length(translate(.,$vBasicLatinWithSupplement,'')) = 0
-                        and string-length() &gt;= 1 and string-length() &lt;= 80)"
+                        and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,80}$'))"
                 flag="fatal" id="BR-IT-100">[BR-IT-100][FPA 1.2.1.3.1 Denominazione] - In case of legal person, BT-27 (Seller name)maximum length shall be 80 chars - In caso di persona giuridica, la lunghezza dell'elemento non deve superare gli 80 caratteri.
                                                                                     [FPA 1.2.1.3.2 Nome, 1.2.1.3.3 Cognome] - In case of natural person, BT-27 (Seller name) must be preceded by 'Nome#Cognome:' and it length shall be 60 chars each for Name and Surname -  In caso di persona fisica, l'elemento deve essere preceduro dalla stringa "Nome#Cognome:" e non deve superare i 60 caratteri ciascuno per il Nome e il Cognome.</assert>
 	</rule>
@@ -90,9 +88,11 @@
 	</rule>
 
 	<rule context="/*/cac:BuyerCustomerParty/*/cbc:RegistrationName" flag="fatal">
-    		<assert test="(matches(.,'NomeCognome#.*$' ) and string-length(translate(.,$vBasicLatinWithSupplement,'')) = 0 and string-length() &gt;= 1 and string-length() &lt;= 120)
-    		                or
-    		              (not (matches(.,'NomeCognome#.*$' )) and string-length(translate(.,$vBasicLatinWithSupplement,'')) = 0 and string-length() &gt;= 1 and string-length() &lt;= 80)"
+    		<assert test="(matches(.,'NomeCognome#.*$' )
+		                and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,120}$'))
+                    	or
+                      (not (matches(.,'NomeCognome#.*$' ))
+                        and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,80}$'))"
     		        flag="fatal" id="BR-IT-130">[BR-IT-130][FPA 1.4.1.3.1 Denominazione] - In case of legal person, BT-44 (Buyer name)maximum length shall be 80 chars - In caso di persona giuridica, la lunghezza dell'elemento non deve superare gli 80 caratteri.
                                                                                         [FPA 1.4.1.3.2 Nome, 1.4.1.3.3 Cognome] - In case of natural person, BT-44 (Buyer name) must be preceded by 'Nome#Cognome:' and it length shall be 60 chars each for Name and Surname -  In caso di persona fisica, l'elemento deve essere preceduro dalla stringa "Nome#Cognome:" e non deve superare i 60 caratteri ciascuno per il Nome e il Cognome.</assert>
     </rule>
@@ -106,9 +106,12 @@
 		        flag="fatal" id="BR-IT-DC-002">[BR-IT-DC-002] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-24 deve essere valorizzato come segue: urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:www.agid.gov.it:trns:fattura:3</assert>
 	</rule>
 
-    <rule context="//cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:TaxLevelCode" flag="fatal">
-		<assert test="cbc:StreetName and cbc:CityName and cbc:PostalZone and ((((cbc:BuildingNumber) or string-length(cbc:StreetName) &gt; string-length(normalize-space(translate(cbc:StreetName, '0123456789', ' '))) or contains(cbc:StreetName, 's.n.c.')) and (//cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT')) or (not(//cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT')))"
-		flag="fatal" id="BR-IT-DC-120">[BR-IT-DC-210][FPA 1.2.1.8 RegimeFiscale] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il regime fiscale DEVE essere compreso tra i valori "RF01" e "RF19". </assert>
+    <rule context="//cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cbc:CompanyID/@schemeID='IT:VAT']/cac:TaxScheme/cbc:TaxTypeCode" flag="fatal">
+		<assert test="(string-length(translate(.,concat('RF',$vDigits),'')) = 0 
+					and string-length() = 4 
+					and (/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT'))
+		or (not(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT'))"
+		flag="fatal" id="BR-IT-DC-120">[BR-IT-DC-120][FPA 1.2.1.8 RegimeFiscale] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il regime fiscale DEVE essere compreso tra i valori "RF01" e "RF19". </assert>
 	</rule>
 
 	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress[cac:Country/cbc:IdentificationCode='IT']" flag="fatal">
@@ -123,31 +126,36 @@
     </rule>
 
    <rule context="//cbc:Telephone | //cbc:Telefax" flag="fatal">
-    	<assert test="string-length(translate(.,$vBasicLatin,'')) = 0 and string-length() &gt;= 5 and string-length() &lt;= 12"
+    	<assert test="matches(.,'^[\p{IsBasicLatin}]{5,12}$')"
                 flag="fatal" id="BR-IT-DC-160">
                    [BR-IT-DC-160][FPA 1.1.5.1 Telefono, 1.2.5.1 Telefono] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-42 (Seller contact telephone number) DEVE essere composto da 5 fino ad un massimo di  12 caratteri alfanumerici.</assert>
     </rule>
 
     <rule context="//cac:PayeeParty/cac:PartyName/cbc:Name">
-    	<assert test="string-length(translate(.,$vBasicLatinWithSupplement,'')) = 0 and string-length() &gt;= 1 and string-length() &lt;= 200"
+    	<assert test="matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,200}$')"
                 flag="fatal" id="BR-IT-DC-170">
                    [BR-IT-DC-170][FPA 2.4.2.1 - Beneficiario] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-59 (Payee name) DEVE essere composto da un massimo di 200 caratteri. </assert>
     </rule>
 
     <rule context="//cac:PaymentMeans/cbc:PaymentID">
-    	<assert test="string-length(translate(.,$vBasicLatin,'')) = 0 and string-length() &gt;= 1 and string-length() &lt;= 60"
+    	<assert test="matches(.,'^[\p{IsBasicLatin}]{1,60}$')"
                 flag="fatal" id="BR-IT-DC-180">
                    [BR-IT-DC-180][FPA 2.4.2.21 CodicePagamento] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-83 (Remittance information) DEVE essere composto da un massimo di 60 caratteri alfanumerici.</assert>
     </rule>
 
-    <rule context="//cac:AllowanceCharge/cbc:AllowanceChargeReason">
-    	<assert test="string-length(translate(.,concat('TC',$vDigits),'')) = 0 and string-length() = 4"
+    <rule context="cac:AllowanceCharge[cbc:AllowanceChargeReasonCode='ZZZ']">
+    	<assert test="(
+						(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT') 
+						and 
+						(string-length(translate(./cbc:AllowanceChargeReason,concat('TC',$vDigits),'')) = 0 and string-length() = 4) 
+						) 
+						or (/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode != 'IT')" 
                 flag="fatal" id="BR-IT-DC-190">
                    [BR-IT-DC-190][FPA 2.1.1.7.1 TipoCassa] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT" e viene applicata la Rivalsa Cassa Previdenziale, il BT-104 (Document level charge reason) DEVE contenere il tipo di cassa professionale compreso tra i valori "TC01" e "TC22". </assert>
     </rule>
 
     <rule context="//cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cac:TaxScheme/cbc:ID='VAT']/cbc:TaxExemptionReason" flag="fatal">
-        	<assert test="string-length(translate(.,$vBasicLatinWithSupplement,'')) = 0 and string-length() &gt;= 1 and string-length() &lt;= 105"
+        	<assert test="matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,105}$')"			
                     flag="fatal" id="BR-IT-DC-300">
                        [BR-IT-DC-300][FPA 2.2.2.8 RiferimentoNormativo] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-120 (VAT exemption reason text) DEVE essere composto da un massimo di 105 caratteri latini.</assert>
     </rule>
@@ -207,12 +215,10 @@
 
     <rule context="/*/cac:TaxRepresentativeParty/cac:PartyName/cbc:Name" flag="fatal">
 		<assert test="(matches(.,'NomeCognome#.*$' )
-		                and string-length(translate(.,$vBasicLatinWithSupplement,'')) = 0
-		                and string-length() &gt;= 1 and string-length() &lt;= 120)
-                       or
-                       ((not(matches(.,'NomeCognome#.*$')))
-                        and string-length(translate(.,$vBasicLatinWithSupplement,'')) = 0
-                        and string-length() &gt;= 1 and string-length() &lt;= 80)"
+		                and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,120}$'))
+                    	or
+                      (not (matches(.,'NomeCognome#.*$' ))
+                        and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,80}$'))"
                 flag="fatal" id="BR-IT-221">[BR-IT-221][FPA 1.3.1.3.1 Denominazione] - In case of legal person, BT-62 (Seller tax representative) maximum length shall be 80 chars - In caso di persona giuridica, la lunghezza dell'elemento non deve superare gli 80 caratteri.
                                                                                  [FPA 1.3.1.3.2 Nome, 1.3.1.3.3 Cognome] - In case of natural person, BT-62 (Seller tax representative) must be preceded by 'Nome#Cognome:' and it length shall be 60 chars each for Name and Surname -  In caso di persona fisica, l'elemento deve essere preceduro dalla stringa "Nome#Cognome:" e non deve superare i 60 caratteri ciascuno per il Nome e il Cognome.</assert>
 	</rule>

@@ -99,7 +99,7 @@
 				</dependencies>
 			</plugin>
 
-			<plugin>
+			<!--<plugin>
 				<groupId>com.google.code.maven-replacer-plugin</groupId>
 				<artifactId>replacer</artifactId>
 				<version>1.5.2</version>
@@ -127,7 +127,7 @@
 						</replacement>
 					</replacements>
 				</configuration>
-			</plugin>
+			</plugin>-->
 			
 			<plugin>
 				<groupId>com.helger.maven</groupId>
@@ -140,11 +140,12 @@
 							<goal>validate</goal>
 						</goals>
 						<configuration>
-							<schematronFile>${basedir}/target/${project.build.finalName}/xsl/peppolbis-en16931-ubl-3.0-invoice/Schematron/ITA/AGID-EN16931-UBL - PEPPOL ITA.xsl</schematronFile>
-							<xmlDirectory>examples/invoice/</xmlDirectory>
+							<schematronFile>3.0/sch/peppolbis-en16931-ubl-3.0-invoice/Schematron/ITA/AGID-EN16931-UBL - PEPPOL ITA.sch</schematronFile>
+							<xmlDirectory>examples/invoice/OK</xmlDirectory>
+							<xmlErrorDirectory>examples/invoice/KO</xmlErrorDirectory>
 							<svrlDirectory>target/svrl/</svrlDirectory>
 							<svrlErrorDirectory>target/svrl-error/</svrlErrorDirectory>
-							<schematronProcessingEngine>xslt</schematronProcessingEngine>
+							<schematronProcessingEngine>schematron</schematronProcessingEngine>
 							<ignoreWarnings>true</ignoreWarnings>
 							<failFast>false</failFast>
 						</configuration>

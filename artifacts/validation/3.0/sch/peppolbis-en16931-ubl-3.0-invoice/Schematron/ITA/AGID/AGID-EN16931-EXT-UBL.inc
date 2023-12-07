@@ -4,7 +4,7 @@
 	<rule context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:SoggettoEmittente']/ext:ExtensionContent" flag="fatal">
 		<assert test="( ( not(contains(normalize-space(cbc:TypeCode),' ')) and contains( ' CC TZ ',concat(' ',normalize-space(cbc:TypeCode),' ') ) ) )" flag="fatal" id="BR-IT-DE-001">[BR-IT-DE-001][FPA 1.6 - Soggetto Emittente] - L'estensione deve contenere un elemento cbc:TypeCode valorizzato esclusivamente con i valori 'CC' o 'TZ'.</assert>
 	</rule>
-
+	
 	<rule context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:TipoDocumento']/ext:ExtensionContent" flag="fatal">
 		<assert test="( ( not(contains(normalize-space(cbc:TypeCode),' ')) and contains( ' TD01 TD02 TD03 TD04 TD05 TD06 TD16 TD17 TD18 TD19 TD20 TD21 TD22 TD23 TD24 TD25 TD26 TD27 TD28 ',concat(' ',normalize-space(cbc:TypeCode),' ') ) ) )" flag="fatal" id="BR-IT-DE-002">[BR-IT-DE-002][FPA 2.1.1.1 - Tipo Documento] - L'estensione deve contenere un elemento cbc:TypeCode valorizzato esclusivamente con i valori del TipoDocumento, secondo la specifica FatturaPA 1.2.1.</assert>
 	</rule>
@@ -149,19 +149,13 @@
 		        flag="fatal" id="BR-IT-DE-048">[BR-IT-DE-048][FPA 1.4.4 - Rappresentante Fiscale del Cliente] - Il Rappresentante Fiscale del Cliente deve contenere la P.IVA, lo schema fiscale = 'VAT', la ragione sociale e se viene specificata una persona fisica, il nome e cognome.</assert>
 	</rule>
 
-    <rule context="/cac:AccountingCustomerParty/cac:Party/cac:PowerOfAttorney/cac:AgentParty/cac:PartyLegalEntity/cbc:RegistrationName" flag="fatal">
-    		<assert test="(matches(.,'^[A-Z0-9]{1,16}$') and matches('/*/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName','NomeCognome#.*$' ))
-                          or
-                          (matches(.,'^[A-Z0-9]{1,11}$') and !matches('/*/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName','NomeCognome#.*$'))
-                          or ../../cac:PostalAddress[cac:Country/cbc:IdentificationCode!='IT']"
+   <rule context="/*/cac:AccountingCustomerParty/cac:Party/cac:PowerOfAttorney/cac:AgentParty/cac:PartyLegalEntity/cbc:RegistrationName" flag="fatal">
+    		<assert test="matches(.,'^[a-zA-Z0-9]{1,80}$')"
     		        flag="fatal" id="BR-IT-DE-050">[BR-IT-DE-050][FPA 1.4.4.2 Denominazione] - La denominazione del Rappresentante Fiscale (cbc:RegistrationName) non può superare gli 80 caratteri. </assert>
     </rule>
 
-	<rule context="/*cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty/cac:Party/cac:PartyName/cbc:Name" flag="fatal">
-    		<assert test="matches(.,'(^[A-Z0-9]{1,16}$')) and !matches(.,'NomeCognome#.*$' )
-                          or
-                          (^[A-Z0-9]{1,11}$' and !matches(.,'NomeCognome#.*$'))
-                          or ../../cac:PostalAddress[cac:Country/cbc:IdentificationCode!='IT']"
+	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty/cac:Party/cac:PartyName/cbc:Name" flag="fatal">
+    		<assert test="matches(.,'^[a-zA-Z0-9]{1,80}$')"
     		        flag="fatal" id="BR-IT-DE-051">[BR-IT-DE-051][FPA 1.5.1.3.1 Denominazione] - La denominazione del Terzo Intermediario (cbc:Name) non può superare gli 80 caratteri. </assert>
     </rule>
 

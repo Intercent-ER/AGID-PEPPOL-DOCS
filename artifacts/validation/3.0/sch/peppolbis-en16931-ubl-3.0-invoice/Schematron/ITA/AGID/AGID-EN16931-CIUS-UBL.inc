@@ -203,6 +203,18 @@
                 flag="fatal" id="BR-IT-DC-210">
                    [BR-IT-DC-210][FPA 1.2.1.8 RegimeFiscale] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il regime fiscale DEVE essere compreso tra i valori "RF01" e "RF19".</assert>
     </rule>
+
+<rule context="/*/cac:AdditionalDocumentReference/cbc:ID[@schemeID='AVV']" flag="fatal">
+	<assert test="matches(.,'^[\p{IsBasicLatin}]{0,20}$')" flag="fatal" id="BR-IT-071">
+	[BR-IT-071][FPA 2.1.4.2 IdDocumento (Convenzione)] - BT-18 (Invoiced object identifier) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri."
+</assert>
+	</rule>
+	
+	<rule context="/*/cac:AdditionalDocumentReference/cbc:ID[@schemeID='AEP' or @schemeID='AGB']" flag="fatal">
+	<assert test="matches(.,'^[\p{IsBasicLatin}]{0,15}$')" flag="fatal" id="BR-IT-DC-330">
+	 [BR-IT-DC-330][FPA 2.1.3.6 CodiceCUP, 2.1.3.7 CodiceCIG] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-128 (Invoice line object identifier) DEVE essere composto da un massimo di 15 caratteri."
+</assert>
+	</rule>
 	
 	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0202']" flag="fatal">
 		<assert test="matches(.,'^\w+([-_+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$') and matches(.,'^.{7,256}$')" flag="fatal" id="BR-IT-DC-203">[BR-IT-DC-203][FPA 1.1.6 PECDestinatario] - Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0202", l'elemento BT-49 deve contenere un indirizzo PEC di lunghezza compresa fra 7 e 256.</assert>

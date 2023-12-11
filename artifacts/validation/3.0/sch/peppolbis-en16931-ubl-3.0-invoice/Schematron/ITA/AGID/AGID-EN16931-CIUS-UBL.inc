@@ -179,13 +179,6 @@
                        [BR-IT-DC-340][FPA 2.1.2.2 IdDocumento] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT" e in una riga di fattura è presente il riferimento ad una riga d'ordine (BT-132 Referenced purchase order line reference), DEVE essere indicato il riferimento all'ordine in testata (BT-13 Purchase order reference) o in riga.</assert>
     </rule>
 
-	<rule context="//cac:InvoiceLine/cac:OrderLineReference" flag="fatal">
-            	<assert test="((cac:OrderReference or /*/cac:OrderReference) and //cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT')
-            	              or not(//cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT')"
-                        flag="fatal" id="BR-IT-DC-340">
-                           [BR-IT-DC-340][FPA 2.1.2.2 IdDocumento] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT" e in una riga di fattura è presente il riferimento ad una riga d'ordine (BT-132 Referenced purchase order line reference), DEVE essere indicato il riferimento all'ordine in testata (BT-13 Purchase order reference) o in riga.</assert>
-    </rule>
-
 	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID" flag="fatal">
 		<assert test="matches(.,'^[A-Z0-9]{0,30}$')" flag="fatal" id="BR-IT-180">[BR-IT-180][FPA 1.4.1.1.1 IdPaese, 1.4.1.1.2 IdCodice] - BT-48 (Buyer VAT identifier) maximum lenght shall be 30 chars and must begin with two alphabetic chars - La lunghezza dell'elemento non può superare i 30 caratteri e deve iniziare con due caratteri alfabetici.</assert>
 	</rule>

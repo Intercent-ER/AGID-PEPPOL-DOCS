@@ -68,14 +68,14 @@
 				</cac:TaxScheme>
 			</cac:PartyTaxScheme>
 			<cac:PartyLegalEntity>
-				<cbc:RegistrationName>USL Cliente</cbc:RegistrationName>
+				<cbc:RegistrationName>In case of legal person, BT-44 (Buyer name)maximum length shall be 80 chars - In caso di persona giuridica, la lunghezza dell'elemento non deve superare gli 80 caratteri. </cbc:RegistrationName>
 				<cbc:CompanyID schemeID="0210">02483810392</cbc:CompanyID>
 			</cac:PartyLegalEntity>
 		</cac:Party>
 	</cac:AccountingCustomerParty>
 	<cac:PaymentMeans>
 		<cbc:PaymentMeansCode>58</cbc:PaymentMeansCode>
-		<cbc:PaymentID>Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-59 (Payee name) DEVE essere composto da un massimo di 200 caratteri. </cbc:PaymentID>
+		<cbc:PaymentID>123456789012345</cbc:PaymentID>
 		<cac:PayeeFinancialAccount>
 			<cbc:ID>IT64W0100003245243300306301</cbc:ID>
 			<cac:FinancialInstitutionBranch>

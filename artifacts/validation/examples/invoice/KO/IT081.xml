@@ -5,6 +5,7 @@
 	<cbc:ID>04_FT_BIS3_V31_B2B</cbc:ID>
 	<cbc:IssueDate>2020-12-31</cbc:IssueDate>
 	<cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
+	<cbc:Note>BT-22 (Invoice note) maximum lenght shall be 200 chars - La lunghezza dell'elemento non può superare i 200 caratteri. BT-22 (Invoice note) maximum lenght shall be 200 chars - La lunghezza dell'elemento non può superare i 200 caratteri. </cbc:Note>
 	<cbc:DocumentCurrencyCode>EUR</cbc:DocumentCurrencyCode>
 	<cac:OrderReference>
 		<cbc:ID>123</cbc:ID>
@@ -96,7 +97,7 @@
 				<cbc:ID>AE</cbc:ID>
 				<cbc:Percent>0</cbc:Percent>
 				<cbc:TaxExemptionReasonCode>vatex-eu-ae</cbc:TaxExemptionReasonCode>
-				<cbc:TaxExemptionReason>N6.3#Art.16,co.6,lett.a (prestazioni di servizi rese dai subappaltatori nel settore edilizio)aejotgnàqpfmokèpwdàlsrn</cbc:TaxExemptionReason>
+				<cbc:TaxExemptionReason>N6.3#Art.16,co.6,lett.a (prestazioni di servizi rese dai subappaltatori nel settore edilizio)</cbc:TaxExemptionReason>
 				<cac:TaxScheme>
 					<cbc:ID>VAT</cbc:ID>
 				</cac:TaxScheme>

@@ -15,7 +15,7 @@
 		<cbc:ID>1Z1A3EE456</cbc:ID>
 	</cac:OriginatorDocumentReference>
 	<cac:AdditionalDocumentReference>
-		<cbc:ID schemeID="AVV">RDA7DQ</cbc:ID>
+		<cbc:ID schemeID="AVV">RDA7DQMKOIJNHUYHGTFVCDDFGHJ</cbc:ID>
 		<cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
 	</cac:AdditionalDocumentReference>
 	<cac:ProjectReference>
@@ -75,7 +75,7 @@
 	</cac:AccountingCustomerParty>
 	<cac:PaymentMeans>
 		<cbc:PaymentMeansCode>58</cbc:PaymentMeansCode>
-		<cbc:PaymentID>Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-59 (Payee name) DEVE essere composto da un massimo di 200 caratteri. </cbc:PaymentID>
+		<cbc:PaymentID>123456789012345</cbc:PaymentID>
 		<cac:PayeeFinancialAccount>
 			<cbc:ID>IT64W0100003245243300306301</cbc:ID>
 			<cac:FinancialInstitutionBranch>

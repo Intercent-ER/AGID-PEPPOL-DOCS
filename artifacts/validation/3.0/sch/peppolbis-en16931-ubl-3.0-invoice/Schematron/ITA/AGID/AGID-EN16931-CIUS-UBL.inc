@@ -72,7 +72,7 @@
 		        flag="fatal" id="BR-IT-DC-110B">[BR-IT-DC-110B][FPA 1.2.1.2 CodiceFiscale] - Se il valore dell’elemento BT-40 (Seller country code) è "IT", se l'elemento BT-30-1 (Seller legal registration identifier scheme identifier) contiene il valore "0210", l'elemento BT-30 (Seller legal registration identifier) deve contenere un Codice Fiscale con lunghezza compresa fra 11 e 16 caratteri.</assert>
 	</rule>
 
-   <rule context="/*/cac:SellerSupplierParty/*/cbc:RegistrationName" flag="fatal">
+   <rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName" flag="fatal">
 		<assert test="(matches(.,'NomeCognome#.*$' )
 		                and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,120}$'))
                     	or
@@ -87,7 +87,7 @@
 		        flag="fatal" id="BR-IT-120">[BR-IT-120][FPA 1.2.1.1.1 IdPaese, 1.2.1.1.2 IdCodice] - BT-31 (Seller VAT identifier) maximum lenght shall be 30 chars and must begin with two alphabetic chars - La lunghezza dell'elemento non può superare i 30 caratteri e deve iniziare con due caratteri alfabetici.</assert>
 	</rule>
 
-	<rule context="/*/cac:BuyerCustomerParty/*/cbc:RegistrationName" flag="fatal">
+	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName" flag="fatal">
     		<assert test="(matches(.,'NomeCognome#.*$' )
 		                and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,120}$'))
                     	or

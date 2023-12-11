@@ -42,7 +42,7 @@
 		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-080">[BR-IT-080][FPA 1.2.6 RiferimentoAmministrazione] - BT-19 (Buyer accounting reference) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
 	</rule>
 
-	<rule context="//Invoice/cbc:Note" flag="fatal">
+	<rule context="cbc:Note" flag="fatal">  
     		<assert test="matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,200}$')"
     		        flag="fatal" id="BR-IT-081">
     		        [BR-IT-081][FPA 2.1.1.11 Causale] - BT-22 (Invoice note) maximum lenght shall be 200 chars - La lunghezza dell'elemento non può superare i 200 caratteri. </assert>
@@ -166,12 +166,6 @@
                        [BR-IT-DC-310][FPA 2.1.1.5.1 TipoRitenuta, 2.1.1.5.2 ImportoRitenuta, 2.1.1.5.3 AliquotaRitenuta, 2.1.1.5.4 CausalePagamento] -  Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT" ed è applicata una ritenuta di acconto, DEVONO essere indicati la tipologia, l'importo, l'aliquota e la causale del pagamento.</assert>
     </rule>
 
-    <rule context="//cac:WithholdingTaxTotal/cac:TaxSubtotal[1]" flag="fatal">
-        	<assert test="((cac:TaxCategory/cbc:Percent) and (cbc:TaxAmount) and (cac:TaxCategory/cac:TaxScheme/cbc:TaxTypeCode) and (//cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT')) or (not(//cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT'))"
-                    flag="fatal" id="BR-IT-DC-310">
-                       [BR-IT-DC-310][FPA 2.1.1.5.1 TipoRitenuta, 2.1.1.5.2 ImportoRitenuta, 2.1.1.5.3 AliquotaRitenuta, 2.1.1.5.4 CausalePagamento] -  Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT" ed è applicata una ritenuta di acconto, DEVONO essere indicati la tipologia, l'importo, l'aliquota e la causale del pagamento.</assert>
-    </rule>
-
     <rule context="//cac:InvoiceLine/cac:OrderLineReference" flag="fatal">
         	<assert test="((cac:OrderReference or /*/cac:OrderReference) and //cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT')
         	              or not(//cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT')"
@@ -270,8 +264,8 @@
 		flag="fatal" id="BR-IT-360">[BR-IT-360][FPA 2.5.5 Attachment] - If BT-122 (Supporting document reference) is not empty, then BT-124 (External document location) or BT-125 (Attached document) shall be mandatory - Se l'elemento BT-122 Supporting document reference è valorizzato, è obbligatorio valorizzare almeno uno degli elementi BT-124 External document location e BT-125 Attached document.</assert>
 	</rule>
 
-	<rule context="/ubl:Invoice" flag="fatal">
-    		<assert test="count(cac:InvoiceLine) &lt;= 9999 and count(cac:InvoiceLine/cbc:ID[string-length(translate(.,concat('',$vDigits),'')) &gt; 0]) = 0"
+	<rule context="cac:InvoiceLine" flag="fatal"> 
+    		<assert test="count(cac:InvoiceLine/cbc:ID[string-length(translate(.,concat('',$vDigits),'')) &gt; 0]) = 0"
     		flag="fatal" id="BR-IT-361">[BR-IT-361][FPA 2.2.1.1 NumeroLinea] - BT-126 (Invoice line identifier) shall be numeric and not higher than '9999'. L'elemento deve essere di tipo numerico e non superiore a "9999".</assert>
     </rule>
 	

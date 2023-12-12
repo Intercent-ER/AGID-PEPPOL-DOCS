@@ -64,17 +64,25 @@
 		<assert test="matches(.,'^REA:[a-zA-Z0-9]+#[A-Z0-9]+$') and string-length(.) &gt;= 8 and string-length(.) &lt;= 27" flag="fatal" id="BR-IT-DC-100C">[BR-IT-DC-100C][FPA 1.2.4.1 Ufficio, 1.2.4.2 NumeroREA] - Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT-29 (Seller identifier) comincia con "REA:", la sua lunghezza deve essere compresa fra 8 e 27 caratteri e deve essere indicato come "REA:Ufficio#NumeroREA".</assert>
 	</rule>
 
-	<rule context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyLegalEntity" flag="fatal">
+	<rule context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/PartyLegalEntity" flag="fatal">
 		<assert test="cbc:CompanyID[@schemeID='0210']" flag="fatal" id="BR-IT-DC-110A">[BR-IT-DC-110A][FPA 1.2.1.2 CodiceFiscale] - Se il valore dell’elemento BT-40 Seller country code è “IT”, gli elementi devono essere obbligatoriamente valorizzati.</assert>
-		<assert test="(matches(cbc:CompanyID,'^[A-Z0-9]{1,16}$') and cbc:CompanyID/@schemeID='0210')"
+	</rule>
+	
+	<rule context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyLegalEntity/cbc:CompanyID[@schemeID='0210']" flag="fatal">
+		<assert test="(matches(.,'^[A-Z0-9]{16}$') and matches(../cbc:RegistrationName, 'Nome#Cognome.*$')) or ((matches(.,'^[0-9]{11}$') and not (matches(../cbc:RegistrationName, 'Nome#Cognome.*$'))))"
 		        flag="fatal" id="BR-IT-DC-110B">[BR-IT-DC-110B][FPA 1.2.1.2 CodiceFiscale] - Se il valore dell’elemento BT-40 (Seller country code) è "IT", se l'elemento BT-30-1 (Seller legal registration identifier scheme identifier) contiene il valore "0210", l'elemento BT-30 (Seller legal registration identifier) deve contenere un Codice Fiscale con lunghezza compresa fra 11 e 16 caratteri.</assert>
+	</rule>
+	
+	<rule context="/*/cac:AccountingCustomerParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyLegalEntity/cbc:CompanyID" flag="fatal">
+		<assert test="(matches(.,'^[A-Z0-9]{16}$') and matches(../cbc:RegistrationName, 'Nome#Cognome.*$')) or ((matches(.,'^[0-9]{11}$') and not (matches(../cbc:RegistrationName, 'Nome#Cognome.*$'))))"
+		                           flag="fatal" id="BR-IT-520B">[BR-IT-520B][FPA 1.4.1.2 - Codice Fiscale] - If Buyer country code (BT-55)= IT, BT-47 (Buyer legal registration identifier) length shall be between 11 and 16 chars - Se Buyer country code (BT-55) = IT, la lunghezza dell'elemento BT-47 (Buyer legal registration identifier) deve essere compresa fra 11 e 16 caratteri.</assert>
 	</rule>
 
 	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName" flag="fatal">
-		<assert test="(matches(.,'NomeCognome#.*$' ) 
+		<assert test="(matches(.,'Nome#Cognome.*$' ) 
 		                and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,120}$'))
                     	or
-                      (not (matches(.,'NomeCognome#.*$' ))
+                      (not (matches(.,'Nome#Cognome.*$' ))
                         and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,80}$'))"
                 flag="fatal" id="BR-IT-100">[BR-IT-100][FPA 1.2.1.3.1 Denominazione] - In case of legal person, BT-27 (Seller name)maximum length shall be 80 chars - In caso di persona giuridica, la lunghezza dell'elemento non deve superare gli 80 caratteri. [BR-IT-100B][FPA 1.2.1.3.2 Nome, 1.2.1.3.3 Cognome] - In case of natural person, BT-27 (Seller name) must be preceded by 'Nome#Cognome:' and it length shall be 60 chars each for Name and Surname -  In caso di persona fisica, l'elemento deve essere preceduro dalla stringa "Nome#Cognome:" e non deve superare i 60 caratteri ciascuno per il Nome e il Cognome.
 		</assert>
@@ -86,10 +94,10 @@
 	</rule>
 
 	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName" flag="fatal">
-    		<assert test="(matches(.,'NomeCognome#.*$' )
+    		<assert test="(matches(.,'Nome#Cognome.*$' )
 		                and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,120}$'))
                     	or
-                      (not (matches(.,'NomeCognome#.*$' ))
+                      (not (matches(.,'Nome#Cognome.*$' ))
                         and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,80}$'))"
     		        flag="fatal" id="BR-IT-130">[BR-IT-130][FPA 1.4.1.3.1 Denominazione] - In case of legal person, BT-44 (Buyer name)maximum length shall be 80 chars - In caso di persona giuridica, la lunghezza dell'elemento non deve superare gli 80 caratteri.
                                                                                         [FPA 1.4.1.3.2 Nome, 1.4.1.3.3 Cognome] - In case of natural person, BT-44 (Buyer name) must be preceded by 'Nome#Cognome:' and it length shall be 60 chars each for Name and Surname -  In caso di persona fisica, l'elemento deve essere preceduro dalla stringa "Nome#Cognome:" e non deve superare i 60 caratteri ciascuno per il Nome e il Cognome.</assert>
@@ -233,10 +241,10 @@
 	</rule>
 
     <rule context="/*/cac:TaxRepresentativeParty/cac:PartyName/cbc:Name" flag="fatal">
-		<assert test="(matches(.,'NomeCognome#.*$' )
+		<assert test="(matches(.,'Nome#Cognome.*$' )
 		                and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,120}$'))
                     	or
-                      (not (matches(.,'NomeCognome#.*$' ))
+                      (not (matches(.,'Nome#Cognome.*$' ))
                         and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,80}$'))"
                 flag="fatal" id="BR-IT-221">[BR-IT-221][FPA 1.3.1.3.1 Denominazione] - In case of legal person, BT-62 (Seller tax representative) maximum length shall be 80 chars - In caso di persona giuridica, la lunghezza dell'elemento non deve superare gli 80 caratteri.
                                                                                  [FPA 1.3.1.3.2 Nome, 1.3.1.3.3 Cognome] - In case of natural person, BT-62 (Seller tax representative) must be preceded by 'Nome#Cognome:' and it length shall be 60 chars each for Name and Surname -  In caso di persona fisica, l'elemento deve essere preceduro dalla stringa "Nome#Cognome:" e non deve superare i 60 caratteri ciascuno per il Nome e il Cognome.</assert>
@@ -304,10 +312,7 @@
 		<assert test="cac:PartyTaxScheme/cbc:CompanyID or cac:PartyLegalEntity/cbc:CompanyID or cac:PostalAddress[cac:Country/cbc:IdentificationCode!='IT']" flag="fatal" id="BR-IT-520A">[BR-IT-520A][FPA 1.4.1.2 Codice Fiscale, 1.4.1.1 Id Paese] - If Buyer country code (BT-55) = IT, at least one of the elements BT-48 (Buyer VAT identifier) or BT-47 (Buyer legal registration identifier) must be valued - Se Buyer country code (BT-55) = IT, almeno uno degli elementi BT-48 (Buyer VAT identifier) o BT-47 (Buyer legal registration identifier) deve essere valorizzato.</assert>
 	</rule>
 	
-	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID" flag="fatal">
-		<assert test="matches(.,'^[A-Z0-9]{11,16}$') or (../../cac:PostalAddress[cac:Country/cbc:IdentificationCode!='IT'])"
-		                           flag="fatal" id="BR-IT-520B">[BR-IT-520B][FPA 1.4.1.2 - Codice Fiscale] - If Buyer country code (BT-55)= IT, BT-47 (Buyer legal registration identifier) length shall be between 11 and 16 chars - Se Buyer country code (BT-55) = IT, la lunghezza dell'elemento BT-47 (Buyer legal registration identifier) deve essere compresa fra 11 e 16 caratteri.</assert>
-	</rule>
+	
 
 	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity" flag="fatal">
 		<assert test="cbc:CompanyID[@schemeID='0210'] or not(cbc:CompanyID) or ../cac:PostalAddress[cac:Country/cbc:IdentificationCode!='IT']" flag="fatal" id="BR-IT-520C">[BR-IT-520C][FPA 1.4.1.2 - Codice Fiscale] - If Buyer country code (BT-55) = IT and Buyer legal registration identifier (BT-47) exists, the element Buyer legal registration identifier (BT-47-1) is mandatory and must be valued with "0210" - Se Buyer country code (BT-55) = IT, l'elemento BT-47-1 (Buyer legal registration identifier scheme identifier) è obbligatorio e contiene il valore "0210".</assert>

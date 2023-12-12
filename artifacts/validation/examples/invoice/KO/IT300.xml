@@ -96,7 +96,7 @@
 				<cbc:ID>AE</cbc:ID>
 				<cbc:Percent>0</cbc:Percent>
 				<cbc:TaxExemptionReasonCode>vatex-eu-ae</cbc:TaxExemptionReasonCode>
-				<cbc:TaxExemptionReason>N6.3#Art.16,co.6,lett.a (prestazioni di servizi rese dai subappaltatori nel settore edilizio)aejotgnàqpfmokèpwdàlsrn</cbc:TaxExemptionReason>
+				<cbc:TaxExemptionReason>N6.3#Art.16,co.6,lett.a (prestazioni di servizi rese dai subappaltatori nel settore edilizio)</cbc:TaxExemptionReason>
 				<cac:TaxScheme>
 					<cbc:ID>VAT</cbc:ID>
 				</cac:TaxScheme>
@@ -117,7 +117,7 @@
 	<cac:LegalMonetaryTotal>
 		<cbc:LineExtensionAmount currencyID="EUR">2502.00</cbc:LineExtensionAmount>
 		<cbc:TaxExclusiveAmount currencyID="EUR">2502.00</cbc:TaxExclusiveAmount>
-		<cbc:TaxInclusiveAmount currencyID="EUR">2502.00</cbc:TaxInclusiveAmount>
+		<cbc:TaxInclusiveAmount currencyID="EUR">25041341351351351234122.00</cbc:TaxInclusiveAmount>
 		<cbc:ChargeTotalAmount currencyID="EUR">0.00</cbc:ChargeTotalAmount>
 		<cbc:PayableAmount currencyID="EUR">2502.00</cbc:PayableAmount>
 	</cac:LegalMonetaryTotal>

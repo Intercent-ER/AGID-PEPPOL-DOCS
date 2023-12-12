@@ -131,7 +131,7 @@
 			<cbc:TaxAmount currencyID="EUR">85.00</cbc:TaxAmount>
 			<cac:TaxCategory>
 				<cbc:ID>S</cbc:ID>
-				<cbc:Percent>8.50</cbc:Percent>			<!-- 50% dell'aliquota 17% -->
+				<!--<cbc:Percent>8.50</cbc:Percent>-->			<!-- 50% dell'aliquota 17% -->
 				<cac:TaxScheme>
 					<cbc:ID>SWT</cbc:ID>
 					<cbc:TaxTypeCode>U</cbc:TaxTypeCode>					<!-- provvigioni corrisposte ad agente o rappresentante di commercio plurimandatario -->
@@ -144,7 +144,7 @@
 			<cbc:TaxAmount currencyID="EUR">115.00</cbc:TaxAmount>
 			<cac:TaxCategory>
 				<cbc:ID>S</cbc:ID>
-				<!-- <cbc:Percent>23.00</cbc:Percent>	-->			<!-- 23% su 50% dell'imponibile -->
+				<cbc:Percent>23.00</cbc:Percent>		<!-- 23% su 50% dell'imponibile -->
 				<cac:TaxScheme>
 					<cbc:ID>SWT</cbc:ID>
 					<cbc:TaxTypeCode>A</cbc:TaxTypeCode>					<!-- provvigioni corrisposte ad agente o rappresentante di commercio plurimandatario -->

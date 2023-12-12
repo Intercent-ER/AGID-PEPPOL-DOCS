@@ -66,22 +66,20 @@
 
 	<rule context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyLegalEntity" flag="fatal">
 		<assert test="cbc:CompanyID[@schemeID='0210']" flag="fatal" id="BR-IT-DC-110A">[BR-IT-DC-110A][FPA 1.2.1.2 CodiceFiscale] - Se il valore dell’elemento BT-40 Seller country code è “IT”, gli elementi devono essere obbligatoriamente valorizzati.</assert>
-		<assert test="(matches(cbc:CompanyID,'^[A-Z0-9]{1,16}$') and matches('cac:PartyLegalEntity/cbc:RegistrationName','NomeCognome#.*$' ))
-		              or (matches(cbc:CompanyID,'^[A-Z0-9]{1,11}$') and not (matches('cac:PartyLegalEntity/cbc:RegistrationName','NomeCognome#.*$' )))
-		              or ../../cac:PostalAddress[cac:Country/cbc:IdentificationCode!='IT']"
+		<assert test="(matches(cbc:CompanyID,'^[A-Z0-9]{1,16}$') and cbc:CompanyID/@schemeID='0210')"
 		        flag="fatal" id="BR-IT-DC-110B">[BR-IT-DC-110B][FPA 1.2.1.2 CodiceFiscale] - Se il valore dell’elemento BT-40 (Seller country code) è "IT", se l'elemento BT-30-1 (Seller legal registration identifier scheme identifier) contiene il valore "0210", l'elemento BT-30 (Seller legal registration identifier) deve contenere un Codice Fiscale con lunghezza compresa fra 11 e 16 caratteri.</assert>
 	</rule>
 
-   <rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName" flag="fatal">
-		<assert test="(matches(.,'NomeCognome#.*$' )
+	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName" flag="fatal">
+		<assert test="(matches(.,'NomeCognome#.*$' ) 
 		                and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,120}$'))
                     	or
                       (not (matches(.,'NomeCognome#.*$' ))
                         and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,80}$'))"
-                flag="fatal" id="BR-IT-100">[BR-IT-100][FPA 1.2.1.3.1 Denominazione] - In case of legal person, BT-27 (Seller name)maximum length shall be 80 chars - In caso di persona giuridica, la lunghezza dell'elemento non deve superare gli 80 caratteri.
-                                                                                    [FPA 1.2.1.3.2 Nome, 1.2.1.3.3 Cognome] - In case of natural person, BT-27 (Seller name) must be preceded by 'Nome#Cognome:' and it length shall be 60 chars each for Name and Surname -  In caso di persona fisica, l'elemento deve essere preceduro dalla stringa "Nome#Cognome:" e non deve superare i 60 caratteri ciascuno per il Nome e il Cognome.</assert>
+                flag="fatal" id="BR-IT-100">[BR-IT-100][FPA 1.2.1.3.1 Denominazione] - In case of legal person, BT-27 (Seller name)maximum length shall be 80 chars - In caso di persona giuridica, la lunghezza dell'elemento non deve superare gli 80 caratteri. [BR-IT-100B][FPA 1.2.1.3.2 Nome, 1.2.1.3.3 Cognome] - In case of natural person, BT-27 (Seller name) must be preceded by 'Nome#Cognome:' and it length shall be 60 chars each for Name and Surname -  In caso di persona fisica, l'elemento deve essere preceduro dalla stringa "Nome#Cognome:" e non deve superare i 60 caratteri ciascuno per il Nome e il Cognome.
+		</assert>
 	</rule>
-
+	
 	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID" flag="fatal">
 		<assert test="matches(.,'^[a-zA-Z0-9]{0,30}$')"
 		        flag="fatal" id="BR-IT-120">[BR-IT-120][FPA 1.2.1.1.1 IdPaese, 1.2.1.1.2 IdCodice] - BT-31 (Seller VAT identifier) maximum lenght shall be 30 chars and must begin with two alphabetic chars - La lunghezza dell'elemento non può superare i 30 caratteri e deve iniziare con due caratteri alfabetici.</assert>
@@ -118,12 +116,9 @@
 		<assert test="cbc:StreetName and cbc:CityName and cbc:PostalZone and ((((cbc:BuildingNumber) or string-length(cbc:StreetName) &gt; string-length(normalize-space(translate(cbc:StreetName, '0123456789', ' '))) or contains(cbc:StreetName, 's.n.c.')) and (//cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT')) or (not(//cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT')))"
 		flag="fatal" id="BR-IT-DC-140">[BR-IT-DC-140][FPA 1.2.2.1 Indirizzo, 1.2.2.4 Comune, 1.2.2.3 CAP] - Se il valore dell’elemento BT-40 Seller country code è “IT”, gli elementi devono essere obbligatoriamente valorizzati.</assert>
 		<assert test="((not(contains(normalize-space(cbc:CountrySubentity),' ')) and contains(' AG AL AN AO AP AQ AR AT AV BA BG BI BL BN BO BR BS BT BZ CA CB CE CH CI CL CN CO CR CS CT CZ EN FC FE FG FI FM FR FU GE GO GR IM IS KR LC LE LI LO LT LU MB MC ME MI MN MO MS MT NA NO NU OG OR OT PA PC PD PE PG PI PL PN PO PR PT PU PV PZ RA RC RE RG RI RM RN RO SA SI SO SP SR SS SU SV TA TE TN TO TP TR TS TV UD VA VB VC VE VI VR VS VT VV ZA ',concat(' ',normalize-space(cbc:CountrySubentity),' '))))" flag="fatal" id="BR-IT-DC-150">[BR-IT-DC-150][FPA 1.2.2.5 Provincia] - Se l'elemento BT-40 (Seller country code) ha valore "IT", per l'elemento BT-39 Seller country subdivision deve essere utilizzato uno dei valori della lista delle province italiane. Altrimenti l'informazione è riportata in allegato.</assert>
+		<assert test="matches(cbc:AdditionalStreetName, '^(.*)[0-9]{1}(.*)$') or cbc:AdditionalStreetName= 's.n.c' or not(cbc:AdditionalStreetName)"
+    		        flag="fatal" id="BR-IT-DC-141">[BR-IT-DC-141][FPA 1.2.2.2 NumeroCivico] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-36 (Seller address line 2) DEVE contenere il numero civico o l'acronimo "s.n.c." (senza numero civico).</assert>
 	</rule>
-
-	<rule context="//cac:AccountingSupplierParty/cac:Party/cac:PostalAddress[cac:Country/cbc:IdentificationCode = 'IT']" flag="fatal">
-    		<assert test="(cbc:BuildingNumber) or string-length(cbc:StreetName) &gt; string-length(normalize-space(translate(cbc:StreetName, '0123456789', ' '))) or contains(cbc:StreetName, 's.n.c.')"
-    		        flag="fatal" id="BR-IT-DC-141">[BR-IT-DC-141][BR-IT-DC-141][FPA 1.2.2.2 NumeroCivico] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-36 (Seller address line 2) DEVE contenere il numero civico o l'acronimo "s.n.c." (senza numero civico).</assert>
-    </rule>
 
    <rule context="//cbc:Telephone | //cbc:Telefax" flag="fatal">
     	<assert test="matches(.,'^[\p{IsBasicLatin}]{5,12}$')"
@@ -144,11 +139,8 @@
     </rule>
 
     <rule context="cac:AllowanceCharge[cbc:AllowanceChargeReasonCode='ZZZ']">
-    	<assert test="(
-						(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT') 
-						and 
-						(string-length(translate(./cbc:AllowanceChargeReason,concat('TC',$vDigits),'')) = 0 and string-length() = 4) 
-						) 
+    	<assert test="((/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT') 
+						and matches(./cbc:AllowanceChargeReason,'^(.*)TC[0-9]{2}(.*)$'))
 						or (/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode != 'IT')" 
                 flag="fatal" id="BR-IT-DC-190">
                    [BR-IT-DC-190][FPA 2.1.1.7.1 TipoCassa] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT" e viene applicata la Rivalsa Cassa Previdenziale, il BT-104 (Document level charge reason) DEVE contenere il tipo di cassa professionale compreso tra i valori "TC01" e "TC22". </assert>
@@ -160,15 +152,21 @@
                        [BR-IT-DC-300][FPA 2.2.2.8 RiferimentoNormativo] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-120 (VAT exemption reason text) DEVE essere composto da un massimo di 105 caratteri latini.</assert>
     </rule>
 
-    <rule context="//cac:WithholdingTaxTotal/cac:TaxSubtotal[1]" flag="fatal">
-        	<assert test="((cac:TaxCategory/cbc:Percent) and (cbc:TaxAmount) and (cac:TaxCategory/cac:TaxScheme/cbc:TaxTypeCode) and (//cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT')) or (not(//cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT'))"
+    <rule context="/*/cac:WithholdingTaxTotal/cac:TaxSubtotal[1]" flag="fatal">
+        	<assert test="(
+							(cac:TaxCategory/cbc:Percent) 
+							and 
+							(cbc:TaxAmount) 
+							and (cac:TaxCategory/cac:TaxScheme/cbc:TaxTypeCode) 
+							and (/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT')) 
+							or (not(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT'))"
                     flag="fatal" id="BR-IT-DC-310">
                        [BR-IT-DC-310][FPA 2.1.1.5.1 TipoRitenuta, 2.1.1.5.2 ImportoRitenuta, 2.1.1.5.3 AliquotaRitenuta, 2.1.1.5.4 CausalePagamento] -  Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT" ed è applicata una ritenuta di acconto, DEVONO essere indicati la tipologia, l'importo, l'aliquota e la causale del pagamento.</assert>
     </rule>
 
-    <rule context="//cac:InvoiceLine/cac:OrderLineReference" flag="fatal">
-        	<assert test="((cac:OrderReference or /*/cac:OrderReference) and //cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT')
-        	              or not(//cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT')"
+    <rule context="/*/cac:InvoiceLine/cac:OrderLineReference" flag="fatal">
+        	<assert test="((/*/cac:OrderReference) and /*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT')
+        	              or not(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT')"
                     flag="fatal" id="BR-IT-DC-340">
                        [BR-IT-DC-340][FPA 2.1.2.2 IdDocumento] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT" e in una riga di fattura è presente il riferimento ad una riga d'ordine (BT-132 Referenced purchase order line reference), DEVE essere indicato il riferimento all'ordine in testata (BT-13 Purchase order reference) o in riga.</assert>
     </rule>
@@ -196,25 +194,29 @@
     <rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:TaxLevelCode">
     	<assert test="(
 						(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT') 
-						and 
-						(string-length(translate(./cbc:TaxLevelCode,concat('RF',$vDigits),'')) = 0 and string-length() = 19) 
-						) 
+						and matches(.,'^RF[0-9]{2}$'))						
 						or (/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode != 'IT')" 
                 flag="fatal" id="BR-IT-DC-210">
                    [BR-IT-DC-210][FPA 1.2.1.8 RegimeFiscale] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il regime fiscale DEVE essere compreso tra i valori "RF01" e "RF19".</assert>
     </rule>
 
-<rule context="/*/cac:AdditionalDocumentReference/cbc:ID[@schemeID='AVV']" flag="fatal">
-	<assert test="matches(.,'^[\p{IsBasicLatin}]{0,20}$')" flag="fatal" id="BR-IT-071">
-	[BR-IT-071][FPA 2.1.4.2 IdDocumento (Convenzione)] - BT-18 (Invoiced object identifier) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri."
-</assert>
+	<rule context="/*/cac:AdditionalDocumentReference/cbc:ID[@schemeID='AVV']" flag="fatal">
+		<assert test="matches(.,'^[\p{IsBasicLatin}]{0,20}$')" flag="fatal" id="BR-IT-071">
+			[BR-IT-071][FPA 2.1.4.2 IdDocumento (Convenzione)] - BT-18 (Invoiced object identifier) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri."
+		</assert>
 	</rule>
 	
-	<rule context="/*/cac:AdditionalDocumentReference/cbc:ID[@schemeID='AEP' or @schemeID='AGB']" flag="fatal">
-	<assert test="matches(.,'^[\p{IsBasicLatin}]{0,15}$')" flag="fatal" id="BR-IT-DC-330">
-	 [BR-IT-DC-330][FPA 2.1.3.6 CodiceCUP, 2.1.3.7 CodiceCIG] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-128 (Invoice line object identifier) DEVE essere composto da un massimo di 15 caratteri."
-</assert>
+	<rule context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID[@schemeID='ON' or @schemeID='CT' or @schemeID='AVV']" flag="fatal">
+		<assert test="matches(.,'^[\p{IsBasicLatin}]{1,20}$')" flag="fatal" id="BR-IT-DC-320">
+			[BR-IT-DC-320][FPA 2.1.2.5 CodiceCommessaConvenzione, 2.1.3.2 IdDocumento (Contratto), 2.1.4.2 IdDocumento (Convenzione)] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-128 (Invoice line object identifier) DEVE essere composto da un massimo di 20 caratteri.	
+		</assert>
 	</rule>
+	
+	<rule context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID[@schemeID='AEP' or @schemeID='AGB']" flag="fatal">
+		<assert test="matches(.,'^[\p{IsBasicLatin}]{1,15}$')" flag="fatal" id="BR-IT-DC-330">
+			[BR-IT-DC-330][FPA 2.1.3.6 CodiceCUP, 2.1.3.7 CodiceCIG] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-128 (Invoice line object identifier) DEVE essere composto da un massimo di 15 caratteri.
+		</assert>
+	</rule>	
 	
 	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0202']" flag="fatal">
 		<assert test="matches(.,'^\w+([-_+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$') and matches(.,'^.{7,256}$')" flag="fatal" id="BR-IT-DC-203">[BR-IT-DC-203][FPA 1.1.6 PECDestinatario] - Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0202", l'elemento BT-49 deve contenere un indirizzo PEC di lunghezza compresa fra 7 e 256.</assert>
@@ -287,8 +289,8 @@
 		flag="fatal" id="BR-IT-360">[BR-IT-360][FPA 2.5.5 Attachment] - If BT-122 (Supporting document reference) is not empty, then BT-124 (External document location) or BT-125 (Attached document) shall be mandatory - Se l'elemento BT-122 Supporting document reference è valorizzato, è obbligatorio valorizzare almeno uno degli elementi BT-124 External document location e BT-125 Attached document.</assert>
 	</rule>
 
-	<rule context="cac:InvoiceLine" flag="fatal"> 
-    		<assert test="count(cac:InvoiceLine/cbc:ID[string-length(translate(.,concat('',$vDigits),'')) &gt; 0]) = 0"
+	<rule context="/*/cac:InvoiceLine/cbc:ID" flag="fatal"> 
+    		<assert test="matches(.,'^\d{1,4}$')"
     		flag="fatal" id="BR-IT-361">[BR-IT-361][FPA 2.2.1.1 NumeroLinea] - BT-126 (Invoice line identifier) shall be numeric and not higher than '9999'. L'elemento deve essere di tipo numerico e non superiore a "9999".</assert>
     </rule>
 	
@@ -302,11 +304,8 @@
 		<assert test="cac:PartyTaxScheme/cbc:CompanyID or cac:PartyLegalEntity/cbc:CompanyID or cac:PostalAddress[cac:Country/cbc:IdentificationCode!='IT']" flag="fatal" id="BR-IT-520A">[BR-IT-520A][FPA 1.4.1.2 Codice Fiscale, 1.4.1.1 Id Paese] - If Buyer country code (BT-55) = IT, at least one of the elements BT-48 (Buyer VAT identifier) or BT-47 (Buyer legal registration identifier) must be valued - Se Buyer country code (BT-55) = IT, almeno uno degli elementi BT-48 (Buyer VAT identifier) o BT-47 (Buyer legal registration identifier) deve essere valorizzato.</assert>
 	</rule>
 	
-	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID[@schemeID='0210']" flag="fatal">
-		<assert test="(matches(.,'^[A-Z0-9]{1,16}$') and matches('../cbc:RegistrationName','NomeCognome#.*$'))
-		              or
-		              (matches(.,'^[A-Z0-9]{1,11}$') and not (matches('../cbc:RegistrationName','NomeCognome#.*$')))
-		              or (../../cac:PostalAddress[cac:Country/cbc:IdentificationCode!='IT'])"
+	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID" flag="fatal">
+		<assert test="matches(.,'^[A-Z0-9]{11,16}$') or (../../cac:PostalAddress[cac:Country/cbc:IdentificationCode!='IT'])"
 		                           flag="fatal" id="BR-IT-520B">[BR-IT-520B][FPA 1.4.1.2 - Codice Fiscale] - If Buyer country code (BT-55)= IT, BT-47 (Buyer legal registration identifier) length shall be between 11 and 16 chars - Se Buyer country code (BT-55) = IT, la lunghezza dell'elemento BT-47 (Buyer legal registration identifier) deve essere compresa fra 11 e 16 caratteri.</assert>
 	</rule>
 
@@ -368,4 +367,7 @@
 	<rule context="/*/cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode | /*/cac:CreditNoteLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode" flag="fatal">
 		<assert test="matches(.,'^(\p{IsBasicLatin}){0,35}$')" flag="fatal" id="BR-IT-470">[BR-IT-470][FPA 2.2.1.3.1 Codice Tipo, 2.2.1.3.2 CodiceValore] - BT-158 (Item classification identifier) maximum lenght shall be 35 chars - La lunghezza dell'elemento non può superare i 35 caratteri.</assert>
 	</rule>
+	
+		
+	
 </pattern>

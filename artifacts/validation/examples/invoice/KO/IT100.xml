@@ -114,18 +114,6 @@
 				<cbc:IssueDate>2020-01-30</cbc:IssueDate>
 			</cac:OrderReference>
 		</cac:OrderLineReference>
-		<cac:DocumentReference>
-			<cbc:ID schemeID="ON">110#2020-01-30#V13SCO</cbc:ID>
-			<cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
-		</cac:DocumentReference>
-		<cac:DocumentReference>
-			<cbc:ID schemeID="AGB">9030580E5A</cbc:ID>
-			<cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
-		</cac:DocumentReference>
-		<cac:DocumentReference>
-			<cbc:ID schemeID="AVV">54323</cbc:ID>
-			<cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
-		</cac:DocumentReference>
 		<cac:Item>
 			<cbc:Name>PRODOTTO 1</cbc:Name>
 			<cac:SellersItemIdentification>
@@ -159,18 +147,6 @@
 				<cbc:IssueDate>2020-01-30</cbc:IssueDate>
 			</cac:OrderReference>
 		</cac:OrderLineReference>
-		<cac:DocumentReference>
-			<cbc:ID schemeID="ON">111#2020-01-30#V13SCO</cbc:ID>
-			<cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
-		</cac:DocumentReference>
-		<cac:DocumentReference>
-			<cbc:ID schemeID="AGB">90305884F7</cbc:ID>
-			<cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
-		</cac:DocumentReference>
-		<cac:DocumentReference>
-			<cbc:ID schemeID="AVV">12345</cbc:ID>
-			<cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
-		</cac:DocumentReference>
 		<cac:Item>
 			<cbc:Name>PRODOTTO 2</cbc:Name>
 			<cac:SellersItemIdentification>

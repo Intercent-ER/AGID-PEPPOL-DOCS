@@ -100,7 +100,7 @@
 		<cbc:TaxExclusiveAmount currencyID="EUR">950.00</cbc:TaxExclusiveAmount>
 		<cbc:TaxInclusiveAmount currencyID="EUR">1159.00</cbc:TaxInclusiveAmount>
 		<cbc:PrepaidAmount currencyID="EUR">209.00</cbc:PrepaidAmount>
-		<cbc:PayableAmount currencyID="EUR">950.00</cbc:PayableAmount>
+		<cbc:PayableAmount currencyID="EUR">950532523452626262.00</cbc:PayableAmount>
 	</cac:LegalMonetaryTotal>
 	<cac:InvoiceLine>
 		<cbc:ID>1</cbc:ID>
@@ -123,7 +123,7 @@
 			<cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
 		</cac:DocumentReference>
 		<cac:DocumentReference>
-			<cbc:ID schemeID="AVV">54323</cbc:ID>
+			<cbc:ID schemeID="AVV">54323qwertyuiopasdfghjkl</cbc:ID>
 			<cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
 		</cac:DocumentReference>
 		<cac:Item>

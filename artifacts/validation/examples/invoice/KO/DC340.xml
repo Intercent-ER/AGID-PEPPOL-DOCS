@@ -98,9 +98,6 @@
 		<cbc:InvoicedQuantity unitCode="C62">5.00000000</cbc:InvoicedQuantity>
 		<cbc:LineExtensionAmount currencyID="EUR">50.00</cbc:LineExtensionAmount>
 		<cbc:AccountingCost>B.09.01.068</cbc:AccountingCost>
-		<cac:OrderLineReference>
-			<cbc:LineID>1</cbc:LineID>
-		</cac:OrderLineReference>
 		<cac:Item>
 			<cbc:Name>PRODOTTO 1</cbc:Name>
 			<cac:SellersItemIdentification>
@@ -126,11 +123,9 @@
 	</cac:InvoiceLine>
 	<cac:InvoiceLine>
 		<cbc:ID>2</cbc:ID>
+		<cbc:LineID>3</cbc:LineID>
 		<cbc:InvoicedQuantity unitCode="C62">3.00000000</cbc:InvoicedQuantity>
 		<cbc:LineExtensionAmount currencyID="EUR">900.00</cbc:LineExtensionAmount>
-		<cac:OrderLineReference>
-			<cbc:LineID>2</cbc:LineID>
-		</cac:OrderLineReference>
 		<cac:Item>
 			<cbc:Name>PRODOTTO 2</cbc:Name>
 			<cac:SellersItemIdentification>

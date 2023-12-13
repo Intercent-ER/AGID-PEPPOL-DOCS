@@ -6,6 +6,12 @@
 		<assert test="cac:PaymentTerms/cbc:Note" flag="fatal" id="BR-IT-261">[BR-IT-261][FPA 2.4.1 CondizioniPagamento, 2.4.2.4 GiorniTerminiPagamento] - BT-20 (Payment Terms) is mandatory - L'elemento BT-20 Payment Terms deve essere obbligatoriamente valorizzato.</assert>
 	</rule>
 	
+	<rule context="/*/cac:InvoiceLine" flag="fatal">
+		<assert test="((./cac:OrderLineReference/cac:OrderReference) or (/*/cac:OrderReference) or (/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode != 'IT') or not(./cbc:LineID))"
+                    flag="fatal" id="BR-IT-DC-340">
+                       [BR-IT-DC-340][FPA 2.1.2.2 IdDocumento] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT" e in una riga di fattura è presente il riferimento ad una riga d'ordine (BT-132 Referenced purchase order line reference), DEVE essere indicato il riferimento all'ordine in testata (BT-13 Purchase order reference) o in riga.</assert>
+	</rule>
+	
 	<rule context="/*[cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode!='IT']" flag="fatal">
 		<assert test="cbc:ProfileID = 'urn:fdc:peppol.eu:2017:poacc:billing:01:1.0' and cbc:CustomizationID = 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#compliant#urn:www.agid.gov.it:trns:fattura:3'" flag="fatal" id="BR-IT-001">[BR-IT-001] - If BT-40 (Seller country code) is valued differently from "IT", BT-24 must be valued as follows: urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#compliant#urn:www.agid.gov.it:trns:fattura:3 - Se il valore dell’elemento BT-40 (Seller country code) è diverso da "IT", il BT-24 deve essere valorizzato come segue: urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#compliant#urn:www.agid.gov.it:trns:fattura:3</assert>
 	</rule>
@@ -172,6 +178,7 @@
                        [BR-IT-DC-310][FPA 2.1.1.5.1 TipoRitenuta, 2.1.1.5.2 ImportoRitenuta, 2.1.1.5.3 AliquotaRitenuta, 2.1.1.5.4 CausalePagamento] -  Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT" ed è applicata una ritenuta di acconto, DEVONO essere indicati la tipologia, l'importo, l'aliquota e la causale del pagamento.</assert>
     </rule>
 
+
     <rule context="/*/cac:InvoiceLine/cac:OrderLineReference" flag="fatal">
         	<assert test="((/*/cac:OrderReference) and /*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT')
         	              or not(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT')"
@@ -214,9 +221,9 @@
 		</assert>
 	</rule>
 	
-	<rule context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID[@schemeID='ON' or @schemeID='CT' or @schemeID='AVV']" flag="fatal">
+	<rule context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID[@schemeID='CT' or @schemeID='AVV']" flag="fatal">
 		<assert test="matches(.,'^[\p{IsBasicLatin}]{1,20}$')" flag="fatal" id="BR-IT-DC-320">
-			[BR-IT-DC-320][FPA 2.1.2.5 CodiceCommessaConvenzione, 2.1.3.2 IdDocumento (Contratto), 2.1.4.2 IdDocumento (Convenzione)] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-128 (Invoice line object identifier) DEVE essere composto da un massimo di 20 caratteri.	
+			[BR-IT-DC-320][FPA 2.1.3.2 IdDocumento (Contratto), 2.1.4.2 IdDocumento (Convenzione)] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-128 (Invoice line object identifier) DEVE essere composto da un massimo di 20 caratteri.	
 		</assert>
 	</rule>
 	

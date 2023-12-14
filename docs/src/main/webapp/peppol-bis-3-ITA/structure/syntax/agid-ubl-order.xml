@@ -179,7 +179,7 @@
 		<Element cardinality="0..1">
 			<Term>cac:CatalogueReference</Term>
 			<Name>Catalogue reference – Riferimento al catalogo</Name>
-			<Element cardinality="0..1">
+			<Element cardinality="1..1">
 				<Term>cbc:ID</Term>
 				<Name>Catalogue reference – Identificativo del catalogo</Name>
 				<Description>Indica l'identificativo del catalogo al quale l'Ordine fa riferimento</Description>

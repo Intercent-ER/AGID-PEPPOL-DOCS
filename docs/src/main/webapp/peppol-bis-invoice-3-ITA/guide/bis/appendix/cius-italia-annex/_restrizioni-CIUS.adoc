@@ -266,6 +266,12 @@ BT-125 Attached document
 |2.5.5 Attachment
 |Se l'elemento l’elemento BT-122 Supporting document reference è valorizzato, è obbligatorio valorizzare almeno uno degli elementi BT-124 External document location e BT- 125 Attached document.
 
+|BR-IT-361
+|Value domain for an element - Restrict text or byte array length
+|BT-128 Invoice line object identifier
+|2.2.1.3.2 CodiceValore
+|L'elemento deve essere di tipo numerico e non superiore a "9999".
+
 |BR-IT-370
 |Value domain for an element - Restrict text or byte array length
 |BT-128 Invoice line object identifier

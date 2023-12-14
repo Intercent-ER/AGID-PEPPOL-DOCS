@@ -22,7 +22,7 @@ In vigore a partire dal *26 febbraio 2024*
 
 * Aggiunto il codice 0218 (Lettonia) alla codifica EAS;
 * Aggiunta correlazione tra codice CEL e l’unità di misura °C [grado Celsius] nella codifica Recommendation 20, including Recommendation 21 codes - prefixed with X (UN/ECE).
-* Modifica del livello di severità delle Regole di business per il Documento di Trasporto Peppol da WARNING a FATAL, come anticipato in fase di rilascio dell’_Aggiornamento della specifica italiana sul Documento di Trasporto in relazione alle disposizioni contenute nel DPR n. 472/1996_ in data 21/06/2023.
+* Modifica del livello di severità delle Regole di business per il Documento di Trasporto Peppol da WARNING a FATAL,  come anticipato con la pubblicazione in data 21/06/2023 dell’_Aggiornamento della specifica italiana sul Documento di Trasporto in relazione alle disposizioni contenute nel DPR n. 472/1996_.
 
 | 3.1.0.2(IT)
 a| 21/06/2023

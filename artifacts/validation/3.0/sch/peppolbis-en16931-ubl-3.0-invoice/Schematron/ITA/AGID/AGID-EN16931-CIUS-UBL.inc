@@ -51,7 +51,7 @@
 	<rule context="cbc:Note" flag="fatal">  
     		<assert test="matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,200}$')"
     		        flag="fatal" id="BR-IT-081">
-    		        [BR-IT-081][FPA 2.1.1.11 Causale] - BT-22 (Invoice note) maximum lenght shall be 200200 chars - La lunghezza dell'elemento non può superare i 200 caratteri. </assert>
+    		        [BR-IT-081][FPA 2.1.1.11 Causale] - BT-22 (Invoice note) maximum lenght shall be 200 chars - La lunghezza dell'elemento non può superare i 200 caratteri. </assert>
     </rule>
 
 	<rule context="/*/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID" flag="fatal">
@@ -90,7 +90,7 @@
                     	or
                       (not (matches(.,'Nome#Cognome.*$' ))
                         and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,80}$'))"
-                flag="fatal" id="BR-IT-100">[BR-IT-100][FPA 1.2.1.3.1 Denominazione] - In case of legal person, BT-27 (Seller name)maximum length shall be 80 chars - In caso di persona giuridica, la lunghezza dell'elemento non deve superare gli 80 caratteri. [BR-IT-100B][FPA 1.2.1.3.2 Nome, 1.2.1.3.3 Cognome] - In case of natural person, BT-27 (Seller name) must be preceded by 'Nome#Cognome:' and it length shall be 60 chars each for Name and Surname -  In caso di persona fisica, l'elemento deve essere preceduro dalla stringa "Nome#Cognome:" e non deve superare i 60 caratteri ciascuno per il Nome e il Cognome.
+                flag="fatal" id="BR-IT-100">[BR-IT-100][FPA 1.2.1.3.1 Denominazione] - In case of legal person, BT-27 (Seller name) maximum length shall be 80 chars - In caso di persona giuridica, la lunghezza dell'elemento non deve superare gli 80 caratteri. [BR-IT-100B][FPA 1.2.1.3.2 Nome, 1.2.1.3.3 Cognome] - In case of natural person, BT-27 (Seller name) must be preceded by 'Nome#Cognome:' and it length shall be 60 chars each for Name and Surname -  In caso di persona fisica, l'elemento deve essere preceduro dalla stringa "Nome#Cognome:" e non deve superare i 60 caratteri ciascuno per il Nome e il Cognome.
 		</assert>
 	</rule>
 	
@@ -202,8 +202,7 @@
 
 	<rule context="/*/cac:AdditionalDocumentReference/cbc:ID[@schemeID='AVV']" flag="fatal">
 		<assert test="matches(.,'^[\p{IsBasicLatin}]{0,20}$')" flag="fatal" id="BR-IT-071">
-			[BR-IT-071][FPA 2.1.4.2 IdDocumento (Convenzione)] - BT-18 (Invoiced object identifier) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri."
-		</assert>
+			[BR-IT-071][FPA 2.1.4.2 IdDocumento (Convenzione)] - BT-18 (Invoiced object identifier) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
 	</rule>
 	
 	<rule context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID[@schemeID='CT' or @schemeID='AVV']" flag="fatal">

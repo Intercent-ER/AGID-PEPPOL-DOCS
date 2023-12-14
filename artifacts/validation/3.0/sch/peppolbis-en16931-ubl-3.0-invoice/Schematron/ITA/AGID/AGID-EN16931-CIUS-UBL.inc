@@ -9,7 +9,7 @@
 	<rule context="/*/cac:InvoiceLine" flag="fatal">
 		<assert test="((./cac:OrderLineReference/cac:OrderReference) or (/*/cac:OrderReference) or (/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode != 'IT') or not(./cbc:LineID))"
                     flag="fatal" id="BR-IT-DC-340">
-                       [BR-IT-DC-340][FPA 2.1.2.2 IdDocumento] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT" e in una riga di fattura è presente il riferimento ad una riga d'ordine (BT-132 Referenced purchase order line reference), DEVE essere indicato il riferimento all'ordine in testata (BT-13 Purchase order reference) o in riga.</assert>
+                       [BR-IT-DC-340][FPA 2.1.2.2 IdDocumento] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT" e in una riga di fattura è presente il riferimento ad una riga d'ordine (BT-132 Referenced purchase order line reference), DEVE essere indicato il riferimento all'ordine in testata (BT-132 Purchase order reference) o in riga.</assert>
 	</rule>
 	
 	<rule context="/*[cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode!='IT']" flag="fatal">

@@ -86,9 +86,7 @@
 
 	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName" flag="fatal">
 		<assert test="(matches(.,'Nome#Cognome.*$' ) 
-		                and 
-					<!-- matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,120}$'))-->
-						matches(.,'^Nome#Cognome:[a-zA-Z]{1,60}+(#[a-zA-Z]{1,60})*$')
+		                and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,120}$'))
                     	or
                       (not (matches(.,'Nome#Cognome.*$' ))
                         and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,80}$'))"

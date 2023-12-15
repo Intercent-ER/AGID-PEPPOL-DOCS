@@ -39,7 +39,7 @@
 				</cac:TaxScheme>
 			</cac:PartyTaxScheme>
 			<cac:PartyLegalEntity>
-				<cbc:RegistrationName>Nome#Cognome:cicciocicciocicciocicciocicciocicciocicciociccio#picciopicciottopicciopicciottopicciopicciottopicciopicciottopicciopicciotto</cbc:RegistrationName>
+				<cbc:RegistrationName>Nome#Cognome:cicciocicciocicciocicciocicciocicciocicciocicciocicciocicciocicciocicciocicciocicciocicciociccio#picciopicciottopicciopicciottopicciopicciottopicciopicciottopicciopicciotto</cbc:RegistrationName>
 				<cbc:CompanyID schemeID="0210">02188520544</cbc:CompanyID>
 				<cbc:CompanyLegalForm>100000.00#SU#LN</cbc:CompanyLegalForm>
 			</cac:PartyLegalEntity>

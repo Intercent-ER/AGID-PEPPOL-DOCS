@@ -26,6 +26,7 @@ In vigore a partire dal *26 febbraio 2024*
 ** _C.1. CIUS_: BR-IT-071; BR-IT-081; BR-IT-100; BR-IT-130; BR-IT-221; BR-IT-361; 
 ** _C.2. CIUS Domestiche_: BR-IT-DC-120; BR-IT-DC-141; BR-IT-DC-160; BR-IT-DC-170; BR-IT-DC-180; BR-IT-DC-190; BR-IT-DC-300; BR-IT-DC-310; BR-IT-DC-320; BR-IT-DC-330; BR-IT-DC-340;  
 ** _C.4. Estensioni Domestiche_: BR-IT-DE-050; BR-IT-DE-051; BR-IT-DE-052; BR-IT-DE-053.  
+* Aggiornamento della regola BR-IT-DC-480* relativa al controllo della presenza del bollo sui documenti di importo superiore a 77,47 euro;  
 * Piccole modifiche editoriali. 
 
 [red]#Cambiamenti alle code lists e artefatti di validazione# +

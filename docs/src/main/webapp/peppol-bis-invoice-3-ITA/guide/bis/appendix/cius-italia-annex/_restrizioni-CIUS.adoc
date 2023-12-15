@@ -268,8 +268,8 @@ BT-125 Attached document
 
 |BR-IT-361
 |Value domain for an element - Restrict text or byte array length
-|BT-128 Invoice line object identifier
-|2.2.1.3.2 CodiceValore
+|BT-126 Invoice line identifier
+|2.2.1.1 NumeroLinea
 |L'elemento deve essere di tipo numerico e non superiore a "9999".
 
 |BR-IT-370

@@ -86,9 +86,9 @@
 
 	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName" flag="fatal">
 		<assert test="(matches(.,'Nome#Cognome.*$' ) 
-		                and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,120}$'))
+		                and matches(.,'^[Nome#Cognome\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,60}#[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,60}$'))
                     	or
-                      (not (matches(.,'Nome#Cognome.*$' ))
+						(not (matches(.,'Nome#Cognome.*$' ))
                         and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,80}$'))"
                 flag="fatal" id="BR-IT-100">[BR-IT-100][FPA 1.2.1.3.1 Denominazione] - In case of legal person, BT-27 (Seller name) maximum length shall be 80 chars - In caso di persona giuridica, la lunghezza dell'elemento non deve superare gli 80 caratteri. [FPA 1.2.1.3.2 Nome, 1.2.1.3.3 Cognome] - In case of natural person, BT-27 (Seller name) must be preceded by 'Nome#Cognome:' and it length shall be 60 chars each for Name and Surname -  In caso di persona fisica, l'elemento deve essere preceduro dalla stringa "Nome#Cognome:" e non deve superare i 60 caratteri ciascuno per il Nome e il Cognome.
 		</assert>
@@ -100,7 +100,7 @@
 
 	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName" flag="fatal">
     		<assert test="(matches(.,'Nome#Cognome.*$' )
-		                and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,120}$'))
+		                and matches(.,'^[Nome#Cognome\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,60}#[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,60}$'))
                     	or
                       (not (matches(.,'Nome#Cognome.*$' ))
                         and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,80}$'))"
@@ -224,7 +224,7 @@
 
     <rule context="/*/cac:TaxRepresentativeParty/cac:PartyName/cbc:Name" flag="fatal">
 		<assert test="(matches(.,'Nome#Cognome.*$' )
-		                and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,120}$'))
+		                and matches(.,'^[Nome#Cognome\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,60}#[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,60}$'))
                     	or
                       (not (matches(.,'Nome#Cognome.*$' ))
                         and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,80}$'))"

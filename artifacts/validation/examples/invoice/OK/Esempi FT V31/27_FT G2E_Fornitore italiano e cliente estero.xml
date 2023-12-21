@@ -21,9 +21,9 @@
 				<cbc:CityName>REGGIO EMILIA</cbc:CityName>
 				<cbc:PostalZone>42100</cbc:PostalZone>
 				<cbc:CountrySubentity>RE</cbc:CountrySubentity>
-					<cac:Country>
-				<cbc:IdentificationCode>IT</cbc:IdentificationCode>
-			</cac:Country>
+				<cac:Country>
+					<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+				</cac:Country>
 			</cac:PostalAddress>
 			<cac:PartyTaxScheme>
 				<cbc:CompanyID>IT02188520544</cbc:CompanyID>

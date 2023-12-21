@@ -2,7 +2,7 @@
 <Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cr="http://www.ubl-italia.org/ns/CrossReference" xsi:schemaLocation="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2 ../xsd/maindoc/UBL-Invoice-2.1.xsd">
 	<cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:www.agid.gov.it:trns:fattura:3</cbc:CustomizationID>
 	<cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
-	<cbc:ID>06_FT_BIS3_V31_B2B</cbc:ID>
+	<cbc:ID>02_FT_TEST BOLLO_B2B</cbc:ID>
 	<cbc:IssueDate>2020-07-06</cbc:IssueDate>
 	<cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
 	<cbc:Note>Prestazione resa in convenzione indiretta. Fondo Assicurativo PREVIMEDICAL</cbc:Note>
@@ -80,23 +80,10 @@
 	<cac:PaymentTerms>
 		<cbc:Note>TP02</cbc:Note>
 	</cac:PaymentTerms>
-	<cac:AllowanceCharge>
-		<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
-		<cbc:AllowanceChargeReasonCode>SAE</cbc:AllowanceChargeReasonCode>
-		<cbc:AllowanceChargeReason>BOLLO</cbc:AllowanceChargeReason>
-		<cbc:Amount currencyID="EUR">0.00</cbc:Amount>
-		<cac:TaxCategory>
-			<cbc:ID>Z</cbc:ID>
-			<cbc:Percent>0</cbc:Percent>
-			<cac:TaxScheme>
-				<cbc:ID>VAT</cbc:ID>
-			</cac:TaxScheme>
-		</cac:TaxCategory>
-	</cac:AllowanceCharge>
 	<cac:TaxTotal>
 		<cbc:TaxAmount currencyID="EUR">0.00</cbc:TaxAmount>
 		<cac:TaxSubtotal>
-			<cbc:TaxableAmount currencyID="EUR">83.00</cbc:TaxableAmount>
+			<cbc:TaxableAmount currencyID="EUR">78.00</cbc:TaxableAmount>
 			<cbc:TaxAmount currencyID="EUR">0.00</cbc:TaxAmount>
 			<cac:TaxCategory>
 				<cbc:ID>E</cbc:ID>
@@ -108,30 +95,18 @@
 				</cac:TaxScheme>
 			</cac:TaxCategory>
 		</cac:TaxSubtotal>
-		<cac:TaxSubtotal>
-			<cbc:TaxableAmount currencyID="EUR">0.00</cbc:TaxableAmount>
-			<cbc:TaxAmount currencyID="EUR">0.00</cbc:TaxAmount>
-			<cac:TaxCategory>
-				<cbc:ID>Z</cbc:ID>
-				<cbc:Percent>0</cbc:Percent>
-				<cac:TaxScheme>
-					<cbc:ID>VAT</cbc:ID>
-				</cac:TaxScheme>
-			</cac:TaxCategory>
-		</cac:TaxSubtotal>
 	</cac:TaxTotal>
 	<cac:LegalMonetaryTotal>
-		<cbc:LineExtensionAmount currencyID="EUR">83.00</cbc:LineExtensionAmount>
-		<cbc:TaxExclusiveAmount currencyID="EUR">83.00</cbc:TaxExclusiveAmount>
-		<cbc:TaxInclusiveAmount currencyID="EUR">83.00</cbc:TaxInclusiveAmount>
-		<cbc:ChargeTotalAmount currencyID="EUR">0.00</cbc:ChargeTotalAmount>
+		<cbc:LineExtensionAmount currencyID="EUR">78.00</cbc:LineExtensionAmount>
+		<cbc:TaxExclusiveAmount currencyID="EUR">78.00</cbc:TaxExclusiveAmount>
+		<cbc:TaxInclusiveAmount currencyID="EUR">78.00</cbc:TaxInclusiveAmount>
 		<cbc:PrepaidAmount currencyID="EUR">0.00</cbc:PrepaidAmount>
-		<cbc:PayableAmount currencyID="EUR">83.00</cbc:PayableAmount>
+		<cbc:PayableAmount currencyID="EUR">78.00</cbc:PayableAmount>
 	</cac:LegalMonetaryTotal>
 	<cac:InvoiceLine>
 		<cbc:ID>1</cbc:ID>
 		<cbc:InvoicedQuantity unitCode="C62">1.00000000</cbc:InvoicedQuantity>
-		<cbc:LineExtensionAmount currencyID="EUR">83.00</cbc:LineExtensionAmount>
+		<cbc:LineExtensionAmount currencyID="EUR">78.00</cbc:LineExtensionAmount>
 		<cac:Item>
 			<cbc:Name>Assicurazioni NOS - PREVIMEDIC V.ortopedica </cbc:Name>
 			<cac:SellersItemIdentification>
@@ -150,11 +125,11 @@
 			</cac:AdditionalItemProperty>
 		</cac:Item>
 		<cac:Price>
-			<cbc:PriceAmount currencyID="EUR">83.00000000</cbc:PriceAmount>
+			<cbc:PriceAmount currencyID="EUR">78.00000000</cbc:PriceAmount>
 			<cac:AllowanceCharge>
 				<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
 				<cbc:Amount currencyID="EUR">0.00</cbc:Amount>
-				<cbc:BaseAmount currencyID="EUR">83.00000000</cbc:BaseAmount>
+				<cbc:BaseAmount currencyID="EUR">78.00000000</cbc:BaseAmount>
 			</cac:AllowanceCharge>
 		</cac:Price>
 	</cac:InvoiceLine>

@@ -1,5 +1,5 @@
 
-= #Imposta di Bollo# (CIUS domestica)
+= #Imposta di Bollo (CIUS domestica)#
 
 L’indicazione del bollo virtuale è operata sia in fattura che su nota di credito come maggiorazione a livello di testata del documento a mezzo dell’utilizzo della struttura *cac:AllowanceCharge* (BG-21 Document level charge) indicando: 
 
@@ -20,7 +20,7 @@ Qualora non si intenda effettuare la rivalsa del bollo non è richiesto l’inse
           <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
           <cbc:AllowanceChargeReasonCode>SAE</cbc:AllowanceChargeReasonCode>
           <cbc:AllowanceChargeReason>BOLLO</cbc:AllowanceChargeReason>
-          <cbc:Amount currencyID="EUR">0</cbc:Amount>
+          <cbc:Amount currencyID="EUR">0.00</cbc:Amount>
           <cac:TaxCategory>
                     <cbc:ID>Z</cbc:ID>
                     <cbc:Percent>0</cbc:Percent>
@@ -68,21 +68,269 @@ Qualora non si intenda effettuare la rivalsa del bollo non è richiesto l’inse
 
 == Rivalsa del bollo
 
-Qualora il fornitore voglia effettuare la rivalsa del bollo sul cliente deve inserire una riga recante:
+Qualora il fornitore voglia effettuare la rivalsa del bollo sul cliente deve inserire una riga recante:  
 
-* l’elemento cac:Item/cbc:Description (BT-154 Item description) valorizzato a “Rivalsa Bollo”;
-* gli elementi cac:Price/cbc:PriceAmount (BT-146 Item net price) e cac:AllowanceCharge/cbc:BaseAmount (BT-148 Item gross price) valorizzati a:
-** 2.00 in caso di fattura (vedi esempi Fattura n. 04_FT, 14_FT, 17_FT e 30_FT).
-** 2.00 in caso di nota di credito, congiuntamente a cbc:CreditedQuantity (BT-129 Invoiced Quantity) valorizzato a “-1.00” (vedi esempio Nota di Credito n. 04_NC).
+* l’elemento cac:Item/cbc:Name (BT-153 Item name) valorizzato in modo da esprimere l’applicazione della rivalsa (ad esempio tramite la stringa “Rivalsa del bollo”); 
+* gli elementi cac:Price/cbc:PriceAmount (BT-146 Item net price) e cac:AllowanceCharge/cbc:BaseAmount (BT-148 Item gross price) valorizzati a: 
+** 2.00 in caso di fattura; 
+** 2.00 in caso di nota di credito, congiuntamente a cbc:CreditedQuantity (BT-129 Invoiced Quantity) valorizzato a “-1.00”. 
 
-La riga di rivalsa ha la medesima natura della prestazione sulla quale la rivalsa viene applicata.
+La riga di rivalsa ha la medesima natura della prestazione sulla quale la rivalsa viene applicata. 
 
+.Esempio di fattura per prestazione esente del valore di 100 euro con rivalsa del bollo 
+[source, xml, indent=0]
+----
+<ubl:Invoice> 
+... 
+<cac:AllowanceCharge> 
+          <cbc:ChargeIndicator>true</cbc:ChargeIndicator> 
+          <cbc:AllowanceChargeReasonCode>SAE</cbc:AllowanceChargeReasonCode> 
+          <cbc:AllowanceChargeReason>BOLLO</cbc:AllowanceChargeReason> 
+          <cbc:Amount currencyID="EUR">0.00</cbc:Amount> 
+          <cac:TaxCategory> 
+                    <cbc:ID>Z</cbc:ID> 
+                    <cbc:Percent>0</cbc:Percent> 
+                    <cac:TaxScheme> 
+                              <cbc:ID>VAT</cbc:ID> 
+                    </cac:TaxScheme> 
+          </cac:TaxCategory> 
+</cac:AllowanceCharge> 
+<cac:TaxTotal> 
+            <cbc:TaxAmount currencyID="EUR">0.00</cbc:TaxAmount> 
+            <cac:TaxSubtotal> 
+                      <cbc:TaxableAmount currencyID="EUR">102.00</cbc:TaxableAmount> 
+                      <cbc:TaxAmount currencyID="EUR">0.00</cbc:TaxAmount> 
+                      <cac:TaxCategory> 
+                                <cbc:ID>E</cbc:ID> 
+                                <cbc:Percent>0</cbc:Percent> 
+                                <cbc:TaxExemptionReasonCode>vatex-eu-132<cbc:TaxExemptionReasonCode> 
+                                <cbc:TaxExemptionReason>N4<cbc:TaxExemptionReason> 
+                                <cac:TaxScheme> 
+                                        <cbc:ID>VAT</cbc:ID> 
+                                </cac:TaxScheme> 
+                      </cac:TaxCategory> 
+            </cac:TaxSubtotal> 
+            <cac:TaxSubtotal> 
+                      <cbc:TaxableAmount currencyID="EUR">0.00</cbc:TaxableAmount> 
+                      <cbc:TaxAmount currencyID="EUR">0.00</cbc:TaxAmount> 
+                      <cac:TaxCategory> 
+                                <cbc:ID>Z</cbc:ID> 
+                                <cbc:Percent>0</cbc:Percent> 
+                                <cac:TaxScheme> 
+                                        <cbc:ID>VAT</cbc:ID> 
+                                </cac:TaxScheme> 
+                      </cac:TaxCategory> 
+            </cac:TaxSubtotal> 
+</cac:TaxTotal> 
+<cac:LegalMonetaryTotal> 
+            <cbc:LineExtensionAmount currencyID="EUR">102.00</cbc:LineExtensionAmount> 
+            <cbc:TaxExclusiveAmount currencyID="EUR">102.00</cbc:TaxExclusiveAmount> 
+            <cbc:TaxInclusiveAmount currencyID="EUR">102.00</cbc:TaxInclusiveAmount> 
+            <cbc:ChargeTotalAmount currencyID="EUR">0.00</cbc:ChargeTotalAmount> 
+            <cbc:PayableAmount currencyID="EUR">102.00</cbc:PayableAmount> 
+</cac:LegalMonetaryTotal> 
+[…] 
+<cac:InvoiceLine> 
+            <cbc:ID>2</cbc:ID> 
+            <cbc:InvoicedQuantity unitCode="C62">1.00</cbc:InvoicedQuantity> 
+            <cbc:LineExtensionAmount currencyID="EUR">2.00</cbc:LineExtensionAmount> 
+            <cac:Item> 
+                       <cbc:Name>Rivalsa bollo</cbc:Name> 
+                       <cac:ClassifiedTaxCategory> 
+                                  <cbc:ID>E</cbc:ID> 
+                                  <cbc:Percent>0</cbc:Percent> 
+                                  <cac:TaxScheme> 
+                                              <cbc:ID>VAT</cbc:ID> 
+                                  </cac:TaxScheme> 
+                       </cac:ClassifiedTaxCategory> 
+                       <cac:AdditionalItemProperty> 
+                                  <cbc:Name>NATURA</cbc:Name> 
+                                  <cbc:Value>N4</cbc:Value> 
+                       </cac:AdditionalItemProperty> 
+            </cac:Item> 
+            <cac:Price> 
+                       <cbc:PriceAmount currencyID="EUR">2.00</cbc:PriceAmount> 
+                       <cbc:BaseQuantity unitCode="C62">1.00</cbc:BaseQuantity> 
+                       <cac:AllowanceCharge> 
+                                  <cbc:ChargeIndicator>false</cbc:ChargeIndicator> 
+                                  <cbc:Amount currencyID="EUR">0.00</cbc:Amount> 
+                                  <cbc:BaseAmount currencyID="EUR">2.00</cbc:BaseAmount> 
+                       </cac:AllowanceCharge> 
+           </cac:Price> 
+</cac:InvoiceLine> 
+----
+
+.Esempio di nota di credito per prestazione esente del valore di 100 euro con rivalsa del bollo  
+[source, xml, indent=0]
+----
+<ubl:CreditNote> 
+... 
+<cac:AllowanceCharge> 
+          <cbc:ChargeIndicator>true</cbc:ChargeIndicator> 
+          <cbc:AllowanceChargeReasonCode>SAE</cbc:AllowanceChargeReasonCode> 
+          <cbc:AllowanceChargeReason>BOLLO</cbc:AllowanceChargeReason> 
+          <cbc:Amount currencyID="EUR">0.00</cbc:Amount> 
+          <cac:TaxCategory> 
+                    <cbc:ID>Z</cbc:ID> 
+                    <cbc:Percent>0</cbc:Percent> 
+                    <cac:TaxScheme> 
+                              <cbc:ID>VAT</cbc:ID> 
+                    </cac:TaxScheme> 
+          </cac:TaxCategory> 
+</cac:AllowanceCharge> 
+<cac:TaxTotal> 
+            <cbc:TaxAmount currencyID="EUR">0.00</cbc:TaxAmount> 
+            <cac:TaxSubtotal> 
+                      <cbc:TaxableAmount currencyID="EUR">98.00</cbc:TaxableAmount> 
+                      <cbc:TaxAmount currencyID="EUR">0.00</cbc:TaxAmount> 
+                      <cac:TaxCategory> 
+                                <cbc:ID>E</cbc:ID> 
+                                <cbc:Percent>0</cbc:Percent> 
+                                <cbc:TaxExemptionReasonCode>vatex-eu-132<cbc:TaxExemptionReasonCode> 
+                                <cbc:TaxExemptionReason>N4<cbc:TaxExemptionReason> 
+                                <cac:TaxScheme> 
+                                        <cbc:ID>VAT</cbc:ID> 
+                                </cac:TaxScheme> 
+                      </cac:TaxCategory> 
+            </cac:TaxSubtotal> 
+            <cac:TaxSubtotal> 
+                      <cbc:TaxableAmount currencyID="EUR">0.00</cbc:TaxableAmount> 
+                      <cbc:TaxAmount currencyID="EUR">0.00</cbc:TaxAmount> 
+                      <cac:TaxCategory> 
+                                <cbc:ID>Z</cbc:ID> 
+                                <cbc:Percent>0</cbc:Percent> 
+                                <cac:TaxScheme> 
+                                        <cbc:ID>VAT</cbc:ID> 
+                                </cac:TaxScheme> 
+                      </cac:TaxCategory> 
+            </cac:TaxSubtotal> 
+</cac:TaxTotal> 
+<cac:LegalMonetaryTotal> 
+            <cbc:LineExtensionAmount currencyID="EUR">98.00</cbc:LineExtensionAmount> 
+            <cbc:TaxExclusiveAmount currencyID="EUR">98.00</cbc:TaxExclusiveAmount> 
+            <cbc:TaxInclusiveAmount currencyID="EUR">98.00</cbc:TaxInclusiveAmount> 
+            <cbc:ChargeTotalAmount currencyID="EUR">0.00</cbc:ChargeTotalAmount> 
+            <cbc:PayableAmount currencyID="EUR">98.00</cbc:PayableAmount> 
+</cac:LegalMonetaryTotal> 
+[…] 
+<cac:CreditNoteLine> 
+            <cbc:ID>2</cbc:ID> 
+            <cbc:CreditedQuantity unitCode="C62">-1.00</cbc:CreditedQuantity> 
+            <cbc:LineExtensionAmount currencyID="EUR">-2.00</cbc:LineExtensionAmount> 
+            <cac:Item> 
+                       <cbc:Name>Rivalsa bollo</cbc:Name> 
+                       <cac:ClassifiedTaxCategory> 
+                                  <cbc:ID>E</cbc:ID> 
+                                  <cbc:Percent>0</cbc:Percent> 
+                                  <cac:TaxScheme> 
+                                              <cbc:ID>VAT</cbc:ID> 
+                                  </cac:TaxScheme> 
+                       </cac:ClassifiedTaxCategory> 
+                       <cac:AdditionalItemProperty> 
+                                  <cbc:Name>NATURA</cbc:Name> 
+                                  <cbc:Value>N4</cbc:Value> 
+                       </cac:AdditionalItemProperty> 
+            </cac:Item> 
+            <cac:Price> 
+                       <cbc:PriceAmount currencyID="EUR">2.00</cbc:PriceAmount> 
+                       <cbc:BaseQuantity unitCode="C62">1.00</cbc:BaseQuantity> 
+                       <cac:AllowanceCharge> 
+                                  <cbc:ChargeIndicator>false</cbc:ChargeIndicator> 
+                                  <cbc:Amount currencyID="EUR">0.00</cbc:Amount> 
+                                  <cbc:BaseAmount currencyID="EUR">2.00</cbc:BaseAmount> 
+                       </cac:AllowanceCharge> 
+           </cac:Price> 
+</cac:CreditNoteLine> 
+----
 
 
 == Restituzione del bollo
-Qualora il fornitore, in sede di emissione di una nota di credito, voglia rimborsare il bollo su cui ha effettuato rivalsa in sede di emissione della fattura deve inserire una riga recante:
+Qualora il fornitore, in sede di emissione di una nota di credito, voglia rimborsare il bollo su cui ha effettuato rivalsa in sede di emissione della precedente fattura deve inserire una riga recante: 
 
-* l’elemento cac:Item/cbc:Description (BT-154 Item description) valorizzato a “Rimborso Bollo”;
-* gli elementi cac:Price/cbc:PriceAmount (BT-146 Item net price) e cac:AllowanceCharge/cbc:BaseAmount (BT-148 Item gross price) valorizzati a 2.00 (vedi esempio Nota di Credito n. 05_NC).
+* l’elemento cac:Item/cbc:Name (BT-153 Item name) valorizzato in modo da esprimere l’attuazione del rimborso (ad esempio tramite la stringa “Restituzione del bollo applicato si fattura precedente”); 
+* gli elementi cac:Price/cbc:PriceAmount (BT-146 Item net price) e cac:AllowanceCharge/cbc:BaseAmount (BT-148 Item gross price) valorizzati a 2.00. 
 
-La riga di rimborso ha la medesima natura della prestazione sulla quale la rivalsa era stata applicata.
+La riga di rimborso ha la medesima natura della prestazione sulla quale la rivalsa era stata applicata. 
+
+.Esempio di nota di credito per prestazione esente del valore di 100 euro con restituzione del bollo 
+[source, xml, indent=0]
+----
+<ubl:CreditNote> 
+... 
+<cac:AllowanceCharge> 
+          <cbc:ChargeIndicator>true</cbc:ChargeIndicator> 
+          <cbc:AllowanceChargeReasonCode>SAE</cbc:AllowanceChargeReasonCode> 
+          <cbc:AllowanceChargeReason>BOLLO</cbc:AllowanceChargeReason> 
+          <cbc:Amount currencyID="EUR">0.00</cbc:Amount> 
+          <cac:TaxCategory> 
+                    <cbc:ID>Z</cbc:ID> 
+                    <cbc:Percent>0</cbc:Percent> 
+                    <cac:TaxScheme> 
+                              <cbc:ID>VAT</cbc:ID> 
+                    </cac:TaxScheme> 
+          </cac:TaxCategory> 
+</cac:AllowanceCharge> 
+<cac:TaxTotal> 
+            <cbc:TaxAmount currencyID="EUR">0.00</cbc:TaxAmount> 
+            <cac:TaxSubtotal> 
+                      <cbc:TaxableAmount currencyID="EUR">102.00</cbc:TaxableAmount> 
+                      <cbc:TaxAmount currencyID="EUR">0.00</cbc:TaxAmount> 
+                      <cac:TaxCategory> 
+                                <cbc:ID>E</cbc:ID> 
+                                <cbc:Percent>0</cbc:Percent> 
+                                <cbc:TaxExemptionReasonCode>vatex-eu-132<cbc:TaxExemptionReasonCode> 
+                                <cbc:TaxExemptionReason>N4<cbc:TaxExemptionReason> 
+                                <cac:TaxScheme> 
+                                        <cbc:ID>VAT</cbc:ID> 
+                                </cac:TaxScheme> 
+                      </cac:TaxCategory> 
+            </cac:TaxSubtotal> 
+            <cac:TaxSubtotal> 
+                      <cbc:TaxableAmount currencyID="EUR">0.00</cbc:TaxableAmount> 
+                      <cbc:TaxAmount currencyID="EUR">0.00</cbc:TaxAmount> 
+                      <cac:TaxCategory> 
+                                <cbc:ID>Z</cbc:ID> 
+                                <cbc:Percent>0</cbc:Percent> 
+                                <cac:TaxScheme> 
+                                        <cbc:ID>VAT</cbc:ID> 
+                                </cac:TaxScheme> 
+                      </cac:TaxCategory> 
+            </cac:TaxSubtotal> 
+</cac:TaxTotal> 
+<cac:LegalMonetaryTotal> 
+            <cbc:LineExtensionAmount currencyID="EUR">102.00</cbc:LineExtensionAmount> 
+            <cbc:TaxExclusiveAmount currencyID="EUR">102.00</cbc:TaxExclusiveAmount> 
+            <cbc:TaxInclusiveAmount currencyID="EUR">102.00</cbc:TaxInclusiveAmount> 
+            <cbc:ChargeTotalAmount currencyID="EUR">0.00</cbc:ChargeTotalAmount> 
+            <cbc:PayableAmount currencyID="EUR">102.00</cbc:PayableAmount> 
+</cac:LegalMonetaryTotal> 
+[…] 
+<cac:CreditNoteLine> 
+            <cbc:ID>2</cbc:ID> 
+            <cbc:CreditedQuantity unitCode="C62">1.00</cbc:CreditedQuantity> 
+            <cbc:LineExtensionAmount currencyID="EUR">2.00</cbc:LineExtensionAmount> 
+            <cac:Item> 
+                       <cbc:Name>Restituzione bollo applicato su Fattura precedente</cbc:Name> 
+                       <cac:ClassifiedTaxCategory> 
+                                  <cbc:ID>E</cbc:ID> 
+                                  <cbc:Percent>0</cbc:Percent> 
+                                  <cac:TaxScheme> 
+                                              <cbc:ID>VAT</cbc:ID> 
+                                  </cac:TaxScheme> 
+                       </cac:ClassifiedTaxCategory> 
+                       <cac:AdditionalItemProperty> 
+                                 <cbc:Name>NATURA</cbc:Name> 
+                                  <cbc:Value>N4</cbc:Value> 
+                       </cac:AdditionalItemProperty> 
+            </cac:Item> 
+            <cac:Price> 
+                       <cbc:PriceAmount currencyID="EUR">2.00</cbc:PriceAmount> 
+                       <cbc:BaseQuantity unitCode="C62">1.00</cbc:BaseQuantity> 
+                       <cac:AllowanceCharge> 
+                                  <cbc:ChargeIndicator>false</cbc:ChargeIndicator> 
+                                  <cbc:Amount currencyID="EUR">0.00</cbc:Amount> 
+                                  <cbc:BaseAmount currencyID="EUR">2.00</cbc:BaseAmount> 
+                       </cac:AllowanceCharge> 
+           </cac:Price> 
+</cac:CreditNoteLine> 
+----

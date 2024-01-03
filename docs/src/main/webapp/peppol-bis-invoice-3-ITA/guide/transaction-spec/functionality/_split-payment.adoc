@@ -38,3 +38,39 @@ L'esempio riportato è relativo alla fattura emessa ad una PA soggetta alla scis
 </cac:LegalMonetaryTotal>
 ----
 
+= Indicazione acconto in fattura
+L’indicazione dell’acconto in fattura è operata attraverso l’inserimento di una specifica riga di fattura di importo negativo. Pertanto, è necessario che l’elemento cbc:InvoicedQuantity (BT-129 Invoiced Quantity) venga valorizzato a “-1.00”. 
+
+La riga di acconto ha la medesima natura della prestazione oggetto della fattura di saldo. 
+
+.Esempio indicazione di un acconto del valore di 100 euro nella fattura di saldo 
+
+[source, xml, indent=0]
+----
+<ubl:Invoice> 
+... 
+<cac:InvoiceLine> 
+          <cbc:ID>2</cbc:ID> 
+          <cbc:InvoicedQuantity unitCode="C62">-1.00</cbc:InvoicedQuantity > 
+          <cbc:LineExtensionAmount currencyID="EUR">-100.00</cbc:Amount> 
+          <cac:Item> 
+                    <cbc:Name>Acconto su prestazione</cbc:ID> 
+                    <cac:ClassifiedTaxCategory> 
+                              <cbc:ID>S</cbc:ID> 
+                              <cbc:Percent>22</cbc:Percent> 
+                              <cac:TaxScheme> 
+                                        <cbc:ID>VAT</cbc:ID> 
+                              </cac:TaxScheme> 
+                    </cac:ClassifiedTaxCategory> 
+          </cac:Item> 
+          <cac:Price > 
+                    <cbc:PriceAmount currencyID="EUR">100.00</cbc:PriceAmount> 
+                    <cbc:BaseQuantity unitCode="C62">1</cbc:BaseQuantity> 
+                    <cac:AllowanceCharge> 
+                               <cbc:ChargeIndicator>false</cbc:ChargeIndicator> 
+                               <cbc:Amount currencyID="EUR">0.00</cbc:Amount> 
+                               <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount> 
+                    </cac:AllowanceCharge> 
+          </cac:Price> 
+</cac:InvoiceLine> 
+----

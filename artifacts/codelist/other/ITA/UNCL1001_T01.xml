@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeList xmlns="urn:fdc:difi.no:2017:vefa:structure:CodeList-1">
-	<Title>Order type code (UNCL1001 subset)</Title>
-	<Identifier>UNCL1001_T01</Identifier>
-	<Version>D.17A</Version>
-	<Agency>UN/CEFACT</Agency>
-	<Subset>openPEPPOL</Subset>
-	<Code>
-		<Id>220</Id>
-		<Name>Order</Name>
-		<Description>Document/message by means of which a buyer initiates a
+
+    <Title>Order type code (UNCL1001 subset)</Title>
+    <Identifier>UNCL1001_T01</Identifier>
+    <Version>D.17A</Version>
+    <Agency>UN/CEFACT</Agency>
+    <Subset>openPEPPOL</Subset>
+
+     <Code>
+        <Id>105</Id>
+        <Name>Purchase Order</Name>
+        <Description>Document/message issued within an enterprise to initiate the purchase of articles, materials or services required for the production or manufacture of goods to be offered for sale or otherwise supplied to customers.
+        </Description>
+    </Code>
+
+     <Code>
+        <Id>220</Id>
+        <Name>Order</Name>
+        <Description>Document/message by means of which a buyer initiates a
             transaction with a seller involving the supply of goods
             or services as specified, according to conditions set
             out in an offer, or otherwise known to the buyer.
@@ -41,4 +50,10 @@
 		<LocalName>Ordine di Consegna</LocalName>
 		<LocalDescription>Codice da utilizzare per l’invio di un Ordine di consegna.</LocalDescription>
 	</Code>
+	    <Code>
+        <Id>402</Id>
+        <Name>Intermediate handling cross docking order</Name>
+        <Description>An order requesting the supply of products which will be moved across a dock, de-consolidated and re-consolidated according to the final delivery location requirements.
+        </Description>
+    </Code>
 </CodeList>

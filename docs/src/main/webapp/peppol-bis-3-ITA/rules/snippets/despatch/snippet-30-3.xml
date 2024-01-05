@@ -159,7 +159,7 @@
 	<!-- end::shipment[] -->
 <!-- tag::despatchaddress[] -->
 <cac:DespatchAddress>
-	<cac:ID>02483810392-CEC095</cac:ID><!--1-->
+	<cbc:ID>02483810392-CEC095</cbc:ID><!--1-->
 	<cbc:StreetName>Viale I Maggio 280</cbc:StreetName><!--2-->
 	<cbc:AdditionalStreetName>Frazione Pievesestina</cbc:AdditionalStreetName>
 	<cbc:CityName>Cesena</cbc:CityName>

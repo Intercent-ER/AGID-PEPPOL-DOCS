@@ -7,7 +7,7 @@
     <parent>
 		<groupId>it.gov.agid</groupId>
 		<artifactId>AGID-PEPPOL</artifactId>
-		<version>3.1.0</version>
+		<version>3.1</version>
 		<relativePath>../../..</relativePath>
 	</parent>
     <packaging>pom</packaging>
@@ -19,7 +19,7 @@
         <plugins>
 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.0.1</version>
+				<version>3.0.2</version>
 				<executions>
 					<execution>
 						<id>copy-codelists-1</id>

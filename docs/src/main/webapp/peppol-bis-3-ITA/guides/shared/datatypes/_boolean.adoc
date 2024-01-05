@@ -14,6 +14,6 @@ Gli indicatori booleani sono usati per specificare i due valori ammessi, _true_ 
 
 |Contenuto
 |Obbligatorio
-|String
+|Boolean
 |true
 |===

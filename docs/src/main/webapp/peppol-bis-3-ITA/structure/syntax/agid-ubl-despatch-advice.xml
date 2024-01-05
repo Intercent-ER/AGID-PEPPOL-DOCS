@@ -159,7 +159,7 @@
                   	<Name>Party identification - Identificazione del soggetto Speditore</Name>
                     <Element>
                         <Term>cbc:ID</Term>
-                        <Name>Despatching party identification - Identificativo dello Speditore</Name>
+                        <Name>Despatching party identifier - Identificativo dello Speditore</Name>
             						<Description>Identificativo IVA relativo allo Speditore</Description>
                         <DataType>Identifier</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p001</Reference>
@@ -460,7 +460,7 @@
                     <Name>Party identification - Identificazione del soggetto Acquirente</Name>
                     <Element>
                         <Term>cbc:ID</Term>
-                        <Name>Buying party - Identificativo Acquirente</Name>
+                        <Name>Buying party Identifier - Identificativo Acquirente</Name>
               					<Description>Codice Fiscale relativo all'Acquirente, o altro identificativo del soggetto</Description>
                         <DataType>Identifier</DataType>
                         <Reference type="BUSINESS_TERM">tir16-030</Reference>
@@ -690,7 +690,7 @@
                     <Name>Party identification - Identificazione del soggetto Richiedente</Name>
                     <Element>
                         <Term>cbc:ID</Term>
-                        <Name>Originating party - Identificativo del Richiedente</Name>
+                        <Name>Originating party identifier - Identificativo del Richiedente</Name>
               					<Description>Codice Fiscale relativo al Richiedente, o altro identificativo del soggetto</Description>
                         <Reference type="BUSINESS_TERM">tir16-032</Reference>
                         <Attribute usage="optional">
@@ -1183,7 +1183,7 @@ Utilizzato per indicare il codice del Punto di consegna NSO degli Enti</Descript
                 </Element>
                 <Element cardinality="0..1">
                     <Term>cbc:SalesOrderLineID</Term>
-                    <Name>Identificativo linea d'ordine di vendita</Name>
+                    <Name>Sales Order Line number - Identificativo linea d'ordine di vendita</Name>
                     <Description>Indica il numero della riga dell'ordine di vendita a cui si riferisce la riga del DDT.</Description>
                     <Value type="EXAMPLE">10</Value>
                 </Element>
@@ -1334,7 +1334,7 @@ Utilizzato per indicare il codice del Punto di consegna NSO degli Enti</Descript
                 </Element>
                 <Element cardinality="0..n">
                     <Term>cac:HazardousItem</Term>
-                    <Name>Informazioni sulla merce pericolosa</Name>
+                    <Name>Hazardous item information - Informazioni sulla merce pericolosa</Name>
                     <Element cardinality="0..1" agid:custom="extension">
                         <Term>cbc:ID</Term>
                         <Name>Identificativo sostanza pericolosa</Name>

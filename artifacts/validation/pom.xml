@@ -16,12 +16,97 @@
 	
 	<build>
 		<plugins>
+			
+		
+			<plugin>
+				<groupId>com.helger.maven</groupId>
+				<artifactId>ph-schematron-maven-plugin</artifactId>
+				<version>7.1.2</version>
+				<executions>
+					<execution>
+					<id>unit-test-invoice</id>
+						<goals>
+							<goal>validate</goal>
+						</goals>
+						<configuration>
+							<schematronFile>3.0/sch/peppolbis-en16931-ubl-3.0-invoice/Schematron/ITA/AGID-EN16931-UBL - PEPPOL ITA.sch</schematronFile>
+							<xmlDirectory>examples/invoice/</xmlDirectory>
+							<svrlDirectory>target/svrl/</svrlDirectory>
+							<!--<xmlErrorDirectory>src/test/resources/</xmlErrorDirectory>-->
+							<svrlErrorDirectory>target/svrl-error/</svrlErrorDirectory>
+							<schematronProcessingEngine>schematron</schematronProcessingEngine>
+							<failFast>false</failFast>
+						</configuration>
+					</execution>
+					<execution>
+					<id>unit-test-DDT</id>
+						<goals>
+							<goal>validate</goal>
+						</goals>
+						<configuration>
+							<schematronFile>3.0/sch/peppolbis-trdm016-3.0-despatch-advice/Schematron/ITA/AGID-PEPPOL-T16.sch</schematronFile>
+							<xmlDirectory>examples/other/DDT/</xmlDirectory>
+							<svrlDirectory>target/svrl/</svrlDirectory>
+							<!--<xmlErrorDirectory>src/test/resources/</xmlErrorDirectory>-->
+							<svrlErrorDirectory>target/svrl-error/</svrlErrorDirectory>
+							<schematronProcessingEngine>schematron</schematronProcessingEngine>
+							<failFast>false</failFast>
+						</configuration>
+					</execution>
+					<execution>
+					<id>unit-test-order</id>
+						<goals>
+							<goal>validate</goal>
+						</goals>
+						<configuration>
+							<schematronFile>3.0/sch/peppolbis-trdm001-3.0-order/Schematron/ITA/AGID-PEPPOL-T01.sch</schematronFile>
+							<xmlDirectory>examples/other/Ordine Semplice/</xmlDirectory>
+							<svrlDirectory>target/svrl/</svrlDirectory>
+							<!--<xmlErrorDirectory>src/test/resources/</xmlErrorDirectory>-->
+							<svrlErrorDirectory>target/svrl-error/</svrlErrorDirectory>
+							<schematronProcessingEngine>schematron</schematronProcessingEngine>
+							<failFast>false</failFast>
+						</configuration>
+					</execution>
+					<execution>
+					<id>unit-test-orderresponse</id>
+						<goals>
+							<goal>validate</goal>
+						</goals>
+						<configuration>
+							<schematronFile>3.0/sch/peppolbis-trdm076-3.0-order-response/Schematron/ITA/AGID-PEPPOL-T76.sch</schematronFile>
+							<xmlDirectory>examples/other/Risposta all'Ordine/</xmlDirectory>
+							<svrlDirectory>target/svrl/</svrlDirectory>
+							<!--<xmlErrorDirectory>src/test/resources/</xmlErrorDirectory>-->
+							<svrlErrorDirectory>target/svrl-error/</svrlErrorDirectory>
+							<schematronProcessingEngine>schematron</schematronProcessingEngine>
+							<failFast>false</failFast>
+						</configuration>
+					</execution>
+					<execution>
+					<id>unit-test-orderagreement</id>
+						<goals>
+							<goal>validate</goal>
+						</goals>
+						<configuration>
+							<schematronFile>3.0/sch/peppolbis-trdm110-3.0-order-agreement/Schematron/ITA/AGID-PEPPOL-T110.sch</schematronFile>
+							<xmlDirectory>examples/other/Ordine Pre-Concordato/</xmlDirectory>
+							<svrlDirectory>target/svrl/</svrlDirectory>
+							<!--<xmlErrorDirectory>src/test/resources/</xmlErrorDirectory>-->
+							<svrlErrorDirectory>target/svrl-error/</svrlErrorDirectory>
+							<schematronProcessingEngine>schematron</schematronProcessingEngine>
+							<failFast>false</failFast>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		
+		
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>xml-maven-plugin</artifactId>
 				<version>1.0.2</version>
 				<executions>
-					<!-- Phase 1 -->
 					<execution>
 						<id>sch-to-xslt-phase1</id>
 						<phase>generate-resources</phase>
@@ -46,7 +131,6 @@
 							</transformationSets>
 						</configuration>
 					</execution>
-					<!-- Phase 2 -->
 					<execution>
 						<id>sch-to-xslt-phase2</id>
 						<phase>generate-resources</phase>
@@ -68,7 +152,6 @@
 							</transformationSets>
 						</configuration>
 					</execution>
-					<!-- Phase 2 -->
 					<execution>
 						<id>sch-to-xslt-phase3</id>
 						<phase>generate-resources</phase>
@@ -98,6 +181,120 @@
 						<version>9.0</version>
 					</dependency>
 				</dependencies>
+			</plugin>
+
+			<!--<plugin>
+				<groupId>com.google.code.maven-replacer-plugin</groupId>
+				<artifactId>replacer</artifactId>
+				<version>1.5.2</version>
+				<executions>
+					<execution>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>replace</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<basedir>${basedir}/target/${project.build.finalName}/</basedir>
+					<includes>
+						<include>xsl/peppolbis-en16931-ubl-3.0-invoice/Schematron/ITA/AGID-EN16931-UBL - PEPPOL ITA.xsl</include>
+					</includes>
+					<replacements>
+						<replacement>
+							<token>name="vOtherAscii" select="da_sostituire_vOtherAscii"/></token>
+							<value>name="vOtherAscii"&gt;!"#\$%&amp;amp;'()*+,-./:;&amp;gt;=&amp;lt;?@[\\]^_`{|}~&lt;/xsl:variable&gt;</value>
+						</replacement>
+						<replacement>
+							<token>name="vLatin1Supplement" select="da_sostituire_vLatin1Supplement"/></token>
+							<value>name="vLatin1Supplement"&gt;¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ&lt;/xsl:variable&gt;</value>
+						</replacement>
+					</replacements>
+				</configuration>
+			</plugin>-->
+			
+			<plugin>
+				<groupId>com.helger.maven</groupId>
+				<artifactId>ph-schematron-maven-plugin</artifactId>
+				<version>7.1.3</version>
+				<executions>
+					<execution>
+					<id>unit-test-invoice</id>
+						<goals>
+							<goal>validate</goal>
+						</goals>
+						<configuration>
+							<schematronFile>3.0/sch/peppolbis-en16931-ubl-3.0-invoice/Schematron/ITA/AGID-EN16931-UBL - PEPPOL ITA.sch</schematronFile>
+							<xmlDirectory>examples/invoice/OK</xmlDirectory>
+							<xmlErrorDirectory>examples/invoice/KO</xmlErrorDirectory>
+							<svrlDirectory>target/svrl/</svrlDirectory>
+							<svrlErrorDirectory>target/svrl-error/</svrlErrorDirectory>
+							<schematronProcessingEngine>schematron</schematronProcessingEngine>
+							<ignoreWarnings>true</ignoreWarnings>
+							<failFast>false</failFast>
+						</configuration>
+					</execution>
+					<execution>
+					<id>unit-test-DDT</id>
+						<goals>
+							<goal>validate</goal>
+						</goals>
+						<configuration>
+							<schematronFile>3.0/sch/peppolbis-trdm016-3.0-despatch-advice/Schematron/ITA/AGID-PEPPOL-T16.sch</schematronFile>
+							<xmlDirectory>examples/other/DDT/</xmlDirectory>
+							<svrlDirectory>target/svrl/</svrlDirectory>
+							<!--<xmlErrorDirectory>src/test/resources/</xmlErrorDirectory>-->
+							<svrlErrorDirectory>target/svrl-error/</svrlErrorDirectory>
+							<schematronProcessingEngine>schematron</schematronProcessingEngine>
+							<failFast>false</failFast>
+						</configuration>
+					</execution>
+					<execution>
+					<id>unit-test-order</id>
+						<goals>
+							<goal>validate</goal>
+						</goals>
+						<configuration>
+							<schematronFile>3.0/sch/peppolbis-trdm001-3.0-order/Schematron/ITA/AGID-PEPPOL-T01.sch</schematronFile>
+							<xmlDirectory>examples/other/Ordine Semplice/</xmlDirectory>
+							<svrlDirectory>target/svrl/</svrlDirectory>
+							<!--<xmlErrorDirectory>src/test/resources/</xmlErrorDirectory>-->
+							<svrlErrorDirectory>target/svrl-error/</svrlErrorDirectory>
+							<schematronProcessingEngine>schematron</schematronProcessingEngine>
+							<failFast>false</failFast>
+						</configuration>
+					</execution>
+					<execution>
+					<id>unit-test-orderresponse</id>
+						<goals>
+							<goal>validate</goal>
+						</goals>
+						<configuration>
+							<schematronFile>3.0/sch/peppolbis-trdm076-3.0-order-response/Schematron/ITA/AGID-PEPPOL-T76.sch</schematronFile>
+							<xmlDirectory>examples/other/Risposta all'Ordine/</xmlDirectory>
+							<svrlDirectory>target/svrl/</svrlDirectory>
+							<!--<xmlErrorDirectory>src/test/resources/</xmlErrorDirectory>-->
+							<svrlErrorDirectory>target/svrl-error/</svrlErrorDirectory>
+							<schematronProcessingEngine>schematron</schematronProcessingEngine>
+							<failFast>false</failFast>
+						</configuration>
+					</execution>
+					<execution>
+					<id>unit-test-orderagreement</id>
+						<goals>
+							<goal>validate</goal>
+						</goals>
+						<configuration>
+							<schematronFile>3.0/sch/peppolbis-trdm110-3.0-order-agreement/Schematron/ITA/AGID-PEPPOL-T110.sch</schematronFile>
+							<xmlDirectory>examples/other/Ordine Pre-Concordato/</xmlDirectory>
+							<svrlDirectory>target/svrl/</svrlDirectory>
+							<!--<xmlErrorDirectory>src/test/resources/</xmlErrorDirectory>-->
+							<svrlErrorDirectory>target/svrl-error/</svrlErrorDirectory>
+							<schematronProcessingEngine>schematron</schematronProcessingEngine>
+							<failFast>false</failFast>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

@@ -111,7 +111,7 @@
 		<Element>
 			<Term>cac:SellerSupplierParty</Term>
 			<Name>Seller information </Name>
-			<Element cardinality="0..1">
+			<Element cardinality="1..1">
 				<Term>cac:Party</Term>
 				<Name>Description of seller</Name>
 				<Element>
@@ -227,7 +227,7 @@
 			<Element>
 				<Term>cac:PromisedDeliveryPeriod</Term>
 				<Name>Promised delivery period - Periodo di esecuzione della fornitura</Name>
-				<Reference type="RULE">INT-T76-R012</Reference>
+				
 				<Element cardinality="0..1">
 					<Term>cbc:StartDate</Term>
 					<Name>Period start date - Data di inizio</Name>
@@ -341,14 +341,29 @@
 							<Value type="EXAMPLE">2018-05-28</Value>
 						</Element>
 						<Element cardinality="0..1">
+							<Term>cbc:StartTime</Term>
+							<Name>Period start time</Name>
+							<Description>The time at which this period begins. Format = "hh:mm:ss"</Description>
+							<DataType>Time</DataType>
+							<Reference type="BUSINESS_TERM">tir76-p012</Reference>
+							<Value type="EXAMPLE">12:30:00</Value>
+						</Element>
+						<Element cardinality="0..1">
 							<Term>cbc:EndDate</Term>
 							<Name>Period end date</Name>
-							<Description>The date on which the period ends. The end date counts as
-                                part of the period.</Description>
+							<Description>The date on which the period ends. The end date counts as part of the period.</Description>
 							<DataType>Date</DataType>
 							<Reference type="BUSINESS_TERM">tir76-127</Reference>
 							<Reference type="RULE">PEPPOL-T76-R004</Reference>
 							<Value type="EXAMPLE">2018-05-29</Value>
+						</Element>
+						<Element cardinality="0..1">
+							<Term>cbc:EndTime</Term>
+							<Name>Period end time</Name>
+							<Description>The time at which this period end. Format = "hh:mm:ss"</Description>
+							<DataType>Time</DataType>
+							<Reference type="BUSINESS_TERM">tir76-p013</Reference>
+							<Value type="EXAMPLE">18:00:00</Value>
 						</Element>
 					</Element>
 				</Element>
@@ -554,7 +569,7 @@
 							<Description>The TAX category code for the item.</Description>
 							<DataType>Code</DataType>
 							<Reference type="BUSINESS_TERM">tir76-150</Reference>
-							<Reference type="CODE_LIST">UNCL5305</Reference>
+
 							<Value type="EXAMPLE">S</Value>
 						</Element>
 						<Element cardinality="0..1">

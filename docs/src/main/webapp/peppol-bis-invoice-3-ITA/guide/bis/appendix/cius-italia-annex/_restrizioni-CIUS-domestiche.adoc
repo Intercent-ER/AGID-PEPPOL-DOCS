@@ -81,17 +81,88 @@ BT-38 Seller post code
 1.2.2.3 CAP
 |Se il valore dell’elemento BT-40 Seller country code è “IT”, gli elementi devono essere obbligatoriamente valorizzati.
 
+|BR-IT-DC-141
+|Value domain for an element - Restrict text or byte array length
+|BT-36 Seller address line 2
+|1.2.2.2 NumeroCivico
+|Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-36 (Seller address line 2) DEVE contenere il numero civico o l'acronimo "s.n.c." (senza numero civico).
+
 |BR-IT-DC-150
 |Value domain for an element - Require defined structured values
 |BT-39 Seller country subdivision
 |1.2.2.5 Provincia
-|Se l'elemento BT-40 Seller country code ha valore "IT", per l'elemento  BT-39 Seller  country  subdivision deve  essere utilizzato uno dei valori della lista delle province italiane. Altrimenti l'informazione è riportata in allegato
+|Se l'elemento BT-40 Seller country code ha valore "IT", per l'elemento BT-39 Seller country subdivision deve essere utilizzato uno dei valori della lista delle province italiane. Altrimenti l'informazione è riportata in allegato.
 
-|BR-IT-DC-480
+|BR-IT-DC-160
+|Value domain for an element - Restrict text or byte array length
+|BT-42 Seller contact telephone number
+|1.1.5.1 Telefono
+|Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-42 (Seller contact telephone number) DEVE essere composto da 5 fino ad un massimo di 12 caratteri alfanumerici.
+
+|BR-IT-DC-170
+|Value domain for an element - Restrict text or byte array length
+|BT-59 Payee name
+|2.4.2.1 - Beneficiario
+|Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-59 (Payee name) DEVE essere composto da un massimo di 200 caratteri. 
+
+|BR-IT-DC-180
+|Value domain for an element - Restrict text or byte array length
+|BT-83 Remittance information
+|2.4.2.21 CodicePagamento
+|Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-83 (Remittance information) DEVE essere composto da un massimo di 60 caratteri alfanumerici.
+
+|BR-IT-DC-190
+|Value domain for an element - Require defined structured values
+|BT-104 Document level charge reason
+|2.1.1.7.1 TipoCassa
+|Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT" e viene applicata la Rivalsa Cassa Previdenziale, il BT-104 (Document level charge reason) DEVE contenere il tipo di cassa professionale compreso tra i valori "TC01" e "TC22". 
+
+|BR-IT-DC-210
+|Value domain for an element - Require defined structured values
+|
+|1.2.1.8 RegimeFiscale
+|Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il regime fiscale DEVE essere compreso tra i valori "RF01" e "RF19". 
+
+|BR-IT-DC-300
+|Value domain for an element - Restrict text or byte array length
+|BT-120 VAT exemption reason text
+|2.2.2.8 RiferimentoNormativo
+|Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-120 (VAT exemption reason text) DEVE essere composto da un massimo di 105 caratteri latini.
+
+|BR-IT-DC-310
+|Cardinality - Make a conditional element mandatory (0..x --> 1..x)
+|
+|2.1.1.5.1 TipoRitenuta +
+2.1.1.5.2 ImportoRitenuta +
+2.1.1.5.3 AliquotaRitenuta +
+2.1.1.5.4 CausalePagamento
+|Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT" ed è applicata una ritenuta di acconto, DEVONO essere indicati la tipologia, l'importo, l'aliquota e la causale del pagamento.
+
+|BR-IT-DC-320
+|Value domain for an element - Restrict text or byte array length
+|BT-128 Invoice line object identifier
+|2.1.3.2 IdDocumento (Contratto) +
+2.1.4.2 IdDocumento (Convenzione)
+|Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-128 (Invoice line object identifier) DEVE essere composto da un massimo di 20 caratteri.
+
+|BR-IT-DC-330
+|Value domain for an element - Restrict text or byte array length
+|BT-128 Invoice line object identifier
+|2.1.3.6 CodiceCUP +
+2.1.3.7 CodiceCIG
+|Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-128 (Invoice line object identifier) DEVE essere composto da un massimo di 15 caratteri.
+
+|BR-IT-DC-340
+|Cardinality - Make a conditional element mandatory (0..x --> 1..x)
+|BT-13 Purchase order reference
+|2.1.2.2 IdDocumento
+|Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT" e in una riga di fattura è presente il riferimento ad una riga d'ordine (BT-132 Referenced purchase order line reference), DEVE essere indicato il riferimento all'ordine in testata (BT-13 Purchase order reference) o in riga.
+
+|BR-IT-DC-480*
 |Value domain for an element - Require defined structured values
 |BT-95 Document level charge VAT category code, BT-99 Document level charge amount, BT-104 Document level charge reason, BT-105 Document level charge reason code 
 |2.1.1.6.1 BolloVirtuale
-|Se l’elemento BT-40 (Seller country code) ha valore "IT" e la fattura è soggetta alla marca da bollo, l'importo imponibile deve essere superiore a 77,47 euro, il BT-105 (Document level charge reason code) deve essere posto a “SAE”; il BT-104 (Document level charge reason) deve essere posto a  “BOLLO”; il BT-99 (Document level charge amount) deve essere posto a 0; il BT-95 (Document level charge VAT category code) deve essere posto a "Z" (zero).
+|Se l’elemento BT-40 (Seller country code) ha valore "IT", la fattura è soggetta alla marca da bollo e l'importo della fattura è superiore a 77,47 euro, allora il BT-105 (Document level charge reason code) deve essere posto a “SAE”; il BT-104 (Document level charge reason) deve essere posto a “BOLLO”; il BT-99 (Document level charge amount) deve essere posto a 0; il BT-95 (Document level charge VAT category code) deve essere posto a "Z" (zero).
 
 
 

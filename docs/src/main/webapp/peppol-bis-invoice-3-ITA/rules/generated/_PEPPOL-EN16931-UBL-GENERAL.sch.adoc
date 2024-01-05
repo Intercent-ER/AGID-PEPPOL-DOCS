@@ -127,10 +127,6 @@
 | VAT accounting currency code MUST be different from invoice currency code when provided.
 | cbc:TaxCurrencyCode
 | not(normalize-space(text()) = normalize-space(../cbc:DocumentCurrencyCode/text()))
-.3+| PEPPOL-EN16931-R006 *(fatal)*
-| Only one invoiced object is allowed on document level
-| ubl-creditnote:CreditNote \| ubl-invoice:Invoice
-| (count(cac:AdditionalDocumentReference[cbc:DocumentTypeCode='130']) <= 1)
 .3+| PEPPOL-EN16931-R007 *(fatal)*
 | Business process MUST be in the format 'urn:fdc:peppol.eu:2017:poacc:billing:NN:1.0' where NN indicates the process number.
 | ubl-creditnote:CreditNote \| ubl-invoice:Invoice

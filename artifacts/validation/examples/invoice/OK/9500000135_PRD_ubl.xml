@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Invoice xmlns:ccts="urn:un:unece:uncefact:documentation:2" xmlns:cr="http://www.ubl-italia.org/ns/CrossReference" xmlns:gc="urn:fdc:difi.no:2017:vefa:structure:CodeList-1" xmlns:doc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:vs="urn:www.ubl-italia.org:spec:fatturapa:codelist:gc:VATSchemes" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+	<ext:UBLExtensions>
+		<ext:UBLExtension>
+			<ext:ExtensionURI>urn:fdc:agid.gov.it:fatturapa:TipoDocumento</ext:ExtensionURI>
+			<ext:ExtensionContent>
+				<cbc:TypeCode>TD01</cbc:TypeCode>
+			</ext:ExtensionContent>
+		</ext:UBLExtension>
+	</ext:UBLExtensions>
+	<cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:www.agid.gov.it:trns:fattura:3</cbc:CustomizationID>
+	<cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
+	<cbc:ID>0040-2023-9500000135</cbc:ID>
+	<cbc:IssueDate>2023-12-28</cbc:IssueDate>
+	<cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
+	<cbc:Note>"Esente da bollo ai sensi dell''art. 16, tabella allegato B, al DPR 642/72"#Fattura quietanzata</cbc:Note>
+	<cbc:DocumentCurrencyCode>EUR</cbc:DocumentCurrencyCode>
+	<cbc:BuyerReference>#NO#</cbc:BuyerReference>
+	<cac:BillingReference>
+		<cac:InvoiceDocumentReference>
+			<cbc:ID>9500000135</cbc:ID>
+			<cbc:IssueDate>2023-12-28</cbc:IssueDate>
+		</cac:InvoiceDocumentReference>
+	</cac:BillingReference>
+	<cac:AccountingSupplierParty>
+		<cac:Party>
+			<cbc:EndpointID schemeID="0201">N7GYNR</cbc:EndpointID>
+			<cac:PostalAddress>
+				<cbc:StreetName>PIAZZA LIBER PARADISUS</cbc:StreetName>
+				<cbc:AdditionalStreetName>10</cbc:AdditionalStreetName>
+				<cbc:CityName>Bologna</cbc:CityName>
+				<cbc:PostalZone>40129</cbc:PostalZone>
+				<cbc:CountrySubentity>BO</cbc:CountrySubentity>
+				<cac:Country>
+					<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+				</cac:Country>
+			</cac:PostalAddress>
+			<cac:PartyTaxScheme>
+				<cbc:CompanyID>IT01232710374</cbc:CompanyID>
+				<cbc:TaxLevelCode>RF01</cbc:TaxLevelCode>
+				<cac:TaxScheme>
+					<cbc:ID>VAT</cbc:ID>
+				</cac:TaxScheme>
+			</cac:PartyTaxScheme>
+			<cac:PartyLegalEntity>
+				<cbc:RegistrationName>Denominazione:Comune di Bologna BILANCIO</cbc:RegistrationName>
+				<cbc:CompanyID schemeID="0210">01232710374</cbc:CompanyID>
+			</cac:PartyLegalEntity>
+			<cac:Contact>
+				<cbc:ElectronicMail>FATTURAPA@COMUNE.BOLOGNA.IT</cbc:ElectronicMail>
+			</cac:Contact>
+		</cac:Party>
+	</cac:AccountingSupplierParty>
+	<cac:AccountingCustomerParty>
+		<cac:Party>
+			<cbc:EndpointID schemeID="0201">ZZENWW</cbc:EndpointID>
+			<cac:PostalAddress>
+				<cbc:StreetName>VIALE ALDO MORO</cbc:StreetName>
+				<cbc:AdditionalStreetName>64</cbc:AdditionalStreetName>
+				<cbc:CityName>BOLOGNA</cbc:CityName>
+				<cbc:PostalZone>40127</cbc:PostalZone>
+				<cbc:CountrySubentity>BO</cbc:CountrySubentity>
+				<cac:Country>
+					<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+				</cac:Country>
+			</cac:PostalAddress>
+			<cac:PartyLegalEntity>
+				<cbc:RegistrationName>Denominazione:REGIONE EMILIA-ROMAGNA DIREZ. GENER</cbc:RegistrationName>
+				<cbc:CompanyID schemeID="0210">80062590379</cbc:CompanyID>
+			</cac:PartyLegalEntity>
+		</cac:Party>
+	</cac:AccountingCustomerParty>
+	<cac:PaymentMeans>
+		<cbc:PaymentMeansCode name="Credit transfer">30</cbc:PaymentMeansCode>
+		<cac:PayeeFinancialAccount>
+			<cbc:ID>IT88R0200802435000020067156</cbc:ID>
+			<cac:FinancialInstitutionBranch>
+				<cbc:ID>UNCRITM1BA2</cbc:ID>
+			</cac:FinancialInstitutionBranch>
+		</cac:PayeeFinancialAccount>
+	</cac:PaymentMeans>
+	<cac:PaymentTerms>
+		<cbc:Note>TP02</cbc:Note>
+	</cac:PaymentTerms>
+	<cac:TaxTotal>
+		<cbc:TaxAmount currencyID="EUR">0.00</cbc:TaxAmount>
+		<cac:TaxSubtotal>
+			<cbc:TaxableAmount currencyID="EUR">1553359.58</cbc:TaxableAmount>
+			<cbc:TaxAmount currencyID="EUR">0.00</cbc:TaxAmount>
+			<cac:TaxCategory>
+				<cbc:ID>E</cbc:ID>
+				<cbc:Percent>0.00</cbc:Percent>
+				<cbc:TaxExemptionReasonCode>VATex-eu-132</cbc:TaxExemptionReasonCode>
+				<cbc:TaxExemptionReason>N4#Esente art.10 p.21 Dpr.633/72</cbc:TaxExemptionReason>
+				<cac:TaxScheme>
+					<cbc:ID>VAT</cbc:ID>
+				</cac:TaxScheme>
+			</cac:TaxCategory>
+		</cac:TaxSubtotal>
+	</cac:TaxTotal>
+	<cac:LegalMonetaryTotal>
+		<cbc:LineExtensionAmount currencyID="EUR">1553359.58</cbc:LineExtensionAmount>
+		<cbc:TaxExclusiveAmount currencyID="EUR">1553359.58</cbc:TaxExclusiveAmount>
+		<cbc:TaxInclusiveAmount currencyID="EUR">1553359.58</cbc:TaxInclusiveAmount>
+		<cbc:PayableAmount currencyID="EUR">1553359.58</cbc:PayableAmount>
+	</cac:LegalMonetaryTotal>
+	<cac:InvoiceLine>
+		<cbc:ID>1</cbc:ID>
+		<cbc:InvoicedQuantity unitCode="C62">1.00000000</cbc:InvoicedQuantity>
+		<cbc:LineExtensionAmount currencyID="EUR">1553359.58</cbc:LineExtensionAmount>
+		<cac:Item>
+			<cbc:Name>. Saldo della misura sperimentale di sostegno economico alle famiglie denominata "Al nido con la Regione" anno educativo 2022/2023 Delibera di Giunta Regionale Numero 1385 del 1/08/2022 - impegno n. 741 sul cap. U58430, anno 2023.</cbc:Name>
+			<cac:ClassifiedTaxCategory>
+				<cbc:ID>E</cbc:ID>
+				<cbc:Percent>0.00</cbc:Percent>
+				<cac:TaxScheme>
+					<cbc:ID>VAT</cbc:ID>
+				</cac:TaxScheme>
+			</cac:ClassifiedTaxCategory>
+			<cac:AdditionalItemProperty>
+				<cbc:Name>NATURA</cbc:Name>
+				<cbc:Value>N4</cbc:Value>
+			</cac:AdditionalItemProperty>
+		</cac:Item>
+		<cac:Price>
+			<cbc:PriceAmount currencyID="EUR">1553359.58000000</cbc:PriceAmount>
+			<cac:AllowanceCharge>
+				<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+				<cbc:Amount currencyID="EUR">0.00000000</cbc:Amount>
+				<cbc:BaseAmount currencyID="EUR">1553359.58000000</cbc:BaseAmount>
+			</cac:AllowanceCharge>
+		</cac:Price>
+	</cac:InvoiceLine>
+</Invoice>

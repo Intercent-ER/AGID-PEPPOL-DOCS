@@ -148,9 +148,18 @@
 		<assert test="cac:Attachment/cac:ExternalReference/cbc:URI or cac:Attachment/cbc:EmbeddedDocumentBinaryObject" flag="fatal" id="BR-IT-360">[BR-IT-360][FPA 2.5.5 Attachment] - If BT-122 (Supporting document reference) is not empty, then BT-124 (External document location) or BT-125 (Attached document) shall be mandatory - Se l'elemento BT-122 Supporting document reference è valorizzato, è obbligatorio valorizzare almeno uno degli elementi BT-124 External document location e BT-125 Attached document.</assert>
 	</rule>
 
-	<!-- BOLLO -->
-	<rule context="/*/cac:AllowanceCharge[cbc:AllowanceChargeReasonCode = 'SAE' and ../cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']]" flag="fatal">
+	<!-- BOLLO vecchio -->
+	<!-- <rule context="/*/cac:AllowanceCharge[cbc:AllowanceChargeReasonCode = 'SAE' and ../cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']]" flag="fatal">
 		<assert test="cbc:ChargeIndicator = true() and cbc:AllowanceChargeReason = 'BOLLO' and cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0] and cbc:Amount=0 and ../cac:LegalMonetaryTotal/cbc:TaxExclusiveAmount &gt; 77.47 and ../cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0]" flag="fatal" id="BR-IT-DC-480">[BR-IT-DC-480] - Se l’elemento BT-40 (Seller country code) ha valore "IT" e la fattura è soggetta alla marca da bollo, l'importo imponibile deve essere superiore a 77,47 euro, il BT-105 (Document level charge reason code) deve essere posto a “SAE”; il BT-104 (Document level charge reason) deve essere posto a  “BOLLO”; il BT-99 (Document level charge amount) deve essere posto a 0; il BT-95 (Document level charge VAT category code) deve essere posto a "Z" (zero).</assert>
+	</rule> -->
+	
+			<!-- BOLLO nuovo -->
+		<rule context="/*" flag="fatal">
+		<assert test="./cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode!='IT'] 
+					or
+					not(./cac:TaxTotal/cac:TaxSubtotal/cbc:TaxableAmount &gt; 77.47)
+					or 
+					(./cac:AllowanceCharge[cbc:AllowanceChargeReasonCode = 'SAE' and cbc:ChargeIndicator = true() and cbc:AllowanceChargeReason = 'BOLLO' and cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0] and cbc:Amount=0])" flag="fatal" id="BR-IT-DC-480">[BR-IT-DC-480] - Se l’elemento BT-40 (Seller country code) ha valore "IT", la fattura è soggetta alla marca da bollo e l'importo della fattura è superiore a 77,47 euro, allora il BT-105 (Document level charge reason code) deve essere posto a “SAE”; il BT-104 (Document level charge reason) deve essere posto a “BOLLO”; il BT-99 (Document level charge amount) deve essere posto a 0; il BT-95 (Document level charge VAT category code) deve essere posto a "Z" (zero).</assert>
 	</rule>
 	
 	<rule context="/*/cac:AccountingCustomerParty/cac:Party" flag="fatal">

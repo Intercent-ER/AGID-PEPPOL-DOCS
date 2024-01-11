@@ -183,36 +183,7 @@
 				</dependencies>
 			</plugin>
 
-			<!--<plugin>
-				<groupId>com.google.code.maven-replacer-plugin</groupId>
-				<artifactId>replacer</artifactId>
-				<version>1.5.2</version>
-				<executions>
-					<execution>
-						<phase>process-resources</phase>
-						<goals>
-							<goal>replace</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<basedir>${basedir}/target/${project.build.finalName}/</basedir>
-					<includes>
-						<include>xsl/peppolbis-en16931-ubl-3.0-invoice/Schematron/ITA/AGID-EN16931-UBL - PEPPOL ITA.xsl</include>
-					</includes>
-					<replacements>
-						<replacement>
-							<token>name="vOtherAscii" select="da_sostituire_vOtherAscii"/></token>
-							<value>name="vOtherAscii"&gt;!"#\$%&amp;amp;'()*+,-./:;&amp;gt;=&amp;lt;?@[\\]^_`{|}~&lt;/xsl:variable&gt;</value>
-						</replacement>
-						<replacement>
-							<token>name="vLatin1Supplement" select="da_sostituire_vLatin1Supplement"/></token>
-							<value>name="vLatin1Supplement"&gt;¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ&lt;/xsl:variable&gt;</value>
-						</replacement>
-					</replacements>
-				</configuration>
-			</plugin>-->
-			
+					
 			<plugin>
 				<groupId>com.helger.maven</groupId>
 				<artifactId>ph-schematron-maven-plugin</artifactId>

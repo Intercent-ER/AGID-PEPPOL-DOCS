@@ -1763,6 +1763,9 @@ the root node.
 					<xsl:variable name="commodityClassificationCodelist">
 						<xsl:text>AA AB AC AD AE AF AG AH AI AJ AK AL AM AN AO AP AQ AR AS AT AU AV AW AX AY AZ BA BB BC BD BE BF BG BH BI BJ BK BL BM BN BO BP BQ BR BS BT BU BV BW BX BY BZ CC CG CL CR CV DM0 DM1 DM2 DR DW EC EF EN FS GB GN GS HS IB IN IS IT IZ MA MF MN MP NB ON PD PL PO PV QS RC RN RU RY SA SG SK SN SRS SRT SRU SRV SRW SRX SRY SRZ SS SSA SSB SSC SSD SSE SSF SSG SSH SSI SSJ SSK SSL SSM SSN SSO SSP SSQ SSR SSS SST SSU SSV SSW SSX SSY SSZ ST STA STB STC STD STE STF STG STH STI STJ STK STL STM STN STO STP STQ STR STS STT STU STV STW STX STY STZ SUA SUB SUC SUD SUE SUF SUG SUH SUI SUJ SUK SUL SUM TG TSN TSO TSP TSQ TSR TSS TST TSU UA UP VN VP VS VX ZZZ</xsl:text>
 					</xsl:variable>
+					<xsl:variable name="dispositivoMedicoCodelist">
+						<xsl:text>DM0 DM1 DM2</xsl:text>
+					</xsl:variable>
 					<xsl:variable name="carbOrAicFarmacoExist">
 						<xsl:for-each select="CodiceArticolo">
 							<xsl:if test="upper-case(CodiceTipo) = 'CARB' or upper-case(CodiceTipo) = 'AICFARMACO'">
@@ -1815,8 +1818,16 @@ the root node.
 								<cbc:ItemClassificationCode>
 									<xsl:if test="CodiceTipo">
 										<xsl:attribute name="listID">
-											<xsl:value-of select="CodiceTipo"/>
+											<xsl:if test="contains($dispositivoMedicoCodelist,CodiceTipo)">
+												ZZZ
+											</xsl:if>
+											<xsl:if test="not(contains($dispositivoMedicoCodelist,CodiceTipo))">
+												<xsl:value-of select="CodiceTipo"/>
+											</xsl:if>
 										</xsl:attribute>
+									</xsl:if>
+									<xsl:if test="contains($dispositivoMedicoCodelist,CodiceTipo)">
+										<xsl:value-of select="CodiceTipo"/>:
 									</xsl:if>
 									<xsl:value-of select="CodiceValore"/>
 								</cbc:ItemClassificationCode>

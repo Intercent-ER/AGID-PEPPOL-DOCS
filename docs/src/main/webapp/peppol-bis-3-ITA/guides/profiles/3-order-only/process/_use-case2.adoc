@@ -17,7 +17,7 @@ Questo caso d’uso è relativo a un ordine composto da articoli descritti in te
 |Ruoli coinvolti
 a|Acquirente +
 Venditore +
-Committente
+Richiedente
 
 |Assunzioni
 |L’acquirente ha informazioni strutturate sugli articoli. +

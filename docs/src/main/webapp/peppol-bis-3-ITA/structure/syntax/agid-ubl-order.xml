@@ -73,7 +73,7 @@
 		</Element>
 		<Element cardinality="0..1">
 			<Term>cbc:OrderTypeCode</Term>
-			<Name>Consignment order indication - Tipo di Ordinazione</Name>
+			<Name>Order Type Code - Tipo di Ordinazione</Name>
 			<Description>Indica la causa dell’Ordinazione, ossia il fatto che la fornitura sia a titolo oneroso (codice “220”) o gratuito (codice “227“).</Description>
 			<Reference type="BUSINESS_TERM">tir01-153</Reference>
 			<Reference type="CODE_LIST">UNCL1001_T01</Reference>
@@ -119,7 +119,7 @@
 			<Name>Validity period - Data di scadenza dell’Ordine</Name>
 			<Element>
 				<Term>cbc:EndDate</Term>
-				<Name>Order validity end date</Name>
+				<Name>Order validity end date - Data di scadenza validità dell’Ordine</Name>
 				<Description>Indica la data entro la quale il Fornitore deve rispondere, nel formato aaaa-mm-gg.</Description>
 				<DataType>Date</DataType>
 				<Reference type="BUSINESS_TERM">tir01-009</Reference>
@@ -147,7 +147,7 @@
 			<Name>Order reference - Documento di riferimento</Name>
 			<Element agid:custom="rule">
 				<Term>cbc:ID</Term>
-				<Name>Riferimento ad un precedente Documento</Name>
+				<Name>Order document reference - Riferimento ad un precedente Documento</Name>
 				<Description>Contiene gli estremi del Documento, precedentemente emesso, a cui fa riferimento il presente Ordine ed il suo nuovo stato ("Connected", “Revised”, "Invoice", etc.).</Description>
 				<DataType>Document reference</DataType>
 				<Reference type="BUSINESS_TERM">tir01-011</Reference>
@@ -163,7 +163,7 @@
 				</Element>
 				<Element cardinality="0..1">
 			<Term>cac:OriginatorDocumentReference</Term>
-			<Name>Originator document </Name>
+			<Name>Originator document - Codice Identificativo di Gara (CIG)</Name>
 			<Element agid:custom="rule">
 				<Term>cbc:ID</Term>
 				<Name>Originator document reference - Codice Identificativo di Gara (CIG)</Name>
@@ -179,7 +179,7 @@
 		<Element cardinality="0..1">
 			<Term>cac:CatalogueReference</Term>
 			<Name>Catalogue reference – Riferimento al catalogo</Name>
-			<Element cardinality="0..1">
+			<Element cardinality="1..1">
 				<Term>cbc:ID</Term>
 				<Name>Catalogue reference – Identificativo del catalogo</Name>
 				<Description>Indica l'identificativo del catalogo al quale l'Ordine fa riferimento</Description>
@@ -247,8 +247,7 @@
 		</Element>
 		<Element cardinality="0..1">
 			<Term>cac:Contract</Term>
-			<Name>Contract information</Name>
-			<Description>Reference to contract - Riferimento al contratto</Description>
+			<Name>Contract information - Riferimento al contratto</Name>
 			<Element>
 				<Term>cbc:ID</Term>
 				<Name>Reference identifier - Identificativo del contratto</Name>
@@ -260,7 +259,6 @@
 		<Element cardinality="0..1">
 			<Term>cac:ProjectReference</Term>
 			<Name>Project reference - Riferimento al progetto</Name>
-			<Description>Reference to contract - Riferimento al contratto</Description>
 			<Element cardinality="1..1">
 				<Term>cbc:ID</Term>
 				<Name>Project reference - Identificativo del progetto</Name>
@@ -389,7 +387,7 @@
 				</Element>
 				<Element cardinality="0..1">
 					<Term>cac:PartyTaxScheme</Term>
-					<Name>Informazioni fiscali Cliente</Name>
+					<Name>Buyer VAT information - Informazioni fiscali Cliente</Name>
 					<Element>
 						<Term>cbc:CompanyID</Term>
 						<Name>Buyer TAX identifier - Identificativo fiscale del Cliente</Name>
@@ -695,20 +693,20 @@
 		</Element>
 		<Element cardinality="0..1">
 			<Term>cac:OriginatorCustomerParty</Term>
-			<Name>Originator party - Committente</Name>
+			<Name>Originator party - Richiedente</Name>
 			<Description>Riporta le informazioni relative al soggetto che ha materialmente predisposto l’Ordine, se è diverso dal Cliente.</Description>
 			<Element>
 				<Term>cac:Party</Term>
 				<Name>Party information - Informazioni della parte</Name>
-				<Description>Informazioni sul Committente.</Description>
+				<Description>Informazioni sul Richiedente.</Description>
 				<Element cardinality="0..1">
 					<Term>cac:PartyIdentification</Term>
 					<Name>Party identification - Identificativo parte</Name>
-					<Description>Informazioni sull'identificativo del Committente.</Description>
+					<Description>Informazioni sull'identificativo del Richiedente.</Description>
 					<Reference type="RULE">PEPPOL-T01-R014</Reference>
 					<Element agid:custom="rule">
 						<Term>cbc:ID</Term>
-						<Name>Originator identifier - Identificativo del Committente</Name>
+						<Name>Originator identifier - Identificativo del Richiedente</Name>
 						<Description>Indica il codice identificativo del soggetto che ha predisposto il Documento.</Description>
 						<DataType>Identifier</DataType>
 						<Reference type="BUSINESS_TERM">tir01-081</Reference>
@@ -716,7 +714,7 @@
 						<Attribute usage="optional">
 							<Term>schemeID</Term>
 							<Name>Scheme identifier</Name>
-							<Description>Indica lo scheme identifier dell'identificativo del Committente.</Description>
+							<Description>Indica lo scheme identifier dell'identificativo del Richiedente.</Description>
 							<Reference type="CODE_LIST">ICD</Reference>
 							<Value type="EXAMPLE">0088</Value>
 						</Attribute>
@@ -730,7 +728,7 @@
 					<Reference type="RULE">PEPPOL-T01-R014</Reference>
 					<Element>
 						<Term>cbc:Name</Term>
-						<Name>Originator name - Denominazione Committente</Name>
+						<Name>Originator name - Denominazione Richiedente</Name>
 						<Description>Indica la denominazione del soggetto che ha predisposto il Documento.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir01-082</Reference>
@@ -1029,7 +1027,7 @@
 				</Element>
 				<Element>
 					<Term>cac:Address</Term>
-					<Name>Delivery address</Name>
+					<Name>Delivery address - Indirizzo di consegna</Name>
 					<Element cardinality="0..1">
 						<Term>cbc:StreetName</Term>
 						<Name>Address line 1 - Indirizzo</Name>
@@ -1126,21 +1124,21 @@
 			</Element>
 			<Element cardinality="0..1">
 				<Term>cac:DeliveryParty</Term>
-				<Name>Delivery party - Beneficiario della fornitura</Name>
+				<Name>Delivery party - Consegnatario/Destinatario</Name>
 				<Element cardinality="0..1">
 					<Term>cac:PartyIdentification</Term>
 					<Name>Party identification - Identificativo della parte</Name>
 					<Description>Contiene le informazioni relative a chi devono essere consegnati i beni e/o prestati i servizi.</Description>
 					<Element agid:custom="rule">
 						<Term>cbc:ID</Term>
-						<Name>Delivery party identifier - Identificativo beneficiario della fornitura</Name>
-						<Description>Indica il codice attribuito al beneficiario della fornitura.</Description>
+						<Name>Delivery party identifier - Identificativo del Consegnatario/Destinatario</Name>
+						<Description>Indica il codice attribuito al Consegnatario/Destinatario.</Description>
 						<Reference type="BUSINESS_TERM">tir01-101</Reference>
                                                 <Reference type="RULE">NSO_010</Reference>
 						<Attribute usage="Optional">
 							<Term>schemeID</Term>
-							<Name>Deliver party registration identifier identification scheme identifier - Scheme identifier identificativo beneficiario fornitura</Name>
-							<Description>Indica lo scheme identifier dell'identificativo del beneficiario fornitura</Description>
+							<Name>Deliver party registration identifier identification scheme identifier - Scheme identifier identificativo Consegnatario/Destinatario</Name>
+							<Description>Indica lo scheme identifier dell'identificativo del Consegnatario/Destinatario.</Description>
 							<Reference type="CODE_LIST">ICD</Reference>
 							<Value type="EXAMPLE">0002</Value>
 						</Attribute>
@@ -1149,11 +1147,11 @@
 				</Element>
 				<Element>
 					<Term>cac:PartyName</Term>
-					<Name>Party name</Name>
+					<Name>Party name - Denominazione della parte</Name>
 					<Element>
 						<Term>cbc:Name</Term>
-						<Name>Delivery party name - Denominazione del beneficiario </Name>
-						<Description>Indica la denominazione del beneficiario della fornitura.</Description>
+						<Name>Delivery party name - Denominazione del Consegnatario/Destinatario</Name>
+						<Description>Indica la denominazione del Consegnatario/Destinatario.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir01-102</Reference>
 						<Value type="EXAMPLE">Dipartimento chirurgia</Value>
@@ -1161,8 +1159,8 @@
 				</Element>
 				<Element cardinality="0..1">
 					<Term>cac:PostalAddress</Term>
-					<Name>Final Delivery address - Indirizzo del beneficiario della fornitura</Name>
-					<Description>Indica i dati dell’indirizzo del beneficiario della fornitura.</Description>
+					<Name>Final Delivery address - Indirizzo del Consegnatario/Destinatario</Name>
+					<Description>Indica i dati dell’indirizzo del Consegnatario/Destinatario.</Description>
 					<Element cardinality="0..1">
 						<Term>cbc:StreetName</Term>
 						<Name>Address line 1 - Indirizzo</Name>
@@ -1257,7 +1255,7 @@
 				<Description>Contiene ulteriori indicazioni relative all’esecuzione della fornitura.</Description>
 				<Element>
 					<Term>cbc:ID</Term>
-					<Name>Shipment identifier</Name>
+					<Name>Shipment identifier - Identificativo spedizione</Name>
 					<Description>L'elemento è imposto dalla struttura della sintassi. Il valore fisso è 'NA'</Description>
 				</Element>
 				<Element cardinality="0..1">
@@ -1271,7 +1269,7 @@
 				</Element>
 				<Element cardinality="0..1">
 					<Term>cac:TransportHandlingUnit</Term>
-					<Name>Transport handling unit</Name>
+					<Name>Transport handling unit - Unità di Trasporto</Name>
 					<Element cardinality="0..1">
 						<Term>cbc:ShippingMarks</Term>
 						<Name>Packing label - Etichetta di imballaggio</Name>
@@ -1696,8 +1694,8 @@
 					<Description>Informazioni consegna della linea d'ordine</Description>
 					<Element cardinality="0..1">
 						<Term>cbc:ID</Term>
-						<Name>Delivery location ID</Name>
-						<Description>An identifer for the location to where the ordered line item should be delivered.</Description>
+						<Name>Delivery location ID - Identificativo luogo di consegna</Name>
+						<Description>Identificativo univoco del luogo di consegna del Cliente reso disponibile al Fornitore</Description>
 						<DataType>Identifier</DataType>
 						<Reference type="BUSINESS_TERM">tir01-p037</Reference>
 						<Attribute usage="Optional">
@@ -1753,8 +1751,8 @@
 					<Description>Riporta le informazioni relative al soggetto che ha richiesto la linea d’ordine, se diverso dal Cliente.</Description>
 					<Element cardinality="0..1">
 						<Term>cac:PartyIdentification</Term>
-						<Name>Party identification</Name>
-						<Description>Identification of the originator </Description>
+						<Name>Party identification - Identificativo della parte</Name>
+						<Description>Informazioni sull'identificativo del richiedente della linea d'ordine</Description>
 						<Element agid:custom="rule">
 							<Term>cbc:ID</Term>
 							<Name>Order line originator party ID - Identificativo del richiedente della linea d’ordine</Name>
@@ -1791,6 +1789,7 @@
 					<Description>Contiene l’indicazione degli sconti e delle maggiorazioni applicate a livello di linea d’ordine.</Description>
 					<Element>
 						<Term>cbc:ChargeIndicator</Term>
+						<Name>Line level allowance or charge indicator - Indicatore sconto/maggiorazione</Name>
 						<Description>Indica se si sta applicando uno sconto (“false”) o una maggiorazione (“true”).</Description>
 						<Reference type="BUSINESS_TERM">tir01-p014</Reference>
 						<Value type="EXAMPLE">false</Value>
@@ -1904,7 +1903,7 @@
 						<Description>Informazioni sconto/maggiorazione</Description>
 						<Element>
 							<Term>cbc:ChargeIndicator</Term>
-							<Name>AllowanceChargeIndicator - Indicatore sconto/maggiorazione</Name>
+							<Name>Line level allowance or charge indicator - Indicatore sconto/maggiorazione</Name>
 							<Description>Indica che si sta applicando uno sconto (valore fisso “false”), in quanto a livello di prezzo si può applicare solo lo sconto.</Description>
 							<DataType>Boolean</DataType>
 							<Reference type="BUSINESS_TERM">tir01-p004</Reference>
@@ -1979,7 +1978,7 @@
 						<Name>Sellers item identification - Identificativo prodotto attribuito dal Fornitore</Name>
 						<Element>
 							<Term>cbc:ID</Term>
-							<Name>The Sellers item identifier - Identificativo prodotto attribuito dal Fornitore</Name>
+							<Name>Sellers item identifier - Identificativo prodotto attribuito dal Fornitore</Name>
 							<Description>Indica l’identificativo del bene o del servizio assegnato dal Fornitore.</Description>
 							<DataType>Identifier</DataType>
 							<Reference type="BUSINESS_TERM">tir01-p020</Reference>

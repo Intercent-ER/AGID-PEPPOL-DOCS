@@ -40,7 +40,7 @@ s|Descrizione
 
 `cac:OriginatorCustomerParty` +
 
-|Il Richiedente è la persona giuridica o l’organizzazione che inizializza il processo di emissione dell'Ordine e per la quale l'Acquirente effettua l'acquisto.
+|Il Richiedente è l'Unità Organizzativa facente parte dell'Acquirente o la persona fisica che esprime il fabbisogno che dà avvio al processo di emissione dell’Ordine.
 
 |*Intestatario fattura* +
 
@@ -52,7 +52,7 @@ s|Descrizione
 
 `cac:Delivery/cac:DeliveryParty` +
 
-|Il Consegnatario/Destinatario è la persona giuridica o l’organizzazione che riceve i beni e/o i servizi oggetto dell’ordine.
+|Il Consegnatario/Destinatario è la persona fisica, giuridica o l’organizzazione che riceve i beni e/o i servizi oggetto dell’ordine.
 
 |====
 

@@ -39,8 +39,7 @@
     <Code>
         <Id>84</Id>
         <Name>Debit note related to financial adjustments</Name>
-        <Description>Document/message for providing debit information related
-            to financial adjustments to the relevant party.
+        <Description>Document/message for providing debit information related to financial adjustments to the relevant party.
         </Description>
         <Nome>Nota di addebito relativa agli adeguamenti finanziari</Nome>
         <LocalDescription>Documento / messaggio per fornire informazioni di addebito relative agli adeguamenti finanziari alla parte interessata.</LocalDescription>

@@ -35,5 +35,5 @@ In Italia la registrazione delle pubbliche amministrazione sulla rete Peppol avv
 .Esempio di Endpoint di fornitore registrato in Peppol con un GLN (Global Location Number) secondo gli standard GS1:
 [source, xml, indent=0]
 ----
-    ​<cbc:EndpointID schemeID="0088">5790000435968</cbc:EndpointID
+    ​<cbc:EndpointID schemeID="0088">5790000435968</cbc:EndpointID>
 ----

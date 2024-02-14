@@ -39,7 +39,7 @@ L'esempio riportato è relativo alla fattura emessa ad una PA soggetta alla scis
 ----
 
 = Indicazione acconto in fattura di saldo
-L’indicazione dell’acconto in fattura *di saldo* è operata attraverso l’inserimento di una specifica riga di fattura di importo negativo. Pertanto, è necessario che l’elemento cbc:InvoicedQuantity (BT-129 Invoiced Quantity) venga valorizzato a “-1.00”. 
+L’indicazione dell’acconto in fattura di saldo è operata attraverso l’inserimento di una specifica riga di fattura di importo negativo. Pertanto, è necessario che l’elemento cbc:InvoicedQuantity (BT-129 Invoiced Quantity) venga valorizzato a “-1.00”. 
 
 La riga di acconto ha la medesima natura della prestazione oggetto della fattura di saldo. 
 

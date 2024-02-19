@@ -104,7 +104,9 @@ L’ordine è accettato con modifica a livello di riga +
     <cac:Delivery>
         <cac:PromisedDeliveryPeriod>
             <cbc:StartDate>2018-12-10</cbc:StartDate>
+            <cbc:StartTime>12:10:33</cbc:StartTime>
             <cbc:EndDate>2018-12-20</cbc:EndDate>
+            <cbc:EndTime>14:20:00</cbc:EndTime>
         </cac:PromisedDeliveryPeriod>
     </cac:Delivery> <2> 
 </OrderResponse>

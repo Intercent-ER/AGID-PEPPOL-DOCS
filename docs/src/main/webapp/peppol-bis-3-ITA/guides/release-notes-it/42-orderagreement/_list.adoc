@@ -6,7 +6,39 @@
 | Data
 | Cosa è cambiato
 
-| 3.1.0.1(IT)
+| 3.0.0.6(IT)
+a| 18/12/2023
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2023-Q4/release-notes/[Peppol BIS 3.0.12 - November release 2023] e altre modifiche italiane_. +
+
+In vigore a partire dal *26 febbraio 2024*
+
+[red]#Cambiamenti alla specifica (Documentazione)#
+
+* Correzione di un errore nella sezione _4. Tipi di dato semantici_, in cui l’indicatore booleano era caratterizzato dal tipo primitivo “String” invece che “Boolean”. Modifica puramente editoriale;
+* Piccole modifiche editoriali. 
+
+[red]#Cambiamenti alle code lists e artefatti di validazione#
+
+* Aggiunto il codice 0218 (Lettonia) alla codifica EAS;
+* Aggiunta correlazione tra codice CEL e l’unità di misura °C [grado Celsius] nella codifica Recommendation 20, including Recommendation 21 codes - prefixed with X (UN/ECE).
+
+
+
+| 3.0.0.5(IT)
+a| 21/06/2023
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2023-Q2/release-notes/[Peppol BIS 3.0.11 - May release 2023]_. +
+
+In vigore a partire dal *07 agosto 2023*
+
+[red]#Cambiamenti alle code lists e artefatti di validazione#
+
+* Modificata da “warning” a “fatal” la severità della regola PEPPOL-COMMON-R050 per la validazione dell’Australian Business Number (ABN);
+* Aggiunti i codici 0221 (Giappone) e 0230 (Malesia) alla codifica EAS. Rimosso il codice svedese 9955 dalla stessa codifica;
+* Aggiunti i codici 0221 (Giappone), 0222, 0223 (Francia), 0224 (Francia), 0225 (Francia), 0226 (Francia), 0227 (Francia), 0228 (Francia), 0229 (Francia), 0230 (Malesia) alla codifica ICD;
+* Aggiunto il codice EMD nella codelist Item type identification code (UNCL7143) per indicare l’identificativo del Dispositivo Medico secondo l’European Medical Device Nomenclature (EMDN).
+
+
+| 3.0.0.4(IT)
 a| 16/12/2022
 a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2022-Q4/release-notes/[Peppol BIS 3.0.10 - November release 2022]_. +
 

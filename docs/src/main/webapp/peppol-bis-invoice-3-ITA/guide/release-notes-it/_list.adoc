@@ -6,6 +6,74 @@
 ^.^| Data
 ^.^| Cosa è cambiato
 
+
+| 3.0.16.1(IT)
+a| 18/12/2023
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/2023-Q4/release-notes/[PEPPOL BIS 3.0.16 - November release 2023] e altre modifiche italiane_. +
+
+In vigore a partire dal *26 febbraio 2024*
+
+[red]#Cambiamenti alla specifica (Documentazione)# +
+
+* Aggiornamento della sezione _4.6 Fatture negative e note di credito_, e rimozione del riferimento al formato BIS2. Modifica puramente editoriale;  
+* Inserimento di esempi specifici nelle sezioni _4.9.1. Rivalsa del bollo_ e _4.9.2. Restituzione del bollo_; 
+* Aggiunta della nuova sezione _4.11 Indicazione acconto in fattura_ contenente le modalità operative previste per l’indicazione di un acconto nella fattura di saldo; 
+* Aggiornamento delle sezioni _15.1. Regole di business Peppol per le transazioni_ e _15.2. Regole di business EN 16931 per le transazioni_ per allineamento degli schematron all’aggiornamento derivante dalla norma EN 16931; 
+* Aggiornamento delle sezioni dell’_Appendix C: Regole Nazionali_ per allineamento alle Regole tecniche dell’Agenzia delle Entrate relative alla gestione delle fatture europee - versione 2.3 e modifica delle seguenti regole: 
+** _C.1. CIUS_: BR-IT-120; BR-IT-180; BR-IT-200; BR-IT-230; 
+** _C.4. Estensioni Domestiche_: BR-IT-DE-011; BR-IT-DE-046; BR-IT-DE-049. 
+* Integrazione delle sezioni dell’_Appendix C: Regole Nazionali_ per allineamento ai controlli svolti da SDI sui documenti e inserimento delle seguenti nuove regole: 
+** _C.1. CIUS_: BR-IT-071; BR-IT-081; BR-IT-100; BR-IT-130; BR-IT-221; BR-IT-361; 
+** _C.2. CIUS Domestiche_: BR-IT-DC-120; BR-IT-DC-141; BR-IT-DC-160; BR-IT-DC-170; BR-IT-DC-180; BR-IT-DC-190; BR-IT-DC-300; BR-IT-DC-310; BR-IT-DC-320; BR-IT-DC-330; BR-IT-DC-340;  
+** _C.4. Estensioni Domestiche_: BR-IT-DE-050; BR-IT-DE-051; BR-IT-DE-052; BR-IT-DE-053.  
+* Aggiornamento della regola BR-IT-DC-480* relativa alla modalità di indicazione del bollo;
+* Piccole modifiche editoriali. 
+
+[red]#Cambiamenti alle code lists e artefatti di validazione# +
+
+* Rimozione della regola PEPPOL-EN16931-R006 dalle _Regole di business Peppol BIS Fatturazione 3.0_ in quanto ridondante rispetto alla regola UBL-SR-04 presente tra le _Regole di business EN 16931 Fatturazione_; 
+* Revisioni di specifiche _Regole di business CIUS italiana_ (CIUS ID BR-IT-120; BR-IT-180; BR-IT-200; BR-IT-230; BR-IT-520*; BR-IT-DC-203) e _Regole di business estensione italiana_ (CIUS ID BR-IT-DE-009NC1*; BR-IT-DE-011) per allineamento alle Regole tecniche dell’Agenzia delle Entrate relative alla gestione delle fatture europee - versione 2.3; 
+* Integrazione delle  _Regole di business CIUS italiana_ e delle _Regole di business estensione italiana_ per allineamento ai controlli svolti da SDI sui documenti e inserimento delle seguenti nuove regole: 
+** _Regole di business CIUS italiana_: BR-IT-071; BR-IT-081; BR-IT-100; BR-IT-130; BR-IT-221; BR-IT-361; BR-IT-DC-120; BR-IT-DC-141; BR-IT-DC-160; BR-IT-DC-170; BR-IT-DC-180; BR-IT-DC-190; BR-IT-DC-300; BR-IT-DC-310; BR-IT-DC-320; BR-IT-DC-330; BR-IT-DC-340;  
+** _Regole di business estensione italiana_: BR-IT-DE-050; BR-IT-DE-051; BR-IT-DE-052; BR-IT-DE-053. 
+* Aggiunto il codice 0218 (Lettonia) alla codifica EAS; 
+* Aggiunta correlazione tra codice CEL e l’unità di misura °C [grado Celsius] nella codifica Recommendation 20, including Recommendation 21 codes - prefixed with X (UN/ECE). 
+
+[red]#Aggiornamento schematron EN 16931# +
+
+* Adozione della versione 1.3.11 degli artefatti di validazione derivanti dall’aggiornamento della norma EN 16931. 
+
+[red]#Cambiamenti nella sezione Downloads# +
+
+* Inserimento di un nuovo file di esempio relativo alla fatturazione acconto – saldo. 
+
+
+| 3.0.15.2(IT)
+a| 07/08/2023
+a|Aggiornamento delle modalità di indicazione del bollo virtuale in Fattura e Nota di Credito, revisione del paragrafo 4.9 Imposta di bollo.
+
+| 3.0.15.1(IT)
+a| 21/06/2023
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/2023-Q2/release-notes/[PEPPOL BIS 3.0.15 - May release 2023]_. +
+
+In vigore a partire dal *07 agosto 2023*
+
+[red]#Cambiamenti alle code lists e artefatti di validazione# +
+
+* Modificata da “warning” a “fatal” la severità della regola PEPPOL-COMMON-R050 per la validazione dell’Australian Business Number (ABN);
+* Aggiunti i codici 0221 (Giappone) e 0230 (Malesia) alla codifica EAS. Rimosso il codice svedese 9955 dalla stessa codifica;
+* Aggiunti i codici 0221 (Giappone), 0222, 0223 (Francia), 0224 (Francia), 0225 (Francia), 0226 (Francia), 0227 (Francia), 0228 (Francia), 0229 (Francia), 0230 (Malesia) alla codifica ICD;
+* Aggiunto il codice EMD nella codelist Item type identification code (UNCL7143) per indicare l’identificativo del Dispositivo Medico secondo l’European Medical Device Nomenclature (EMDN). 
+* Corrette specifiche regole di business derivanti dagli aggiornamenti della EN16931 e relativi schematron (per ulteriori informazioni si rimanda al link: https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.10).
+
+[red]#Cambiamenti alle regole specifiche per Paese# +
+
+* Rimosse le regole GR-R-007-1, GR-R-007-2 e GR-R-007-3;
+* Aggiornato il contesto di applicazione delle regole GR-R-004-1 e GR-R-004-2 che non si applicano più quando il Rappresentante Fiscale è greco;
+* Aggiunta la regola GR-R-011 che rende obbligatorio il Codice Fiscale per il Fornitore greco;
+* Rinominata la regola GR-R-011 in GR-S-011 e modificata da “fatal” a “warning” la severità. 
+
+
 | 3.0.14.2(IT)
 a| 13/06/2023
 a| La presente specifica implementa la versione aggiornata delle Regole tecniche dell’Agenzia delle Entrate relative alla gestione delle fatture europee - versione 2.3 pubblicate il 15/05/2023, in relazione al Provvedimento 99370 pubblicato il 18/04/2019. 

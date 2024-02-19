@@ -6,8 +6,7 @@ Le seguenti parti/ruoli possono essere specificate nel messaggio.  Lo stesso att
 [[despatch-party-despatchsupplierparty]]
 == Speditore/Mittente (DespatchSupplierParty)
 
-Lo Speditore/Mittente è la persona giuridica o l'organizzazione che spedisce la merce e/o i servizi ed è un’informazione obbligatoria. Questo ruolo viene ricoperto dal Fornitore o per suo conto. +
-#Ai sensi dell’Art. 21, comma 4 del DPR n. 633/1972 lo Speditore/Mittente corrisponde al Venditore qualora la sezione Venditore non sia valorizzata.#
+Lo Speditore/Mittente è la persona giuridica o l’organizzazione che spedisce la merce e/o eroga i servizi ed è un’informazione obbligatoria. Questo ruolo viene ricoperto dal Fornitore o per suo conto.
 
 
 .Esempio di informazioni dello Speditore/Mittente
@@ -16,14 +15,28 @@ Lo Speditore/Mittente è la persona giuridica o l'organizzazione che spedisce la
 include::{snippet-dir}/snippet-30-1.xml[tags=despatchsupplier]
 ----
 
-<1> la Partita IVA viene specificata inserendo l'attributo @schemeID valorizzato con il codice "0211"
+<1> Il campo cbc:ID deve contenere l’identificativo fiscale dello Speditore/Mittente, preceduto dal prefisso corrispondente al paese in cui risiede, e valorizzato dallo @schemeID corrispondente secondo la codelist ISO 6523 ICD list. #In caso di OE italiano, il campo DEVE contenere la Partita IVA del soggetto, preceduta dal prefisso “IT”, valorizzata con lo @schemeID pari a “0211”.# 
+<2> #Le informazioni di indirizzo dello Speditore/Mittente sono obbligatorie.# +
+
+#Se lo Speditore/Mittente è un’amministrazione pubblica, il campo EndpointID deve contenere il Codice Univoco Ufficio (c.d. "Codice IPA", riportato nell’Indice delle Pubbliche Amministrazioni) della PA e il relativo @schemeID deve essere valorizzato con “0201”. In aggiunta, il campo RegistrationName deve contenere la denominazione della PA in forma estesa.#
+
+.Esempio di informazioni dello Speditore/Mittente in caso di Pubblica Amministrazione italiana
+[source, xml, indent=0]
+----
+include::{snippet-dir}/snippet-30-1.xml[tags=despatchsupplierpa]
+----
+
+<1> Il campo cbc:EndpointID contiene il Codice IPA dell’Ufficio che emette il DDT, valorizzato con lo @schemeID pari a “0201”;
+<2> Il campo cbc:ID contiene la Partita IVA della PA valorizzata con lo @schemeID pari a “0211”;
+<3> La struttura contiene le informazioni di indirizzo relative alla sede legale della PA; 
+<4> Il campo contiene la denominazione della PA in forma estesa.
+
 
 
 [[consignee-deliverycustomerparty]]
 == Consegnatario/Destinatario (DeliveryCustomerParty)
 
-Il Consegnatario/Destinatario è la persona giuridica o l’organizzazione che riceve beni e/o servizi oggetto dell’ordine ed è un’informazione obbligatoria. Questo ruolo viene ricoperto dal Cliente o per suo conto. +
-#Ai sensi dell’Art. 21, comma 4 del DPR n. 633/1972 il Consegnatario/Destinatario corrisponde all’Acquirente qualora la sezione Acquirente non sia valorizzata.#
+Il Consegnatario/Destinatario è la persona giuridica o l’organizzazione che riceve beni e/o servizi oggetto dell’ordine ed è un’informazione obbligatoria. Questo ruolo viene ricoperto dal Cliente o per suo conto.
 
 
 .Esempio di informazioni del Consegnatario/Destinatario
@@ -32,14 +45,19 @@ Il Consegnatario/Destinatario è la persona giuridica o l’organizzazione che r
 include::{snippet-dir}/snippet-30-1.xml[tags=deliverycustomer]
 ----
 
-<1> il Codice Fiscale viene specificato inserendo l'attributo @schemeID valorizzato con il codice "0210"
+<1> #Il campo cbc:EndpointID DEVE contenere il Codice Univo Ufficio della pubblica amministrazione (codice IPA) valorizzato con lo @schemeID pari a “0201”;#
+<2> #Il campo cbc:ID DEVE contenere il Codice Fiscale del Consegnatario/Destinatario valorizzato con lo @schemeID pari a “0210”;#
+<3> #Le informazioni di indirizzo del Consegnatario/Destinatario sono obbligatorie e devono corrispondere alla sede legale della PA;# 
+<4> #Il campo deve essere compilato con la denominazione della PA in forma estesa.#
+
 
 
 [[buyer-buyercustomerparty]]
 == Acquirente (BuyerCustomerParty)
 
 L’Acquirente è la persona giuridica o l’organizzazione che acquista beni e/o servizi. +
-#Ai sensi dell’Art. 21, comma 4 del DPR n. 633/1972 il Consegnatario/Destinatario corrisponde all’Acquirente qualora la sezione Acquirente non sia valorizzata.#
+#L'Acquirente corrisponde alla parte Cessionaria ai sensi dell’Art. 1, comma 3 del DPR n. 472/1996 ed è un'informazione obbligatoria.#
+
 
 .Esempio di informazioni dell’Acquirente
 [source, xml, indent=0]
@@ -47,12 +65,18 @@ L’Acquirente è la persona giuridica o l’organizzazione che acquista beni e/
 include::{snippet-dir}/snippet-30-1.xml[tags=buyer]
 ----
 
+<1> #Il campo cbc:ID DEVE contenere il Codice Fiscale dell’Acquirente valorizzato con lo @schemeID pari a “0210”;#
+<2> #Il campo deve essere compilato con la denominazione della PA in forma estesa#
+<3> #Le informazioni di indirizzo dell’Acquirente sono obbligatorie e devono corrispondere alla sede legale della PA;#
+
+[NOTE]
+In caso di coincidenza tra Acquirente e Consegnatario/Destinatario entrambe le parti devono riportare la medesima denominazione della PA cliente in forma estesa.
 
 [[seller-sellersupplierparty]]
 == Venditore (SellerSupplierParty)
 
 Il Venditore è la persona giuridica o l’organizzazione che vende beni e/o servizi. +
-#Ai sensi dell’Art. 21, comma 4 del DPR n. 633/1972 lo Speditore/Mittente corrisponde al Venditore qualora la sezione Venditore non sia valorizzata.#
+#Il Venditore corrisponde alla parte Cedente ai sensi dell’Art. 1, comma 3 del DPR n. 472/1996 ed è un'informazione obbligatoria.#
 
 .Esempio di informazioni del Venditore
 [source, xml, indent=0]
@@ -60,11 +84,14 @@ Il Venditore è la persona giuridica o l’organizzazione che vende beni e/o ser
 include::{snippet-dir}/snippet-30-1.xml[tags=seller]
 ----
 
+<1> Il campo cbc:ID DEVE contenere l’identificativo fiscale del Venditore, preceduto dal prefisso corrispondente al paese in cui risiede, e valorizzato dallo @schemeID corrispondente secondo la codelist ISO 6523 ICD list. #In caso di OE italiano, il campo DEVE contenere la Partita IVA del soggetto, preceduta dal prefisso “IT”, valorizzata con lo @schemeID pari a “0211”;#
+<2> #Le informazioni di indirizzo del Venditore sono obbligatorie.#
+
 
 [[originating-party-originatorcustomerparty]]
 == Richiedente (OriginatorCustomerParty)
 
-Il Richiedente è la persona giuridica o l’organizzazione che inizializza il processo di emissione dell'Ordine e per la quale l'Acquirente effettua l'acquisto. +
+Il Richiedente è l'Unità Organizzativa facente parte dell'Acquirente o la persona fisica che esprime il fabbisogno che dà avvio al processo di acquisto.
 Il Richiedente è un’informazione opzionale.
 
 .Esempio di informazioni del Richiedente
@@ -77,11 +104,15 @@ include::{snippet-dir}/snippet-30-1.xml[tags=originator]
 [[carrier-party-carrierparty]]
 == Vettore (CarrierParty)
 
-Il Vettore è la persona giuridica o l'organizzazione che gestisce la consegna/trasporto fisico della spedizione. Utilizzato se il trasporto è effettuato da una terza parte. +
-#Ai sensi dell’Art. 21, comma 4 del DPR n. 633/1972 il Vettore è un’informazione obbligatoria.#
+Il Vettore è la persona giuridica o l’organizzazione che gestisce la consegna/trasporto fisico della spedizione. Utilizzato se il trasporto è effettuato da una terza parte. +
+#Il Vettore è un'informazione obbligatoria ai sensi dell’Art. 1, comma 3 del DPR n. 472/1996.#
 
 .Esempio di informazioni del Vettore
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/snippet-30-1.xml[tags=carrier]
 ----
+
+<1> Il campo cbc:ID DEVE contenere l’identificativo fiscale del Vettore, preceduto dal prefisso corrispondente al paese in cui risiede, e valorizzato dallo @schemeID corrispondente secondo la codelist ISO 6523 ICD list. #In caso di OE italiano, il campo DEVE contenere la Partita IVA del soggetto, preceduta dal prefisso “IT”, valorizzata con lo @schemeID pari a “0211”;#
+<2> #Le informazioni di indirizzo del Vettore sono obbligatorie.#
+

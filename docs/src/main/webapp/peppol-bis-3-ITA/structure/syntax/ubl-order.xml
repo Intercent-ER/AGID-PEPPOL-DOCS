@@ -21,11 +21,10 @@
 			<Term>cbc:ProfileID</Term>
 			<Name>Business process type identifier</Name>
 			<Description>Identifies the BII profile or business process context in which the
-				transaction appears. Values to be used are either urn:fdc:peppol.eu:poacc:bis:order_only:3
-				or urn:fdc:peppol.eu:poacc:bis:ordering:3</Description>
+				transaction appears.</Description>
 			<DataType>Identifier</DataType>
 			<Reference type="BUSINESS_TERM">tir01-002</Reference>
-			<Value type="EXAMPLE">urn:fdc:peppol.eu:poacc:bis:order_only:3</Value>
+			<Value type="EXAMPLE">urn:fdc:peppol.eu:poacc:bis:ordering:3</Value>
 		</Element>
 		<Element>
 			<Term>cbc:ID</Term>
@@ -64,10 +63,9 @@
 		</Element>
 		<Element cardinality="0..1">
 			<Term>cbc:OrderTypeCode</Term>
-			<Name>Consignment order indication</Name>
-			<Description>Indicates wether the order is a purchase order or consignement order.
-				Default is purchase order.</Description>
-			<Reference type="BUSINESS_TERM">tir01-153</Reference>
+			<Name>Order type code</Name>
+			<Description>Indicates wether the order is a Purchase order (tir01-153), Consignement order (tir01-p050), Blanket order (tir01-p051) or Call of order (tir01-p052). Default is purchase order. See section Order Type Code in BIS-documentation for handling of order types.</Description>
+			<Reference type="BUSINESS_TERM">tir01-153, tir01-p050, tir01-p051, tir01-p052</Reference>
 			<Reference type="CODE_LIST">UNCL1001_T01</Reference>
 			<Value type="EXAMPLE">220</Value>
 		</Element>
@@ -165,6 +163,20 @@
 				<Value type="EXAMPLE">5435235</Value>
 			</Element>
 		</Element>
+
+		<Element cardinality="0..1">
+			<Term>cac:CatalogueReference</Term>
+			<Name>Catalogue reference</Name>
+			<Element>
+				<Term>cbc:ID</Term>
+				<Name>Catalogue reference</Name>
+				<Description>A reference to the Catalogue on which this Order is based.</Description>
+				<DataType>Document reference</DataType>
+				<Reference type="BUSINESS_TERM">tir01-p45</Reference>
+				<Value type="EXAMPLE">Cat2023-03-07</Value>
+			</Element>
+		</Element>
+
 		<Element cardinality="0..n">
 			<Term>cac:AdditionalDocumentReference</Term>
 			<Name>Additional documents</Name>
@@ -635,7 +647,7 @@
 						<Description>The official name of the party as registered with the relevant
 							fiscal authority.</Description>
 						<DataType>Text</DataType>
-						<Reference type="BUSINESS_TERM">tir01-044</Reference>
+						<Reference type="BUSINESS_TERM">tir01-p038</Reference>
 					</Element>
 					<Element cardinality="0..1">
 						<Term>cbc:CompanyID</Term>
@@ -643,7 +655,7 @@
 						<Description>Identifies a company as registered with the company
 							registration scheme.</Description>
 						<DataType>Identifier</DataType>
-						<Reference type="BUSINESS_TERM">tir01-043</Reference>
+						<Reference type="BUSINESS_TERM">tir01-p039</Reference>
 						<Attribute usage="Optional">
 							<Term>schemeID</Term>
 							<Name>Scheme identifier</Name>
@@ -664,7 +676,7 @@
 								a Corporate Registration Scheme. The name of a city, town, or
 								village.</Description>
 							<DataType>Text</DataType>
-							<Reference type="BUSINESS_TERM">tir01-045</Reference>
+							<Reference type="BUSINESS_TERM">tir01-p040</Reference>
 						</Element>
 						<Element>
 							<Term>cac:Country</Term>
@@ -678,7 +690,7 @@
 									subdivisions". Codes must be according to the alpha-2
 									representation.</Description>
 								<DataType>Code</DataType>
-								<Reference type="BUSINESS_TERM">tir01-046</Reference>
+								<Reference type="BUSINESS_TERM">tir01-p041</Reference>
 								<Reference type="CODE_LIST">ISO3166</Reference>
 								<Value type="EXAMPLE">NL</Value>
 							</Element>
@@ -1334,6 +1346,15 @@
 					<Description>Element is mandated by syntax structure use value NA</Description>
 				</Element>
 				<Element cardinality="0..1">
+					<Term>cbc:ShippingPriorityLevelCode</Term>
+					<Name>Requested shipping priority</Name>
+					<Description>The priority level requested by the buyer for the shipping of the order. Use value: "1" for Express/urgent/rush.</Description>
+					<DataType>code</DataType>
+					<Reference type="BUSINESS_TERM">tir01-p47</Reference>
+					<Reference type="CODE_LIST">UNCL4219</Reference>
+					<Value type="EXAMPLE">1</Value>
+				</Element>
+				<Element cardinality="0..1">
 					<Term>cac:TransportHandlingUnit</Term>
 					<Name>Transport handling unit</Name>
 					<Element cardinality="0..1">
@@ -1490,7 +1511,6 @@
 					<Description>The TAX category code that applies to the document level allowance
 						or charge.</Description>
 					<DataType>Code</DataType>
-					<Reference type="CODE_LIST">UNCL5305</Reference>
 					<Reference type="BUSINESS_TERM">tir01-p011</Reference>
 					<Value type="EXAMPLE">S</Value>
 				</Element>
@@ -1823,6 +1843,14 @@
 							<Value type="EXAMPLE">2018-09-03</Value>
 						</Element>
 						<Element cardinality="0..1">
+							<Term>cbc:StartTime</Term>
+							<Name>Period start time</Name>
+							<Description>The time at which this period begins. Format = "hh:mm:ss"</Description>
+							<DataType>Time</DataType>
+							<Reference type="BUSINESS_TERM">tir01-p48</Reference>
+							<Value type="EXAMPLE">12:30:00</Value>
+						</Element>
+						<Element cardinality="0..1">
 							<Term>cbc:EndDate</Term>
 							<Name>Period end date</Name>
 							<Description>The date on which the period ends. The end date counts as
@@ -1830,6 +1858,14 @@
 							<DataType>Date</DataType>
 							<Reference type="BUSINESS_TERM">tir01-127</Reference>
 							<Value type="EXAMPLE">2018-09-15</Value>
+						</Element>
+						<Element cardinality="0..1">
+							<Term>cbc:EndTime</Term>
+							<Name>Period end time</Name>
+							<Description>The time at which this period end. Format = "hh:mm:ss"</Description>
+							<DataType>Time</DataType>
+							<Reference type="BUSINESS_TERM">tir01-p49</Reference>
+							<Value type="EXAMPLE">18:00:00</Value>
 						</Element>
 					</Element>
 				</Element>
@@ -2100,6 +2136,18 @@
 						</Element>
 					</Element>
 					<Element cardinality="0..1">
+						<Term>cac:ManufacturersItemIdentification</Term>
+						<Name>Manufacturers Item Identifier</Name>
+						<Element>
+							<Term>cbc:ID</Term>
+							<Name>Manufacturers Item Identifier</Name>
+							<Description>An identifier, assigned by the items manufacturer, for the item.</Description>
+							<DataType>Identifier</DataType>
+							<Reference type="BUSINESS_TERM">tir01-p46</Reference>
+							<Value type="EXAMPLE">manid659</Value>
+						</Element>
+					</Element>
+					<Element cardinality="0..1">
 						<Term>cac:StandardItemIdentification</Term>
 						<Name>Standard item identification</Name>
 						<Element>
@@ -2180,7 +2228,6 @@
 							<Description>The TAX category code for the item.</Description>
 							<DataType>Code</DataType>
 							<Reference type="BUSINESS_TERM">tir01-150</Reference>
-							<Reference type="CODE_LIST">UNCL5305</Reference>
 							<Value type="EXAMPLE">S</Value>
 						</Element>
 						<Element cardinality="0..1">

@@ -3882,7 +3882,7 @@
 | cac:AccountingSupplierParty/cac:Party
 | (count(cac:PartyTaxScheme) <= 2)
 .3+| UBL-SR-43 *(fatal)*
-| [UBL-SR-43]-Scheme identifier shall only be used for invoiced object (document type code with value 130)
+| [UBL-SR-43]-Scheme identifier shall only be used for invoiced object (document type code with value 130 or 50)
 | cac:AdditionalDocumentReference
 | ((cbc:DocumentTypeCode='130') or ((local-name(/*) = 'CreditNote') and (cbc:DocumentTypeCode='50')) or (not(cbc:ID/@scheme) and not(cbc:DocumentTypeCode)))
 .3+| UBL-SR-44 *(fatal)*

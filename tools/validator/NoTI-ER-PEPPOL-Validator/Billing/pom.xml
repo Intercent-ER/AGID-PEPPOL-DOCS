@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<name>AGID-PEPPOL-Validator-Billing</name>
 	<artifactId>AGID-PEPPOL-Validator-Billing</artifactId>
-	<version>2.7.0</version>
+	<version>3.1.0</version>
 	<parent>
 		<groupId>it.gov.agid</groupId>
 		<artifactId>AGID-PEPPOL-Validator</artifactId>
-		<version>2.7.0</version>
+		<version>3.1.0</version>
 		<relativePath>..</relativePath>
 	</parent>
 	<packaging>pom</packaging>

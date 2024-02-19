@@ -82,16 +82,14 @@
 		</xsl:if>
 	</xsl:template>
 	<xsl:template match="cac:AllowanceCharge" mode="BOLLO">
-		<xsl:param name="CN" select="."/>
-		<xsl:param name="CNP" select="1"/>
 		<xsl:if test="./cbc:AllowanceChargeReasonCode = 'SAE'">
 			<DatiBollo>
 				<BolloVirtuale>
 					<xsl:text>SI</xsl:text>
 				</BolloVirtuale>
-				<ImportoBollo>
+				<!--<ImportoBollo>
 					<xsl:value-of select="format-number(cbc:Amount,'###########0.00')"/>
-				</ImportoBollo>
+				</ImportoBollo>-->
 			</DatiBollo>
 		</xsl:if>
 	</xsl:template>
@@ -1048,7 +1046,7 @@
 							<xsl:when test="(string-length(/in:Invoice/cbc:BuyerReference)-string-length(translate(/in:Invoice/cbc:BuyerReference,'#','')) &gt; 3) and (contains(/in:Invoice/cbc:BuyerReference, '##')) ">
 								<xsl:value-of select="concat('#', substring-before(substring-after(/in:Invoice/cbc:BuyerReference, '##'), '#'), '#')"/>
 							</xsl:when>
-							<xsl:otherwise>						
+							<xsl:otherwise>
 								<xsl:value-of select="/in:Invoice/cbc:BuyerReference"/>
 							</xsl:otherwise>
 						</xsl:choose>
@@ -1593,114 +1591,116 @@
 	<xsl:template match="cac:TaxTotal/cac:TaxSubtotal" mode="DatiRiepilogo">
 		<xsl:param name="CN" select="."/>
 		<xsl:param name="CNP" select="1"/>
-		<DatiRiepilogo>
-			<AliquotaIVA>
-				<xsl:value-of select="if (cac:TaxCategory/cbc:Percent &gt;= 0) then format-number(cac:TaxCategory/cbc:Percent,'##0.00') else '0.00'"/>
-			</AliquotaIVA>
-			<!-- Conversione Natura domestica-->
-			<xsl:if test="cac:TaxCategory/cbc:ID and (/in:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode ='IT') and (/in:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode ='IT')">
+			<xsl:if test="(cbc:TaxableAmount &gt; 0 and cac:TaxCategory/cbc:ID ='Z') or cac:TaxCategory/cbc:ID != 'Z'">
+			<DatiRiepilogo>
+				<AliquotaIVA>
+					<xsl:value-of select="if (cac:TaxCategory/cbc:Percent &gt;= 0) then format-number(cac:TaxCategory/cbc:Percent,'##0.00') else '0.00'"/>
+				</AliquotaIVA>
+				<!-- Conversione Natura domestica-->
+				<xsl:if test="cac:TaxCategory/cbc:ID and (/in:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode ='IT') and (/in:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode ='IT')">
+					<xsl:choose>
+						<xsl:when test="cac:TaxCategory/cbc:ID !='Z' and cac:TaxCategory/cbc:ID !='B' and cac:TaxCategory/cbc:ID !='S'">
+							<xsl:if test="contains(cac:TaxCategory/cbc:TaxExemptionReason,'#')">
+								<Natura>
+									<xsl:value-of select="substring-before(cac:TaxCategory/cbc:TaxExemptionReason,'#')"/>
+								</Natura>
+							</xsl:if>
+							<xsl:if test="not(contains(cac:TaxCategory/cbc:TaxExemptionReason,'#'))">
+								<Natura>
+									<xsl:value-of select="cac:TaxCategory/cbc:TaxExemptionReason"/>
+								</Natura>
+							</xsl:if>
+						</xsl:when>
+						<xsl:when test="cac:TaxCategory/cbc:ID ='Z'">
+							<Natura>
+								<xsl:text>N1</xsl:text>
+							</Natura>
+						</xsl:when>
+					</xsl:choose>
+				</xsl:if>
+				<!-- Conversione Natura cross-border-->
+				<xsl:if test="cac:TaxCategory/cbc:ID and ((/in:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode !='IT') or (/in:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode !='IT'))">
+					<xsl:choose>
+						<xsl:when test="cac:TaxCategory/cbc:ID ='Z'">
+							<Natura>
+								<xsl:text>N1</xsl:text>
+							</Natura>
+						</xsl:when>
+						<xsl:when test="cac:TaxCategory/cbc:ID ='E'">
+							<Natura>
+								<xsl:text>N2.2</xsl:text>
+							</Natura>
+						</xsl:when>
+						<xsl:when test="cac:TaxCategory/cbc:ID ='G'">
+							<Natura>
+								<xsl:text>N3.1</xsl:text>
+							</Natura>
+						</xsl:when>
+						<xsl:when test="cac:TaxCategory/cbc:ID ='K'">
+							<Natura>
+								<xsl:text>N3.2</xsl:text>
+							</Natura>
+						</xsl:when>
+						<xsl:when test="cac:TaxCategory/cbc:ID ='AE'">
+							<Natura>
+								<xsl:text>N6.9</xsl:text>
+							</Natura>
+						</xsl:when>
+					</xsl:choose>
+				</xsl:if>
 				<xsl:choose>
-					<xsl:when test="cac:TaxCategory/cbc:ID !='Z' and cac:TaxCategory/cbc:ID !='B' and cac:TaxCategory/cbc:ID !='S'">
-						<xsl:if test="contains(cac:TaxCategory/cbc:TaxExemptionReason,'#')">
-							<Natura>
-								<xsl:value-of select="substring-before(cac:TaxCategory/cbc:TaxExemptionReason,'#')"/>
-							</Natura>
-						</xsl:if>
-						<xsl:if test="not(contains(cac:TaxCategory/cbc:TaxExemptionReason,'#'))">
-							<Natura>
-								<xsl:value-of select="cac:TaxCategory/cbc:TaxExemptionReason"/>
-							</Natura>
-						</xsl:if>
+					<xsl:when test="/*/ext:UBLExtensions/ext:UBLExtension[ExtensionURI='urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento']">
+						<xsl:apply-templates select="/*/ext:UBLExtensions/ext:UBLExtension" mode="RiepilogoArrotondamento">
+							<xsl:with-param name="CN" select="current()"/>
+							<xsl:with-param name="CNP" select="position()"/>
+						</xsl:apply-templates>
 					</xsl:when>
-					<xsl:when test="cac:TaxCategory/cbc:ID ='Z'">
-						<Natura>
-							<xsl:text>N1</xsl:text>
-						</Natura>
+					<xsl:when test=" format-number(cbc:TaxAmount,'###########0.00000000') != format-number(cbc:TaxableAmount * cac:TaxCategory/cbc:Percent div 100.00,'###########0.00000000')">
+						<Arrotondamento>
+							<xsl:value-of select="format-number((cbc:TaxAmount - (cbc:TaxableAmount * cac:TaxCategory/cbc:Percent div 100.00)),'###########0.00000000')"/>
+						</Arrotondamento>
 					</xsl:when>
 				</xsl:choose>
-			</xsl:if>
-			<!-- Conversione Natura cross-border-->
-			<xsl:if test="cac:TaxCategory/cbc:ID and ((/in:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode !='IT') or (/in:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode !='IT'))">
+				<ImponibileImporto>
+					<xsl:value-of select="format-number(floor(cbc:TaxableAmount * 100 + 0.5) div 100,'###########0.00')"/>
+				</ImponibileImporto>
+				<Imposta>
+					<xsl:value-of select="format-number(floor(cbc:TaxAmount * 100 + 0.5) div 100,'###########0.00')"/>
+				</Imposta>
 				<xsl:choose>
-					<xsl:when test="cac:TaxCategory/cbc:ID ='Z'">
-						<Natura>
-							<xsl:text>N1</xsl:text>
-						</Natura>
+					<xsl:when test="cac:TaxCategory/cbc:ID ='B'">
+						<EsigibilitaIVA>
+							<xsl:text>S</xsl:text>
+						</EsigibilitaIVA>
 					</xsl:when>
-					<xsl:when test="cac:TaxCategory/cbc:ID ='E'">
-						<Natura>
-							<xsl:text>N2.2</xsl:text>
-						</Natura>
+					<xsl:when test="/in:Invoice/cac:InvoicePeriod/cbc:DescriptionCode='3'">
+						<EsigibilitaIVA>
+							<xsl:text>I</xsl:text>
+						</EsigibilitaIVA>
 					</xsl:when>
-					<xsl:when test="cac:TaxCategory/cbc:ID ='G'">
-						<Natura>
-							<xsl:text>N3.1</xsl:text>
-						</Natura>
+					<xsl:when test="/in:Invoice/cac:InvoicePeriod/cbc:DescriptionCode='35'">
+						<EsigibilitaIVA>
+							<xsl:text>I</xsl:text>
+						</EsigibilitaIVA>
 					</xsl:when>
-					<xsl:when test="cac:TaxCategory/cbc:ID ='K'">
-						<Natura>
-							<xsl:text>N3.2</xsl:text>
-						</Natura>
-					</xsl:when>
-					<xsl:when test="cac:TaxCategory/cbc:ID ='AE'">
-						<Natura>
-							<xsl:text>N6.9</xsl:text>
-						</Natura>
+					<xsl:when test="/in:Invoice/cac:InvoicePeriod/cbc:DescriptionCode='432'">
+						<EsigibilitaIVA>
+							<xsl:text>D</xsl:text>
+						</EsigibilitaIVA>
 					</xsl:when>
 				</xsl:choose>
+				<xsl:if test="cac:TaxCategory/cbc:ID ='Z'">
+					<RiferimentoNormativo>
+						<xsl:text>Operazione esclusa ex. art. 15</xsl:text>
+					</RiferimentoNormativo>
+				</xsl:if>
+				<xsl:if test="cac:TaxCategory/cbc:ID !='Z' and contains(cac:TaxCategory/cbc:TaxExemptionReason,'#')">
+					<RiferimentoNormativo>
+						<xsl:value-of select="substring-after(cac:TaxCategory/cbc:TaxExemptionReason,'#')"/>
+					</RiferimentoNormativo>
+				</xsl:if>
+			</DatiRiepilogo>
 			</xsl:if>
-			<xsl:choose>
-				<xsl:when test="/*/ext:UBLExtensions/ext:UBLExtension[ExtensionURI='urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento']">
-					<xsl:apply-templates select="/*/ext:UBLExtensions/ext:UBLExtension" mode="RiepilogoArrotondamento">
-						<xsl:with-param name="CN" select="current()"/>
-						<xsl:with-param name="CNP" select="position()"/>
-					</xsl:apply-templates>
-				</xsl:when>
-				<xsl:when test=" format-number(cbc:TaxAmount,'###########0.00000000') != format-number(cbc:TaxableAmount * cac:TaxCategory/cbc:Percent div 100.00,'###########0.00000000')">
-					<Arrotondamento>
-						<xsl:value-of select="format-number((cbc:TaxAmount - (cbc:TaxableAmount * cac:TaxCategory/cbc:Percent div 100.00)),'###########0.00000000')"/>
-					</Arrotondamento>
-				</xsl:when>
-			</xsl:choose>
-			<ImponibileImporto>
-				<xsl:value-of select="format-number(floor(cbc:TaxableAmount * 100 + 0.5) div 100,'###########0.00')"/>
-			</ImponibileImporto>
-			<Imposta>
-				<xsl:value-of select="format-number(floor(cbc:TaxAmount * 100 + 0.5) div 100,'###########0.00')"/>
-			</Imposta>
-			<xsl:choose>
-				<xsl:when test="cac:TaxCategory/cbc:ID ='B'">
-					<EsigibilitaIVA>
-						<xsl:text>S</xsl:text>
-					</EsigibilitaIVA>
-				</xsl:when>
-				<xsl:when test="/in:Invoice/cac:InvoicePeriod/cbc:DescriptionCode='3'">
-					<EsigibilitaIVA>
-						<xsl:text>I</xsl:text>
-					</EsigibilitaIVA>
-				</xsl:when>
-				<xsl:when test="/in:Invoice/cac:InvoicePeriod/cbc:DescriptionCode='35'">
-					<EsigibilitaIVA>
-						<xsl:text>I</xsl:text>
-					</EsigibilitaIVA>
-				</xsl:when>
-				<xsl:when test="/in:Invoice/cac:InvoicePeriod/cbc:DescriptionCode='432'">
-					<EsigibilitaIVA>
-						<xsl:text>D</xsl:text>
-					</EsigibilitaIVA>
-				</xsl:when>
-			</xsl:choose>
-			<xsl:if test="cac:TaxCategory/cbc:ID ='Z'">
-				<RiferimentoNormativo>
-					<xsl:text>Operazione esclusa ex. art. 15</xsl:text>
-				</RiferimentoNormativo>
-			</xsl:if>
-			<xsl:if test="cac:TaxCategory/cbc:ID !='Z' and contains(cac:TaxCategory/cbc:TaxExemptionReason,'#')">
-				<RiferimentoNormativo>
-					<xsl:value-of select="substring-after(cac:TaxCategory/cbc:TaxExemptionReason,'#')"/>
-				</RiferimentoNormativo>
-			</xsl:if>
-		</DatiRiepilogo>
 	</xsl:template>
 	<xsl:template match="/in:Invoice/cac:AccountingSupplierParty/cac:Party" mode="RitenutaPersoneFisiche2">
 		<xsl:param name="CN" select="."/>
@@ -2101,45 +2101,6 @@
 						<xsl:with-param name="CN" select="current()"/>
 						<xsl:with-param name="CNP" select="position()"/>
 					</xsl:apply-templates>
-					<xsl:for-each select="cac:AllowanceCharge">
-						<xsl:if test=" lower-case(cbc:AllowanceChargeReason)='bollo'">
-							<DettaglioLinee>
-								<NumeroLinea>
-									<xsl:text>9999</xsl:text>
-								</NumeroLinea>
-								<TipoCessionePrestazione>
-									<xsl:text>SC</xsl:text>
-								</TipoCessionePrestazione>
-								<Descrizione>
-									<xsl:text>BOLLO</xsl:text>
-								</Descrizione>
-								<Quantita>
-									<xsl:text>1.00000000</xsl:text>
-								</Quantita>
-								<PrezzoUnitario>
-									<xsl:value-of select="format-number(cbc:Amount,'##0.000000')"/>
-								</PrezzoUnitario>
-								<PrezzoTotale>
-									<xsl:value-of select="format-number(cbc:Amount,'##0.000000')"/>
-								</PrezzoTotale>
-								<AliquotaIVA>0.00</AliquotaIVA>
-								<Natura>
-									<xsl:text>N1</xsl:text>
-								</Natura>
-								<RiferimentoAmministrazione>
-									<xsl:text>TC01</xsl:text>
-								</RiferimentoAmministrazione>
-								<AltriDatiGestionali>
-									<TipoDato>
-										<xsl:text>BT-104</xsl:text>
-									</TipoDato>
-									<RiferimentoTesto>
-										<xsl:text>BOLLO</xsl:text>
-									</RiferimentoTesto>
-								</AltriDatiGestionali>
-							</DettaglioLinee>
-						</xsl:if>
-					</xsl:for-each>
 					<xsl:for-each select="cac:AllowanceCharge">
 						<xsl:if test="not (lower-case(cbc:AllowanceChargeReason)='bollo') and not(lower-case(cbc:AllowanceChargeReasonCode)='zzz')">
 							<DettaglioLinee>

@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TransactionStatisticsReport xmlns="urn:fdc:peppol:transaction-statistics-report:1.0">
+    <CustomizationID>urn:fdc:peppol.eu:edec:trns:transaction-statistics-reporting:1.0</CustomizationID>
+    <ProfileID>urn:fdc:peppol.eu:edec:bis:reporting:1.0</ProfileID>
+    <Header>
+        <ReportPeriod>
+            <StartDate>2024-01-01</StartDate>
+            <EndDate>2024-01-31</EndDate>
+        </ReportPeriod>
+        <ReporterID schemeID="CertSubjectCN">PIT000158</ReporterID>
+    </Header>
+    <Total>
+        <Incoming>53469</Incoming>
+        <Outgoing>438626</Outgoing>
+    </Total>
+    <Subtotal type="PerTP">
+        <Key metaSchemeID="TP" schemeID="Peppol">peppol-transport-as4-v2_0</Key>
+        <Incoming>53469</Incoming>
+        <Outgoing>438626</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PNO000153</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Incoming>408</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000326</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Incoming>3</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000226</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Incoming>627</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000158</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <Incoming>14262</Incoming>
+        <Outgoing>267428</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000158</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2::ApplicationResponse##urn:fdc:peppol.eu:poacc:trns:invoice_response:3::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:invoice_response:3</Key>
+        <Incoming>0</Incoming>
+        <Outgoing>3</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">POP000191</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Incoming>37</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">POP000239</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Incoming>45</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000127</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Incoming>2225</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">POP000045</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Incoming>43</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">POP000045</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Incoming>8243</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000157</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Incoming>1478</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000422</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Incoming>154</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">POP000191</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <Incoming>28</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000158</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3:restrictive:urn:www.agid.gov.it:trns:ordine:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <Incoming>7337</Incoming>
+        <Outgoing>171153</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000479</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Incoming>153</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">POP000143</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Incoming>25</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PDK000016</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</Key>
+        <Incoming>2</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000158</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:ordering:3</Key>
+        <Incoming>0</Incoming>
+        <Outgoing>42</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000109</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Incoming>5721</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000146</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Incoming>334</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">POP000239</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3:restrictive:urn:www.agid.gov.it:trns:ordine:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <Incoming>20</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000420</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Incoming>22</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">POP000235</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Incoming>616</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">POP000178</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</Key>
+        <Incoming>2</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000204</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Incoming>11684</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">POP000235</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">IT</Key>
+        <Incoming>616</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">POP000143</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">IT</Key>
+        <Incoming>25</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">POP000045</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">IT</Key>
+        <Incoming>43</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000326</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">IT</Key>
+        <Incoming>3</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">POP000191</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">IT</Key>
+        <Incoming>37</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000226</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">IT</Key>
+        <Incoming>627</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000158</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3:restrictive:urn:www.agid.gov.it:trns:ordine:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">CH</Key>
+        <Incoming>27</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000422</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">IT</Key>
+        <Incoming>154</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">POP000191</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">FR</Key>
+        <Incoming>1</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">POP000178</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">IT</Key>
+        <Incoming>2</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000157</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">IT</Key>
+        <Incoming>1478</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000158</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">IT</Key>
+        <Incoming>13742</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">POP000045</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">BE</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">IT</Key>
+        <Incoming>6</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">POP000045</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">IT</Key>
+        <Incoming>8197</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000127</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">IT</Key>
+        <Incoming>2225</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000158</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3:restrictive:urn:www.agid.gov.it:trns:ordine:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">FR</Key>
+        <Incoming>289</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PDK000016</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">BE</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">IT</Key>
+        <Incoming>2</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000146</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">IT</Key>
+        <Incoming>334</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000109</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">FR</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">IT</Key>
+        <Incoming>1</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000420</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">IT</Key>
+        <Incoming>22</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000158</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3:restrictive:urn:www.agid.gov.it:trns:ordine:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">GB</Key>
+        <Incoming>4</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">POP000191</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">IT</Key>
+        <Incoming>27</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000479</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">IT</Key>
+        <Incoming>153</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000158</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">FR</Key>
+        <Incoming>460</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000109</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">IT</Key>
+        <Incoming>5720</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000158</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3:restrictive:urn:www.agid.gov.it:trns:ordine:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">IT</Key>
+        <Incoming>7017</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000158</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">CH</Key>
+        <Incoming>57</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">POP000239</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3:restrictive:urn:www.agid.gov.it:trns:ordine:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">IT</Key>
+        <Incoming>20</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PNO000153</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">IT</Key>
+        <Incoming>408</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000158</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">GB</Key>
+        <Incoming>2</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000158</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">SM</Key>
+        <Incoming>1</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">POP000045</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">NL</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">IT</Key>
+        <Incoming>40</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">POP000239</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">IT</Key>
+        <Incoming>45</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+    <Subtotal type="PerSP-DT-PR-CC">
+        <Key metaSchemeID="SP" schemeID="CertSubjectCN">PIT000204</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Key metaSchemeID="CC" schemeID="SenderCountry">IT</Key>
+        <Key metaSchemeID="CC" schemeID="ReceiverCountry">IT</Key>
+        <Incoming>11684</Incoming>
+        <Outgoing>0</Outgoing>
+    </Subtotal>
+</TransactionStatisticsReport>

@@ -190,6 +190,34 @@
 				<version>7.1.3</version>
 				<executions>
 					<execution>
+					<id>unit-test-eusr</id>
+						<goals>
+							<goal>validate</goal>
+						</goals>
+						<configuration>
+							<schematronFile>3.0/sch/eusr/peppol-end-user-statistics-reporting-1.1.4.sch</schematronFile>
+							<xmlDirectory>examples/eusr</xmlDirectory>
+							<svrlDirectory>target/svrl/</svrlDirectory>
+							<schematronProcessingEngine>schematron</schematronProcessingEngine>
+							<ignoreWarnings>true</ignoreWarnings>
+							<failFast>false</failFast>
+						</configuration>
+					</execution>
+					<execution>
+					<id>unit-test-trnsr</id>
+						<goals>
+							<goal>validate</goal>
+						</goals>
+						<configuration>
+							<schematronFile>3.0/sch/trnsr/peppol-transaction-statistics-reporting-1.0.4.sch</schematronFile>
+							<xmlDirectory>examples/trnsr/</xmlDirectory>
+							<svrlDirectory>target/svrl/</svrlDirectory>
+							<schematronProcessingEngine>schematron</schematronProcessingEngine>
+							<ignoreWarnings>true</ignoreWarnings>
+							<failFast>false</failFast>
+						</configuration>
+					</execution>
+					<execution>
 					<id>unit-test-invoice</id>
 						<goals>
 							<goal>validate</goal>

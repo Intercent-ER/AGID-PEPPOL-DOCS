@@ -1,172 +1,319 @@
-<pattern id="Italy-EXTENSION-rules" xmlns="http://purl.oclc.org/dsdl/schematron">
-
-	<!-- UBL Extensions -->
-	<rule context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:SoggettoEmittente']/ext:ExtensionContent" flag="fatal">
-		<assert test="( ( not(contains(normalize-space(cbc:TypeCode),' ')) and contains( ' CC TZ ',concat(' ',normalize-space(cbc:TypeCode),' ') ) ) )" flag="fatal" id="BR-IT-DE-001">[BR-IT-DE-001][FPA 1.6 - Soggetto Emittente] - L'estensione deve contenere un elemento cbc:TypeCode valorizzato esclusivamente con i valori 'CC' o 'TZ'.</assert>
-	</rule>
-	
-	<rule context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:TipoDocumento']/ext:ExtensionContent" flag="fatal">
-		<assert test="( ( not(contains(normalize-space(cbc:TypeCode),' ')) and contains( ' TD01 TD02 TD03 TD04 TD05 TD06 TD16 TD17 TD18 TD19 TD20 TD21 TD22 TD23 TD24 TD25 TD26 TD27 TD28 ',concat(' ',normalize-space(cbc:TypeCode),' ') ) ) )" flag="fatal" id="BR-IT-DE-002">[BR-IT-DE-002][FPA 2.1.1.1 - Tipo Documento] - L'estensione deve contenere un elemento cbc:TypeCode valorizzato esclusivamente con i valori del TipoDocumento, secondo la specifica FatturaPA 1.2.1.</assert>
-	</rule>
-
-	<rule context="/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI, 'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta')]/ext:ExtensionContent" flag="fatal">
-		<assert test="( ( not(contains(normalize-space(cbc:TypeCode),' ')) and contains( ' RT01 RT02 RT03 RT04 RT05 RT06 ',concat(' ',normalize-space(cbc:TypeCode),' ') ) ) )" flag="fatal" id="BR-IT-DE-003">[BR-IT-DE-003][FPA 2.1.1.5.1 - Tipo Ritenuta] - L'estensione deve contenere un elemento cbc:TypeCode valorizzato esclusivamente con i valori del TipoRitenuta, secondo la specifica FatturaPA 1.2.1.</assert>
-	</rule>
-	
-	<rule context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Art73']/ext:ExtensionContent" flag="fatal">
-		<assert test="cbc:TypeCode = 'SI'" flag="fatal" id="BR-IT-DE-004">[BR-IT-DE-004][FPA 2.1.1.12 - Art73] - L'estensione deve contenere un elemento cbc:TypeCode valorizzato esclusivamente con il valore 'SI' per applicare l'Articolo 73 del DPR 633/72.</assert>
-	</rule>
-
-	<rule context="/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI, 'urn:fdc:agid.gov.it:fatturapa:RiepilogoIVA:Arrotondamento')]/ext:ExtensionContent" flag="fatal">
-		<assert test="matches(cbc:Amount,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-DE-005">[BR-IT-DE-005][FPA 2.2.2.4 - Arrotondamento] - L'estensione deve contenere un elemento cbc:Amount la cui lunghezza non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
-	</rule>
-
-	<rule context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']/ext:ExtensionContent" flag="fatal">
-		<assert test="cac:AllowanceCharge" flag="fatal" id="BR-IT-DE-006">[BR-IT-DE-006][FPA 2.1.1.8 - Sconto Maggiorazione] - L'estensione deve contenere uno o più elementi cac:AllowanceCharge.</assert>
-	</rule>
-
-	<rule context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:ScontoMaggiorazione']/ext:ExtensionContent/cac:AllowanceCharge" flag="fatal">
-		<assert test="matches(cbc:Amount,'^[\-]?\d{1,11}\.\d{2,8}$')" flag="fatal" id="BR-IT-DE-007">[BR-IT-DE-007][FPA 2.1.1.8 - Sconto Maggiorazione] - L'importo dello sconto o maggiorazione (cbc:Amount) deve contenere da 4 fino a 21 caratteri incluso 2 cifre decimali.</assert>
-		<assert test="not(cbc:MultiplierFactorNumeric) or matches(cbc:MultiplierFactorNumeric,'^\d{1,3}\.\d{2}$')" flag="fatal" id="BR-IT-DE-008">[BR-IT-DE-008][FPA 2.1.1.8 - Sconto Maggiorazione] - L'importo dello sconto/maggiorazione in percentuale, se presente, (cbc:MultiplierFactorNumeric) deve contenere da 4 fino a 6 caratteri incluso 2 cifre decimali.</assert>
-	</rule>
-
-    <rule context="/ubl-invoice:Invoice" flag="fatal">
-        <assert test="count(cac:WithholdingTaxTotal) &lt;= 1" flag="fatal" id="BR-IT-DE-009FT1">[BR-IT-DE-009FT1][FPA 2.1.1.5 - Dati Ritenuta] - L'estensione deve contenere un elemento cac:WithholdingTaxTotal.</assert>
-    </rule>
-	
-	<rule context="/ubl-creditnote:CreditNote/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Ritenuta']/ext:ExtensionContent" flag="fatal">
-		<assert test="count(cac:WithholdingTaxTotal) = 1 and count(/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Ritenuta']) = 1" flag="fatal" id="BR-IT-DE-009NC1">[BR-IT-DE-009NC1][FPA 2.1.1.5 - Dati Ritenuta] - L'estensione deve contenere un elemento cac:WithholdingTaxTotal.</assert>
-	</rule>
-
-	<rule context="//cac:WithholdingTaxTotal" flag="fatal">
-		<assert test="matches(cbc:TaxAmount,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-DE-010">[BR-IT-DE-010][FPA 2.1.1.5 - Dati Ritenuta] - L'importo totale delle ritenute (cbc:TaxAmount) deve contenere da 4 fino a 15 caratteri incluso 2 cifre decimali.</assert>
-		<assert test="count(cac:TaxSubtotal) &gt;= 1 and count(cac:TaxSubtotal) &lt;= 2" flag="fatal" id="BR-IT-DE-011">[BR-IT-DE-011][FPA 2.1.1.5 - Dati Ritenuta] - Il cac:WithholdingTaxTotal deve contenere almeno una e al massimo due ritenute (cac:TaxSubtotal).</assert>
-	</rule>
-
-	<rule context="//cac:WithholdingTaxTotal/cac:TaxSubtotal" flag="fatal">
-		<assert test="matches(cbc:TaxAmount,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-DE-012">[BR-IT-DE-012][FPA 2.1.1.5 - Dati Ritenuta] - L'importo di ogni ritenuta (cbc:TaxAmount) deve contenere da 4 fino a 15 caratteri incluso 2 cifre decimali.</assert>
-	</rule>
-
-	<rule context="/*/cac:WithholdingTaxTotal/cac:TaxSubtotal/cac:TaxCategory" flag="fatal">
-	<assert test="matches(cac:TaxCategory/cbc:Percent,'^\d{1,3}\.\d{2}$') 
-	and cbc:ID = 'S' and cac:TaxScheme/cbc:ID = 'SWT' 
-	and (/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT') 
-	or (not(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT'))"flag="fatal" id="BR-IT-DE-013">
-				[BR-IT-DE-013][FPA 2.1.1.5 - Dati Ritenuta] - Ogni ritenuta deve contenere la categoria della ritenuta (cac:TaxCategory) con identificativo uguale a "S" (cbc:ID), percentuale della ritenuta (cbc:Percent) da 4 fino a 6 caratteri incluso 2 cifre decimali e schema della ritenuta valorizzato con cac:TaxScheme/cbc:ID = 'SWT'.</assert>
-    </rule>
-	
+<pattern id="Italy-CIUS-rules" xmlns="http://purl.oclc.org/dsdl/schematron">
 	<!-- Document Level -->
 
-	<rule context="/*/cac:BillingReference/cac:AdditionalDocumentReference" flag="fatal">
-		<assert test="cbc:ID and cbc:IssueDate" flag="fatal" id="BR-IT-DE-014">[BR-IT-DE-014][FPA 2.1.10.1 Numero Fattura Principale e 2.1.10.2 Data Fattura Principale] - Se si vuole fare riferimento ad una fattura principale relativa al trasporto di beni devono essere obbligatoriamente valorizzati gli estremi della fattura con gli elementi ID e IssueDate.</assert>
-		<assert test="matches(cbc:ID,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-DE-015">[BR-IT-DE-015][FPA 2.1.10.1 Numero Fattura Principale] - L'identificativo della fattura principale non può superare i 20 caratteri.</assert>
+	<rule context="/*" flag="fatal">
+		<assert test="cac:PaymentMeans" flag="fatal" id="BR-IT-260">[BR-IT-260][FPA 2.4 DatiPagamento] - The group element BG-16 (Payment instructions) is mandatory - Il gruppo di elementi BG-16 (Payment instructions) deve essere obbligatorio.</assert>
+		<assert test="cac:PaymentTerms/cbc:Note" flag="fatal" id="BR-IT-261">[BR-IT-261][FPA 2.4.1 CondizioniPagamento, 2.4.2.4 GiorniTerminiPagamento] - BT-20 (Payment Terms) is mandatory - L'elemento BT-20 Payment Terms deve essere obbligatoriamente valorizzato.</assert>
+	</rule>
+	
+	<!-- BOLLO -->
+
+	<rule context="/*/cac:AllowanceCharge[cbc:AllowanceChargeReasonCode = 'SAE' and ../cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']]" flag="fatal">
+	<assert test="(cbc:AllowanceChargeReason = 'BOLLO' and cac:TaxCategory[cbc:ID = 'Z' and cbc:Percent = 0] and cbc:Amount=0)" 
+			  flag="fatal" id="BR-IT-DC-480">[BR-IT-DC-480] - Se l’elemento BT-40 (Seller country code) ha valore "IT", la fattura è soggetta alla marca da bollo e l'importo della fattura è superiore a 77,47 euro, allora il BT-105 (Document level charge reason code) deve essere posto a “SAE”; il BT-104 (Document level charge reason) deve essere posto a “BOLLO”; il BT-99 (Document level charge amount) deve essere posto a 0; il BT-95 (Document level charge VAT category code) deve essere posto a "Z" (zero).</assert>
+	</rule>
+	
+
+	
+	<rule context="/*[cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode!='IT']" flag="fatal">
+		<assert test="cbc:ProfileID = 'urn:fdc:peppol.eu:2017:poacc:billing:01:1.0' and cbc:CustomizationID = 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#compliant#urn:www.agid.gov.it:trns:fattura:3'" flag="fatal" id="BR-IT-001">[BR-IT-001] - If BT-40 (Seller country code) is valued differently from "IT", BT-24 must be valued as follows: urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:www.agid.gov.it:trns:fattura:3 - Se il valore dell’elemento BT-40 (Seller country code) è diverso da "IT", il BT-24 deve essere valorizzato come segue: urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:www.agid.gov.it:trns:fattura:3</assert>
+	</rule>
+	
+	<rule context="/*/cbc:ID" flag="fatal">
+		<assert test="matches(.,'^(\p{IsBasicLatin})*[0-9]+(\p{IsBasicLatin})*$') and string-length(.) &gt;= 1 and string-length(.) &lt;= 20" flag="fatal" id="BR-IT-010">[BR-IT-010][FPA 2.1.1.4 Numero] - BT-1 (Invoice number) maximum lenght shall be 20 chars with at least one digit - La lunghezza dell'elemento non può superare i 20 caratteri e deve includere almeno una cifra.</assert>
+	</rule>
+
+	<rule context="/*/cac:ProjectReference/cbc:ID" flag="fatal">
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,15}$')" flag="fatal" id="BR-IT-020">[BR-IT-020][FPA 2.1.3.6 CodiceCUP] - BT-11 (Project reference) maximum lenght shall be 15 chars - La lunghezza dell'elemento non può superare i 15 caratteri.</assert>
+	</rule>
+	
+	<rule context="/*/cac:ContractDocumentReference/cbc:ID" flag="fatal">
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-030">[BR-IT-030][FPA 2.1.3.2 IdDocumento] - BT-12 (Contract reference) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
+	</rule>
+
+	<rule context="/*/cac:OrderReference/cbc:ID" flag="fatal">
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-040">[BR-IT-040][FPA 2.1.2.2. IdDocumento] - BT-13 (Purchase order reference) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
+	</rule>
+
+	<rule context="/*/cac:ReceiptDocumentReference/cbc:ID" flag="fatal">
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-050">[BR-IT-050][FPA 2.1.5.2 IdDocumento] - BT-15 (Receiving advice reference) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
 	</rule>
 	
 	<rule context="/*/cac:DespatchDocumentReference" flag="fatal">
-		<assert test="cbc:IssueDate" flag="fatal" id="BR-IT-DE-016">[BR-IT-DE-016][FPA 2.1.8.2 DataDDT] - La data del documento di trasporto deve  essere obbligatoriamente valorizzata a livello di documento.</assert>
-	</rule>
-
-	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:TaxLevelCode" flag="fatal">
-		<assert test="( ( not(contains(normalize-space(.),' ')) and contains( ' RF01 RF02 RF04 RF05 RF06 RF07 RF08 RF09 RF10 RF11 RF12 RF13 RF14 RF15 RF16 RF17 RF18 RF19 ',concat(' ',normalize-space(.),' ') ) ) )" flag="fatal" id="BR-IT-DE-017">[BR-IT-DE-017][FPA 1.2.1.8 - Regime Fiscale] - Il Regime Fiscale (cbc:TaxLevelCode) deve essere valorizzato esclusivamente con i valori della relativa codifica.</assert>
-	</rule>
-
-	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:AgentParty/cac:PostalAddress" flag="fatal">
-		<assert test="cbc:StreetName and cbc:CityName and cbc:PostalZone and cbc:CountrySubentity and cac:Country/cbc:IdentificationCode" flag="fatal" id="BR-IT-DE-018">[BR-IT-DE-018][FPA 1.2.3 - Stabile Organizzazione] - La Stabile Organizzazione deve fornire l'indirizzo completo di via e numero civico, comune, cap, provincia e nazione.</assert>
-		<assert test="matches(cbc:StreetName,'^(\p{IsBasicLatin}){0,60}$')" flag="fatal" id="BR-IT-DE-019">[BR-IT-DE-019][FPA 1.2.3.1 - Indirizzo e 1.2.3.2 - NumeroCivico] - La lunghezza dell'elemento non può superare i 60 caratteri.</assert>
-		<assert test="matches(cbc:Cityname,'^(\p{IsBasicLatin}){0,60}$')" flag="fatal" id="BR-IT-DE-020">[BR-IT-DE-020][FPA 1.2.3.4 - Comune] - La lunghezza dell'elemento non può superare i 60 caratteri.</assert>
-		<assert test="matches(cbc:PostalZone,'^(\p{IsBasicLatin}){5}$')" flag="fatal" id="BR-IT-DE-021">[BR-IT-DE-021][FPA 1.2.3.3 - CAP] - La lunghezza dell'elemento deve essere costituita da 5 cifre.</assert>
-		<assert test="matches(cbc:CountrySubentity,'^[A-Z]{0,2}$')" flag="fatal" id="BR-IT-DE-022">[BR-IT-DE-022][FPA 1.2.3.5 - Provincia] - La lunghezza dell'elemento non può superare 2 caratteri.</assert>
-	</rule>
-		
-	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty/cac:Party" flag="fatal">
-		<assert test="cac:PartyTaxScheme/cbc:CompanyID and cac:PartyTaxScheme/cac:TaxScheme/cbc:ID = 'VAT' and (cac:PartyName/cbc:Name or (cac:Person/cbc:FirstName and cac:Person/cbc:FamilyName))" flag="fatal" id="BR-IT-DE-023">[BR-IT-DE-023][FPA 1.5 - Terzo Intermediario] - Il Terzo Intermediario o Soggetto Emittente deve contenere la P.IVA, lo schema fiscale = 'VAT', la ragione sociale o una persona fisica (nome e cognome).</assert>
-		<assert test="not(starts-with(upper-case(cac:PartyTaxScheme/cbc:CompanyID), 'IT')) or (cac:PartyIdentification/cbc:ID[@schemeID='0210'] and matches(cac:PartyIdentification/cbc:ID[@schemeID='0210'],'^[A-Z0-9]{11,16}$'))" flag="fatal" id="BR-IT-DE-050">[BR-IT-DE-050][FPA 1.5.1.2 - Codice Fiscale] - Se il Terzo Intermediario o Soggetto Emittente è italiano, deve essere fornito il suo Codice Fiscale (cac:PartyIdentification/cbc:ID) qualificato dall'attributo @schemeID con il valore "0210" e la lunghezza del codice deve essere compresa fra 11 e 16 caratteri alfanumerici.</assert>
-	</rule>
-
-	<rule context="/*/cac:TaxRepresentativeParty/cac:PartyIdentification/cbc:ID[@schemeID='0210']" flag="fatal">
-		<assert test="matches(.,'^[A-Z0-9]{11,16}$')" flag="fatal" id="BR-IT-DE-024A">[BR-IT-DE-024A][FPA 1.3.1.2 - Codice Fiscale] - Il Codice Fiscale deve specificare l'attributo @schemeID valorizzato con "0210" ed avere la lunghezza del codice compresa fra 11 e 16 caratteri alfanumerici.</assert>
-	</rule>
-
-	<rule context="/*/cac:TaxRepresentativeParty/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]" flag="fatal">
-		<assert test="matches(.,'^EORI:[A-Z0-9]{13,17}$')" flag="fatal" id="BR-IT-DE-025">[BR-IT-DE-025][FPA 1.3.1.3.5 - Codice EORI] - Il Codice EORI deve essere preceduto dal prefisso 'EORI:' ed avere la lunghezza del codice compresa fra 13 e 17 caratteri alfanumerici.</assert>
-	</rule>
-
-	<rule context="/*/cac:Delivery/cac:CarrierParty" flag="fatal">
-		<assert test="not(cac:PartyIdentification/cbc:ID) or (matches(cac:PartyIdentification/cbc:ID,'^[A-Z0-9]{11,16}$') and cac:PartyIdentification/cbc:ID[@schemeID='0210'])" flag="fatal" id="BR-IT-DE-026A">[BR-IT-DE-026A][FPA 2.1.9.1.2 - Codice Fiscale] - Il Codice Fiscale deve specificare l'attributo @schemeID valorizzato con "0210" ed avere la lunghezza del codice compresa fra 11 e 16 caratteri alfanumerici.</assert>
-		<assert test="matches(cac:PartyName/cbc:Name,'^(\p{IsBasicLatin}){0,80}$') or (matches(cac:Person/cbc:FirstName,'^(\p{IsBasicLatin}){0,60}$') and matches(cac:Person/cbc:FamilyName,'^(\p{IsBasicLatin}){0,60}$'))" flag="fatal" id="BR-IT-DE-027">[BR-IT-DE-027][FPA 2.1.9.1.3.1 Denominazione, 2.1.9.1.3.2 Nome, 2.1.9.1.3.3 Cognome] - Se la Denominazione del Vettore è valorizzata, la sua lunghezza non può superare 80 caratteri, alternativamente, se è invece valorizzato il Nome e il Cognome, la loro lunghezza non potrà superare 60 caratteri.</assert>
-		<assert test="matches(cac:PartyTaxScheme/cbc:CompanyID,'^[a-zA-Z0-9]{0,30}$')" flag="fatal" id="BR-IT-DE-028">[BR-IT-DE-028][FPA 2.1.9.1.1 - Partita IVA] - La lunghezza dell'elemento non può superare i 30 caratteri.</assert>
-		<assert test="cac:PartyTaxScheme/cac:TaxScheme/cbc:ID = 'VAT'" flag="fatal" id="BR-IT-DE-029">[BR-IT-DE-029] - L'identificativo del TaxScheme deve essere valorizzato con 'VAT'.</assert>
-		<assert test="not(cac:Person/cac:IdentityDocumentReference) or (matches(cac:Person/cac:IdentityDocumentReference/cbc:ID,'^[A-Z0-9]{0,20}$') and cac:Person/cac:IdentityDocumentReference/cbc:DocumentTypeCode = '40')" flag="fatal" id="BR-IT-DE-030">[BR-IT-DE-030][FPA 2.1.9.1.4 - Numero Licenza Guida] - Se il Numero Licenza Guida è valorizzata, la sua lunghezza non può superare 20 caratteri e il tipo documento (cbc:DocumentTypeCode) deve essere '40'.</assert>
-	</rule>
-
-	<rule context="/*/cac:Delivery/cac:Shipment" flag="fatal">
-		<assert test="(not(cbc:GrossWeightMeasure) or matches(cbc:GrossWeightMeasure,'^[0-9]{1,4}\.[0-9]{1,2}$')) and (not(cbc:NetWeightMeasure) or matches(cbc:NetWeightMeasure,'^[0-9]{1,4}\.[0-9]{1,2}$'))" flag="fatal" id="BR-IT-DE-031">[BR-IT-DE-031][FPA 2.1.9.7 - Peso Lordo, FPA 2.1.9.8 - Peso Netto] - La lunghezza del Peso Lordo o Netto deve essere da 4 a 7 caratteri, incluse 1 o 2 cifre decimali.</assert>
-		<assert test="not(cbc:TotalTransportHandlingUnitQuantity) or matches(cbc:TotalTransportHandlingUnitQuantity,'^[0-9]{1,9999}$')" flag="fatal" id="BR-IT-DE-032">[BR-IT-DE-032][FPA 2.1.9.4 - Numero Colli] - Il Numero di Colli può essere da 1 a 9999.</assert>
-		<assert test="not(cac:GoodsItem/cbc:Description) or matches(cac:GoodsItem/cbc:Description,'^(\p{IsBasicLatin}){0,100}$')" flag="fatal" id="BR-IT-DE-033">[BR-IT-DE-033][FPA 2.1.9.5 - Descrizione Merce] - La lunghezza dell'elemento non può superare i 100 caratteri.</assert>
-		<assert test="not(cac:ShipmentStage/cbc:TransportMeansTypeCode) or matches(cac:ShipmentStage/cbc:TransportMeansTypeCode,'^(\p{IsBasicLatin}){0,80}$')" flag="fatal" id="BR-IT-DE-034">[BR-IT-DE-034][FPA 2.1.9.2 - Mezzo di Trasporto] - La lunghezza dell'elemento non può superare gli 80 caratteri.</assert>
+		<assert test="matches(cbc:ID,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-060">[BR-IT-060][FPA 2.1.8.1 NumeroDDT] - BT-16 (Despatch advice reference) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
 	</rule>
 	
-	<rule context="/*/cac:Despatch" flag="fatal">
-		<assert test="not(cbc:Instructions) or  matches(cbc:Instructions,'^[a-zA-Z0-9]{0,100}$')" flag="fatal" id="BR-IT-DE-035">[BR-IT-DE-035][FPA 2.1.9.3 Causale Trasporto] - La lunghezza dell'elemento non può  superare i 100 caratteri.</assert>
+	<rule context="/*/cac:OriginatorDocumentReference/cbc:ID" flag="fatal">
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,15}$')" flag="fatal" id="BR-IT-070">[BR-IT-070][FPA 2.1.3.7 CodiceCIG] - BT-17 (Tender or lot reference) maximum lenght shall be 15 chars - La lunghezza dell'elemento non può superare i 15 caratteri.</assert>
 	</rule>
 	
-	<rule context="/*/cac:DeliveryTerms/cbc:ID" flag="fatal">
-		<assert test="matches(.,'^[a-zA-Z0-9]{3,3}$')" flag="fatal" id="BR-IT-DE-036">[BR-IT-DE-036][FPA 2.1.9.11 - Tipo Resa Merce] - La lunghezza dell'elemento deve essere di 3 caratteri.</assert>
-	</rule>
-	
-	<rule context="/*/cac:PaymentTerms/cbc:SettlementDiscountAmount" flag="fatal">
-		<assert test="matches(.,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-DE-037">[BR-IT-DE-037][FPA 2.4.2.17 - Sconto Pagamento Anticipato] - La lunghezza dell'elemento deve essere di almeno 4 caratteri e non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
+	<rule context="/*/cbc:AccountingCost" flag="fatal">
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-080">[BR-IT-080][FPA 1.2.6 RiferimentoAmministrazione] - BT-19 (Buyer accounting reference) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
 	</rule>
 
-	<rule context="/*/cac:PaymentTerms/cbc:PenaltyAmount" flag="fatal">
-		<assert test="matches(.,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-DE-038">[BR-IT-DE-038][FPA 2.4.2.19 - Penalita Pagamenti Ritardati] - La lunghezza dell'elemento deve essere di almeno 4 caratteri e non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
-	</rule>
-
-	<rule context="/*/cac:InvoiceLine/cac:OrderLineReference/cac:OrderReference/cbc:ID | /*/cac:CreditNoteLine/cac:OrderLineReference/cac:OrderReference/cbc:ID" flag="fatal">
-		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-DE-039">[BR-IT-DE-039][2.1.2.2 Numero Ordine] - La lunghezza dell’elemento non può superare i 20 caratteri.</assert>
-	</rule>
-
-	<rule context="/*/cac:InvoiceLine/cac:DespatchLineReference/cbc:LineID | /*/cac:CreditNoteLine/cac:DespatchLineReference/cbc:LineID" flag="fatal">
-		<assert test=".='NA'" flag="fatal" id="BR-IT-DE-040">[BR-IT-DE-040] - Il riferimento ad una riga DDT dalla riga fattura non supportato da SDI, valorizzarlo sempre con 'NA'.</assert>
-	</rule>
-	
-	<rule context="/*/cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference/cbc:ID | /*/cac:CreditNoteLine/cac:DespatchLineReference/cac:DocumentReference/cbc:ID" flag="fatal">
-		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-DE-041">[BR-IT-DE-041][FPA 2.1.8.1 NumeroDDT] - La lunghezza del numero DDT (cbc:ID) non può superare i 20 caratteri.</assert>
-	</rule>
-	
-	<rule context="/*/cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference" flag="fatal">
-		<assert test="cbc:IssueDate" flag="fatal" id="BR-IT-DE-042">[BR-IT-DE-042][FPA 2.1.8.2 Data DDT] - La data del documento di trasporto deve essere obbligatoriamente valorizzata a livello di riga.</assert>
-	</rule>
-		
-	<!-- B2B -->
-	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cac:AgentParty/cac:PostalAddress" flag="fatal">
-		<assert test="cbc:StreetName and cbc:CityName and cbc:PostalZone and cbc:CountrySubentity and cac:Country/cbc:IdentificationCode" flag="fatal" id="BR-IT-DE-043">[BR-IT-DE-043][FPA 1.4.3 - Stabile Organizzazione] - La Stabile Organizzazione deve fornire l'indirizzo completo di via e numero civico, comune, cap, provincia e nazione.</assert>
-		<assert test="matches(cbc:StreetName,'^(\p{IsBasicLatin}){0,60}$')" flag="fatal" id="BR-IT-DE-044">[BR-IT-DE-044][FPA 1.4.3.1 - Indirizzo e 1.4.3.2 - NumeroCivico] - La lunghezza dell'elemento non può superare i 60 caratteri.</assert>
-		<assert test="matches(cbc:Cityname,'^(\p{IsBasicLatin}){0,60}$')" flag="fatal" id="BR-IT-DE-045">[BR-IT-DE-045][FPA 1.4.3.4 - Comune] - La lunghezza dell'elemento non può superare i 60 caratteri.</assert>
-		<assert test="matches(cbc:PostalZone,'^(\p{IsBasicLatin}){5}$')" flag="fatal" id="BR-IT-DE-046">[BR-IT-DE-046][FPA 1.4.3.3 - CAP] - La lunghezza dell'elemento deve essere costituita da 5 cifre.</assert>
-		<assert test="matches(cbc:CountrySubentity,'^[A-Z]{0,2}$')" flag="fatal" id="BR-IT-DE-047">[BR-IT-DE-047][FPA 1.4.3.5 - Provincia] - La lunghezza dell'elemento non può superare 2 caratteri.</assert>
-	</rule>
-	
-	<!-- B2B -->
-	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cac:PowerOfAttorney/cac:AgentParty" flag="fatal">
-		<assert test="cac:PartyTaxScheme/cbc:CompanyID and cac:PartyTaxScheme/cac:TaxScheme/cbc:ID = 'VAT' and cac:PartyLegalEntity/cbc:RegistrationName and (not(cac:Person) or (cac:Person/cbc:FirstName and cac:Person/cbc:FamilyName))"
-		        flag="fatal" id="BR-IT-DE-048">[BR-IT-DE-048][FPA 1.4.4 - Rappresentante Fiscale del Cliente] - Il Rappresentante Fiscale del Cliente deve contenere la P.IVA, lo schema fiscale = 'VAT', la ragione sociale e se viene specificata una persona fisica, il nome e cognome.</assert>
-	</rule>
-
-   <rule context="/*/cac:AccountingCustomerParty/cac:Party/cac:PowerOfAttorney/cac:AgentParty/cac:PartyLegalEntity/cbc:RegistrationName" flag="fatal">
-    		<assert test="matches(.,'^(\p{IsBasicLatin}){1,80}$')"
-    		        flag="fatal" id="BR-IT-DE-049">[BR-IT-DE-049][FPA 1.4.4.2 Denominazione] - La denominazione del Rappresentante Fiscale (cbc:RegistrationName) non può superare gli 80 caratteri. </assert>
+	<rule context="cbc:Note" flag="fatal">  
+    		<assert test="matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,200}$')"
+    		        flag="fatal" id="BR-IT-081">
+    		        [BR-IT-081][FPA 2.1.1.11 Causale] - BT-22 (Invoice note) maximum lenght shall be 200 chars - La lunghezza dell'elemento non può superare i 200 caratteri. </assert>
     </rule>
 
-	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty/cac:Party/cac:PartyName/cbc:Name" flag="fatal">
-    		<assert test="matches(.,'^(\p{IsBasicLatin}){1,80}$')"
-    		        flag="fatal" id="BR-IT-DE-051">[BR-IT-DE-051][FPA 1.5.1.3.1 Denominazione] - La denominazione del Terzo Intermediario (cbc:Name) non può superare gli 80 caratteri. </assert>
+	<rule context="/*/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID" flag="fatal">
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-090">[BR-IT-090][FPA 2.1.6.2 IdDocumento] - BT-25 (Preceding Invoice number) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
+	</rule>
+
+	<rule context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]" flag="fatal">
+		<assert test="matches(.,'^EORI:[A-Z0-9]{18,22}$')" flag="fatal" id="BR-IT-DC-100A">[BR-IT-DC-100A][FPA 1.2.1.3.5 CodEORI] - Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT29 (Seller identifier) comincia con "EORI:", la sua lunghezza deve essere compresa fra 18 e 22 caratteri.</assert>
+	</rule>
+	
+	<rule context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'ALBO:')]" flag="fatal">
+		<assert test="matches(.,'^ALBO:[a-zA-Z]+(#[A-Z0-9\-]+)*$') and string-length(.) &gt;= 1 and string-length(.) &lt;= 137" flag="fatal" id="BR-IT-DC-100B">[BR-IT-DC-100B][FPA 1.2.1.4 AlboProfessionale, 1.2.1.6 NumeroIscrizioneAlbo, 1.2.1.7 DataIscrizioneAlbo] - Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT-29 (Seller identifier) comincia con "ALBO:", la sua lunghezza non può superare i 137 caratteri e può essere indicato come "ALBO:AlboProfessionale#NumeroIscrizioneAlbo#DataIscrizione" (con Data nel formato AAAA-MM-GG).</assert>
+	</rule>
+
+	<rule context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyIdentification/cbc:ID[starts-with(., 'REA:')]" flag="fatal">
+		<assert test="matches(.,'^REA:[a-zA-Z0-9]+#[A-Z0-9]+$') and string-length(.) &gt;= 8 and string-length(.) &lt;= 27" flag="fatal" id="BR-IT-DC-100C">[BR-IT-DC-100C][FPA 1.2.4.1 Ufficio, 1.2.4.2 NumeroREA] - Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT-29 (Seller identifier) comincia con "REA:", la sua lunghezza deve essere compresa fra 8 e 27 caratteri e deve essere indicato come "REA:Ufficio#NumeroREA".</assert>
+	</rule>
+
+	<rule context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/PartyLegalEntity" flag="fatal">
+		<assert test="cbc:CompanyID[@schemeID='0210']" flag="fatal" id="BR-IT-DC-110A">[BR-IT-DC-110A][FPA 1.2.1.2 CodiceFiscale] - Se il valore dell’elemento BT-40 Seller country code è “IT”, gli elementi devono essere obbligatoriamente valorizzati.</assert>
+	</rule>
+	
+	<rule context="/*/cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyLegalEntity/cbc:CompanyID[@schemeID='0210']" flag="fatal">
+		<assert test="(matches(.,'^[A-Z0-9]{16}$') and matches(../cbc:RegistrationName, 'Nome#Cognome.*$')) or ((matches(.,'^[0-9]{11}$') and not (matches(../cbc:RegistrationName, 'Nome#Cognome.*$'))))"
+		        flag="fatal" id="BR-IT-DC-110B">[BR-IT-DC-110B][FPA 1.2.1.2 CodiceFiscale] - Se il valore dell’elemento BT-40 (Seller country code) è "IT", se l'elemento BT-30-1 (Seller legal registration identifier scheme identifier) contiene il valore "0210", l'elemento BT-30 (Seller legal registration identifier) deve contenere un Codice Fiscale con lunghezza compresa fra 11 e 16 caratteri.</assert>
+	</rule>
+	
+	<rule context="/*/cac:AccountingCustomerParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyLegalEntity/cbc:CompanyID" flag="fatal">
+		<assert test="(matches(.,'^[A-Z0-9]{16}$') and matches(../cbc:RegistrationName, 'Nome#Cognome.*$')) or ((matches(.,'^[0-9]{11}$') and not (matches(../cbc:RegistrationName, 'Nome#Cognome.*$'))))"
+		                           flag="fatal" id="BR-IT-520B">[BR-IT-520B][FPA 1.4.1.2 - Codice Fiscale] - If Buyer country code (BT-55)= IT, BT-47 (Buyer legal registration identifier) length shall be between 11 and 16 chars - Se Buyer country code (BT-55) = IT, la lunghezza dell'elemento BT-47 (Buyer legal registration identifier) deve essere compresa fra 11 e 16 caratteri.</assert>
+	</rule>
+
+	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName" flag="fatal">
+		<assert test="(matches(.,'Nome#Cognome.*$' ) 
+		                and matches(.,'^[Nome#Cognome\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,60}#[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,60}$'))
+                    	or
+						(not (matches(.,'Nome#Cognome.*$' ))
+                        and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,80}$'))"
+                flag="fatal" id="BR-IT-091">[BR-IT-091][FPA 1.2.1.3.1 Denominazione] - In case of legal person, BT-27 (Seller name) maximum length shall be 80 chars - In caso di persona giuridica, la lunghezza dell'elemento non deve superare gli 80 caratteri. [FPA 1.2.1.3.2 Nome, 1.2.1.3.3 Cognome] - In case of natural person, BT-27 (Seller name) must be preceded by 'Nome#Cognome:' and it length shall be 60 chars each for Name and Surname -  In caso di persona fisica, l'elemento deve essere preceduro dalla stringa "Nome#Cognome:" e non deve superare i 60 caratteri ciascuno per il Nome e il Cognome.
+		</assert>
+	</rule>
+	
+	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID" flag="fatal">
+		<assert test="matches(.,'^[A-Z]{2}[A-Z0-9]{0,28}$')" flag="fatal" id="BR-IT-120">[BR-IT-120][FPA 1.2.1.1.1 IdPaese, 1.2.1.1.2 IdCodice] - BT-31 (Seller VAT identifier) maximum lenght shall be 30 chars and must begin with two alphabetic chars - La lunghezza dell'elemento non può superare i 30 caratteri e deve iniziare con due caratteri alfabetici.</assert>
+	</rule>
+
+	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName" flag="fatal">
+    		<assert test="(matches(.,'Nome#Cognome.*$' )
+		                and matches(.,'^[Nome#Cognome\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,60}#[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,60}$'))
+                    	or
+                      (not (matches(.,'Nome#Cognome.*$' ))
+                        and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,80}$'))"
+    		        flag="fatal" id="BR-IT-171">[BR-IT-BR-IT-171][FPA 1.4.1.3.1 Denominazione] - In case of legal person, BT-44 (Buyer name)maximum length shall be 80 chars - In caso di persona giuridica, la lunghezza dell'elemento non deve superare gli 80 caratteri.
+                                                                                        [FPA 1.4.1.3.2 Nome, 1.4.1.3.3 Cognome] - In case of natural person, BT-44 (Buyer name) must be preceded by 'Nome#Cognome:' and it length shall be 60 chars each for Name and Surname -  In caso di persona fisica, l'elemento deve essere preceduro dalla stringa "Nome#Cognome:" e non deve superare i 60 caratteri ciascuno per il Nome e il Cognome.</assert>
+    </rule>
+
+	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyLegalForm and ../cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']" flag="fatal">
+		<assert test="string-length(.) &lt;= 21 and matches(.,'^([0-9]+\d{0,2}(\.\d{2})*|([0-9]+\d*))?(#(SU|SM))?(#(LS|LN))?$')" flag="fatal" id="BR-IT-DC-122">[BR-IT-DC-122][FPA 1.2.4.3 CapitaleSociale, 1.2.4.4 SocioUnico, 1.2.4.5 StatoLiquidazione] - La lunghezza dell'elemento non può superare i 21 caratteri.</assert>
+	</rule>	
+
+	<rule context="/*[cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']" flag="fatal">
+		<assert test="cbc:ProfileID = 'urn:fdc:peppol.eu:2017:poacc:billing:01:1.0' and cbc:CustomizationID = 'urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:www.agid.gov.it:trns:fattura:3'"
+		        flag="fatal" id="BR-IT-DC-002">[BR-IT-DC-002] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-24 deve essere valorizzato come segue: urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:www.agid.gov.it:trns:fattura:3</assert>
+	</rule>
+
+	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress[cac:Country/cbc:IdentificationCode='IT']" flag="fatal">
+		<assert test="cbc:StreetName and cbc:CityName and cbc:PostalZone and ((((cbc:BuildingNumber) or string-length(cbc:StreetName) &gt; string-length(normalize-space(translate(cbc:StreetName, '0123456789', ' '))) or contains(cbc:StreetName, 's.n.c.')) and (//cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT')) or (not(//cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT')))"
+		flag="fatal" id="BR-IT-DC-140">[BR-IT-DC-140][FPA 1.2.2.1 Indirizzo, 1.2.2.4 Comune, 1.2.2.3 CAP] - Se il valore dell’elemento BT-40 Seller country code è “IT”, gli elementi devono essere obbligatoriamente valorizzati.</assert>
+		<assert test="((not(contains(normalize-space(cbc:CountrySubentity),' ')) and contains(' AG AL AN AO AP AQ AR AT AV BA BG BI BL BN BO BR BS BT BZ CA CB CE CH CI CL CN CO CR CS CT CZ EN FC FE FG FI FM FR FU GE GO GR IM IS KR LC LE LI LO LT LU MB MC ME MI MN MO MS MT NA NO NU OG OR OT PA PC PD PE PG PI PL PN PO PR PT PU PV PZ RA RC RE RG RI RM RN RO SA SI SO SP SR SS SU SV TA TE TN TO TP TR TS TV UD VA VB VC VE VI VR VS VT VV ZA ',concat(' ',normalize-space(cbc:CountrySubentity),' '))))" flag="fatal" id="BR-IT-DC-150">[BR-IT-DC-150][FPA 1.2.2.5 Provincia] - Se l'elemento BT-40 (Seller country code) ha valore "IT", per l'elemento BT-39 Seller country subdivision deve essere utilizzato uno dei valori della lista delle province italiane. Altrimenti l'informazione è riportata in allegato.</assert>
+		<assert test="matches(cbc:AdditionalStreetName, '^(.*)[0-9]{1}(.*)$') or cbc:AdditionalStreetName= 's.n.c' or not(cbc:AdditionalStreetName)"
+    		        flag="fatal" id="BR-IT-DC-141">[BR-IT-DC-141][FPA 1.2.2.2 NumeroCivico] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-36 (Seller address line 2) DEVE contenere il numero civico o l'acronimo "s.n.c." (senza numero civico).</assert>
+	</rule>
+
+   <rule context="//cbc:Telephone | //cbc:Telefax" flag="fatal">
+    	<assert test="matches(.,'^[\p{IsBasicLatin}]{5,12}$')"
+                flag="fatal" id="BR-IT-DC-161">
+                   [BR-IT-DC-161][FPA 1.1.5.1 Telefono, 1.2.5.1 Telefono] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-42 (Seller contact telephone number) DEVE essere composto da 5 fino ad un massimo di  12 caratteri alfanumerici.</assert>
+    </rule>
+
+    <rule context="//cac:PayeeParty/cac:PartyName/cbc:Name">
+    	<assert test="matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,200}$')"
+                flag="fatal" id="BR-IT-DC-221">
+                   [BR-IT-DC-221][FPA 2.4.2.1 - Beneficiario] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-59 (Payee name) DEVE essere composto da un massimo di 200 caratteri. </assert>
+    </rule>
+
+    <rule context="//cac:PaymentMeans/cbc:PaymentID">
+    	<assert test="matches(.,'^[\p{IsBasicLatin}]{1,60}$')"
+                flag="fatal" id="BR-IT-DC-262">
+                   [BR-IT-DC-262][FPA 2.4.2.21 CodicePagamento] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-83 (Remittance information) DEVE essere composto da un massimo di 60 caratteri alfanumerici.</assert>
+    </rule>
+
+    <rule context="cac:AllowanceCharge[cbc:AllowanceChargeReasonCode='ZZZ']">
+    	<assert test="((/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT') 
+						and matches(./cbc:AllowanceChargeReason,'^(.*)TC[0-9]{2}(.*)$'))
+						or (/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode != 'IT')" 
+                flag="fatal" id="BR-IT-DC-291">
+                   [BR-IT-DC-291][FPA 2.1.1.7.1 TipoCassa] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT" e viene applicata la Rivalsa Cassa Previdenziale, il BT-104 (Document level charge reason) DEVE contenere il tipo di cassa professionale compreso tra i valori "TC01" e "TC22". </assert>
+    </rule>
+
+    <rule context="//cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory[cac:TaxScheme/cbc:ID='VAT']/cbc:TaxExemptionReason" flag="fatal">
+        	<assert test="matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,105}$')"			
+                    flag="fatal" id="BR-IT-DC-351">
+                       [BR-IT-DC-351][FPA 2.2.2.8 RiferimentoNormativo] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-120 (VAT exemption reason text) DEVE essere composto da un massimo di 105 caratteri latini.</assert>
+    </rule>
+
+	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID" flag="fatal">
+		<assert test="matches(.,'^[A-Z]{2}[A-Z0-9]{0,28}$')" flag="fatal" id="BR-IT-180">[BR-IT-180][FPA 1.4.1.1.1 IdPaese, 1.4.1.1.2 IdCodice] - BT-48 (Buyer VAT identifier) maximum lenght shall be 30 chars and must begin with two alphabetic chars - La lunghezza dell'elemento non può superare i 30 caratteri e deve iniziare con due caratteri alfabetici.</assert>
+	</rule>
+
+	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0201']" flag="fatal">
+		<assert test="matches(.,'^[A-Z0-9]{6}$')"
+		        flag="fatal" id="BR-IT-200">[BR-IT-200][FPA 1.1.4  CodiceDestinatario] - If BT-49-1 (Buyer electronic address identification scheme identifier) contained the value "0201", BT-49 (Buyer electronic address) must contain an IPA code with maximum length equal to 6 alphabetical capitol chars - Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0201", l'elemento BT-49 (Buyer electronic address) deve contenere un codice IPA con lunghezza pari a 6 caratteri alfanumerici maiuscoli.</assert>
+	</rule>
+	
+	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0205']" flag="fatal">
+		<assert test="matches(.,'^[a-zA-Z0-9]{7}$')" flag="fatal" id="BR-IT-DC-202">[BR-IT-DC-202][FPA 1.1.4  CodiceDestinatario] - Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0205", l'elemento BT-49 (Buyer electronic address) deve contenere un codice Codice Destinatario con lunghezza pari a 7 caratteri.</assert>
+	</rule>
+
+	<rule context="/*/cac:AdditionalDocumentReference/cbc:ID[@schemeID='AVV']" flag="fatal">
+		<assert test="matches(.,'^[\p{IsBasicLatin}]{0,20}$')" flag="fatal" id="BR-IT-071">
+			[BR-IT-071][FPA 2.1.4.2 IdDocumento (Convenzione)] - BT-18 (Invoiced object identifier) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
+	</rule>
+	
+	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cbc:EndpointID[@schemeID='0202']" flag="fatal">
+		<assert test="matches(.,'^\w+([-_+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$') and matches(.,'^.{7,256}$')" flag="fatal" id="BR-IT-DC-203">[BR-IT-DC-203][FPA 1.1.6 PECDestinatario] - Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0202", l'elemento BT-49 (Buyer electronic address) deve contenere un indirizzo PEC di lunghezza compresa fra 7 e 256.</assert>
+	</rule>
+
+	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress[cac:Country/cbc:IdentificationCode='IT']" flag="fatal">
+		<assert test="cbc:StreetName and cbc:CityName and cbc:PostalZone and ((cbc:BuildingNumber)
+		              or string-length(cbc:StreetName) &gt; string-length(normalize-space(translate(cbc:StreetName, '0123456789', ' ')))
+                      or contains(cbc:StreetName, 's.n.c.'))"
+                flag="fatal" id="BR-IT-210">[BR-IT-210][FPA 1.4.2.1 Indirizzo, 1.4.2.2 NumeroCivico, 1.4.2.4 Comune, 1.4.2.3 CAP] - If Buyer country code (BT-55) = IT, all the elements BT-50 (Buyer address line 1), BT-51 (Buyer address line 2), BT-52 (Buyer city), BT-53 (Buyer post code) are mandatory except for House Number (Numero Civico) - Se Buyer country code (BT-55) =IT, tutti gli elementi sono obbligatori, a meno del Numero Civico.</assert>
+		<assert test="((not(contains(normalize-space(cbc:CountrySubentity),' '))
+		               and contains(' AG AL AN AO AP AQ AR AT AV BA BG BI BL BN BO BR BS BT BZ CA CB CE CH CI CL CN CO CR CS CT CZ EN FC FE FG FI FM FR FU GE GO GR IM IS KR LC LE LI LO LT LU MB MC ME MI MN MO MS MT NA NO NU OG OR OT PA PC PD PE PG PI PL PN PO PR PT PU PV PZ RA RC RE RG RI RM RN RO SA SI SO SP SR SS SU SV TA TE TN TO TP TR TS TV UD VA VB VC VE VI VR VS VT VV ZA ',concat(' ',normalize-space(cbc:CountrySubentity),' '))))"
+		        flag="fatal" id="BR-IT-220">[BR-IT-220][FPA 1.4.2.5 Provincia] - If Buyer country code (BT-55) = IT, is mandatory to use one of the values of the Italian province for BT-54 (Buyer country subdivision) - Se Buyer country code (BT-55) =IT, Per l'elemento BT-54 (Buyer country subdivision) deve essere utilizzato uno dei valori della lista delle province italiane. Altrimenti l'informazione è riportata in allegato.</assert>
+	</rule>
+
+    <rule context="/*/cac:TaxRepresentativeParty/cac:PartyName/cbc:Name" flag="fatal">
+		<assert test="(matches(.,'Nome#Cognome.*$' )
+		                and matches(.,'^[Nome#Cognome\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,60}#[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,60}$'))
+                    	or
+                      (not (matches(.,'Nome#Cognome.*$' ))
+                        and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,80}$'))"
+                flag="fatal" id="BR-IT-222">[BR-IT-222][FPA 1.3.1.3.1 Denominazione] - In case of legal person, BT-62 (Seller tax representative) maximum length shall be 80 chars - In caso di persona giuridica, la lunghezza dell'elemento non deve superare gli 80 caratteri.
+                                                                                 [FPA 1.3.1.3.2 Nome, 1.3.1.3.3 Cognome] - In case of natural person, BT-62 (Seller tax representative) must be preceded by 'Nome#Cognome:' and it length shall be 60 chars each for Name and Surname -  In caso di persona fisica, l'elemento deve essere preceduro dalla stringa "Nome#Cognome:" e non deve superare i 60 caratteri ciascuno per il Nome e il Cognome.</assert>
+	</rule>
+
+	<rule context="/*/cac:TaxRepresentativeParty/cac:PartyTaxScheme/cbc:CompanyID" flag="fatal">
+		<assert test="matches(.,'^[A-Z]{2}[A-Z0-9]{0,28}$')" flag="fatal" id="BR-IT-230">[BR-IT-230][FPA 1.3.1.1.1 IdPaese, 1.3.1.1.2 IdCodice] - BT-63 (Seller tax representative VAT identifier) maximum lenght shall be 30 chars and must begin with two alphabetic chars - La lunghezza dell'elemento non può superare i 30 caratteri e deve iniziare con due caratteri alfabetici.</assert>
+	</rule>
+	
+	<rule context="/*/cac:Delivery/cac:DeliveryLocation/cac:Address[cac:Country/cbc:IdentificationCode='IT']" flag="fatal">
+		<assert test="cbc:StreetName and cbc:CityName and cbc:PostalZone" flag="fatal" id="BR-IT-240">[BR-IT-240][FPA 2.1.9.12.1 Indirizzo, 2.1.9.12.4 Comune, 2.1.9.12.3 CAP] - If BT-80 Deliver to country code is valued with "IT", all the elements BT-75 (Deliver to address line 1), BT-77 (Deliver to city), BT-78 (Deliver to post code) must be valued - Se il valore dell’elemento BT-80 Deliver to country code è ”IT”, gli elementi devono essere obbligatoriamente valorizzati.</assert>
+		<assert test="((not(contains(normalize-space(cbc:CountrySubentity),' ')) and contains(' AG AL AN AO AP AQ AR AT AV BA BG BI BL BN BO BR BS BT BZ CA CB CE CH CI CL CN CO CR CS CT CZ EN FC FE FG FI FM FR FU GE GO GR IM IS KR LC LE LI LO LT LU MB MC ME MI MN MO MS MT NA NO NU OG OR OT PA PC PD PE PG PI PL PN PO PR PT PU PV PZ RA RC RE RG RI RM RN RO SA SI SO SP SR SS SU SV TA TE TN TO TP TR TS TV UD VA VB VC VE VI VR VS VT VV ZA ',concat(' ',normalize-space(cbc:CountrySubentity),' '))))" flag="fatal" id="BR-IT-250">[BR-IT-250][FPA 2.1.9.12.5 Provincia] - If BT-80 Deliver to country code is "IT", is mandatory to use one of the values of the Italian province for BT-79 (Deliver to country subdivision) - Se l'elemento BT-80 Deliver to country code ha valore "IT", per l'elemento BT-79 Deliver to country subdivision deve essere utilizzato uno dei valori della lista delle province italiane. Altrimenti l'informazione deve essere riportata in allegato.</assert>
+	</rule>
+	
+	<rule context="/*/cac:PaymentMeans" flag="fatal">
+		<assert test="not(contains(' 15 16 30 45 51 56 58 68 93 94 95 ',concat(' ',normalize-space(cbc:PaymentMeansCode),' '))) or matches(cac:PayeeFinancialAccount/cbc:ID, '^[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9]{11,30}$')" flag="fatal" id="BR-IT-270">[BR-IT-270][FPA 2.4.2.13 IBAN] - BT-84 (Payment account identifier) must be a IBAN code - L'identificativo del pagamento BT-84 (Payment account identifier) deve essere un codice IBAN.</assert>
+		<assert test="matches(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID, '^[A-Z]{6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3}){0,1}$') or not(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch)" flag="fatal" id="BR-IT-280">[BR-IT-280][FPA 2.4.2.16 BIC] - BT-86 (Payment service provider identifier) length shall be between 8 and 11 chars (BIC) - La lunghezza dell'elemento deve essere compresa fra 8 e 11 caratteri (BIC).</assert>
+	</rule>
+
+	<rule context="/*/cac:AllowanceCharge/cbc:Amount" flag="fatal">
+		<assert test="matches(.,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-290">[BR-IT-290][FPA 2.2.1.9 PrezzoUnitario, 2.2.1.11 PrezzoTotale] - BT-92 (Document level allowance amount) or BT-99 (Document level charge amount) maximum length shall be 15, including two fraction digits - La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
+	</rule>
+	
+	<rule context="/*/cac:LegalMonetaryTotal/cbc:TaxInclusiveAmount" flag="fatal">
+		<assert test="matches(.,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-300">[BR-IT-300][FPA 2.1.1.9 ImportoTotaleDocumento] - BT-112 (Invoice total amount with VAT) maximum length shall be 15, including two fraction digits - La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
+	</rule>
+	
+	<rule context="/*/cac:LegalMonetaryTotal/cbc:PayableRoundingAmount" flag="fatal">
+		<assert test="matches(.,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-310">[BR-IT-310][FPA 2.1.1.10 Arrotondamento] - BT-114 (Rounding amount) maximum length shall be 15, including two fraction digits - La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
+	</rule>
+	
+	<rule context="/*/cac:LegalMonetaryTotal/cbc:PayableAmount" flag="fatal">
+		<assert test="matches(.,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-320">[BR-IT-320][FPA 2.4.2.6 ImportoPagamento] - BT-115 (Amount due for payment) maximum length shall be 15, including two fraction digits - La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
+	</rule>
+	
+	<rule context="/*/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxableAmount" flag="fatal">
+		<assert test="matches(.,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-330">[BR-IT-330][FPA 2.2.2.5 ImponibileImporto] - BT-116 (VAT category taxable amount) maximum length shall be 15, including two fraction digits - La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
+	</rule>
+	
+	<rule context="/*/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxAmount" flag="fatal">
+		<assert test="matches(.,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-340">[BR-IT-340][FPA 2.2.2.6 Imposta] - BT-117 (VAT category tax amount) maximum length shall be 15, including two fraction digits - La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
+	</rule>
+	
+	<rule context="//cac:TaxCategory/cbc:ID | //cac:ClassifiedTaxCategory/cbc:ID" flag="fatal">
+		<assert test="contains(' AE E S G K Z B ', concat(' ',normalize-space(.),' '))" flag="fatal" id="BR-IT-350">[BR-IT-350] - BT-118 (VAT category code), BT-95 (Document level allowence VAT category code), BT-102 (Document level charge VAT category code), BT-151 (invoiced item VAT category code) For VAT category code only values AE E S G K Z B shall be allowed - I valori accettati sono esclusivamente AE E S G K Z B.</assert>
+	</rule>
+	
+	<rule context="//cac:AdditionalDocumentReference[cbc:ID and not(cbc:DocumentTypeCode)]" flag="fatal">
+		<assert test="cac:Attachment/cac:ExternalReference/cbc:URI or cac:Attachment/cbc:EmbeddedDocumentBinaryObject"
+		flag="fatal" id="BR-IT-360">[BR-IT-360][FPA 2.5.5 Attachment] - If BT-122 (Supporting document reference) is not empty, then BT-124 (External document location) or BT-125 (Attached document) shall be mandatory - Se l'elemento BT-122 Supporting document reference è valorizzato, è obbligatorio valorizzare almeno uno degli elementi BT-124 External document location e BT-125 Attached document.</assert>
+	</rule>
+
+	<rule context="/*/cac:InvoiceLine/cbc:ID | /*/cac:CreditNoteLine/cbc:ID" flag="fatal"> 
+    		<assert test="matches(.,'^\d{1,4}$')"
+    		flag="fatal" id="BR-IT-361">[BR-IT-361][FPA 2.2.1.1 NumeroLinea] - BT-126 (Invoice line identifier) shall be numeric and not higher than '9999'. - L'elemento deve essere di tipo numerico e non superiore a "9999".</assert>
     </rule>
 	
-		<rule context="/*/cac:InvoiceLine" flag="fatal">
-		<assert test="((./cac:OrderLineReference/cac:OrderReference) or (/*/cac:OrderReference) or (/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode != 'IT') or not(./cbc:LineID))"
-                    flag="fatal" id="BR-IT-DE-052">
-                       [BR-IT-DE-052][FPA 2.1.2.2 IdDocumento] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT" e in una riga di fattura è presente il riferimento ad una riga d'ordine (BT-132 Referenced purchase order line reference), DEVE essere indicato il riferimento all'ordine in testata (BT-13 Purchase order reference) o in riga.</assert>
+	
+	
+	<rule context="/*/cac:AccountingCustomerParty/cac:Party" flag="fatal">
+		<assert test="cbc:EndpointID[@schemeID='0201' or @schemeID='0202' or @schemeID='0205'] or cac:PostalAddress[cac:Country/cbc:IdentificationCode!='IT']" flag="fatal" id="BR-IT-190A">[BR-IT-190A][FPA 1.1.6 PECDestinatario, 1.1.4  CodiceDestinatario] - If Buyer country code (BT-55) = IT, BT-49 (Buyer electronic address) must contain the IPA Code, the PEC of the recipient of the invoice or the Recipient Code. Therefore, for BT-49-1 (Buyer electronic address identification scheme identifier) can be used respectively the values 0201, 0202 or 0205 - Se Buyer country code (BT-55) = IT, l'elemento BT-49 (Buyer electronic address) deve contenere il Codice IPA, la PEC del destinatario della fattura oppure il Codice Destinatario. Di conseguenza, per l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) sono previsti rispettivamente i valori 0201, 0202 oppure 0205.</assert>
+		<assert test="cac:PartyTaxScheme/cbc:CompanyID or cac:PartyLegalEntity/cbc:CompanyID or cac:PostalAddress[cac:Country/cbc:IdentificationCode!='IT']" flag="fatal" id="BR-IT-520A">[BR-IT-520A][FPA 1.4.1.2 Codice Fiscale, 1.4.1.1 Id Paese] - If Buyer country code (BT-55) = IT, at least one of the elements BT-48 (Buyer VAT identifier) or BT-47 (Buyer legal registration identifier) must be valued - Se Buyer country code (BT-55) = IT, almeno uno degli elementi BT-48 (Buyer VAT identifier) o BT-47 (Buyer legal registration identifier) deve essere valorizzato.</assert>
 	</rule>
+	
+	
+
+	<rule context="/*/cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity" flag="fatal">
+		<assert test="cbc:CompanyID[@schemeID='0210'] or not(cbc:CompanyID) or ../cac:PostalAddress[cac:Country/cbc:IdentificationCode!='IT']" flag="fatal" id="BR-IT-520C">[BR-IT-520C][FPA 1.4.1.2 - Codice Fiscale] - If Buyer country code (BT-55) = IT and Buyer legal registration identifier (BT-47) exists, the element Buyer legal registration identifier (BT-47-1) is mandatory and must be valued with "0210" - Se Buyer country code (BT-55) = “IT” ed esiste l’elemento Buyer legal registration identifier (BT-47), allora l’elemento Buyer legal registration identifier scheme identifier (BT-47-1) è obbligatorio e contiene il valore "0210"</assert>
+	</rule>
+	
+	<rule context="/*/cac:AccountingCustomerParty/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]" flag="fatal">
+		<assert test="matches(.,'^EORI:[A-Z0-9]{13,17}$') or ../../cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode!='IT']" flag="fatal" id="BR-IT-521">[BR-IT-521][FPA 1.4.1.3.5 - Codice EORI] - If Buyer country code (BT-55) = IT, the EORI Code (BT-46 Buyer identifier) must be preceded by 'EORI:' and it length shall be between 13 e 17 alphanumerical chars - Se Buyer country code (BT-55) = IT, il Codice EORI (BT-46 Buyer identifier) deve essere preceduto dal prefisso 'EORI:' ed avere la lunghezza del codice compresa fra 13 e 17 caratteri alfanumerici.</assert>
+	</rule>
+
+	<rule context="/*/cac:InvoiceLine/cac:Item | /*/cac:CreditNoteLine/cac:Item" flag="fatal">
+		<assert test="(not(./cbc:Description) and not(./cbc:Name)) or matches(concat(./cbc:Description,./cbc:Name),'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{0,1000}$')" flag="fatal" id="BR-IT-530">[BR-IT-530][FPA 2.2.1.4 - Descrizione] - The concatenation of BT-153 (Item Name) and BT-154 (Item Description) maximum lenght shall be 1000 chars from Unicode Basic Latin and/or Latin 1-Supplement blocks - La lunghezza della concatenazione degli elementi non può superare i 1000 caratteri riconducibili ai blocchi Unicode Basic Latin e/o Latin 1-Supplement</assert>
+	</rule>
+	
+	<!-- Line Level -->
+	
+	<rule context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID | /*/cac:CreditNoteLine/cac:DocumentReference/cbc:ID" flag="fatal">
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,100}$')" flag="fatal" id="BR-IT-370">[BR-IT-370][2.1.2.5 Codice Commessa Convenzione, 2.1.3.2 IdDocumento (Contratto), 2.1.3.6 CodiceCUP, 2.1.3.7 CodiceCIG, 2.1.4.2 IdDocumento (Convenzione)] - La lunghezza dell'elemento non può superare i 100 caratteri.</assert>
+	</rule>
+	
+	<rule context="/*/cac:InvoiceLine/cbc:InvoicedQuantity | /*/cac:CreditNoteLine/cbc:CreditedQuantity" flag="fatal">
+		<assert test="matches(.,'^\-{0,1}\d{1,12}\.\d{2,8}$')" flag="fatal" id="BR-IT-380">[BR-IT-380][FPA 2.2.1.5 Quantita] - BT-129 (Invoiced quantity) maximum lenght shall be 21 chars and BT allowed fraction digits shall be 8 - La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento dovrà avere 8 cifre decimali.</assert>
+	</rule>
+	
+	<rule context="/*/cac:InvoiceLine/cbc:LineExtensionAmount | /*/cac:CreditNoteLine/cbc:LineExtensionAmount" flag="fatal">
+		<assert test="matches(.,'^\-{0,1}\d*(\.\d{0,2})?$') and string-length(.) &gt;= 1 and string-length(.) &lt;= 15" flag="fatal" id="BR-IT-390">[BR-IT-390][FPA 2.2.1.11 PrezzoTotale] - BT-131 (Invoice line net amount) BT maximum length shall be 15, including two fraction digits - La lunghezza dell'elemento non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
+	</rule>
+	
+	<rule context="/*/cac:InvoiceLine/cac:OrderLineReference/cbc:LineID | /*/cac:CreditNoteLine/cac:OrderLineReference/cbc:LineID" flag="fatal">
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-400">[BR-IT-400][FPA 2.1.2.4 NumItem] - BT-132 (Referenced purchase order line reference) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
+	</rule>
+	
+	<rule context="/*/cac:InvoiceLine/cbc:AccountingCost | /*/cac:CreditNoteLine/cbc:AccountingCost" flag="fatal">
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-410">[BR-IT-410][FPA 2.2.1.15 RiferimentoAmministrazione] - BT-133 (Invoice line Buyer accounting reference) maximum lenght shall be 20 chars - La lunghezza dell'elemento non può superare i 20 caratteri.</assert>
+	</rule>
+	
+	<rule context="/*/cac:InvoiceLine/cac:Price/cac:AllowanceCharge/cbc:Amount | /*/cac:CreditNoteLine/cac:Price/cac:AllowanceCharge/cbc:Amount" flag="fatal">
+		<assert test="matches(.,'^[\-]?\d{1,11}\.\d{2,8}$')" flag="fatal" id="BR-IT-431">[BR-IT-431][FPA 2.2.1.10.3 Importo] - BT-147 (Item price discount) maximum length shall be 21 chars and BT allowed fraction digits shall be 8 - La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento potrà avere fino a 8 cifre decimali.</assert>
+	</rule>
+	
+	<rule context="/*/cac:InvoiceLine/cac:Price | /*/cac:CreditNoteLine/cac:Price" flag="fatal">
+		<assert test="cac:AllowanceCharge/cbc:BaseAmount" flag="fatal" id="BR-IT-432">[BR-IT-432][FPA 2.2.1.9 PrezzoUnitario] - The BT-148 (Item gross price) is mandatory - Il BT-148 (Item gross price) deve essere obbligatoriamente valorizzato.</assert>
+		<assert test="matches(cac:AllowanceCharge/cbc:BaseAmount,'^[\-]?\d{1,11}\.\d{2,8}$')" flag="fatal" id="BR-IT-433">[BR-IT-433][FPA 2.2.1.9 PrezzoUnitario] - BT-148 (Item gross price) maximum length shall be 21 chars and BT allowed fraction digits shall be 8 - La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento potrà avere fino a 8 cifre decimali.</assert>
+	</rule>	
+	
+	<rule context="/*/cac:InvoiceLine/cac:Item/cac:SellersItemIdentification/cbc:ID | /*/cac:CreditNoteLine/cac:Item/cac:SellersItemIdentification/cbc:ID" flag="fatal">
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,35}$')" flag="fatal" id="BR-IT-440">[BR-IT-440][FPA 2.2.1.3.1 Codice Tipo, 2.2.1.3.2 CodiceValore] - BT-155 (Item Seller's identifier) maximum lenght shall be 35 chars - La lunghezza dell'elemento non può superare i 35 caratteri.</assert>
+	</rule>
+	
+	<rule context="/*/cac:InvoiceLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode | /*/cac:CreditNoteLine/cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode" flag="fatal">
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,35}$')" flag="fatal" id="BR-IT-470">[BR-IT-470][FPA 2.2.1.3.1 Codice Tipo, 2.2.1.3.2 CodiceValore] - BT-158 (Item classification identifier) maximum lenght shall be 35 chars - La lunghezza dell'elemento non può superare i 35 caratteri.</assert>
+	</rule>
+	
+		
 	
 </pattern>

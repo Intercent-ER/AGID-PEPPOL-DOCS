@@ -1917,8 +1917,16 @@ the root node.
 								<cbc:ItemClassificationCode>
 									<xsl:if test="CodiceTipo">
 										<xsl:attribute name="listID">
-											<xsl:value-of select="CodiceTipo"/>
+											<xsl:if test="contains($dispositivoMedicoCodelist,CodiceTipo)">
+												ZZZ
+											</xsl:if>
+											<xsl:if test="not(contains($dispositivoMedicoCodelist,CodiceTipo))">
+												<xsl:value-of select="CodiceTipo"/>
+											</xsl:if>
 										</xsl:attribute>
+									</xsl:if>
+									<xsl:if test="contains($dispositivoMedicoCodelist,CodiceTipo)">
+										<xsl:value-of select="CodiceTipo"/>:
 									</xsl:if>
 									<xsl:value-of select="CodiceValore"/>
 								</cbc:ItemClassificationCode>

@@ -162,5 +162,6 @@
 	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty/cac:Party/cac:PartyName/cbc:Name" flag="fatal">
     		<assert test="matches(.,'^(\p{IsBasicLatin}){1,80}$')"
     		        flag="fatal" id="BR-IT-DE-051">[BR-IT-DE-051][FPA 1.5.1.3.1 Denominazione] - La denominazione del Terzo Intermediario (cbc:Name) non può superare gli 80 caratteri. </assert>
-
+	</rule>
+	
 </pattern>

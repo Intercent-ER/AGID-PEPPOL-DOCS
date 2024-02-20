@@ -164,4 +164,11 @@
     		        flag="fatal" id="BR-IT-DE-051">[BR-IT-DE-051][FPA 1.5.1.3.1 Denominazione] - La denominazione del Terzo Intermediario (cbc:Name) non può superare gli 80 caratteri. </assert>
 	</rule>
 	
+	<rule context="/*/cac:InvoiceLine" flag="fatal">
+		<assert test="((./cac:OrderLineReference/cac:OrderReference) or (/*/cac:OrderReference) or (/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode != 'IT') or not(./cbc:LineID))" 
+		flag="fatal" id="BR-IT-DE-052">[BR-IT-DE-052][2.1.2.2 Id Documento] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT" e in una riga di fattura è presente il riferimento ad una riga d’ordine (BT-132 Referenced purchase order line reference), DEVE essere indicato il riferimento all’ordine in testata (BT-13 Purchase order reference) o in riga.</assert>
+	</rule>
+	
+	
+	
 </pattern>

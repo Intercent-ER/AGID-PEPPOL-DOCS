@@ -189,6 +189,10 @@
 |2.1.8.2 DataDDT
 |La data del documento di trasporto deve essere obbligatoriamente valorizzata a livello di riga.
 
+|BR-IT-DE-050
+|1.5.1.2 Codice Fiscale
+|Se il Terzo Intermediario o Soggetto Emittente è italiano, deve essere fornito il suo Codice Fiscale (cac:PartyIdentification/cbc:ID) qualificato dall’attributo @schemeID con il valore "0210" e la lunghezza del codice deve essere compresa fra 11 e 16 caratteri alfanumerici.
+
 
 |====
 (*) _regola della Peppol Authority nazionale che integra le specifiche tecniche AdE_ 

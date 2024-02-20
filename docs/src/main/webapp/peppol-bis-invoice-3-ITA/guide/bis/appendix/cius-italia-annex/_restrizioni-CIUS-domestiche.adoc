@@ -114,18 +114,11 @@ BT-38 Seller post code
 |2.1.1.7.1 TipoCassa
 |Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT" e viene applicata la Rivalsa Cassa Previdenziale, il BT-104 (Document level charge reason) DEVE contenere il tipo di cassa professionale compreso tra i valori "TC01" e "TC22".
 
-|BR-IT-DC-340
-|Cardinality - Make a conditional element mandatory (0..x --> 1..x)
-|BT-13 Purchase order reference
-|2.1.2.2 IdDocumento
-|Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT" e in una riga di fattura è presente il riferimento ad una riga d'ordine (BT-132 Referenced purchase order line reference), DEVE essere indicato il riferimento all'ordine in testata (BT-13 Purchase order reference) o in riga.
-
 |BR-IT-DC-351
 |Value domain for an element - Restrict text or byte array length
 |BT-120 VAT exemption reason text
 |2.2.2.8 RiferimentoNormativo
 |Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT", il BT-120 (VAT exemption reason text) DEVE essere composto da un massimo di 105 caratteri latini.
-
 
 |BR-IT-DC-480*
 |Value domain for an element - Require defined structured values

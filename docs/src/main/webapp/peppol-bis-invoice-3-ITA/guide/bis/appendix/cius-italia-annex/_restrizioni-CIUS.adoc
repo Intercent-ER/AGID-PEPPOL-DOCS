@@ -90,13 +90,6 @@ valorizzato come segue: +
 |2.1.6.2 IdDocumento
 |La lunghezza dell'elemento non può superare i 20 caratteri.
 
-|BR-IT-120
-|Value domain for an element - Restrict text or byte array length
-|BT-31 Seller VAT identifier
-|1.2.1.1.1 IdPaese +
-1.2.1.1.2 IdCodice
-|La lunghezza dell'elemento non può superare i 30 caratteri e deve iniziare con due caratteri alfabetici.
-
 |BR-IT-091
 |Value domain for an element - Restrict text or byte array length
 |BT-27 Seller name
@@ -105,6 +98,13 @@ valorizzato come segue: +
 1.2.1.3.3 Cognome
 |In caso di persona giuridica, la lunghezza dell'elemento non deve superare gli 80 caratteri. +
 In caso di persona fisica, l'elemento deve essere preceduto dalla stringa "Nome#Cognome:" e non deve superare i 60 caratteri ciascuno per il Nome e il Cognome.
+
+|BR-IT-120
+|Value domain for an element - Restrict text or byte array length
+|BT-31 Seller VAT identifier
+|1.2.1.1.1 IdPaese +
+1.2.1.1.2 IdCodice
+|La lunghezza dell'elemento non può superare i 30 caratteri e deve iniziare con due caratteri alfabetici.
 
 |BR-IT-171
 |Value domain for an element - Restrict text or byte array length
@@ -323,7 +323,6 @@ BT-125 Attached document
 |2.2.1.9 PrezzoUnitario
 |La lunghezza dell'elemento non deve essere superiore a 21 caratteri e l'elemento potrà avere fino a 8 cifre decimali.
 
-
 |BR-IT-440
 |Value domain for an element - Restrict text or byte array length
 |BT-155 Item Seller's identifier
@@ -345,7 +344,6 @@ BT-48 Buyer VAT identifier
 |1.4.1.2 CodiceFiscale +
 1.4.1.1 IdFiscaleIVA
 |Se Buyer country code (BT-55) = “IT”, almeno uno degli elementi BT-48 (Buyer VAT identifier) o BT-47 (Buyer legal registration identifier) deve essere valorizzato.
-
 
 |BR-IT-520B*
 |Value domain for an element - Restrict text or byte array length

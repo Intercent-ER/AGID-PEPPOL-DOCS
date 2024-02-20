@@ -76,7 +76,7 @@
 		
 	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty/cac:Party" flag="fatal">
 		<assert test="cac:PartyTaxScheme/cbc:CompanyID and cac:PartyTaxScheme/cac:TaxScheme/cbc:ID = 'VAT' and (cac:PartyName/cbc:Name or (cac:Person/cbc:FirstName and cac:Person/cbc:FamilyName))" flag="fatal" id="BR-IT-DE-023">[BR-IT-DE-023][FPA 1.5 - Terzo Intermediario] - Il Terzo Intermediario o Soggetto Emittente deve contenere la P.IVA, lo schema fiscale = 'VAT', la ragione sociale o una persona fisica (nome e cognome).</assert>
-		<assert test="not(starts-with(upper-case(cac:PartyTaxScheme/cbc:CompanyID), 'IT')) or (cac:PartyIdentification/cbc:ID[@schemeID='0210'] and matches(cac:PartyIdentification/cbc:ID[@schemeID='0210'],'^[A-Z0-9]{11,16}$'))" flag="fatal" id="BR-IT-DE-049">[BR-IT-DE-049][FPA 1.5.1.2 - Codice Fiscale] - Se il Terzo Intermediario o Soggetto Emittente è italiano, deve essere fornito il suo Codice Fiscale (cac:PartyIdentification/cbc:ID) qualificato dall'attributo @schemeID con il valore "0210" e la lunghezza del codice deve essere compresa fra 11 e 16 caratteri alfanumerici.</assert>
+		<assert test="not(starts-with(upper-case(cac:PartyTaxScheme/cbc:CompanyID), 'IT')) or (cac:PartyIdentification/cbc:ID[@schemeID='0210'] and matches(cac:PartyIdentification/cbc:ID[@schemeID='0210'],'^[A-Z0-9]{11,16}$'))" flag="fatal" id="BR-IT-DE-050">[BR-IT-DE-050][FPA 1.5.1.2 - Codice Fiscale] - Se il Terzo Intermediario o Soggetto Emittente è italiano, deve essere fornito il suo Codice Fiscale (cac:PartyIdentification/cbc:ID) qualificato dall'attributo @schemeID con il valore "0210" e la lunghezza del codice deve essere compresa fra 11 e 16 caratteri alfanumerici.</assert>
 	</rule>
 
 	<rule context="/*/cac:TaxRepresentativeParty/cac:PartyIdentification/cbc:ID[@schemeID='0210']" flag="fatal">
@@ -118,16 +118,16 @@
 		<assert test="matches(.,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-DE-038">[BR-IT-DE-038][FPA 2.4.2.19 - Penalita Pagamenti Ritardati] - La lunghezza dell'elemento deve essere di almeno 4 caratteri e non può superare i 15 caratteri incluso 2 cifre decimali.</assert>
 	</rule>
 
-	<rule context="/*/cac:InvoiceLine/cac:OrderLineReference/cac:OrderReference/cbc:ID" flag="fatal">
-		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-DE-053">[BR-IT-DE-053][FPA 2.1.2.2 IdDocumento] - La lunghezza del numero ordine (cbc:ID) non può superare i 20 caratteri.</assert>
+	<rule context="/*/cac:InvoiceLine/cac:OrderLineReference/cac:OrderReference/cbc:ID | /*/cac:CreditNoteLine/cac:OrderLineReference/cac:OrderReference/cbc:ID" flag="fatal">
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-DE-039">[BR-IT-DE-039][2.1.2.2 Numero Ordine] - La lunghezza dell’elemento non può superare i 20 caratteri.</assert>
 	</rule>
 
-	<rule context="/*/cac:InvoiceLine/cac:DespatchLineReference/cbc:LineID" flag="fatal">
+	<rule context="/*/cac:InvoiceLine/cac:DespatchLineReference/cbc:LineID | /*/cac:CreditNoteLine/cac:DespatchLineReference/cbc:LineID" flag="fatal">
 		<assert test=".='NA'" flag="fatal" id="BR-IT-DE-040">[BR-IT-DE-040] - Il riferimento ad una riga DDT dalla riga fattura non supportato da SDI, valorizzarlo sempre con 'NA'.</assert>
 	</rule>
 	
-	<rule context="/*/cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference/cbc:ID" flag="fatal">
-		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-DE-052">[BR-IT-DE-052][FPA 2.1.8.1 NumeroDDT] - La lunghezza del numero DDT (cbc:ID) non può superare i 20 caratteri.</assert>
+	<rule context="/*/cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference/cbc:ID | /*/cac:CreditNoteLine/cac:DespatchLineReference/cac:DocumentReference/cbc:ID" flag="fatal">
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-DE-041">[BR-IT-DE-041][FPA 2.1.8.1 NumeroDDT] - La lunghezza del numero DDT (cbc:ID) non può superare i 20 caratteri.</assert>
 	</rule>
 	
 	<rule context="/*/cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference" flag="fatal">
@@ -151,12 +151,18 @@
 
    <rule context="/*/cac:AccountingCustomerParty/cac:Party/cac:PowerOfAttorney/cac:AgentParty/cac:PartyLegalEntity/cbc:RegistrationName" flag="fatal">
     		<assert test="matches(.,'^(\p{IsBasicLatin}){1,80}$')"
-    		        flag="fatal" id="BR-IT-DE-050">[BR-IT-DE-050][FPA 1.4.4.2 Denominazione] - La denominazione del Rappresentante Fiscale (cbc:RegistrationName) non può superare gli 80 caratteri. </assert>
+    		        flag="fatal" id="BR-IT-DE-049">[BR-IT-DE-049][FPA 1.4.4.2 Denominazione] - La denominazione del Rappresentante Fiscale (cbc:RegistrationName) non può superare gli 80 caratteri. </assert>
     </rule>
 
 	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty/cac:Party/cac:PartyName/cbc:Name" flag="fatal">
     		<assert test="matches(.,'^(\p{IsBasicLatin}){1,80}$')"
     		        flag="fatal" id="BR-IT-DE-051">[BR-IT-DE-051][FPA 1.5.1.3.1 Denominazione] - La denominazione del Terzo Intermediario (cbc:Name) non può superare gli 80 caratteri. </assert>
     </rule>
+	
+		<rule context="/*/cac:InvoiceLine" flag="fatal">
+		<assert test="((./cac:OrderLineReference/cac:OrderReference) or (/*/cac:OrderReference) or (/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode != 'IT') or not(./cbc:LineID))"
+                    flag="fatal" id="BR-IT-DE-052">
+                       [BR-IT-DE-052][FPA 2.1.2.2 IdDocumento] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT" e in una riga di fattura è presente il riferimento ad una riga d'ordine (BT-132 Referenced purchase order line reference), DEVE essere indicato il riferimento all'ordine in testata (BT-13 Purchase order reference) o in riga.</assert>
+	</rule>
 	
 </pattern>

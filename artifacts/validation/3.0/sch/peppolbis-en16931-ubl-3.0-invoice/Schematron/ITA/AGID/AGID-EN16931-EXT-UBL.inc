@@ -48,7 +48,8 @@
 	</rule>
 <!--
 	<rule context="/*/cac:WithholdingTaxTotal/cac:TaxSubtotal/cac:TaxCategory" flag="fatal">
-	<assert test="matches(cac:TaxCategory/cbc:Percent,'^\d{1,3}\.\d{2}$') and cbc:ID = 'S' and cac:TaxScheme/cbc:ID = 'SWT' and (/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT')) or (not(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT'))"flag="fatal" id="BR-IT-DE-013">
+	<assert test="matches(cac:TaxCategory/cbc:Percent,'^\d{1,3}\.\d{2}$') 
+	and cbc:ID = 'S' and cac:TaxScheme/cbc:ID = 'SWT' and (/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT') or (not(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT'))"flag="fatal" id="BR-IT-DE-013">
 				[BR-IT-DE-013][FPA 2.1.1.5 - Dati Ritenuta] - Ogni ritenuta deve contenere la categoria della ritenuta (cac:TaxCategory) con identificativo uguale a "S" (cbc:ID), percentuale della ritenuta (cbc:Percent) da 4 fino a 6 caratteri incluso 2 cifre decimali e schema della ritenuta valorizzato con cac:TaxScheme/cbc:ID = 'SWT'.</assert>
     </rule>
 -->	

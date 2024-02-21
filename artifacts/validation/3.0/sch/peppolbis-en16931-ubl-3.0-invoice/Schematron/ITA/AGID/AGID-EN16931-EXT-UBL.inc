@@ -46,16 +46,15 @@
 	<rule context="//cac:WithholdingTaxTotal/cac:TaxSubtotal" flag="fatal">
 		<assert test="matches(cbc:TaxAmount,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-DE-012">[BR-IT-DE-012][FPA 2.1.1.5 - Dati Ritenuta] - L'importo di ogni ritenuta (cbc:TaxAmount) deve contenere da 4 fino a 15 caratteri incluso 2 cifre decimali.</assert>
 	</rule>
-<!--
+
 	<rule context="/*/cac:WithholdingTaxTotal/cac:TaxSubtotal/cac:TaxCategory" flag="fatal">
 	<assert test="matches(cac:TaxCategory/cbc:Percent,'^\d{1,3}\.\d{2}$') 
 	and cbc:ID = 'S' and cac:TaxScheme/cbc:ID = 'SWT' and 
 	(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT') 
 	or (not(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT'))"flag="fatal" id="BR-IT-DE-013">
-	
-	[BR-IT-DE-013][FPA 2.1.1.5 - Dati Ritenuta] - Ogni ritenuta deve contenere la categoria della ritenuta (cac:TaxCategory) con identificativo uguale a "S" (cbc:ID), percentuale della ritenuta (cbc:Percent) da 4 fino a 6 caratteri incluso 2 cifre decimali e schema della ritenuta valorizzato con cac:TaxScheme/cbc:ID = 'SWT'.</assert>
+		[BR-IT-DE-013][FPA 2.1.1.5 - Dati Ritenuta] - Ogni ritenuta deve contenere la categoria della ritenuta (cac:TaxCategory) con identificativo uguale a "S" (cbc:ID), percentuale della ritenuta (cbc:Percent) da 4 fino a 6 caratteri incluso 2 cifre decimali e schema della ritenuta valorizzato con cac:TaxScheme/cbc:ID = 'SWT'.</assert>
     </rule>
--->	
+	
 	<!-- Document Level -->
 
 	<rule context="/*/cac:BillingReference/cac:AdditionalDocumentReference" flag="fatal">
@@ -132,7 +131,7 @@
 	</rule>
 	
 	<rule context="/*/cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference/cbc:ID | /*/cac:CreditNoteLine/cac:DespatchLineReference/cac:DocumentReference/cbc:ID" flag="fatal">
-		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-DE-041">[BR-IT-DE-041][FPA 2.1.8.1 NumeroDDT] - La lunghezza del numero DDT (cbc:ID) non può superare i 20 caratteri.</assert>
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-DE-041">[BR-IT-DE-041][FPA 2.1.8.1 NumeroDDT] - La lunghezza dell'elemento (cbc:ID) non può superare i 20 caratteri.</assert>
 	</rule>
 	
 	<rule context="/*/cac:InvoiceLine/cac:DespatchLineReference/cac:DocumentReference" flag="fatal">
@@ -164,7 +163,7 @@
     		        flag="fatal" id="BR-IT-DE-051">[BR-IT-DE-051][FPA 1.5.1.3.1 Denominazione] - La denominazione del Terzo Intermediario (cbc:Name) non può superare gli 80 caratteri. </assert>
 	</rule>
 	
-	<rule context="/*/cac:InvoiceLine" flag="fatal">
+	<rule context="/*/cac:InvoiceLine | /*/cac:CreditNoteLine flag="fatal">
 		<assert test="((./cac:OrderLineReference/cac:OrderReference) or (/*/cac:OrderReference) or (/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode != 'IT') or not(./cbc:LineID))" 
 		flag="fatal" id="BR-IT-DE-052">[BR-IT-DE-052][2.1.2.2 Id Documento] - Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT" e in una riga di fattura è presente il riferimento ad una riga d’ordine (BT-132 Referenced purchase order line reference), DEVE essere indicato il riferimento all’ordine in testata (BT-13 Purchase order reference) o in riga.</assert>
 	</rule>

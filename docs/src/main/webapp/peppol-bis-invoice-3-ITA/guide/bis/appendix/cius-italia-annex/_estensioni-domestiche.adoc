@@ -193,6 +193,14 @@
 |1.5.1.2 Codice Fiscale
 |Se il Terzo Intermediario o Soggetto Emittente è italiano, deve essere fornito il suo Codice Fiscale (cac:PartyIdentification/cbc:ID) qualificato dall’attributo @schemeID con il valore "0210" e la lunghezza del codice deve essere compresa fra 11 e 16 caratteri alfanumerici.
 
+|BR-IT-DE-051
+|1.5.1.3.1 Denominazione
+|La denominazione del Terzo Intermediario (cbc:Name) non può superare gli 80 caratteri. 
+
+|BR-IT-DE-052
+|2.1.2.2 Id Documento
+|Se il valore dell’elemento BT-40 (Seller country code) è uguale a "IT" e in una riga di fattura è presente il riferimento ad una riga d’ordine (BT-132 Referenced purchase order line reference), DEVE essere indicato il riferimento all’ordine in testata (BT-13 Purchase order reference) o in riga.
+
 
 |====
 (*) _regola della Peppol Authority nazionale che integra le specifiche tecniche AdE_ 

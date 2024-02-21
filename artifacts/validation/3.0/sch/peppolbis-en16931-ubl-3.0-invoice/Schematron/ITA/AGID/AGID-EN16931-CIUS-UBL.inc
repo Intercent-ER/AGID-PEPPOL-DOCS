@@ -107,7 +107,7 @@
                     	or
                       (not (matches(.,'Nome#Cognome.*$' ))
                         and matches(.,'^[\p{IsBasicLatin}\p{IsLatin-1Supplement}]{1,80}$'))"
-    		        flag="fatal" id="BR-IT-171">[BR-IT-BR-IT-171][FPA 1.4.1.3.1 Denominazione] - In case of legal person, BT-44 (Buyer name)maximum length shall be 80 chars - In caso di persona giuridica, la lunghezza dell'elemento non deve superare gli 80 caratteri.
+    		        flag="fatal" id="BR-IT-171">[BR-IT-171][FPA 1.4.1.3.1 Denominazione] - In case of legal person, BT-44 (Buyer name)maximum length shall be 80 chars - In caso di persona giuridica, la lunghezza dell'elemento non deve superare gli 80 caratteri.
                                                                                         [FPA 1.4.1.3.2 Nome, 1.4.1.3.3 Cognome] - In case of natural person, BT-44 (Buyer name) must be preceded by 'Nome#Cognome:' and it length shall be 60 chars each for Name and Surname -  In caso di persona fisica, l'elemento deve essere preceduro dalla stringa "Nome#Cognome:" e non deve superare i 60 caratteri ciascuno per il Nome e il Cognome.</assert>
     </rule>
 
@@ -278,7 +278,7 @@
 	<!-- Line Level -->
 	
 	<rule context="/*/cac:InvoiceLine/cac:DocumentReference/cbc:ID | /*/cac:CreditNoteLine/cac:DocumentReference/cbc:ID" flag="fatal">
-		<assert test="matches(.,'^(\p{IsBasicLatin}){0,100}$')" flag="fatal" id="BR-IT-370">[BR-IT-370][2.1.2.5 Codice Commessa Convenzione, 2.1.3.2 IdDocumento (Contratto), 2.1.3.6 CodiceCUP, 2.1.3.7 CodiceCIG, 2.1.4.2 IdDocumento (Convenzione)] - La lunghezza dell'elemento non può superare i 100 caratteri.</assert>
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,100}$')" flag="fatal" id="BR-IT-370">[BR-IT-370][FPA 2.1.2.5 Codice Commessa Convenzione, 2.1.3.2 IdDocumento (Contratto), 2.1.3.6 CodiceCUP, 2.1.3.7 CodiceCIG, 2.1.4.2 IdDocumento (Convenzione)] - La lunghezza dell'elemento non può superare i 100 caratteri.</assert>
 	</rule>
 	
 	<rule context="/*/cac:InvoiceLine/cbc:InvoicedQuantity | /*/cac:CreditNoteLine/cbc:CreditedQuantity" flag="fatal">

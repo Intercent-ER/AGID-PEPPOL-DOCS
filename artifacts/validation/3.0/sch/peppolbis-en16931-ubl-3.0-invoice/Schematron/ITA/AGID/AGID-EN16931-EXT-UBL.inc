@@ -124,7 +124,7 @@
 	</rule>
 
 	<rule context="/*/cac:InvoiceLine/cac:OrderLineReference/cac:OrderReference/cbc:ID | /*/cac:CreditNoteLine/cac:OrderLineReference/cac:OrderReference/cbc:ID" flag="fatal">
-		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-DE-039">[BR-IT-DE-039][2.1.2.2 Numero Ordine] - La lunghezza dell’elemento non può superare i 20 caratteri.</assert>
+		<assert test="matches(.,'^(\p{IsBasicLatin}){0,20}$')" flag="fatal" id="BR-IT-DE-039">[BR-IT-DE-039][FPA 2.1.2.2 Numero Ordine] - La lunghezza dell’elemento non può superare i 20 caratteri.</assert>
 	</rule>
 
 	<rule context="/*/cac:InvoiceLine/cac:DespatchLineReference/cbc:LineID | /*/cac:CreditNoteLine/cac:DespatchLineReference/cbc:LineID" flag="fatal">

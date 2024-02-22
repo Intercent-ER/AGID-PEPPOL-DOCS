@@ -49,7 +49,6 @@
 
 	<rule context="/*/cac:WithholdingTaxTotal/cac:TaxSubtotal[1]" flag="fatal">
 		<assert test="matches(cbc:Percent,'^\d{1,3}\.\d{2}$') 
-				and cbc:TaxAmount
 				and cac:TaxCategory/cbc:ID = 'S' 
 				and cac:TaxCategory/cac:TaxScheme/cbc:ID = 'SWT' 
 				and (cac:TaxCategory/cac:TaxScheme/cbc:TaxTypeCode)	

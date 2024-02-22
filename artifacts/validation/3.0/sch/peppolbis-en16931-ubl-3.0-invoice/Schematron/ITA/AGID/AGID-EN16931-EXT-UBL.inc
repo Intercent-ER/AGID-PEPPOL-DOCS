@@ -47,7 +47,7 @@
 		<assert test="matches(cbc:TaxAmount,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-DE-012">[BR-IT-DE-012][FPA 2.1.1.5 - Dati Ritenuta] - L'importo di ogni ritenuta (cbc:TaxAmount) deve contenere da 4 fino a 15 caratteri incluso 2 cifre decimali.</assert>
 	</rule>
 
-	<rule context="/*/cac:WithholdingTaxTotal/cac:TaxSubtotal" flag="fatal">
+	<rule context="/*/cac:WithholdingTaxTotal/cac:TaxSubtotal[1]" flag="fatal">
 		<assert test="matches(cbc:Percent,'^\d{1,3}\.\d{2}$') 
 				and cbc:TaxAmount
 				and cac:TaxCategory/cbc:ID = 'S' 

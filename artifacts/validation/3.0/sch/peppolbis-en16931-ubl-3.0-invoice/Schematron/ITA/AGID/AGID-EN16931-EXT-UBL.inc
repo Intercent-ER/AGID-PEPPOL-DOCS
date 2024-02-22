@@ -45,17 +45,15 @@
 
 	<rule context="//cac:WithholdingTaxTotal/cac:TaxSubtotal" flag="fatal">
 		<assert test="matches(cbc:TaxAmount,'^[\-]?\d{1,11}\.\d{2}$')" flag="fatal" id="BR-IT-DE-012">[BR-IT-DE-012][FPA 2.1.1.5 - Dati Ritenuta] - L'importo di ogni ritenuta (cbc:TaxAmount) deve contenere da 4 fino a 15 caratteri incluso 2 cifre decimali.</assert>
+		<assert test="(matches(./cac:TaxCategory/cbc:Percent,'^\d{1,3}\.\d{2}$') 
+				and ./cac:TaxCategory/cbc:ID = 'S' 
+				and ./cac:TaxCategory/cac:TaxScheme/cbc:ID = 'SWT' 
+				and ./cac:TaxCategory/cac:TaxScheme/cbc:TaxTypeCode	
+				and /*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT')
+				or /*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode != 'IT'" flag="fatal" id="BR-IT-DE-013">
+		[BR-IT-DE-013][FPA 2.1.1.5.1 Tipo Ritenuta, 2.1.1.5.2 Importo Ritenuta, 2.1.1.5.3 Aliquota Ritenuta, 2.1.1.5.4 Causale Pagamento] - Per ogni ritenuta di acconto, devono essere indicati la tipologia di ritenuta, l’importo della ritenuta (cbc:TaxAmount), la categoria della ritenuta (cac:TaxCategory) con identificativo uguale a "S" (cbc:ID), aliquota della ritenuta (cbc:Percent) da 4 fino a 6 caratteri incluso 2 cifre decimali, schema della ritenuta (cac:TaxScheme/cbc:ID) valorizzato con "SWT" e causale del pagamento (cac:TaxScheme/cbc:TaxTypeCode).</assert>
 	</rule>
 
-	<rule context="/*/cac:WithholdingTaxTotal/cac:TaxSubtotal[1]" flag="fatal">
-		<assert test="matches(cbc:Percent,'^\d{1,3}\.\d{2}$') 
-				and cac:TaxCategory/cbc:ID = 'S' 
-				and cac:TaxCategory/cac:TaxScheme/cbc:ID = 'SWT' 
-				and (cac:TaxCategory/cac:TaxScheme/cbc:TaxTypeCode)	
-				and (/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT')" flag="fatal" id="BR-IT-DE-013">
-		[BR-IT-DE-013][FPA 2.1.1.5.1 Tipo Ritenuta, 2.1.1.5.2 Importo Ritenuta, 2.1.1.5.3 Aliquota Ritenuta, 2.1.1.5.4 Causale Pagamento] - Per ogni ritenuta di acconto, devono essere indicati la tipologia di ritenuta, l’importo della ritenuta (cbc:TaxAmount), la categoria della ritenuta (cac:TaxCategory) con identificativo uguale a "S" (cbc:ID), aliquota della ritenuta (cbc:Percent) da 4 fino a 6 caratteri incluso 2 cifre decimali, schema della ritenuta (cac:TaxScheme/cbc:ID) valorizzato con "SWT" e causale del pagamento (cac:TaxScheme/cbc:TaxTypeCode).</assert>
-    </rule>
-	
 	<!-- Document Level -->
 
 	<rule context="/*/cac:BillingReference/cac:AdditionalDocumentReference" flag="fatal">

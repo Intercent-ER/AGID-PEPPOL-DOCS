@@ -66,7 +66,7 @@
 2.1.1.5.2 Importo Ritenuta +
 2.1.1.5.3 Aliquota Ritenuta +
 2.1.1.5.4 Causale Pagamento
-|Per ogni ritenuta di acconto, devono essere indicati la tipologia di ritenuta, l’importo della ritenuta (cbc:TaxAmount), la categoria della ritenuta (cac:TaxCategory) con identificativo uguale a "S" (cbc:ID), aliquota della ritenuta (cbc:Percent) da 4 fino a 6 caratteri incluso 2 cifre decimali, schema della ritenuta (cac:TaxScheme/cbc:ID) valorizzato con "SWT" e causale del pagamento (cac:TaxScheme/cbc:TaxTypeCode).
+|Per ogni ritenuta di acconto, devono essere indicati la tipologia di ritenuta, l’importo della ritenuta (cbc:TaxAmount), la categoria della ritenuta (cac:TaxCategory) con identificativo uguale a "S" (cbc:ID), aliquota della ritenuta (cbcPercent) da 4 fino a 6 caratteri incluso 2 cifre decimali, schema della ritenuta (cac:TaxScheme/cbc:ID) valorizzato con "SWT" e causale del pagamento (cac:TaxScheme/cbc:TaxTypeCode).
 
 |BR-IT-DE-014
 |2.1.10.1 NumeroFatturaPrincipale +

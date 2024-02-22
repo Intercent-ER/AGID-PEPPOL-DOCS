@@ -21,8 +21,6 @@ In Italia la registrazione delle pubbliche amministrazione sulla rete Peppol avv
     <cbc:EndpointID schemeID="0201">ABCDEF</cbc:EndpointID>
 ----
 
-----
-
 .Esempio di Endpoint di Fornitore registrato in Peppol con la Partita IVA:
 [source, xml, indent=0]
 ----

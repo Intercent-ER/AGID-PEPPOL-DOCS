@@ -135,7 +135,7 @@
 				<cbc:Percent>8.50</cbc:Percent>
 				<cac:TaxScheme>
 					<cbc:ID>AAA</cbc:ID>
-					<cbc:TaxTypeCode>U</cbc:TaxTypeCode> 
+					<!--<cbc:TaxTypeCode>U</cbc:TaxTypeCode> -->
 				</cac:TaxScheme>
 			</cac:TaxCategory>
 		</cac:TaxSubtotal>

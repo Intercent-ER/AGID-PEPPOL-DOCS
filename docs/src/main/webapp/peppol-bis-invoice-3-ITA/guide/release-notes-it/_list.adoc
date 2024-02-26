@@ -17,7 +17,7 @@ In vigore a partire dal *26 febbraio 2024*
 
 * Aggiornamento della sezione _4.6 Fatture negative e note di credito_, e rimozione del riferimento al formato BIS2. Modifica puramente editoriale;  
 * Inserimento di esempi specifici nelle sezioni _4.9.1. Rivalsa del bollo_ e _4.9.2. Restituzione del bollo_; 
-* Aggiunta della nuova sezione _4.11 Indicazione acconto in fattura di saldo _ contenente le modalità operative previste per l’indicazione di un acconto nella fattura di saldo; 
+* Aggiunta della nuova sezione _4.11 Indicazione acconto in fattura di saldo_ contenente le modalità operative previste per l’indicazione di un acconto nella fattura di saldo; 
 * Aggiornamento delle sezioni _15.1. Regole di business Peppol per le transazioni_ e _15.2. Regole di business EN 16931 per le transazioni_ per allineamento degli schematron all’aggiornamento derivante dalla norma EN 16931; 
 * Aggiornamento delle sezioni dell’_Appendix C: Regole Nazionali_ per allineamento alle Regole tecniche dell’Agenzia delle Entrate relative alla gestione delle fatture europee - versione 2.3 e modifica delle seguenti regole: 
 ** _C.1. CIUS_: BR-IT-120; BR-IT-180; BR-IT-200; BR-IT-230; 

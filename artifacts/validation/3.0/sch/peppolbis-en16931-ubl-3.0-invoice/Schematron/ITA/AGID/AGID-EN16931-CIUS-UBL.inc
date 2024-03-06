@@ -87,7 +87,12 @@
 	</rule>
 	
 	<rule context="/*/cac:AccountingCustomerParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode='IT']/cac:PartyLegalEntity/cbc:CompanyID" flag="fatal">
-		<assert test="(matches(.,'^[A-Z0-9]{16}$') and matches(../cbc:RegistrationName, 'Nome#Cognome.*$')) or ((matches(.,'^[0-9]{11}$') and not (matches(../cbc:RegistrationName, 'Nome#Cognome.*$'))))"
+		<assert test="
+		(matches(.,'^[A-Z0-9]{16}$') and matches(../cbc:RegistrationName, 'Nome#Cognome.*$')) 
+		or 
+		(matches(.,'^[0-9]{11}$') and not (matches(../cbc:RegistrationName, 'Nome#Cognome.*$')))
+		or
+		(matches(.,'^[A-Z0-9]{16}$') and not (matches(../cbc:RegistrationName, 'Nome#Cognome.*$')))"
 		                           flag="fatal" id="BR-IT-520B">[BR-IT-520B][FPA 1.4.1.2 - Codice Fiscale] - If Buyer country code (BT-55)= IT, BT-47 (Buyer legal registration identifier) length shall be between 11 and 16 chars - Se Buyer country code (BT-55) = IT, la lunghezza dell'elemento BT-47 (Buyer legal registration identifier) deve essere compresa fra 11 e 16 caratteri.</assert>
 	</rule>
 

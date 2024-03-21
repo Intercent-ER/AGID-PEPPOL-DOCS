@@ -17,25 +17,25 @@ In vigore a partire dal *26 febbraio 2024*
 
 * Aggiornamento della sezione _4.6 Fatture negative e note di credito_, e rimozione del riferimento al formato BIS2. Modifica puramente editoriale;  
 * Inserimento di esempi specifici nelle sezioni _4.9.1. Rivalsa del bollo_ e _4.9.2. Restituzione del bollo_; 
-* Aggiunta della nuova sezione _4.11 Indicazione acconto in fattura_ contenente le modalità operative previste per l’indicazione di un acconto nella fattura di saldo; 
+* Aggiunta della nuova sezione _4.11 Indicazione acconto in fattura di saldo_ contenente le modalità operative previste per l’indicazione di un acconto nella fattura di saldo; 
 * Aggiornamento delle sezioni _15.1. Regole di business Peppol per le transazioni_ e _15.2. Regole di business EN 16931 per le transazioni_ per allineamento degli schematron all’aggiornamento derivante dalla norma EN 16931; 
 * Aggiornamento delle sezioni dell’_Appendix C: Regole Nazionali_ per allineamento alle Regole tecniche dell’Agenzia delle Entrate relative alla gestione delle fatture europee - versione 2.3 e modifica delle seguenti regole: 
 ** _C.1. CIUS_: BR-IT-120; BR-IT-180; BR-IT-200; BR-IT-230; 
 ** _C.4. Estensioni Domestiche_: BR-IT-DE-011; BR-IT-DE-046; BR-IT-DE-049. 
 * Integrazione delle sezioni dell’_Appendix C: Regole Nazionali_ per allineamento ai controlli svolti da SDI sui documenti e inserimento delle seguenti nuove regole: 
-** _C.1. CIUS_: BR-IT-071; BR-IT-081; BR-IT-100; BR-IT-130; BR-IT-221; BR-IT-361; 
-** _C.2. CIUS Domestiche_: BR-IT-DC-120; BR-IT-DC-141; BR-IT-DC-160; BR-IT-DC-170; BR-IT-DC-180; BR-IT-DC-190; BR-IT-DC-300; BR-IT-DC-310; BR-IT-DC-320; BR-IT-DC-330; BR-IT-DC-340;  
-** _C.4. Estensioni Domestiche_: BR-IT-DE-050; BR-IT-DE-051; BR-IT-DE-052; BR-IT-DE-053.  
+** _C.1. CIUS_: BR-IT-071; BR-IT-081; BR-IT-091; BR-IT-171; BR-IT-222; BR-IT-361; 
+** _C.2. CIUS Domestiche_: BR-IT-DC-141; BR-IT-DC-161; BR-IT-DC-221; BR-IT-DC-262; BR-IT-DC-291; BR-IT-DC-351; 
+** _C.4. Estensioni Domestiche_: BR-IT-DE-013*; BR-IT-DE-050; BR-IT-DE-051; BR-IT-DE-052.
 * Aggiornamento della regola BR-IT-DC-480* relativa alla modalità di indicazione del bollo;
 * Piccole modifiche editoriali. 
 
 [red]#Cambiamenti alle code lists e artefatti di validazione# +
 
 * Rimozione della regola PEPPOL-EN16931-R006 dalle _Regole di business Peppol BIS Fatturazione 3.0_ in quanto ridondante rispetto alla regola UBL-SR-04 presente tra le _Regole di business EN 16931 Fatturazione_; 
-* Revisioni di specifiche _Regole di business CIUS italiana_ (CIUS ID BR-IT-120; BR-IT-180; BR-IT-200; BR-IT-230; BR-IT-520*; BR-IT-DC-203) e _Regole di business estensione italiana_ (CIUS ID BR-IT-DE-009NC1*; BR-IT-DE-011) per allineamento alle Regole tecniche dell’Agenzia delle Entrate relative alla gestione delle fatture europee - versione 2.3; 
+* Revisioni di specifiche _Regole di business CIUS italiana_ (CIUS ID BR-IT-120; BR-IT-180; BR-IT-200; BR-IT-230; BR-IT-520C*; BR-IT-DC-203) e _Regole di business estensione italiana_ (CIUS ID BR-IT-DE-009NC1*; BR-IT-DE-011) per allineamento alle Regole tecniche dell’Agenzia delle Entrate relative alla gestione delle fatture europee - versione 2.3; 
 * Integrazione delle  _Regole di business CIUS italiana_ e delle _Regole di business estensione italiana_ per allineamento ai controlli svolti da SDI sui documenti e inserimento delle seguenti nuove regole: 
-** _Regole di business CIUS italiana_: BR-IT-071; BR-IT-081; BR-IT-100; BR-IT-130; BR-IT-221; BR-IT-361; BR-IT-DC-120; BR-IT-DC-141; BR-IT-DC-160; BR-IT-DC-170; BR-IT-DC-180; BR-IT-DC-190; BR-IT-DC-300; BR-IT-DC-310; BR-IT-DC-320; BR-IT-DC-330; BR-IT-DC-340;  
-** _Regole di business estensione italiana_: BR-IT-DE-050; BR-IT-DE-051; BR-IT-DE-052; BR-IT-DE-053. 
+** _Regole di business CIUS italiana_: BR-IT-071; BR-IT-081; BR-IT-091; BR-IT-171; BR-IT-222; BR-IT-361; BR-IT-DC-141; BR-IT-DC-161; BR-IT-DC-221; BR-IT-DC-262; BR-IT-DC-291; BR-IT-DC-351;
+** _Regole di business estensione italiana_: BR-IT-DE-013*; BR-IT-DE-050; BR-IT-DE-051; BR-IT-DE-052. 
 * Aggiunto il codice 0218 (Lettonia) alla codifica EAS; 
 * Aggiunta correlazione tra codice CEL e l’unità di misura °C [grado Celsius] nella codifica Recommendation 20, including Recommendation 21 codes - prefixed with X (UN/ECE). 
 

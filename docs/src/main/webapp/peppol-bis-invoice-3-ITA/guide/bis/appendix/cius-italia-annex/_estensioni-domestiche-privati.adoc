@@ -36,10 +36,10 @@
 |1.4.4 Rappresentante Fiscale
 |Il Rappresentante Fiscale del Cliente deve contenere la P.IVA, lo schema fiscale = 'VAT', la ragione sociale e se viene specificata una persona fisica, il nome e cognome.
 
-
 |BR-IT-DE-049
-|FPA 1.5.1.2 - Codice Fiscale
-|Se il Terzo Intermediario o Soggetto Emittente è italiano, deve essere fornito il suo Codice Fiscale (cac:PartyIdentification/cbc:ID) qualificato dall'attributo @schemeID con il valore "0210" e la lunghezza del codice deve essere compresa fra 11 e 16 caratteri alfanumerici.
+|1.4.4.2 Denominazione
+|La denominazione del Rappresentante Fiscale (cbc:RegistrationName) non può superare gli 80 caratteri.
+
 
 |====
 

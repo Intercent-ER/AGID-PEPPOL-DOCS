@@ -127,6 +127,10 @@
 | [BR-IT-360][FPA 2.5.5 Attachment] - If BT-122 is not empty, then BT-124 or BT-125 shall be mandatory - Se l'elemento BT-122 Supporting document reference è valorizzato, è obbligatorio valorizzare almeno uno degli elementi BT-124 External document location e BT-125 Attached document.
 | //cac:AdditionalDocumentReference[cbc:ID and not(cbc:DocumentTypeCode)]
 | cac:Attachment/cac:ExternalReference/cbc:URI or cac:Attachment/cbc:EmbeddedDocumentBinaryObject
+.3+| BR-IT-361 *(fatal)*
+| [BR-IT-361][FPA 2.2.1.1 NumeroLinea] - BT-126 (Invoice line identifier) shall be numeric and not higher than '9999'. L'elemento deve essere di tipo numerico e non superiore a "9999".
+| /*/cac:InvoiceLine/cbc:ID
+| matches(.,'^\d{1,4}$') *(fatal)*
 .3+| BR-IT-370 *(fatal)*
 | [BR-IT-370][FPA 2.2.1.3.2 CodiceValore] - BT-128 (Invoice line object identifier) maximum lenght shall be 100 chars - La lunghezza dell'elemento non può superare i 100 caratteri.
 | /*/cac:InvoiceLine/cac:DocumentReference/cbc:ID \| /*/cac:CreditNoteLine/cac:DocumentReference/cbc:ID

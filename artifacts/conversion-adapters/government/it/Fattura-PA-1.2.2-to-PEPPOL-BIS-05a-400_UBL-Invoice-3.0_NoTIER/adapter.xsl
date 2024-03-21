@@ -775,14 +775,26 @@ the root node.
 			</xsl:if>
 		</cac:BillingReference>
 	</xsl:template>
-	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiDDT[not(RiferimentoNumeroLinea)][1]">
+	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiDDT[not(RiferimentoNumeroLinea)]">
 		<cac:DespatchDocumentReference>
-			<cbc:ID>
-				<xsl:value-of select="NumeroDDT"/>
-			</cbc:ID>
-			<cbc:IssueDate>
-				<xsl:value-of select="DataDDT"/>
-			</cbc:IssueDate>
+			<xsl:if test="count(FatturaElettronicaBody/DatiGenerali/DDT[(not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea))]) &gt; 0">
+
+				<cbc:ID>
+					<xsl:value-of select="string-join(concat(FatturaElettronicaBody/DatiGenerali/DatiDDT[(not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea))]/NumeroDDT,
+													  '(',FatturaElettronicaBody/DatiGenerali/DatiDDT[(not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea))]/DataDDT,')')
+													  ,
+													  ', ')"/>
+				</cbc:ID>
+
+			</xsl:if>
+			<xsl:if test="count(FatturaElettronicaBody/DatiGenerali/DDT[(not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea))]) = 0">
+				<cbc:ID>
+					<xsl:value-of select="NumeroDDT"/>
+				</cbc:ID>
+				<cbc:IssueDate>
+					<xsl:value-of select="DataDDT"/>
+				</cbc:IssueDate>
+			</xsl:if>
 		</cac:DespatchDocumentReference>
 	</xsl:template>
 	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiRicezione[1]">

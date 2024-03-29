@@ -6,6 +6,14 @@
 ^.^| Data
 ^.^| Cosa è cambiato
 
+| 3.3.0.4(IT)
+a| 02/04/2024
+a| _Recepimento nuovi controlli derivanti dalle Regole Tecniche NSO v.4.12_
+
+[red]#Cambiamenti alle code lists e artefatti di validazione#
+
+* Aggiunte le regole di validazione NSO_065, NSO_066 e NSO_067 per il documento d’Ordine relativi alla presenza di almeno un identificativo tra Codice Fiscale e Partita IVA per le parti Cliente, Fornitore e Intestatario Fattura.
+
 | 3.3.0.3(IT)
 a| 18/12/2023
 a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2023-Q4/release-notes/[Peppol BIS 3.0.12 - November release 2023] e altre modifiche italiane_. +

@@ -281,7 +281,7 @@
 
 			<!-- le rige ordine sono permesse sono nel caso di modifica CA -->			
 			<assert id="NSO_150" test="( if (/ubl:OrderResponse/cbc:OrderResponseCode = 'CA') then ( if (count(/ubl:OrderResponse/cac:OrderLine)=0) then false() else true() ) else ( if (count(/ubl:OrderResponse/cac:OrderLine)=0) then true() else false() ) )" flag="fatal">
-				NSO_150 - Il Documento contiene uno o più elementi "cac:OrderLine".
+				NSO_150 - Il Documento deve contenere uno o piu elementi "cac:OrderLine" solo se si tratta di una Risposta con modifica. - The Document must contain one or more "cac:OrderLine" elements only in Order response with change.
 			</assert>
 			
 		</rule>
@@ -335,7 +335,7 @@
 		<rule context="/ubl:OrderResponse/cac:BuyerCustomerParty/cac:Party/cbc:EndpointID">
 			<assert id="NSO_111"
                  test="if(@schemeID=0201) then true() else false()"
-                 flag="fatal">NSO_111 - Il valore dell’attributo schemeID dell’elemento è errato (il valore corretto è "0201").
+                 flag="fatal">NSO_111 - Il valore dell’attributo schemeID dell’elemento è errato (il valore corretto è "0201"). The value of schemeID attribute of the element is incorrect (the correct value is "0201").
 			</assert>
 		</rule>
 		

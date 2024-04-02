@@ -10,7 +10,7 @@
 a| 02/04/2024
 a| [red]#Cambiamenti alla specifica (Documentazione)# +
 
-* Aggiornamento della sezione _10.7 Informazioni sulle modalità di pagamento_ con l’inserimento del collegamento alla codelist https://peppol-docs.agid.gov.it/docs/xml/ITA/peppol-bis-invoice-3/codelist/UNCL4461.html/[Payment Means Code (UNCL4461)] contenente la corrispondenza con i codici delle Modalità di Pagamento utilizzati nel formato FatturaPA.
+* Aggiornamento della sezione _10.7 Informazioni sulle modalità di pagamento_ con l’inserimento del collegamento alla codelist https://peppol-docs.agid.gov.it/docs/xml/ITA/peppol-bis-invoice-3/codelist/UNCL4461.html[Payment Means Code (UNCL4461)] contenente la corrispondenza con i codici delle Modalità di Pagamento utilizzati nel formato FatturaPA.
 
 [red]#Cambiamenti alle code lists e artefatti di validazione# +
 

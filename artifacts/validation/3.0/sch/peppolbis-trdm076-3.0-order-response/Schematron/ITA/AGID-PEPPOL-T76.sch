@@ -103,111 +103,112 @@
 			)
 			"/>
 	</function>
-	<function name="u:valueOfDigit" as="xs:integer" xmlns="http://www.w3.org/1999/XSL/Transform">
-		<param name="digit" as="xs:string"/>
+<function name="u:valueOfDigit" as="xs:integer" xmlns="http://www.w3.org/1999/XSL/Transform">
+		<param name="digitCaseSensitive" as="xs:string"/>
 		<param name="posit" as="xs:integer"/>
+		<variable name="digit" select="upper-case($digitCaseSensitive)"/>
 		<sequence select="
-					if ( ($digit = '0') or ($digit = 'a') or ($digit = 'A'))
+					if ( ($digit = '0') or ($digit = 'A'))
 					then (
 						if(($posit mod 2) = 0) then 0 else 1
 					)
-					else if ( ($digit = '1') or ($digit = 'b') or ($digit = 'B'))
+					else if ( ($digit = '1') or ($digit = 'B'))
 					then (
 						if(($posit mod 2) = 0) then 1 else 0
 					)
-					else if ( ($digit = '2') or ($digit = 'c') or ($digit = 'C'))
+					else if ( ($digit = '2') or ($digit = 'C'))
 					then (
 						if(($posit mod 2) = 0) then 2 else 5
 					)
-					else if ( ($digit = '3') or ($digit = 'd') or ($digit = 'D'))
+					else if ( ($digit = '3') or ($digit = 'D'))
 					then (
 						if(($posit mod 2) = 0) then 3 else 7
 					)
-					else if ( ($digit = '4') or ($digit = 'e') or ($digit = 'E'))
+					else if ( ($digit = '4') or ($digit = 'E'))
 					then (
 						if(($posit mod 2) = 0) then 4 else 9
 					)
-					else if ( ($digit = '5') or ($digit = 'f') or ($digit = 'F'))
+					else if ( ($digit = '5') or ($digit = 'F'))
 					then (
 						if(($posit mod 2) = 0) then 5 else 13
 					)
-					else if ( ($digit = '6') or ($digit = 'g') or ($digit = 'G'))
+					else if ( ($digit = '6') or ($digit = 'G'))
 					then (
 						if(($posit mod 2) = 0) then 6 else 15
 					)
-					else if ( ($digit = '7') or ($digit = 'h') or ($digit = 'H'))
+					else if ( ($digit = '7') or ($digit = 'H'))
 					then (
 						if(($posit mod 2) = 0) then 7 else 17
 					)
-					else if ( ($digit = '8') or ($digit = 'i') or ($digit = 'I'))
+					else if ( ($digit = '8') or ($digit = 'I'))
 					then (
 						if(($posit mod 2) = 0) then 8 else 19
 					)
-					else if ( ($digit = '9') or ($digit = 'j') or ($digit = 'J'))
+					else if ( ($digit = '9') or ($digit = 'J'))
 					then (
 						if(($posit mod 2) = 0) then 9 else 21
 					)
-					else if (($digit = 'k') or ($digit = 'K'))
+					else if ($digit = 'K')
 					then (
 						if(($posit mod 2) = 0) then 10 else 2
 					)
-					else if (($digit = 'l') or ($digit = 'L'))
+					else if ($digit = 'L')
 					then (
 						if(($posit mod 2) = 0) then 11 else 4
 					)
-					else if (($digit = 'm') or ($digit = 'M'))
+					else if ($digit = 'M')
 					then (
 						if(($posit mod 2) = 0) then 12 else 18
 					)
-					else if (($digit = 'n') or ($digit = 'N'))
+					else if ($digit = 'N')
 					then (
 						if(($posit mod 2) = 0) then 13 else 20
 					)
-					else if (($digit = 'o') or ($digit = 'O'))
+					else if ($digit = 'O')
 					then (
 						if(($posit mod 2) = 0) then 14 else 11
 					)
-					else if (($digit = 'p') or ($digit = 'P'))
+					else if ($digit = 'P')
 					then (
 						if(($posit mod 2) = 0) then 15 else 3
 					)
-					else if (($digit = 'q') or ($digit = 'Q'))
+					else if ($digit = 'Q')
 					then (
 						if(($posit mod 2) = 0) then 16 else 6
 					)
-					else if (($digit = 'r') or ($digit = 'R'))
+					else if ($digit = 'R')
 					then (
 						if(($posit mod 2) = 0) then 17 else 8
 					)
-					else if (($digit = 's') or ($digit = 'S'))
+					else if ($digit = 'S')
 					then (
 						if(($posit mod 2) = 0) then 18 else 12
 					)
-					else if (($digit = 't') or ($digit = 'T'))
+					else if ($digit = 'T')
 					then (
 						if(($posit mod 2) = 0) then 19 else 14
 					)
-					else if (($digit = 'u') or ($digit = 'U'))
+					else if ($digit = 'U')
 					then (
 						if(($posit mod 2) = 0) then 20 else 16
 					)
-					else if (($digit = 'v') or ($digit = 'V'))
+					else if ($digit = 'V')
 					then (
 						if(($posit mod 2) = 0) then 21 else 10
 					)
-					else if (($digit = 'w') or ($digit = 'W'))
+					else if ($digit = 'W')
 					then (
 						if(($posit mod 2) = 0) then 22 else 22
 					)
-					else if (($digit = 'x') or ($digit = 'X'))
+					else if ($digit = 'X')
 					then (
 						if(($posit mod 2) = 0) then 23 else 25
 					)
-					else if (($digit = 'y') or ($digit = 'Y'))
+					else if ($digit = 'Y')
 					then (
 						if(($posit mod 2) = 0) then 24 else 24
 					)
-					else if (($digit = 'z') or ($digit = 'Z'))
+					else if ($digit = 'Z')
 					then (
 						if(($posit mod 2) = 0) then 25 else 23
 					)
@@ -216,115 +217,36 @@
 	</function>
 	<function name="u:checkDigit" as="xs:string" xmlns="http://www.w3.org/1999/XSL/Transform">
 		<param name="digit" as="xs:integer"/>
-		<param name="case" as="xs:string"/>
 		<sequence select="
-					if ($digit = 0)
-					then (
-						if($case = 'lower') then 'a' else 'A'
-					)
-					else if ($digit = 1)
-					then (
-						if($case = 'lower') then 'b' else 'B'
-					)
-					else if ($digit = 2)
-					then (
-						if($case = 'lower') then 'c' else 'C'
-					)
-					else if ($digit = 3)
-					then (
-						if($case = 'lower') then 'd' else 'D'
-					)
-					else if ($digit = 4)
-					then (
-						if($case = 'lower') then 'e' else 'E'
-					)
-					else if ($digit = 5)
-					then (
-						if($case = 'lower') then 'f' else 'F'
-					)
-					else if ($digit = 6)
-					then (
-						if($case = 'lower') then 'g' else 'G'
-					)
-					else if ($digit = 7)
-					then (
-						if($case = 'lower') then 'h' else 'H'
-					)
-					else if ($digit = 8)
-					then (
-						if($case = 'lower') then 'i' else 'I'
-					)
-					else if ($digit = 9)
-					then (
-						if($case = 'lower') then 'j' else 'J'
-					)
-					else if ($digit = 10)
-					then (
-						if($case = 'lower') then 'k' else 'K'
-					)
-					else if ($digit = 11)
-					then (
-						if($case = 'lower') then 'l' else 'L'
-					)
-					else if ($digit = 12)
-					then (
-						if($case = 'lower') then 'm' else 'M'
-					)
-					else if ($digit = 13)
-					then (
-						if($case = 'lower') then 'n' else 'N'
-					)
-					else if ($digit = 14)
-					then (
-						if($case = 'lower') then 'o' else 'O'
-					)
-					else if ($digit = 15)
-					then (
-						if($case = 'lower') then 'p' else 'P'
-					)
-					else if ($digit = 16)
-					then (
-						if($case = 'lower') then 'q' else 'Q'
-					)
-					else if ($digit = 17)
-					then (
-						if($case = 'lower') then 'r' else 'R'
-					)
-					else if ($digit = 18)
-					then (
-						if($case = 'lower') then 's' else 'S'
-					)
-					else if ($digit = 19)
-					then (
-						if($case = 'lower') then 't' else 'T'
-					)
-					else if ($digit = 20)
-					then (
-						if($case = 'lower') then 'u' else 'U'
-					)
-					else if ($digit = 21)
-					then (
-						if($case = 'lower') then 'v' else 'V'
-					)
-					else if ($digit = 22)
-					then (
-						if($case = 'lower') then 'w' else 'W'
-					)
-					else if ($digit = 23)
-					then (
-						if($case = 'lower') then 'x' else 'X'
-					)
-					else if ($digit = 24)
-					then (
-						if($case = 'lower') then 'y' else 'Y'
-					)
-					else if ($digit = 25)
-					then (
-						if($case = 'lower') then 'z' else 'Z'
-					)
+					if ($digit = 0) then 'A'
+					else if ($digit = 1) then 'B'
+					else if ($digit = 2) then 'C'
+					else if ($digit = 3) then 'D'
+					else if ($digit = 4) then 'E'
+					else if ($digit = 5) then 'F'
+					else if ($digit = 6) then 'G'
+					else if ($digit = 7) then 'H'
+					else if ($digit = 8) then 'I'
+					else if ($digit = 9) then 'J'
+					else if ($digit = 10) then 'K'
+					else if ($digit = 11) then 'L'
+					else if ($digit = 12) then 'M'
+					else if ($digit = 13) then 'N'
+					else if ($digit = 14) then 'O'
+					else if ($digit = 15) then 'P'
+					else if ($digit = 16) then 'Q'
+					else if ($digit = 17) then 'R'
+					else if ($digit = 18) then 'S'
+					else if ($digit = 19) then 'T'
+					else if ($digit = 20) then 'U'
+					else if ($digit = 21) then 'V'
+					else if ($digit = 22) then 'W'
+					else if ($digit = 23) then 'X'
+					else if ($digit = 24) then 'Y'
+					else if ($digit = 25) then 'Z'
 					else '0'
 					"/>
-	</function>
+	</function>	
 	<function name="u:checkCF16" as="xs:boolean" xmlns="http://www.w3.org/1999/XSL/Transform">
 		<param name="arg" as="xs:string?"/>
 		<sequence select="
@@ -332,31 +254,16 @@
 					then
 					(
 						if(
-							(
-								u:checkDigit((
-									u:valueOfDigit(substring($arg,1,1), 1) + u:valueOfDigit(substring($arg,2,1), 2) +
-									u:valueOfDigit(substring($arg,3,1), 3) + u:valueOfDigit(substring($arg,4,1), 4) +
-									u:valueOfDigit(substring($arg,5,1), 5) + u:valueOfDigit(substring($arg,6,1), 6) +
-									u:valueOfDigit(substring($arg,7,1), 7) + u:valueOfDigit(substring($arg,8,1), 8) +
-									u:valueOfDigit(substring($arg,9,1), 9) + u:valueOfDigit(substring($arg,10,1), 10) +
-									u:valueOfDigit(substring($arg,11,1), 11) + u:valueOfDigit(substring($arg,12,1), 12) +
-									u:valueOfDigit(substring($arg,13,1), 13) + u:valueOfDigit(substring($arg,14,1), 14) +
-									u:valueOfDigit(substring($arg,15,1), 15)
-								) mod 26, 'lower') = substring($arg,16,1)
-							)
-							or
-							(
-								u:checkDigit((
-									u:valueOfDigit(substring($arg,1,1), 1) + u:valueOfDigit(substring($arg,2,1), 2) +
-									u:valueOfDigit(substring($arg,3,1), 3) + u:valueOfDigit(substring($arg,4,1), 4) +
-									u:valueOfDigit(substring($arg,5,1), 5) + u:valueOfDigit(substring($arg,6,1), 6) +
-									u:valueOfDigit(substring($arg,7,1), 7) + u:valueOfDigit(substring($arg,8,1), 8) +
-									u:valueOfDigit(substring($arg,9,1), 9) + u:valueOfDigit(substring($arg,10,1), 10) +
-									u:valueOfDigit(substring($arg,11,1), 11) + u:valueOfDigit(substring($arg,12,1), 12) +
-									u:valueOfDigit(substring($arg,13,1), 13) + u:valueOfDigit(substring($arg,14,1), 14) +
-									u:valueOfDigit(substring($arg,15,1), 15)
-								) mod 26, 'upper') = substring($arg,16,1)
-							)
+							u:checkDigit((
+								u:valueOfDigit(substring($arg,1,1), 1) + u:valueOfDigit(substring($arg,2,1), 2) +
+								u:valueOfDigit(substring($arg,3,1), 3) + u:valueOfDigit(substring($arg,4,1), 4) +
+								u:valueOfDigit(substring($arg,5,1), 5) + u:valueOfDigit(substring($arg,6,1), 6) +
+								u:valueOfDigit(substring($arg,7,1), 7) + u:valueOfDigit(substring($arg,8,1), 8) +
+								u:valueOfDigit(substring($arg,9,1), 9) + u:valueOfDigit(substring($arg,10,1), 10) +
+								u:valueOfDigit(substring($arg,11,1), 11) + u:valueOfDigit(substring($arg,12,1), 12) +
+								u:valueOfDigit(substring($arg,13,1), 13) + u:valueOfDigit(substring($arg,14,1), 14) +
+								u:valueOfDigit(substring($arg,15,1), 15)
+							) mod 26) = upper-case(substring($arg,16,1))
 						)
 						then true()
 						else false()

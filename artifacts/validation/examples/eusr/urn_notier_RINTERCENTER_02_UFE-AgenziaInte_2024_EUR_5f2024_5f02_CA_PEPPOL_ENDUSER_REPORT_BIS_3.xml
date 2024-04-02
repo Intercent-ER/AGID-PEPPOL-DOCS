@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<EndUserStatisticsReport xmlns="urn:fdc:peppol:end-user-statistics-report:1.1">
+    <CustomizationID>urn:fdc:peppol.eu:edec:trns:end-user-statistics-report:1.1</CustomizationID>
+    <ProfileID>urn:fdc:peppol.eu:edec:bis:reporting:1.0</ProfileID>
+    <Header>
+        <ReportPeriod>
+            <StartDate>2024-01-01</StartDate>
+            <EndDate>2024-01-31</EndDate>
+        </ReportPeriod>
+        <ReporterID schemeID="CertSubjectCN">PIT000158</ReporterID>
+    </Header>
+    <FullSet>
+        <SendingEndUsers>1032</SendingEndUsers>
+        <ReceivingEndUsers>618</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>1646</SendingOrReceivingEndUsers>
+    </FullSet>
+    <Subset type="PerDT-PR">
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <SendingEndUsers>905</SendingEndUsers>
+        <ReceivingEndUsers>511</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>1416</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-PR">
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:ordering:3</Key>
+        <SendingEndUsers>1</SendingEndUsers>
+        <ReceivingEndUsers>0</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>1</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-PR">
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>3</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>3</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-PR">
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>9</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>9</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-PR">
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3:restrictive:urn:www.agid.gov.it:trns:ordine:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <SendingEndUsers>126</SendingEndUsers>
+        <ReceivingEndUsers>343</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>465</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-PR">
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2::ApplicationResponse##urn:fdc:peppol.eu:poacc:trns:invoice_response:3::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:invoice_response:3</Key>
+        <SendingEndUsers>1</SendingEndUsers>
+        <ReceivingEndUsers>0</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>1</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-PR">
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>17</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>17</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-PR-EUC">
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">GB</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>2</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>2</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-PR-EUC">
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">SM</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>1</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>1</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-PR-EUC">
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3:restrictive:urn:www.agid.gov.it:trns:ordine:3.1::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">IT</Key>
+        <SendingEndUsers>126</SendingEndUsers>
+        <ReceivingEndUsers>339</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>461</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-PR-EUC">
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3:restrictive:urn:www.agid.gov.it:trns:ordine:3.1::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">CH</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>1</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>1</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-PR-EUC">
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">IT</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>3</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>3</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-PR-EUC">
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">FR</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>1</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>1</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-PR-EUC">
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3:restrictive:urn:www.agid.gov.it:trns:ordine:3.1::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">GB</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>2</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>2</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-PR-EUC">
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:ordering:3</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">IT</Key>
+        <SendingEndUsers>1</SendingEndUsers>
+        <ReceivingEndUsers>0</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>1</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-PR-EUC">
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3:restrictive:urn:www.agid.gov.it:trns:ordine:3.1::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">FR</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>1</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>1</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-PR-EUC">
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">IT</Key>
+        <SendingEndUsers>905</SendingEndUsers>
+        <ReceivingEndUsers>506</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>1411</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-PR-EUC">
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">IT</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>9</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>9</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-PR-EUC">
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">IT</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>17</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>17</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-PR-EUC">
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:order_only:3</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">CH</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>1</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>1</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-PR-EUC">
+        <Key metaSchemeID="PR" schemeID="cenbii-procid-ubl">urn:fdc:peppol.eu:poacc:bis:invoice_response:3</Key>
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2::ApplicationResponse##urn:fdc:peppol.eu:poacc:trns:invoice_response:3::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">BE</Key>
+        <SendingEndUsers>1</SendingEndUsers>
+        <ReceivingEndUsers>0</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>1</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerEUC">
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">BE</Key>
+        <SendingEndUsers>1</SendingEndUsers>
+        <ReceivingEndUsers>0</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>1</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerEUC">
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">SM</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>1</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>1</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerEUC">
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">FR</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>1</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>1</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerEUC">
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">CH</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>1</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>1</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerEUC">
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">GB</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>2</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>2</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerEUC">
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">IT</Key>
+        <SendingEndUsers>1031</SendingEndUsers>
+        <ReceivingEndUsers>613</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>1640</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-EUC">
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3:restrictive:urn:www.agid.gov.it:trns:ordine:3.1::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">CH</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>1</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>1</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-EUC">
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">GB</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>2</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>2</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-EUC">
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3:restrictive:urn:www.agid.gov.it:trns:ordine:3.1::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">IT</Key>
+        <SendingEndUsers>126</SendingEndUsers>
+        <ReceivingEndUsers>339</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>461</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-EUC">
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">SM</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>1</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>1</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-EUC">
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:ApplicationResponse-2::ApplicationResponse##urn:fdc:peppol.eu:poacc:trns:invoice_response:3::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">BE</Key>
+        <SendingEndUsers>1</SendingEndUsers>
+        <ReceivingEndUsers>0</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>1</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-EUC">
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3:restrictive:urn:www.agid.gov.it:trns:ordine:3.1::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">GB</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>2</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>2</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-EUC">
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">FR</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>1</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>1</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-EUC">
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">IT</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>17</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>17</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-EUC">
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Invoice-2::Invoice##urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">IT</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>3</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>3</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-EUC">
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3:restrictive:urn:www.agid.gov.it:trns:ordine:3.1::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">FR</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>1</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>1</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-EUC">
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">CH</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>1</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>1</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-EUC">
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:Order-2::Order##urn:fdc:peppol.eu:poacc:trns:order:3::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">IT</Key>
+        <SendingEndUsers>905</SendingEndUsers>
+        <ReceivingEndUsers>506</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>1411</SendingOrReceivingEndUsers>
+    </Subset>
+    <Subset type="PerDT-EUC">
+        <Key metaSchemeID="DT" schemeID="busdox-docid-qns">urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2::DespatchAdvice##urn:fdc:peppol.eu:poacc:trns:despatch_advice:3::2.1</Key>
+        <Key metaSchemeID="CC" schemeID="EndUserCountry">IT</Key>
+        <SendingEndUsers>0</SendingEndUsers>
+        <ReceivingEndUsers>9</ReceivingEndUsers>
+        <SendingOrReceivingEndUsers>9</SendingOrReceivingEndUsers>
+    </Subset>
+</EndUserStatisticsReport>

@@ -26,7 +26,7 @@
 
 |BR-IT-DE-046
 |1.4.3.3 CAP
-|La lunghezza dell'elemento non può superare 8 caratteri.
+|La lunghezza dell'elemento deve essere costituita da 5 cifre.
 
 |BR-IT-DE-047
 |1.4.3.5 Provincia 
@@ -36,5 +36,10 @@
 |1.4.4 Rappresentante Fiscale
 |Il Rappresentante Fiscale del Cliente deve contenere la P.IVA, lo schema fiscale = 'VAT', la ragione sociale e se viene specificata una persona fisica, il nome e cognome.
 
+|BR-IT-DE-049
+|1.4.4.2 Denominazione
+|La denominazione del Rappresentante Fiscale (cbc:RegistrationName) non può superare gli 80 caratteri.
+
 
 |====
+

@@ -48,3 +48,5 @@ include::{snippet-dir}/snippet-30-3.xml[tags=despatchaddress]
 <1> Codice identificativo del luogo di consegna secondo un sistema di codifica conosciuto dalle parti
 <2> Indirizzo del luogo di consegna
 <3> #Denominazione del luogo di consegna#
+
+Se la consegna è di tipo domiciliare, effettuata presso l'abitazione di una persona fisica, è possibile indicarlo inserendo la stringa "PF" all'interno dell'elemento cbc:ID della struttura cac:DespatchAddress.

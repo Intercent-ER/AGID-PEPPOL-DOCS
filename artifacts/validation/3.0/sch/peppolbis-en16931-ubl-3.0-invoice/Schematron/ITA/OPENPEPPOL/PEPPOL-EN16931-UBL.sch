@@ -2,7 +2,7 @@
 <!--
 This schematron uses business terms defined the CEN/EN16931-1 and is reproduced with permission from CEN. CEN bears no liability from the use of the content and implementation of this schematron and gives no warranties expressed or implied for any purpose.
 
-Last update: 2022 November release 3.0.14.
+Last update: 2023 May release 3.0.15.
  -->
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:u="utils" schemaVersion="iso" queryBinding="xslt2">
 	<title>Rules for Peppol BIS 3.0 Billing</title>
@@ -240,7 +240,7 @@ Last update: 2022 November release 3.0.14.
 	<include href="./6-PEPPOL-EN16931-UBL-italy.inc"/>
 	
 	<!-- SWEDEN -->
-	<!--<include href="./7-PEPPOL-EN16931-UBL-sweden.inc"/>-->
+	<include href="./7-PEPPOL-EN16931-UBL-sweden.inc"/>
 
 	<!-- Sender Rules -->
 	<include href="./8-PEPPOL-EN16931-UBL-greece-sender.inc"/>

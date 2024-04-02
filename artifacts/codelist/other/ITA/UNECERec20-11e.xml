@@ -1902,9 +1902,12 @@
         <Description/>
     </Code>
     <Code>
-        <Id>CEL</Id>
+		<Id>CEL</Id>
         <Name>degree Celsius</Name>
-        <Description>Refer ISO 80000-5 (Quantities and units — Part 5: Thermodynamics)</Description>
+        <Description/>
+        <LocalId>°C</LocalId>
+        <LocalName>grado Celsius</LocalName>
+        <LocalDescription>Unità di misura della temperatura</LocalDescription>
     </Code>
     <Code>
         <Id>CEN</Id>

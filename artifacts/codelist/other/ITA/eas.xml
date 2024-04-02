@@ -150,6 +150,10 @@
         <Id>0216</Id>
         <Name>OVTcode</Name>
     </Code>
+    <Code>
+        <Id>0218</Id>
+        <Name>Unified registration number (Latvia)</Name>
+    </Code>
 	 <Code>
         <Id>0221</Id>
         <Name>The registered number of the qualified invoice issuer (Japan)</Name>
@@ -319,7 +323,6 @@
         <Name>Holy See (Vatican City State) VAT number</Name>
     </Code>
     <Code>
-
         <Id>9957</Id>
         <Name>French VAT number</Name>
     </Code>

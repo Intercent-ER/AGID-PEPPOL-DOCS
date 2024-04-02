@@ -66,7 +66,7 @@
 	</rule>
 
 	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:TaxLevelCode" flag="fatal">
-		<assert test="( ( not(contains(normalize-space(.),' ')) and contains( ' RF01 RF02 RF04 RF05 RF06 RF07 RF08 RF09 RF10 RF11 RF12 RF13 RF14 RF15 RF16 RF17 RF18 RF19 ',concat(' ',normalize-space(.),' ') ) ) )" flag="fatal" id="BR-IT-DE-017">[BR-IT-DE-017][FPA 1.2.1.8 Regime Fiscale] - The Tax System (cbc:TaxLevelCode) must be filled exclusively with the values ​​of the relative coding - Il Regime Fiscale (cbc:TaxLevelCode) deve essere valorizzato esclusivamente con i valori della relativa codifica.</assert>
+		<assert test="( ( not(contains(normalize-space(.),' ')) and contains( ' RF01 RF02 RF04 RF05 RF06 RF07 RF08 RF09 RF10 RF11 RF12 RF13 RF14 RF15 RF16 RF17 RF18 RF19 ',concat(' ',normalize-space(.),' ') ) ) )" flag="fatal" id="BR-IT-DE-017">[BR-IT-DE-017][FPA 1.2.1.8 Regime Fiscale] - The Tax System (cbc:TaxLevelCode) must be filled exclusively with the values ​​ of the relative coding - Il Regime Fiscale (cbc:TaxLevelCode) deve essere valorizzato esclusivamente con i valori della relativa codifica.</assert>
 	</rule>
 
 	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:AgentParty/cac:PostalAddress" flag="fatal">

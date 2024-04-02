@@ -6,6 +6,13 @@
 ^.^| Data
 ^.^| Cosa è cambiato
 
+| 3.0.16.2(IT)
+a| 02/04/2024
+a| [red]#Cambiamenti alla specifica (Documentazione)# +
+* Aggiornamento della sezione _10.7 Informazioni sulle modalità di pagamento_ con l’inserimento del collegamento alla codelist Payment Means Code (UNCL4461) contenente la corrispondenza con i codici delle Modalità di Pagamento utilizzati nel formato FatturaPA.
+
+[red]#Cambiamenti alle code lists e artefatti di validazione# +
+* Aggiunta traduzione in inglese nella descrizione delle _Regole di business CIUS italiana_ e delle _Regole di business estensione italiana_.
 
 | 3.0.16.1(IT)
 a| 18/12/2023

@@ -108,45 +108,6 @@
 			"/>
 	</function>
 
-	<function name="u:checkCF16" as="xs:boolean" xmlns="http://www.w3.org/1999/XSL/Transform">
-		<param name="arg" as="xs:string?"/>
-		<sequence select="
-					if(matches($arg, '^[A-Za-z]{6}[0-9LMNPQRSTUVlmnpqrstuv]{2}[ABCDEHLMPRSTabcdehlmprst]{1}[0-9LMNPQRSTUVlmnpqrstuv]{2}[A-Za-z]{1}[0-9LMNPQRSTUVlmnpqrstuv]{3}[A-Za-z]{1}$'))
-					then
-					(
-						if(
-							(
-								u:checkDigit((
-									u:valueOfDigit(substring($arg,1,1), 1) + u:valueOfDigit(substring($arg,2,1), 2) +
-									u:valueOfDigit(substring($arg,3,1), 3) + u:valueOfDigit(substring($arg,4,1), 4) +
-									u:valueOfDigit(substring($arg,5,1), 5) + u:valueOfDigit(substring($arg,6,1), 6) +
-									u:valueOfDigit(substring($arg,7,1), 7) + u:valueOfDigit(substring($arg,8,1), 8) +
-									u:valueOfDigit(substring($arg,9,1), 9) + u:valueOfDigit(substring($arg,10,1), 10) +
-									u:valueOfDigit(substring($arg,11,1), 11) + u:valueOfDigit(substring($arg,12,1), 12) +
-									u:valueOfDigit(substring($arg,13,1), 13) + u:valueOfDigit(substring($arg,14,1), 14) +
-									u:valueOfDigit(substring($arg,15,1), 15)
-								) mod 26, 'lower') = substring($arg,16,1)
-							)
-							or
-							(
-								u:checkDigit((
-									u:valueOfDigit(substring($arg,1,1), 1) + u:valueOfDigit(substring($arg,2,1), 2) +
-									u:valueOfDigit(substring($arg,3,1), 3) + u:valueOfDigit(substring($arg,4,1), 4) +
-									u:valueOfDigit(substring($arg,5,1), 5) + u:valueOfDigit(substring($arg,6,1), 6) +
-									u:valueOfDigit(substring($arg,7,1), 7) + u:valueOfDigit(substring($arg,8,1), 8) +
-									u:valueOfDigit(substring($arg,9,1), 9) + u:valueOfDigit(substring($arg,10,1), 10) +
-									u:valueOfDigit(substring($arg,11,1), 11) + u:valueOfDigit(substring($arg,12,1), 12) +
-									u:valueOfDigit(substring($arg,13,1), 13) + u:valueOfDigit(substring($arg,14,1), 14) +
-									u:valueOfDigit(substring($arg,15,1), 15)
-								) mod 26, 'upper') = substring($arg,16,1)
-							)
-						)
-						then true()
-						else false()
-					)
-					else false()
-					"/>
-	</function>
 	<function name="u:checkCF11" as="xs:boolean" xmlns="http://www.w3.org/1999/XSL/Transform">
 		<param name="arg" as="xs:string?"/>
 		<sequence select="
@@ -1480,6 +1441,30 @@
 					else if ($digit = 24) then 'Y'
 					else if ($digit = 25) then 'Z'
 					else '0'
+					"/>
+	</function>
+	<function name="u:checkCF16" as="xs:boolean" xmlns="http://www.w3.org/1999/XSL/Transform">
+		<param name="arg" as="xs:string?"/>
+		<sequence select="
+					if(matches($arg, '^[A-Za-z]{6}[0-9LMNPQRSTUVlmnpqrstuv]{2}[ABCDEHLMPRSTabcdehlmprst]{1}[0-9LMNPQRSTUVlmnpqrstuv]{2}[A-Za-z]{1}[0-9LMNPQRSTUVlmnpqrstuv]{3}[A-Za-z]{1}$'))
+					then
+					(
+						if(
+							u:checkDigit((
+								u:valueOfDigit(substring($arg,1,1), 1) + u:valueOfDigit(substring($arg,2,1), 2) +
+								u:valueOfDigit(substring($arg,3,1), 3) + u:valueOfDigit(substring($arg,4,1), 4) +
+								u:valueOfDigit(substring($arg,5,1), 5) + u:valueOfDigit(substring($arg,6,1), 6) +
+								u:valueOfDigit(substring($arg,7,1), 7) + u:valueOfDigit(substring($arg,8,1), 8) +
+								u:valueOfDigit(substring($arg,9,1), 9) + u:valueOfDigit(substring($arg,10,1), 10) +
+								u:valueOfDigit(substring($arg,11,1), 11) + u:valueOfDigit(substring($arg,12,1), 12) +
+								u:valueOfDigit(substring($arg,13,1), 13) + u:valueOfDigit(substring($arg,14,1), 14) +
+								u:valueOfDigit(substring($arg,15,1), 15)
+							) mod 26) = upper-case(substring($arg,16,1))
+						)
+						then true()
+						else false()
+					)
+					else false()
 					"/>
 	</function>
 

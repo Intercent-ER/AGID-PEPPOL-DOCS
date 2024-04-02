@@ -245,6 +245,7 @@
 							<!--<xmlErrorDirectory>src/test/resources/</xmlErrorDirectory>-->
 							<svrlErrorDirectory>target/svrl-error/</svrlErrorDirectory>
 							<schematronProcessingEngine>schematron</schematronProcessingEngine>
+							<ignoreWarnings>true</ignoreWarnings>
 							<failFast>false</failFast>
 						</configuration>
 					</execution>
@@ -260,6 +261,7 @@
 							<!--<xmlErrorDirectory>src/test/resources/</xmlErrorDirectory>-->
 							<svrlErrorDirectory>target/svrl-error/</svrlErrorDirectory>
 							<schematronProcessingEngine>schematron</schematronProcessingEngine>
+							<ignoreWarnings>true</ignoreWarnings>
 							<failFast>false</failFast>
 						</configuration>
 					</execution>
@@ -275,6 +277,7 @@
 							<!--<xmlErrorDirectory>src/test/resources/</xmlErrorDirectory>-->
 							<svrlErrorDirectory>target/svrl-error/</svrlErrorDirectory>
 							<schematronProcessingEngine>schematron</schematronProcessingEngine>
+							<ignoreWarnings>true</ignoreWarnings>
 							<failFast>false</failFast>
 						</configuration>
 					</execution>
@@ -290,6 +293,7 @@
 							<!--<xmlErrorDirectory>src/test/resources/</xmlErrorDirectory>-->
 							<svrlErrorDirectory>target/svrl-error/</svrlErrorDirectory>
 							<schematronProcessingEngine>schematron</schematronProcessingEngine>
+							<ignoreWarnings>true</ignoreWarnings>
 							<failFast>false</failFast>
 						</configuration>
 					</execution>

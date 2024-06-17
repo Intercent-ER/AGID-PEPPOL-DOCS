@@ -8,7 +8,7 @@
 
 | 3.0.17.1(IT)
 a| 21/06/2024
-a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/2024-Q2/release-notes/[PEPPOL BIS 3.0.17 - May release 2024]+
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/2024-Q2/release-notes/[PEPPOL BIS 3.0.17 - May release 2024]_. +
 
 In vigore a partire dal *26 Agosto 2024*
 

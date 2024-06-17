@@ -6,6 +6,24 @@
 ^.^| Data
 ^.^| Cosa è cambiato
 
+| 3.3.0.5(IT)
+a| 21/06/2024
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2024-Q2/release-notes/[Peppol BIS 3.0.13 - May release 2024] e altre modifiche italiane_. +
+
+In vigore a partire dal *26 Agosto 2024*
+
+[red]#Cambiamenti alle code lists e artefatti di validazione#
+
+* Ordine:
+** Aggiornato il controllo della regola PEPPOL-COMMON-R049 (Svezia). 
+
+* Risposta all’Ordine: 
+**Aggiornato il controllo della regola PEPPOL-COMMON-R049 (Svezia); 
+**Aggiunta nuova regola PEPPOL-T116-R007 relativa al controllo della presenza di almeno una riga in caso di risposta all’ordine con codice di risposta “CA” (Ordine accettato con modifica), con livello di severità WARNING; 
+**Aggiunta nuova regola PEPPOL-T116-R008 relativa al controllo dell’assenza di righe in caso di risposta all’ordine con codice di risposta “AP” (Ordine accettato senza modifica), con livello di severità WARNING; 
+**Aggiunta nuova regola PEPPOL-T116-R009 relativa al controllo dell’assenza di righe in caso di risposta all’ordine con codice di risposta “RE” (Ordine respinto), con livello di severità WARNING; 
+**Aggiunta nuova regola PEPPOL-T116-R010 relativa al controllo dell’assenza di righe in caso di risposta all’ordine con codice di risposta “AB” (Ordine ricevuto e non ancora processato), con livello di severità FATAL. 
+
 | 3.3.0.4(IT)
 a| 02/04/2024
 a| _Recepimento nuovi controlli derivanti dalle Regole Tecniche NSO v.4.12_

@@ -6,6 +6,16 @@
 ^.^| Data
 ^.^| Cosa è cambiato
 
+| 3.3.0.5(IT)
+a| 21/06/2024
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2024-Q2/release-notes/[Peppol BIS 3.0.13 - May release 2024] e altre modifiche italiane_. +
+
+In vigore a partire dal *26 Agosto 2024*
+
+[red]#Cambiamenti alle code lists e artefatti di validazione#
+
+* Aggiornato il controllo della regola PEPPOL-COMMON-R049 (Svezia). 
+
 | 3.3.0.4(IT)
 a| 02/04/2024
 a| _Recepimento nuovi controlli derivanti dalle Regole Tecniche NSO v.4.12_

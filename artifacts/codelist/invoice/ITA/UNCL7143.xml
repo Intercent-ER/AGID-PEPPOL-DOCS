@@ -334,6 +334,11 @@
         <Description>Product group code used within a buyer's internal systems.</Description>
     </Code>
     <Code>
+        <Id>GMN</Id>
+        <Name>Global model number</Name>
+        <Description></Description>
+    </Code>
+    <Code>
         <Id>GN</Id>
         <Name>National product group code</Name>
         <Description>National product group code. Administered by a national agency.</Description>

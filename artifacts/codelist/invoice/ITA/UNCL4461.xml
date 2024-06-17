@@ -634,6 +634,13 @@
 		<LocalDescription>Trattenuta su somme già riscosse</LocalDescription>
 	</Code>
 	<Code>
+		<Id>98</Id>
+		<Name>JP</Name>
+		<Description>Electronically Recorded Monetary Claims</Description>
+		<LocalId>MP01</LocalId>
+		<LocalDescription>contanti</LocalDescription>
+	</Code>
+	<Code>
 		<Id>ZZZ</Id>
 		<Name>Mutually defined</Name>
 		<Description>A code assigned within a code list to be used on an interim basis and as

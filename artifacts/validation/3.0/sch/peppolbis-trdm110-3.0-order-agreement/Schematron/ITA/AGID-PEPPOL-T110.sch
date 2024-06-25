@@ -12,7 +12,7 @@
         schemaVersion="iso"
         queryBinding="xslt2">
 
-    <title>Regole per la transazione dell'Ordine Pre-concordato PEPPOL, versione 3.1.0.1</title>
+    <title>Regole per la transazione dell'Ordine Pre-concordato PEPPOL, versione 3.1.0.2</title>
 
     <ns uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
        prefix="cbc"/>

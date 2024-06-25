@@ -765,7 +765,7 @@
     <Code>
         <Id>PRV</Id>
         <Name>Price variation</Name>
-        <Description></Description>
+        <Description>Price variation related to energy and or raw materials cost variation.</Description>
     </Code>
     <Code>
         <Id>RAB</Id>

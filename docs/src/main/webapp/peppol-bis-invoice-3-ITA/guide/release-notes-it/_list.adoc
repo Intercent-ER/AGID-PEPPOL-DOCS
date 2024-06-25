@@ -16,7 +16,7 @@ In vigore a partire dal *26 Agosto 2024*
 
 * Introduzione della nuova regola SE-R-013 (Svezia); 
 * Aggiornamento dei controlli delle regole NL-R-007 (Paesi Bassi) e PEPPOL-COMMON-R049 (Svezia); 
-* Sostituzione del codice “SLL” con il codice “SLE” (Sierra Leone) nella codelist _ISO 4217 Currency codes:; 
+* Sostituzione del codice “SLL” con il codice “SLE” (Sierra Leone) nella codelist _ISO 4217 Currency codes_; 
 * Aggiunta del codice “98” (JP, Electronically Recorded Monetary Claims) nella codelist _Payment means code (UNCL4461)_. Inserita corrispondenza con codice Modalità di Pagamento “MP01” (Contanti) di FatturaPA; 
 * Aggiunta del codice “GMN” (Global model number) nella codelist Item type identification code (UNCL7143); 
 * Aggiunta del codice "PRV” (Price variation) nella codelist _Charge reason code (UNCL7161)_; 

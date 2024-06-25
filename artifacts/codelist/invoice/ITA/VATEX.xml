@@ -399,11 +399,11 @@
     <Code>
         <Id>VATEX-FR-FRANCHISE</Id>
         <Name>France domestic VAT franchise in bases</Name>
-        <Description></Description>
+        <Description>For domestic invoicing in France</Description>
     </Code>
     <Code>
         <Id>VATEX-FR-CNWVAT</Id>
         <Name>France domestic Credit Notes without VAT, due to supplier forfeit of VAT for discount</Name>
-        <Description></Description>
+        <Description>For domestic Credit Notes only in France</Description>
     </Code>
 </CodeList>

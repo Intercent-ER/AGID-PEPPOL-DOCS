@@ -6,6 +6,27 @@
 ^.^| Data
 ^.^| Cosa è cambiato
 
+| 3.0.17.1(IT)
+a| 21/06/2024
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/2024-Q2/release-notes/[PEPPOL BIS 3.0.17 - May release 2024]_. +
+
+In vigore a partire dal *26 Agosto 2024*
+
+[red]#Cambiamenti alle code lists e artefatti di validazione# +
+
+* Introduzione della nuova regola SE-R-013 (Svezia); 
+* Aggiornamento dei controlli delle regole NL-R-007 (Paesi Bassi) e PEPPOL-COMMON-R049 (Svezia); 
+* Sostituzione del codice “SLL” con il codice “SLE” (Sierra Leone) nella codelist _ISO 4217 Currency codes_; 
+* Aggiunta del codice “98” (JP, Electronically Recorded Monetary Claims) nella codelist _Payment means code (UNCL4461)_. Inserita corrispondenza con codice Modalità di Pagamento “MP01” (Contanti) di FatturaPA; 
+* Aggiunta del codice “GMN” (Global model number) nella codelist Item type identification code (UNCL7143); 
+* Aggiunta del codice "PRV” (Price variation) nella codelist _Charge reason code (UNCL7161)_; 
+* Aggiunta dei codici "VATEX-FR-FRANCHISE” (Francia) e "VATEX-FR-CNWVAT” (Francia) nella _VATEX codelist_. 
+
+[red]#Aggiornamento schematron EN 16931# +
+
+* Aggiornamento dello schematron EN 16931 alla versione 1.3.12.
+
+
 | 3.0.16.2(IT)
 a| 02/04/2024
 a| [red]#Cambiamenti alla specifica (Documentazione)# +

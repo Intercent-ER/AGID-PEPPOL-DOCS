@@ -7,7 +7,7 @@
 	Controllo del CIG elaborato a partire dalla regola pubblicata dal MIN SAL cfr http://www.salute.gov.it/imgs/C_17_pagineAree_3849_listaFile_itemName_3_file.pdf
 -->
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:u="utils" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xi="http://www.w3.org/2001/XInclude" schemaVersion="iso" queryBinding="xslt2">
-	<title>Regole per la transazione della Risposta d'Ordine PEPPOL, versione 3.2.0.1</title>
+	<title>Regole per la transazione della Risposta d'Ordine PEPPOL, versione 3.2.0.2</title>
 	<ns uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" prefix="cbc"/>
 	<ns uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" prefix="cac"/>
 	<ns uri="urn:oasis:names:specification:ubl:schema:xsd:OrderResponse-2" prefix="ubl"/>
@@ -332,7 +332,7 @@
 			<assert id="PEPPOL-COMMON-R048" test="u:checkPIVAseIT(normalize-space())" flag="warning">Italian VAT Code (Partita Iva) must be stated in the correct format</assert>
 		</rule>
 		<rule context="cbc:EndpointID[@schemeID = '0007'] | cac:PartyIdentification/cbc:ID[@schemeID = '0007'] | cbc:CompanyID[@schemeID = '0007']">
-			<assert id="PEPPOL-COMMON-R049" test="string-length(normalize-space()) = 10 and string(number(normalize-space())) != 'NaN'" flag="fatal">Swedish organization number MUST be stated in the correct format.</assert>
+			<assert id="PEPPOL-COMMON-R049" test="string-length(normalize-space()) = 10 and string(number(normalize-space())) != 'NaN'and u:checkSEOrgnr(normalize-space())" flag="fatal">Swedish organization number MUST be stated in the correct format.</assert>
 		</rule>
 		<rule context="cbc:EndpointID[@schemeID = '0151'] | cac:PartyIdentification/cbc:ID[@schemeID = '0151'] | cbc:CompanyID[@schemeID = '0151']">
 			<assert id="PEPPOL-COMMON-R050" test="matches(normalize-space(), '^[0-9]{11}$') and u:abn(normalize-space())" flag="fatal">Australian Business Number (ABN) MUST be stated in the correct format.</assert>
@@ -622,6 +622,20 @@
 		<rule context="cbc:CustomizationID">
 			<assert id="PEPPOL-T76-R006" test="starts-with(normalize-space(.), 'urn:fdc:peppol.eu:poacc:trns:order_response:3')" flag="fatal">Specification identifier SHALL start with the value 'urn:fdc:peppol.eu:poacc:trns:order_response:3'.</assert>
 		</rule>
+			     <rule context="cbc:OrderResponseCode">
+		       <assert id="PEPPOL-T76-R007"
+                 test="(normalize-space(.) = 'CA' and count(../cac:OrderLine) &gt; 0) or normalize-space(.) != 'CA'"
+                 flag="warning">An order response with code CA (Conditionally accepted) must provide order lines.</assert>
+        <assert id="PEPPOL-T76-R008"
+                 test="(normalize-space(.) = 'AP' and count(../cac:OrderLine) = 0) or normalize-space(.) != 'AP'"
+                 flag="warning">An order response with code AP (Accepted) should NOT provide order lines.</assert>
+        <assert id="PEPPOL-T76-R009"
+                 test="(normalize-space(.) = 'RE' and count(../cac:OrderLine) = 0) or normalize-space(.) != 'RE'"
+                 flag="warning">An order response with code RE (Rejected) should NOT provide order lines.</assert>
+        <assert id="PEPPOL-T76-R010"
+                 test="(normalize-space(.) = 'AB' and count(../cac:OrderLine) = 0) or normalize-space(.) != 'AB'"
+                 flag="fatal">An order response with code AB (Acknowledged) must NOT provide order lines.</assert>
+	     </rule>
 		<rule context="cbc:PriceAmount">
 			<assert id="PEPPOL-T76-R005" test="@currencyID = $documentCurrencyCode" flag="fatal">An order response SHALL be stated in a single currency</assert>
 		</rule>

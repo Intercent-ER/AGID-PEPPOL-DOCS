@@ -12,7 +12,7 @@
         schemaVersion="iso"
         queryBinding="xslt2">
 
-    <title>Regole per la transazione dell'Ordine Pre-concordato PEPPOL, versione 3.1.0.1</title>
+    <title>Regole per la transazione dell'Ordine Pre-concordato PEPPOL, versione 3.1.0.2</title>
 
     <ns uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
        prefix="cbc"/>
@@ -232,7 +232,7 @@
       </rule>
       <rule context="cbc:EndpointID[@schemeID = '0007'] | cac:PartyIdentification/cbc:ID[@schemeID = '0007'] | cbc:CompanyID[@schemeID = '0007']">
          <assert id="PEPPOL-COMMON-R049"
-                 test="string-length(normalize-space()) = 10 and string(number(normalize-space())) != 'NaN'"
+                 test="string-length(normalize-space()) = 10 and string(number(normalize-space())) != 'NaN' and u:checkSEOrgnr(normalize-space())"
                  flag="fatal">Swedish organization number MUST be stated in the correct format.</assert>     
       </rule> 
       <rule context="cbc:EndpointID[@schemeID = '0151'] | cac:PartyIdentification/cbc:ID[@schemeID = '0151'] | cbc:CompanyID[@schemeID = '0151']">

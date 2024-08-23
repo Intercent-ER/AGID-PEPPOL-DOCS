@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<name>AGID-PEPPOL-Schematron-Others</name>
 	<artifactId>AGID-PEPPOL-Schematron-Others</artifactId>
-	<version>3.1.0</version>
+	<version>3.2.0</version>
 	<parent>
 		<groupId>it.gov.agid</groupId>
 		<artifactId>AGID-PEPPOL-Schematron</artifactId>
-		<version>3.1.0</version>
+		<version>3.2.0</version>
 		<relativePath>..</relativePath>
 	</parent>
 	<packaging>pom</packaging>

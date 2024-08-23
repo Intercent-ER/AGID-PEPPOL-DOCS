@@ -7,7 +7,7 @@
 	Controllo del CIG elaborato a partire dalla regola pubblicata dal MIN SAL cfr http://www.salute.gov.it/imgs/C_17_pagineAree_3849_listaFile_itemName_3_file.pdf
 -->
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:u="utils" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xi="http://www.w3.org/2001/XInclude" schemaVersion="iso" queryBinding="xslt2">
-	<title>Regole per la transazione dell'Ordine PEPPOL, versione 3.4.0.2</title>
+	<title>Regole per la transazione dell'Ordine PEPPOL, versione 3.4.0.3</title>
 	<ns uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" prefix="cbc"/>
 	<ns uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" prefix="cac"/>
 	<ns uri="urn:oasis:names:specification:ubl:schema:xsd:Order-2" prefix="ubl"/>
@@ -44,6 +44,28 @@
 		<param name="val"/>
 		<value-of select="( ((string-to-codepoints(substring($val,1,1)) - 49) * 10) + ((string-to-codepoints(substring($val,2,1)) - 48) * 1) + ((string-to-codepoints(substring($val,3,1)) - 48) * 3) + ((string-to-codepoints(substring($val,4,1)) - 48) * 5) + ((string-to-codepoints(substring($val,5,1)) - 48) * 7) + ((string-to-codepoints(substring($val,6,1)) - 48) * 9) + ((string-to-codepoints(substring($val,7,1)) - 48) * 11) + ((string-to-codepoints(substring($val,8,1)) - 48) * 13) + ((string-to-codepoints(substring($val,9,1)) - 48) * 15) + ((string-to-codepoints(substring($val,10,1)) - 48) * 17) + ((string-to-codepoints(substring($val,11,1)) - 48) * 19)) mod 89 = 0 "/>
 	</function>
+	<function xmlns="http://www.w3.org/1999/XSL/Transform"
+                 name="u:checkSEOrgnr"
+                 as="xs:boolean">
+
+    	     <param name="number" as="xs:string"/>
+    	     <choose>
+
+    		       <when test="not(matches($number, '^\d+$'))">
+    			         <sequence select="false()"/>
+    		       </when>
+    		       <otherwise>
+
+    			         <variable name="mainPart" select="substring($number, 1, 9)"/>
+    			         <variable name="checkDigit" select="substring($number, 10, 1)"/>
+    			         <variable name="sum" as="xs:integer">
+    			            <value-of select="sum(       for $pos in 1 to string-length($mainPart) return         if ($pos mod 2 = 1)         then (number(substring($mainPart, string-length($mainPart) - $pos + 1, 1)) * 2) mod 10 +           (number(substring($mainPart, string-length($mainPart) - $pos + 1, 1)) * 2) idiv 10         else number(substring($mainPart, string-length($mainPart) - $pos + 1, 1))      )"/>
+    			         </variable>
+    			         <variable name="calculatedCheckDigit" select="(10 - $sum mod 10) mod 10"/>
+    			         <sequence select="$calculatedCheckDigit = number($checkDigit)"/>
+    		       </otherwise>
+    	     </choose>
+       </function>
 	<pattern>
 		<rule context="//*[not(*) and not(normalize-space())]">
 			<assert id="PEPPOL-COMMON-R001" test="false()" flag="fatal">Document MUST not contain empty elements.</assert>
@@ -81,7 +103,7 @@
 			<assert id="PEPPOL-COMMON-R048" test="u:checkPIVAseIT(normalize-space())" flag="warning">Italian VAT Code (Partita Iva) must be stated in the correct format</assert>
 		</rule>
 		<rule context="cbc:EndpointID[@schemeID = '0007'] | cac:PartyIdentification/cbc:ID[@schemeID = '0007'] | cbc:CompanyID[@schemeID = '0007']">
-			<assert id="PEPPOL-COMMON-R049" test="string-length(normalize-space()) = 10 and string(number(normalize-space())) != 'NaN'" flag="fatal">Swedish organization number MUST be stated in the correct format.</assert>
+			<assert id="PEPPOL-COMMON-R049" test="string-length(normalize-space()) = 10 and string(number(normalize-space())) != 'NaN' and u:checkSEOrgnr(normalize-space())" flag="fatal">Swedish organization number MUST be stated in the correct format.</assert>
 		</rule>
 		<rule context="cbc:EndpointID[@schemeID = '0151'] | cac:PartyIdentification/cbc:ID[@schemeID = '0151'] | cbc:CompanyID[@schemeID = '0151']">
 			<assert id="PEPPOL-COMMON-R050" test="matches(normalize-space(), '^[0-9]{11}$') and u:abn(normalize-space())" flag="fatal">Australian Business Number (ABN) MUST be stated in the correct format.</assert>

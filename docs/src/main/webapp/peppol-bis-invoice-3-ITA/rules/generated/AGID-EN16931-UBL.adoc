@@ -1449,18 +1449,6 @@
 | Greek Suppliers must provide the VAT number of the buyer, if the buyer is Greek 
 | cac:AccountingCustomerParty[$isGreekSenderandReceiver]/cac:Party
 | count(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID)=1 and                             substring(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID,1,2) = 'EL' and                             u:TinVerification(substring(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID,3))
-.3+| GR-R-007-1 *(fatal)*
-| When greek supplier does not have a VAT number, the tax representative must be present
-| cac:AccountingSupplierParty[$isGreekSender]/cac:Party
-|      count(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID) = 1 or     count(/ubl-invoice:Invoice/cac:TaxRepresentativeParty) = 1
-.3+| GR-R-007-2 *(fatal)*
-| If the Greek Suppliers do not have Greek VAT they must provide the full name of their tax representative in Greece
-| cac:TaxRepresentativeParty[$isGreekSender]
-| string-length(normalize-space(cac:PartyName/cbc:Name))>0
-.3+| GR-R-007-3 *(fatal)*
-| If the Greek Suppliers do not have Greek VAT, they must provide the VAT number of their tax representative
-| cac:TaxRepresentativeParty[$isGreekSender]
-| count(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID)=1 and     substring(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID,1,2) = 'EL' and     u:TinVerification(substring(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID,3))
 .3+| GR-R-008-2 *(fatal)*
 |  When Supplier is Greek, there should be no more than one invoice url
 | /ubl-invoice:Invoice[$isGreekSender] \| /ubl-creditnote:CreditNote[$isGreekSender]

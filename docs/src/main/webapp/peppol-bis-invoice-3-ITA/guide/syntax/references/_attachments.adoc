@@ -8,7 +8,7 @@
 	<cbc:DocumentDescription>Foglio presenze</cbc:DocumentDescription>
 		<cac:Attachment>
 			<cac:ExternalReference>
-				<cbc:URI>http://www.fornitore.eu/foglio001.html</cbc:URI>
+				<cbc:URI>http(s)://www.fornitore.eu/foglio001.html</cbc:URI>
 			</cac:ExternalReference>
 		</cac:Attachment>
 </cac:AdditionalDocumentReference>

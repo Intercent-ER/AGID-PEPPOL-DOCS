@@ -4,7 +4,7 @@
 	<Term>Order</Term>
 	<agid:Restriction>
 		<agid:ID>urn:www.ubl-italia.org:spec:ordine:ver3.1</agid:ID>
-		<agid:Name>Ordine Peppol 3.4.0.3</agid:Name>
+		<agid:Name>Ordine Peppol 3.5.0.1</agid:Name>
 		<agid:Version>3.2</agid:Version>
 	</agid:Restriction>
 
@@ -2154,6 +2154,13 @@
 							<DataType>Text</DataType>
 							<Reference type="BUSINESS_TERM">tir01-p021</Reference>
 						</Element>
+					<Element cardinality="0..1" agid:custom="rule">
+						<Term>cbc:ID</Term>
+						<Name>ID - Identificativo di ulteriori proprietà</Name>
+						<Attribute usage="Optional">
+							<Term>schemeID</Term>
+						</Attribute>
+					</Element>	
 					</Element>
 					<Element cardinality="0..n">
 						<Term>cac:ItemInstance</Term>

@@ -3,7 +3,7 @@
     <Term>DespatchAdvice</Term>
     <agid:Extension>
         <agid:ID>urn:www.agid.gov.it:trns:ddt:3.0</agid:ID>
-        <agid:Name>Documento di Trasporto Peppol 3.2.0.3</agid:Name>
+        <agid:Name>Documento di Trasporto Peppol 3.3.0.1</agid:Name>
         <agid:Version>3.0</agid:Version>
     </agid:Extension>
     <Property key="sch:prefix">PEPPOL-T16</Property>
@@ -1029,6 +1029,32 @@
                         <Reference type="BUSINESS_TERM">tir16-045</Reference>
                     </Element>
                 </Element>
+				<Element cardinality="0..1">
+					<Term>cac:DeliveryParty</Term>
+					<Name>Delivery party </Name>
+					<Element cardinality="0..1">
+						<Term>cac:PartyIdentification</Term>
+						<Name>Party identification</Name>
+						<Description>Identification of the delivery party. The party to whom the goods are delivered</Description>
+						<Element>
+							<Term>cbc:ID</Term>
+							<Name>Delivery party identifier</Name>
+							<Description>In this BIS: The identifier of the party that should receive the
+								ordered items</Description>
+							<Reference type="BUSINESS_TERM">tir01-101</Reference>
+							<Attribute usage="Optional">
+								<Term>schemeID</Term>
+								<Name>Deliver party registration identifier identification scheme
+									identifier</Name>
+								<Description>The identification scheme identifier of the deliverparty
+									identifier.</Description>
+								<Reference type="CODE_LIST">ICD</Reference>
+								<Value type="EXAMPLE">0002</Value>
+							</Attribute>
+							<Value type="EXAMPLE">987654321</Value>
+						</Element>
+						</Element>
+					</Element>
                 <Element agid:custom="cardinality">
                     <Term>cac:Despatch</Term>
                     <Name>Actual or expected despatch period – Ulteriori informazioni sulla consegna</Name>
@@ -1376,7 +1402,16 @@ Utilizzato per indicare il codice del Punto di consegna NSO degli Enti</Descript
                     <Term>cac:AdditionalItemProperty</Term>
                     <Name>Additional item property information - Ulteriori proprietà</Name>
                     <Description>Contiene l’indicazione di ulteriori caratteristiche dell'articolo.</Description>
-                    <Element>
+                    <Element cardinality="0..1">					
+							<Term>cbc:ID</Term>
+							<Name>ID</Name>
+							<Description>Identificativo di ulteriori proprietà</Description>							
+							<Element cardinality="O">
+								<Term>@schemeID</Term>
+						</Element>
+							<Element cardinality="O">
+								<Term>@schemeID</Term>
+							</Element>
                         <Term>cbc:Name</Term>
                         <Name>Item property name - Denominazione della proprietà</Name>
                         <Description>Indica la denominazione della caratteristica dell'articolo.</Description>

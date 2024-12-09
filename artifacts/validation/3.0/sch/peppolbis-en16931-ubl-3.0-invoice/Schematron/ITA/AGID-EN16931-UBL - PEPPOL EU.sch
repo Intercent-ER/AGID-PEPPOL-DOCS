@@ -55,6 +55,9 @@
 	<phase id="OP_Netherlands_phase">
 		<active pattern="OP-Netherlands-rules"/>
 	</phase>
+	<phase id="OP_Germnay_phase">
+		<active pattern="OP-Germany-rules"/>
+	</phase>
 	<phase id="OP_codelist_phase">
 		<active pattern="OP-cl-formatting-rules"/>
 	</phase>
@@ -314,7 +317,10 @@
 	<!-- NETHERLANDS -->
 	<include href="OPENPEPPOL/11-PEPPOL-EN16931-UBL-netherlands.inc"/>
 	
+	<!-- GERMANY -->
+	<include href="OPENPEPPOL/12-PEPPOL-EN16931-UBL-germany.inc"/>
+	
 	<!-- Restricted code lists and formatting -->
-	<include href="OPENPEPPOL/12-PEPPOL-EN16931-UBL-codelists.inc"/>
+	<include href="OPENPEPPOL/13-PEPPOL-EN16931-UBL-codelists.inc"/>
 	
 </schema>

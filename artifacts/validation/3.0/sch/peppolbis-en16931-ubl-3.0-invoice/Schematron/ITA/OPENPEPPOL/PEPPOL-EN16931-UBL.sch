@@ -225,6 +225,10 @@ Last update: 2024 May release 3.0.17.
     upper-case(normalize-space(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode))
     else
     'XX'"/>
+	
+	<let name="supplierCountryIsDE" value="(upper-case(normalize-space(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode)) = 'DE')"/>
+	<let name="customerCountryIsDE" value="(upper-case(normalize-space(/*/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode)) = 'DE')"/>
+	<let name="documentCurrencyCode" value="/*/cbc:DocumentCurrencyCode"/>
   
 	<include href="./1-PEPPOL-EN16931-UBL-emptyElements.inc"/>
 	<include href="./2-PEPPOL-EN16931-UBL-creditNote.inc"/>

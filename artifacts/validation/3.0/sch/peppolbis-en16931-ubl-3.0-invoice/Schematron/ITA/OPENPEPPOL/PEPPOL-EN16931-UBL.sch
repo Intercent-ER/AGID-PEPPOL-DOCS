@@ -255,6 +255,9 @@ Last update: 2024 May release 3.0.17.
 	<!-- NETHERLANDS -->
 	<include href="./11-PEPPOL-EN16931-UBL-netherlands.inc"/>
 	
+	<!-- GERMANY -->
+	<include href="./13-PEPPOL-EN16931-UBL-germany.inc"/>
+	
 	<!-- Restricted code lists and formatting -->
 	<include href="./12-PEPPOL-EN16931-UBL-codelists.inc"/>
 	

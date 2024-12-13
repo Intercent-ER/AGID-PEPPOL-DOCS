@@ -2104,15 +2104,6 @@
 						<Name>Additional item property information - Ulteriori proprietà</Name>
 						<Description>Contiene l’indicazione di ulteriori caratteristiche del bene o del servizio, come numero di sotto-unità contenute in un confezionamento secondario (ad esempio, quante scatole in un imballaggio) o il numero di articoli contenuti in un confezionamento primario (ad esempio, quante siringhe in una confezione).</Description>
 						<Element cardinality="0..1">					
-							<Term>cbc:ID</Term>
-							<Name>ID</Name>
-							<Description>Identificativo di ulteriori proprietà</Description>							
-							<Element cardinality="O">
-								<Term>@schemeID</Term>
-						</Element>
-							<Element cardinality="O">
-								<Term>@schemeID</Term>
-							</Element>
 							<Term>cbc:Name</Term>
 							<Name>Item property name - Denominazione della proprietà</Name>
 							<Description>Indica la denominazione della caratteristica del bene o del servizio.</Description>
@@ -2163,7 +2154,7 @@
 							<DataType>Text</DataType>
 							<Reference type="BUSINESS_TERM">tir01-p021</Reference>
 						</Element>
-					<Element cardinality="0..1" agid:custom="rule">
+					<Element cardinality="0..1">
 						<Term>cbc:ID</Term>
 						<Name>ID - Identificativo di ulteriori proprietà</Name>
 						<Attribute usage="Optional">

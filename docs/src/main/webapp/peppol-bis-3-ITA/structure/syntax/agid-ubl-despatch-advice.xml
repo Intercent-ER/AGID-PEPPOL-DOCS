@@ -1403,21 +1403,13 @@ Utilizzato per indicare il codice del Punto di consegna NSO degli Enti</Descript
                     <Name>Additional item property information - Ulteriori proprietà</Name>
                     <Description>Contiene l’indicazione di ulteriori caratteristiche dell'articolo.</Description>
                     <Element cardinality="0..1">					
-							<Term>cbc:ID</Term>
-							<Name>ID</Name>
-							<Description>Identificativo di ulteriori proprietà</Description>							
-							<Element cardinality="O">
-								<Term>@schemeID</Term>
+							<Term>cbc:Name</Term>
+							<Name>Item property name - Denominazione della proprietà</Name>
+							<Description>Indica la denominazione della caratteristica del bene o del servizio.</Description>
+							<DataType>Text</DataType>
+							<Reference type="BUSINESS_TERM">tir01-138</Reference>
+							<Value type="EXAMPLE">Colore</Value>
 						</Element>
-							<Element cardinality="O">
-								<Term>@schemeID</Term>
-							</Element>
-                        <Term>cbc:Name</Term>
-                        <Name>Item property name - Denominazione della proprietà</Name>
-                        <Description>Indica la denominazione della caratteristica dell'articolo.</Description>
-                        <DataType>Text</DataType>
-                        <Reference type="BUSINESS_TERM">tir16-p039</Reference>
-                    </Element>
                     <Element cardinality="0..1">
                         <Term>cbc:NameCode</Term>
                         <Name>Item property code - Codifica della proprietà</Name>

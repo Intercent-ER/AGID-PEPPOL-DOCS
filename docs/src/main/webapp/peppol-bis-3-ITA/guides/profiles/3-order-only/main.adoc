@@ -15,7 +15,7 @@ include::../../shared/_links.adoc[]
 
 image::../../../shared/images/peppol.png[float="right"]
 
-= [black]#BIS Ordinazione Semplice 3.3.0.5#
+= [black]#BIS Ordinazione Semplice 3.3.0.6#
 
 {author}
 v{ord_version_it}

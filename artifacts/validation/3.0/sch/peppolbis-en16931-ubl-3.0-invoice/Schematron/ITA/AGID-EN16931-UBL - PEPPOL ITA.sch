@@ -334,7 +334,7 @@
 	<include href="OPENPEPPOL/6-PEPPOL-EN16931-UBL-italy.inc"/>
 	
 	<!-- SWEDEN -->
-	<!--<include href="OPENPEPPOL/7-PEPPOL-EN16931-UBL-sweden.inc"/>-->
+	<include href="OPENPEPPOL/7-PEPPOL-EN16931-UBL-sweden.inc"/>
 
 	<!-- Sender Rules -->
 	<!--<include href="OPENPEPPOL/8-PEPPOL-EN16931-UBL-greece-sender.inc"/>-->

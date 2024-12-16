@@ -337,11 +337,11 @@
 	<include href="OPENPEPPOL/7-PEPPOL-EN16931-UBL-sweden.inc"/>
 
 	<!-- Sender Rules -->
-	<!--<include href="OPENPEPPOL/8-PEPPOL-EN16931-UBL-greece-sender.inc"/>-->
+	include href="OPENPEPPOL/8-PEPPOL-EN16931-UBL-greece-sender.inc"/>
 	
 
 	<!-- Greek Sender and Greek Receiver rules -->
-	<!--<include href="OPENPEPPOL/9-PEPPOL-EN16931-UBL-greece-senderreceiver.inc"/>-->
+	<include href="OPENPEPPOL/9-PEPPOL-EN16931-UBL-greece-senderreceiver.inc"/>
 	
 	<!-- ICELAND -->
 	<include href="OPENPEPPOL/10-PEPPOL-EN16931-UBL-iceland.inc"/>

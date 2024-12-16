@@ -23,6 +23,7 @@ In vigore a partire dal *17 Febbraio 2025*
 * Aggiornamento dello schematron EN 16931 alla versione 1.3.13.
 
 [red]#Aggiornamenti relativi alla “BIS compliance”# +
+
 * Aggiunte nuove regole di conformità sull’utilizzo degli identificatori del mittente/destinatario nell’inserimento di un messaggio BIS3 all’interno del Peppol Business Message Envelope (SBDH). 
 
 | 3.0.17.1(IT)

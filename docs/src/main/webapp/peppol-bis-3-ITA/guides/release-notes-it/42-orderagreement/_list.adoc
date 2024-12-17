@@ -1,3 +1,4 @@
+https://peppol-docs.agid.gov.it/docs/my_index.jsp/[Vai al Portale Specifiche]
 
 [cols="1h,1m,4m", options="header"]
 

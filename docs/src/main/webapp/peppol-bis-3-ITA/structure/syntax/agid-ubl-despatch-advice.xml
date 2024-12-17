@@ -1419,13 +1419,13 @@ Utilizzato per indicare il codice del Punto di consegna NSO degli Enti</Descript
                         <Attribute>
                             <Term>listID</Term>
                             <Name>Name code list id. - Identificativo della lista di codifiche</Name>
-            								<Description>Identificativo della lista di codifiche usata per la proprietà, concordato bilateralmente.</Description>
+            				<Description>Identificativo della lista di codifiche usata per la proprietà, concordato bilateralmente.</Description>
                         </Attribute>
                     </Element>
                     <Element>
                         <Term>cbc:Value</Term>
                         <Name>Item property value - Valore della proprietà</Name>
-          							<Description>Indica il valore della caratteristica dell'articolo.</Description>
+          				<Description>Indica il valore della caratteristica dell'articolo.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p040</Reference>
                         <Value type="EXAMPLE">Profondità</Value>
@@ -1433,13 +1433,13 @@ Utilizzato per indicare il codice del Punto di consegna NSO degli Enti</Descript
                     <Element cardinality="0..1">
                         <Term>cbc:ValueQuantity</Term>
                         <Name>Item property unit of measure - Quantificazione della caratteristica</Name>
-          							<Description>Quantificazione della caratteristica.</Description>
+          				<Description>Quantificazione della caratteristica.</Description>
                         <DataType>Quantity</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p043</Reference>
                         <Attribute>
                             <Term>unitCode</Term>
                             <Name>Value quantity unit of measure - Codifica dell'unità di misura</Name>
-            								<Description>Codifica dell'unità di misura in cui è espressa la quantificazione.</Description>
+            				<Description>Codifica dell'unità di misura in cui è espressa la quantificazione.</Description>
                             <DataType>Code</DataType>
                             <Reference type="CODE_LIST">UNECERec20</Reference>
                             <Value type="EXAMPLE">CMT</Value>
@@ -1449,10 +1449,17 @@ Utilizzato per indicare il codice del Punto di consegna NSO degli Enti</Descript
                     <Element cardinality="0..1">
                         <Term>cbc:ValueQualifier</Term>
                         <Name>Property classification - Classificazione della proprietà</Name>
-          							<Description>Indica l’eventuale classificazione della caratteristica.</Description>
+          				<Description>Indica l’eventuale classificazione della caratteristica.</Description>
                         <DataType>Text</DataType>
                         <Reference type="BUSINESS_TERM">tir16-p044</Reference>
                     </Element>
+					<Element cardinality="0..1">
+						<Term>cbc:ID</Term>
+						<Name>ID - Identificativo di ulteriori proprietà</Name>
+						<Attribute usage="Optional">
+						<Term>schemeID</Term>
+						</Attribute>
+					</Element>	
                 </Element>
                 <Element cardinality="0..n">
                     <Term>cac:ItemInstance</Term>
@@ -1599,6 +1606,9 @@ Utilizzato per indicare il codice del Punto di consegna NSO degli Enti</Descript
                         <Term>cbc:ID</Term>
                         <Name>Handling unit identifier - Identificativo unità logistica</Name>
                         <Description>Identifica l'unità di logistica di trasporto.</Description>
+						<Attribute usage="Optional">
+							<Term>schemeID</Term>
+						</Attribute>
                         <Reference type="BUSINESS_TERM">tir16-061</Reference>
                     </Element>
                     <Element cardinality="0..1">

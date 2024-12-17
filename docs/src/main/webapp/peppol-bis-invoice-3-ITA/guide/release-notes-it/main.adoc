@@ -1,6 +1,5 @@
 include::../shared/_settings.adoc[]
 = Note di rilascio Peppol BIS Fatturazione {version}
-https://peppol-docs.agid.gov.it/docs/my_index_fatt.jsp[Vai al Portale Specifiche]
 :doctype: book
 :last-update-label!:
 :encoding: utf-8

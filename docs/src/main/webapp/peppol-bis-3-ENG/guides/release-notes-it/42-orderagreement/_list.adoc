@@ -9,7 +9,7 @@ https://peppol-docs.agid.gov.it/docs/my_index-ENG.jsp[Link to main site of docum
 
 | 3.0.0.8(IT)
 a| 20/12/2024
-a| _Update to specifications https://docs.peppol.eu/poacc/upgrade-3/2024-Q4/release-notes/[PEPPOL BIS 3.0.10 - November release 2024]_. +
+a| _Update to specifications https://docs.peppol.eu/poacc/upgrade-3/2024-Q4/release-notes/[PEPPOL BIS 3.0.14 - November release 2024]_. +
 
 Effective as of *17th February 2025*
 

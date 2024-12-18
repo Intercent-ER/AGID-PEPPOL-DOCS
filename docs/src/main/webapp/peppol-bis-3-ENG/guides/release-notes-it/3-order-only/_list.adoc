@@ -1,4 +1,4 @@
-https://peppol-docs.agid.gov.it/docs/my_index-ENG.jsp/[Link to main site of documentation]
+https://peppol-docs.agid.gov.it/docs/my_index-ENG.jsp[Link to main site of documentation]
 
 [cols="1h,1m,4m", options="header"]
 

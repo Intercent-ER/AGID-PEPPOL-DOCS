@@ -1,6 +1,5 @@
 include::../shared/_settings.adoc[]
-= Peppol BIS Billing {version}
-Release Notes
+= Release notes Peppol BIS Billing {version}
 :doctype: book
 :last-update-label!:
 :encoding: utf-8

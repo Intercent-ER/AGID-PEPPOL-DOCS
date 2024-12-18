@@ -7,7 +7,7 @@ https://peppol-docs.agid.gov.it/docs/my_index.jsp[Vai al Portale Specifiche]
 ^.^| Data
 ^.^| Cosa è cambiato
 
-| 3.3.0.5(IT)
+| 3.3.0.6(IT)
 a| 20/12/2024
 a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2024-Q4/release-notes/[Peppol BIS 3.0.134 - November release 2024]_. +
 

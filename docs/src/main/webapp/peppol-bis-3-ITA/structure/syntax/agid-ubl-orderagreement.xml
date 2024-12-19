@@ -1574,6 +1574,13 @@
 						<Term>cac:AdditionalItemProperty</Term>
 						<Name>Additional item property information - Ulteriori proprietà</Name>
 						<Description>Contiene l’indicazione di ulteriori caratteristiche del bene o del servizio, come numero di sotto-unità contenute in un confezionamento secondario (ad esempio, quante scatole in un imballaggio) o il numero di articoli contenuti in un confezionamento primario (ad esempio, quante siringhe in una confezione).</Description>
+						<Element cardinality="0..1">
+						<Term>cbc:ID</Term>
+						<Name>ID - Identificativo di ulteriori proprietà</Name>
+						<Attribute usage="Optional">
+							<Term>schemeID</Term>
+						</Attribute>
+					</Element>	
 						<Element cardinality="0..1">					
 							<Term>cbc:Name</Term>
 							<Name>Item property name - Denominazione della proprietà</Name>
@@ -1592,7 +1599,6 @@
 								<Term>listID</Term>
 								<Name>Name code list id. - Identificativo della lista di codifiche</Name>
 								<Description>Identificativo della lista di codifiche usata per la proprietà, concordato bilateralmente.</Description>
-
 							</Attribute>
 						</Element>
 						<Element>
@@ -1626,13 +1632,6 @@
 							<DataType>Text</DataType>
 							<Reference type="BUSINESS_TERM">tir110-p004</Reference>
 						</Element>
-						<Element cardinality="0..1">
-						<Term>cbc:ID</Term>
-						<Name>ID - Identificativo di ulteriori proprietà</Name>
-						<Attribute usage="Optional">
-							<Term>schemeID</Term>
-						</Attribute>
-					</Element>	
 					</Element>
 					<Element cardinality="0..n">
 						<Term>cac:Certificate</Term>

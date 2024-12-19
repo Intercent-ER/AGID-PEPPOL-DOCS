@@ -15,7 +15,7 @@ Effective as of *17th February 2025*
 
 [red]#Syntax changes#
 
-*Order
+* Order
 ** Added new optional element cbc:ID in the cac:AdditionalItemProperty structure;
 
 [red]#Changes to code lists and validation artifacts#

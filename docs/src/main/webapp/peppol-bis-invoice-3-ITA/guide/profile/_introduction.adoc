@@ -1,4 +1,10 @@
 [preface]
+
+
+= Link al Portale Specifiche
+
+https://peppol-docs.agid.gov.it/docs/my_index.jsp/[Vai al Portale Specifiche]
+
 = Introduzione a openPeppol e alla BIS
 
 Questa Business Interoperability Specification (BIS) fornisce un insieme di specifiche per l'implementanzione della fatturazione elettronica e pubblicato come parte delle specifiche https://docs.peppol.eu/poacc/billing/3.0/[Peppol].

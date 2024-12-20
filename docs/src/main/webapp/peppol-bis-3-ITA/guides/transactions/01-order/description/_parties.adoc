@@ -260,7 +260,7 @@ L’intestatario fattura è un’informazione opzionale nel messaggio dell’Ord
 
 [IMPORTANT]
 ====
-Qualora l’Acquirente (BuyerCustomerParty) sia una Pubblica Amministrazione, l’informazione deve essere fornita anche quando Intestatario della fattura (AccountingCustomerParty) e Acquirente coincidono, in tal caso il codice IPA deve essere inserito riportato nel *cac:EndpointID.*
+Qualora l’Acquirente (BuyerCustomerParty) sia una Pubblica Amministrazione, l’informazione deve essere fornita anche quando Intestatario della fattura (AccountingCustomerParty) e Acquirente coincidono, in tal caso il codice IPA dell'Ufficio di Fatturazione Elettronica destinatario della fattura deve essere inserito nel *cac:EndpointID.*
 ====
 
 .Esempio di informazioni dell’intestatario fattura

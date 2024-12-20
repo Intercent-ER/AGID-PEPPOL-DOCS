@@ -1,5 +1,5 @@
 include::../../shared/_links.adoc[]
-= Peppol BIS Order Only {ord_version_it}
+= Peppol BIS Order Only
 Note di Rilascio
 :doctype: book
 :last-update-label!:

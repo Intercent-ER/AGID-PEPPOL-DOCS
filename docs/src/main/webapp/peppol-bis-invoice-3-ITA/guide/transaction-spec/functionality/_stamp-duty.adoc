@@ -1,5 +1,5 @@
 
-= #Imposta di Bollo (CIUS domestica)#
+= #Imposta di Bollo# (CIUS domestica)
 
 L’indicazione del bollo virtuale è operata sia in fattura che su nota di credito come maggiorazione a livello di testata del documento a mezzo dell’utilizzo della struttura *cac:AllowanceCharge* (BG-21 Document level charge) indicando: 
 

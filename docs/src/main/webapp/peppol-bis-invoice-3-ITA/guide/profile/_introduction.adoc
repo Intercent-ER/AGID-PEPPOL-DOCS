@@ -3,7 +3,7 @@
 
 = Link al Portale Specifiche
 
-https://peppol-docs.agid.gov.it/docs/my_index.jsp/[Vai al Portale Specifiche]
+https://peppol-docs.agid.gov.it/docs/my_index.jsp[Vai al Portale Specifiche]
 
 = Introduzione a openPeppol e alla BIS
 

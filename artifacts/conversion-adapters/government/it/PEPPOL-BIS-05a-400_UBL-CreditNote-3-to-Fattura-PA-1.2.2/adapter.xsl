@@ -375,9 +375,16 @@
 				<Indirizzo>
 					<xsl:value-of select="cbc:StreetName"/>
 				</Indirizzo>
-				<CAP>
-					<xsl:value-of select="cbc:PostalZone"/>
-				</CAP>
+				<xsl:if test=" 5 > string-length(cbc:PostalZone) ">
+					<CAP>
+						<xsl:text>99999</xsl:text>
+					</CAP>
+				</xsl:if>
+				<xsl:if test="  string-length(cbc:PostalZone)  >= 5">
+					<CAP>
+						<xsl:value-of select="cbc:PostalZone"/>
+					</CAP>
+				</xsl:if>
 				<Comune>
 					<xsl:value-of select="cbc:CityName"/>
 				</Comune>
@@ -1279,7 +1286,13 @@
 					<xsl:value-of select="cbc:AdditionalStreetName"/>
 				</NumeroCivico>
 			</xsl:if>
-			<xsl:if test="cbc:PostalZone">
+			
+			<xsl:if test=" 5 > string-length(cbc:PostalZone) ">
+				<CAP>
+					<xsl:text>99999</xsl:text>
+				</CAP>
+			</xsl:if>
+			<xsl:if test="  string-length(cbc:PostalZone)  >= 5">
 				<CAP>
 					<xsl:value-of select="cbc:PostalZone"/>
 				</CAP>
@@ -1312,7 +1325,12 @@
 						<xsl:value-of select="cbc:AdditionalStreetName"/>
 					</NumeroCivico>
 				</xsl:if>
-				<xsl:if test="cbc:PostalZone">
+				<xsl:if test=" 5 > string-length(cbc:PostalZone) ">
+					<CAP>
+						<xsl:text>99999</xsl:text>
+					</CAP>
+				</xsl:if>
+				<xsl:if test="  string-length(cbc:PostalZone)  >= 5">
 					<CAP>
 						<xsl:value-of select="cbc:PostalZone"/>
 					</CAP>

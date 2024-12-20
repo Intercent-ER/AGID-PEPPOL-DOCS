@@ -55,6 +55,9 @@
 	<phase id="OP_Netherlands_phase">
 		<active pattern="OP-Netherlands-rules"/>
 	</phase>
+	<phase id="OP_Germnay_phase">
+		<active pattern="OP-Germany-rules"/>
+	</phase>
 	<phase id="OP_codelist_phase">
 		<active pattern="OP-cl-formatting-rules"/>
 	</phase>
@@ -88,7 +91,7 @@
 		else
 		'XX'"/>
 	<!-- -->
-	<let name="documentCurrencyCode" value="/*/cbc:DocumentCurrencyCode"/>
+
 	<!-- Functions -->
 	<function xmlns="http://www.w3.org/1999/XSL/Transform" name="u:gln" as="xs:boolean">
 		<param name="val"/>
@@ -276,7 +279,9 @@
     else
     'XX'"/>
 	
-	
+	<let name="supplierCountryIsDE" value="(upper-case(normalize-space(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode)) = 'DE')"/>
+	<let name="customerCountryIsDE" value="(upper-case(normalize-space(/*/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode)) = 'DE')"/>
+	<let name="documentCurrencyCode" value="/*/cbc:DocumentCurrencyCode"/>
 	
 	
 	
@@ -314,7 +319,10 @@
 	<!-- NETHERLANDS -->
 	<include href="OPENPEPPOL/11-PEPPOL-EN16931-UBL-netherlands.inc"/>
 	
+	<!-- GERMANY -->
+	<include href="OPENPEPPOL/12-PEPPOL-EN16931-UBL-germany.inc"/>
+	
 	<!-- Restricted code lists and formatting -->
-	<include href="OPENPEPPOL/12-PEPPOL-EN16931-UBL-codelists.inc"/>
+	<include href="OPENPEPPOL/13-PEPPOL-EN16931-UBL-codelists.inc"/>
 	
 </schema>

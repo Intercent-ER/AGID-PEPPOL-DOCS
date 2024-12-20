@@ -2,10 +2,10 @@
 <!--
 This schematron uses business terms defined the CEN/EN16931-1 and is reproduced with permission from CEN. CEN bears no liability from the use of the content and implementation of this schematron and gives no warranties expressed or implied for any purpose.
 
-Last update: 2024 May release 3.0.17.
+Last update: 2024 November release 3.0.18.
  -->
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:u="utils" schemaVersion="iso" queryBinding="xslt2">
-	<title>Rules for Peppol BIS 3.0 Billing</title>
+	<title>Rules for Peppol BIS 3.0 Billing - Regole di business Peppol BIS Fatturazione 3.0</title>
 	<ns uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" prefix="cbc"/>
 	<ns uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" prefix="cac"/>
 	<ns uri="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2" prefix="ubl-creditnote"/>
@@ -225,6 +225,10 @@ Last update: 2024 May release 3.0.17.
     upper-case(normalize-space(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode))
     else
     'XX'"/>
+	
+	<let name="supplierCountryIsDE" value="(upper-case(normalize-space(/*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode)) = 'DE')"/>
+	<let name="customerCountryIsDE" value="(upper-case(normalize-space(/*/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode)) = 'DE')"/>
+	<let name="documentCurrencyCode" value="/*/cbc:DocumentCurrencyCode"/>
   
 	<include href="./1-PEPPOL-EN16931-UBL-emptyElements.inc"/>
 	<include href="./2-PEPPOL-EN16931-UBL-creditNote.inc"/>
@@ -255,7 +259,10 @@ Last update: 2024 May release 3.0.17.
 	<!-- NETHERLANDS -->
 	<include href="./11-PEPPOL-EN16931-UBL-netherlands.inc"/>
 	
+	<!-- GERMANY -->
+	<include href="./12-PEPPOL-EN16931-UBL-germany.inc"/>
+	
 	<!-- Restricted code lists and formatting -->
-	<include href="./12-PEPPOL-EN16931-UBL-codelists.inc"/>
+	<include href="./13-PEPPOL-EN16931-UBL-codelists.inc"/>
 	
 </schema>

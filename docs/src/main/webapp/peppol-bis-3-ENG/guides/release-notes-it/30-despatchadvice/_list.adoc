@@ -1,3 +1,4 @@
+https://peppol-docs.agid.gov.it/docs/my_index-ENG.jsp[Link to main site of documentation]
 
 [cols="1h,1m,4m", options="header"]
 
@@ -5,6 +6,27 @@
 ^.^| Version
 ^.^| Date
 ^.^| What's new
+
+| 3.1.0.5(IT)
+a| 20/12/2024
+a| _Update to specifications https://docs.peppol.eu/poacc/upgrade-3/2024-Q4/release-notes/[PEPPOL BIS 3.0.14 - November release 2024]_. +
+
+Effective as of *17th February 2025*
+
+[red]#Syntax changes#
+
+* Added new optional element cbc:ID in the cac:AdditionalItemProperty structure;
+* Added new optional attribute @schemeID to the element cbc:ID in the cac:TransportHandlingUnit structure;
+* Added new optional structure cac:DeliveryParty.
+
+[red]#Changes to code lists and validation artifacts#
+
+* Modification of the Item type identification code (UNCL7143), Dangerous goods regulations code (UNCL8273) Recommendation 20, including Recommendation 21 codes - prefixed with X (UN/ECE) codelists.
+* Added new codelist Transport Handling Unit ID scheme (openPEPPOL) containg only the code [SSCC] Serial Shipping Container Code;
+
+[red]#Updates related to "BIS compliance"#
+
+* Added new compliance rules on the use of sender/receiver identifiers when enveloping a BIS3 message in Peppol Business Message Envelope (SBDH).
 
 | 3.1.0.1(IT)
 a| 16/12/2022

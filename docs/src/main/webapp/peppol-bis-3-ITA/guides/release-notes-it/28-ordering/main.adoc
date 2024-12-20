@@ -1,5 +1,5 @@
 include::../../shared/_links.adoc[]
-= Note di rilascio Peppol BIS Ordinazione Completa {ord_version_it}
+= Note di rilascio Peppol BIS Ordinazione Completa
 :doctype: book
 :last-update-label!:
 :icons: font

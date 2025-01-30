@@ -58,7 +58,7 @@ Indicando il codice 1, l’acquirente non viene informato sulle modalità di pag
 
 include::../../syntax/_unspecified-payment.adoc[]
 
-== #Pagamento mediante PagoPA#
+== #Pagamento mediante PagoPA# (CIUS domestica)
 
 Il codice 9 (National or regional clearing) viene mappato con MP23 – PagoPA: +
 

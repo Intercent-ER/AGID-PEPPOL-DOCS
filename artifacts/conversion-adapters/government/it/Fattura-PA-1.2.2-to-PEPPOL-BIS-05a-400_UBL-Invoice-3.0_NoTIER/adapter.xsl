@@ -294,10 +294,18 @@ the root node.
 	<xsl:template match="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiDDT" mode="DespatchLineReference">
 		<xsl:param name="CN" select="."/>
 		<xsl:param name="CNP" select="1"/>
-		<xsl:if test="(RiferimentoNumeroLinea[normalize-space()]=$CN/NumeroLinea[normalize-space()] or (RiferimentoNumeroLinea and count(../../DatiBeniServizi/DettaglioLinee)=1)) and count($CN/AltriDatiGestionali[TipoDato = 'DatiDDT']) = 0">
+		<xsl:if test="((RiferimentoNumeroLinea[normalize-space()]=$CN/NumeroLinea[normalize-space()] or (RiferimentoNumeroLinea and count(../../DatiBeniServizi/DettaglioLinee)=1)) and count($CN/AltriDatiGestionali[TipoDato = 'DatiDDT']) = 0)
+		                or not(RiferimentoNumeroLinea)">
 			<cac:DespatchLineReference>
 				<cbc:LineID>
-					<xsl:text>NA</xsl:text>
+					<xsl:choose>
+						<xsl:when test="RiferimentoNumeroLinea[normalize-space()]=$CN/NumeroLinea[normalize-space()]">
+							<xsl:value-of select="$CN/NumeroLinea[normalize-space()]"/>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:text>NA</xsl:text>
+						</xsl:otherwise>
+					</xsl:choose>
 				</cbc:LineID>
 				<cac:DocumentReference>
 					<cbc:ID>
@@ -305,25 +313,6 @@ the root node.
 					</cbc:ID>
 					<cbc:IssueDate>
 						<xsl:value-of select="DataDDT"/>
-					</cbc:IssueDate>
-				</cac:DocumentReference>
-			</cac:DespatchLineReference>
-		</xsl:if>
-		<xsl:if test="count(/*/FatturaElettronicaBody/DatiGenerali/DatiDDT[(not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea))]) &gt; 0">
-			<cac:DespatchLineReference>
-				<cbc:LineID>
-					<xsl:text>NA</xsl:text>
-				</cbc:LineID>
-				<cac:DocumentReference>
-					<cbc:ID>
-						<xsl:for-each select ="/*/FatturaElettronicaBody/DatiGenerali/DatiDDT[(not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea))]">
-							<xsl:value-of select="string-join(./NumeroDDT, ',')"/>
-						</xsl:for-each>
-					</cbc:ID>
-					<cbc:IssueDate>
-						<xsl:for-each select ="/*/FatturaElettronicaBody/DatiGenerali/DatiDDT[(not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea))]">
-							<xsl:value-of select="string-join(./DataDDT, ',')"/>
-						</xsl:for-each>
 					</cbc:IssueDate>
 				</cac:DocumentReference>
 			</cac:DespatchLineReference>
@@ -795,16 +784,16 @@ the root node.
 		</cac:BillingReference>
 	</xsl:template>
 	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiDDT[not(RiferimentoNumeroLinea)]">
-		<cac:DespatchDocumentReference>
-			<xsl:if test="count(/*/FatturaElettronicaBody/DatiGenerali/DatiDDT[(not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea))]) = 0">
+		<xsl:if test="count(/*/FatturaElettronicaBody/DatiGenerali/DatiDDT[(not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea))]) = 0">
+			<cac:DespatchDocumentReference>
 				<cbc:ID>
 					<xsl:value-of select="NumeroDDT"/>
 				</cbc:ID>
 				<cbc:IssueDate>
 					<xsl:value-of select="DataDDT"/>
 				</cbc:IssueDate>
-			</xsl:if>
-		</cac:DespatchDocumentReference>
+			</cac:DespatchDocumentReference>
+		</xsl:if>
 	</xsl:template>
 	<xsl:template match="FatturaElettronicaBody/DatiGenerali/DatiRicezione[1]">
 		<cac:ReceiptDocumentReference>

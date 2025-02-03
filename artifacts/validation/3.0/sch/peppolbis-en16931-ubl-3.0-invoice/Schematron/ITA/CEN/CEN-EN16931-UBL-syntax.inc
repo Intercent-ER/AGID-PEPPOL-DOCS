@@ -26,7 +26,7 @@
 		<assert id="UBL-SR-31" flag="fatal" test="(count(cbc:AllowanceChargeReason) &lt;= 1)">[UBL-SR-31]-Document level charge reason shall occur maximum once</assert>
 	</rule>
 	<rule context="/ubl:Invoice | /cn:CreditNote">
-		<assert id="UBL-CR-001-NA" flag="warning" test="not(ext:UBLExtensions)">[UBL-CR-001]-A UBL invoice should not include extensions (not applied in the Italian context)</assert>
+		<!--<assert id="UBL-CR-001" flag="warning" test="not(ext:UBLExtensions)">[UBL-CR-001]-A UBL invoice should not include extensions</assert>-->
 		<assert id="UBL-CR-002" flag="warning" test="not(cbc:UBLVersionID) or cbc:UBLVersionID = '2.1'">[UBL-CR-002]-A UBL invoice should not include the UBLVersionID or it should be 2.1</assert>
 		<assert id="UBL-CR-003" flag="warning" test="not(cbc:ProfileExecutionID)">[UBL-CR-003]-A UBL invoice should not include the ProfileExecutionID </assert>
 		<assert id="UBL-CR-004" flag="warning" test="not(cbc:CopyIndicator)">[UBL-CR-004]-A UBL invoice should not include the CopyIndicator </assert>
@@ -43,7 +43,7 @@
 		<assert id="UBL-CR-015" flag="warning" test="not(cac:InvoicePeriod/cbc:Description)">[UBL-CR-015]-A UBL invoice should not include the InvoicePeriod Description</assert>
 		<assert id="UBL-CR-016" flag="warning" test="not(cac:OrderReference/cbc:CopyIndicator)">[UBL-CR-016]-A UBL invoice should not include the OrderReference CopyIndicator</assert>
 		<assert id="UBL-CR-017" flag="warning" test="not(cac:OrderReference/cbc:UUID)">[UBL-CR-017]-A UBL invoice should not include the OrderReference UUID</assert>
-		<assert id="UBL-CR-018-NA" flag="warning" test="not(cac:OrderReference/cbc:IssueDate)">[UBL-CR-018]-A UBL invoice should not include the OrderReference IssueDate (not applied in the Italian context)</assert>
+		<!--<assert id="UBL-CR-018" flag="warning" test="not(cac:OrderReference/cbc:IssueDate)">[UBL-CR-018]-A UBL invoice should not include the OrderReference IssueDate</assert>-->
 		<assert id="UBL-CR-019" flag="warning" test="not(cac:OrderReference/cbc:IssueTime)">[UBL-CR-019]-A UBL invoice should not include the OrderReference IssueTime</assert>
 		<assert id="UBL-CR-020" flag="warning" test="not(cac:OrderReference/cbc:CustomerReference)">[UBL-CR-020]-A UBL invoice should not include the OrderReference CustomerReference</assert>
 		<assert id="UBL-CR-021" flag="warning" test="not(cac:OrderReference/cbc:OrderTypeCode)">[UBL-CR-021]-A UBL invoice should not include the OrderReference OrderTypeCode</assert>
@@ -72,12 +72,12 @@
 		<assert id="UBL-CR-044" flag="warning" test="not(cac:BillingReference/cac:BillingReferenceLine)">[UBL-CR-044]-A UBL invoice should not include the BillingReference BillingReferenceLine</assert>
 		<assert id="UBL-CR-045" flag="warning" test="not(cac:DespatchDocumentReference/cbc:CopyIndicator)">[UBL-CR-045]-A UBL invoice should not include the DespatchDocumentReference CopyIndicator</assert>
 		<assert id="UBL-CR-046" flag="warning" test="not(cac:DespatchDocumentReference/cbc:UUID)">[UBL-CR-046]-A UBL invoice should not include the DespatchDocumentReference UUID</assert>
-		<assert id="UBL-CR-047-NA" flag="warning" test="not(cac:DespatchDocumentReference/cbc:IssueDate)">[UBL-CR-047]-A UBL invoice should not include the DespatchDocumentReference IssueDate (not applied in the Italian context)</assert>
+		<!--<assert id="UBL-CR-047" flag="warning" test="not(cac:DespatchDocumentReference/cbc:IssueDate)">[UBL-CR-047]-A UBL invoice should not include the DespatchDocumentReference IssueDate</assert>-->
 		<assert id="UBL-CR-048" flag="warning" test="not(cac:DespatchDocumentReference/cbc:IssueTime)">[UBL-CR-048]-A UBL invoice should not include the DespatchDocumentReference IssueTime</assert>
 		<assert id="UBL-CR-049" flag="warning" test="not(cac:DespatchDocumentReference/cbc:DocumentTypeCode)">[UBL-CR-049]-A UBL invoice should not include the DespatchDocumentReference DocumentTypeCode</assert>
 		<assert id="UBL-CR-050" flag="warning" test="not(cac:DespatchDocumentReference/cbc:DocumentType)">[UBL-CR-050]-A UBL invoice should not include the DespatchDocumentReference DocumentType</assert>
 		<assert id="UBL-CR-051" flag="warning" test="not(cac:DespatchDocumentReference/cbc:XPath)">[UBL-CR-051]-A UBL invoice should not include the DespatchDocumentReference Xpath</assert>
-		<assert id="UBL-CR-052-NA" flag="warning" test="not(cac:DespatchDocumentReference/cbc:LanguageID)">[UBL-CR-052]-A UBL invoice should not include the DespatchDocumentReference LanguageID (not applied in the Italian context)</assert>
+		<!--<assert id="UBL-CR-052" flag="warning" test="not(cac:DespatchDocumentReference/cbc:LanguageID)">[UBL-CR-052]-A UBL invoice should not include the DespatchDocumentReference LanguageID</assert>-->
 		<assert id="UBL-CR-053" flag="warning" test="not(cac:DespatchDocumentReference/cbc:LocaleCode)">[UBL-CR-053]-A UBL invoice should not include the DespatchDocumentReference LocaleCode</assert>
 		<assert id="UBL-CR-054" flag="warning" test="not(cac:DespatchDocumentReference/cbc:VersionID)">[UBL-CR-054]-A UBL invoice should not include the DespatchDocumentReference VersionID</assert>
 		<assert id="UBL-CR-055" flag="warning" test="not(cac:DespatchDocumentReference/cbc:DocumentStatusCode)">[UBL-CR-055]-A UBL invoice should not include the DespatchDocumentReference DocumentStatusCode</assert>
@@ -194,7 +194,7 @@
 		<assert id="UBL-CR-167" flag="warning" test="not(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:LocationCoordinate)">[UBL-CR-167]-A UBL invoice should not include the AccountingSupplierParty Party PostalAddress LocationCoordinate</assert>
 		<assert id="UBL-CR-168" flag="warning" test="not(cac:AccountingSupplierParty/cac:Party/cac:PhysicalLocation)">[UBL-CR-168]-A UBL invoice should not include the AccountingSupplierParty Party PhysicalLocation</assert>
 		<assert id="UBL-CR-169" flag="warning" test="not(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:RegistrationName)">[UBL-CR-169]-A UBL invoice should not include the AccountingSupplierParty Party PartyTaxScheme RegistrationName</assert>
-		<assert id="UBL-CR-170-NA" flag="warning" test="not(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:TaxLevelCode)">[UBL-CR-170]-A UBL invoice should not include the AccountingSupplierParty Party PartyTaxScheme TaxLevelCode  (not applied in the Italian context)</assert>
+		<!--<assert id="UBL-CR-170" flag="warning" test="not(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:TaxLevelCode)">[UBL-CR-170]-A UBL invoice should not include the AccountingSupplierParty Party PartyTaxScheme TaxLevelCode</assert>-->
 		<assert id="UBL-CR-171" flag="warning" test="not(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:ExemptionReasonCode)">[UBL-CR-171]-A UBL invoice should not include the AccountingSupplierParty Party PartyTaxScheme ExemptionReasonCode</assert>
 		<assert id="UBL-CR-172" flag="warning" test="not(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:ExemptionReason)">[UBL-CR-172]-A UBL invoice should not include the AccountingSupplierParty Party PartyTaxScheme ExemptionReason</assert>
 		<assert id="UBL-CR-173" flag="warning" test="not(cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cac:RegistrationAddress)">[UBL-CR-173]-A UBL invoice should not include the AccountingSupplierParty Party PartyTaxScheme RegistrationAddress</assert>
@@ -219,7 +219,7 @@
 		<assert id="UBL-CR-192" flag="warning" test="not(cac:AccountingSupplierParty/cac:Party/cac:Contact/cac:OtherCommunication)">[UBL-CR-192]-A UBL invoice should not include the AccountingSupplierParty Party Contact OtherCommunication</assert>
 		<assert id="UBL-CR-193" flag="warning" test="not(cac:AccountingSupplierParty/cac:Party/cac:Person)">[UBL-CR-193]-A UBL invoice should not include the AccountingSupplierParty Party Person</assert>
 		<assert id="UBL-CR-194" flag="warning" test="not(cac:AccountingSupplierParty/cac:Party/cac:AgentParty)">[UBL-CR-194]-A UBL invoice should not include the AccountingSupplierParty Party AgentParty</assert>
-		<assert id="UBL-CR-195-NA" flag="warning" test="not(cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty)">[UBL-CR-195]-A UBL invoice should not include the AccountingSupplierParty Party ServiceProviderParty (not applied in the Italian context)</assert>
+		<!--<assert id="UBL-CR-195" flag="warning" test="not(cac:AccountingSupplierParty/cac:Party/cac:ServiceProviderParty)">[UBL-CR-195]-A UBL invoice should not include the AccountingSupplierParty Party ServiceProviderParty</assert>-->
 		<assert id="UBL-CR-196" flag="warning" test="not(cac:AccountingSupplierParty/cac:Party/cac:PowerOfAttorney)">[UBL-CR-196]-A UBL invoice should not include the AccountingSupplierParty Party PowerOfAttorney</assert>
 		<assert id="UBL-CR-197" flag="warning" test="not(cac:AccountingSupplierParty/cac:Party/cac:FinancialAccount)">[UBL-CR-197]-A UBL invoice should not include the AccountingSupplierParty Party FinancialAccount</assert>
 		<assert id="UBL-CR-198" flag="warning" test="not(cac:AccountingSupplierParty/cac:DespatchContact)">[UBL-CR-198]-A UBL invoice should not include the AccountingSupplierParty DespatchContact</assert>
@@ -536,7 +536,7 @@
 		<assert id="UBL-CR-510" flag="warning" test="not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:TaxTypeCode)">[UBL-CR-510]-A UBL invoice should not include the TaxTotal TaxSubtotal TaxCategory TaxScheme TaxTypeCode</assert>
 		<assert id="UBL-CR-511" flag="warning" test="not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:CurrencyCode)">[UBL-CR-511]-A UBL invoice should not include the TaxTotal TaxSubtotal TaxCategory TaxScheme CurrencyCode</assert>
 		<assert id="UBL-CR-512" flag="warning" test="not(cac:TaxTotal/cac:TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cac:JurisdictionRegionAddress)">[UBL-CR-512]-A UBL invoice should not include the TaxTotal TaxSubtotal TaxCategory TaxScheme JurisdictionRegionAddress</assert>
-		<assert id="UBL-CR-513-NA" flag="warning" test="not(cac:WithholdingTaxTotal)">[UBL-CR-513]-A UBL invoice should not include the WithholdingTaxTotal (not applied in the Italian context)</assert>
+		<!--<assert id="UBL-CR-513" flag="warning" test="not(cac:WithholdingTaxTotal)">[UBL-CR-513]-A UBL invoice should not include the WithholdingTaxTotal</assert>-->
 		<assert id="UBL-CR-514" flag="warning" test="not(cac:LegalMonetaryTotal/cbc:PayableAlternativeAmount)">[UBL-CR-514]-A UBL invoice should not include the LegalMonetaryTotal PayableAlternativeAmount</assert>
 		<assert id="UBL-CR-515" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cbc:UUID)">[UBL-CR-515]-A UBL invoice should not include the InvoiceLine UUID</assert>
 		<assert id="UBL-CR-516" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cbc:TaxPointDate)">[UBL-CR-516]-A UBL invoice should not include the InvoiceLine TaxPointDate</assert>
@@ -551,8 +551,8 @@
 		<assert id="UBL-CR-525" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:OrderLineReference/cbc:SalesOrderLineID)">[UBL-CR-525]-A UBL invoice should not include the InvoiceLine OrderLineReference SalesOrderLineID</assert>
 		<assert id="UBL-CR-526" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:OrderLineReference/cbc:UUID)">[UBL-CR-526]-A UBL invoice should not include the InvoiceLine OrderLineReference UUID</assert>
 		<assert id="UBL-CR-527" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:OrderLineReference/cbc:LineStatusCode)">[UBL-CR-527]-A UBL invoice should not include the InvoiceLine OrderLineReference LineStatusCode</assert>
-		<assert id="UBL-CR-528-NA" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:OrderLineReference/cac:OrderReference)">[UBL-CR-528]-A UBL invoice should not include the InvoiceLine OrderLineReference OrderReference (not applied in the Italian context)</assert>
-		<assert id="UBL-CR-529-NA" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:DespatchLineReference)">[UBL-CR-529]-A UBL invoice should not include the InvoiceLine DespatchLineReference (not applied in the Italian context)</assert>
+		<!--<assert id="UBL-CR-528" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:OrderLineReference/cac:OrderReference)">[UBL-CR-528]-A UBL invoice should not include the InvoiceLine OrderLineReference OrderReference</assert>-->
+		<!--<assert id="UBL-CR-529" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:DespatchLineReference)">[UBL-CR-529]-A UBL invoice should not include the InvoiceLine DespatchLineReference</assert>-->
 		<assert id="UBL-CR-530" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:ReceiptLineReference)">[UBL-CR-530]-A UBL invoice should not include the InvoiceLine ReceiptLineReference</assert>
 		<assert id="UBL-CR-531" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:BillingReference)">[UBL-CR-531]-A UBL invoice should not include the InvoiceLine BillingReference</assert>
 		<assert id="UBL-CR-532" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:DocumentReference/cbc:CopyIndicator)">[UBL-CR-532]-A UBL invoice should not include the InvoiceLine DocumentReference CopyIndicator</assert>
@@ -759,7 +759,7 @@
 		<assert id="UBL-SR-37" flag="fatal" test="(count(cac:Price/cac:AllowanceCharge/cbc:Amount) &lt;= 1)">[UBL-SR-37]-Item price discount shall occur maximum once</assert>
 		<assert id="UBL-SR-48" flag="fatal" test="count(cac:Item/cac:ClassifiedTaxCategory) = 1">[UBL-SR-48]-Invoice lines shall have one and only one classified tax category.</assert>
 		<assert id="UBL-SR-50" flag="fatal" test="count(cac:Item/cbc:Description) &lt;= 1">[UBL-SR-50]-Item description shall occur maximum once</assert>
-		<assert id="UBL-SR-52-NA" flag="warning" test="count(cac:DocumentReference) &lt;= 1">[UBL-SR-52]-Document reference shall occur maximum once (not applied in the Italian context)</assert>
+		<!--<assert id="UBL-SR-52" flag="fatal" test="count(cac:DocumentReference) &lt;= 1">[UBL-SR-52]-Document reference shall occur maximum once</assert>-->
 	</rule>
 	<rule context="cac:PayeeParty">
 		<assert id="UBL-SR-19" flag="fatal" test="(count(cac:PartyName/cbc:Name) &lt;= 1) and ((cac:PartyName/cbc:Name) != (../cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:RegistrationName))">[UBL-SR-19]-Payee name shall occur maximum once, if the Payee is different from the Seller</assert>

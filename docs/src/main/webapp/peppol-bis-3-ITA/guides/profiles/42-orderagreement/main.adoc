@@ -14,9 +14,10 @@ include::../../shared/_links.adoc[]
 
 image::../../../shared/images/peppol.png[float="right"]
 
-= [black]#BIS Ordinazione Pre-Concordata 3.0.0.8#
+= [black]#BIS Ordinazione Pre-Concordata 3.0.0.7#
 
 {author}
+v{ord_agreement_version_it}
 
 {description}
 

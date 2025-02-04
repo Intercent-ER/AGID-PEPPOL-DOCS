@@ -3,7 +3,7 @@
 	Peppol BIS 3.0.10
 -->
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:u="utils" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xi="http://www.w3.org/2001/XInclude" schemaVersion="iso" queryBinding="xslt2">
-	<title>Regole di business per il Documento di Trasporto Peppol - Business Rules for Peppol Despatch Advice transaction 3.3.0.1</title>
+	<title>Regole per la transazione del Documento di Trasporto (DDT) PEPPOL, versione 3.2.0.3</title>
 	<ns uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" prefix="cbc"/>
 	<ns uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" prefix="cac"/>
 	<ns uri="urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2" prefix="ubl"/>

@@ -9,7 +9,7 @@
         schemaVersion="iso"
         queryBinding="xslt2">
 
-    <title>Regole per la transazione del Documento di Trasporto (DDT) PEPPOL, versione 3.3.0.1</title>
+    <title>Regole per la transazione del Documento di Trasporto (DDT) PEPPOL, versione 3.2.0.1</title>
 
     <ns uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
        prefix="cbc"/>

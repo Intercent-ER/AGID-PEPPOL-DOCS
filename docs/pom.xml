@@ -747,7 +747,7 @@
 							<outputDirectory>${project.build.directory}/${project.build.finalName}/xslt/</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${basedir}/../artifacts/validation/target/AGID-PEPPOL-XSL-${parent.version}/xsl</directory>
+									<directory>${basedir}/../artifacts/validation/target/AGID-PEPPOL-XSL-${project.parent.version}/xsl</directory>
 									<filtering>false</filtering>
 								</resource>
 							</resources>

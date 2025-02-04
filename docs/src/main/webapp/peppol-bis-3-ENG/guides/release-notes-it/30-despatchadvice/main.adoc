@@ -1,5 +1,5 @@
 include::../../shared/_links.adoc[]
-= Peppol BIS Despatch Advice
+= Peppol BIS Despatch Advice {ddt_version_it}
 Release Notes
 :doctype: book
 :last-update-label!:

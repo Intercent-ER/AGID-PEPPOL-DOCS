@@ -62,7 +62,7 @@ L’ordine è accettato con modifica a livello di riga +
 ----
 <?xml version="1.0" encoding="UTF-8"?>
 <OrderResponse
-    xmlns:xs="http(s)://www.w3.org/2001/XMLSchema"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns="urn:oasis:names:specification:ubl:schema:xsd:OrderResponse-2"
     xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
     xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">

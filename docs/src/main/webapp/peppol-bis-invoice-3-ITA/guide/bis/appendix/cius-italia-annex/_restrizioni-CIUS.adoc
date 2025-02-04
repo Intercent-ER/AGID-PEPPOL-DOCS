@@ -193,7 +193,7 @@ BT-78 Deliver to post code +
 |2.4 DatIPagamento
 |Il gruppo di elementi BG-16 Payment instructions deve essere obbligatorio.
 
-|BR-IT-261
+|BR-IT-261*
 |Cardinality - Make a conditional element mandatory (0..x --> 1..x)
 |BT-20 Payment terms
 |2.4.1 CondizioniPagamento +
@@ -272,7 +272,7 @@ BT-125 Attached document
 |2.2.1.1 NumeroLinea
 |L'elemento deve essere di tipo numerico e non superiore a "9999".
 
-|BR-IT-370
+|BR-IT-370*
 |Value domain for an element - Restrict text or byte array length
 |BT-128 Invoice line object identifier
 |2.1.2.5 Codice Commessa Convenzione, + 

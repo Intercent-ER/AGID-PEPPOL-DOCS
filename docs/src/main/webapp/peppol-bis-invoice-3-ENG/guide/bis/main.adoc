@@ -17,6 +17,7 @@ image::../../shared/images/peppol-new-logo.png[float="right"]
 = [black]#BIS Billing 3.0#
 
 {name-op-en}
+v{version}
 
 {description}
 

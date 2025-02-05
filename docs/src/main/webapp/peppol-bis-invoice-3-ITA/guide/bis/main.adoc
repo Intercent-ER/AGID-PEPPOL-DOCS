@@ -16,7 +16,7 @@ include::_settings.adoc[]
 
 
 {name-op-en}
-
+v{version}
 
 {description}
 

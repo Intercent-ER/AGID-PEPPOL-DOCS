@@ -1,8 +1,4 @@
-
-= Link to main site of documentation
-
-https://peppol-docs.agid.gov.it/docs/my_index-ENG.jsp[Main site of documentation]
-
+[[introduction-to-openpeppol-and-bis]]
 = Introduction to openPeppol and BIS
 
 This BIS is a result of work within Peppol project and is published as part of Peppol specifications.

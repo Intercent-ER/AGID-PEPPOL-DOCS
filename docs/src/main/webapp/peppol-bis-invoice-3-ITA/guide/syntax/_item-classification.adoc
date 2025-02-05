@@ -33,7 +33,7 @@ include::{snippet-dir}/item.xml[tags=unspsc]
 </cac:Item>
 ----
 <1> Codice del dispositivo medico attribuito dal Fornitore;
-<2> #Il listID deve essere fra quelli della codifica UNCL7143, il codice ZZZ indica il numero di repertorio attribuito al dispositivo medico nella Banca Dati e Repertorio  (BDR) dei Dispositivi Medici del Ministero della Salute.# +
+<2> #Il listID deve essere fra quelli della codifica UNCL7143, il codice ZZZ può essere utilizzato per indicare il numero di repertorio attribuito al dispositivo medico nella Banca Dati e Repertorio  (BDR) dei Dispositivi Medici del Ministero della Salute.# +
 #Il numero dovrà essere preceduto dalla seguente stringa:#
 * #“DM1:” in caso di Dispositivo medico o Dispositivo diagnostico in vitro;#
 * #“DM2:” in caso di Sistema o kit Assemblato;#

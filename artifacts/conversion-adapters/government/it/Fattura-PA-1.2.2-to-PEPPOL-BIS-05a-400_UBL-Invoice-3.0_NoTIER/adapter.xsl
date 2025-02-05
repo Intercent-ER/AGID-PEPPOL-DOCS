@@ -2030,7 +2030,7 @@ the root node.
 					<xsl:value-of select="format-number(ImportoTotaleDocumento,'###########0.00')"/>
 				</xsl:if>
 				<xsl:if test="not(ImportoTotaleDocumento)">
-					<xsl:value-of select=					"format-number((sum(../../DatiBeniServizi/DatiRiepilogo/Imposta)+sum(DatiCassaPrevidenziale/ImportoContributoCassa)
+					<xsl:value-of select="format-number((sum(../../DatiBeniServizi/DatiRiepilogo/Imposta)+sum(DatiCassaPrevidenziale/ImportoContributoCassa)
 						+ sum(../../DatiBeniServizi/DettaglioLinee[not(Descrizione = 'SCONTO') and not(Descrizione = 'MAGGIORAZIONE')]/PrezzoTotale)
 						),'###########0.00')"/>
 				</xsl:if>
@@ -2041,9 +2041,6 @@ the root node.
 				</xsl:if>
 				<xsl:if test="not(ImportoTotaleDocumento) and ScontoMaggiorazione and ScontoMaggiorazione/Tipo = 'MG'">
 					<xsl:value-of select="format-number($taxInclusiveAmountBeforeSconto + ScontoMaggiorazione[Tipo='MG']/Importo,'###########0.00')"/>
-				</xsl:if>
-				<xsl:if test="not(ImportoTotaleDocumento) and not(ScontoMaggiorazione)">
-					<xsl:value-of select="format-number($taxInclusiveAmountBeforeSconto,'###########0.00')"/>
 				</xsl:if>
 				<xsl:if test="ImportoTotaleDocumento">
 					<xsl:value-of select="format-number($taxInclusiveAmountBeforeSconto,'###########0.00')"/>

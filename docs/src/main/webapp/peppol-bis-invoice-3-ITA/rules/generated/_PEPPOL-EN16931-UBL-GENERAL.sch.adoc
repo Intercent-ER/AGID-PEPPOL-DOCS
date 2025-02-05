@@ -112,9 +112,9 @@
 | ubl-creditnote:CreditNote \| ubl-invoice:Invoice
 | cbc:ProfileID
 .3+| PEPPOL-EN16931-R002 *(fatal)*
-| No more than one note is allowed on document level.
+| No more than one note is allowed on document level, unless both the buyer and seller are German organizations.
 | ubl-creditnote:CreditNote \| ubl-invoice:Invoice
-| count(cbc:Note) <= 1
+| count(cbc:Note) &lt;= 1 or ($supplierCountryIsDE and $customerCountryIsDE)
 .3+| PEPPOL-EN16931-R003 *(fatal)*
 | A buyer reference or purchase order reference MUST be provided.
 | ubl-creditnote:CreditNote \| ubl-invoice:Invoice

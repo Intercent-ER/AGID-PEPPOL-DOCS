@@ -1,0 +1,884 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>AGID-PEPPOL-Docs</artifactId>
+	<parent>
+		<groupId>it.gov.agid</groupId>
+		<artifactId>AGID-PEPPOL</artifactId>
+		<version>3.2</version>
+		<relativePath>../</relativePath>
+	</parent>
+	<packaging>war</packaging>
+
+	<name>PEPPOL-BIS</name>
+
+	<properties>
+		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<validator.version>3.2.0</validator.version>
+		<converter.version>3.2.0</converter.version>
+		<schematron.version>3.2.0</schematron.version>
+		<mapping_peppol_fpa.version>3.3</mapping_peppol_fpa.version>
+		<mapping_fpa_peppol.version>3.2</mapping_fpa_peppol.version>
+	</properties>
+	<build>
+		<plugins>
+			
+		
+		
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.2</version>
+				<configuration>
+					<source>2.1</source>
+					<target>2.1</target>
+					<compilerArguments>
+						<endorseddirs>${endorsed.dir}</endorseddirs>
+					</compilerArguments>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>xml-maven-plugin</artifactId>
+				<version>1.0.2</version>
+				<executions>
+					<!-- ITA -->
+					<execution>
+						<id>apply-xslt-others-ITA</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${basedir}/src/main/webapp/peppol-bis-3-ITA/structure/syntax/</dir>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-structure-v1.5.4.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ITA/peppol-bis-3/</outputDir>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.html</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+					<execution>
+						<id>apply-xslt-invoice-ITA</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${basedir}/src/main/webapp/peppol-bis-invoice-3-ITA/structure/syntax/</dir>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-structure-v1.5.4.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ITA/peppol-bis-invoice-3/</outputDir>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.html</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+					<execution>
+						<id>apply-xslt-codelist-others-ITA</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${project.build.directory}/${project.build.finalName}/peppol-bis-3-ITA/structure/codelist/</dir>
+									<includes>
+										<include>**/*.xml</include>
+										<include>*.xml</include>
+									</includes>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-codelist-v1.2.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ITA/peppol-bis-3/codelist/</outputDir>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.html</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+					<execution>
+						<id>apply-xslt-codelist-invoice-ITA</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${project.build.directory}/${project.build.finalName}/peppol-bis-invoice-3-ITA/structure/codelist/</dir>
+									<includes>
+										<include>**/*.xml</include>
+										<include>*.xml</include>
+									</includes>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-codelist-v1.2.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ITA/peppol-bis-invoice-3/codelist/</outputDir>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.html</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+
+					<!-- ENG -->
+					<execution>
+						<id>apply-xslt-others-ENG</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${basedir}/src/main/webapp/peppol-bis-3-ENG/structure/syntax/</dir>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ENG/agid-peppol-bis-structure-v1.5.4.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ENG/peppol-bis-3/</outputDir>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.html</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+					<execution>
+						<id>apply-xslt-invoice-ENG</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${basedir}/src/main/webapp/peppol-bis-invoice-3-ENG/structure/syntax/</dir>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ENG/agid-peppol-bis-structure-v1.5.4.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ENG/peppol-bis-invoice-3/</outputDir>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.html</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+					<execution>
+						<id>apply-xslt-codelist-others-ENG</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${project.build.directory}/${project.build.finalName}/peppol-bis-3-ENG/structure/codelist/</dir>
+									<includes>
+										<include>**/*.xml</include>
+										<include>*.xml</include>
+									</includes>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ENG/agid-peppol-bis-codelist-v1.2.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ENG/peppol-bis-3/codelist/</outputDir>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.html</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+					<execution>
+						<id>apply-xslt-codelist-invoice-ENG</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${project.build.directory}/${project.build.finalName}/peppol-bis-invoice-3-ENG/structure/codelist/</dir>
+									<includes>
+										<include>**/*.xml</include>
+										<include>*.xml</include>
+									</includes>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ENG/agid-peppol-bis-codelist-v1.2.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ENG/peppol-bis-invoice-3/codelist/</outputDir>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.html</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+
+					<!-- SCHEMATRON ITA-->
+					<execution>
+						<id>apply-xslt-sch</id>
+						<phase>package</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${project.build.directory}/${project.build.finalName}/sch/</dir>
+									<includes>
+										<include>**/**/ITA/**/**.sch</include>
+									</includes>
+									<excludes>
+										<exclude>peppolbis-en16931-ubl-3.0-invoice/**</exclude>
+									</excludes>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-rules-v1.2.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ITA/sch</outputDir>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.html</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+					<execution>
+						<id>apply-xslt-sch-invoice</id>
+						<phase>package</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${project.build.directory}/${project.build.finalName}/sch/</dir>
+									<includes>
+										<include>**/peppolbis-en16931-ubl-3.0-invoice/**/ITA/**/**.sch</include>
+									</includes>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-rules-invoice-v1.2.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ITA/sch</outputDir>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.html</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+
+					<!-- SCHEMATRON ENG-->
+					<execution>
+						<id>apply-xslt-sch-ENG</id>
+						<phase>package</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${project.build.directory}/${project.build.finalName}/sch/</dir>
+									<includes>
+										<include>**/**/ENG/**.sch</include>
+									</includes>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ENG/agid-peppol-bis-rules-v1.2.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ENG/sch</outputDir>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.html</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+					<execution>
+						<id>apply-xslt-sch-invoice-ENG</id>
+						<phase>package</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${project.build.directory}/${project.build.finalName}/sch/</dir>
+									<includes>
+										<include>**/peppolbis-en16931-ubl-3.0-invoice/**/ENG/**/**.sch</include>
+									</includes>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ENG/agid-peppol-bis-rules-invoice-v1.2.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ENG/sch</outputDir>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.html</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+
+					<!-- INVOICE TRASFORMAZIONE SCHEMATRON IN REGOLE (per la sezione delle specifiche)-->
+
+					<!--execution>
+						<id>schematron-to-asciidoc-ph1</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${basedir}/../artifacts/validation/3.0/sch/peppolbis-en16931-ubl-3.0-invoice/Schematron/ITA</dir>
+									<stylesheet>${basedir}/../artifacts/validation/3.0/stylesheets/iso_dsdl_include.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/temp/ph1</outputDir>
+									<includes>
+										<include>**/*.sch</include>
+										<include>*.sch</include>
+									</includes>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.sch</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+					<execution>
+						<id>schematron-to-asciidoc-ph2</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${project.build.directory}/${project.build.finalName}/temp/ph1</dir>
+									<stylesheet>${basedir}/../artifacts/validation/3.0/stylesheets/iso_abstract_expand.xsl</stylesheet>
+									<outputDir>${project.build.directory}/${project.build.finalName}/temp/ph2</outputDir>
+									<includes>
+										<include>**/*.sch</include>
+										<include>*.sch</include>
+									</includes>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.sch</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution>
+					<execution>
+						<id>schematron-to-asciidoc-ph3</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>transform</goal>
+						</goals>
+						<configuration>
+							<transformationSets>
+								<transformationSet>
+									<dir>${project.build.directory}/${project.build.finalName}/temp/ph2</dir>
+									<stylesheet>${basedir}/../artifacts/validation/3.0/stylesheets/iso_schematron-to-asciidoc-v1.0.xsl</stylesheet>
+									<outputDir>${basedir}/src/main/webapp/peppol-bis-invoice-3-ITA/rules/generated</outputDir>
+									<includes>
+										<include>**/*.sch</include>
+										<include>*.sch</include>
+									</includes>
+									<fileMappers>
+										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
+											<targetExtension>.adoc</targetExtension>
+										</fileMapper>
+									</fileMappers>
+								</transformationSet>
+							</transformationSets>
+						</configuration>
+					</execution-->
+
+				</executions>
+
+				<dependencies>
+					<dependency>
+						<groupId>net.sf.saxon</groupId>
+						<artifactId>Saxon-B</artifactId>
+						<version>9.0</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+			<plugin>
+				<groupId>org.asciidoctor</groupId>
+				<artifactId>asciidoctor-maven-plugin</artifactId>
+				<version>1.5.6</version>
+				<executions>
+					<!-- manuali utente -->
+					<execution>
+						<id>output-html-manuali-utente</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<backend>html5</backend>
+							<sourceDirectory>src/main/webapp/manuali_utente/</sourceDirectory>
+							<outputDirectory>${project.build.directory}/generated-docs/manuali_utente</outputDirectory>
+							<relativeBaseDir>true</relativeBaseDir>
+							<preserveDirectories>true</preserveDirectories>
+						</configuration>
+					</execution>
+					
+				
+				
+					<!-- ITA -->
+					<execution>
+						<id>output-html-others-ITA</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<backend>html5</backend>
+							<sourceDirectory>${basedir}/src/main/webapp/peppol-bis-3-ITA/</sourceDirectory>
+							<outputDirectory>${project.build.directory}/generated-docs/ITA/others</outputDirectory>
+							<relativeBaseDir>true</relativeBaseDir>
+							<preserveDirectories>true</preserveDirectories>
+						</configuration>
+					</execution>
+					<execution>
+						<id>output-html-billing-ITA</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<backend>html5</backend>
+							<sourceDirectory>${basedir}/src/main/webapp/peppol-bis-invoice-3-ITA/</sourceDirectory>
+							<outputDirectory>${project.build.directory}/generated-docs/ITA/invoice</outputDirectory>
+							<relativeBaseDir>true</relativeBaseDir>
+							<preserveDirectories>true</preserveDirectories>
+						</configuration>
+					</execution>
+
+					<!-- BILLING generazione html (per le regole in homepage) a partire dagli schematron -->
+					<execution>
+						<id>output-html-billing-rules-ITA</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<backend>html5</backend>
+							<sourceDirectory>${basedir}/../artifacts/validation/3.0/sch/peppolbis-en16931-ubl-3.0-invoice/Schematron/ITA</sourceDirectory>
+							<outputDirectory>${project.build.directory}/generated-docs/ITA/invoice/generated-rules</outputDirectory>
+							<relativeBaseDir>true</relativeBaseDir>
+							<preserveDirectories>true</preserveDirectories>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>output-html-billing-rules-ENG</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<backend>html5</backend>
+							<sourceDirectory>${basedir}/../artifacts/validation/3.0/sch/peppolbis-en16931-ubl-3.0-invoice/Schematron/ENG</sourceDirectory>
+							<outputDirectory>${project.build.directory}/generated-docs/ENG/invoice/generated-rules</outputDirectory>
+							<relativeBaseDir>true</relativeBaseDir>
+							<preserveDirectories>true</preserveDirectories>
+						</configuration>
+					</execution>
+
+
+
+
+
+					<!-- ENG -->
+					<execution>
+						<id>output-html-others-ENG</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<backend>html5</backend>
+							<sourceDirectory>${basedir}/src/main/webapp/peppol-bis-3-ENG/</sourceDirectory>
+							<outputDirectory>${project.build.directory}/generated-docs/ENG/others</outputDirectory>
+							<relativeBaseDir>true</relativeBaseDir>
+							<preserveDirectories>true</preserveDirectories>
+						</configuration>
+					</execution>
+					<execution>
+						<id>output-html-billing-ENG</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<backend>html5</backend>
+							<sourceDirectory>${basedir}/src/main/webapp/peppol-bis-invoice-3-ENG/</sourceDirectory>
+							<outputDirectory>${project.build.directory}/generated-docs/ENG/invoice</outputDirectory>
+							<relativeBaseDir>true</relativeBaseDir>
+							<preserveDirectories>true</preserveDirectories>
+						</configuration>
+					</execution>
+
+
+				</executions>
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.3</version>
+				<executions>
+					<execution>
+						<id>default-war</id>
+						<phase>none</phase>
+					</execution>
+					<execution>
+						<id>war-exploded</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>exploded</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>custom-war</id>
+						<phase>package</phase>
+						<goals>
+							<goal>war</goal>
+						</goals>
+						<configuration>
+							<packagingIncludes>attachments/**, css/**, docs/**, fonts/**, images/**, inc/**, js/**, META-INF/**, peppol-bis-3-ENG/menu/**, peppol-bis-3-ITA/menu/**, peppol-bis-invoice-3-ENG/menu/**, peppol-bis-invoice-3-ITA/menu/**, peppol-bis-3-ENG/structure/codelist/*.xml, peppol-bis-3-ITA/structure/codelist/*.xml, peppol-bis-invoice-3-ENG/structure/codelist/*.xml, peppol-bis-invoice-3-ITA/structure/codelist/*.xml, sch/**, WEB-INF/**, xml/**, xsd/**, xslt/**, *.jsp </packagingIncludes>
+							<warSourceDirectory>${project.build.directory}/${project.build.finalName}</warSourceDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>com.google.code.maven-replacer-plugin</groupId>
+				<artifactId>replacer</artifactId>
+				<version>1.5.2</version>
+				<executions>
+					<execution>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>replace</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<basedir>${basedir}/target/${project.build.finalName}/</basedir>
+					<includes>
+						<include>**/**/*.html</include>
+					</includes>
+					<replacements>
+						<replacement>
+							<token>(#link_to_schematron_invoice#)</token>
+							<value>AGID-PEPPOL-Schematron-Billing-${schematron.version}.zip</value>
+						</replacement>
+						<replacement>
+							<token>(#link_to_schematron_others#)</token>
+							<value>AGID-PEPPOL-Schematron-Others-${schematron.version}.zip</value>
+						</replacement>
+						<replacement>
+							<token>(#link_to_validator_invoice#)</token>
+							<value>AGID-PEPPOL-Validator-Billing-${validator.version}.zip</value>
+						</replacement>
+						<replacement>
+							<token>(#link_to_validator_others#)</token>
+							<value>AGID-PEPPOL-Validator-Others-${validator.version}.zip</value>
+						</replacement>
+						<replacement>
+							<token>(#link_to_converter#)</token>
+							<value>AGID-PEPPOL-Converter-${converter.version}.zip</value>
+						</replacement>
+						<replacement>
+							<token>(#link_to_mapping_peppol_fpa#)</token>
+							<value>Mapping_UBL-Peppol-3_FatturaPA_V${mapping_peppol_fpa.version}.xlsx</value>
+						</replacement>
+						<replacement>
+							<token>(#link_to_mapping_fpa_peppol#)</token>
+							<value>Mapping_FatturaPA_UBL-Peppol-3_V${mapping_fpa_peppol.version}.xlsx</value>
+						</replacement>
+					</replacements>
+				</configuration>
+			</plugin>
+			
+			
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.0.2</version>
+				<executions>
+					<!-- copia delle codelist da artifacts alle cartelle della documentazione-->
+					<!-- INVOICE-->
+					<!-- ITA-->
+					<execution>
+						<id>copy-codelist-invoice-ita</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/${project.build.finalName}/peppol-bis-invoice-3-ITA/structure/codelist/</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../artifacts/codelist/invoice/ITA</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+							<echo>Copying codelist files</echo>
+						</configuration>
+					</execution>
+					<!-- ENG-->
+					<execution>
+						<id>copy-codelist-invoice-eng</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/${project.build.finalName}/peppol-bis-invoice-3-ENG/structure/codelist/</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../artifacts/codelist/invoice/ENG</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+							<echo>Copying codelist files</echo>
+						</configuration>
+					</execution>
+					<!-- OTHER-->
+					<!-- ITA-->
+					<execution>
+						<id>copy-codelist-other-ita</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/${project.build.finalName}/peppol-bis-3-ITA/structure/codelist/</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../artifacts/codelist/other/ITA</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+							<echo>Copying codelist files</echo>
+						</configuration>
+					</execution>
+					<!-- ENG-->
+					<execution>
+						<id>copy-codelist-other-eng</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/${project.build.finalName}/peppol-bis-3-ENG/structure/codelist/</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../artifacts/codelist/other/ENG</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+							<echo>Copying codelist files</echo>
+						</configuration>
+					</execution>
+				
+				
+				
+				
+				
+					<execution>
+						<id>copy-sch</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/${project.build.finalName}/sch/</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../artifacts/validation/3.0/sch</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+							<echo>Copying sch files</echo>
+						</configuration>
+					</execution>
+					
+					<execution>
+						<id>copy-xslt</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/${project.build.finalName}/xslt/</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/../artifacts/validation/target/AGID-PEPPOL-XSL-${parent.version}/xsl</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+							<echo>Copying xslt files</echo>
+						</configuration>
+					</execution>
+					
+					<execution>
+						<id>copy-docs</id>
+						<!-- here the phase you need -->
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/${project.build.finalName}/docs/</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${project.build.directory}/generated-docs</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+							<echo>Copying doc files</echo>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+			
+			
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.6</version>
+				<executions>
+					<execution>
+						<id>copy-schematron-zip</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>it.gov.agid</groupId>
+									<artifactId>AGID-PEPPOL-Schematron-Billing</artifactId>
+									<version>${schematron.version}</version>
+									<type>zip</type>
+									<overWrite>true</overWrite>
+								</artifactItem>
+								<artifactItem>
+									<groupId>it.gov.agid</groupId>
+									<artifactId>AGID-PEPPOL-Schematron-Others</artifactId>
+									<version>${schematron.version}</version>
+									<type>zip</type>
+									<overWrite>true</overWrite>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${project.build.directory}/${project.build.finalName}/attachments</outputDirectory>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-converter-zip</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>it.gov.agid</groupId>
+									<artifactId>AGID-PEPPOL-Converter</artifactId>
+									<version>${converter.version}</version>
+									<type>zip</type>
+									<overWrite>true</overWrite>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${project.build.directory}/${project.build.finalName}/attachments</outputDirectory>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-validator-zip</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>it.gov.agid</groupId>
+									<artifactId>AGID-PEPPOL-Validator-Billing</artifactId>
+									<version>${validator.version}</version>
+									<type>zip</type>
+									<overWrite>true</overWrite>
+								</artifactItem>
+								<artifactItem>
+									<groupId>it.gov.agid</groupId>
+									<artifactId>AGID-PEPPOL-Validator-Others</artifactId>
+									<version>${validator.version}</version>
+									<type>zip</type>
+									<overWrite>true</overWrite>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>${project.build.directory}/${project.build.finalName}/attachments</outputDirectory>
+						</configuration>
+					</execution>
+					<execution>
+						<phase>validate</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${endorsed.dir}</outputDirectory>
+							<silent>true</silent>
+							<artifactItems>
+								<artifactItem>
+									<groupId>javax</groupId>
+									<artifactId>javaee-endorsed-api</artifactId>
+									<version>7.0</version>
+									<type>jar</type>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

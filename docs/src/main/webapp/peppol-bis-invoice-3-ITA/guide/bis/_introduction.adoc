@@ -1,5 +1,4 @@
 ////
-
 = Introduzione a openPeppol e alla BIS
 
 [preface]

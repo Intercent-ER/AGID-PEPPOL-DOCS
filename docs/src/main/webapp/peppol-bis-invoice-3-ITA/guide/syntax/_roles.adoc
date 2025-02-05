@@ -2,7 +2,7 @@
 
 = Fornitore (AccountingSupplierParty)
 
-Il Fornitore è la persona fisica, la persona giuridica o l'organizzazione che fornisce beni e/o servizi ed è un’informazione obbligatoria in quanto emittente del documento. È quindi obbligatorio includere l’EndpointID. #Il Fornitore corrisponde al Cedente/Prestatore della fattura ai sensi del DPR n. 633/1972.#
+Il Fornitore è la persona fisica, la persona giuridica o l'organizzazione che fornisce beni e/o servizi ed è un’informazione obbligatoria in quanto emittente del documento. È quindi obbligatorio includere il l’EndpointID. #Il Fornitore corrisponde al Cedente/Prestatore della fattura ai sensi del DPR n. 633/1972.#
 
 
 .Esempio di informazioni per un fornitore italiano con indicazione della Partita Iva nell'Endpoint
@@ -367,7 +367,7 @@ include::{snippet-dir}/Snippet-full.xml[tags=taxrep]
 <1> Gli identificatori per il VAT/IVA devono incudere il prefisso del codice paese
 
 
-= #Stabile Organizzazione del Fornitore (AccountingSupplierParty/AgentParty)# - Estensione
+= #Stabile Organizzazione del Fornitore (AccountingSupplierParty/AgentParty) - Estensione#
 
 In caso di Stabile Organizzazione in Italia del Cedente/Prestatore non residente, i dati della Stabile Organizzazione vanno indicati nella struttura *cac:AgentParty*.
 
@@ -378,7 +378,7 @@ include::../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_for
 ----
 
 
-= #Terzo Intermediario o Soggetto Emittente del Fornitore (AccountingSupplierParty/ServiceProviderParty)# - Estensione
+= #Terzo Intermediario o Soggetto Emittente del Fornitore (AccountingSupplierParty/ServiceProviderParty) - Estensione#
 
 Nel caso sia un soggetto terzo ad emettere fattura per conto del cedente / prestatore, si può specificare in fattura come parte dei dati del fornitore nell'elemento *cac:ServiceProviderParty*. +
 
@@ -418,7 +418,7 @@ Il Codice EORI può essere espresso nell'elemento *cac:PartyIdentification/cbc:I
 
 
 
-= [lime-background]#Rappresentante fiscale del Cliente (AccountingCustomerParty/PowerOfAttorney)# - Estensione
+= [lime-background]#Rappresentante fiscale del Cliente (AccountingCustomerParty/PowerOfAttorney) - Estensione#
 
 Nella fatturazione tra privati (B2B, B2C, G2B e G2C), se il cessionario/committente si avvale di un rappresentante fiscale in Italia, si può specificare in fattura come parte dei dati del fornitore nell’elemento PowerOfAttorney, come procura per la rappresentanza fiscale.
 
@@ -442,7 +442,7 @@ Nella fatturazione tra privati (B2B, B2C, G2B e G2C), se il cessionario/committe
 ----
 
 
-= [lime-background]#Stabile Organizzazione del Cliente (AccountingCustomerParty/AgentParty)# - Estensione
+= [lime-background]#Stabile Organizzazione del Cliente (AccountingCustomerParty/AgentParty) - Estensione#
 
 In caso di Stabile Organizzazione in Italia del Cessionario/Committente non residente, i dati della Stabile Organizzazione vanno indicati nella struttura *cac:AgentParty*.
 
@@ -463,7 +463,7 @@ In caso di Stabile Organizzazione in Italia del Cessionario/Committente non resi
 ----
 
 
-= #Vettore (Delivery/CarrierParty)# - Estensione
+= #Vettore (Delivery/CarrierParty) - Estensione#
 
 Il Vettore è la persona giuridica o l'organizzazione che gestisce la consegna/trasporto fisico della spedizione. Utilizzato se il trasporto è effettuato da una terza parte.
 

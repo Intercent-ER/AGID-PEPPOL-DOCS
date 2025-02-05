@@ -1,5 +1,6 @@
 include::../shared/_settings.adoc[]
-= Note di rilascio Peppol BIS Fatturazione
+= Peppol BIS Fatturazione {version}
+Release Notes
 :doctype: book
 :last-update-label!:
 :encoding: utf-8
@@ -7,7 +8,6 @@ include::../shared/_settings.adoc[]
 :toc: left
 :toclevels: 2
 :numbered:
-
 
 
 

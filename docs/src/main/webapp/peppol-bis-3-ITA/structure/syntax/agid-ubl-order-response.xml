@@ -567,18 +567,32 @@
 							</Element>
 						</Element>
 					</Element>
-					<Element cardinality="0..n">
-						<Term>cac:AdditionalItemProperty</Term>
-						<Name>Additional item property information - Ulteriori proprietà</Name>
-						<Description>Contiene l’indicazione di ulteriori caratteristiche del bene o del servizio, come numero di sotto-unità contenute in un confezionamento secondario (ad esempio, quante scatole in un imballaggio) o il numero di articoli contenuti in un confezionamento primario (ad esempio, quante siringhe in una confezione).</Description>
-						<Element>
-							<Term>cbc:Name</Term>
-							<Name>Item property name - Denominazione della proprietà</Name>
-							<Description>Indica la denominazione della caratteristica del bene o del servizio.</Description>
-							<DataType>Text</DataType>
-							<Reference type="BUSINESS_TERM">tir76-138</Reference>
-							<Value type="EXAMPLE">Colore</Value>
-						</Element>
+				<Element cardinality="0..n">
+					<Term>cac:AdditionalItemProperty</Term>
+					<Name>Additional item property information - Ulteriori proprietà</Name>
+					<Description>Contiene l’indicazione di ulteriori caratteristiche dell'articolo.</Description>
+					<Element cardinality="0..1">
+							<Term>cbc:ID</Term>
+							<Name>ID - Identificativo di ulteriori proprietà</Name>
+							<Attribute usage="Optional">
+								<Term>schemeDataURI</Term>
+								<Name>Scheme Data URI</Name>
+								<Description>Scheme Data URI</Description>
+								<Value type="EXAMPLE">sdfdf</Value>
+							</Attribute>
+							<Attribute usage="Optional">
+								<Term>schemeID</Term>
+								<Name>Scheme identifier</Name>
+								<Description>Scheme identifier</Description>
+								<Value type="EXAMPLE">ISO22057</Value>
+							</Attribute>
+							<Attribute usage="Optional">
+								<Term>schemeVersionID</Term>
+								<Name>Scheme version identifier</Name>
+								<Description>Scheme version identifier</Description>
+								<Value type="EXAMPLE">2022</Value>
+							</Attribute>
+					</Element>
 						<Element cardinality="0..1">
 							<Term>cbc:NameCode</Term>
 							<Name>Item property code - Codifica della proprietà</Name>

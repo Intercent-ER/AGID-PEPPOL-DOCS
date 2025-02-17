@@ -3,11 +3,7 @@
 
 #Per la fatturazione cross-border il campo Note ha valore fisso e pari a TP02.#
 
-== #Termini e condizioni di pagamento (CIUS domestica)#
-
-##Il campo *cac:PaymentTerms/cbc:Note* deve essere usato solo per indicare il dato FPA 2.4.1 CondizioniPagamento e FPA 2.4.2.4 GiorniTerminiPagamento, concatenati con il simbolo "#".##
-
-.Esempi
+.Esempio
 [source, xml, indent=0]
 ----
 <cac:PaymentTerms>
@@ -15,6 +11,11 @@
 </cac:PaymentTerms>
 ----
 
+== #Termini e condizioni di pagamento# (CIUS domestica)
+
+##Il campo *cac:PaymentTerms/cbc:Note* deve essere usato solo per indicare il dato FPA 2.4.1 CondizioniPagamento e FPA 2.4.2.4 GiorniTerminiPagamento, concatenati con il simbolo "#".##
+
+.Esempio
 [source, xml, indent=0]
 ----
 <cac:PaymentTerms>
@@ -22,7 +23,7 @@
 </cac:PaymentTerms>
 ----
 
-== #Pagamento Anticipato (estensione)#
+== #Pagamento Anticipato# (estensione)
 
 #A fronte di un pagamento anticipato è possibile offrire uno sconto specificandone l'importo e la data limite entro il quale il pagamento deve essere perfezionato.#
 
@@ -38,7 +39,7 @@
 </cac:PaymentTerms>
 ----
 
-== #Pagamento Ritardato (estensione)#
+== #Pagamento Ritardato# (estensione)
 
 #A fronte di un pagamento ritardato è possibile fissare una penalità specificandone l'importo dovuto e la data di decorrenza della penale.#
 

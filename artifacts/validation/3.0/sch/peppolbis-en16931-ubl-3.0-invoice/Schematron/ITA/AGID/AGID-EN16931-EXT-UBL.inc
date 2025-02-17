@@ -83,7 +83,7 @@
 	</rule>
 
 	<rule context="/*/cac:TaxRepresentativeParty/cac:PartyIdentification/cbc:ID[@schemeID='0210']" flag="fatal">
-		<assert test="matches(.,'^[A-Z0-9]{11,16}$')" flag="fatal" id="BR-IT-DE-024A">[BR-IT-DE-024A][FPA 1.3.1.2 Codice Fiscale] - The Tax Code must have the @schemeID attribute valued with "0210" and the length between 11 and 16 alphanumeric characters - Il Codice Fiscale deve specificare l'attributo @schemeID valorizzato con "0210" ed avere la lunghezza del codice compresa fra 11 e 16 caratteri alfanumerici.</assert>
+		<assert test="matches(.,'^[A-Z0-9]{11,16}$')" flag="fatal" id="BR-IT-DE-024">[BR-IT-DE-024][FPA 1.3.1.2 Codice Fiscale] - The Tax Code must have the @schemeID attribute valued with "0210" and the length between 11 and 16 alphanumeric characters - Il Codice Fiscale deve specificare l'attributo @schemeID valorizzato con "0210" ed avere la lunghezza del codice compresa fra 11 e 16 caratteri alfanumerici.</assert>
 	</rule>
 
 	<rule context="/*/cac:TaxRepresentativeParty/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]" flag="fatal">
@@ -91,7 +91,7 @@
 	</rule>
 
 	<rule context="/*/cac:Delivery/cac:CarrierParty" flag="fatal">
-		<assert test="not(cac:PartyIdentification/cbc:ID) or (matches(cac:PartyIdentification/cbc:ID,'^[A-Z0-9]{11,16}$') and cac:PartyIdentification/cbc:ID[@schemeID='0210'])" flag="fatal" id="BR-IT-DE-026A">[BR-IT-DE-026A][FPA 2.1.9.1.2 Codice Fiscale] - The Tax Code must have the @schemeID attribute valued with "0210" and a length between 11 and 16 alphanumeric characters - Il Codice Fiscale deve specificare l'attributo @schemeID valorizzato con "0210" ed avere la lunghezza del codice compresa fra 11 e 16 caratteri alfanumerici.</assert>
+		<assert test="not(cac:PartyIdentification/cbc:ID) or (matches(cac:PartyIdentification/cbc:ID,'^[A-Z0-9]{11,16}$') and cac:PartyIdentification/cbc:ID[@schemeID='0210'])" flag="fatal" id="BR-IT-DE-026">[BR-IT-DE-026][FPA 2.1.9.1.2 Codice Fiscale] - The Tax Code must have the @schemeID attribute valued with "0210" and a length between 11 and 16 alphanumeric characters - Il Codice Fiscale deve specificare l'attributo @schemeID valorizzato con "0210" ed avere la lunghezza del codice compresa fra 11 e 16 caratteri alfanumerici.</assert>
 		<assert test="matches(cac:PartyName/cbc:Name,'^(\p{IsBasicLatin}){0,80}$') or (matches(cac:Person/cbc:FirstName,'^(\p{IsBasicLatin}){0,60}$') and matches(cac:Person/cbc:FamilyName,'^(\p{IsBasicLatin}){0,60}$'))" flag="fatal" id="BR-IT-DE-027">[BR-IT-DE-027][FPA 2.1.9.1.3.1 Denominazione, 2.1.9.1.3.2 Nome, 2.1.9.1.3.3 Cognome] - If the Carrier Name is entered, its length cannot exceed 80 characters, alternatively, if the First Name and Surname are entered, their length cannot exceed 60 characters - Se la Denominazione del Vettore è valorizzata, la sua lunghezza non può superare 80 caratteri, alternativamente, se è invece valorizzato il Nome e il Cognome, la loro lunghezza non potrà superare 60 caratteri.</assert>
 		<assert test="matches(cac:PartyTaxScheme/cbc:CompanyID,'^[a-zA-Z0-9]{0,30}$')" flag="fatal" id="BR-IT-DE-028">[BR-IT-DE-028][FPA 2.1.9.1.1 Partita IVA] - The length of the element cannot exceed 30 characters - La lunghezza dell'elemento non può superare i 30 caratteri.</assert>
 		<assert test="cac:PartyTaxScheme/cac:TaxScheme/cbc:ID = 'VAT'" flag="fatal" id="BR-IT-DE-029">[BR-IT-DE-029] - The TaxScheme identifier must be valued with 'VAT' - L'identificativo del TaxScheme deve essere valorizzato con 'VAT'.</assert>

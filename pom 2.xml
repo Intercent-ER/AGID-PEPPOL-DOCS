@@ -18,9 +18,9 @@
 	<properties>
 		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<validator.version>3.2.1</validator.version>
-		<converter.version>3.2.1</converter.version>
-		<schematron.version>3.2.1</schematron.version>
+		<validator.version>3.2.0</validator.version>
+		<converter.version>3.2.0</converter.version>
+		<schematron.version>3.2.0</schematron.version>
 		<mapping_peppol_fpa.version>3.3</mapping_peppol_fpa.version>
 		<mapping_fpa_peppol.version>3.2</mapping_fpa_peppol.version>
 	</properties>
@@ -747,7 +747,7 @@
 							<outputDirectory>${project.build.directory}/${project.build.finalName}/xslt/</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${basedir}/../artifacts/validation/target/AGID-PEPPOL-XSL-${project.parent.version}/xsl</directory>
+									<directory>${basedir}/../artifacts/validation/target/AGID-PEPPOL-XSL-${parent.version}/xsl</directory>
 									<filtering>false</filtering>
 								</resource>
 							</resources>

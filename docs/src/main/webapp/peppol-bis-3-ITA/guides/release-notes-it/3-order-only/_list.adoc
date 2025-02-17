@@ -1,4 +1,5 @@
-https://peppol-docs.agid.gov.it/docs-next-release[Vai al Portale Specifiche]
+https://peppol-docs.agid.gov.it/docs[Vai al Portale Specifiche]
+
 
 [cols="1h,1m,4m", options="header"]
 

@@ -1,4 +1,4 @@
-https://peppol-docs.agid.gov.it/docs-next-release/my_index_fatt.jsp[Vai al Portale Specifiche]
+https://peppol-docs.agid.gov.it/docs/my_index_fatt.jsp[Vai al Portale Specifiche]
 
 
 [cols="1h,1m,4m", options="header"]
@@ -9,7 +9,7 @@ https://peppol-docs.agid.gov.it/docs-next-release/my_index_fatt.jsp[Vai al Porta
 ^.^| Cosa è cambiato
 
 | 3.0.18.1(IT)
-a| 20/12/2024
+a| 17/02/2025
 a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/2024-Q4/release-notes/[PEPPOL BIS 3.0.18 - November release 2024] e altre modifiche italiane_. +
 
 In vigore a partire dal *17 Febbraio 2025*

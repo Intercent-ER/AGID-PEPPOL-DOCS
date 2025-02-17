@@ -1,3 +1,5 @@
+https://peppol-docs.agid.gov.it/docs[Vai al Portale Specifiche]
+
 
 [cols="1h,1m,4m", options="header"]
 
@@ -5,6 +7,24 @@
 ^.^| Versione
 ^.^| Data
 ^.^| Cosa è cambiato
+
+| 3.3.0.6(IT)
+a| 20/12/2024
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2024-Q4/release-notes/[Peppol BIS 3.0.14 - November release 2024]_. +
+
+In vigore a partire dal *17 Febbraio 2025*
+
+[red]#Cambiamenti alla sintassi#
+
+* Aggiunto nuovo campo opzionale cbc:ID nella struttura cac:AdditionalItemProperty; 
+
+[red]#Cambiamenti alle code lists e artefatti di validazione#
+
+* Aggiornate le codelist Item type identification code (UNCL7143), Dangerous goods regulations code (UNCL8273) Recommendation 20, including Recommendation 21 codes - prefixed with X (UN/ECE). 
+
+[red]#Aggiornamenti relativi alla “BIS compliance”#
+
+* Aggiunte nuove regole di conformità sull’utilizzo degli identificatori del mittente/destinatario nell’inserimento di un messaggio BIS3 all’interno del Peppol Business Message Envelope (SBDH). 
 
 | 3.3.0.5(IT)
 a| 21/06/2024

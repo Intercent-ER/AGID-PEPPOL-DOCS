@@ -2,9 +2,9 @@
 :description: The Peppol Business Interoperability Specification, “BIS” from here on after, has been developed by the OpenPeppolAISBL Post Award Coordinating Community and is published as part of the Peppol specifications.
 :author: OpenPeppolAISBL, Post-Award Coordinating Community
 :version: 3.0.8
-:ord_version_it: 3.3.0.1(IT)
-:ddt_version_it: 3.1.0.1(IT)
-:ord_agreement_version_it: 3.1.0.1(IT)
+:ord_version_it: 3.3.0.6(IT)
+:ddt_version_it: 3.1.0.5(IT)
+:ord_agreement_version_it: 3.0.0.8(IT)
 //PEPPOL
 :peppol: https://peppol.eu/?rel=undefined[PEPPOL]
 :common: https://joinup.ec.europa.eu/svn/peppol/PEPPOL%20BIS%20Common%20text%20and%20introduction%20-%20ver%201%202014-04-14.pdf[Peppol BIS common text and introduction]

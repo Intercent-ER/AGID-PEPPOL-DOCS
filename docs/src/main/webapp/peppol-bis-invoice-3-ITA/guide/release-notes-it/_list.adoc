@@ -1,3 +1,5 @@
+https://peppol-docs.agid.gov.it/docs/my_index_fatt.jsp[Vai al Portale Specifiche]
+
 
 [cols="1h,1m,4m", options="header"]
 
@@ -5,6 +7,26 @@
 ^.^| Versione
 ^.^| Data
 ^.^| Cosa è cambiato
+
+| 3.0.18.1(IT)
+a| 17/02/2025
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/2024-Q4/release-notes/[PEPPOL BIS 3.0.18 - November release 2024] e altre modifiche italiane_. +
+
+In vigore a partire dal *17 Febbraio 2025*
+
+[red]#Cambiamenti alle code lists e artefatti di validazione# +
+
+* Revisioni formale di specifiche Regole di business CIUS italiana (CIUS ID BR-IT-261; BR-IT-370; BR-IT-DC-480) e Regole di business estensione italiana (CIUS ID BR-IT-DE-013; BR-IT-DE-024; BR-IT-DE-026) per allineamento alle Regole tecniche dell’Agenzia delle Entrate relative alla gestione delle fatture europee - versione 2.5; 
+* Introduzione delle nuove regole da DE-R-001 a DE-R-030 (Germania); 
+* Aggiornamento dei controlli delle regole PEPPOL-EN16931-R002, NL-R-008 (Paesi Bassi), SE-R-003 (Svezia), SE-R-004 (Svezia) e SE-R-013 (Svezia). 
+
+[red]#Aggiornamento schematron EN 16931# +
+
+* Aggiornamento dello schematron EN 16931 alla versione 1.3.13.
+
+[red]#Aggiornamenti relativi alla “BIS compliance”# +
+
+* Aggiunte nuove regole di conformità sull’utilizzo degli identificatori del mittente/destinatario nell’inserimento di un messaggio BIS3 all’interno del Peppol Business Message Envelope (SBDH). 
 
 | 3.0.17.1(IT)
 a| 21/06/2024

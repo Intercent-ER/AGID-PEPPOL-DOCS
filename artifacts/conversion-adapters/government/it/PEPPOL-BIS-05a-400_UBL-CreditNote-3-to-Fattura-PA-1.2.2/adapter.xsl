@@ -1055,7 +1055,7 @@
 							<xsl:when test="(string-length(/in:CreditNote/cbc:BuyerReference)-string-length(translate(/in:CreditNote/cbc:BuyerReference,'#','')) &gt; 3) and (contains(/in:CreditNote/cbc:BuyerReference, '##')) ">
 								<xsl:value-of select="concat('#', substring-before(substring-after(/in:CreditNote/cbc:BuyerReference, '##'), '#'), '#')"/>
 							</xsl:when>
-							<xsl:otherwise>						
+							<xsl:otherwise>
 								<xsl:value-of select="/in:CreditNote/cbc:BuyerReference"/>
 							</xsl:otherwise>
 						</xsl:choose>
@@ -1589,7 +1589,8 @@
 	<xsl:template match="cac:TaxTotal/cac:TaxSubtotal" mode="DatiRiepilogo">
 		<xsl:param name="CN" select="."/>
 		<xsl:param name="CNP" select="1"/>
-			<xsl:if test="(cbc:TaxableAmount &gt; 0 and cac:TaxCategory/cbc:ID ='Z') or cac:TaxCategory/cbc:ID != 'Z'">
+		<xsl:if test="contains(string-join(/in:CreditNote/cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory/cbc:ID,',')
+			                 ,./cac:TaxCategory/cbc:ID)">
 			<DatiRiepilogo>
 				<AliquotaIVA>
 					<xsl:value-of select="if (cac:TaxCategory/cbc:Percent &gt;= 0) then format-number(cac:TaxCategory/cbc:Percent,'##0.00') else '0.00'"/>
@@ -1696,7 +1697,7 @@
 					</RiferimentoNormativo>
 				</xsl:if>
 			</DatiRiepilogo>
-			</xsl:if>
+		</xsl:if>
 	</xsl:template>
 	<xsl:template match="/in:CreditNote/cac:AccountingSupplierParty/cac:Party" mode="RitenutaPersoneFisiche2">
 		<xsl:param name="CN" select="."/>
@@ -1927,9 +1928,9 @@
 			<FatturaElettronicaBody>
 				<DatiGenerali>
 					<DatiGeneraliDocumento>
-							<TipoDocumento>
-								<xsl:text>TD04</xsl:text>
-							</TipoDocumento>
+						<TipoDocumento>
+							<xsl:text>TD04</xsl:text>
+						</TipoDocumento>
 						<Divisa>
 							<xsl:value-of select="if (cbc:DocumentCurrencyCode) then cbc:DocumentCurrencyCode else 'EUR'"/>
 						</Divisa>

@@ -1591,7 +1591,7 @@
 	<xsl:template match="cac:TaxTotal/cac:TaxSubtotal" mode="DatiRiepilogo">
 		<xsl:param name="CN" select="."/>
 		<xsl:param name="CNP" select="1"/>
-		<xsl:if test="contains(string-join(/in:CreditNote/cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory/cbc:ID,',')
+		<xsl:if test="contains(string-join(/in:Invoice/cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory/cbc:ID,',')
 			                 ,./cac:TaxCategory/cbc:ID)">
 		<DatiRiepilogo>
 				<AliquotaIVA>

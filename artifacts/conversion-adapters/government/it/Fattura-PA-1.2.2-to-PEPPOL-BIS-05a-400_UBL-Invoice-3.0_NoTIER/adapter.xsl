@@ -2122,14 +2122,14 @@ the root node.
 					<xsl:value-of select="$allowanceTotalAmount"/>
 				</cbc:AllowanceTotalAmount>
 			</xsl:if>
-			<xsl:if test="(number($chargeTotalAmount) &gt; number('0.00'))">
+			<xsl:if test="DatiCassaPrevidenziale or DatiBollo[BolloVirtuale='SI']">
 				<cbc:ChargeTotalAmount>
 					<xsl:if test="string($variable_d1e449a1049836)">
 						<xsl:attribute name="currencyID">
 							<xsl:value-of select="string($variable_d1e449a1049836)"/>
 						</xsl:attribute>
 					</xsl:if>
-					<xsl:value-of select="$chargeTotalAmount"/>
+					<xsl:value-of select="format-number(sum(DatiCassaPrevidenziale/ImportoContributoCassa) + 0,'###########0.00')"/>
 				</cbc:ChargeTotalAmount>
 			</xsl:if>
 			<xsl:if test="number($taxInclusiveAmount) &gt; number($payableAmount)">

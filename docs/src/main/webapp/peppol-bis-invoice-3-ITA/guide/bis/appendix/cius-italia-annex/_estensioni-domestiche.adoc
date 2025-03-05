@@ -15,11 +15,11 @@
 
 |BR-IT-DE-002
 |2.1.1.1 Tipo Documento
-|L'estensione deve contenere un elemento cbc:TypeCode valorizzato esclusivamente con i valori del TipoDocumento, secondo la specifica FatturaPA 1.2.1.
+|L’estensione deve contenere un elemento cbc:TypeCode valorizzato esclusivamente con i valori del TipoDocumento, secondo la specifica FatturaPA.
 
 |BR-IT-DE-003
 |2.1.1.5.1 Tipo Ritenuta
-|L'estensione deve contenere un elemento cbc:TypeCode valorizzato esclusivamente con i valori del TipoRitenuta, secondo la specifica FatturaPA 1.2.1
+|L’estensione deve contenere un elemento cbc:TypeCode valorizzato esclusivamente con i valori del TipoRitenuta, secondo la specifica FatturaPA.
 
 |BR-IT-DE-004
 |2.1.1.12 Art73

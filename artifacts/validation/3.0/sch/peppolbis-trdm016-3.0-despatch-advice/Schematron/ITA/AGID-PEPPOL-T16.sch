@@ -693,26 +693,7 @@
 			<assert test="cbc:Name" flag="fatal" id="PEPPOL-T16-B21501">Element 'cbc:Name' MUST be provided.</assert>
 			<assert test="cbc:Value" flag="fatal" id="PEPPOL-T16-B21502">Element 'cbc:Value' MUST be provided.</assert>
 		</rule>
-		<rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/cbc:ID">
-			<assert test="@schemeDataURI" flag="fatal" id="PEPPOL-T16-B21601">Element '@schemeDataURI' MUST be provided.</assert>
-			<assert test="@schemeID" flag="fatal" id="PEPPOL-T16-B21602">Element '@schemeID' MUST be provided.</assert>
-			<assert test="@schemeVersionID" flag="fatal" id="PEPPOL-T16-B21603">Element '@schemeVersionID' MUST be provided.</assert>
-		</rule>
-		<rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/cbc:ID/@schemeDataURI"/>
-		<rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/cbc:ID/@schemeDataURI/*">
-			<assert test="false()" flag="fatal" id="PEPPOL-T16-B21701">Document MUST NOT contain elements not part of the data model.</assert>
-		</rule>
-		<rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/cbc:ID/@schemeID"/>
-		<rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/cbc:ID/@schemeID/*">
-			<assert test="false()" flag="fatal" id="PEPPOL-T16-B21801">Document MUST NOT contain elements not part of the data model.</assert>
-		</rule>
-		<rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/cbc:ID/@schemeVersionID"/>
-		<rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/cbc:ID/@schemeVersionID/*">
-			<assert test="false()" flag="fatal" id="PEPPOL-T16-B21901">Document MUST NOT contain elements not part of the data model.</assert>
-		</rule>
-		<rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/cbc:ID/*">
-			<assert test="false()" flag="fatal" id="PEPPOL-T16-B21604">Document MUST NOT contain elements not part of the data model.</assert>
-		</rule>
+		<rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/cbc:ID"/>
 		<rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/cbc:Name"/>
 		<rule context="/ubl:DespatchAdvice/cac:DespatchLine/cac:Item/cac:AdditionalItemProperty/cbc:NameCode">
 			<assert test="@listID" flag="fatal" id="PEPPOL-T16-B22101">Attribute 'listID' MUST be present.</assert>

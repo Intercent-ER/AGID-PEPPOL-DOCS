@@ -97,4 +97,14 @@
 		<Name>Fattura per autoconsumo o per cessioni gratuite senza rivalsa</Name>
 		<Id>380</Id>
 	</Code>
+		<Code>
+		<LocalId>TD28</LocalId>
+		<Name>Acquisti da San Marino con IVA (fattura cartacea)</Name>
+		<Id>380</Id>
+	</Code>
+	<Code>
+		<LocalId>TD29</LocalId>
+		<Name>Comunicazione per omessa o irregolare fatturazione (art. 6, comma 8, D.Lgs. 471/97)</Name>
+		<Id>380</Id>
+	</Code>
 </CodeList>

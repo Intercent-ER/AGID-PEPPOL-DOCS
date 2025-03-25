@@ -8,6 +8,12 @@ https://peppol-docs.agid.gov.it/docs/my_index_fatt.jsp[Vai al Portale Specifiche
 ^.^| Data
 ^.^| Cosa è cambiato
 
+| 3.0.19.1(IT)
+a| 01/04/2025
+a| La presente specifica implementa la versione aggiornata delle Specifiche tecniche FPA_v1.4, Specifiche tecniche FPR_v1.9 e I controlli SDI_v2.0, pubblicati il 31/01/2025 e in vigore dal 01/04/2025: +
+* Introduzione di un nuovo Regime Fiscale RF20 - Regime transfrontaliero di Franchigia IVA (Direttiva UE 2020/285);
+* Introduzione di un nuovo Tipo Documento TD29 - Comunicazione per omessa o irregolare fatturazione (art. 6, comma 8, D.Lgs. 471/97).
+
 | 3.0.18.1(IT)
 a| 17/02/2025
 a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/2024-Q4/release-notes/[PEPPOL BIS 3.0.18 - November release 2024] e altre modifiche italiane_. +

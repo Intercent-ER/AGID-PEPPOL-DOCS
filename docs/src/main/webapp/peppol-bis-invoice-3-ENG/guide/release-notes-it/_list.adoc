@@ -7,7 +7,7 @@ https://peppol-docs.agid.gov.it/docs/my_index_fatt-ENG.jsp[Link to main site of 
 ^.^| Date
 ^.^| What’s new
 
-| 3.0.19.1(IT)
+| 3.0.18.2(IT)
 a| 01/04/2025
 a| This specification implements the updated version of Technical Specifications FPA_v1.4, Technical Specifications FPR_v1.9 and The Controls SDI_v2.0, published on the 31/01/2025 and effective as of 01/04/2025: +
 

@@ -8,7 +8,7 @@ https://peppol-docs.agid.gov.it/docs/my_index_fatt.jsp[Vai al Portale Specifiche
 ^.^| Data
 ^.^| Cosa è cambiato
 
-| 3.0.19.1(IT)
+| 3.0.18.2(IT)
 a| 01/04/2025
 a| La presente specifica implementa la versione aggiornata delle Specifiche tecniche FPA_v1.4, Specifiche tecniche FPR_v1.9 e I controlli SDI_v2.0, pubblicati il 31/01/2025 e in vigore dal 01/04/2025: +
 

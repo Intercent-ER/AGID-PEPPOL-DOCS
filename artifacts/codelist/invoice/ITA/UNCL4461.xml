@@ -648,8 +648,9 @@
 		<LocalId>MP04</LocalId>
 		<LocalDescription>Contanti presso Tesoreria</LocalDescription>
 	</Code>
-		<Code>
+	<Code>
 		<Id>69</Id>
 		<Name>Transfer Advice</Name>
+		<LocalId>MP05</LocalId>
 	</Code>
 </CodeList>

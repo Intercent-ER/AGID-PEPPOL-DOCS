@@ -237,8 +237,8 @@
 | matches(normalize-space(), '^[0-9]{9}$') and u:mod11(normalize-space())
 .3+| PEPPOL-COMMON-R042 *(fatal)*
 | Danish organization number (CVR) MUST be stated in the correct format.
-| cbc:EndpointID[@schemeID = '0184'] \| cac:PartyIdentification/cbc:ID[@schemeID = '0184'] \| cbc:CompanyID[@schemeID = '0184']
-| (string-length(text()) = 8) and (string-length(translate(substring(text(), 1, 8), '1234567890', '')) = 0)
+| cbc:EndpointID[@schemeID = '0184'] | cac:PartyIdentification/cbc:ID[@schemeID = '0184'] | cbc:CompanyID[@schemeID = '0184']
+ (string-length(text()) = 8) and (string-length(translate(substring(text(), 1, 8), '1234567890', '')) = 0)
 .3+| PEPPOL-COMMON-R043 *(fatal)*
 | Belgian enterprise number MUST be stated in the correct format.
 | cbc:EndpointID[@schemeID = '0208'] \| cac:PartyIdentification/cbc:ID[@schemeID = '0208'] \| cbc:CompanyID[@schemeID = '0208']

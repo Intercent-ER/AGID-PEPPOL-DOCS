@@ -8,6 +8,36 @@ https://peppol-docs.agid.gov.it/docs/my_index_fatt.jsp[Vai al Portale Specifiche
 ^.^| Data
 ^.^| Cosa è cambiato
 
+| 3.0.19.1(IT)
+a| 13/06/2025
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/2024-Q4/release-notes/[PEPPOL BIS 3.0.19 - May release 2024] e altre modifiche italiane_. +
+
+In vigore a partire dal *25 Agosto 2025*
+
+[red]#Cambiamenti alla documentazione# +
+
+* Piccole modifiche editoriali. 
+
+[red]#Cambiamenti alla sintassi# +
+
+* Rimosso il riferimento alla regola BR-CO-25 nel campo cbc:PaymentDueDate nel tracciato della Nota di Credito.
+
+[red]#Cambiamenti alle code lists e artefatti di validazione# +
+
+* Modificate le regole PEPPOL-EN16931-R051, PEPPOL-COMMON-R042, DK-R-003 (Danimarca), DK-R-004 (Danimarca) e DK-R-008 (Danimarca); 
+* Piccole modifiche alla codelist Electronic Address Scheme (EAS);
+* Piccole modifiche alla codelist ISO 6523 ICD list;
+* Piccole modifiche alla codelist ISO 4217 Currency codes;
+* Piccole modifiche alla codelist Invoiced object identifier scheme (UNCL 1153);
+* Piccole modifiche alla codelist Payment means code (UNCL4461);
+* Piccole modifiche alla codelist Item type identification code (UNCL7143);
+* Piccole modifiche alla codelist VATEX code list;
+* Piccole modifiche alla codelist Invoice type code (UNCL1001 subset).
+
+[red]#Aggiornamento schematron EN 16931# +
+
+* Aggiornamento dello schematron EN 16931
+
 | 3.0.18.2(IT)
 a| 01/04/2025
 a| La presente specifica implementa la versione aggiornata delle Specifiche tecniche FPA_v1.4, Specifiche tecniche FPR_v1.9 e I controlli SDI_v2.0, pubblicati il 31/01/2025 e in vigore dal 01/04/2025: +

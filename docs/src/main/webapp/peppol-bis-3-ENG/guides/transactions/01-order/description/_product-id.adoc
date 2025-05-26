@@ -63,21 +63,27 @@ In particular circumstances, some foreign pharmaceutical products are commercial
 [[product-identification]]
 = #Details on medical devices products and their identification - UDI code#
 
-For medical devices products provided with the code UDI (Unique Device Identification) released by the Agency "GS1 Italy", the element *cac:SellersItemIdentification/cbc:ID* needs to be valued with the UDI code, prefixed by the string "UDI:".
+The UDI (Unique Device Identification) code, issued by the authorised body (GS1 or other operator) for medical devices, a numeric or alphanumeric character set comprising the device model identification code (UDI-DI) and a set of codes identifying the individual product instance (UDI-PI), including the serial number, the production batch number, software identification and date of manufacture or expiry or both. + 
+
+The UDI code to be entered in the order corresponds to the model medical device identifier (UDI-DI). +
+
+Within the order, the UDI-DI code shall be indicated in the element cac:ManufacturersItemIdentifier/cbc:Structure ID cac:Item, prefixed by the string "UDI-DI:".  
 
 .Example of an order with the indication of the UDI code
 [source, xml, indent=0]
 ----
-<cac:OrderLine>
-    <cac:LineItem>
-    ...
-        <cac:Item>
-            <cbc:Name>Nome articolo</cbc:Name>
-            <cac:SellersItemIdentification>
-              <cbc:ID>UDI:(01)47964367965424(11)173434(17)226565(10)A379B3(21)1237</cbc:ID>
-            </cac:SellersItemIdentification>
-        </cac:Item>
-</cac:OrderLine>
+<cac:OrderLine> 
+ ... 
+ <cac:LineItem> 
+  ... 
+  <cac:Item> 
+   ... 
+   <cac:ManufacturersItemIdentification> 
+    <cbc:ID>UDI-DI:05414734509589</cbc:ID> 
+   <cac:ManufacturersItemIdentification> 
+  <cac:Item> 
+ <cac:LineItem> 
+<cac:OrderLine> 
 ----
 
 

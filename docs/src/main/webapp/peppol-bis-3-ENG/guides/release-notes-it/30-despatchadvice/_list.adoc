@@ -7,6 +7,39 @@ https://peppol-docs.agid.gov.it/docs/my_index-ENG.jsp[Link to main site of docum
 ^.^| Date
 ^.^| What's new
 
+| 3.1.0.6(IT)
+a| 06/06/2025
+a| _Update to specifications https://docs.peppol.eu/poacc/upgrade-3/2025-Q2/release-notes/[PEPPOL BIS 3.0.15 - May release 2025]_. +
+
+Effective as of *25th of August 2025*
+
+[red]#Changes to documentation#
+
+* Added new paragraph “4.2.1 Process of return of goods” that describes the scenario in case of returns advice; 
+* Added new paragraph “5.4 Despatch Type” that describes the different process of despatch (despatch advice, consignment dispatch advice, returns advice); 
+* Changed the paragraph “8.1.2. Details on Medical Devices and their identification - UDI code” as of the new element cac:ItemInstance/cbc:ProductTraceID to indicate the UDI code for medical devices. 
+
+[red]#Changes to Syntax#
+
+* Added new element cac:ItemInstance/cbc:ProductTraceID and relative @schemeID to indicate the UDI code; 
+* Added new element cbc:DespatchAdviceTypeCode to indicate the type of despatch advice, if it is a despatch advice, consignment dispatch advice or returns advice. 
+
+[red]#Changes to code lists and validation artifacts#
+
+* Added new codes to identify Net Volume and il Net Weight Measured attribute code for despatch advice (UNCL6313 Subset) codelist; 
+* Added new codelist ProductTraceIDschemeID for the element cbc:ProductTraceID; 
+* Added new codelist Despatch advice type code (UNCL1001 subset) for the element cbc:DespatchAdviceTypeCode; 
+* Electronic Address Scheme (EAS)
+** Removed: 9901
+** Added: 0147,0154,0158,0170,0194,0203,0205,0217,0225,0240
+* ISO 6523 ICD list
+** Added: 0239,0240 
+* ISO 4217 Currency codes 
+** Removed: CUC,ZWL 
+** Added: XXX 
+* Item type identification code (UNCL7143) 
+** Added: PPI 
+
 | 3.1.0.5(IT)
 a| 20/12/2024
 a| _Update to specifications https://docs.peppol.eu/poacc/upgrade-3/2024-Q4/release-notes/[PEPPOL BIS 3.0.14 - November release 2024]_. +

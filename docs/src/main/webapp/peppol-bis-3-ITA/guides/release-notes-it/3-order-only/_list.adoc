@@ -27,11 +27,16 @@ In vigore a partire dal *25 Agosto 2025*
 
 [red]#Cambiamenti alle code lists e artefatti di validazione#
 
-* Modificato il livello di severità da WARNING a FATAL per le regole PEPPOL-T76-R007, PEPPOL-T76-R008 e PEPPOL-T76-R009;
-* Piccole modifiche alla codelist Electronic Address Scheme (EAS);
-* Piccole modifiche alla codelist ISO 6523 ICD list;
-* Piccole modifiche alla codelist ISO 4217 Currency codes;
-* Piccole modifiche alla codelist Item type identification code (UNCL7143).
+* Electronic Address Scheme (EAS)
+** Rimossi: 9901
+** Aggiunti: 0147,0154,0158,0170,0194,0203,0205,0217,0225,0240
+* ISO 6523 ICD list
+** Added: 0239,0240 
+* ISO 4217 Currency codes 
+** Rimossi: CUC,ZWL 
+** Aggiunti: XXX 
+* Item type identification code (UNCL7143) 
+** Aggiunti: PPI 
 
 | 3.3.0.6(IT)
 a| 20/12/2024

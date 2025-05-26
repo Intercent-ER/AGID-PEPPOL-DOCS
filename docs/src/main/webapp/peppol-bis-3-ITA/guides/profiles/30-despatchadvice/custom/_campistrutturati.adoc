@@ -46,7 +46,7 @@ s| Codice
 |Documento di Reso
 |Documento/messaggio con cui l'acquirente informa il venditore della spedizione della merce restituita. 
 |729
-|====
+|===
 
 Il tipo di consegna è un elemento essenziale del processo, ove non indicato si assume che il trasporto riguardi beni acquistati dal Cliente (codice 351) e non beni in Conto Deposito (748).
 

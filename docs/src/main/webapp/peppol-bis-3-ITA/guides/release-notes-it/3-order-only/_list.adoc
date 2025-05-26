@@ -10,7 +10,7 @@ https://peppol-docs.agid.gov.it/docs[Vai al Portale Specifiche]
 
 | 3.3.0.7(IT)
 a| 06/06/2025
-a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2024-Q4/release-notes/[PEPPOL BIS 3.0.19 - May release 2025] e altre modifiche italiane_. +
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2025-Q2/release-notes/[PEPPOL BIS 3.0.15 - May release 2025] e altre modifiche italiane_. +
 
 In vigore a partire dal *25 Agosto 2025*
 

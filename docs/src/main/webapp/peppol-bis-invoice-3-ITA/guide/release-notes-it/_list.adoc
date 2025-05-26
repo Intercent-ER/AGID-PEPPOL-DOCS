@@ -9,7 +9,7 @@ https://peppol-docs.agid.gov.it/docs/my_index_fatt.jsp[Vai al Portale Specifiche
 ^.^| Cosa è cambiato
 
 | 3.0.19.1(IT)
-a| 13/06/2025
+a| 06/06/2025
 a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/2024-Q4/release-notes/[PEPPOL BIS 3.0.19 - May release 2025] e altre modifiche italiane_. +
 
 In vigore a partire dal *25 Agosto 2025*

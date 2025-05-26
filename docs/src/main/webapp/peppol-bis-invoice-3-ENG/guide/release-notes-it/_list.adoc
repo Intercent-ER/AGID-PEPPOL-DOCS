@@ -7,6 +7,36 @@ https://peppol-docs.agid.gov.it/docs/my_index_fatt-ENG.jsp[Link to main site of 
 ^.^| Date
 ^.^| What’s new
 
+| 3.0.19.1(IT)
+a| 06/06/2025
+a| _Update to specifications https://docs.peppol.eu/poacc/billing/3.0/2024-Q4/release-notes/[PEPPOL BIS 3.0.19 - May release 2025] and other Italian modifications_. +
+
+Effective as of 25th of August 2025 
+
+[red]#Changes to syntax# +
+
+* Small editorial changes.
+
+[red]#Changes to code lists and validation artifacts# +
+
+* Removed reference to rule BR-CO-25 in the element cbc:PaymentDueDate in the Credit Note syntax.
+
+[red]#Changes to code lists and validation artifacts# +
+
+* Modification of the rules PEPPOL-EN16931-R051, PEPPOL-COMMON-R042, DK-R-003 (Denmark), DK-R-004 (Denmark), e DK-R-008 (Denmark); 
+* Small changes to the codelist Electronic Address Scheme (EAS); 
+* Small changes to the codelist ISO 6523 ICD list;
+* Small changes to the codelist ISO 4217 Currency codes;
+* Small changes to the codelist Invoiced object identifier scheme (UNCL 1153);
+* Small changes to the codelist Payment means code (UNCL4461);
+* Small changes to the codelist Item type identification code (UNCL7143);
+* Small changes to the codelist VATEX code list;
+* Small changes to the codelist Invoice type code (UNCL1001 subset).
+
+[red]#EN 16931 schematrons updated# +
+
+* Update of schematron EN 16931.
+
 | 3.0.18.2(IT)
 a| 01/04/2025
 a| This specification implements the updated version of Technical Specifications FPA_v1.4, Technical Specifications FPR_v1.9 and The Controls SDI_v2.0, published on the 31/01/2025 and effective as of 01/04/2025: +

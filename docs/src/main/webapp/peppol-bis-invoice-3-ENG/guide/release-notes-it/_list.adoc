@@ -24,14 +24,24 @@ Effective as of 25th of August 2025
 [red]#Changes to code lists and validation artifacts# +
 
 * Modification of the rules PEPPOL-EN16931-R051, PEPPOL-COMMON-R042, DK-R-003 (Denmark), DK-R-004 (Denmark), e DK-R-008 (Denmark); 
-* Small changes to the codelist Electronic Address Scheme (EAS); 
-* Small changes to the codelist ISO 6523 ICD list;
-* Small changes to the codelist ISO 4217 Currency codes;
-* Small changes to the codelist Invoiced object identifier scheme (UNCL 1153);
-* Small changes to the codelist Payment means code (UNCL4461);
-* Small changes to the codelist Item type identification code (UNCL7143);
-* Small changes to the codelist VATEX code list;
-* Small changes to the codelist Invoice type code (UNCL1001 subset).
+* Electronic Address Scheme (EAS);
+** Removed: 9901
+** Added: 0147,0154,0158,0170,0194,0203,0205,0217,0225,0240 
+* ISO 6523 ICD list;
+** Added: 0239,0240 
+* ISO 4217 Currency codes;
+** Removed: CUC,ZWL 
+** Added: XXX
+* Invoiced object identifier scheme (UNCL 1153);
+** Added: AXU
+* Payment means code (UNCL4461);
+** Added: 69
+* Item type identification code (UNCL7143);
+** Added: PPI
+* VATEX code list;
+** Added: VATEX-EU-153,VATEX-FR-CGI261-1,VATEX-FR-CGI261-2,VATEX-FR-CGI261-3,VATEX-FR-CGI261-4,VATEX-FR-CGI261-5,VATEX-FR-CGI261-7,VATEX-FR-CGI261-8,VATEX-FR-CGI261A,VATEX-FR-CGI261B,VATEX-FR-CGI261C-1,VATEX-FR-CGI261C-2,VATEX-FR-CGI261C-3,VATEX-FR-CGI261D-1,VATEX-FR-CGI261D-1BIS,VATEX-FR-CGI261D-2,VATEX-FR-CGI261D-3,VATEX-FR-CGI261D-4,VATEX-FR-CGI261E-1,VATEX-FR-CGI261E-2,VATEX-FR-CGI277A,VATEX-FR-CGI275,VATEX-FR-298SEXDECIESA,VATEX-FR-CGI295,VATEX-FR-AE 
+* Invoice type code (UNCL1001 subset).
+** Added: 326,384,389 
 
 [red]#EN 16931 schematrons updated# +
 

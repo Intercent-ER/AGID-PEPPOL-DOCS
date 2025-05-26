@@ -49,6 +49,7 @@ If, on the other hand, the delivery of goods and/or the provision of services is
 
 . Example of delivery at non-Institutional Address 
 [source, xml, indent=0]
+----
 <cac:Delivery> 
     <cac:DeliveryLocation> 
         <Name>Nuovo magazzino di reparto</Name> 

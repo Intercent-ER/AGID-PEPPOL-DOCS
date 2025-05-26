@@ -58,6 +58,10 @@
         <Name>Australian Business Number (ABN) Scheme</Name>
     </Code>
     <Code>
+    <Id>0177</Id>
+    <Name>Odette International Limited</Name>
+	</Code>
+	<Code>
         <Id>0183</Id>
         <Name>Numéro d'identification suisse des enterprises (IDE), Swiss Unique Business
             Identification Number (UIDB)</Name>
@@ -163,8 +167,8 @@
         <Name>National e-Invoicing Framework (Malaysia)</Name>
     </Code>
     <Code>
-        <Id>9901</Id>
-        <Name>Danish Ministry of the Interior and Health</Name>
+        <Id>0235</Id>
+        <Name>UAE Tax Identification Number (TIN)</Name>
     </Code>
     <Code>
         <Id>9910</Id>
@@ -330,5 +334,44 @@
         <Id>9959</Id>
         <Name>Employer Identification Number (EIN, USA)</Name>
     </Code>
-
+	<Code>
+		<Id>0147</Id>
+		<Name>Standard Company Code</Name>
+	</Code>
+	<Code>
+		<Id>0154</Id>
+		<Name>Identification number of economic subjects: (ICO)</Name>
+	</Code>
+	<Code>
+		<Id>0158</Id>
+		<Name>Identification number of economic subject (ICO) Act on State Statistics of 29 November 2001, § 27</Name>
+	</Code>
+	<Code>
+		<Id>0170</Id>
+		<Name>Teikoku Company Code</Name>
+	</Code>
+	<Code>
+		<Id>0194</Id>
+		<Name>KOIOS Open Technical Dictionary</Name>
+	</Code>
+	<Code>
+		<Id>0203</Id>
+		<Name>eDelivery Network Participant identifier</Name>
+	</Code>
+	<Code>
+		<Id>0205</Id>
+		<Name>CODDEST</Name>
+	</Code>
+	<Code>
+		<Id>0217</Id>
+		<Name>The Netherlands Chamber of Commerce and Industry establishment number</Name>
+	</Code>
+	<Code>
+		<Id>0225</Id>
+		<Name>FRCTC ELECTRONIC ADDRESS</Name>
+	</Code>
+	<Code>
+		<Id>0240</Id>
+		<Name>Register of legal persons (in French : Répertoire des personnes morales)</Name>
+	</Code>
 </CodeList>

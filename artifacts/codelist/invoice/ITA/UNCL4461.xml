@@ -652,5 +652,6 @@
 		<Id>69</Id>
 		<Name>Transfer Advice</Name>
 		<LocalId>MP05</LocalId>
+		<LocalDescription>Bonifico</LocalDescription>
 	</Code>
 </CodeList>

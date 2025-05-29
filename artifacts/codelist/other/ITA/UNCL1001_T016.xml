@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeList xmlns="urn:fdc:difi.no:2017:vefa:structure:CodeList-1">
+
+    <Title>Despatch advice type code (UNCL1001 subset)</Title>
+    <Identifier>UNCL1001_T016</Identifier>
+    <Version>D.17A</Version>
+    <Agency>UN/CEFACT</Agency>
+    <Subset>openPEPPOL</Subset>
+
+     <Code>
+        <Id>351</Id>
+        <Name>Despatch advice</Name>
+        <Description>Document/message by means of which the seller or consignor informs the consignee about the despatch of goods.</Description>
+		<LocalName>Documento di trasporto</LocalName>
+		<LocalDescription>Documento/messaggio con cui il venditore o il mittente informa il destinatario della spedizione della merce.</LocalDescription>
+	</Code>
+
+     <Code>
+        <Id>748</Id>
+        <Name>Consignment despatch advice</Name>
+        <Description>Document/message by means of which the supplier informs the buyer about the despatch of goods ordered on consignment (goods to be delivered into stock with agreement on payment when goods are sold out of this stock).</Description>
+		<LocalName>Reintegro Conto Deposito</LocalName>
+		<LocalDescription>Documento/messaggio con cui il fornitore informa l'acquirente della spedizione della merce ordinata in conto deposito (merce da consegnare in magazzino con accordo sul pagamento quando la merce è esaurita).</LocalDescription>
+	</Code>
+
+     <Code>
+        <Id>729</Id>
+        <Name>Returns advice</Name>
+        <Description>Document/message by means of which the buyer informs the seller about the despatch of returned goods.</Description>
+		<LocalName>Documento di reso</LocalName>
+		<LocalDescription>Documento/messaggio con cui l'acquirente informa il venditore della spedizione della merce restituita.</LocalDescription>
+	</Code>
+
+</CodeList>

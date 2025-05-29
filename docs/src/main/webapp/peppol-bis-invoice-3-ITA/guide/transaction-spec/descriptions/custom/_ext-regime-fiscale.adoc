@@ -3,6 +3,8 @@
 
 Il regime fiscale indica il regime contabile associato al fornitore e pertanto le agevolazioni o semplificazioni a cui è soggetto.
 
+Di seguito il https://peppol-docs.agid.gov.it/docs/xml/ITA/peppol-bis-invoice-3/codelist/RegimeFiscale.html[link] alla codelist italiana contenente i codici del Regime Fiscale.
+
 Se il regime fiscale non viene specificato, si intende il regime ordinario (RF01).
 
 .Esempio UBL per specificare il regime fiscale

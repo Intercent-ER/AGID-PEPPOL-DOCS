@@ -8,6 +8,36 @@ https://peppol-docs.agid.gov.it/docs[Vai al Portale Specifiche]
 ^.^| Data
 ^.^| Cosa è cambiato
 
+| 3.3.0.7(IT)
+a| 06/06/2025
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2025-Q2/release-notes/[PEPPOL BIS 3.0.15 - May release 2025] e altre modifiche italiane_. +
+
+In vigore a partire dal *25 Agosto 2025*
+
+[red]#Cambiamenti alla specifica (Documentazione)#
+
+* Modificato il paragrafo “7.4.2. Dettaglio sui Dispositivi Medici e loro identificazione - Codice UDI”; 
+* Modificato paragrafo “7.16.1. Luogo di consegna (DeliveryLocation)”. 
+
+[red]#Cambiamenti alla sintassi#
+
+* Ordine: 
+** Aggiunta nuova struttura cac:Despatch contenente due campi cbc:RequestedDespatchDate e cbc:RequestedDespatchTime; 
+** Aggiornato lo schematron alla versione 3.6. 
+
+[red]#Cambiamenti alle code lists e artefatti di validazione#
+
+* Electronic Address Scheme (EAS)
+** Rimossi: 9901
+** Aggiunti: 0147,0154,0158,0170,0194,0203,0205,0217,0225,0240
+* ISO 6523 ICD list
+** Added: 0239,0240 
+* ISO 4217 Currency codes 
+** Rimossi: CUC,ZWL 
+** Aggiunti: XXX 
+* Item type identification code (UNCL7143) 
+** Aggiunti: PPI 
+
 | 3.3.0.6(IT)
 a| 20/12/2024
 a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2024-Q4/release-notes/[Peppol BIS 3.0.14 - November release 2024]_. +

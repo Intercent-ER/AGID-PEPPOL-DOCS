@@ -267,7 +267,7 @@ Numero:
                     </tr>
                     <tr class="h50">
                         <td>
-                            <h2 class="in-box-label">Committente (Ufficio Ordinante)</h2>
+                            <h2 class="in-box-label">Richiedente (Ufficio Ordinante)</h2>
                             <xsl:call-template name="in-party">
                                 <xsl:with-param name="party" select="/in:Order/cac:OriginatorCustomerParty/cac:Party"/>
                             </xsl:call-template>

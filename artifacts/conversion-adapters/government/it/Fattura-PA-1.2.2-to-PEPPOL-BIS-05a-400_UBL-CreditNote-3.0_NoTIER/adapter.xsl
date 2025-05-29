@@ -3,7 +3,7 @@
 <xsl:stylesheet xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2" xmlns:in="http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2" xmlns:xsmap="http://www.javest.com/ns/mapper/snippet" xmlns:asmap="http://www.javest.com/ns/mapper/snippet/attribute" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ccts="urn:un:unece:uncefact:documentation:2" xmlns:cr="http://www.ubl-italia.org/ns/CrossReference" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:gc="urn:fdc:difi.no:2017:vefa:structure:CodeList-1" xmlns:doc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/" xmlns:vs="urn:www.ubl-italia.org:spec:fatturapa:codelist:gc:VATSchemes" exclude-result-prefixes="xsmap asmap in ds" version="2.0">
 	<xsl:output indent="no"/>
 	<xsl:param name="UNECE" as="xsd:string">xcl/UNECERec20-11e.xml</xsl:param>
-	<xsl:param name="TIPODOC" as="xsd:string">xcl/TipoDocumento.xml</xsl:param>
+    <xsl:param name="TIPODOC" as="xsd:string">xcl/TipoDocumento FatturaPA.xml</xsl:param>
 	<xsl:param name="ALLEGATO" as="xsd:string">xcl/FormatoAttachment.xml</xsl:param>
 	<xsl:param name="VATSchemes" as="xsd:string">xcl/VATSchemes.xml</xsl:param>
 	<xsl:param name="UNCL4461" as="xsd:string">xcl/UNCL4461.xml</xsl:param>
@@ -1864,6 +1864,9 @@ the root node.
 					</xsl:variable>
 					<xsl:variable name="commodityClassificationCodelist">
 						<xsl:text>AA AB AC AD AE AF AG AH AI AJ AK AL AM AN AO AP AQ AR AS AT AU AV AW AX AY AZ BA BB BC BD BE BF BG BH BI BJ BK BL BM BN BO BP BQ BR BS BT BU BV BW BX BY BZ CC CG CL CR CV DM0 DM1 DM2 DR DW EC EF EN FS GB GN GS HS IB IN IS IT IZ MA MF MN MP NB ON PD PL PO PV QS RC RN RU RY SA SG SK SN SRS SRT SRU SRV SRW SRX SRY SRZ SS SSA SSB SSC SSD SSE SSF SSG SSH SSI SSJ SSK SSL SSM SSN SSO SSP SSQ SSR SSS SST SSU SSV SSW SSX SSY SSZ ST STA STB STC STD STE STF STG STH STI STJ STK STL STM STN STO STP STQ STR STS STT STU STV STW STX STY STZ SUA SUB SUC SUD SUE SUF SUG SUH SUI SUJ SUK SUL SUM TG TSN TSO TSP TSQ TSR TSS TST TSU UA UP VN VP VS VX ZZZ</xsl:text>
+					</xsl:variable>
+					<xsl:variable name="dispositivoMedicoCodelist">
+						<xsl:text>DM0 DM1 DM2</xsl:text>
 					</xsl:variable>
 					<xsl:variable name="carbOrAicFarmacoExist">
 						<xsl:for-each select="CodiceArticolo">

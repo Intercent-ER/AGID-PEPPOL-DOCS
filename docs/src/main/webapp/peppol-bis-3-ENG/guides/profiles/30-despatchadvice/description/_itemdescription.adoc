@@ -47,22 +47,63 @@ In particular circumstances, some foreign pharmaceutical products are commercial
 [[product-identification]]
 = #Details on medical devices products and their identification - UDI code#
 
-For medical devices products provided with the code UDI (Unique Device Identification) released by the Agency "GS1 Italy", the element *cac:SellersItemIdentification/cbc:ID* needs to be valued with the UDI code, prefixed by the string "UDI:".
+The unique device identification (UDI) code, issued by the authorised body (GS1 or other operator) for medical devices, is a numeric or alphanumeric character set that includes the device model identification (UDI-DI) and a set of codes identifying the individual product instance (UDI-PI), including serial number, production batch number, software identification and date of manufacture or expiry or both. +
 
-.Example of an order with the indication of the UDI code
+The UDI code to be reported in the field refers to the individual product instance or minimum sales package. +
+
+Inside the Despatch Advice, the UDI code must be indicated in the element cbc:ProductTraceID of the structure cac:ItemInstance, together with its related @schemeID valued with the string "UDI".  
+
+.Example of Despatch Advice with UDI code 
 [source, xml, indent=0]
 ----
-<cac:DespatchLine>
-    ...
-        <cac:Item>
-            <cbc:Name>Item's name</cbc:Name>
-            <cac:SellersItemIdentification>
-              <cbc:ID>UDI:(01)47964367965424(11)173434(17)226565(10)A379B3(21)1237</cbc:ID>
-            </cac:SellersItemIdentification>
-        </cac:Item>
-</cac:DespatchLine>
-
+<cac:DespatchLine> 
+    ... 
+        <cac:Item> 
+  ... 
+            <cac:ItemInstance> 
+            <cbc:ProductTraceID schemeID=”UDI”>(01)05414734509589(17)20260731(10)P000223272(21)5132064</cbc:ProductTraceID> 
+     <cbc:SerialID>5132064<cbc:SerialID> 
+     <cac:LotIdentification> 
+     	   <cbc:LotNumberID>P000223272<cbc:LotNumberID> 
+   <cbc:ExipiryDate>2026-07-31<cbc:ExipiryDate> 
+     <cac:LotIdentification> 
+            </cac: ItemInstance> 
+        </cac:Item> 
+</cac:DespatchLine> 
 ----
 
+In case of Despatch lines with multiple UDI code, you need to create more structures cac:ItemInstance. 
+
+.Example of Despatch Advice with the indication of multiple UDI codes within the same line
+[source, xml, indent=0]
+----
+<cac:DespatchLine> 
+    ... 
+        <cac:Item> 
+  ... 
+            <cac:ItemInstance> 
+            <cbc:ProductTraceID schemeID=”UDI”>(01)05414734509589(17)20260731(10)P000223272(21)5132064</cbc:ProductTraceID> 
+     <cbc:SerialID>5132064<cbc:SerialID> 
+     <cac:LotIdentification> 
+     	   <cbc:LotNumberID>P000223272<cbc:LotNumberID> 
+   <cbc:ExipiryDate>2026-07-31<cbc:ExipiryDate> 
+     <cac:LotIdentification> 
+            </cac:ItemInstance> 
+            <cac:ItemInstance> 
+            <cbc:ProductTraceID schemeID=”UDI”>(01)05414734509589(17)20250623(10)P000223244(21)5132029</cbc:ProductTraceID> 
+     <cbc:SerialID>5132029<cbc:SerialID> 
+     <cac:LotIdentification> 
+     	   <cbc:LotNumberID>P000223244<cbc:LotNumberID> 
+   <cbc:ExipiryDate>2025-06-23<cbc:ExipiryDate> 
+     <cac:LotIdentification> 
+            </cac:ItemInstance > 
+        </cac:Item> 
+</cac:DespatchLine> 
+----
 
 :leveloffset: -1
+
+The indication of the UDI code within the electronic Despatch Advice allows companies and health service entities to acquire, register and maintain the unique device identifier (UDI), as established by the Ministry of Health on 11 May 2023, transposing Regulation (EU) 2017/745. In particular, the decree sets out the obligations of registration and retention of the unique device identifier (UDI) by health institutions and healthcare professionals for certain types of devices: 
+
+* Class III implantable devices which they have supplied or received in accordance with art. 27 paragraph 9 of Regulation (EU) 2017/745; 
+* Class III devices, other than implantable devices, and class IIb implantable devices. 

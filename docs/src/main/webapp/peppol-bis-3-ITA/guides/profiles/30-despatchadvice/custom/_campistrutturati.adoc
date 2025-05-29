@@ -17,3 +17,46 @@ I campi strutturati ammessi sono, esclusivamente e tassativamente, quelli elenca
 
 |DespatchLine/OrderLineReference/OrderReference/ID
 |===
+
+= #Tipologia di consegna#
+
+Il processo di consegna può avvenire in forza di: 
+
+* Acquisto: il Fornitore invia la merce al Cliente che ne assume la proprietà; 
+* Conto deposito: il Fornitore invia la merce al Cliente per la creazione o movimentazione di un conto deposito presso la struttura/magazzino del Cliente; 
+* Reso: il Cliente restituisce la merce al Fornitore in quanto non conforme. 
+
+La tipologia di consegna può essere espressa nel campo cbc:DespatchAdviceTypeCode utilizzando i seguenti codici della codifica Despatch advice type code (UNCL1001 subset). 
+
+[width="100%",cols="^,^,^",options="header"]
+|===
+3.1+^s| Tipologia di consegna
+s| Nome
+s| Descrizione
+s| Codice
+
+|Documento di Trasporto 
+|Documento/messaggio con cui il venditore o il mittente informa il destinatario della spedizione della merce. 
+|351
+
+|Reintegro del Conto Deposito
+|Documento/messaggio con cui il fornitore informa l'acquirente della spedizione della merce ordinata in conto deposito (merce da consegnare in magazzino con accordo sul pagamento quando la merce è esaurita).
+|748
+
+|Documento di Reso
+|Documento/messaggio con cui l'acquirente informa il venditore della spedizione della merce restituita. 
+|729
+|===
+
+Il tipo di consegna è un elemento essenziale del processo, ove non indicato si assume che il trasporto riguardi beni acquistati dal Cliente (codice 351) e non beni in Conto Deposito (748).
+
+.Esempio di DDT utilizzato per il reintegro di un Conto Deposito
+[source, xml, indent=0]
+----
+<cbc:IssueDate>2025-05-20<cbc:IssueDate> 
+<cbc:DespatchAdviceTypeCode>748</cbc:DespatchAdviceTypeCode> 
+<cbc:Note>Reintegro del conto deposito<cbc:Note> 
+----
+
+
+

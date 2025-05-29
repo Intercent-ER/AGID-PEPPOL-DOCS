@@ -26,7 +26,6 @@ In vigore a partire dal *17 Febbraio 2025*
 
 * Aggiunte nuove regole di conformità sull’utilizzo degli identificatori del mittente/destinatario nell’inserimento di un messaggio BIS3 all’interno del Peppol Business Message Envelope (SBDH). 
 
-
 | 3.3.0.7(IT)
 a| 21/06/2024
 a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2024-Q2/release-notes/[Peppol BIS 3.0.13 - May release 2024]_. +

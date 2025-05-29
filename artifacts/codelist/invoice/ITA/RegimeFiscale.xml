@@ -76,4 +76,8 @@
 		<Id>RF19</Id>
 		<Name>Regime forfettario (art.1, c.54-89, L. 190/2014)</Name>
 	</Code>
+		<Code>
+		<Id>RF20</Id>
+		<Name>Regime transfrontaliero di Franchigia IVA (Direttiva UE 2020/285)</Name>
+	</Code>
 </CodeList>

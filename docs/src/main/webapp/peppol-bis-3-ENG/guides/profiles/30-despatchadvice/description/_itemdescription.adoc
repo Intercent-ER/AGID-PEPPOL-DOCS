@@ -67,7 +67,7 @@ Inside the Despatch Advice, the UDI code must be indicated in the element cbc:Pr
      	   <cbc:LotNumberID>P000223272<cbc:LotNumberID> 
    <cbc:ExipiryDate>2026-07-31<cbc:ExipiryDate> 
      <cac:LotIdentification> 
-            </cac: ItemInstance> 
+            </cac:ItemInstance> 
         </cac:Item> 
 </cac:DespatchLine> 
 ----

@@ -20,8 +20,9 @@ In vigore a partire dal *25 Agosto 2025*
 
 [red]#Cambiamenti alla sintassi#
 
-* Aggiunta nuova struttura cac:Despatch contenente due campi cbc:RequestedDespatchDate e cbc:RequestedDespatchTime; 
-* Aggiornato lo schematron alla versione 3.6. 
+* Ordine:
+** Aggiunta nuova struttura cac:Despatch contenente due campi cbc:RequestedDespatchDate e cbc:RequestedDespatchTime; 
+** Aggiornato lo schematron alla versione 3.6. 
 
 [red]#Cambiamenti alle code lists e artefatti di validazione#
 

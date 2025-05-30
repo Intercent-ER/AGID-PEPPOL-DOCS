@@ -63,7 +63,7 @@ In particular circumstances, some foreign pharmaceutical products are commercial
 [[product-identification]]
 = #Details on medical devices products and their identification - UDI code#
 
-The UDI (Unique Device Identification) code, issued by the authorised body (GS1 or other operator) for medical devices, a numeric or alphanumeric character set comprising the device model identification code (UDI-DI) and a set of codes identifying the individual product instance (UDI-PI), including the serial number, the production batch number, software identification and date of manufacture or expiry or both. + 
+The UDI (Unique Device Identification) code, issued by the authorised body (GS1 or other operator) for medical devices, a numeric or alphanumeric character set comprising the device model identification code (UDI-DI) and a set of codes identifying the individual product instance (UDI-PI), including the serial number, the production batch number, software identification and date of manufacture or expiry or both. +
 
 The UDI code to be entered in the order corresponds to the model medical device identifier (UDI-DI). +
 

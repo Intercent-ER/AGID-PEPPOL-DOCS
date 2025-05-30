@@ -9,7 +9,7 @@ Delivery information is required if the address differs from that of the party i
 
 The place of delivery shall be the place where the supply of goods and/or services is to take place. It is indicated, at document header level, in the "Delivery/DeliveryLocation" element. +
 
-If the place of delivery is an institutional address of the Customer to which a unique identifier made available to the Supplier has been associated, as in the case of the places of delivery for the PA recorded according to the coding published at the following link https://www.puntidiconsegna-nso.it/[Punti di consegna NSO], is possible to indicate the identifier in the cbc:ID element. 
+If the place of delivery is an institutional address of the Customer to which a unique identifier made available to the Supplier has been associated, as in the case of the places of delivery for the PA recorded according to the coding published at the following link https://www.puntidiconsegna-nso.it/[Punti di consegna NSO], is possible to indicate the identifier in the cbc:ID element. 
 
 .Example of delivery at Institutional Address 
 [source, xml, indent=0]
@@ -19,7 +19,7 @@ If the place of delivery is an institutional address of the Customer to which a 
         <cbc:ID>CF-IdShipTo</cbc:ID> 
         <Name>Magazzino centralizzato</Name> 
     </cac:DeliveryLocation> 
-    <cac:RequestedDeliveryPeriod> <1> 
+    <cac:RequestedDeliveryPeriod> <1>
         <cbc:StartDate>2018-05-15</cbc:StartDate> 
         <cbc:StartTime>08:00:00</cbc:StartTime> 
         <cbc:EndDate>2018-05-15</cbc:EndDate> 
@@ -43,7 +43,7 @@ If the place of delivery is an institutional address of the Customer to which a 
     <cbc:ID>PORTO FRANCO</cbc:ID> 
 </cac:DeliveryTerms> 
 ----
-<1> Requested delivery period: specify in this structure the information if the day ("StartDate/EndDate" fields) and the time ("StartTime/EndTime" fields) of the delivery execution has been agreed. 
+<1> Reuqested delivery period: specify in this structure the information if the day ("StartDate/EndDate" fields) and the time ("StartTime/EndTime" fields) of the delivery execution has been agreed. 
 
 If, on the other hand, the delivery of goods and/or the provision of services is to take place at a non-institutional place or in an institutional place not coded (even temporarily), all parts of the sub-element "Address" must be precisely indicated as shown in the following example: 
 

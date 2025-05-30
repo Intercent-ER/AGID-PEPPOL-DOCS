@@ -96,7 +96,7 @@ In case of Despatch lines with multiple UDI code, you need to create more struct
      	   <cbc:LotNumberID>P000223244<cbc:LotNumberID> 
    <cbc:ExipiryDate>2025-06-23<cbc:ExipiryDate> 
      <cac:LotIdentification> 
-            </cac:ItemInstance > 
+            </cac:ItemInstance> 
         </cac:Item> 
 </cac:DespatchLine> 
 ----

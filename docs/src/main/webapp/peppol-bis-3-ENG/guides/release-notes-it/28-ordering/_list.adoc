@@ -20,8 +20,9 @@ Effective as of *25th of August 2025*
 
 [red]#Changes to Syntax#
 
-* Added new structure cac:Despatch with two elements cbc:RequestedDespatchDate and cbc:RequestedDespatchTime; 
-* Updated schematron to version 3.6. 
+* Order
+** Added new structure cac:Despatch with two elements cbc:RequestedDespatchDate and cbc:RequestedDespatchTime; 
+** Updated schematron to version 3.6. 
 
 [red]#Changes to code lists and validation artifacts#
 

@@ -2,7 +2,7 @@
 <CodeList xmlns="urn:fdc:difi.no:2017:vefa:structure:CodeList-1">
 
     <Title>Transport Handling Unit ID scheme(openPEPPOL)</Title>
-    <Identifier>TransportHandlingUnitIDschemID</Identifier>
+    <Identifier>TransportHandlingUnitIDschemeID</Identifier>
     <Version>1.0</Version>
     <Agency>OpenPEPPOL</Agency>
     <Subset>OpenPEPPOL</Subset>

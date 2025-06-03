@@ -97,7 +97,7 @@
 .3+| DK-R-004-NA *(warning)*  #(not applied in the Italian context)#
 | When specifying non-VAT Taxes for Danish customers, Danish suppliers MUST use the AllowanceChargeReasonCode="ZZZ" and MUST be specified in AllowanceChargeReason; Either as the 4-digit Tax category or must include a #, but the # is not allowed as first and last character
 | cac:AllowanceCharge[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']
-| not((cbc:AllowanceChargeReasonCode = 'ZZZ') and not(((string-length(normalize-space(cbc:AllowanceChargeReason/text())) = 4) and (number(cbc:AllowanceChargeReason) >= 0) and (number(cbc:AllowanceChargeReason) <= 9999)) or (((cbc:AllowanceChargeReason and contains(cbc:AllowanceChargeReason, ' # ') and not(starts-with(cbc:AllowanceChargeReason, '# ')) and not(ends-with(cbc:AllowanceChargeReason, '#')))) ) ) )
+| not((cbc:AllowanceChargeReasonCode = 'ZZZ') and not(((string-length(normalize-space(cbc:AllowanceChargeReason/text())) = 4) and (number(cbc:AllowanceChargeReason) >= 0) and (number(cbc:AllowanceChargeReason) <= 9999)) or (((cbc:AllowanceChargeReason and contains(cbc:AllowanceChargeReason, ' # ') and not(starts-with(cbc:AllowanceChargeReason, ' # ')) and not(ends-with(cbc:AllowanceChargeReason, '#')))) ) ) )
 .3+| DK-R-005-NA *(warning)*  #(not applied in the Italian context)#
 | For Danish suppliers the following Payment means codes are allowed: 1, 10, 31, 42, 48, 49, 50, 58, 59, 93 and 97
 | ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:PaymentMeans

@@ -81,7 +81,7 @@
 									pathBack += "../";
 								}
 								$("#path").prepend('<li><a href="'+source+'">'+transaction+'</a></li>');
-								$("#path").prepend('<li><a href="' + pathBack + '" id="bis-index">Indice</a></li>');
+								$("#path").prepend('<li><a href="' + pathBack + '/my_index_fatt.jsp" id="bis-index">Indice</a></li>');
 								var activeNode = $("#path").find("li").last();
 								activeNode.html(activeNode.find("a").text()).addClass("active");
 								$("#context").text(activeNode.text());

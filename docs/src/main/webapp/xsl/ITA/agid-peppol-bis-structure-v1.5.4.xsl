@@ -80,8 +80,9 @@
 									$("#path").prepend('<li class="subcontext"><a href="'+pid+'">'+parent.find("> td > a").text()+'</a></li>');
 									pathBack += "../";
 								}
+								var ctx = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
 								$("#path").prepend('<li><a href="'+source+'">'+transaction+'</a></li>');
-								$("#path").prepend('<li><a href="' + pathBack + '/my_index.jsp" id="bis-index">Indice</a></li>');
+								$("#path").prepend('<li><a href="' + ctx + '/my_index.jsp" id="bis-index">Indice</a></li>');
 								var activeNode = $("#path").find("li").last();
 								activeNode.html(activeNode.find("a").text()).addClass("active");
 								$("#context").text(activeNode.text());

@@ -298,14 +298,14 @@ the root node.
 		                or not(RiferimentoNumeroLinea)">
 			<cac:DespatchLineReference>
 				<cbc:LineID>
-					<xsl:choose>
+					<!-- <xsl:choose>
 						<xsl:when test="RiferimentoNumeroLinea[normalize-space()]=$CN/NumeroLinea[normalize-space()]">
 							<xsl:value-of select="$CN/NumeroLinea[normalize-space()]"/>
 						</xsl:when>
-						<xsl:otherwise>
+						<xsl:otherwise> -->
 							<xsl:text>NA</xsl:text>
-						</xsl:otherwise>
-					</xsl:choose>
+					<!-- 	</xsl:otherwise> 
+					</xsl:choose> -->
 				</cbc:LineID>
 				<cac:DocumentReference>
 					<cbc:ID>

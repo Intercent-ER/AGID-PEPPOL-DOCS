@@ -154,7 +154,7 @@
 		<rule context="/ubl:DespatchAdvice/cbc:ID"/>
 		<rule context="/ubl:DespatchAdvice/cbc:IssueDate"/>
 		<rule context="/ubl:DespatchAdvice/cbc:IssueTime"/>
-		<rule context="/cbc:DespatchAdviceTypeCode"/>
+		<rule context="/ubl:DespatchAdvice/cbc:DespatchAdviceTypeCode"/>
 		<rule context="/ubl:DespatchAdvice/cbc:Note"/>
 		<rule context="/ubl:DespatchAdvice/cac:OrderReference">
 			<assert test="cbc:ID" flag="fatal" id="PEPPOL-T16-B00801">Element 'cbc:ID' MUST be provided.</assert>

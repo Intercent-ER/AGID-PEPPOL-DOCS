@@ -1,4 +1,5 @@
-https://peppol-docs.agid.gov.it/docs-next-release[Vai al Portale Specifiche]
+https://peppol-docs.agid.gov.it/docs[Vai al Portale Specifiche]
+
 
 [cols="1h,1m,4m", options="header"]
 
@@ -8,7 +9,7 @@ https://peppol-docs.agid.gov.it/docs-next-release[Vai al Portale Specifiche]
 | Cosa è cambiato
 
 | 3.0.0.8(IT)
-a| 20/12/2024
+a| 17/02/2025
 a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2024-Q4/release-notes/[Peppol BIS 3.0.14 - November release 2024]_. +
 
 In vigore a partire dal *17 Febbraio 2025*
@@ -24,7 +25,6 @@ In vigore a partire dal *17 Febbraio 2025*
 [red]#Aggiornamenti relativi alla “BIS compliance”#
 
 * Aggiunte nuove regole di conformità sull’utilizzo degli identificatori del mittente/destinatario nell’inserimento di un messaggio BIS3 all’interno del Peppol Business Message Envelope (SBDH). 
-
 
 | 3.3.0.7(IT)
 a| 21/06/2024

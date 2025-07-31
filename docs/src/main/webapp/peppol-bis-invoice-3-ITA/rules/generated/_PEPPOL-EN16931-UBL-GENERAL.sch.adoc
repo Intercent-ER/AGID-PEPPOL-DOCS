@@ -9,7 +9,7 @@
 .3+| PEPPOL-COMMON-R042 *(fatal)*
 | Danish organization number (CVR) MUST be stated in the correct format.
 | cbc:EndpointID[@schemeID = '0184'] \| cac:PartyIdentification/cbc:ID[@schemeID = '0184'] \| cbc:CompanyID[@schemeID = '0184']
-| (string-length(text()) = 10) and (substring(text(), 1, 2) = 'DK') and (string-length(translate(substring(text(), 3, 8), '1234567890', '')) = 0)
+| (string-length(string()) = 10 and substring(string(), 1, 2) = 'DK' and string-length(translate(substring(string(), 3, 8), '1234567890', '')) = 0) or (string-length(string()) = 8) and (string-length(translate(substring(string(), 1, 8),'1234567890', '')) = 0)
 .3+| PEPPOL-COMMON-R043 *(fatal)*
 | Belgian enterprise number MUST be stated in the correct format.
 | cbc:EndpointID[@schemeID = '0208'] \| cac:PartyIdentification/cbc:ID[@schemeID = '0208'] \| cbc:CompanyID[@schemeID = '0208']
@@ -112,9 +112,9 @@
 | ubl-creditnote:CreditNote \| ubl-invoice:Invoice
 | cbc:ProfileID
 .3+| PEPPOL-EN16931-R002 *(fatal)*
-| No more than one note is allowed on document level.
+| No more than one note is allowed on document level, unless both the buyer and seller are German organizations.
 | ubl-creditnote:CreditNote \| ubl-invoice:Invoice
-| count(cbc:Note) <= 1
+| count(cbc:Note) &lt;= 1 or ($supplierCountryIsDE and $customerCountryIsDE)
 .3+| PEPPOL-EN16931-R003 *(fatal)*
 | A buyer reference or purchase order reference MUST be provided.
 | ubl-creditnote:CreditNote \| ubl-invoice:Invoice

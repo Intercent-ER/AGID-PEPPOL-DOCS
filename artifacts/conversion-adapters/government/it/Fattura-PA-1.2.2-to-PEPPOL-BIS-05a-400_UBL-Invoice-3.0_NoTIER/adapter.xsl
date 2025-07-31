@@ -2,12 +2,12 @@
 <!--Stylesheet synthesized using Javest A2A Mapper environment.-->
 <xsl:stylesheet xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:in="http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2" xmlns:xsmap="http://www.javest.com/ns/mapper/snippet" xmlns:asmap="http://www.javest.com/ns/mapper/snippet/attribute" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ccts="urn:un:unece:uncefact:documentation:2" xmlns:cr="http://www.ubl-italia.org/ns/CrossReference" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:gc="urn:fdc:difi.no:2017:vefa:structure:CodeList-1" xmlns:doc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/" xmlns:vs="urn:www.ubl-italia.org:spec:fatturapa:codelist:gc:VATSchemes" exclude-result-prefixes="xsmap asmap in ds" version="2.0">
 	<xsl:output indent="no"/>
-	<xsl:param name="UNECE" as="xsd:string">xcl/UNECERec20-11e.xml</xsl:param>
-	<xsl:param name="TIPODOC" as="xsd:string">xcl/TipoDocumento.xml</xsl:param>
-	<xsl:param name="ALLEGATO" as="xsd:string">xcl/FormatoAttachment.xml</xsl:param>
-	<xsl:param name="VATSchemes" as="xsd:string">xcl/VATSchemes.xml</xsl:param>
-	<xsl:param name="UNCL4461" as="xsd:string">xcl/UNCL4461.xml</xsl:param>
-	<xsl:param name="NATURA" as="xsd:string">xcl/Natura_VATCategory_VATEX.xml</xsl:param>
+    <xsl:param name="UNECE" as="xsd:string">xcl/UNECERec20-11e.xml</xsl:param>
+    <xsl:param name="TIPODOC" as="xsd:string">xcl/TipoDocumento FatturaPA.xml</xsl:param>
+    <xsl:param name="ALLEGATO" as="xsd:string">xcl/FormatoAttachment.xml</xsl:param>
+    <xsl:param name="VATSchemes" as="xsd:string">xcl/VATSchemes.xml</xsl:param>
+    <xsl:param name="UNCL4461" as="xsd:string">xcl/UNCL4461.xml</xsl:param>
+    <xsl:param name="NATURA" as="xsd:string">xcl/Natura_VATCategory_VATEX.xml</xsl:param>
 	<!--
 Processing starts at node: /in:FatturaElettronica
 See the template rule at end of stylesheet for the default processing of 
@@ -2122,14 +2122,14 @@ the root node.
 					<xsl:value-of select="$allowanceTotalAmount"/>
 				</cbc:AllowanceTotalAmount>
 			</xsl:if>
-			<xsl:if test="(number($chargeTotalAmount) &gt; number('0.00'))">
+			<xsl:if test="DatiCassaPrevidenziale or DatiBollo[BolloVirtuale='SI']">
 				<cbc:ChargeTotalAmount>
 					<xsl:if test="string($variable_d1e449a1049836)">
 						<xsl:attribute name="currencyID">
 							<xsl:value-of select="string($variable_d1e449a1049836)"/>
 						</xsl:attribute>
 					</xsl:if>
-					<xsl:value-of select="$chargeTotalAmount"/>
+					<xsl:value-of select="format-number(sum(DatiCassaPrevidenziale/ImportoContributoCassa) + 0,'###########0.00')"/>
 				</cbc:ChargeTotalAmount>
 			</xsl:if>
 			<xsl:if test="number($taxInclusiveAmount) &gt; number($payableAmount)">

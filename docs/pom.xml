@@ -18,9 +18,9 @@
 	<properties>
 		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<validator.version>3.1.0</validator.version>
-		<converter.version>3.1.0</converter.version>
-		<schematron.version>3.1.0</schematron.version>
+		<validator.version>3.2.1</validator.version>
+		<converter.version>3.2.1</converter.version>
+		<schematron.version>3.2.1</schematron.version>
 		<mapping_peppol_fpa.version>3.3</mapping_peppol_fpa.version>
 		<mapping_fpa_peppol.version>3.2</mapping_fpa_peppol.version>
 	</properties>
@@ -78,7 +78,7 @@
 							<transformationSets>
 								<transformationSet>
 									<dir>${basedir}/src/main/webapp/peppol-bis-invoice-3-ITA/structure/syntax/</dir>
-									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-structure-v1.5.4.xsl</stylesheet>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-structure-v1.5.4_invoice.xsl</stylesheet>
 									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ITA/peppol-bis-invoice-3/</outputDir>
 									<fileMappers>
 										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">
@@ -128,7 +128,7 @@
 										<include>**/*.xml</include>
 										<include>*.xml</include>
 									</includes>
-									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-codelist-v1.2.xsl</stylesheet>
+									<stylesheet>${basedir}/src/main/webapp/xsl/ITA/agid-peppol-bis-codelist-v1.2_invoice.xsl</stylesheet>
 									<outputDir>${project.build.directory}/${project.build.finalName}/xml/ITA/peppol-bis-invoice-3/codelist/</outputDir>
 									<fileMappers>
 										<fileMapper implementation="org.codehaus.plexus.components.io.filemappers.FileExtensionMapper">

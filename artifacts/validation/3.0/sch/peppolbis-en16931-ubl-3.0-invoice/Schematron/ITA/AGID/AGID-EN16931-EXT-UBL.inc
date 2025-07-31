@@ -6,11 +6,11 @@
 	</rule>
 	
 	<rule context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:TipoDocumento']/ext:ExtensionContent" flag="fatal">
-		<assert test="( ( not(contains(normalize-space(cbc:TypeCode),' ')) and contains( ' TD01 TD02 TD03 TD04 TD05 TD06 TD16 TD17 TD18 TD19 TD20 TD21 TD22 TD23 TD24 TD25 TD26 TD27 TD28 ',concat(' ',normalize-space(cbc:TypeCode),' ') ) ) )" flag="fatal" id="BR-IT-DE-002">[BR-IT-DE-002][FPA 2.1.1.1 Tipo Documento] - The extension must contain a cbc:TypeCode element valued exclusively with the values ​​of the Document Type, according to the specific FatturaPA 1.2.1 - L'estensione deve contenere un elemento cbc:TypeCode valorizzato esclusivamente con i valori del TipoDocumento, secondo la specifica FatturaPA 1.2.1.</assert>
+		<assert test="( ( not(contains(normalize-space(cbc:TypeCode),' ')) and contains( ' TD01 TD02 TD03 TD04 TD05 TD06 TD16 TD17 TD18 TD19 TD20 TD21 TD22 TD23 TD24 TD25 TD26 TD27 TD28 TD29 ',concat(' ',normalize-space(cbc:TypeCode),' ') ) ) )" flag="fatal" id="BR-IT-DE-002">[BR-IT-DE-002][FPA 2.1.1.1 Tipo Documento] - The extension must contain a cbc:TypeCode element valued exclusively with the values ​​of the Document Type, according to the FatturaPA specific - L'estensione deve contenere un elemento cbc:TypeCode valorizzato esclusivamente con i valori del TipoDocumento, secondo la specifica FatturaPA.</assert>
 	</rule>
 
 	<rule context="/*/ext:UBLExtensions/ext:UBLExtension[starts-with(ext:ExtensionURI, 'urn:fdc:agid.gov.it:fatturapa:TipoRitenuta')]/ext:ExtensionContent" flag="fatal">
-		<assert test="( ( not(contains(normalize-space(cbc:TypeCode),' ')) and contains( ' RT01 RT02 RT03 RT04 RT05 RT06 ',concat(' ',normalize-space(cbc:TypeCode),' ') ) ) )" flag="fatal" id="BR-IT-DE-003">[BR-IT-DE-003][FPA 2.1.1.5.1 Tipo Ritenuta] - The extension must contain a cbc:TypeCode element valued exclusively with the values ​​of Withholding Type, according to the specific FatturaPA 1.2.1 - L'estensione deve contenere un elemento cbc:TypeCode valorizzato esclusivamente con i valori del TipoRitenuta, secondo la specifica FatturaPA 1.2.1.</assert>
+		<assert test="( ( not(contains(normalize-space(cbc:TypeCode),' ')) and contains( ' RT01 RT02 RT03 RT04 RT05 RT06 ',concat(' ',normalize-space(cbc:TypeCode),' ') ) ) )" flag="fatal" id="BR-IT-DE-003">[BR-IT-DE-003][FPA 2.1.1.5.1 Tipo Ritenuta] - The extension must contain a cbc:TypeCode element valued exclusively with the values ​​of Withholding Type, according to the FatturaPA specific - L'estensione deve contenere un elemento cbc:TypeCode valorizzato esclusivamente con i valori del TipoRitenuta, secondo la specifica FatturaPA.</assert>
 	</rule>
 	
 	<rule context="/*/ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI = 'urn:fdc:agid.gov.it:fatturapa:Art73']/ext:ExtensionContent" flag="fatal">
@@ -66,7 +66,7 @@
 	</rule>
 
 	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:TaxLevelCode" flag="fatal">
-		<assert test="( ( not(contains(normalize-space(.),' ')) and contains( ' RF01 RF02 RF04 RF05 RF06 RF07 RF08 RF09 RF10 RF11 RF12 RF13 RF14 RF15 RF16 RF17 RF18 RF19 ',concat(' ',normalize-space(.),' ') ) ) )" flag="fatal" id="BR-IT-DE-017">[BR-IT-DE-017][FPA 1.2.1.8 Regime Fiscale] - The Tax System (cbc:TaxLevelCode) must be filled exclusively with the values ​​ of the relative coding - Il Regime Fiscale (cbc:TaxLevelCode) deve essere valorizzato esclusivamente con i valori della relativa codifica.</assert>
+		<assert test="( ( not(contains(normalize-space(.),' ')) and contains( ' RF01 RF02 RF04 RF05 RF06 RF07 RF08 RF09 RF10 RF11 RF12 RF13 RF14 RF15 RF16 RF17 RF18 RF19 RF20 ',concat(' ',normalize-space(.),' ') ) ) )" flag="fatal" id="BR-IT-DE-017">[BR-IT-DE-017][FPA 1.2.1.8 Regime Fiscale] - The Tax System (cbc:TaxLevelCode) must be filled exclusively with the values ​​ of the relative coding - Il Regime Fiscale (cbc:TaxLevelCode) deve essere valorizzato esclusivamente con i valori della relativa codifica.</assert>
 	</rule>
 
 	<rule context="/*/cac:AccountingSupplierParty/cac:Party/cac:AgentParty/cac:PostalAddress" flag="fatal">
@@ -83,7 +83,7 @@
 	</rule>
 
 	<rule context="/*/cac:TaxRepresentativeParty/cac:PartyIdentification/cbc:ID[@schemeID='0210']" flag="fatal">
-		<assert test="matches(.,'^[A-Z0-9]{11,16}$')" flag="fatal" id="BR-IT-DE-024A">[BR-IT-DE-024A][FPA 1.3.1.2 Codice Fiscale] - The Tax Code must have the @schemeID attribute valued with "0210" and the length between 11 and 16 alphanumeric characters - Il Codice Fiscale deve specificare l'attributo @schemeID valorizzato con "0210" ed avere la lunghezza del codice compresa fra 11 e 16 caratteri alfanumerici.</assert>
+		<assert test="matches(.,'^[A-Z0-9]{11,16}$')" flag="fatal" id="BR-IT-DE-024">[BR-IT-DE-024][FPA 1.3.1.2 Codice Fiscale] - The Tax Code must have the @schemeID attribute valued with "0210" and the length between 11 and 16 alphanumeric characters - Il Codice Fiscale deve specificare l'attributo @schemeID valorizzato con "0210" ed avere la lunghezza del codice compresa fra 11 e 16 caratteri alfanumerici.</assert>
 	</rule>
 
 	<rule context="/*/cac:TaxRepresentativeParty/cac:PartyIdentification/cbc:ID[starts-with(., 'EORI:')]" flag="fatal">
@@ -91,7 +91,7 @@
 	</rule>
 
 	<rule context="/*/cac:Delivery/cac:CarrierParty" flag="fatal">
-		<assert test="not(cac:PartyIdentification/cbc:ID) or (matches(cac:PartyIdentification/cbc:ID,'^[A-Z0-9]{11,16}$') and cac:PartyIdentification/cbc:ID[@schemeID='0210'])" flag="fatal" id="BR-IT-DE-026A">[BR-IT-DE-026A][FPA 2.1.9.1.2 Codice Fiscale] - The Tax Code must have the @schemeID attribute valued with "0210" and a length between 11 and 16 alphanumeric characters - Il Codice Fiscale deve specificare l'attributo @schemeID valorizzato con "0210" ed avere la lunghezza del codice compresa fra 11 e 16 caratteri alfanumerici.</assert>
+		<assert test="not(cac:PartyIdentification/cbc:ID) or (matches(cac:PartyIdentification/cbc:ID,'^[A-Z0-9]{11,16}$') and cac:PartyIdentification/cbc:ID[@schemeID='0210'])" flag="fatal" id="BR-IT-DE-026">[BR-IT-DE-026][FPA 2.1.9.1.2 Codice Fiscale] - The Tax Code must have the @schemeID attribute valued with "0210" and a length between 11 and 16 alphanumeric characters - Il Codice Fiscale deve specificare l'attributo @schemeID valorizzato con "0210" ed avere la lunghezza del codice compresa fra 11 e 16 caratteri alfanumerici.</assert>
 		<assert test="matches(cac:PartyName/cbc:Name,'^(\p{IsBasicLatin}){0,80}$') or (matches(cac:Person/cbc:FirstName,'^(\p{IsBasicLatin}){0,60}$') and matches(cac:Person/cbc:FamilyName,'^(\p{IsBasicLatin}){0,60}$'))" flag="fatal" id="BR-IT-DE-027">[BR-IT-DE-027][FPA 2.1.9.1.3.1 Denominazione, 2.1.9.1.3.2 Nome, 2.1.9.1.3.3 Cognome] - If the Carrier Name is entered, its length cannot exceed 80 characters, alternatively, if the First Name and Surname are entered, their length cannot exceed 60 characters - Se la Denominazione del Vettore è valorizzata, la sua lunghezza non può superare 80 caratteri, alternativamente, se è invece valorizzato il Nome e il Cognome, la loro lunghezza non potrà superare 60 caratteri.</assert>
 		<assert test="matches(cac:PartyTaxScheme/cbc:CompanyID,'^[a-zA-Z0-9]{0,30}$')" flag="fatal" id="BR-IT-DE-028">[BR-IT-DE-028][FPA 2.1.9.1.1 Partita IVA] - The length of the element cannot exceed 30 characters - La lunghezza dell'elemento non può superare i 30 caratteri.</assert>
 		<assert test="cac:PartyTaxScheme/cac:TaxScheme/cbc:ID = 'VAT'" flag="fatal" id="BR-IT-DE-029">[BR-IT-DE-029] - The TaxScheme identifier must be valued with 'VAT' - L'identificativo del TaxScheme deve essere valorizzato con 'VAT'.</assert>

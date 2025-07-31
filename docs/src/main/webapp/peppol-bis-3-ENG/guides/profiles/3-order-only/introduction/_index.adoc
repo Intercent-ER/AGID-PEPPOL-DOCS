@@ -1,3 +1,8 @@
+[preface]
+
+= Link to main site of documentation
+
+https://peppol-docs.agid.gov.it/docs/my_index-ENG.jsp[Main site of documentation]
 
 = Introduction to openPeppol and BIS
 

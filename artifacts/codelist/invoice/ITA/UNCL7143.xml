@@ -935,5 +935,8 @@
         <Name>Mutually defined</Name>
         <Description>Item type identification mutually agreed between interchanging parties.</Description>
     </Code>
-
+	<Code>
+		<Id>PPI</Id>
+		<Name>Phytosanitary Passport identifier</Name>
+	</Code>
 </CodeList>

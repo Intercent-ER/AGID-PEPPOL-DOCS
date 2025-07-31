@@ -4,14 +4,14 @@
 		<ext:UBLExtension>
 			<ext:ExtensionURI>urn:fdc:agid.gov.it:fatturapa:TipoDocumento</ext:ExtensionURI>
 			<ext:ExtensionContent>
-				<cbc:TypeCode>TD20</cbc:TypeCode>
+				<cbc:TypeCode>TD29</cbc:TypeCode>
 			</ext:ExtensionContent>
 		</ext:UBLExtension>
 	</ext:UBLExtensions>
 	<cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn:www.agid.gov.it:trns:fattura:3</cbc:CustomizationID>
 	<cbc:ProfileID>urn:fdc:peppol.eu:2017:poacc:billing:01:1.0</cbc:ProfileID>
-	<cbc:ID>28_FT_BIS3_V31_B2G</cbc:ID>
-	<cbc:IssueDate>2020-02-28</cbc:IssueDate>
+	<cbc:ID>28_FT_BIS3_V35_B2G</cbc:ID>
+	<cbc:IssueDate>2025-02-28</cbc:IssueDate>
 	<cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode>
 	<cbc:DocumentCurrencyCode>EUR</cbc:DocumentCurrencyCode>
 	<cac:OrderReference>
@@ -90,7 +90,7 @@
 				<cbc:ID>AE</cbc:ID>
 				<cbc:Percent>0</cbc:Percent>
 				<cbc:TaxExemptionReasonCode>vatex-eu-ae</cbc:TaxExemptionReasonCode>
-				<cbc:TaxExemptionReason>N6.9#Art.6 commi 8 e 9-BIS D. LGS. 471/97</cbc:TaxExemptionReason>
+				<cbc:TaxExemptionReason>N6.9#Art.6 comma 8 D. LGS. 471/97</cbc:TaxExemptionReason>
 				<cac:TaxScheme>
 					<cbc:ID>VAT</cbc:ID>
 				</cac:TaxScheme>

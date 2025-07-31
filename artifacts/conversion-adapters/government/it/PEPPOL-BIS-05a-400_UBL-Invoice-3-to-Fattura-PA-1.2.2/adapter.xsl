@@ -1591,8 +1591,9 @@
 	<xsl:template match="cac:TaxTotal/cac:TaxSubtotal" mode="DatiRiepilogo">
 		<xsl:param name="CN" select="."/>
 		<xsl:param name="CNP" select="1"/>
-			<xsl:if test="(cbc:TaxableAmount &gt; 0 and cac:TaxCategory/cbc:ID ='Z') or cac:TaxCategory/cbc:ID != 'Z'">
-			<DatiRiepilogo>
+		<xsl:if test="contains(string-join(/in:Invoice/cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory/cbc:ID,',')
+			                 ,./cac:TaxCategory/cbc:ID)">
+		<DatiRiepilogo>
 				<AliquotaIVA>
 					<xsl:value-of select="if (cac:TaxCategory/cbc:Percent &gt;= 0) then format-number(cac:TaxCategory/cbc:Percent,'##0.00') else '0.00'"/>
 				</AliquotaIVA>

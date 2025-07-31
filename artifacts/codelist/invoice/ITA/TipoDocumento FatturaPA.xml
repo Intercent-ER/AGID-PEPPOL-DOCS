@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CodeList xmlns="urn:fdc:difi.no:2017:vefa:structure:CodeList-1">
+	<Title>Tipo Documento</Title>
+	<Identifier>TipoDocumento FatturaPA</Identifier>
+	<Version>1.0</Version>
+	<Agency>AGID</Agency>
+	<Code>
+		<Id>TD01</Id>
+		<Name>Fattura</Name>		
+	</Code>
+	<Code>
+		<Id>TD02</Id>
+		<Name>Acconto / anticipo su fattura</Name>	
+	</Code>
+	<Code>
+		<Id>TD03</Id>
+		<Name>Acconto / anticipo su parcella</Name>		
+	</Code>
+	<Code>
+		<Id>TD04</Id>
+		<Name>Nota di credito</Name>		
+	</Code>
+	<Code>
+		<Id>TD05</Id>
+		<Name>Nota di debito</Name>		
+	</Code>
+	<Code>
+		<Id>TD06</Id>
+		<Name>Parcella</Name>		
+	</Code>
+	<Code>
+		<Id>TD16</Id>
+		<Name>Integrazione fattura reverse charge interno</Name>		
+	</Code>
+	<Code>
+		<Id>TD17</Id>
+		<Name>Integrazione/autofattura per acquisto servizi dall'estero</Name>		
+	</Code>
+	<Code>
+		<Id>TD18</Id>
+		<Name>Integrazione per acquisto di beni intracomunitari</Name>		
+	</Code>
+	<Code>
+		<Id>TD19</Id>
+		<Name>Integrazione/autofattura per acquisto di beni ex art.17 c.2 DPR 633/72</Name>		
+	</Code>
+	<Code>
+		<Id>TD20</Id>
+		<Name>Autofattura per regolarizzazione e integrazione delle fatture (ex art. 6 c.9-bis d.lgs. 471/97 o art.46 c.5 D.L. 331/93)</Name>		
+	</Code>
+	<Code>
+		<Id>TD21</Id>
+		<Name>Autofattura per splafonamento</Name>		
+	</Code>
+	<Code>
+		<Id>TD22</Id>
+		<Name>Estrazione beni da Deposito IVA</Name>		
+	</Code>
+	<Code>
+		<Id>TD23</Id>
+		<Name>Estrazione beni da Deposito IVA con versamento dell'IVA</Name>		
+	</Code>
+	<Code>
+		<Id>TD24</Id>
+		<Name>Fattura differita di cui all'art.21, comma 4, terzo periodo lett. a) DPR 633/72</Name>		
+	</Code>
+	<Code>
+		<Id>TD25</Id>
+		<Name>Fattura differita di cui all'art.21, comma 4, terzo periodo lett. b) DPR 633/72</Name>		
+	</Code>
+	<Code>
+		<Id>TD26</Id>
+		<Name>Cessione di beni ammortizzabili e per passaggi interni (ex art.36 DPR 633/72)</Name>		
+	</Code>
+	<Code>
+		<Id>TD27</Id>
+		<Name>Fattura per autoconsumo o per cessioni gratuite senza rivalsa</Name>		
+	</Code>
+	<Code>
+		<Id>TD28</Id>
+		<Name>Acquisti da San Marino con IVA (fattura cartacea)</Name>		
+	</Code>
+	<Code>
+		<Id>TD29</Id>
+		<Name>Comunicazione per omessa o irregolare fatturazione (art. 6, comma 8, D.Lgs. 471/97)</Name>		
+	</Code>
+</CodeList>

@@ -294,7 +294,9 @@ the root node.
 	<xsl:template match="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiDDT" mode="DespatchLineReference">
 		<xsl:param name="CN" select="."/>
 		<xsl:param name="CNP" select="1"/>
-		<xsl:if test="(RiferimentoNumeroLinea[normalize-space()]=$CN/NumeroLinea[normalize-space()] or (RiferimentoNumeroLinea and count(../../DatiBeniServizi/DettaglioLinee)=1)) and count($CN/AltriDatiGestionali[TipoDato = 'DatiDDT']) = 0">
+		<xsl:param name="lineeRiferiteArray" select="tokenize(RiferimentoNumeroLinea,',')"/>
+		<xsl:if test="((some $x in $lineeRiferiteArray satisfies $x=$CN/NumeroLinea[normalize-space()] or (RiferimentoNumeroLinea and count(../../DatiBeniServizi/DettaglioLinee)=1)) and count($CN/AltriDatiGestionali[TipoDato = 'DatiDDT']) = 0)
+		                or not(RiferimentoNumeroLinea)">
 			<cac:DespatchLineReference>
 				<cbc:LineID>
 					<xsl:text>NA</xsl:text>
@@ -309,6 +311,7 @@ the root node.
 				</cac:DocumentReference>
 			</cac:DespatchLineReference>
 		</xsl:if>
+
 	</xsl:template>
 	<xsl:template match="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto" mode="OrderLineReference">
 		<xsl:param name="CN" select="."/>

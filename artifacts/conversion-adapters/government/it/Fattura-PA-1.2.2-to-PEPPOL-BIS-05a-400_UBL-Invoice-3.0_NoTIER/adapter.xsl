@@ -2,15 +2,15 @@
 <!--Stylesheet synthesized using Javest A2A Mapper environment.-->
 <xsl:stylesheet xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" xmlns:in="http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2" xmlns:xsmap="http://www.javest.com/ns/mapper/snippet" xmlns:asmap="http://www.javest.com/ns/mapper/snippet/attribute" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ccts="urn:un:unece:uncefact:documentation:2" xmlns:cr="http://www.ubl-italia.org/ns/CrossReference" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:gc="urn:fdc:difi.no:2017:vefa:structure:CodeList-1" xmlns:doc="http://docs.oasis-open.org/codelist/ns/genericode/1.0/" xmlns:vs="urn:www.ubl-italia.org:spec:fatturapa:codelist:gc:VATSchemes" exclude-result-prefixes="xsmap asmap in ds" version="2.0">
 	<xsl:output indent="no"/>
-    <xsl:param name="UNECE" as="xsd:string">xcl/UNECERec20-11e.xml</xsl:param>
-    <xsl:param name="TIPODOC" as="xsd:string">xcl/TipoDocumento FatturaPA.xml</xsl:param>
-    <xsl:param name="ALLEGATO" as="xsd:string">xcl/FormatoAttachment.xml</xsl:param>
-    <xsl:param name="VATSchemes" as="xsd:string">xcl/VATSchemes.xml</xsl:param>
-    <xsl:param name="UNCL4461" as="xsd:string">xcl/UNCL4461.xml</xsl:param>
-    <xsl:param name="NATURA" as="xsd:string">xcl/Natura_VATCategory_VATEX.xml</xsl:param>
+	<xsl:param name="UNECE" as="xsd:string">xcl/UNECERec20-11e.xml</xsl:param>
+	<xsl:param name="TIPODOC" as="xsd:string">xcl/TipoDocumento FatturaPA.xml</xsl:param>
+	<xsl:param name="ALLEGATO" as="xsd:string">xcl/FormatoAttachment.xml</xsl:param>
+	<xsl:param name="VATSchemes" as="xsd:string">xcl/VATSchemes.xml</xsl:param>
+	<xsl:param name="UNCL4461" as="xsd:string">xcl/UNCL4461.xml</xsl:param>
+	<xsl:param name="NATURA" as="xsd:string">xcl/Natura_VATCategory_VATEX.xml</xsl:param>
 	<!--
 Processing starts at node: /in:FatturaElettronica
-See the template rule at end of stylesheet for the default processing of 
+See the template rule at end of stylesheet for the default processing of
 the root node.
 -->
 	<xsl:template match="/in:FatturaElettronica" mode="SistemaEmittente">
@@ -294,18 +294,12 @@ the root node.
 	<xsl:template match="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiDDT" mode="DespatchLineReference">
 		<xsl:param name="CN" select="."/>
 		<xsl:param name="CNP" select="1"/>
-		<xsl:if test="((RiferimentoNumeroLinea[normalize-space()]=$CN/NumeroLinea[normalize-space()] or (RiferimentoNumeroLinea and count(../../DatiBeniServizi/DettaglioLinee)=1)) and count($CN/AltriDatiGestionali[TipoDato = 'DatiDDT']) = 0)
+		<xsl:param name="lineeRiferiteArray" select="tokenize(RiferimentoNumeroLinea,',')"/>
+		<xsl:if test="((some $x in $lineeRiferiteArray satisfies $x=$CN/NumeroLinea[normalize-space()] or (RiferimentoNumeroLinea and count(../../DatiBeniServizi/DettaglioLinee)=1)) and count($CN/AltriDatiGestionali[TipoDato = 'DatiDDT']) = 0)
 		                or not(RiferimentoNumeroLinea)">
 			<cac:DespatchLineReference>
 				<cbc:LineID>
-					<xsl:choose>
-						<xsl:when test="RiferimentoNumeroLinea[normalize-space()]=$CN/NumeroLinea[normalize-space()]">
-							<xsl:value-of select="$CN/NumeroLinea[normalize-space()]"/>
-						</xsl:when>
-						<xsl:otherwise>
-							<xsl:text>NA</xsl:text>
-						</xsl:otherwise>
-					</xsl:choose>
+					<xsl:text>NA</xsl:text>
 				</cbc:LineID>
 				<cac:DocumentReference>
 					<cbc:ID>
@@ -317,6 +311,7 @@ the root node.
 				</cac:DocumentReference>
 			</cac:DespatchLineReference>
 		</xsl:if>
+
 	</xsl:template>
 	<xsl:template match="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto" mode="OrderLineReference">
 		<xsl:param name="CN" select="."/>

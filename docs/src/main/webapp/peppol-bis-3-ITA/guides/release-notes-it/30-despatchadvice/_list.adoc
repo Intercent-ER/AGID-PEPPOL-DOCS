@@ -16,9 +16,9 @@ In vigore a partire dal *25 Agosto 2025*
 
 [red]#Cambiamenti alla specifica (Documentazione)#
 
-* Aggiunto nuovo paragrafo “4.2.1 Processo di reso della merce” che descrive il flusso nel caso di documento di trasporto di reso; 
-* Aggiunto nuovo paragrafo “5.4 Tipologia di consegna” che descrive i diversi processi di consegna (acquisto, conto deposito, reso); 
-* Modificato il paragrafo “8.1.2. Dettaglio sui Dispositivi Medici e loro identificazione - Codice UDI” in virtù dell’aggiunta del nuovo campo cac:ItemInstance/cbc:ProductTraceID per indicare il codice UDI dei dispositivi medici. 
+* Aggiunto nuovo paragrafo “3.2.1 Processo di reso della merce” che descrive il flusso nel caso di documento di trasporto di reso; 
+* Aggiunto nuovo paragrafo “4.4 Tipologia di consegna” che descrive i diversi processi di consegna (acquisto, conto deposito, reso); 
+* Modificato il paragrafo “7.1.2. Dettaglio sui Dispositivi Medici e loro identificazione - Codice UDI” in virtù dell’aggiunta del nuovo campo cac:ItemInstance/cbc:ProductTraceID per indicare il codice UDI dei dispositivi medici. 
 
 [red]#Cambiamenti alla sintassi#
 

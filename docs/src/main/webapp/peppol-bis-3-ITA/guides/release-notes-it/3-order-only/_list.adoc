@@ -16,8 +16,8 @@ In vigore a partire dal *25 Agosto 2025*
 
 [red]#Cambiamenti alla specifica (Documentazione)#
 
-* Modificato il paragrafo “7.4.2. Dettaglio sui Dispositivi Medici e loro identificazione - Codice UDI”; 
-* Modificato paragrafo “7.16.1. Luogo di consegna (DeliveryLocation)”. 
+* Modificato il paragrafo “6.4.2. Dettaglio sui Dispositivi Medici e loro identificazione - Codice UDI”; 
+* Modificato paragrafo “6.16.1. Luogo di consegna (DeliveryLocation)”. 
 
 [red]#Cambiamenti alla sintassi#
 

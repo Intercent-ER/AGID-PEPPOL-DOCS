@@ -947,11 +947,7 @@
 	<Code>
 		<Id>0191</Id>
 		<Name>Company Code (Estonia)</Name>
-		<Description>Intended Purpose/App. Area: Company code is major and only unique identifier of all institutions and organisations in Estonia. This code is widely used for various purposes, including electronic commerce. Usage of company code is required in communication between institutions and also in communication between private and public organisations. For use in EDI or other B2B (B2C) exchanges to identify private and public organisations. Issuing agency: Centre of Registers and Information Systems of the Ministry of Justice in Estonia.
-																									  
-																																	
-							   
-          </Description>
+		<Description>Intended Purpose/App. Area: Company code is major and only unique identifier of all institutions and organisations in Estonia. This code is widely used for various purposes, including electronic commerce. Usage of company code is required in communication between institutions and also in communication between private and public organisations. For use in EDI or other B2B (B2C) exchanges to identify private and public organisations. Issuing agency: Centre of Registers and Information Systems of the Ministry of Justice in Estonia.</Description>
 	</Code>
 	<Code>
 		<Id>0192</Id>
@@ -961,23 +957,18 @@
 	<Code>
 		<Id>0193</Id>
 		<Name>UBL.BE Party Identifier</Name>
-		<Description>Intended Purpose/App. Area: Identification and addressing of different parties involved in invoicing. Issuing agency: UBL.BE in Belgium.
-																										
-							   
-		</Description>
+		<Description>Intended Purpose/App. Area: Identification and addressing of different parties involved in invoicing. Issuing agency: UBL.BE in Belgium.</Description>
 	</Code>
 	<Code>
 		<Id>0194</Id>
 		<Name>KOIOS Open Technical Dictionary</Name>
-		<Description>Intended Purpose/App. Area: The KOIOS OTD is a collection of terminology defined by and obtained from consensus bodies such as ISO, IEC, and other groups that have a consensus process for developing terminology. The KOIOS OTD contains terms, definitions, and images of concepts used to describe individuals, organizations, locations, goods and services. The KOIOS OTD conforms to ISO 22745 (all parts) and is designed to enable the exchange of characteristic data in all stages of the life-cycle of an item, and to ensure that the resulting specifications conform to ISO 8000-110. Issuing agency: KOIOS Master Data Limited in UK.
-        </Description>
+		<Description>Intended Purpose/App. Area: The KOIOS OTD is a collection of terminology defined by and obtained from consensus bodies such as ISO, IEC, and other groups that have a consensus process for developing terminology. The KOIOS OTD contains terms, definitions, and images of concepts used to describe individuals, organizations, locations, goods and services. The KOIOS OTD conforms to ISO 22745 (all parts) and is designed to enable the exchange of characteristic data in all stages of the life-cycle of an item, and to ensure that the resulting specifications conform to ISO 8000-110. Issuing agency: KOIOS Master Data Limited in UK.</Description>
 	</Code>
 	<Code>
 		<Id>0195</Id>
 		<Name>Singapore Nationwide E-lnvoice Framework</Name>
 		<Description>Intended Purpose/App. Area: For use in electronic messages in accordance to the Singapore
-            nationwide e-invoice framework on Identification of organization. Issuing agency: Infocomm Media Development Authority in Singapore.
-        </Description>
+            nationwide e-invoice framework on Identification of organization. Issuing agency: Infocomm Media Development Authority in Singapore.</Description>
 	</Code>
 	<Code>
 		<Id>0196</Id>
@@ -992,8 +983,7 @@
 	<Code>
 		<Id>0198</Id>
 		<Name>ERSTORG</Name>
-		<Description>Intended Purpose/App. Area: To be used for identifying Danish companies based on VAT numbers included juridical. Issuing agency: The Danish Business Authority in Denmark.
-        </Description>
+		<Description>Intended Purpose/App. Area: To be used for identifying Danish companies based on VAT numbers included juridical. Issuing agency: The Danish Business Authority in Denmark.</Description>
 	</Code>
 	<Code>
 		<Id>0199</Id>
@@ -1152,9 +1142,56 @@ Classes moyennes et Energie</Description>
         <Description>Intended Purpose/App. Area: To provide identifiers for organizations at national level in TAHITI (French). Issuing agency: AIFE (Agence pour l’Informatique Financière de l’Etat)</Description>
     </Code> 
 	<Code>
-        <Id>0230</Id>
-        <Name>National e-Invoicing Framework</Name>
-        <Description>Intended Purpose/App. Area: Identifier for  organizations. Issuing agency: Malaysia Digital Economy Corporation Sdn Bhd (MDEC)</Description>
-    </Code>
-    
+		<Id>0230</Id>
+		<Name>National e-Invoicing Framework</Name>
+		<Description>Intended Purpose/App. Area: Identifier for  organizations. Issuing agency: Malaysia Digital Economy Corporation Sdn Bhd (MDEC)</Description>
+	</Code>
+	<Code>
+		<Id>0231</Id>
+		<Name>Single taxable company (France)</Name>
+		<Description>'Intended Purpose/App. Area: Provide identifiers to companies in a single taxable company regime. Issuing agency: AIFE (Agence pour l’Informatique Financière de l’Etat)'</Description>
+	</Code>
+	<Code>
+		<Id>0232</Id>
+		<Name>NOBB product number</Name>
+		<Description>Intended Purpose/App. Area:  . Issuing agency:  '</Description>
+	</Code>
+	<Code>
+		<Id>0233</Id>
+		<Name>Elnummer</Name>
+		<Description>Elnummer</Description>
+	</Code>
+	<Code>
+		<Id>0234</Id>
+		<Name>Toimitusosoite ID</Name>
+		<Description>'Intended Purpose/App. Area: Identification scheme is used to identify delivery locations of the Finnish government accounting units. Issuing agency: Toimitusosoite ID'</Description>
+	</Code>
+	<Code>
+		<Id>0235</Id>
+		<Name>UAE Tax Identification Number (TIN)</Name>
+		<Description>'Intended Purpose/App. Area: A unique number issued to a range of persons required to be identified for tax purposes. Issuing agency: UAE Federal Tax Authority'</Description>
+	</Code>
+	<Code>
+		<Id>0236</Id>
+		<Name>ToimipaikkalD</Name>
+		<Description>ToimipaikkalD</Description>
+	</Code>
+	<Code>
+		<Id>0237</Id>
+		<Name>CPR (Danish person civil registration number)</Name>
+		<Description>'Intended Purpose/App. Area:  . Issuing agency:  '</Description>
+	</Code>
+	<Code>
+		<Id>0238</Id>
+		<Name>Plateforme.s agréée.s à la facturation électronique (PPF/PDP)</Name>
+		<Description>'Intended Purpose/App. Area: To provide identifiers for E-invoicing Public Platform and Partner Dematerialisation Platform. Issuing agency: AIFE (Agence pour l’Informatique Financière de l’Etat)'</Description>
+	</Code>
+	<Code>
+		<Id>0239</Id>
+		<Name>EAEU</Name>
+	</Code>
+	<Code>
+		<Id>0240</Id>
+		<Name>Register of legal persons (in French : Répertoire des personnes morales)</Name>
+	</Code>
 </CodeList>

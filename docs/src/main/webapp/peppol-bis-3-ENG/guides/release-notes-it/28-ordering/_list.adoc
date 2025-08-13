@@ -7,6 +7,37 @@ https://peppol-docs.agid.gov.it/docs/my_index-ENG.jsp[Link to main site of docum
 ^.^| Date
 ^.^| What's new
 
+| 3.3.0.7(IT)
+a| 06/06/2025
+a| _Update to specifications https://docs.peppol.eu/poacc/upgrade-3/2025-Q2/release-notes/[PEPPOL BIS 3.0.15 - May release 2025]_. +
+
+Effective as of *25th of August 2025*
+
+[red]#Changes to documentation#
+
+* Changed paragraph “7.16.1. Delivery Location (DeliveryLocation)”; 
+* Changed paragraph “7.4.2. Details on Medical Devices and their identification - UDI code”. 
+
+[red]#Changes to Syntax#
+
+* Order
+** Added new structure cac:Despatch with two elements cbc:RequestedDespatchDate and cbc:RequestedDespatchTime; 
+** Updated schematron to version 3.6. 
+
+[red]#Changes to code lists and validation artifacts#
+
+* Changed the severity level from WARNING to FATAL of the rules PEPPOL-T76-R007, PEPPOL-T76-R008 e PEPPOL-T76-R009;
+* Electronic Address Scheme (EAS)
+** Removed: 9901
+** Added: 0147,0154,0158,0170,0194,0203,0205,0217,0225,0240
+* ISO 6523 ICD list
+** Added: 0239,0240 
+* ISO 4217 Currency codes 
+** Removed: CUC,ZWL 
+** Added: XXX 
+* Item type identification code (UNCL7143) 
+** Added: PPI 
+
 | 3.3.0.6(IT)
 a| 20/12/2024
 a| _Update to specifications https://docs.peppol.eu/poacc/upgrade-3/2024-Q4/release-notes/[PEPPOL BIS 3.0.14 - November release 2024]_. +

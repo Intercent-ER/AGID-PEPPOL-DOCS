@@ -3,6 +3,8 @@
 
 In aggiunta al tipo di fattura indicato nell'InvoiceTypeCode (es. 380 - fattura commerciale), il tipo documento indica in modo più preciso la tipologia di fattura, come ad esempio le fatture differite, le autofatture, ecc., secondo la normativa italiana.
 
+Di seguito il https://peppol-docs.agid.gov.it/docs/xml/ITA/peppol-bis-invoice-3/codelist/TipoDocumento%20FatturaPA.html[link] alla codelist italiana contenente i codici di Tipo Documento.
+
 Se il tipo documento non viene specificato, si intende la fattura commerciale (TD01).
 
 .Esempio UBL per specificare il tipo documento come estensione UBL

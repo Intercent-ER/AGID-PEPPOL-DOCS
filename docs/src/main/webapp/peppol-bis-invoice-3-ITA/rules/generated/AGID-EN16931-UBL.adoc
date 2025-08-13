@@ -1578,7 +1578,7 @@
 .3+| PEPPOL-COMMON-R042 *(fatal)*
 | Danish organization number (CVR) MUST be stated in the correct format.
 | cbc:EndpointID[@schemeID = '0184'] \| cac:PartyIdentification/cbc:ID[@schemeID = '0184'] \| cbc:CompanyID[@schemeID = '0184']
-| (string-length(text()) = 10) and (substring(text(), 1, 2) = 'DK') and (string-length(translate(substring(text(), 3, 8), '1234567890', '')) = 0)
+| (string-length(text()) = 8) and (string-length(translate(substring(text(), 1, 8), '1234567890', '')) = 0)
 .3+| PEPPOL-COMMON-R043 *(fatal)*
 | Belgian enterprise number MUST be stated in the correct format.
 | cbc:EndpointID[@schemeID = '0208'] \| cac:PartyIdentification/cbc:ID[@schemeID = '0208'] \| cbc:CompanyID[@schemeID = '0208']
@@ -1742,7 +1742,7 @@
 | not(cbc:BaseAmount) or xs:decimal(../cbc:PriceAmount) = xs:decimal(cbc:BaseAmount) - xs:decimal(cbc:Amount)
 .3+| PEPPOL-EN16931-R051 *(fatal)*
 | All currencyID attributes must have the same value as the invoice currency code (BT-5), except for the invoice total VAT amount in accounting currency (BT-111).
-| cbc:Amount \| cbc:BaseAmount \| cbc:PriceAmount \| cac:TaxTotal[cac:TaxSubtotal]/cbc:TaxAmount \| cbc:TaxableAmount \| cbc:LineExtensionAmount \| cbc:TaxExclusiveAmount \| cbc:TaxInclusiveAmount \| cbc:AllowanceTotalAmount \| cbc:ChargeTotalAmount \| cbc:PrepaidAmount \| cbc:PayableRoundingAmount \| cbc:PayableAmount
+| cbc:Amount \| cbc:BaseAmount \| cbc:PriceAmount \| cac:TaxTotal[cac:TaxSubtotal]/cbc:TaxAmount \| cac:TaxSubtotal/cbc:TaxAmount \| cbc:TaxableAmount \| cbc:LineExtensionAmount \| cbc:TaxExclusiveAmount \| cbc:TaxInclusiveAmount \| cbc:AllowanceTotalAmount \| cbc:ChargeTotalAmount \| cbc:PrepaidAmount \| cbc:PayableRoundingAmount \| cbc:PayableAmount
 | @currencyID = $documentCurrencyCode
 .3+| PEPPOL-EN16931-R053 *(fatal)*
 | Only one tax total with tax subtotals MUST be provided.

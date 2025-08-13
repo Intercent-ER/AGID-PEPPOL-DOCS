@@ -8,6 +8,46 @@ https://peppol-docs.agid.gov.it/docs/my_index_fatt.jsp[Vai al Portale Specifiche
 ^.^| Data
 ^.^| Cosa è cambiato
 
+| 3.0.19.1(IT)
+a| 06/06/2025
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/2024-Q4/release-notes/[PEPPOL BIS 3.0.19 - May release 2025] e altre modifiche italiane_. +
+
+In vigore a partire dal *25 Agosto 2025*
+
+[red]#Cambiamenti alla documentazione# +
+
+* Piccole modifiche editoriali. 
+
+[red]#Cambiamenti alla sintassi# +
+
+* Rimosso il riferimento alla regola BR-CO-25 nel campo cbc:PaymentDueDate nel tracciato della Nota di Credito.
+
+[red]#Cambiamenti alle code lists e artefatti di validazione# +
+
+* Modificate le regole PEPPOL-EN16931-R051, PEPPOL-COMMON-R042, DK-R-003 (Danimarca), DK-R-004 (Danimarca) e DK-R-008 (Danimarca); 
+* Electronic Address Scheme (EAS);
+** Rimosso: 9901
+** Aggiunto: 0147,0154,0158,0170,0194,0203,0205,0217,0225,0240 
+* ISO 6523 ICD list;
+** Aggiunto: 0239,0240 
+* ISO 4217 Currency codes;
+** Rimosso: CUC,ZWL 
+** Aggiunto: XXX
+* Invoiced object identifier scheme (UNCL 1153);
+** Aggiunto: AXU
+* Payment means code (UNCL4461);
+** Aggiunto: 69
+* Item type identification code (UNCL7143);
+** Aggiunto: PPI
+* VATEX code list;
+** Aggiunto: VATEX-EU-153,VATEX-FR-CGI261-1,VATEX-FR-CGI261-2,VATEX-FR-CGI261-3,VATEX-FR-CGI261-4,VATEX-FR-CGI261-5,VATEX-FR-CGI261-7,VATEX-FR-CGI261-8,VATEX-FR-CGI261A,VATEX-FR-CGI261B,VATEX-FR-CGI261C-1,VATEX-FR-CGI261C-2,VATEX-FR-CGI261C-3,VATEX-FR-CGI261D-1,VATEX-FR-CGI261D-1BIS,VATEX-FR-CGI261D-2,VATEX-FR-CGI261D-3,VATEX-FR-CGI261D-4,VATEX-FR-CGI261E-1,VATEX-FR-CGI261E-2,VATEX-FR-CGI277A,VATEX-FR-CGI275,VATEX-FR-298SEXDECIESA,VATEX-FR-CGI295,VATEX-FR-AE 
+* Invoice type code (UNCL1001 subset).
+** Aggiunto: 326,384,389 
+
+[red]#Aggiornamento schematron EN 16931# +
+
+* Aggiornamento dello schematron EN 16931
+
 | 3.0.18.2(IT)
 a| 01/04/2025
 a| La presente specifica implementa la versione aggiornata delle Specifiche tecniche FPA_v1.4, Specifiche tecniche FPR_v1.9 e I controlli SDI_v2.0, pubblicati il 31/01/2025 e in vigore dal 01/04/2025: +

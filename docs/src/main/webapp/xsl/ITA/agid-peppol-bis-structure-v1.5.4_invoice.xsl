@@ -82,7 +82,7 @@
 								}
 								var ctx = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
 								$("#path").prepend('<li><a href="'+source+'">'+transaction+'</a></li>');
-								$("#path").prepend('<li><a href="' + ctx + '/my_index.jsp" id="bis-index">Indice</a></li>');
+								$("#path").prepend('<li><a href="' + ctx + '/my_index_fatt.jsp" id="bis-index">Indice</a></li>');
 								var activeNode = $("#path").find("li").last();
 								activeNode.html(activeNode.find("a").text()).addClass("active");
 								$("#context").text(activeNode.text());
@@ -96,7 +96,7 @@
 
                     <ol id="path" class="breadcrumb">
                         <li>
-                            <a href="../../../my_index.jsp" id="bis-index">Indice</a>
+                            <a href="../../../my_index_fatt.jsp" id="bis-index">Indice</a>
                         </li>
                         <li class="active">
                             <xsl:value-of select="$transaction"/>

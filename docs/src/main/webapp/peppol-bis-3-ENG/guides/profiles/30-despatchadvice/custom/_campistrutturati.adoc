@@ -16,6 +16,44 @@ Structured fields allowed are solely and strictly the ones listed in the table b
 |OrderReference/ID
 
 |DespatchLine/OrderLineReference/OrderReference/ID
-
-
 |===
+
+= # Despatch Type#
+
+The delivery process can take place under: 
+
+* Purchase: the Supplier sends the goods to the Customer who assumes ownership of them; 
+* Deposit account: the Supplier sends the goods to the Customer for the creation or handling of a deposit account at the Customer’s facility/warehouse; 
+* Return: the Customer returns the goods to the Supplier as non-conforming. 
+
+The despatch type can be expressed in the cbc:DespatchAdviceTypeCode field using the following codes of the Despatch advice type code (UNCL1001 subset). 
+
+[width="100%",cols="^,^,^",options="header"]
+|===
+3.1+^s| Tipologia di consegna
+s| Nome
+s| Descrizione
+s| Codice
+
+|Despatch advice 
+|Document/message by means of which the seller or consignor informs the consignee about the despatch of goods. 
+|351
+
+|Consignment despatch advice 
+|Document/message by means of which the supplier informs the buyer about the despatch of goods ordered on consignment (goods to be delivered into stock with agreement on payment when goods are sold out of this stock).
+|748
+
+|Returns advice 
+|Document/message by means of which the buyer informs the seller about the despatch of returned goods.
+|729
+|===
+
+The despatch type is an essential element of the process, where not indicated it is assumed that the transport relates to goods purchased by the Customer (code 351) and not goods in the Deposit Account (748).
+
+.Example od Consignment Despatch Advice 
+[source, xml, indent=0]
+----
+<cbc:IssueDate>2025-05-20<cbc:IssueDate> 
+<cbc:DespatchAdviceTypeCode>748</cbc:DespatchAdviceTypeCode> 
+<cbc:Note>Reintegro del conto deposito<cbc:Note> 
+----

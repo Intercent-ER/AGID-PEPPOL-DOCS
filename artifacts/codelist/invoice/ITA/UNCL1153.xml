@@ -4337,10 +4337,14 @@
         <Description>Where a consignment is deconsolidated and/or transferred to the control of
             another carrier or freight forwarder (e.g. housebill, abstract) this references the
             previous (e.g. master) cargo control number.</Description>
-    </Code>
-    <Code>
-        <Id>ZZZ</Id>
-        <Name>Mutually defined reference number</Name>
-        <Description>Number based on party agreement.</Description>
-    </Code>
+	</Code>
+	<Code>
+		<Id>ZZZ</Id>
+		<Name>Mutually defined reference number</Name>
+		<Description>Number based on party agreement.</Description>
+	</Code>
+	<Code>
+		<Id>AXU</Id>
+		<Name>Block Stowage Reference</Name>
+	</Code>
 </CodeList>

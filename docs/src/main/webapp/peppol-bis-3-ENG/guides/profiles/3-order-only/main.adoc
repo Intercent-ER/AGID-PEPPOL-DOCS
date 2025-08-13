@@ -15,7 +15,7 @@ include::../../shared/_links.adoc[]
 
 image::../../../shared/images/peppol.png[float="right"]
 
-= [black]#BIS Order only 3.3.0.6#
+= [black]#BIS Order only 3.3.0.7#
 
 {author}
 

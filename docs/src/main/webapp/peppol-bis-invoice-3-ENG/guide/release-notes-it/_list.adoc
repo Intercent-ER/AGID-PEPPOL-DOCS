@@ -7,6 +7,46 @@ https://peppol-docs.agid.gov.it/docs/my_index_fatt-ENG.jsp[Link to main site of 
 ^.^| Date
 ^.^| What’s new
 
+| 3.0.19.1(IT)
+a| 06/06/2025
+a| _Update to specifications https://docs.peppol.eu/poacc/billing/3.0/2024-Q4/release-notes/[PEPPOL BIS 3.0.19 - May release 2025] and other Italian modifications_. +
+
+Effective as of 25th of August 2025 
+
+[red]#Changes to syntax# +
+
+* Small editorial changes.
+
+[red]#Changes to code lists and validation artifacts# +
+
+* Removed reference to rule BR-CO-25 in the element cbc:PaymentDueDate in the Credit Note syntax.
+
+[red]#Changes to code lists and validation artifacts# +
+
+* Modification of the rules PEPPOL-EN16931-R051, PEPPOL-COMMON-R042, DK-R-003 (Denmark), DK-R-004 (Denmark), e DK-R-008 (Denmark); 
+* Electronic Address Scheme (EAS);
+** Removed: 9901
+** Added: 0147,0154,0158,0170,0194,0203,0205,0217,0225,0240 
+* ISO 6523 ICD list;
+** Added: 0239,0240 
+* ISO 4217 Currency codes;
+** Removed: CUC,ZWL 
+** Added: XXX
+* Invoiced object identifier scheme (UNCL 1153);
+** Added: AXU
+* Payment means code (UNCL4461);
+** Added: 69
+* Item type identification code (UNCL7143);
+** Added: PPI
+* VATEX code list;
+** Added: VATEX-EU-153,VATEX-FR-CGI261-1,VATEX-FR-CGI261-2,VATEX-FR-CGI261-3,VATEX-FR-CGI261-4,VATEX-FR-CGI261-5,VATEX-FR-CGI261-7,VATEX-FR-CGI261-8,VATEX-FR-CGI261A,VATEX-FR-CGI261B,VATEX-FR-CGI261C-1,VATEX-FR-CGI261C-2,VATEX-FR-CGI261C-3,VATEX-FR-CGI261D-1,VATEX-FR-CGI261D-1BIS,VATEX-FR-CGI261D-2,VATEX-FR-CGI261D-3,VATEX-FR-CGI261D-4,VATEX-FR-CGI261E-1,VATEX-FR-CGI261E-2,VATEX-FR-CGI277A,VATEX-FR-CGI275,VATEX-FR-298SEXDECIESA,VATEX-FR-CGI295,VATEX-FR-AE 
+* Invoice type code (UNCL1001 subset).
+** Added: 326,384,389 
+
+[red]#EN 16931 schematrons updated# +
+
+* Update of schematron EN 16931.
+
 | 3.0.18.2(IT)
 a| 01/04/2025
 a| This specification implements the updated version of Technical Specifications FPA_v1.4, Technical Specifications FPR_v1.9 and The Controls SDI_v2.0, published on the 31/01/2025 and effective as of 01/04/2025: +

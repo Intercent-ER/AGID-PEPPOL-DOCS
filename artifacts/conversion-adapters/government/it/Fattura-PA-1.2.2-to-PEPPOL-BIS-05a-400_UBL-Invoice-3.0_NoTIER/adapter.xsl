@@ -113,7 +113,7 @@ the root node.
 			</cac:DocumentReference>
 		</xsl:if>
 	</xsl:template>
-	<xsl:template match="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto/CodiceCIG" mode="CIG_Contratto_Riga">
+	<xsl:template match="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[RiferimentoNumeroLinea = /in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea]/CodiceCIG" mode="CIG_Contratto_Riga">
 		<xsl:param name="CN" select="."/>
 		<xsl:param name="CNP" select="1"/>
 		<xsl:if test="../RiferimentoNumeroLinea[normalize-space()]=$CN/NumeroLinea[normalize-space()]">
@@ -294,7 +294,8 @@ the root node.
 	<xsl:template match="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiDDT" mode="DespatchLineReference">
 		<xsl:param name="CN" select="."/>
 		<xsl:param name="CNP" select="1"/>
-		<xsl:param name="lineeRiferiteArray" select="tokenize(RiferimentoNumeroLinea,',')"/>
+		<xsl:variable name="tutti-riferimenti" select="string-join(RiferimentoNumeroLinea, ',')"/>
+		<xsl:variable name="lineeRiferiteArray" select="distinct-values(tokenize($tutti-riferimenti,','))"/>
 		<xsl:if test="((some $x in $lineeRiferiteArray satisfies $x=$CN/NumeroLinea[normalize-space()] or (RiferimentoNumeroLinea and count(../../DatiBeniServizi/DettaglioLinee)=1)) and count($CN/AltriDatiGestionali[TipoDato = 'DatiDDT']) = 0)
 		                or not(RiferimentoNumeroLinea)">
 			<cac:DespatchLineReference>
@@ -1754,7 +1755,7 @@ the root node.
 				<xsl:with-param name="CN" select="current()"/>
 				<xsl:with-param name="CNP" select="position()"/>
 			</xsl:apply-templates>
-			<xsl:apply-templates select="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto/CodiceCIG" mode="CIG_Contratto_Riga">
+			<xsl:apply-templates select="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[RiferimentoNumeroLinea = /in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea]/CodiceCIG" mode="CIG_Contratto_Riga">
 				<xsl:with-param name="CN" select="current()"/>
 				<xsl:with-param name="CNP" select="position()"/>
 			</xsl:apply-templates>
@@ -2958,9 +2959,11 @@ the root node.
 				</cac:InvoicePeriod>
 			</xsl:if>
 			<xsl:if test="count(FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[(not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea))]) &gt; 0">
+			<xsl:variable name="concatenati" select="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[(not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea))]/lower-case(IdDocumento)"/>
+				
 				<cac:OrderReference>
 					<cbc:ID>
-						<xsl:value-of select="string-join(FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[(not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea))]/IdDocumento, ', ')"/>
+						<xsl:value-of select="string-join(distinct-values($concatenati), ', ')"/>
 					</cbc:ID>
 					<xsl:if test="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[(not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea))]/Data">
 						<cbc:IssueDate>
@@ -2981,13 +2984,14 @@ the root node.
 				<xsl:with-param name="CN" select="current()"/>
 				<xsl:with-param name="CNP" select="position()"/>
 			</xsl:apply-templates>
+			
 			<xsl:if test="count(//CodiceCIG[not(../RiferimentoNumeroLinea) or not(../RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea)]) = 1">
 				<cac:OriginatorDocumentReference>
 					<cbc:ID>
 						<xsl:value-of select="//CodiceCIG[not(../RiferimentoNumeroLinea) or not(../RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea)]"/>
 					</cbc:ID>
 				</cac:OriginatorDocumentReference>
-			</xsl:if>
+			</xsl:if>			
 			<xsl:if test="count(FatturaElettronicaBody/DatiGenerali/DatiContratto[not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea)]) = 1">
 				<xsl:apply-templates select="FatturaElettronicaBody/DatiGenerali/DatiContratto[not(RiferimentoNumeroLinea)][1]">
 					<xsl:with-param name="CN" select="current()"/>

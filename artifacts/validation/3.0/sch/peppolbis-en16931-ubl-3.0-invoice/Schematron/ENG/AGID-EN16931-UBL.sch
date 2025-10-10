@@ -1451,7 +1451,7 @@
 			<assert id="PEPPOL-EN16931-R080" test="(count(cac:AdditionalDocumentReference[cbc:DocumentTypeCode='50']) &lt;= 1)" flag="fatal">Only one project reference is allowed on document level</assert>
 		</rule>
 	</pattern>
-	<pattern id="OP-transaction-rules">
+	<pattern id="OP-transaction-rules" xmlns="http://purl.oclc.org/dsdl/schematron">
 		<!-- Document level -->
 		<rule context="ubl-creditnote:CreditNote | ubl-invoice:Invoice">
 			<assert id="PEPPOL-EN16931-R001" test="cbc:ProfileID" flag="fatal">Business process MUST be provided.</assert>

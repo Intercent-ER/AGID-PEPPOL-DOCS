@@ -24,6 +24,7 @@
 ^.^|VERSIONE ^.^|DATA ^.^|CAMBIAMENTI APPORTATI
 | 1.0.0 | 11/11/2022 | Prima stesura
 | 1.0.1 | 15/11/2022 | Revisione
+| 1.1.0 | 27/06/2025 | Revisione
 |===
 
 == Glossario
@@ -126,10 +127,12 @@ In prima istanza, la lista mostra per ogni risultato le informazioni di:
 Inoltre, per ogni participant Id è possibile espandere la sezione tramite il tasto _freccia giù_ posto al limite destro della riga (figura 11). +
 Espandendo le informazioni, vengono mostrate le informazioni sulle singole registrazioni dei documenti su SMP, cioè:
 
-* nome del Service Provider;
+* Canale di registrazione del participant:
+* Nome del Service Provider;
 * Id dell'Access Point sul quale è effettuata la registrazione;
-* protocollo di trasporto;
-* tipo di documento.
+* Data di registrazione sull'Access Point;
+* Protocollo di trasporto;
+* Tipo di documento.
 
 .Visualizzazione in lista delle informazioni sulle singole registrazioni documenti
 image::SMP_Manuale_ServiceProvider-841b5.png[align=center]

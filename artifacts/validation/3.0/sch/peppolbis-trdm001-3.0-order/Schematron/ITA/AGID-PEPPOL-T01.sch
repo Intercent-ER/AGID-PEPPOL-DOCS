@@ -7,7 +7,7 @@
 	Controllo del CIG elaborato a partire dalla regola pubblicata dal MIN SAL cfr http://www.salute.gov.it/imgs/C_17_pagineAree_3849_listaFile_itemName_3_file.pdf
 -->
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:u="utils" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xi="http://www.w3.org/2001/XInclude" schemaVersion="iso" queryBinding="xslt2">
-	<title>Regole di business per l'Ordine Peppol - Business Rules for Peppol for Peppol Order transaction 3.5.0.1</title>
+	<title>Regole di business per l'Ordine Peppol - Business Rules for Peppol for Peppol Order transaction 3.6.0.1</title>
 	<ns uri="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" prefix="cbc"/>
 	<ns uri="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" prefix="cac"/>
 	<ns uri="urn:oasis:names:specification:ubl:schema:xsd:Order-2" prefix="ubl"/>
@@ -1677,7 +1677,7 @@
 	<pattern id="checkCfPivaBuyer">
 		<rule context="cac:BuyerCustomerParty/cac:Party">
 			<assert id="NSO_066" test="if(cac:PostalAddress/cac:Country/cbc:IdentificationCode ='IT') 
-                          then ( (count(cac:PartyTaxScheme/cbc:CompanyID)>0) or (count(cac:PartyLegalEntity/cbc:CompanyID)>0) ) else true()" flag="warning">NSO_066: Almeno uno tra l’elemento “Identificativo di registrazione legale del Cliente” (cac:PartyLegalEntity/cbc:CompanyID – codice fiscale) e l’elemento “Identificativo fiscale del Cliente” (cac:PartyTaxScheme/cbc:CompanyID – partita IVA) deve essere valorizzato. </assert>
+                          then ( (count(cac:PartyTaxScheme/cbc:CompanyID)>0) or (count(cac:PartyLegalEntity/cbc:CompanyID)>0) ) else true()" flag="fatal">NSO_066: Almeno uno tra l’elemento “Identificativo di registrazione legale del Cliente” (cac:PartyLegalEntity/cbc:CompanyID – codice fiscale) e l’elemento “Identificativo fiscale del Cliente” (cac:PartyTaxScheme/cbc:CompanyID – partita IVA) deve essere valorizzato. </assert>
 		</rule>
 	</pattern>
 	<pattern id="checkCfPivaAccountingCustomerParty">

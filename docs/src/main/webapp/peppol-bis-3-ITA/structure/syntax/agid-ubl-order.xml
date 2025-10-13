@@ -1251,8 +1251,8 @@
 			</Element>
 						<Element cardinality="0..1">
 				<Term>cac:Despatch</Term>
-				<Name>Despatch information</Name>			
-				<Element cardinality="0..1">
+				<Name>Despatch information – Informazioni sul ritiro</Name>			
+				<Element cardinality="1..1">
 					<Term>cbc:RequestedDespatchDate</Term>
 					<Name>Requested despatch date - Data richiesta di ritiro</Name>
 					<Description>The date on which the buyer requests the ordered goods be ready for pickup at the seller’s warehouse or an agreed-upon pickup location.</Description>

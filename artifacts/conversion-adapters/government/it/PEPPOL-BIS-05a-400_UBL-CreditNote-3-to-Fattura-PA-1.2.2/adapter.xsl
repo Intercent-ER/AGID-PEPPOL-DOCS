@@ -1928,9 +1928,16 @@
 			<FatturaElettronicaBody>
 				<DatiGenerali>
 					<DatiGeneraliDocumento>
-						<TipoDocumento>
-							<xsl:text>TD04</xsl:text>
-						</TipoDocumento>
+                        <xsl:if test=" (ext:UBLExtensions/ext:UBLExtension/ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:TipoDocumento')">
+                            <TipoDocumento>
+                                <xsl:value-of select="ext:UBLExtensions/ext:UBLExtension[ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:TipoDocumento']/ext:ExtensionContent/cbc:TypeCode"/>
+                            </TipoDocumento>
+                        </xsl:if>
+                        <xsl:if test="not(ext:UBLExtensions/ext:UBLExtension/ext:ExtensionURI='urn:fdc:agid.gov.it:fatturapa:TipoDocumento')">
+                            <TipoDocumento>
+                                <xsl:text>TD04</xsl:text>
+                            </TipoDocumento>
+                        </xsl:if>
 						<Divisa>
 							<xsl:value-of select="if (cbc:DocumentCurrencyCode) then cbc:DocumentCurrencyCode else 'EUR'"/>
 						</Divisa>

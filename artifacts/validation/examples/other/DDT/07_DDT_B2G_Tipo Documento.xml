@@ -7,6 +7,9 @@
 	<cbc:ID>07_DDT_BIS3_V01_B2G</cbc:ID>
 	<cbc:IssueDate>2023-05-13</cbc:IssueDate>
 	<cbc:DespatchAdviceTypeCode>351</cbc:DespatchAdviceTypeCode>
+		<cac:OrderReference>
+		<cbc:ID>1234#2023-03-12#O92KTP</cbc:ID>
+	</cac:OrderReference>
 	<cac:DespatchSupplierParty>
 		<cac:Party>
 			<cbc:EndpointID schemeID="0211">IT02188520544</cbc:EndpointID>

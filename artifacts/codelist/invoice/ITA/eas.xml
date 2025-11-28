@@ -375,4 +375,8 @@
 		<Id>0240</Id>
 		<Name>Register of legal persons (in French : Répertoire des personnes morales)</Name>
 	</Code>
+	<Code>
+		<Id>0244</Id>
+		<Name>Tax Identification (Tax ID), Nigeria</Name>
+	</Code>
 </CodeList>

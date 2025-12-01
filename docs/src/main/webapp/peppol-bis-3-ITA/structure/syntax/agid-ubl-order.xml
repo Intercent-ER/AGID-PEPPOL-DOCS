@@ -1037,8 +1037,8 @@
 					</Element>
 					<Element cardinality="0..1">
 						<Term>cbc:AdditionalStreetName</Term>
-						<Name>Address line 2 - Informazini addizionali indirizzo</Name>
-						<Description>Informazini addizionali indirizzo</Description>
+						<Name>Address line 2 - Informazioni addizionali indirizzo</Name>
+						<Description>Informazioni addizionali indirizzo</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir01-093</Reference>
 					</Element>

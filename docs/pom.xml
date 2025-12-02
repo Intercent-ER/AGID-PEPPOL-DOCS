@@ -572,7 +572,7 @@
 							<goal>war</goal>
 						</goals>
 						<configuration>
-							<packagingIncludes>attachments/**, css/**, docs/**, fonts/**, images/**, inc/**, js/**, META-INF/**, peppol-bis-3-ENG/menu/**, peppol-bis-3-ITA/menu/**, peppol-bis-invoice-3-ENG/menu/**, peppol-bis-invoice-3-ITA/menu/**, peppol-bis-3-ENG/structure/codelist/*.xml, peppol-bis-3-ITA/structure/codelist/*.xml, peppol-bis-invoice-3-ENG/structure/codelist/*.xml, peppol-bis-invoice-3-ITA/structure/codelist/*.xml, sch/**, WEB-INF/**, xml/**, xsd/**, xslt/**, *.jsp </packagingIncludes>
+							<packagingIncludes>attachments/**, css/**, docs/**, fonts/**, images/**, inc/**, js/**, META-INF/**, peppol-bis-3-ENG/menu/**, peppol-bis-3-ITA/menu/**, peppol-bis-invoice-3-ENG/menu/**, peppol-bis-invoice-3-ITA/menu/**, peppol-bis-3-ENG/structure/codelist/*.xml, peppol-bis-3-ITA/structure/codelist/*.xml, peppol-bis-invoice-3-ENG/structure/codelist/*.xml, peppol-bis-invoice-3-ITA/structure/codelist/*.xml, sch/**, WEB-INF/**, xml/**, xsd/**, xslt/**, conversion-adapters/**, *.jsp </packagingIncludes>
 							<warSourceDirectory>${project.build.directory}/${project.build.finalName}</warSourceDirectory>
 						</configuration>
 					</execution>
@@ -712,11 +712,24 @@
 							<echo>Copying codelist files</echo>
 						</configuration>
 					</execution>
-				
-				
-				
-				
-				
+					<execution>
+						<id>copy-converters</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/${project.build.finalName}/conversion-adapters/</outputDirectory>
+							<resources>          
+								<resource>
+									<directory>${basedir}/../artifacts/conversion-adapters/</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+							<echo>Copying converters files</echo>						   
+						</configuration>            
+					</execution>
 					<execution>
 						<id>copy-sch</id>
 						<!-- here the phase you need -->

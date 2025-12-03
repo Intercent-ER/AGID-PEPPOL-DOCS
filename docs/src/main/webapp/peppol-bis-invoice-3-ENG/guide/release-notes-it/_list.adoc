@@ -7,6 +7,41 @@ https://peppol-docs.agid.gov.it/docs/my_index_fatt-ENG.jsp[Link to main site of 
 ^.^| Date
 ^.^| What’s new
 
+| 3.0.20.1(IT)
+a| 11/12/2025
+a| _Update to specifications https://docs.peppol.eu/poacc/billing/3.0/2025-Q4/PEPPOL BIS 3.0.20 - November release 2025] and other Italian modifications_. +
+
+Effective as of *Monday 23 February 2026*
+
+[red]#Changes to documentation # +
+
+* In paragraph 7.2.10, remove the following text: “The attachment functionality is not intended for of including a copy of the invoice in an image format (such as PDF). Attaching an invoice copy is not in compliance with this specification.” 
+* In paragraph 11.3.10 revised the UBL example of reference to the main invoice.  
+
+[red]#Changes to syntax# +
+
+* Textual revision of descriptions of the cac:BillingReference, cac:InvoiceDocumentReference, cac:AdditionalDocumentReference elements. 
+
+[red]#Changes to code lists and validation artifacts# +
+
+* Electronic Address Scheme (EAS) 
+** Added: 0244 
+*ISO 6523 ICD list 
+** Added: 0241,0242,0243,0244 
+* ISO 4217 Currency codes 
+** Removed: STN 
+** Added: CNH,STD 
+* VATEX code list 
+** Added: VATEX-EU-135-1 
+* Introduction of the rules PEPPOL-COMMON-R052 (Denmark) and PEPPOL-COMMON-R053 (Denmark) with level of severity “warning” for invoices from Danish suppliers.  
+* Update of the text of the rule DK-R-010 (Denmark); 
+* Introduction of the rule DK-R-017 (Denmark) with level of severity “warning” for invoices from Danish suppliers towards Danish clients.   
+
+[red]#EN 16931 schematrons updated# +
+
+* Update of schematron EN 16931
+* Removed rule UBL-CR-631.
+
 | 3.0.19.1(IT)
 a| 06/06/2025
 a| _Update to specifications https://docs.peppol.eu/poacc/billing/3.0/2024-Q4/release-notes/[PEPPOL BIS 3.0.19 - May release 2025] and other Italian modifications_. +

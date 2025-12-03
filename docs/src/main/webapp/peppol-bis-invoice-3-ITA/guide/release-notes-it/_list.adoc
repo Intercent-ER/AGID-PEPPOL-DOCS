@@ -12,17 +12,36 @@ https://peppol-docs.agid.gov.it/docs/my_index_fatt.jsp[Vai al Portale Specifiche
 a| 15/12/2025
 a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/2025-Q4/PEPPOL BIS 3.0.20 - November release 2025] e altre modifiche italiane_. +
 
-In vigore a partire dal *26 Febbraio 2026*
+Entrata in vigore *lunedì 23 Febbraio 2026*
 
 [red]#Cambiamenti alla documentazione# +
 
+* Nel paragrafo 7.2.10 rimozione del seguente testo: "La funzionalità dell’allegato non è inteso per includere una copia della fattura in un formato immagine (come un PDF). Allegare una copia della fattura non è compatibile con questa specifica." 
+* Nel paragrafo 11.3.10 revisione dell’esempio UBL per il riferimento alla fattura principale.  
 
 [red]#Cambiamenti alla sintassi# +
 
+* Revisione testuale della descrizione degli elementi cac:BillingReference, cac:InvoiceDocumentReference, cac:AdditionalDocumentReference. 
 
 [red]#Cambiamenti alle code lists e artefatti di validazione# +
 
+* Electronic Address Scheme (EAS) 
+** Aggiunti: 0244 
+*ISO 6523 ICD list 
+** Aggiunti: 0241,0242,0243,0244 
+* ISO 4217 Currency codes 
+** Rimossi: STN 
+** Aggiunti: CNH,STD 
+* VATEX code list 
+** Aggiunti: VATEX-EU-135-1 
+* Introduzione delle regole PEPPOL-COMMON-R052 (Danimarca) e PEPPOL-COMMON-R053 (Danimarca) con severità “warning” valide per fatture emesse da fornitori danesi. 
+* Aggiornamento del testo della regola DK-R-010 (Danimarca); 
+* Introduzione della regola danese DK-R-017 (Danimarca) con severità “warning” valida per fatture emesse da fornitori danesi verso clienti danesi.  
 
+[red]#Aggiornamento schematron EN 16931# +
+
+* Aggiornamento schematron EN 16931 
+* Eliminazione regola UBL-CR-631. 
 
 | 3.0.19.1(IT)
 a| 06/06/2025

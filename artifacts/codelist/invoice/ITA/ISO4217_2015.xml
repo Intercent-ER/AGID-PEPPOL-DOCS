@@ -540,6 +540,10 @@
         <Id>SZL</Id>
         <Name>Lilangeni</Name>
     </Code>
+	    <Code>
+        <Id>STD</Id>
+        <Name>Dobra</Name>
+    </Code>
     <Code>
         <Id>THB</Id>
         <Name>Baht</Name>

@@ -5,7 +5,7 @@
     <Identifier>UNCL6313-T16</Identifier>
     <Version>D.17A</Version>
     <Agency>UN/CEFACT</Agency>
-    <Subset>openPEPPOL</Subset>
+    <Subset>OpenPeppol</Subset>
 
 
     <Code>
@@ -29,7 +29,7 @@
         </Description>
     </Code>
     <Code>
-        <Id>AAF</Id>
+        <Id>AAL</Id>
         <Name>Net Weight</Name>
         <Description>
             Weight (mass) of goods including any packing normally going with them to a buyer in a retail sale.

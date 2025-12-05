@@ -27,7 +27,7 @@ Entrata in vigore *lunedì 23 Febbraio 2026*
 
 * Electronic Address Scheme (EAS) 
 ** Aggiunti: 0244 
-*ISO 6523 ICD list 
+* ISO 6523 ICD list 
 ** Aggiunti: 0241,0242,0243,0244 
 * ISO 4217 Currency codes 
 ** Rimossi: STN 

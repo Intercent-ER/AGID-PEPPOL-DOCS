@@ -54,3 +54,13 @@ Per riferirsi alla fase di un SAL dalle righe di fattura è necessario utilizzar
 
 Nei casi di fatture per operazioni accessorie, emesse dagli 'autotrasportatori' per usufruire delle agevolazioni in materia di registrazione e pagamento dell'IVA, è possibile riferirsi alla fattura principale relativa al trasporto di beni per certificare le operazioni accessorie.
 
+.Esempio UBL per il riferimento alla fase di un SAL dalle righe fattura
+[source, xml, indent=0]
+----
+<cac:BillingReference>
+  <cac:AdditionalDocumentReference>
+   <cbc:ID>ft001</cbc:ID>
+   <cbc:IssueDate>2020-09-15</cbc:IssueDate>
+  </cac:AdditionalDocumentReference>
+</cac:BillingReference>
+----

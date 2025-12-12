@@ -529,10 +529,6 @@
         <Name>South Sudanese Pound</Name>
     </Code>
     <Code>
-        <Id>STN</Id>
-        <Name>Dobra</Name>
-    </Code>
-    <Code>
         <Id>SVC</Id>
         <Name>El Salvador Colon</Name>
     </Code>
@@ -715,5 +711,9 @@
 	<Code>
 		<Id>XXX</Id>
 		<Name>The codes assigned for transactions where no currency is involved</Name>
+	</Code>
+	<Code>
+		<Id>CNH</Id>
+		<Name>Renminbi (offshore)</Name>
 	</Code>
 </CodeList>

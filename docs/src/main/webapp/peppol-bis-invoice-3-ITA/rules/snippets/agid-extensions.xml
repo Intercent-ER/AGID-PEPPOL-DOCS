@@ -63,7 +63,7 @@
 				<cbc:Amount currencyID="EUR">0.8</cbc:Amount>
 			</ext:ExtensionContent>
 		</ext:UBLExtension>
-		<!-- end::ext_RiepilogoIVA_Arrotondamento[] -->
+		<!-- end::ext_RiepilogoIVA_Arrotondamento[]  -->
 		<!-- tag::ext_ritenuta_NC[] -->
 		<ext:UBLExtension>
 			<ext:ExtensionURI>urn:fdc:agid.gov.it:fatturapa:Ritenuta</ext:ExtensionURI>
@@ -134,18 +134,7 @@
         <cbc:ID>CE20-HF1-4001</cbc:ID>
         <cbc:SalesOrderID>so-12343</cbc:SalesOrderID>
     </cac:OrderReference>
-	<!-- tag::rif_fattura_principale[] -->
-    <cac:BillingReference>
-		    <cac:InvoiceDocumentReference>
-			    <cbc:ID>ft123</cbc:ID>
-			    <cbc:IssueDate>2020-09-15</cbc:IssueDate>
-		    </cac:InvoiceDocumentReference>
-		    <cac:AdditionalDocumentReference>
-			    <cbc:ID>ft001</cbc:ID>
-			    <cbc:IssueDate>2020-09-15</cbc:IssueDate>
-		    </cac:AdditionalDocumentReference>
-    </cac:BillingReference>
-	<!-- end::rif_fattura_principale[] -->
+
     <cac:DespatchDocumentReference>
         <cbc:ID>despadv-3</cbc:ID>
     </cac:DespatchDocumentReference>

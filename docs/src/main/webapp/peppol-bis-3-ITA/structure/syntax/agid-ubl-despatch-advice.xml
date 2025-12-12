@@ -1595,6 +1595,28 @@
 						<Description>Numero di serie.</Description>
 						<Reference type="BUSINESS_TERM">tir16-083</Reference>
 					</Element>
+					<Element cardinality="0..n">
+						<Term>cac:AdditionalItemProperty</Term>
+						<Name>Additional item instance property information</Name>
+						<Description>A group of business terms providing information about properties of
+						the item instance.</Description>
+						<Element>
+							<Term>cbc:Name</Term>
+							<Name>Item instance property name - Nome proprietà istanza articolo</Name>
+							<Description>Indica la denominazione della proprietà dell'istanza dell'articolo.</Description>
+							<DataType>Text</DataType>
+							<Reference type="BUSINESS_TERM">tir16-p059</Reference>
+							<Value type="EXAMPLE">MAC</Value>
+						</Element>
+						<Element>
+							<Term>cbc:Value</Term>
+							<Name>Item instance property value - Valore proprietà istanza articolo</Name>
+							<Description>Indica il valore della proprietà dell'istanza dell'articolo.</Description>
+							<DataType>Text</DataType>
+							<Reference type="BUSINESS_TERM">tir16-p060</Reference>
+							<Value type="EXAMPLE">35-209900-176148-1</Value>
+						</Element>
+					</Element>
 					<Element cardinality="0..1">
 						<Term>cac:LotIdentification</Term>
 						<Name>Lot identifictation - Dati identiticativi lotto merce</Name>

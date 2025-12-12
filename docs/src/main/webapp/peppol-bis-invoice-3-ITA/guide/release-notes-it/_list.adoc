@@ -36,7 +36,7 @@ In vigore a partire dal *26 Febbraio 2026*
 ** Aggiunti: VATEX-EU-135-1
 * Introduzione delle regole PEPPOL-COMMON-R052 (Danimarca) e PEPPOL-COMMON-R053 (Danimarca) con severità “warning” valide per fatture emesse da fornitori danesi.
 * Aggiornamento del testo della regola DK-R-010 (Danimarca);
-* Introduzione della regola danese DK-R-017 (Danimarca) con severità “warning” valida per
+* Introduzione della regola danese DK-R-017 (Danimarca) con severità “warning” valida per fattura emessa dai fornitori danesi verso clienti danesi.
 
 [red]#Aggiornamento schematron EN 16931# +
 

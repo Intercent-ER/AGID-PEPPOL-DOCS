@@ -38,13 +38,13 @@
 | Australian Business Number (ABN) MUST be stated in the correct format.
 | cbc:EndpointID[@schemeID = '0151'] \| cac:PartyIdentification/cbc:ID[@schemeID = '0151'] \| cbc:CompanyID[@schemeID = '0151']
 | matches(normalize-space(), '^[0-9]{11}$') and u:abn(normalize-space())
-.3+| PEPPOL-COMMON-R052 *(fatal)*
+.3+| PEPPOL-COMMON-R052 *(warning)*
 | Danish chamber of commerce number (P) MUST be stated in the correct format.
-| cbc:EndpointID[@schemeID = '0096'] | cac:PartyIdentification/cbc:ID[@schemeID = '0096'] | cbc:CompanyID[@schemeID = '0096']
+| cbc:EndpointID[@schemeID = '0096'] \| cac:PartyIdentification/cbc:ID[@schemeID = '0096'] \| cbc:CompanyID[@schemeID = '0096']
 | (string-length(string()) = 10) and (string-length(translate(substring(string(), 1, 10),'1234567890', '')) = 0)
-.3+| PEPPOL-COMMON-R053 *(fatal)*
+.3+| PEPPOL-COMMON-R053 *(warning)*
 | Danish ERSTORG number (SE) MUST be stated in the correct format.
-| cbc:EndpointID[@schemeID = '0198'] | cac:PartyIdentification/cbc:ID[@schemeID = '0198'] | cbc:CompanyID[@schemeID = '0198']
+| cbc:EndpointID[@schemeID = '0198'] \| cac:PartyIdentification/cbc:ID[@schemeID = '0198'] \| cbc:CompanyID[@schemeID = '0198']
 | (string-length(string()) = 10 and substring(string(), 1, 2) = 'DK' and string-length(translate(substring(string(), 3, 8), '1234567890', '')) = 0)
 .3+| PEPPOL-EN16931-CL001 *(fatal)*
 | Mime code must be according to subset of IANA code list.

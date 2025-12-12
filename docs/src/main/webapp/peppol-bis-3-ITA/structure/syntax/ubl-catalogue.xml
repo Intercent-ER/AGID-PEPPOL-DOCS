@@ -153,7 +153,7 @@
 					<Reference type="CODE_LIST">eas</Reference>
 					<Value type="EXAMPLE">0088</Value>
 				</Attribute>
-				<Value type="EXAMPLE">7300010000001</Value>
+				<Value type="EXAMPLE">7350053850019</Value>
 			</Element>
 			<Element cardinality="0..1">
 				<Term>cac:PartyIdentification</Term>
@@ -336,7 +336,7 @@
 					<Reference type="CODE_LIST">eas</Reference>
 					<Value type="EXAMPLE">0088</Value>
 				</Attribute>
-				<Value type="EXAMPLE">7300010000001</Value>
+				<Value type="EXAMPLE">7350053850019</Value>
 			</Element>
 			<Element cardinality="0..1">
 				<Term>cac:PartyIdentification</Term>
@@ -521,7 +521,7 @@
 						<Reference type="CODE_LIST">eas</Reference>
 						<Value type="EXAMPLE">0088</Value>
 					</Attribute>
-					<Value type="EXAMPLE">7300010000001</Value>
+					<Value type="EXAMPLE">7350053850019</Value>
 				</Element>
 
 				<Element cardinality="0..1">
@@ -691,7 +691,7 @@
 						<Reference type="CODE_LIST">eas</Reference>
 						<Value type="EXAMPLE">0088</Value>
 					</Attribute>
-					<Value type="EXAMPLE">7300010000001</Value>
+					<Value type="EXAMPLE">7350053850019</Value>
 				</Element>
 				<Element cardinality="0..1">
 					<Term>cac:PartyIdentification</Term>
@@ -1612,16 +1612,18 @@
 
 					</Element>
 				</Element>
-				<Element cardinality="0..1">
+				<Element cardinality="0..n">
 					<Term>cac:TransactionConditions</Term>
-					<Name>Contracted item</Name>
+					<Name>Transaction condition</Name>
 					<Element>
 						<Term>cbc:ActionCode</Term>
-						<Name>Contracted item indicator</Name>
-						<Description>The code CT indicates that the item is offered in accordance to the referenced contract.</Description>
+						<Name>Contracted item indicator, Non-returnable item indicator</Name>
+						<Description>The code CT indicates that the item is offered in accordance to the referenced contract (tir19-p027). The code NON_RETURNABLE indicates that the item cannot be returned (tir19-p049).</Description>
 						<DataType>Code</DataType>
 						<Reference type="BUSINESS_TERM">tir19-p027</Reference>
-						<Value type="FIXED">CT</Value>
+						<Reference type="BUSINESS_TERM">tir19-p049</Reference>
+						<Reference type="CODE_LIST">TransactionCondition</Reference>
+						
 					</Element>
 				</Element>
 				<Element cardinality="0..n">
@@ -1664,7 +1666,7 @@
 					</Element>
 					<Element cardinality="0..1">
 						<Term>cbc:Percent</Term>
-						<Name>Item TAX precentage</Name>
+						<Name>Item TAX percentage</Name>
 						<Description>The TAX percentage rate that applies to the item unless
                             specific trade reasons apply such as exemptions.</Description>
 						<DataType>Percentage</DataType>
@@ -1688,6 +1690,30 @@
 					<Term>cac:AdditionalItemProperty</Term>
 					<Name>Additional item property</Name>
 					<Description>A group of business terms providing information about properties of the goods and services invoiced.</Description>
+					<Element cardinality="0..1">
+							<Term>cbc:ID</Term>
+							<Name>ID</Name>
+							<Description>ID of the property if assigned by an Agency</Description>
+							<Value type="EXAMPLE">77e416eb-a363-4258-a04e-171d843a6460</Value>
+							<Attribute usage="Optional">
+								<Term>schemeDataURI</Term>
+								<Name>Scheme Data URI</Name>
+								<Description>Scheme Data URI</Description>
+								<Value type="EXAMPLE">sdfdf</Value>
+							</Attribute>
+							<Attribute usage="Optional">
+								<Term>schemeID</Term>
+								<Name>Scheme identifier</Name>
+								<Description>Scheme identifier</Description>
+								<Value type="EXAMPLE">ISO22057</Value>
+							</Attribute>
+							<Attribute usage="Optional">
+								<Term>schemeVersionID</Term>
+								<Name>Scheme version identifier</Name>
+								<Description>Scheme version identifier</Description>
+								<Value type="EXAMPLE">2022</Value>
+							</Attribute>
+						</Element>
 					<Element>
 						<Term>cbc:Name</Term>
 						<Name>Item property name</Name>
@@ -1705,10 +1731,16 @@
 						<!-- <Value type="EXAMPLE">should we use eClass for examples?</Value> -->
 						<Attribute>
 							<Term>listID</Term>
-							<Name>Name code list id.</Name>
+							<Name>Name code list id</Name>
 							<Description>An identifier for the code list used for the Name code, this is bilaterally agreed</Description>
 
 						</Attribute>
+						<Attribute usage="Optional">
+							<Term>listVersionID</Term>
+							<Name>Name code list version</Name>
+							<Description>The code list version identifier</Description>
+							<Value type="EXAMPLE">3.29</Value>						
+						</Attribute>						
 					</Element>
 					<Element>
 						<Term>cbc:Value</Term>
@@ -1803,9 +1835,12 @@
 						<Term>cbc:CertificateTypeCode</Term>
 						<Name>Certificate type code</Name>
 						<Description>The UBL structure used for item labeling requires this elements,
-							use the value NA.</Description>
+							use the value NA if not other applicable package label code.</Description>
 						<DataType>Code</DataType>
-						<Value type="FIXED">NA</Value>
+						<Reference type="CODE_LIST">NA</Reference>
+						<Reference type="CODE_LIST">PackagingMarkedLabelAccreditationCode</Reference>
+						<Value type="EXAMPLE">NA</Value>
+						
 					</Element>
 					<Element>
 						<Term>cbc:CertificateType</Term>

@@ -1375,10 +1375,14 @@
 | For Danish Suppliers if the PaymentID is prefixed with 04# or 15# the 16 digits instruction Id must be added to the PaymentID eg. "04#1234567890123456" when Payment means equals 50 (Giro)
 | ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:PaymentMeans
 | not((cbc:PaymentMeansCode = '50') and ((substring(cbc:PaymentID, 1, 3) = '04#') or (substring(cbc:PaymentID, 1, 3) = '15#')) and not(string-length(cbc:PaymentID) = 19) )
-.3+| DK-R-010 *(fatal)*
-| For Danish Suppliers using PaymentMeansCode 93, PaymentID is mandatory. The first three characters of the PaymentID MUST be 71#, 73# or 75# (kortartskode), and PayeeFinancialAccount/ID MUST be exactly 8 characters long.| ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:PaymentMeans
+.3+| DK-R-010-NA *(warning)*  #(not applied in the Italian context)#
+| For Danish Suppliers using PaymentMeansCode 93, PaymentID is mandatory. The first three characters of the PaymentID MUST be 71#, 73# or 75# (kortartskode), and PayeeFinancialAccount/ID MUST be exactly 8 characters long.
 | ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:PaymentMeans
-| not((cbc:PaymentMeansCode = '93') and not(((substring(cbc:PaymentID, 1, 3) = '71#') or (substring(cbc:PaymentID, 1, 3) = '73#') or (substring(cbc:PaymentID, 1, 3) = '75#')) and (string-length(cac:PayeeFinancialAccount/cbc:ID/text()) = 8) ) ).3+| DK-R-011 *(fatal)*
+| not((cbc:PaymentMeansCode = '93') and not(((substring(cbc:PaymentID, 1, 3) = '71#') or (substring(cbc:PaymentID, 1, 3) = '73#') or (substring(cbc:PaymentID, 1, 3) = '75#')) and (string-length(cac:PayeeFinancialAccount/cbc:ID/text()) = 8) ) )
+.3+| DK-R-011-NA *(warning)*  #(not applied in the Italian context)#
+| For Danish Suppliers if the PaymentID is prefixed with 71# or 75# the 15-16 digits instruction Id must be added to the PaymentID eg. "71#1234567890123456" when payment Method equals 93 (FIK)
+| ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:PaymentMeans
+| not((cbc:PaymentMeansCode = '93') and ((substring(cbc:PaymentID, 1, 3) = '71#') or (substring(cbc:PaymentID, 1, 3) = '75#')) and not((string-length(cbc:PaymentID) = 18) or (string-length(cbc:PaymentID) = 19)) )
 .3+| DK-R-013 *(fatal)*
 | For Danish Suppliers it is mandatory to use schemeID when PartyIdentification/ID is used for AccountingCustomerParty or AccountingSupplierParty
 | ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification \| ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification \| ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification \| ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification
@@ -1603,13 +1607,13 @@
 | Australian Business Number (ABN) MUST be stated in the correct format.
 | cbc:EndpointID[@schemeID = '0151'] \| cac:PartyIdentification/cbc:ID[@schemeID = '0151'] \| cbc:CompanyID[@schemeID = '0151']
 | matches(normalize-space(), '^[0-9]{11}$') and u:abn(normalize-space())
-.3+| PEPPOL-COMMON-R052 *(fatal)*
+.3+| PEPPOL-COMMON-R052 *(warning)*
 | Danish chamber of commerce number (P) MUST be stated in the correct format.
-| cbc:EndpointID[@schemeID = '0096'] | cac:PartyIdentification/cbc:ID[@schemeID = '0096'] | cbc:CompanyID[@schemeID = '0096']
+| cbc:EndpointID[@schemeID = '0096'] \| cac:PartyIdentification/cbc:ID[@schemeID = '0096'] \| cbc:CompanyID[@schemeID = '0096']
 | (string-length(string()) = 10) and (string-length(translate(substring(string(), 1, 10),'1234567890', '')) = 0)
-.3+| PEPPOL-COMMON-R053 *(fatal)*
+.3+| PEPPOL-COMMON-R053 *(warning)*
 | Danish ERSTORG number (SE) MUST be stated in the correct format.
-| cbc:EndpointID[@schemeID = '0198'] | cac:PartyIdentification/cbc:ID[@schemeID = '0198'] | cbc:CompanyID[@schemeID = '0198']
+| cbc:EndpointID[@schemeID = '0198'] \| cac:PartyIdentification/cbc:ID[@schemeID = '0198'] \| cbc:CompanyID[@schemeID = '0198']
 | (string-length(string()) = 10 and substring(string(), 1, 2) = 'DK' and string-length(translate(substring(string(), 3, 8), '1234567890', '')) = 0)
 .3+| PEPPOL-EN16931-CL001 *(fatal)*
 | Mime code must be according to subset of IANA code list.

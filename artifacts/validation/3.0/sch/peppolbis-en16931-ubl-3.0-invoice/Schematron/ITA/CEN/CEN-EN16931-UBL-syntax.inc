@@ -25,6 +25,9 @@
 	<rule context="cac:AllowanceCharge[cbc:ChargeIndicator = true()]">
 		<assert id="UBL-SR-31" flag="fatal" test="(count(cbc:AllowanceChargeReason) &lt;= 1)">[UBL-SR-31]-Document level charge reason shall occur maximum once</assert>
 	</rule>
+	<rule context="cac:PartyTaxScheme">
+		<assert id="UBL-SR-53" flag="fatal" test="exists(cac:TaxScheme/cbc:ID) and exists(cbc:CompanyID)">[UBL-SR-53]- CompanyID (VAT Identifier) must be stated when providing the PartyTaxScheme/TaxScheme/ID.</assert>
+	</rule>
 	<rule context="/ubl:Invoice | /cn:CreditNote">
 		<assert id="UBL-CR-001-NA" flag="warning" test="not(ext:UBLExtensions)">[UBL-CR-001]-A UBL invoice should not include extensions (not applied in the Italian context)</assert>
 		<assert id="UBL-CR-002" flag="warning" test="not(cbc:UBLVersionID) or cbc:UBLVersionID = '2.1'">[UBL-CR-002]-A UBL invoice should not include the UBLVersionID or it should be 2.1</assert>
@@ -594,18 +597,18 @@
 		<assert id="UBL-CR-569" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cbc:BrandName)">[UBL-CR-569]-A UBL invoice should not include the InvoiceLine Item BrandName</assert>
 		<assert id="UBL-CR-570" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cbc:ModelName)">[UBL-CR-570]-A UBL invoice should not include the InvoiceLine Item ModelName</assert>
 		<assert id="UBL-CR-571" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cbc:ExtendedID)">[UBL-CR-571]-A UBL invoice should not include the InvoiceLine Item BuyersItemIdentification ExtendedID</assert>
-		<assert id="UBL-CR-572" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cbc:BarcodeSymbologyID)">[UBL-CR-572]-A UBL invoice should not include the InvoiceLine Item BuyersItemIdentification BarecodeSymbologyID</assert>
+		<assert id="UBL-CR-572" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cbc:BarcodeSymbologyID)">[UBL-CR-572]-A UBL invoice should not include the InvoiceLine Item BuyersItemIdentification BarcodeSymbologyID</assert>
 		<assert id="UBL-CR-573" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cac:PhysicalAttribute)">[UBL-CR-573]-A UBL invoice should not include the InvoiceLine Item BuyersItemIdentification PhysicalAttribute</assert>
 		<assert id="UBL-CR-574" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cac:MeasurementDimension)">[UBL-CR-574]-A UBL invoice should not include the InvoiceLine Item BuyersItemIdentification MeasurementDimension</assert>
 		<assert id="UBL-CR-575" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:BuyersItemIdentification/cac:IssuerParty)">[UBL-CR-575]-A UBL invoice should not include the InvoiceLine Item BuyersItemIdentification IssuerParty</assert>
 		<assert id="UBL-CR-576" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cbc:ExtendedID)">[UBL-CR-576]-A UBL invoice should not include the InvoiceLine Item SellersItemIdentification ExtendedID</assert>
-		<assert id="UBL-CR-577" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cbc:BarcodeSymbologyID)">[UBL-CR-577]-A UBL invoice should not include the InvoiceLine Item SellersItemIdentification BarecodeSymbologyID</assert>
+		<assert id="UBL-CR-577" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cbc:BarcodeSymbologyID)">[UBL-CR-577]-A UBL invoice should not include the InvoiceLine Item SellersItemIdentification BarcodeSymbologyID</assert>
 		<assert id="UBL-CR-578" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cac:PhysicalAttribute)">[UBL-CR-578]-A UBL invoice should not include the InvoiceLine Item SellersItemIdentification PhysicalAttribute</assert>
 		<assert id="UBL-CR-579" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cac:MeasurementDimension)">[UBL-CR-579]-A UBL invoice should not include the InvoiceLine Item SellersItemIdentification MeasurementDimension</assert>
 		<assert id="UBL-CR-580" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:SellersItemIdentification/cac:IssuerParty)">[UBL-CR-580]-A UBL invoice should not include the InvoiceLine Item SellersItemIdentification IssuerParty</assert>
 		<assert id="UBL-CR-581" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:ManufacturersItemIdentification)">[UBL-CR-581]-A UBL invoice should not include the InvoiceLine Item ManufacturersItemIdentification</assert>
 		<assert id="UBL-CR-582" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cbc:ExtendedID)">[UBL-CR-582]-A UBL invoice should not include the InvoiceLine Item StandardItemIdentification ExtendedID</assert>
-		<assert id="UBL-CR-583" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cbc:BarcodeSymbologyID)">[UBL-CR-583]-A UBL invoice should not include the InvoiceLine Item StandardItemIdentification BarecodeSymbologyID</assert>
+		<assert id="UBL-CR-583" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cbc:BarcodeSymbologyID)">[UBL-CR-583]-A UBL invoice should not include the InvoiceLine Item StandardItemIdentification BarcodeSymbologyID</assert>
 		<assert id="UBL-CR-584" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cac:PhysicalAttribute)">[UBL-CR-584]-A UBL invoice should not include the InvoiceLine Item StandardItemIdentification PhysicalAttribute</assert>
 		<assert id="UBL-CR-585" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cac:MeasurementDimension)">[UBL-CR-585]-A UBL invoice should not include the InvoiceLine Item StandardItemIdentification MeasurementDimension</assert>
 		<assert id="UBL-CR-586" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Item/cac:StandardItemIdentification/cac:IssuerParty)">[UBL-CR-586]-A UBL invoice should not include the InvoiceLine Item StandardItemIdentification IssuerParty</assert>
@@ -653,7 +656,6 @@
 		<assert id="UBL-CR-628" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:OrderableUnitFactorRate)">[UBL-CR-628]-A UBL invoice should not include the InvoiceLine Item Price OrderableUnitFactorRate</assert>
 		<assert id="UBL-CR-629" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:ValidityPeriod)">[UBL-CR-629]-A UBL invoice should not include the InvoiceLine Item Price ValidityPeriod</assert>
 		<assert id="UBL-CR-630" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:PriceList)">[UBL-CR-630]-A UBL invoice should not include the InvoiceLine Item Price PriceList</assert>
-		<assert id="UBL-CR-631" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cbc:OrderableUnitFactorRate)">[UBL-CR-631]-A UBL invoice should not include the InvoiceLine Item Price OrderableUnitFactorRate</assert>
 		<assert id="UBL-CR-632" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:ID)">[UBL-CR-632]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge ID</assert>
 		<assert id="UBL-CR-633" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:AllowanceChargeReasonCode)">[UBL-CR-633]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge AllowanceChargeReasonCode</assert>
 		<assert id="UBL-CR-634" flag="warning" test="not((cac:InvoiceLine|cac:CreditNoteLine)/cac:Price/cac:AllowanceCharge/cbc:AllowanceChargeReason)">[UBL-CR-634]-A UBL invoice should not include the InvoiceLine Item Price AllowanceCharge AllowanceChargeReason</assert>
@@ -751,6 +753,8 @@
 		<assert id="UBL-SR-46" flag="fatal" test="(count(cac:PaymentMeans/cbc:PaymentMeansCode/@name) &lt;=1)">[UBL-SR-46]-Payment means text shall occur maximum once</assert>
 		<assert id="UBL-SR-47" flag="fatal" test="count(//cbc:PaymentMeansCode[not(preceding::cbc:PaymentMeansCode/. = .)]) &lt;= 1">[UBL-SR-47]-When there are more than one payment means code, they shall be equal</assert>
 		<assert id="UBL-SR-49" flag="fatal" test="(count(cac:InvoicePeriod/cbc:DescriptionCode) &lt;=1)">[UBL-SR-49]-Value tax point date shall occur maximum once</assert>
+		<assert id="UBL-SR-54" flag="fatal" test="count(cac:PaymentMeans/cac:CardAccount) &lt;= 1">[UBL-SR-54]-An Invoice shall contain maximum one Payment Card account (BG-18).</assert>
+		<assert id="UBL-SR-55" flag="fatal" test="count(cac:PaymentMeans/cac:PaymentMandate) &lt;= 1">[UBL-SR-55]-An Invoice shall contain maximum one Payment Mandate (BG-19).</assert>
 	</rule>
 	<rule context="cac:InvoiceLine | cac:CreditNoteLine">
 		<assert id="UBL-SR-34" flag="fatal" test="(count(cbc:Note) &lt;= 1)">[UBL-SR-34]-Invoice line note shall occur maximum once</assert>
@@ -776,7 +780,7 @@
 		<assert id="UBL-SR-07" flag="fatal" test="(cac:InvoiceDocumentReference/cbc:ID)">[UBL-SR-07]-If there is a preceding invoice reference, the preceding invoice number shall be present</assert>
 	</rule>
 	<rule context="cac:TaxRepresentativeParty">
-		<assert id="UBL-SR-22" flag="fatal" test="(count(cac:Party/cac:PartyName/cbc:Name) &lt;= 1)">[UBL-SR-22]-Seller tax representative name shall occur maximum once, if the Seller has a tax representative</assert>
+		<assert id="UBL-SR-22" flag="fatal" test="(count(cac:PartyName/cbc:Name) &lt;= 1)">[UBL-SR-22]-Seller tax representative name shall occur maximum once, if the Seller has a tax representative</assert>
 		<assert id="UBL-SR-23" flag="fatal" test="(count(cac:Party/cac:PartyTaxScheme/cbc:CompanyID) &lt;= 1)">[UBL-SR-23]-Seller tax representative VAT identifier shall occur maximum once, if the Seller has a tax representative</assert>
 	</rule>
 	<rule context="cac:TaxSubtotal">

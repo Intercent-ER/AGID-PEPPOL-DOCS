@@ -9,12 +9,14 @@
     <xsl:param name="UNCL4461" as="xsd:string">xcl/UNCL4461.xml</xsl:param>
     <xsl:param name="NATURA" as="xsd:string">xcl/Natura_VATCategory_VATEX.xml</xsl:param>
 
+    <xsl:variable name="numeroDistinctCig" select="count(distinct-values(tokenize(string-join(//CodiceCIG, ','),',')))"/>
     <xsl:variable name="tutti-cig-senza-linea" select="string-join(//CodiceCIG[not(../RiferimentoNumeroLinea) or not(../RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea)], ',')"/>
     <xsl:variable name="distinctCigSenzaLineaArray" select="distinct-values(tokenize($tutti-cig-senza-linea,','))"/>
     <xsl:variable name="numeroDistinctCigSenzaLinea" select="count(distinct-values(tokenize($tutti-cig-senza-linea,',')))"/>
     <xsl:variable name="tutti-cig-solo-con-linea" select="string-join(//CodiceCIG[(../RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea) and not(contains($tutti-cig-senza-linea,.))], ',')"/>
     <xsl:variable name="distinctCigSoloConLineaArray" select="distinct-values(tokenize($tutti-cig-solo-con-linea,','))"/>
 
+    <xsl:variable name="numeroDistinctCup" select="count(distinct-values(tokenize(string-join(//CodiceCUP, ','),',')))"/>
     <xsl:variable name="tutti-cup-senza-linea" select="string-join(//CodiceCUP[not(../RiferimentoNumeroLinea) or not(../RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea)], ',')"/>
     <xsl:variable name="distinctCupSenzaLineaArray" select="distinct-values(tokenize($tutti-cup-senza-linea,','))"/>
     <xsl:variable name="numeroDistinctCupSenzaLinea" select="count(distinct-values(tokenize($tutti-cup-senza-linea,',')))"/>
@@ -75,6 +77,23 @@
                 </cac:DocumentReference>
             </xsl:if>
         </xsl:for-each>
+        <xsl:if test="$numeroDistinctCig &gt; 1">
+            <xsl:for-each select="$distinctCigSenzaLineaArray">
+                <cac:DocumentReference>
+                    <cbc:ID>
+                        <xsl:if test=".">
+                            <xsl:attribute name="schemeID">
+                                <xsl:text>AGB</xsl:text>
+                            </xsl:attribute>
+                        </xsl:if>
+                        <xsl:value-of select="."/>
+                    </cbc:ID>
+                    <cbc:DocumentTypeCode>
+                        <xsl:text>130</xsl:text>
+                    </cbc:DocumentTypeCode>
+                </cac:DocumentReference>
+            </xsl:for-each>
+        </xsl:if>
     </xsl:template>
     <xsl:template match="/" mode="CUP_Riga">
         <xsl:param name="CN" select="."/>
@@ -98,6 +117,23 @@
                 </cac:DocumentReference>
             </xsl:if>
         </xsl:for-each>
+        <xsl:if test="$numeroDistinctCup &gt; 1">
+            <xsl:for-each select="$distinctCupSenzaLineaArray">
+                <cac:DocumentReference>
+                    <cbc:ID>
+                        <xsl:if test=".">
+                            <xsl:attribute name="schemeID">
+                                <xsl:text>AEP</xsl:text>
+                            </xsl:attribute>
+                        </xsl:if>
+                        <xsl:value-of select="."/>
+                    </cbc:ID>
+                    <cbc:DocumentTypeCode>
+                        <xsl:text>130</xsl:text>
+                    </cbc:DocumentTypeCode>
+                </cac:DocumentReference>
+            </xsl:for-each>
+        </xsl:if>
     </xsl:template>
     <xsl:template match="/in:FatturaElettronica/FatturaElettronicaBody/DatiGenerali/DatiContratto/IdDocumento" mode="Contratto_Riga">
         <xsl:param name="CN" select="."/>
@@ -1589,44 +1625,10 @@
                 <xsl:with-param name="CN" select="current()"/>
                 <xsl:with-param name="CNP" select="position()"/>
             </xsl:apply-templates>
-            <xsl:if test="$numeroDistinctCupSenzaLinea &gt; 1">
-                <xsl:for-each select="$distinctCupSenzaLineaArray">
-                    <cac:DocumentReference>
-                        <cbc:ID>
-                            <xsl:if test=".">
-                                <xsl:attribute name="schemeID">
-                                    <xsl:text>AEP</xsl:text>
-                                </xsl:attribute>
-                            </xsl:if>
-                            <xsl:value-of select="."/>
-                        </cbc:ID>
-                        <cbc:DocumentTypeCode>
-                            <xsl:text>130</xsl:text>
-                        </cbc:DocumentTypeCode>
-                    </cac:DocumentReference>
-                </xsl:for-each>
-            </xsl:if>
             <xsl:apply-templates select="/" mode="CIG_Riga">
                 <xsl:with-param name="CN" select="current()"/>
                 <xsl:with-param name="CNP" select="position()"/>
             </xsl:apply-templates>
-            <xsl:if test="$numeroDistinctCigSenzaLinea &gt; 1">
-                <xsl:for-each select="$distinctCigSenzaLineaArray">
-                    <cac:DocumentReference>
-                        <cbc:ID>
-                            <xsl:if test=".">
-                                <xsl:attribute name="schemeID">
-                                    <xsl:text>AGB</xsl:text>
-                                </xsl:attribute>
-                            </xsl:if>
-                            <xsl:value-of select="."/>
-                        </cbc:ID>
-                        <cbc:DocumentTypeCode>
-                            <xsl:text>130</xsl:text>
-                        </cbc:DocumentTypeCode>
-                    </cac:DocumentReference>
-                </xsl:for-each>
-            </xsl:if>
             <cac:Item>
                 <cbc:Name>
                     <xsl:value-of select="normalize-space(Descrizione)"/>
@@ -2851,7 +2853,7 @@
                 <xsl:with-param name="CN" select="current()"/>
                 <xsl:with-param name="CNP" select="position()"/>
             </xsl:apply-templates>
-            <xsl:if test="$numeroDistinctCigSenzaLinea = 1">
+            <xsl:if test="$numeroDistinctCigSenzaLinea = 1 and $numeroDistinctCig = 1">
                 <cac:OriginatorDocumentReference>
                     <cbc:ID>
                         <xsl:value-of select="$distinctCigSenzaLineaArray"/>
@@ -2884,7 +2886,7 @@
                 <xsl:with-param name="CN" select="current()"/>
                 <xsl:with-param name="CNP" select="position()"/>
             </xsl:apply-templates>
-            <xsl:if test="$numeroDistinctCupSenzaLinea = 1">
+            <xsl:if test="$numeroDistinctCupSenzaLinea = 1 and $numeroDistinctCup = 1">
                 <cac:ProjectReference>
                     <cbc:ID>
                         <xsl:value-of select="$distinctCupSenzaLineaArray"/>

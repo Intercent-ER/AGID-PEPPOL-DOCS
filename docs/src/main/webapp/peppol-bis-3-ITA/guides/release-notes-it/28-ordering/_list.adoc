@@ -1,4 +1,4 @@
-https://peppol-docs.agid.gov.it/docs[Vai al Portale Specifiche]
+link:pass:[${peppoldocs.root.url}][Vai al Portale Specifiche]
 
 [cols="1h,1m,4m", options="header"]
 

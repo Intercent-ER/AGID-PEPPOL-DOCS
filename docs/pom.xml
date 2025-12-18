@@ -32,7 +32,7 @@
 	</properties>
 	
 	<profiles>
-		<!-- la variabile peppoldocs.root.url viene usata nei documenti in formato ASCIIDoc per individuare la root  -->
+		<!-- la variabile peppoldocs.root.url viene usata nei documenti in formato ASCIIDOC per individuare la root  -->
 		<!-- viene usata dal resource plugin quando assembla la directory del contesto applicativo  -->
 		<profile>
 			<id>test</id>

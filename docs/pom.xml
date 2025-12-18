@@ -23,11 +23,60 @@
 		<schematron.version>3.2.1</schematron.version>
 		<mapping_peppol_fpa.version>3.3</mapping_peppol_fpa.version>
 		<mapping_fpa_peppol.version>3.2</mapping_fpa_peppol.version>
-	</properties>
-	<build>
-		<plugins>
-			
 		
+		<!-- questi sono gli URL dei root context dei 4 ambienti su cui viene deployato il pacchetto -->
+		<root.url.test>https://test-peppol-ap.regione.emilia-romagna.it/docs</root.url.test>
+		<root.url.test.next.rel>https://test-peppol-ap.regione.emilia-romagna.it/docs-next-release</root.url.test.next.rel>
+		<root.url.prod>https://peppol-docs.agid.gov.it/docs</root.url.prod>
+		<root.url.prod.next.rel>https://peppol-docs.agid.gov.it/docs-next-release</root.url.prod.next.rel>
+	</properties>
+	
+	<profiles>
+		<!-- la variabile peppoldocs.root.url viene usata nei documenti in formato ASCIIDoc per individuare la root  -->
+		<!-- viene usata dal resource plugin quando assembla la directory del contesto applicativo  -->
+		<profile>
+			<id>test</id>
+			<properties>
+				<peppoldocs.root.url>${root.url.test}</peppoldocs.root.url>
+				<war.env>TEST</war.env>
+				<war.name>docs</war.name>
+			</properties>
+		</profile>
+		<profile>
+			<id>testnext</id>
+			<properties>
+				<peppoldocs.root.url>${root.url.test.next.rel}</peppoldocs.root.url>
+				<war.env>TEST</war.env>
+				<war.name>docs-next-release</war.name>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<peppoldocs.root.url>${root.url.prod}</peppoldocs.root.url>
+				<war.env>PROD</war.env>
+				<war.name>docs</war.name>
+			</properties>
+		</profile>
+		<profile>
+			<id>prodnext</id>
+			<properties>
+				<peppoldocs.root.url>${root.url.prod.next.rel}</peppoldocs.root.url>
+				<war.env>PROD</war.env>
+				<war.name>docs-next-release</war.name>
+			</properties>
+		</profile>
+	</profiles>
+	
+	<build>
+		<!-- il nome finale del WAR è composto da AMBIENTE-versione-tipodocumenti, ad esempio PROD-3.2-docs-next-release.war  -->
+		<!-- la terza parte del nome del file è analoga a quello che dovrà essere copiato nella directory di rilascio -->
+        <finalName>${war.env}-${project.version}-${war.name}</finalName>
+
+		<plugins>
 		
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -780,7 +829,7 @@
 							<resources>
 								<resource>
 									<directory>${project.build.directory}/generated-docs</directory>
-									<filtering>false</filtering>
+									<filtering>true</filtering>
 								</resource>
 							</resources>
 							<echo>Copying doc files</echo>

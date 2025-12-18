@@ -15,7 +15,7 @@ Il build di questo repository richiede maven ed una versione di Java 11 e preved
 
 la scelta del profilo dovrebbe essere legata al branch del repository git da cui si effettua il build stesso e determina
 
-* il riferimento alla home page del sito da tutti link delle pagine HTML - tramite la macro `${peppoldocs.root.url}`
+* il riferimento alla home page del sito da tutti link delle pagine HTML - impostato tramite la macro `${peppoldocs.root.url}`
 * il nome dell'archivio WAR di rilascio
 
 |Profilo|Ambiente di rilascio - valore di `${peppoldocs.root.url}`|Branch preferenziale|Nome archivio WAR|Nota|
@@ -27,7 +27,7 @@ la scelta del profilo dovrebbe essere legata al branch del repository git da cui
 
 ### Procedura di build
 
-per assemblare una dele quattro versioni del deliverable occorre dare il comando 
+per assemblare una dele quattro versioni del _deliverable_ occorre dare il comando 
 
 ```shell
 mvn clean install -P<nomeprofilo>
@@ -60,11 +60,24 @@ occorre usare la sintassi seguente:
 ```asciidoc
 link:pass:[${peppoldocs.root.url}/my_index-ENG.jsp][Main site of documentation]
 ```
-In pratica:
+
+Descrizione:
 
 | | |
 |--|--|
 |`link:`|indica al parser di AsciiDoc di trattare quello che segue come un link anche se non appare come un URL valido|
 |`pass:`|indica di ignorare il contenuto del link e copiarlo senza elaborazioni (modalità _passthrough_)|
-|`${peppoldocs.root.url}`|la root del contesto, ad esempio https://peppol-docs.agid.gov.it/docs nel caso della produzione|
+|`${peppoldocs.root.url}`|la macro che tramite Maven verrà sostituita dalla root del contesto, ad esempio `https://peppol-docs.agid.gov.it/docs` nel caso della produzione|
 |`/my_index-ENG.jsp`|il path che segue la root, può non esistere, in questo caso il link punterà alla root del contesto|
+
+## Contesti di rilascio dell'applicazione
+
+Gli URL che corrispondono ai contesti di rilascio dell'applicazione sono definiti insieme con i profili nel file `pom.xml` nel _sottoprogetto_ `docs`, come segue:
+
+```xml
+<!-- questi sono gli URL dei root context dei 4 ambienti su cui viene rilasciato il pacchetto -->
+<root.url.test>https://test-peppol-ap.regione.emilia-romagna.it/docs</root.url.test>
+<root.url.test.next.rel>https://test-peppol-ap.regione.emilia-romagna.it/docs-next-release</root.url.test.next.rel>
+<root.url.prod>https://peppol-docs.agid.gov.it/docs</root.url.prod>
+<root.url.prod.next.rel>https://peppol-docs.agid.gov.it/docs-next-release</root.url.prod.next.rel>
+```

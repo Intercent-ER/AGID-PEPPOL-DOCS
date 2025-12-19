@@ -1,4 +1,4 @@
-https://peppol-docs.agid.gov.it/docs/my_index_fatt-ENG.jsp[Link to main site of documentation]
+link:pass:[${peppoldocs.root.url}/my_index_fatt-ENG.jsp][Link to main site of documentation]
 
 [cols="1h,1m,4m", options="header"]
 
@@ -9,11 +9,11 @@ https://peppol-docs.agid.gov.it/docs/my_index_fatt-ENG.jsp[Link to main site of 
 
 | 3.0.20.1(IT)
 a| 11/12/2025
-a| _Update to specifications https://docs.peppol.eu/poacc/billing/3.0/2025-Q4/PEPPOL BIS 3.0.20 - November release 2025] and other Italian modifications_. +
+a| _Update to specifications https://docs.peppol.eu/poacc/billing/3.0/2025-Q4/[PEPPOL BIS 3.0.20 - November release 2025] and other Italian modifications_. +
 
 Effective as of *Monday 23 February 2026*
 
-[red]#Changes to documentation # +
+[red]#Changes to documentation# +
 
 * In paragraph 7.2.10, remove the following text: “The attachment functionality is not intended for of including a copy of the invoice in an image format (such as PDF). Attaching an invoice copy is not in compliance with this specification.” 
 * In paragraph 11.3.10 revised the UBL example of reference to the main invoice.  

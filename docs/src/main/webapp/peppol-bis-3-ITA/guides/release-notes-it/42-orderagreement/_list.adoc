@@ -1,4 +1,4 @@
-https://peppol-docs.agid.gov.it/docs[Vai al Portale Specifiche]
+link:pass:[${peppoldocs.root.url}][Vai al Portale Specifiche]
 
 
 [cols="1h,1m,4m", options="header"]
@@ -10,7 +10,7 @@ https://peppol-docs.agid.gov.it/docs[Vai al Portale Specifiche]
 
 | 3.0.0.9(IT)
 a| 11/12/2025
-a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2025-Q4/PEPPOL BIS 3.0.16 - November release 2025] e altre modifiche italiane_. +
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2025-Q4/[PEPPOL BIS 3.0.16 - November release 2025]_. +
 
 Entrata in vigore *lunedì 23 Febbraio 2026*
 
@@ -23,8 +23,9 @@ Entrata in vigore *lunedì 23 Febbraio 2026*
 * ISO 4217 Currency codes 
 ** Rimossi: STN 
 ** Aggiunti: CNH,STD 
-* Introduzione delle regole PEPPOL-COMMON-R052 (Danimarca) e PEPPOL-COMMON-R053 (Danimarca) con severità “warning” valide per fatture emesse da fornitori danesi. 
-* Introduzione della regola PEPPOL-COMMON-R042 (Danimarca) con severità “fatal”. 
+* Introduzione delle regole PEPPOL-COMMON-R052 (Danimarca) e PEPPOL-COMMON-R053 (Danimarca) con severità “warning” valide per ordini pre-concordati inviati da fornitori danesi. 
+* Introduzione della regola PEPPOL-COMMON-R042 (Danimarca) con severità “fatal”.
+* Rimozione della regola PEPPOL-COMMON-R048 (Italia)
 
 | 3.0.0.8(IT)
 a| 17/02/2025

@@ -1987,18 +1987,18 @@
 						<xsl:with-param name="CN" select="current()"/>
 						<xsl:with-param name="CNP" select="position()"/>
 					</xsl:apply-templates>
-					<xsl:apply-templates select="cac:InvoiceLine/cac:OrderLineReference" mode="DatiOrdineAcquisto_Riga2">
+					<xsl:apply-templates select="cac:CreditNoteLine/cac:OrderLineReference" mode="DatiOrdineAcquisto_Riga2">
 						<xsl:with-param name="CN" select="current()"/>
 						<xsl:with-param name="CNP" select="position()"/>
 					</xsl:apply-templates>
-					<xsl:if test="not(cac:InvoiceLine/cac:OrderLineReference) and in:Invoice/cac:OrderReference">
+					<xsl:if test="not(cac:CreditNoteLine/cac:OrderLineReference) and in:CreditNote/cac:OrderReference">
 						<DatiOrdineAcquisto>
 							<IdDocumento>
-								<xsl:value-of select="/in:Invoice/cac:OrderReference/cbc:ID"/>
+								<xsl:value-of select="/in:CreditNote/cac:OrderReference/cbc:ID"/>
 							</IdDocumento>
-							<xsl:if test="/in:Invoice/cbc:BuyerReference">
+							<xsl:if test="/in:CreditNote/cbc:BuyerReference">
 								<CodiceCommessaConvenzione>
-									<xsl:value-of select="/in:Invoice/cbc:BuyerReference"/>
+									<xsl:value-of select="/in:CreditNote/cbc:BuyerReference"/>
 								</CodiceCommessaConvenzione>
 							</xsl:if>
 						</DatiOrdineAcquisto>
@@ -2019,7 +2019,7 @@
 									<xsl:value-of select="/in:CreditNote/cac:CreditNoteLine/cac:DocumentReference/cbc:ID[@schemeID='CT']"/>
 								</IdDocumento>
 							</xsl:if>
-							<xsl:if test="not(/in:Invoice/cac:ContractDocumentReference) and not(/in:Invoice/cac:InvoiceLine/cac:DocumentReference/cbc:ID[@schemeID='CT'])">
+							<xsl:if test="not(/in:CreditNote/cac:ContractDocumentReference) and not(/in:CreditNote/cac:CreditNoteLine/cac:DocumentReference/cbc:ID[@schemeID='CT'])">
 								<IdDocumento>
 									<xsl:text>NAN</xsl:text>
 								</IdDocumento>

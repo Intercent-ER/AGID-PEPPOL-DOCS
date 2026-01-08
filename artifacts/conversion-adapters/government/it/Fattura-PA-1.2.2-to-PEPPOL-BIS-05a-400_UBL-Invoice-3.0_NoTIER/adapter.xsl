@@ -2829,7 +2829,7 @@
                 </cac:InvoicePeriod>
             </xsl:if>
             <xsl:if test="count(FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[(not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea))]) &gt; 0">
-                <xsl:variable name="concatenati" select="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[(not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea))]/lower-case(IdDocumento)"/>
+                <xsl:variable name="concatenati" select="FatturaElettronicaBody/DatiGenerali/DatiOrdineAcquisto[(not(RiferimentoNumeroLinea) or not(RiferimentoNumeroLinea=/in:FatturaElettronica/FatturaElettronicaBody/DatiBeniServizi/DettaglioLinee/NumeroLinea))]/IdDocumento"/>
                 <cac:OrderReference>
                     <cbc:ID>
                         <xsl:value-of select="string-join(distinct-values($concatenati), ', ')"/>

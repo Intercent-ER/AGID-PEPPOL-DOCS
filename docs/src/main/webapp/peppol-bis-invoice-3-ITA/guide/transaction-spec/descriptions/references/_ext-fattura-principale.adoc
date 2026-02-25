@@ -1,10 +1,66 @@
+= #Riferimento ad una Convenzione#
+
+Per fare riferimento ad una convenzione, il numero di convenzione può essere espressa come segue:
+
+.Esempio UBL per il riferimento ad una convenzione
+[source, xml, indent=0]
+----
+<cac:AdditionalDocumentReference>
+    <cbc:ID schemeID="AVV">123456</cbc:ID>
+    <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
+</cac:AdditionalDocumentReference>
+----
+
+Per riferirsi a più convenzioni dalle righe di fattura è necessario utilizzare *cac:DocumentReference* con il codice tipo documento = 130.
+
+.Esempio UBL per il riferimento ad una convenzione dalle righe fattura
+[source, xml, indent=0]
+----
+<cac:DocumentReference>
+    <cbc:ID schemeID="AVV">123456</cbc:ID>
+    <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
+</cac:DocumentReference>
+----
+
+[NOTE]
+La specifica è già concordata con Agenzia delle Entrate, che ne darà evidenza in una successiva versione delle regole tecniche.
+
+= #Riferimento fase (Dati SAL)#
+
+Per fare riferimento alla fase di un SAL, il codice può essere espresso come segue:
+
+.Esempio UBL per il riferimento alla fase di un SAL
+[source, xml, indent=0]
+----
+<cac:AdditionalDocumentReference>
+    <cbc:ID schemeID="AOR">001</cbc:ID>
+    <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
+</cac:AdditionalDocumentReference>
+----
+
+Per riferirsi alla fase di un SAL dalle righe di fattura è necessario utilizzare *cac:DocumentReference* con il codice tipo documento = 130.
+
+.Esempio UBL per il riferimento alla fase di un SAL dalle righe fattura
+[source, xml, indent=0]
+----
+<cac:DocumentReference>
+    <cbc:ID schemeID="AOR">001</cbc:ID>
+    <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
+</cac:DocumentReference>
+----
+
 
 = #Riferimento alla Fattura Principale# (estensione)
 
 Nei casi di fatture per operazioni accessorie, emesse dagli 'autotrasportatori' per usufruire delle agevolazioni in materia di registrazione e pagamento dell'IVA, è possibile riferirsi alla fattura principale relativa al trasporto di beni per certificare le operazioni accessorie.
 
-.Esempio UBL per il riferimento alla fattura principale
+.Esempio UBL per il riferimento alla fase di un SAL dalle righe fattura
 [source, xml, indent=0]
 ----
-include::../../../../rules/snippets/agid-extensions.xml[tag=rif_fattura_principale]
+<cac:BillingReference>
+  <cac:AdditionalDocumentReference>
+   <cbc:ID>ft001</cbc:ID>
+   <cbc:IssueDate>2020-09-15</cbc:IssueDate>
+  </cac:AdditionalDocumentReference>
+</cac:BillingReference>
 ----

@@ -64,8 +64,8 @@
 		<Element cardinality="0..1">
 			<Term>cbc:OrderTypeCode</Term>
 			<Name>Order type code</Name>
-			<Description>Indicates wether the order is a Purchase order (tir01-153), Consignement order (tir01-p050), Blanket order (tir01-p051) or Call of order (tir01-p052). Default is purchase order. See section Order Type Code in BIS-documentation for handling of order types.</Description>
-			<Reference type="BUSINESS_TERM">tir01-153, tir01-p050, tir01-p051, tir01-p052</Reference>
+			<Description>Indicates wether the message is an Order (tir01-153), Consignement order (tir01-p050), Blanket order (tir01-p051), Call of order (tir01-p052) or Purchase order (tir01-p063). Default is Order (tir01-153). See section Order Type Code in BIS-documentation for handling of order types.</Description>
+			<Reference type="BUSINESS_TERM">tir01-153, tir01-p050, tir01-p051, tir01-p052, tir01-p063</Reference>
 			<Reference type="CODE_LIST">UNCL1001_T01</Reference>
 			<Value type="EXAMPLE">220</Value>
 		</Element>
@@ -163,7 +163,6 @@
 				<Value type="EXAMPLE">5435235</Value>
 			</Element>
 		</Element>
-
 		<Element cardinality="0..1">
 			<Term>cac:CatalogueReference</Term>
 			<Name>Catalogue reference</Name>
@@ -176,7 +175,6 @@
 				<Value type="EXAMPLE">Cat2023-03-07</Value>
 			</Element>
 		</Element>
-
 		<Element cardinality="0..n">
 			<Term>cac:AdditionalDocumentReference</Term>
 			<Name>Additional documents</Name>
@@ -203,7 +201,7 @@
 					<Name>Attached document</Name>
 					<Description>The attached document embeded as binary object, coded as Base64.
 					The binary object has two supplementary components: a Mime Code, which specifies the Mime type of the attachment and a Filename
-					that is provided by (or on behalf of) the sender of the document</Description>
+						that is provided by (or on behalf of) the sender of the document</Description>
 					<DataType>Binary object</DataType>
 					<Reference type="BUSINESS_TERM">tir01-017</Reference>
 					<Attribute>
@@ -252,14 +250,13 @@
 		</Element>
 		<Element cardinality="0..1">
 			<Term>cac:ProjectReference</Term>
-			<Name>Project reference - Riferimento al progetto</Name>
-			<Description>Reference to contract - Riferimento al contratto</Description>
-			<Element cardinality="1..1">
+			<Name>PROJECT REFERENCE</Name>
+			<Element>
 				<Term>cbc:ID</Term>
-				<Name>Project reference - Identificativo del progetto</Name>
-				<Description>Indica gli estremi del progetto a cui fa riferimento l’Ordine, se il progetto è a livello di intero Documento.</Description>
-				<DataType>Document reference</DataType>
-				<Reference type="BUSINESS_TERM">tir01-p044</Reference>
+				<Name>Project reference</Name>
+				<Description>The identification of the project the order refers to.</Description>
+				<DataType>Document Reference</DataType>
+				<Reference type="BUSINESS_TERM"> tir01-p044</Reference>
 				<Value type="EXAMPLE">PID33</Value>
 			</Element>
 		</Element>
@@ -1163,34 +1160,38 @@
 			</Element>
 			<Element cardinality="0..1">
 				<Term>cac:RequestedDeliveryPeriod</Term>
-				<Name>Requested delivery period - Periodo di esecuzione della fornitura</Name>
+				<Name>Requested delivery period </Name>
 				<Element cardinality="0..1">
 					<Term>cbc:StartDate</Term>
-					<Name>Period start date - Data di inizio</Name>
-					<Description>Indica la data in cui deve avere inizio la fornitura, nel formato aaaa-mm-gg.</Description>
+					<Name>Period start date</Name>
+					<Description>The date on which the period starts. The start dates counts as part
+						of the period.Format ="YYYY-MM-DD"</Description>
 					<DataType>Date</DataType>
 					<Reference type="BUSINESS_TERM">tir01-099</Reference>
 				</Element>
 				<Element cardinality="0..1">
 					<Term>cbc:StartTime</Term>
-					<Name>Period start time - Ora di inizio</Name>
-					<Description>Indica l'orario in cui deve avere inizio la fornitura, nel formato oo:mm:ss</Description>
+					<Name>Period start time</Name>
+					<Description>The time at which this period begins. Format = "hh:mm:ss"</Description>
+					<DataType>Time</DataType>
 					<Reference type="BUSINESS_TERM">tir01-p042</Reference>
-					<Value type="EXAMPLE">12:10:33</Value>
+					<Value type="EXAMPLE">12:30:00</Value>
 				</Element>
 				<Element cardinality="0..1">
 					<Term>cbc:EndDate</Term>
-					<Name>Period end date - Data di fine</Name>
-					<Description>Indica la data entro cui deve terminare la fornitura, nel formato aaaa-mm-gg.</Description>
+					<Name>Period end date</Name>
+					<Description>The date on which the period ends. The end date counts as part of
+						the period.Format ="YYYY-MM-DD"</Description>
 					<DataType>Date</DataType>
 					<Reference type="BUSINESS_TERM">tir01-100</Reference>
 				</Element>
 				<Element cardinality="0..1">
 					<Term>cbc:EndTime</Term>
-					<Name>Period end time - Ora di fine</Name>
-					<Description>Indica l'orario in cui deve terminare la fornitura, nel formato oo:mm:ss</Description>
+					<Name>Period end time</Name>
+					<Description>The time at which this period end. Format = "hh:mm:ss"</Description>
+					<DataType>Time</DataType>
 					<Reference type="BUSINESS_TERM">tir01-p043</Reference>
-					<Value type="EXAMPLE">14:20:00</Value>
+					<Value type="EXAMPLE">18:00:00</Value>
 				</Element>
 			</Element>
 			<Element cardinality="0..1">
@@ -1239,7 +1240,7 @@
 						<Term>cbc:StreetName</Term>
 						<Name>Address line 1</Name>
 						<Description>The main address line in a postal address usually the street
-								name and number.</Description>
+							name and number.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir01-p029</Reference>
 					</Element>
@@ -1247,8 +1248,8 @@
 						<Term>cbc:AdditionalStreetName</Term>
 						<Name>Address line 2</Name>
 						<Description>An additional address line in a postal address that can be used
-								to give further details supplementing the main line. Common use are
-								secondary house number in a complex or in a building.</Description>
+							to give further details supplementing the main line. Common use are
+							secondary house number in a complex or in a building.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir01-p030</Reference>
 					</Element>
@@ -1256,7 +1257,7 @@
 						<Term>cbc:CityName</Term>
 						<Name>City</Name>
 						<Description>The common name of the city where the postal address is. The
-								name is written in full rather than as a code.</Description>
+							name is written in full rather than as a code.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir01-p031</Reference>
 					</Element>
@@ -1264,8 +1265,8 @@
 						<Term>cbc:PostalZone</Term>
 						<Name>Post code</Name>
 						<Description>The identifier for an addressable group of properties according
-								to the relevant national postal service, such as a ZIP code or Post
-								Code.</Description>
+							to the relevant national postal service, such as a ZIP code or Post
+							Code.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir01-p032</Reference>
 					</Element>
@@ -1273,7 +1274,7 @@
 						<Term>cbc:CountrySubentity</Term>
 						<Name>Country subdivision</Name>
 						<Description>For specifying a region, county, state, province etc. within a
-								country by using text.</Description>
+							country by using text.</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir01-p033</Reference>
 					</Element>
@@ -1284,7 +1285,7 @@
 							<Term>cbc:Line</Term>
 							<Name>Address line 3</Name>
 							<Description>An additional address line in an address that can be used
-									to give further details supplementing the main line.</Description>
+								to give further details supplementing the main line.</Description>
 							<DataType>Text</DataType>
 							<Reference type="BUSINESS_TERM">tir01-p034</Reference>
 							<Value type="EXAMPLE">Gate 34</Value>
@@ -1297,10 +1298,10 @@
 							<Term>cbc:IdentificationCode</Term>
 							<Name>Country code</Name>
 							<Description>A code that identifies the country.The lists of valid
-									countries are registered with the ISO 3166-1 Maintenance agency,
-									"Codes for the representation of names of countries and their
-									subdivisions". Codes must be according to the alpha-2
-									representation.</Description>
+								countries are registered with the ISO 3166-1 Maintenance agency,
+								"Codes for the representation of names of countries and their
+								subdivisions". Codes must be according to the alpha-2
+								representation.</Description>
 							<DataType>Code</DataType>
 							<Reference type="BUSINESS_TERM">tir01-p035</Reference>
 							<Reference type="CODE_LIST">ISO3166</Reference>
@@ -1335,7 +1336,27 @@
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir01-106</Reference>
 					</Element>
-				</Element>				
+				</Element>
+			</Element>
+			<Element cardinality="0..1">
+				<Term>cac:Despatch</Term>
+				<Name>Despatch information</Name>
+				<Element>
+					<Term>cbc:RequestedDespatchDate</Term>
+					<Name>Requested despatch date</Name>
+					<Description>The date on which the buyer requests the ordered goods be ready for pickup at the seller’s warehouse or an agreed-upon pickup location.</Description>
+					<DataType>Date</DataType>
+					<Reference type="BUSINESS_TERM">tir01-p053</Reference>
+					<Value type="EXAMPLE">2025-02-17</Value>
+				</Element>
+				<Element cardinality="0..1">
+					<Term>cbc:RequestedDespatchTime</Term>
+					<Name>Requested despatch time</Name>
+					<Description>The time (in addition to the date) on which the buyer requests the ordered goods be ready for pickup at the seller’s warehouse or an agreed-upon pickup location.</Description>
+					<DataType>Time</DataType>
+					<Reference type="BUSINESS_TERM">tir01-p054</Reference>
+					<Value type="EXAMPLE">10:30:00</Value>
+				</Element>
 			</Element>
 			<Element cardinality="0..1">
 				<Term>cac:Shipment</Term>
@@ -1829,6 +1850,95 @@
 						</Attribute>
 						<Value type="EXAMPLE">7300010000001</Value>
 					</Element>
+					<Element cardinality="0..1">
+						<Term>cac:DeliveryLocation</Term>
+						<Name>Delivery location </Name>
+						<Element cardinality="0..1">
+							<Term>cbc:Name</Term>
+							<Name>Delivery location name</Name>
+							<Description>A name of the location to where the ordered items should be
+								delivered.</Description>
+							<DataType>Text</DataType>
+							<Reference type="BUSINESS_TERM">tir01-p062</Reference>
+							<Value type="EXAMPLE">South side goods arrival dock</Value>
+						</Element>
+						<Element>
+							<Term>cac:Address</Term>
+							<Name>Delivery address</Name>
+							<Element cardinality="0..1">
+								<Term>cbc:StreetName</Term>
+								<Name>Address line 1</Name>
+								<Description>The main address line in a postal address usually the street
+							name and number.</Description>
+								<DataType>Text</DataType>
+								<Reference type="BUSINESS_TERM">tir01-p055</Reference>
+							</Element>
+							<Element cardinality="0..1">
+								<Term>cbc:AdditionalStreetName</Term>
+								<Name>Address line 2</Name>
+								<Description>An additional address line in a postal address that can be used
+							to give further details supplementing the main line. Common use are
+							secondary house number in a complex or in a building.</Description>
+								<DataType>Text</DataType>
+								<Reference type="BUSINESS_TERM">tir01-p056</Reference>
+							</Element>
+							<Element cardinality="0..1">
+								<Term>cbc:CityName</Term>
+								<Name>City</Name>
+								<Description>The common name of the city where the postal address is. The
+							name is written in full rather than as a code.</Description>
+								<DataType>Text</DataType>
+								<Reference type="BUSINESS_TERM">tir01-p057</Reference>
+							</Element>
+							<Element cardinality="0..1">
+								<Term>cbc:PostalZone</Term>
+								<Name>Post code</Name>
+								<Description>The identifier for an addressable group of properties according
+							to the relevant national postal service, such as a ZIP code or Post
+							Code.</Description>
+								<DataType>Text</DataType>
+								<Reference type="BUSINESS_TERM">tir01-p058</Reference>
+							</Element>
+							<Element cardinality="0..1">
+								<Term>cbc:CountrySubentity</Term>
+								<Name>Country subdivision</Name>
+								<Description>For specifying a region, county, state, province etc. within a
+							country by using text.</Description>
+								<DataType>Text</DataType>
+								<Reference type="BUSINESS_TERM">tir01-p059</Reference>
+							</Element>
+							<Element cardinality="0..1">
+								<Term>cac:AddressLine</Term>
+								<Name>Address line</Name>
+								<Element>
+									<Term>cbc:Line</Term>
+									<Name>Address line 3</Name>
+									<Description>An additional address line in an address that can be used
+								to give further details supplementing the main line.</Description>
+									<DataType>Text</DataType>
+									<Reference type="BUSINESS_TERM">tir01-p060</Reference>
+									<Value type="EXAMPLE">Gate 34</Value>
+								</Element>
+							</Element>
+							<Element>
+								<Term>cac:Country</Term>
+								<Name>Country</Name>
+								<Element>
+									<Term>cbc:IdentificationCode</Term>
+									<Name>Country code</Name>
+									<Description>A code that identifies the country.The lists of valid
+								countries are registered with the ISO 3166-1 Maintenance agency,
+								"Codes for the representation of names of countries and their
+								subdivisions". Codes must be according to the alpha-2
+								representation.</Description>
+									<DataType>Code</DataType>
+									<Reference type="BUSINESS_TERM">tir01-p061</Reference>
+									<Reference type="CODE_LIST">ISO3166</Reference>
+									<Value type="EXAMPLE">NL</Value>
+								</Element>
+							</Element>
+						</Element>
+					</Element>
 					<Element>
 						<Term>cac:RequestedDeliveryPeriod</Term>
 						<Name>Order line requested delivery period </Name>
@@ -2214,7 +2324,7 @@
 								<Term>name</Term>
 								<Name>Clear text name equivalent of classification code</Name>
 								<Description>The textual equivalent of the code value</Description>
-								<Value type="EXAMPLE">Office furniture</Value>	
+								<Value type="EXAMPLE">Office furniture</Value>
 							</Attribute>
 							<Value type="EXAMPLE">9873242</Value>
 						</Element>
@@ -2257,6 +2367,30 @@
 						<Term>cac:AdditionalItemProperty</Term>
 						<Name>Additional item property information</Name>
 						<Description>A group of business terms providing information about properties of the goods and services invoiced.</Description>
+						<Element cardinality="0..1">
+							<Term>cbc:ID</Term>
+							<Name>ID</Name>
+							<Description>ID of the property if assigned by an Agency</Description>
+							<Value type="EXAMPLE">77e416eb-a363-4258-a04e-171d843a6460</Value>
+							<Attribute usage="Optional">
+								<Term>schemeDataURI</Term>
+								<Name>Scheme Data URI</Name>
+								<Description>Scheme Data URI</Description>
+								<Value type="EXAMPLE">sdfdf</Value>
+							</Attribute>
+							<Attribute usage="Optional">
+								<Term>schemeID</Term>
+								<Name>Scheme identifier</Name>
+								<Description>Scheme identifier</Description>
+								<Value type="EXAMPLE">ISO22057</Value>
+							</Attribute>
+							<Attribute usage="Optional">
+								<Term>schemeVersionID</Term>
+								<Name>Scheme version identifier</Name>
+								<Description>Scheme version identifier</Description>
+								<Value type="EXAMPLE">2022</Value>
+							</Attribute>
+						</Element>
 						<Element>
 							<Term>cbc:Name</Term>
 							<Name>Item property name</Name>

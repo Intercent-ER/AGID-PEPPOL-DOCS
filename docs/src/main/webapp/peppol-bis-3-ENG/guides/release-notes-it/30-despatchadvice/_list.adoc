@@ -1,4 +1,4 @@
-https://peppol-docs.agid.gov.it/docs/my_index-ENG.jsp[Link to main site of documentation]
+link:pass:[${peppoldocs.root.url}/my_index-ENG.jsp][Link to main site of documentation]
 
 [cols="1h,1m,4m", options="header"]
 
@@ -6,6 +6,30 @@ https://peppol-docs.agid.gov.it/docs/my_index-ENG.jsp[Link to main site of docum
 ^.^| Version
 ^.^| Date
 ^.^| What's new
+
+| 3.1.0.7(IT)
+a| 11/12/2025
+a| _Update to specifications https://docs.peppol.eu/poacc/upgrade-3/2025-Q4/[PEPPOL BIS 3.0.16 - November release 2025]_. +
+
+Effective as of *Monday 23 February 2026*
+
+[red]#Changes to syntax# +
+
+* Added the new structure cac:AdditionalItemProperty within the structure cac:ItemInstance.
+
+[red]#Changes to code lists and validation artifacts# +
+
+* Electronic Address Scheme (EAS) 
+** Added: 0244 
+*ISO 6523 ICD list 
+** Added: 0241,0242,0243,0244 
+* ISO 4217 Currency codes 
+** Removed: STN 
+** Added: CNH,STD 
+* Introduction of the rules PEPPOL-COMMON-R052 (Denmark) and PEPPOL-COMMON-R053 (Denmark) with level of severity “warning” for despatch advices from Danish suppliers 
+* Introduction of rule PEPPOL-COMMON-R042 (Denmark) with level of severity “fatal”.
+* Removal of rule PEPPOL-COMMON-R048 (Italy)
+ 
 
 | 3.1.0.6(IT)
 a| 06/06/2025

@@ -1,4 +1,4 @@
-https://peppol-docs.agid.gov.it/docs[Vai al Portale Specifiche]
+link:pass:[${peppoldocs.root.url}][Vai al Portale Specifiche]
 
 
 [cols="1h,1m,4m", options="header"]
@@ -7,6 +7,29 @@ https://peppol-docs.agid.gov.it/docs[Vai al Portale Specifiche]
 ^.^| Versione
 ^.^| Data
 ^.^| Cosa è cambiato
+
+| 3.1.0.7(IT)
+a| 11/12/2025
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2025-Q4/[PEPPOL BIS 3.0.16 - November release 2025]_. +
+
+Entrata in vigore *lunedì 23 Febbraio 2026*
+
+[red]#Cambiamenti alla sintassi# +
+
+* Aggiunta la nuova struttura cac:AdditionalItemProperty all’interno della struttura cac:ItemInstance. 
+
+[red]#Cambiamenti alle code lists e artefatti di validazione# +
+
+* Electronic Address Scheme (EAS) 
+** Aggiunti: 0244 
+* ISO 6523 ICD list 
+** Aggiunti: 0241,0242,0243,0244 
+* ISO 4217 Currency codes 
+** Rimossi: STN 
+** Aggiunti: CNH,STD
+* Introduzione delle regole PEPPOL-COMMON-R052 (Danimarca) e PEPPOL-COMMON-R053 (Danimarca) con severità “warning” valide per documenti di trasporto inviati da fornitori danesi. 
+* Introduzione della regola PEPPOL-COMMON-R042 (Danimarca) con severità “fatal”.
+* Rimozione della regola PEPPOL-COMMON-R048 (Italia)
 
 | 3.1.0.6(IT)
 a| 06/06/2025

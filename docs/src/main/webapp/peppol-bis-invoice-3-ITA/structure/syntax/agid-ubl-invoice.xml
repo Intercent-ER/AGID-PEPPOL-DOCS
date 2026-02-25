@@ -246,13 +246,13 @@
 
 		<Element cardinality="0..n">
 			<Term>cac:BillingReference</Term>
-			<Name>PRECEDING INVOICE REFERENCE - FPA 2.1.6 'DatiFattureCollegate'</Name>
+			<Name>PRECEDING INVOICE REFERENCE</Name>
 			<Description>A group of business terms providing information on one or more preceding Invoices. Blocco contenente le informazioni relative alle fatture precedentemente trasmesse e alle quali si collega il documento presente; riguarda i casi di invio di nota di credito e/o di fatture di conguaglio a fronte di precedenti fatture di acconto.</Description>
 			<Reference type="BUSINESS_TERM">BG-3</Reference>
 
 			<Element>
 				<Term>cac:InvoiceDocumentReference</Term>
-				<Name>INVOICE DOCUMENT REFERENCE - Riferimento alla Fattura Principale</Name>
+				<Name>INVOICE DOCUMENT REFERENCE - FPA 2.1.6 'DatiFattureCollegate'</Name>
 
 				<Element agid:custom="rule">
 					<Term>cbc:ID</Term>
@@ -277,7 +277,7 @@
 
 			<Element cardinality="0..1" agid:custom="extension">
 				<Term>cac:AdditionalDocumentReference</Term>
-				<Name>Riferimento alla fattura principale</Name>
+				<Name>Riferimento alla fattura principale - FPA 2.1.10 'FatturaPrincipale'</Name>
 
 				<Element>
 					<Term>cbc:ID</Term>

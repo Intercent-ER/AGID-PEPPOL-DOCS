@@ -276,7 +276,7 @@
 			
 			<Element cardinality="0..1" agid:custom="extension">
 				<Term>cac:AdditionalDocumentReference</Term>
-				<Name>RIFERIMENTO ALLA FATTURA PRINCIPALE</Name>
+				<Name>RIFERIMENTO ALLA FATTURA PRINCIPALE - FPA 2.1.10 'FatturaPrincipale' </Name>
                 <Description>Da utilizzare nei casi di riferimento a fatture per operazioni accessorie, emesse dagli 'autotrasportatori' per usufruire delle agevolazioni in materia di registrazione e pagamento dell' IVA.</Description>
 				<Element>
 					<Term>cbc:ID</Term>

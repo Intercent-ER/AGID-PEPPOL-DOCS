@@ -3,7 +3,7 @@
     <Term>DespatchAdvice</Term>
     <agid:Extension>
         <agid:ID>urn:www.agid.gov.it:trns:ddt:3.0</agid:ID>
-        <agid:Name>Peppol Despatch Advice transaction 3.3.0.1(IT)</agid:Name>
+        <agid:Name>Peppol Despatch Advice transaction 3.5.0.1(IT)</agid:Name>
         <agid:Version>3.0</agid:Version>
     </agid:Extension>
     <Property key="sch:prefix">PEPPOL-T16</Property>
@@ -1545,15 +1545,38 @@
                         <Name>Item serial numbers</Name>
                         <Description>Serial numbers for items listed in the dispatch
 							line.</Description>
-                        <Reference type="BUSINESS_TERM">tir16-083</Reference>
-                    </Element>
-                    <Element cardinality="0..1">
-                        <Term>cac:LotIdentification</Term>
-                        <Name>Lot identifictation</Name>
-                        <Element cardinality="0..1">
-                            <Term>cbc:LotNumberID</Term>
-                            <Name>Item batch number</Name>
-                            <Description>The batch number that applies to all items in the dispatch
+						<Reference type="BUSINESS_TERM">tir16-083</Reference>
+					</Element>
+					<Element cardinality="0..n">
+						<Term>cac:AdditionalItemProperty</Term>
+						<Name>Additional item instance property information</Name>
+						<Description>A group of business terms providing information about properties of
+						the item instance.</Description>
+						<Element>
+							<Term>cbc:Name</Term>
+							<Name>Item instance property name</Name>
+							<Description>The name of the item instance property.The name must be sufficiently
+							descriptive to define the value.</Description>
+							<DataType>Text</DataType>
+							<Reference type="BUSINESS_TERM">tir16-p059</Reference>
+							<Value type="EXAMPLE">MAC</Value>
+						</Element>
+						<Element>
+							<Term>cbc:Value</Term>
+							<Name>Item instance property value</Name>
+							<Description>The value of the item instance property.</Description>
+							<DataType>Text</DataType>
+							<Reference type="BUSINESS_TERM">tir16-p060</Reference>
+							<Value type="EXAMPLE">35-209900-176148-1</Value>
+						</Element>
+					</Element>
+					<Element cardinality="0..1">
+						<Term>cac:LotIdentification</Term>
+						<Name>Lot identifictation</Name>
+						<Element cardinality="0..1">
+							<Term>cbc:LotNumberID</Term>
+							<Name>Item batch number</Name>
+							<Description>The batch number that applies to all items in the dispatch
 								line.</Description>
                             <Reference type="BUSINESS_TERM">tir16-082</Reference>
                         </Element>

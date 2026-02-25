@@ -4,7 +4,7 @@
 	<Term>Order</Term>
 	<agid:Restriction>
 		<agid:ID>urn:www.ubl-italia.org:spec:ordine:ver3.1</agid:ID>
-		<agid:Name>Ordine Peppol 3.5.0.1</agid:Name>
+		<agid:Name>Ordine Peppol 3.7.0.1</agid:Name>
 		<agid:Version>3.2</agid:Version>
 	</agid:Restriction>
 
@@ -1037,8 +1037,8 @@
 					</Element>
 					<Element cardinality="0..1">
 						<Term>cbc:AdditionalStreetName</Term>
-						<Name>Address line 2 - Informazini addizionali indirizzo</Name>
-						<Description>Informazini addizionali indirizzo</Description>
+						<Name>Address line 2 - Informazioni addizionali indirizzo</Name>
+						<Description>Informazioni addizionali indirizzo</Description>
 						<DataType>Text</DataType>
 						<Reference type="BUSINESS_TERM">tir01-093</Reference>
 					</Element>
@@ -1726,6 +1726,82 @@
 							<Value type="EXAMPLE">0088</Value>
 						</Attribute>
 						<Value type="EXAMPLE">7300010000001</Value>
+					</Element>
+					<Element cardinality="0..1">
+						<Term>cac:DeliveryLocation</Term>
+						<Name>Delivery location -  Luogo della consegna della linea d’ordine</Name>
+						<Element cardinality="0..1">
+							<Term>cbc:Name</Term>
+							<Name>Delivery location name - Nome del luogo di consegna della linea d'ordine</Name>
+							<Description>Indica un nome per identificare il luogo in cui deve essere eseguita la fornitura.</Description>
+							<DataType>Text</DataType>
+							<Reference type="BUSINESS_TERM">tir01-p062</Reference>
+							<Value type="EXAMPLE">Molo sud</Value>
+						</Element>
+						<Element>
+							<Term>cac:Address</Term>
+							<Name>Delivery address - Indirizzo di consegna della linea d'ordine</Name>
+							<Element cardinality="0..1">
+								<Term>cbc:StreetName</Term>
+								<Name>Address line 1 - Indirizzo</Name>
+								<Description>Si compone degli elementi che costituiscono l’indirizzo in cui deve essere eseguita la fornitura.</Description>
+								<DataType>Text</DataType>
+								<Reference type="BUSINESS_TERM">tir01-p055</Reference>
+							</Element>
+							<Element cardinality="0..1">
+								<Term>cbc:AdditionalStreetName</Term>
+								<Name>- Informazioni addizionali indirizzo</Name>
+								<Description>Informazioni addizionali indirizzo</Description>
+								<DataType>Text</DataType>
+								<Reference type="BUSINESS_TERM">tir01-p056</Reference>
+							</Element>
+							<Element cardinality="0..1">
+								<Term>cbc:CityName</Term>
+								<Name>City - Città</Name>
+								<Description>Nome città.</Description>
+								<DataType>Text</DataType>
+								<Reference type="BUSINESS_TERM">tir01-p057</Reference>
+							</Element>
+							<Element cardinality="0..1">
+								<Term>cbc:PostalZone</Term>
+								<Name>Post code - CAP</Name>
+								<Description>Codice Postale.</Description>
+								<DataType>Text</DataType>
+								<Reference type="BUSINESS_TERM">tir01-p058</Reference>
+							</Element>
+							<Element cardinality="0..1">
+								<Term>cbc:CountrySubentity</Term>
+								<Name>Country subdivision - Provincia</Name>
+								<Description>Provincia.</Description>
+								<DataType>Text</DataType>
+								<Reference type="BUSINESS_TERM">tir01-p059</Reference>
+							</Element>
+							<Element cardinality="0..1">
+								<Term>cac:AddressLine</Term>
+								<Name>Address line - Indirizzo</Name>
+								<Element>
+									<Term>cbc:Line</Term>
+									<Name>Address line 3 - Ulteriori informazioni indirizzo</Name>
+									<Description>Ulteriori informazioni indirizzo.</Description>
+									<DataType>Text</DataType>
+									<Reference type="BUSINESS_TERM">tir01-p060</Reference>
+									<Value type="EXAMPLE">Ingresso 34</Value>
+								</Element>
+							</Element>
+							<Element>
+								<Term>cac:Country</Term>
+								<Name>Country - Nazione</Name>
+								<Element>
+									<Term>cbc:IdentificationCode</Term>
+									<Name>Country code - Codice Nazione</Name>
+									<Description>Codice identificativo della nazione.</Description>
+									<DataType>Code</DataType>
+									<Reference type="BUSINESS_TERM">tir01-p061</Reference>
+									<Reference type="CODE_LIST">ISO3166</Reference>
+									<Value type="EXAMPLE">NL</Value>
+								</Element>
+							</Element>
+						</Element>
 					</Element>
 					<Element>
 						<Term>cac:RequestedDeliveryPeriod</Term>

@@ -661,6 +661,12 @@
 		<rule context="cac:OrderLine/cac:LineItem">
 			<assert id="PEPPOL-T76-R003" test="count(key('k_lineId',cbc:ID)) = 1" flag="fatal">Each order response line SHALL have a document line identifier that is unique within the order.</assert>
 		</rule>
+		<rule context="cbc:OrderResponseCode">
+			<assert id="PEPPOL-T76-R007" test="(normalize-space(.) = 'CA' and count(../cac:OrderLine) &gt; 0) or normalize-space(.) != 'CA'" flag="fatal">An order response with code CA (Conditionally accepted) must provide order lines.</assert>
+			<assert id="PEPPOL-T76-R008" test="(normalize-space(.) = 'AP' and count(../cac:OrderLine) = 0) or normalize-space(.) != 'AP'" flag="fatal">An order response with code AP (Accepted) should NOT provide order lines.</assert>
+			<assert id="PEPPOL-T76-R009" test="(normalize-space(.) = 'RE' and count(../cac:OrderLine) = 0) or normalize-space(.) != 'RE'" flag="fatal">An order response with code RE (Rejected) should NOT provide order lines.</assert>
+			<assert id="PEPPOL-T76-R010" test="(normalize-space(.) = 'AB' and count(../cac:OrderLine) = 0) or normalize-space(.) != 'AB'" flag="fatal">An order response with code AB (Acknowledged) must NOT provide order lines.</assert>
+		</rule>
 	</pattern>
 	<!-- MEF NSO rules -->
 	<!-- ======================== -->

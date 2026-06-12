@@ -3,7 +3,7 @@
 
 == #Termini e condizioni di pagamento#
 
-##Il campo *cac:PaymentTerms/cbc:Note* deve essere usato solo per indicare il dato FPA 2.4.1 CondizioniPagamento e FPA 2.4.2.4 GiorniTerminiPagamento, concatenati con il simbolo "#".##
+Il campo *cac:PaymentTerms/cbc:Note* deve essere usato solo per indicare il dato FPA 2.4.1 CondizioniPagamento e FPA 2.4.2.4 GiorniTerminiPagamento, concatenati con il simbolo "#".
 
 .Esempi
 [source, xml, indent=0]

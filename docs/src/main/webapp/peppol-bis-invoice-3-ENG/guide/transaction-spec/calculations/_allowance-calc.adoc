@@ -11,7 +11,7 @@ stem:["Amount" =  "Base amount" times ("Percentage" div 100)]
 ====
 
 [IMPORTANT]
-#Nel contesto nazionale la sezione è utilizzata solo per Bollo (vedi paragrafo 5.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 5.8).#
+#Nel contesto nazionale lo sconto e la maggiorazione a livello di testato sono utilizzati solo per Bollo (vedi paragrafo 5.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 5.8).#
 
 #Tipico esempio di maggiorazione espressa con importo base e percentuale è la cassa previdenziale (vedi paragrafo 5.8).#
 

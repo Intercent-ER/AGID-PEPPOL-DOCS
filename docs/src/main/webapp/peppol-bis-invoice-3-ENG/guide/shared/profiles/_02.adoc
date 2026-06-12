@@ -1,0 +1,31 @@
+
+[[prof-02]]
+= Profilo 02 - Fatturazione con risposta
+
+Questo profilo descrive il processo di fatturazione in cui viene restituita una risposta strutturata alla fattura dal compratore al venditore.
+
+La parte relativa alla fatturazione è la stessa del profilo base Peppol BIS Billing 3.0, con la differenza che il valore del ProfileID indica che la risposta alla fattura fa parte del profilo.
+
+I dettagli relativi al messaggio di risposta alla fattura possono essere trovati nella specifica tecnica relativa all'Invoice Response BIS.
+
+Nella tabella seguente sono riportati i valori da utilizzare come identificatore della specifica (BT-24) e come tipo di processo aziendale (BT-23) per questo profilo.
+
+[cols="1,4,4"]
+|===
+|Tipo |Elemento `cbc:CustomizationID` |Elemento `cbc:ProfileID`
+
+
+|Fattura e Nota di credito
+|urn:cen.eu:en16931:2017#compliant#
+urn:fdc:peppol.eu:2017:poacc:billing:3.0
+|urn:peppol:bis:billing_with_response
+|===
+
+.Esempio UBL per l’identificatore della specifica del profilo 02 Peppol
+[source, xml]
+----
+<cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID>
+<cbc:ProfileID>urn:peppol:bis:billing_with_response</cbc:ProfileID>
+----
+
+

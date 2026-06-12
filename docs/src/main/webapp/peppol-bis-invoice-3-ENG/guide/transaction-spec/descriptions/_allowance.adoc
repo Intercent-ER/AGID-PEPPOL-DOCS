@@ -23,9 +23,9 @@ _#Sconti e maggiorazioni che non incidono sull’imponibile.#_
 
 
 [NOTE]
-====
-La somma algebrica delle maggiorazioni (con segno meno) e degli sconti (con segno più) va ricompresa nel valore inserito in cbc:PrepaidAmount. Si evidenzia che il cbc:PrepaidAmount non è supportato in FatturaPA ma viene utilizzato per valorizzare correttamente il dato cbc:PayableAmount (BT-115 Amount due for payment) che è obbligatorio per la EN 16931.
-====
+#La somma algebrica delle maggiorazioni (con segno meno) e degli sconti (con segno più) va ricompresa nel valore inserito in cbc:PrepaidAmount. Si evidenzia che il cbc:PrepaidAmount non è supportato in FatturaPA ma viene utilizzato per valorizzare correttamente il dato cbc:PayableAmount (BT-115 Amount due for payment) che è obbligatorio per la EN 16931.#
+
+
 
 .#Esempio UBL per fornire lo sconto sul totale documento, mediante estensione#.
 [source, xml, indent=0]
@@ -60,7 +60,7 @@ Se nessuno Sconto/Maggiorazione è applicato all'articolo, valorizzare cac:Allow
 Further details of the calculation of allowance/charge amount, can be found in <<allowance-calc>>
 //include::../../syntax/_allowance.adoc[]
 
-.Esempio UBL di sconto su prezzo
+.#_Esempio UBL di sconto su prezzo_#
 [source, xml, indent=0]
 ----
 <cac:InvoiceLine>

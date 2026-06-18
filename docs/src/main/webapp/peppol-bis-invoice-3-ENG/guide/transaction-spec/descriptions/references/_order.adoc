@@ -9,13 +9,35 @@ The purchase order is **conditional**. If order reference exist, use that, else 
 The customer will issue an order with a unique order number. This unique purchase order number should be supplied as the order reference on the invoice.
 
 
-The header level::
+*At header level*::
 
 If order reference is stated at header level, the order reference element on line level can be used to state the order line numbers.
 
 IMPORTANT: In the invoice, both a purchase order and a sales order reference can be given, but be aware that an invoice instance cannot have a sales order reference, without the corresponding purchase order reference.
 
 include::../../../syntax/references/_order.adoc[]
+
+
+
+
+
+When the order reference is provided at header level, the order line identifier may be stated in *cac:OrderLineReference/cbc:LineID* on the invoice line (*cac:InvoiceLine*) as follows:
+
+
+
+[source, xml, indent=0]
+
+----
+
+<cac:OrderLineReference>
+
+        <cbc:LineID>3</cbc:LineID>
+
+</cac:OrderLineReference>
+
+----
+
+
 
 #Se la fattura viene emessa nell’ambito di un processo di Ordinazione elettronica, occorre riportare il riferimento all’ordine ("tripletta") nel seguente modo:#
 
@@ -65,84 +87,113 @@ include::../../../syntax/references/_order.adoc[]
 ----
 
 
-*A livello di riga*
+*At line level*
 
-#Il riferimento ad un ordine sulle righe di fattura avviene utilizzando gli elementi cac:OrderLineReference e cac:DocumentReference.# +
 
-[blue]#_Riferimento all'intero ordine sulla riga di fattura_#
 
-#Se la riga si riferisce genericamente all'ordine senza specificare la riga dell'ordine, si procede come da esempio:#
+Order references on invoice lines use *cac:OrderLineReference* and *cac:DocumentReference*.
 
-.Esempio UBL con riferimento esplicito ad un Ordine completo a livello di riga fattura
+
+
+When the invoice is issued in an electronic ordering process relevant for the NSO system, the order reference shall be provided in *cac:OrderLineReference* and the identification triplet in *cac:DocumentReference*.
+
+
+
+*cac:OrderLineReference/cbc:LineID* may contain the order line identifier when the invoice line refers to a specific order line. Otherwise, the element shall be set to "NA".
+
+
+
+.UBL example of invoice line with generic reference to an order sent via NSO
+
 [source, xml, indent=0]
-----
-<cac:OrderLineReference>
-	<cbc:LineID>NA</cbc:LineID>
-	<cac:OrderReference>
-		<cbc:ID>123</cbc:ID>
-		<cbc:IssueDate>2020-10-01</cbc:IssueDate>
-	</cac:OrderReference>
-</cac:OrderLineReference>
+
 ----
 
-#Se la fattura viene messa nell'ambito di un processo di Ordinazione Semplice o Ordinazione Completa rilevante ai fini del sistema NSO, occorre riportare il riferimento all'ordine ("tripletta") nel seguente modo:#
-
-.Esempio UBL con riferimento esplicito ad un Ordine inviato a mezzo NSO
-[source, xml, indent=0]
-----
 <cac:OrderLineReference>
-	<cbc:LineID>NA</cbc:LineID>
-	<cac:OrderReference>
-		<cbc:ID>123</cbc:ID>
-		<cbc:IssueDate>2020-10-01</cbc:IssueDate>
-	</cac:OrderReference>
+
+        <cbc:LineID>NA</cbc:LineID>
+
+        <cac:OrderReference>
+
+                <cbc:ID>123</cbc:ID>
+
+                <cbc:IssueDate>2020-10-01</cbc:IssueDate>
+
+        </cac:OrderReference>
+
 </cac:OrderLineReference>
+
 <cac:DocumentReference>
+
     <cbc:ID schemeID="ON">123#2020-10-01#aaaaaa</cbc:ID>
+
     <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
+
 </cac:DocumentReference>
+
 ----
 
-[blue]#_Riferimento alla riga d'ordine sulla riga di fattura_#
 
-#Se la riga si riferisce specificamente ad una riga d'ordine, si procede con le seguenti modalità alternative:# +
 
-.Esempio UBL con riferimento implicito all’Ordine fornito a livello testata
+.UBL example of invoice line with specific reference to an order line sent via NSO
+
 [source, xml, indent=0]
-----
-<cac:OrderLineReference>
-	<cbc:LineID>3</cbc:LineID>
-</cac:OrderLineReference>
+
 ----
 
-.Esempio UBL con riferimento esplicito alla riga di un Ordine a livello di riga fattura
-[source, xml, indent=0]
-----
 <cac:OrderLineReference>
-	<cbc:LineID>4</cbc:LineID>
-	<cac:OrderReference>
-		<cbc:ID>123</cbc:ID>
-		<cbc:IssueDate>2020-10-01</cbc:IssueDate>
-	</cac:OrderReference>
-</cac:OrderLineReference>
-----
 
-#Se la fattura viene messa nell'ambito di un processo di Ordinazione Semplice o Ordinazione Completa rilevante ai fini del sistema NSO, occorre riportare il riferimento all'ordine ("tripletta") nel seguente modo:# +
+        <cbc:LineID>2</cbc:LineID>
 
-.Esempio UBL con riferimento esplicito alla riga di un Ordine inviato a mezzo NSO a livello di riga fattura
-[source, xml, indent=0]
-----
-<cac:OrderLineReference>
-	<cbc:LineID>4</cbc:LineID>
-	<cac:OrderReference>
-		<cbc:ID>123</cbc:ID>
-		<cbc:IssueDate>2020-10-01</cbc:IssueDate>
-	</cac:OrderReference>
+        <cac:OrderReference>
+
+                <cbc:ID>123</cbc:ID>
+
+                <cbc:IssueDate>2020-10-01</cbc:IssueDate>
+
+        </cac:OrderReference>
+
 </cac:OrderLineReference>
+
 <cac:DocumentReference>
+
     <cbc:ID schemeID="ON">123#2020-10-01#aaaaaa</cbc:ID>
+
     <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
+
 </cac:DocumentReference>
+
 ----
 
+
+
+When the invoice is issued against a paper order, the order reference shall be provided in *cac:OrderLineReference*.
+
+
+
+*cac:OrderLineReference/cbc:LineID* may contain the order line identifier when the invoice line refers to a specific order line. Otherwise, the element shall be set to "NA".
+
+
+
+.UBL example of invoice line with generic reference to a paper order
+
+[source, xml, indent=0]
+
+----
+
+<cac:OrderLineReference>
+
+        <cbc:LineID>NA</cbc:LineID>
+
+        <cac:OrderReference>
+
+                <cbc:ID>456</cbc:ID>
+
+                <cbc:IssueDate>2021-11-03</cbc:IssueDate>
+
+        </cac:OrderReference>
+
+</cac:OrderLineReference>
+
+----
 

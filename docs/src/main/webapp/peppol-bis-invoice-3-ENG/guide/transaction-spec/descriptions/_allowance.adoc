@@ -12,7 +12,7 @@ The header level:: _Applies to the whole invoice and is included in the calculat
 * The sum of all allowances and charges on the header level shall be specified in `cbc:AllowanceTotalAmount` and `cbc:ChargeTotalAmount` respectively. See <<totals>>
 [IMPORTANT]
 ====
-#Per la fatturazione verso soggetti italiani la sezione è utilizzata solo per Bollo (vedi paragrafo 4.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 4.8).#
+#Per la fatturazione verso soggetti italiani la sezione è utilizzata solo per Bollo (vedi paragrafo 5.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 5.8).#
 ====
 
 _#Sconti e maggiorazioni che non incidono sull’imponibile.#_

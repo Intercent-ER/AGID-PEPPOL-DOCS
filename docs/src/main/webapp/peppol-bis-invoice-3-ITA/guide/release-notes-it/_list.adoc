@@ -7,32 +7,37 @@ link:pass:[${peppoldocs.root.url}/my_index_fatt.jsp][Vai al Portale Specifiche]
 ^.^| Data
 ^.^| Cosa è cambiato
 
-| 3.0.21(IT)
+| 3.0.21.1(IT)
 a| 20/05/2026
-a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/upcoming/release-notes/[Peppol BIS 3.0.21 - May release 2026]_. +
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/upcoming/release-notes/[PEPPOL BIS 3.0.21 - May release 2026]_. +
 
 Entrata in vigore *lunedì 17 Agosto 2026*
 
 [red]#Cambiamenti alla documentazione# +
 
-* Correzione della denominazione «Peppol» al posto di «PEPPOL» nei testi della guida;
-* Aggiunto il profilo 02 «Fatturazione con risposta» (ProfileID `urn:peppol:bis:billing_with_response`);
-* Aggiornamento dei link alla documentazione Peppol e al registro EN 16931;
-* Aggiornamento della tabella 19 EN 16931 (regole CEN) e delle tabelle delle regole Peppol;
-* Sincronizzazione delle codifiche EAS, ICD e ISO 4217;
-* Aggiunta di `LocalId` e `LocalName` nella codifica UN/ECE Rec 20 (ITA).
+* Inserito nuovo profilo opzionale Profilo 02 – Fatturazione con risposta che consente di gestire un processo in cui a seguito della ricezione della fattura, è richiesto l'invio di una risposta alla fattura. Questo profilo richiede una registrazione separata nell'SMP e utilizza il documento di Invoice Response BIS. Le specifiche di questo documento sono disponibili sul portale specifiche di https://docs.peppol.eu/poacc/other/[OpenPeppol Other BIS].
 
 [red]#Cambiamenti alle code lists e artefatti di validazione# +
 
-* Electronic Address Scheme (EAS): rimossi codici errati; aggiornate descrizioni; aggiunti 0246, 0248;
-* ISO 6523 ICD list: aggiunti 0246, 0247, 0248; aggiornate descrizioni;
-* ISO 4217 Currency codes: rimossi ANG, BGN; aggiunto XCG;
-* Regole PEPPOL-EN16931-P0100 e PEPPOL-EN16931-P0101 aggiornate per il profilo 02;
-* Regole PEPPOL-COMMON-R052 e PEPPOL-COMMON-R053 da «warning» a «fatal»;
-* Regola DK-R-017 (Danimarca) da «warning» a «fatal»;
-* Nuove regole PEPPOL-COMMON-R054–R057 (Paesi Bassi);
-* Regola PEPPOL-EN16931-R004 aggiornata (CustomizationID senza versione);
-* Rimossa regola BR-CO-25 dallo schematron CEN.
+* Electronic Address Scheme (EAS)
+** Rimossi: 0037,0147,0154,0170,0177,0193,0194,0203,0212,0213,0215,0217
+** Modificati: 0088,0184,0190,0191,0192,0195,0196,0198,0199,0204,9959
+* ISO 6523 ICD list
+** Aggiunti: 0246,0247,0248
+** Modificati: 0096,0158,0208,0241,0243
+* ISO 4217 Currency codes
+** Rimossi: ANG, BGN
+** Aggiunti: XCG
+* Modifica da «warning» a «fatal» la severità delle regole PEPPOL-COMMON-R052 (Danimarca) e PEPPOL-COMMON-R053 (Danimarca).
+* Inserimento delle nuove regole PEPPOL-COMMON-R054 (Paesi Bassi), PEPPOL-COMMON-R055 (Paesi Bassi), PEPPOL-COMMON-R056-1 (Paesi Bassi), PEPPOL-COMMON-R056-2 (Paesi Bassi), PEPPOL-COMMON-R057 (Paesi Bassi) con severità «warning». Le regole saranno poste a severità «fatal» in una successiva release.
+* Modifica da «warning» a «fatal» la severità delle regole DK-R-017 (Danimarca) e DK-R-003 (Danimarca).
+
+[red]#Aggiornamento schematron EN 16931# +
+
+* Aggiornamento schematron EN 16931
+* Eliminazione regola BR-CO-25
+* Aggiornamento regola PEPPOL-EN16931-R004
+* Aggiunti nella regola PEPPOL-EN16931-R007 (Francia) 2 nuovi profili temporanei per Fattura UBL e Nota di Credito
 
 | 3.0.20.1(IT)
 a| 15/12/2025

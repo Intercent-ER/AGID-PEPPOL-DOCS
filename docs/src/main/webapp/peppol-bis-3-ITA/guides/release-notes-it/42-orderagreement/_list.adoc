@@ -8,6 +8,31 @@ link:pass:[${peppoldocs.root.url}][Vai al Portale Specifiche]
 | Data
 | Cosa è cambiato
 
+| 3.0.0.10(IT)
+a| 20/05/2026
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/upcoming/release-notes/[PEPPOL BIS 3.0.17 - May release 2026]_. +
+
+Entrata in vigore *lunedì 17 agosto 2026*
+
+[red]#Cambiamenti alle code lists e artefatti di validazione# +
+
+* Electronic Address Scheme (EAS)
+** Aggiunti: 0242,0245,0246,0248
+** Rimossi: 0037,0177,0193,0212,0213,0215,0147,0154,0170,0194,0203,0217
+** Modificati: 0088,0096,0184,0190,0191,0192,0195,0196,0198,0204,9959
+* ISO 6523 ICD list
+** Aggiunti: 0245,0246,0247,0248
+** Modificati: 0096,0158,0241,0243
+* ISO 4217 Currency codes
+** Rimossi: ANG, BGN, STD
+** Aggiunti: STN, XCG
+* Modifica da «warning» a «fatal» la severità delle regole PEPPOL-COMMON-R052 (Danimarca) e PEPPOL-COMMON-R053 (Danimarca).
+* Inserimento delle nuove regole PEPPOL-COMMON-R054 (Paesi Bassi), PEPPOL-COMMON-R055 (Paesi Bassi), PEPPOL-COMMON-R056-1 (Paesi Bassi), PEPPOL-COMMON-R056-2 (Paesi Bassi), PEPPOL-COMMON-R057 (Paesi Bassi) con severità «warning». Le regole saranno poste a severità «fatal» in una successiva release.
+
+[red]#Aggiornamento schematron# +
+
+* Aggiornamento schematron
+
 | 3.0.0.9(IT)
 a| 11/12/2025
 a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2025-Q4/[PEPPOL BIS 3.0.16 - November release 2025]_. +

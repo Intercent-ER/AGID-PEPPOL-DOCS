@@ -2,7 +2,7 @@
 <!--
 This schematron uses business terms defined the CEN/EN16931-1 and is reproduced with permission from CEN. CEN bears no liability from the use of the content and implementation of this schematron and gives no warranties expressed or implied for any purpose.
 
-Last update: 2025 November release 3.0.20.
+Last update: 2026 May release 3.0.21.
  -->
 <schema xmlns="http://purl.oclc.org/dsdl/schematron" xmlns:u="utils" schemaVersion="iso" queryBinding="xslt2">
 	<title>Rules for Peppol BIS 3.0 Billing - Regole di business Peppol BIS Fatturazione 3.0</title>
@@ -14,10 +14,15 @@ Last update: 2025 November release 3.0.20.
 	<ns uri="utils" prefix="u"/>
 	<!-- Parameters -->
 	<let name="profile" value="
-      if (/*/cbc:ProfileID and matches(normalize-space(/*/cbc:ProfileID), 'urn:fdc:peppol.eu:2017:poacc:billing:([0-9]{2}):1.0')) then
-        tokenize(normalize-space(/*/cbc:ProfileID), ':')[7]
-      else
-        'Unknown'"/>
+      if (normalize-space(/*/cbc:ProfileID) = (
+        'urn:fdc:peppol.eu:2017:poacc:billing:01:1.0',
+        'urn:peppol:france:billing:regulated',
+        'urn:peppol:france:billing:non-regulated'
+       ))
+       then '01'
+       else if (normalize-space(/*/cbc:ProfileID) = 'urn:peppol:bis:billing_with_response')
+       then '02'
+       else 'Unknown'"/>
 	<let name="supplierCountry" value="
       if (/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2)) then
         upper-case(normalize-space(/*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2)))

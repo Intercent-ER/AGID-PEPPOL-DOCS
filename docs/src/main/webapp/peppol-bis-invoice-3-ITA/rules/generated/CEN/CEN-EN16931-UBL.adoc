@@ -473,10 +473,6 @@
 | [BR-CO-24]-Each Invoice line charge (BG-28) shall contain an Invoice line charge reason (BT-144) or an Invoice line charge reason code (BT-145), or both.
 | //cac:InvoiceLine/cac:AllowanceCharge[cbc:ChargeIndicator = true()] \| //cac:CreditNoteLine/cac:AllowanceCharge[cbc:ChargeIndicator = true()]
 | exists(cbc:AllowanceChargeReason) or exists(cbc:AllowanceChargeReasonCode)
-.3+| BR-CO-25 *(fatal)*
-| [BR-CO-25]-In case the Amount due for payment (BT-115) is positive, either the Payment due date (BT-9) or the Payment terms (BT-20) shall be present.
-| /ubl:Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount
-| ((. > 0) and (exists(//cbc:DueDate) or exists(//cac:PaymentTerms/cbc:Note))) or (. <= 0)
 .3+| BR-CO-26 *(fatal)*
 | [BR-CO-26]-In order for the buyer to automatically identify a supplier, the Seller identifier (BT-29), the Seller legal registration identifier (BT-30) and/or the Seller VAT identifier (BT-31) shall be present.  
 | cac:AccountingSupplierParty

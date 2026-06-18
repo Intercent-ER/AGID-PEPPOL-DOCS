@@ -1,7 +1,7 @@
 
 = Imposta sul valore aggiunto (IVA)
 
-I capitoli seguenti descrivono le diverse informazioni in materia dell'IVA che possono essere fornite in una fattura o in una nota di credito peppol.
+I capitoli seguenti descrivono le diverse informazioni in materia dell'IVA che possono essere fornite in una fattura o in una nota di credito.
 
 Si consiglia di consultare anche i <<anchor-17, VAT category codes>> per dettagli sulla codifica delle categorie IVA e il <<anchor-42, Calcolo dell'IVA>> per una rappresentazione più dettagliata ed esempi su come eseguire i calcoli nel riepilogo IVA.
 

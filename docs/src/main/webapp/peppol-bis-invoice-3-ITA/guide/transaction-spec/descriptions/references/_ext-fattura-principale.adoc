@@ -22,9 +22,6 @@ Per riferirsi a più convenzioni dalle righe di fattura è necessario utilizzare
 </cac:DocumentReference>
 ----
 
-[NOTE]
-La specifica è già concordata con Agenzia delle Entrate, che ne darà evidenza in una successiva versione delle regole tecniche.
-
 = #Riferimento fase (Dati SAL)#
 
 Per fare riferimento alla fase di un SAL, il codice può essere espresso come segue:

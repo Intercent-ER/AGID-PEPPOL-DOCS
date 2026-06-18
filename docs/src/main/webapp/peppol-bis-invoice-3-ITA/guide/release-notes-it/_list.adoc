@@ -7,6 +7,33 @@ link:pass:[${peppoldocs.root.url}/my_index_fatt.jsp][Vai al Portale Specifiche]
 ^.^| Data
 ^.^| Cosa è cambiato
 
+| 3.0.21(IT)
+a| 20/05/2026
+a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/upcoming/release-notes/[Peppol BIS 3.0.21 - May release 2026]_. +
+
+Entrata in vigore *lunedì 17 Agosto 2026*
+
+[red]#Cambiamenti alla documentazione# +
+
+* Correzione della denominazione «Peppol» al posto di «PEPPOL» nei testi della guida;
+* Aggiunto il profilo 02 «Fatturazione con risposta» (ProfileID `urn:peppol:bis:billing_with_response`);
+* Aggiornamento dei link alla documentazione Peppol e al registro EN 16931;
+* Aggiornamento della tabella 19 EN 16931 (regole CEN) e delle tabelle delle regole Peppol;
+* Sincronizzazione delle codifiche EAS, ICD e ISO 4217;
+* Aggiunta di `LocalId` e `LocalName` nella codifica UN/ECE Rec 20 (ITA).
+
+[red]#Cambiamenti alle code lists e artefatti di validazione# +
+
+* Electronic Address Scheme (EAS): rimossi codici errati; aggiornate descrizioni; aggiunti 0246, 0248;
+* ISO 6523 ICD list: aggiunti 0246, 0247, 0248; aggiornate descrizioni;
+* ISO 4217 Currency codes: rimossi ANG, BGN; aggiunto XCG;
+* Regole PEPPOL-EN16931-P0100 e PEPPOL-EN16931-P0101 aggiornate per il profilo 02;
+* Regole PEPPOL-COMMON-R052 e PEPPOL-COMMON-R053 da «warning» a «fatal»;
+* Regola DK-R-017 (Danimarca) da «warning» a «fatal»;
+* Nuove regole PEPPOL-COMMON-R054–R057 (Paesi Bassi);
+* Regola PEPPOL-EN16931-R004 aggiornata (CustomizationID senza versione);
+* Rimossa regola BR-CO-25 dallo schematron CEN.
+
 | 3.0.20.1(IT)
 a| 15/12/2025
 a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/billing/3.0/2025-Q4/[PEPPOL BIS 3.0.20 - November release 2025] e altre modifiche italiane_. +

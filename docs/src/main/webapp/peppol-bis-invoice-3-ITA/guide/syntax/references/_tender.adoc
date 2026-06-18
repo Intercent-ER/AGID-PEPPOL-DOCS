@@ -20,6 +20,5 @@ include::../{snippet-dir}/Snippet-refs.xml[tags=tender]
 <cac:OriginatorDocumentReference>
     <cbc:ID>90305884F7</cbc:ID>
 </cac:OriginatorDocumentReference>
-``
 ----
 

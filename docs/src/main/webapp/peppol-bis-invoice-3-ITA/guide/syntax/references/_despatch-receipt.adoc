@@ -1,12 +1,32 @@
 
 = Riferimenti all'avviso di consegna (DDT) e ricezione
 
-Per fare riferimento o riconciliare una fattura al DDT o all'avviso di ricezione utilizzare i seguenti elementi:
+Per fare riferimento o riconciliare una fattura al DDT utilizzare l'elemento *cac:DespatchDocumentReference*, mentre per fare riferimento all'avviso di ricezione utilizzare l'elemento *cac:ReceiptDocumentReference*.
 
-.Esempio UBL di avviso di consegna (DDT) e ricezione
+#Quando la fattura si riferisce ad un unico Documento di Trasporto, la data del DDT viene riportata nel *cac:DespatchDocumentReference/cbc:IssueDate*.#
+
+.Esempio UBL di riferimento all'avviso di consegna (DDT) e ricezione
 [source, xml, indent=0]
 ----
-include::../{snippet-dir}/Snippet-refs.xml[tags=desp-rec]
+<cac:DespatchDocumentReference>
+    <cbc:ID>DDT1234</cbc:ID>
+    <cbc:IssueDate>2026-01-30</cbc:IssueDate>
+</cac:DespatchDocumentReference>
+<cac:ReceiptDocumentReference>
+    <cbc:ID>resadv-1</cbc:ID>
+</cac:ReceiptDocumentReference>
 ----
-<1> Avviso di consegna (DDT)
-<2> Avviso di ricezione
+
+#Per riferirsi a più DDT dalle righe di fattura è necessario utilizzare *cac:DespatchLineReference*, come nel seguente esempio#
+
+.Esempio UBL di riferimento al DDT dalle righe di fattura
+[source, xml, indent=0]
+----
+<cac:DespatchLineReference>
+    <cbc:LineID>NA</cbc:LineID>
+    <cac:DocumentReference>
+        <cbc:ID>DDT1234</cbc:ID>
+        <cbc:IssueDate>2026-01-30</cbc:IssueDate>
+    </cac:DocumentReference>
+</cac:DespatchLineReference>
+----

@@ -17,7 +17,7 @@ Una fattura può anche fare riferimento ad un contratto o un accordo quadro. La 
 
   .. Il cliente contesta parti della fattura, contatta il fornitore e richiede una nota di credito e una nuova fattura.
 
-Il diagramma seguente mostra il processo di base della fatturazione con l'utilizzo del profilo BIS PEPPOL. Questo processo presuppone che sia la fattura che la nota di credito vengano scambiate elettronicamente.
+Il diagramma seguente mostra il processo di base della fatturazione con l'utilizzo del profilo BIS Peppol. Questo processo presuppone che sia la fattura che la nota di credito vengano scambiate elettronicamente.
 
 image::../../shared/images/process.png[The invoicing process, align="center"]
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <CodeList xmlns="urn:fdc:difi.no:2017:vefa:structure:CodeList-1">
 	<Title>ISO 6523 ICD list</Title>
 	<Identifier>ICD</Identifier>
@@ -215,6 +215,8 @@
 		<Id>0043</Id>
 		<Name>HydroNETT</Name>
 		<Description>Notes on Use of Code: The ICD code forms the initial part of the OSI network addressing as depicted in ISO 8348/AD2. Issuing agency: Norsk Hydro a.s.,
+																							 
+																								 
             Norway.</Description>
 	</Code>
 	<Code>
@@ -476,8 +478,8 @@
 	</Code>
 	<Code>
 		<Id>0096</Id>
-		<Name>DANISH CHAMBER OF COMMERCE Scheme (EDIRA compliant)</Name>
-		<Description>Issuing agency: Danish Chamber of Commerce, Denmark.</Description>
+		<Name>The Danish Business Authority - P-number (DK:P)</Name>
+		<Description>Issuing agency: Danish Business Authority, Denmark.</Description>
 	</Code>
 	<Code>
 		<Id>0097</Id>
@@ -786,7 +788,7 @@
 	<Code>
 		<Id>0158</Id>
 		<Name>Identification number of economic subject (ICO) Act on State Statistics of 29 November 2001, § 27</Name>
-		<Description>The unique identification of economic subjects (legal persons and natural persons-entrepreneurs) used for registration The identification number ICO is used in Slovakia in almost all administrative acts (tax system, banking system, statistics, etc.) Issuing agency: Slovak Statistical Office, Slovak             Republic.</Description>
+		<Description>The unique identification of economic subjects (legal persons and natural persons-entrepreneurs) used for registration The identification number ICO is used in Slovakia in almost all administrative acts (tax system, banking system, statistics, etc.) Issuing agency: Slovak Statistical Office, Slovak Republic.</Description>
 	</Code>
 	<Code>
 		<Id>0159</Id>
@@ -1031,8 +1033,7 @@
 	<Code>
 		<Id>0208</Id>
 		<Name>Numero d'entreprise / ondernemingsnummer / Unternehmensnummer</Name>
-		<Description>Intended Purpose/App. Area: Identification number attributed by the BCE/KBO/ZDU (the Belgian register) to identify entities and establishment units operating in Belgium. Issuing agency: Banque-Carrefour des Entreprises (BCE) / Kruispuntbank van Ondernemingen (KBO) / Zentrale Datenbank der Unternehmen (ZOU) Service public fédéral Economie, P.M.E.in Belgium.
-Classes moyennes et Energie</Description>
+		<Description>Intended Purpose/App. Area: Identification number attributed by the BCE/KBO/ZDU (the Belgian register) to identify entities and establishment units operating in Belgium. Issuing agency: Banque-Carrefour des Entreprises (BCE) / Kruispuntbank van Ondernemingen (KBO) / Zentrale Datenbank der Unternehmen (ZOU) Service public fédéral Economie, P.M.E.in Belgium. Classes moyennes et Energie</Description>
 	</Code>
 	<Code>
 		<Id>0209</Id>
@@ -1194,7 +1195,7 @@ Classes moyennes et Energie</Description>
 	</Code>
 	<Code>
 		<Id>0241</Id>
-		<Name>Name unknown</Name>
+		<Name>Hitachi Rail</Name>
 	</Code>
 	<Code>
 		<Id>0242</Id>
@@ -1202,10 +1203,28 @@ Classes moyennes et Energie</Description>
 	</Code>
 	<Code>
 		<Id>0243</Id>
-		<Name>Name unknown</Name>
+		<Name>Business Partner Number (Catena-X)</Name>
 	</Code>
 	<Code>
 		<Id>0244</Id>
 		<Name>Tax Identification (Tax ID), Nigeria</Name>
+	</Code>
+	<Code>
+		<Id>0245</Id>
+		<Name>Tax identification number (DIČ)</Name>
+		<Country>SK</Country>
+		<Remark>Tax identification number (DIČ) - Slovakia</Remark>
+	</Code>
+	<Code>
+		<Id>0246</Id>
+		<Name>German Electronic Business Address</Name>
+	</Code>
+	<Code>
+		<Id>0247</Id>
+		<Name>Name unknown</Name>
+	</Code>
+	<Code>
+		<Id>0248</Id>
+		<Name>Oman Value Added Tax Identification Number (VATIN)</Name>
 	</Code>
 </CodeList>

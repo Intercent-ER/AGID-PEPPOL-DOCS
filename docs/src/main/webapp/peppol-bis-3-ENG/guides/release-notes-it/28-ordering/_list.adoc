@@ -16,7 +16,7 @@ Effective as of *Monday 17 August 2026*
 [red]#Changes to syntax# +
 
 * Order:
-** Added the new structure cac:DeliveryLocation within the structure cac:Delivery at the order line level.
+** Added the new structure cac:QuotationLineReference containing the element cbc:LineID within the structure cac:OrderLine to indicate the reference to a specific line of the quotation document.
 
 [red]#Changes to code lists and validation artifacts# +
 

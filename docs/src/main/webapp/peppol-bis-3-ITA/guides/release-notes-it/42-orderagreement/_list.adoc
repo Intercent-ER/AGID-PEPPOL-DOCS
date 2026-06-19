@@ -26,6 +26,8 @@ Entrata in vigore *lunedì 17 agosto 2026*
 * ISO 4217 Currency codes
 ** Rimossi: ANG, BGN, STD
 ** Aggiunti: STN, XCG
+* UNCL7161
+** Aggiunti: CAX, CAY, CAZ, DAC, DAF, DAG, DAH, DAI, DAJ, DAK, DAL, DAM, DAN, DAO, DAP, DAQ, PRV
 * Modifica da «warning» a «fatal» la severità delle regole PEPPOL-COMMON-R052 (Danimarca) e PEPPOL-COMMON-R053 (Danimarca).
 * Inserimento delle nuove regole PEPPOL-COMMON-R054 (Paesi Bassi), PEPPOL-COMMON-R055 (Paesi Bassi), PEPPOL-COMMON-R056-1 (Paesi Bassi), PEPPOL-COMMON-R056-2 (Paesi Bassi), PEPPOL-COMMON-R057 (Paesi Bassi) con severità «warning». Le regole saranno poste a severità «fatal» in una successiva release.
 

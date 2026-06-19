@@ -1759,7 +1759,19 @@
 				<DataType>Text</DataType>
 				<Reference type="BUSINESS_TERM">tir01-123</Reference>
 			</Element>
-			<Element>
+
+			<Element cardinality="0..1" agid:custom="rule">
+				<Term>cac:QuotationLineReference</Term>
+				<Name>Quotation line reference - Reference to a quotation line</Name>
+				<Description>Reference to a quotation line.</Description>
+				<Element>
+					<Term>cbc:LineID</Term>
+					<Name>Quotation line reference - Quotation line reference</Name>
+					<Description>Quotation line reference.</Description>
+					<DataType>Identifier</DataType>
+					<Reference type="RULE">PEPPOL-T01-R035</Reference>
+				</Element>
+			</Element>			<Element>
 				<Term>cac:LineItem</Term>
 				<Name>Line item</Name>
 				<Description>Description of line item </Description>

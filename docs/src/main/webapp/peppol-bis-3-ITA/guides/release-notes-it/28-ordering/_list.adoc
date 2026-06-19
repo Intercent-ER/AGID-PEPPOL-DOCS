@@ -16,7 +16,7 @@ Entrata in vigore *lunedì 17 agosto 2026*
 [red]#Cambiamenti alla sintassi# +
 
 * Ordine:
-** Aggiunta la nuova struttura cac:DeliveryLocation all'interno della struttura cac:Delivery a livello della riga dell'ordine.
+** Aggiunta la nuova struttura cac:QuotationLineReference contenente l'elemento cbc:LineID all'interno della struttura cac:OrderLine per indicare il riferimento ad una specifica riga del documento di preventivo.
 
 [red]#Cambiamenti alle code lists e artefatti di validazione# +
 

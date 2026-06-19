@@ -4,7 +4,7 @@
 	<Term>Order</Term>
 	<agid:Restriction>
 		<agid:ID>urn:www.ubl-italia.org:spec:ordine:ver3.1</agid:ID>
-		<agid:Name>Ordine Peppol 3.7.0.1</agid:Name>
+		<agid:Name>Ordine Peppol 3.7.0.2</agid:Name>
 		<agid:Version>3.2</agid:Version>
 	</agid:Restriction>
 
@@ -1643,7 +1643,19 @@
 				<Reference type="BUSINESS_TERM">tir01-123</Reference>
                                 <Reference type="RULE">NSO_051</Reference>
 			</Element>
-			<Element>
+
+			<Element cardinality="0..1" agid:custom="rule">
+				<Term>cac:QuotationLineReference</Term>
+				<Name>Quotation line reference - Riferimento ad una riga di preventivo</Name>
+				<Description>Riferimento ad una riga di preventivo.</Description>
+				<Element>
+					<Term>cbc:LineID</Term>
+					<Name>Quotation line reference - Riferimento alla riga di preventivo</Name>
+					<Description>Riferimento alla riga di preventivo.</Description>
+					<DataType>Identifier</DataType>
+					<Reference type="RULE">PEPPOL-T01-R035</Reference>
+				</Element>
+			</Element>			<Element>
 				<Term>cac:LineItem</Term>
 				<Name>Line item - Elementi della linea d’ordine</Name>
 				<Description>Contiene gli elementi della linea d’ordine.</Description>

@@ -39,7 +39,7 @@ Entrata in vigore *lunedì 17 agosto 2026*
 
 * Aggiornamento schematron
 
-| 3.0.0.8(IT)
+| 3.3.0.8(IT)
 a| 11/12/2025
 a| _Aggiornamento alle specifiche https://docs.peppol.eu/poacc/upgrade-3/2025-Q4/[PEPPOL BIS 3.0.16 - November release 2025]_. +
 

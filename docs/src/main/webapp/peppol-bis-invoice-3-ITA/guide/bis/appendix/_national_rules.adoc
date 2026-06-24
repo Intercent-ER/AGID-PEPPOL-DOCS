@@ -9,7 +9,7 @@ Le regole nazionali sono fornite dalle Autorità Peppol di ogni paese, e se sono
 
 
 .Regole di business nazionali per le transazioni
-[cols="1,4", options="header"]
+[cols="2,5", options="header"]
 |====
 |Regola
 |Messaggio/Contesto/Test

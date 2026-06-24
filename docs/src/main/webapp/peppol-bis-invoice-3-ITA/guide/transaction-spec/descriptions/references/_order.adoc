@@ -71,9 +71,9 @@ Se si intende specializzare il collegamento tra una riga d'ordine e una riga di 
 
 Il riferimento ad un ordine sulle righe di fattura avviene utilizzando gli elementi *cac:OrderLineReference* e *cac:DocumentReference*.
 
-Se la fattura viene emessa nell'ambito di un processo di Ordinazione elettronica, rilevante ai fini del sistema NSO, occorre riportare il riferimento all'ordine nell'elemento *cac:OrderLineReference* e la Tripletta di identificazione nell'elemento *cac:DocumentReference*.
+#Se la fattura viene emessa nell'ambito di un processo di Ordinazione elettronica, rilevante ai fini del sistema NSO, occorre riportare il riferimento all'ordine nell'elemento *cac:OrderLineReference* e la Tripletta di identificazione nell'elemento *cac:DocumentReference*.#
 
-Nell'elemento *cac:OrderLineReference/cbc:LineID* è possibile indicare l'identificativo della riga d'ordine alla quale si riferisce specificamente la riga di fattura. In caso contrario, l'elemento va valorizzato a "NA".
+#Nell'elemento *cac:OrderLineReference/cbc:LineID* è possibile indicare l'identificativo della riga d'ordine alla quale si riferisce specificamente la riga di fattura. In caso contrario, l'elemento va valorizzato a "NA".#
 
 .Esempio UBL di riga di fattura con riferimento generico ad un ordine inviato a mezzo NSO
 [source, xml, indent=0]
@@ -107,9 +107,9 @@ Nell'elemento *cac:OrderLineReference/cbc:LineID* è possibile indicare l'identi
 </cac:DocumentReference>
 ----
 
-Se la fattura viene emessa a fronte di un ordine analogico, occorre riportare il riferimento all'ordine nell'elemento *cac:OrderLineReference*.
+#Se la fattura viene emessa a fronte di un ordine analogico, occorre riportare il riferimento all'ordine nell'elemento *cac:OrderLineReference*.#
 
-Nell'elemento *cac:OrderLineReference/cbc:LineID* è possibile indicare l'identificativo della riga d'ordine alla quale si riferisce specificamente la riga di fattura. In caso contrario, l'elemento va valorizzato a "NA".
+#Nell'elemento *cac:OrderLineReference/cbc:LineID* è possibile indicare l'identificativo della riga d'ordine alla quale si riferisce specificamente la riga di fattura. In caso contrario, l'elemento va valorizzato a "NA".#
 
 .Esempio UBL di riga di fattura con riferimento generico ad un ordine analogico
 [source, xml, indent=0]

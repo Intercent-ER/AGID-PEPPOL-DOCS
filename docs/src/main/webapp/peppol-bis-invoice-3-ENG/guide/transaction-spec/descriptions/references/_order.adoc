@@ -95,11 +95,11 @@ Order references on invoice lines use *cac:OrderLineReference* and *cac:Document
 
 
 
-When the invoice is issued in an electronic ordering process relevant for the NSO system, the order reference shall be provided in *cac:OrderLineReference* and the identification triplet in *cac:DocumentReference*.
+#When the invoice is issued in an electronic ordering process relevant for the NSO system, the order reference shall be provided in *cac:OrderLineReference* and the identification triplet in *cac:DocumentReference*.#
 
 
 
-*cac:OrderLineReference/cbc:LineID* may contain the order line identifier when the invoice line refers to a specific order line. Otherwise, the element shall be set to "NA".
+#*cac:OrderLineReference/cbc:LineID* may contain the order line identifier when the invoice line refers to a specific order line. Otherwise, the element shall be set to "NA".#
 
 
 
@@ -167,11 +167,11 @@ When the invoice is issued in an electronic ordering process relevant for the NS
 
 
 
-When the invoice is issued against a paper order, the order reference shall be provided in *cac:OrderLineReference*.
+#When the invoice is issued against a paper order, the order reference shall be provided in *cac:OrderLineReference*.#
 
 
 
-*cac:OrderLineReference/cbc:LineID* may contain the order line identifier when the invoice line refers to a specific order line. Otherwise, the element shall be set to "NA".
+#*cac:OrderLineReference/cbc:LineID* may contain the order line identifier when the invoice line refers to a specific order line. Otherwise, the element shall be set to "NA".#
 
 
 

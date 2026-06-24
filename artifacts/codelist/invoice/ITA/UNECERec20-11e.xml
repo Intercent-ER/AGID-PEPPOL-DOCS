@@ -1893,6 +1893,9 @@
         <ns0:Id>CEL</ns0:Id>
         <ns0:Name>degree Celsius</ns0:Name>
         <ns0:Description>Refer ISO 80000-5 (Quantities and units — Part 5: Thermodynamics)</ns0:Description>
+            <ns0:LocalId>°C</ns0:LocalId>
+        <ns0:LocalName>grado Celsius</ns0:LocalName>
+        <ns0:LocalDescription>Unità di misura della temperatura termodinamica.</ns0:LocalDescription>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>CEN</ns0:Id>
@@ -9285,6 +9288,7 @@
         <ns0:Id>X1</ns0:Id>
         <ns0:Name>Gunter's chain</ns0:Name>
         <ns0:Description>A unit of distance used or formerly used by British surveyors.</ns0:Description>
+            <ns0:LocalId>catena</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>YDK</ns0:Id>
@@ -9327,711 +9331,872 @@
     <ns0:Code>
         <ns0:Id>X1A</ns0:Id>
         <ns0:Name>Drum, steel</ns0:Name>
+            <ns0:LocalId>fusto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X1B</ns0:Id>
         <ns0:Name>Drum, aluminium</ns0:Name>
+            <ns0:LocalId>fusto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X1D</ns0:Id>
         <ns0:Name>Drum, plywood</ns0:Name>
+            <ns0:LocalId>fusto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X1F</ns0:Id>
         <ns0:Name>Container, flexible</ns0:Name>
         <ns0:Description>A packaging container of flexible construction.</ns0:Description>
+            <ns0:LocalId>contenitore</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X1G</ns0:Id>
         <ns0:Name>Drum, fibre</ns0:Name>
+            <ns0:LocalId>fusto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X1W</ns0:Id>
         <ns0:Name>Drum, wooden</ns0:Name>
+            <ns0:LocalId>fusto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X2C</ns0:Id>
         <ns0:Name>Barrel, wooden</ns0:Name>
+            <ns0:LocalId>barile</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X3A</ns0:Id>
         <ns0:Name>Jerrican, steel</ns0:Name>
+            <ns0:LocalId>tanica</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X3H</ns0:Id>
         <ns0:Name>Jerrican, plastic</ns0:Name>
+            <ns0:LocalId>tanica</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X43</ns0:Id>
         <ns0:Name>Bag, super bulk</ns0:Name>
         <ns0:Description>A cloth plastic or paper based bag having the dimensions of the pallet on which
             it is constructed.</ns0:Description>
+            <ns0:LocalId>sacco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X44</ns0:Id>
         <ns0:Name>Bag, polybag</ns0:Name>
         <ns0:Description>A type of plastic bag, typically used to wrap promotional pieces, publications,
             product samples, and/or catalogues.</ns0:Description>
+            <ns0:LocalId>sacco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X4A</ns0:Id>
         <ns0:Name>Box, steel</ns0:Name>
+            <ns0:LocalId>scatola</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X4B</ns0:Id>
         <ns0:Name>Box, aluminium</ns0:Name>
+            <ns0:LocalId>scatola</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X4C</ns0:Id>
         <ns0:Name>Box, natural wood</ns0:Name>
+            <ns0:LocalId>scatola</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X4D</ns0:Id>
         <ns0:Name>Box, plywood</ns0:Name>
+            <ns0:LocalId>scatola</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X4F</ns0:Id>
         <ns0:Name>Box, reconstituted wood</ns0:Name>
+            <ns0:LocalId>scatola</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X4G</ns0:Id>
         <ns0:Name>Box, fibreboard</ns0:Name>
+            <ns0:LocalId>scatola</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X4H</ns0:Id>
         <ns0:Name>Box, plastic</ns0:Name>
+            <ns0:LocalId>scatola</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X5H</ns0:Id>
         <ns0:Name>Bag, woven plastic</ns0:Name>
+            <ns0:LocalId>sacco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X5L</ns0:Id>
         <ns0:Name>Bag, textile</ns0:Name>
+            <ns0:LocalId>sacco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X5M</ns0:Id>
         <ns0:Name>Bag, paper</ns0:Name>
+            <ns0:LocalId>sacco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X6H</ns0:Id>
         <ns0:Name>Composite packaging, plastic receptacle</ns0:Name>
+            <ns0:LocalId>imballaggio composito</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X6P</ns0:Id>
         <ns0:Name>Composite packaging, glass receptacle</ns0:Name>
+            <ns0:LocalId>imballaggio composito</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X7A</ns0:Id>
         <ns0:Name>Case, car</ns0:Name>
         <ns0:Description>A type of portable container designed to store equipment for carriage in an
             automobile.</ns0:Description>
+            <ns0:LocalId>cassa</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X7B</ns0:Id>
         <ns0:Name>Case, wooden</ns0:Name>
         <ns0:Description>A case made of wood for retaining substances or articles.</ns0:Description>
+            <ns0:LocalId>cassa</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X8A</ns0:Id>
         <ns0:Name>Pallet, wooden</ns0:Name>
         <ns0:Description>A platform or open-ended box, made of wood, on which goods are retained for
             ease of mechanical handling during transport and storage.</ns0:Description>
+            <ns0:LocalId>bancale</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X8B</ns0:Id>
         <ns0:Name>Crate, wooden</ns0:Name>
         <ns0:Description>A receptacle, made of wood, on which goods are retained for ease of mechanical
             handling during transport and storage.</ns0:Description>
+            <ns0:LocalId>cassa</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>X8C</ns0:Id>
         <ns0:Name>Bundle, wooden</ns0:Name>
         <ns0:Description>Loose or unpacked pieces of wood tied or wrapped together.</ns0:Description>
+            <ns0:LocalId>fascio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XAA</ns0:Id>
         <ns0:Name>Intermediate bulk container, rigid plastic</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XAB</ns0:Id>
         <ns0:Name>Receptacle, fibre</ns0:Name>
         <ns0:Description>Containment vessel made of fibre used for retaining substances or
             articles.</ns0:Description>
+            <ns0:LocalId>recipiente</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XAC</ns0:Id>
         <ns0:Name>Receptacle, paper</ns0:Name>
         <ns0:Description>Containment vessel made of paper for retaining substances or
             articles.</ns0:Description>
+            <ns0:LocalId>recipiente</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XAD</ns0:Id>
         <ns0:Name>Receptacle, wooden</ns0:Name>
         <ns0:Description>Containment vessel made of wood for retaining substances or
             articles.</ns0:Description>
+            <ns0:LocalId>recipiente</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XAE</ns0:Id>
         <ns0:Name>Aerosol</ns0:Name>
+            <ns0:LocalId>aerosol</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XAF</ns0:Id>
         <ns0:Name>Pallet, modular, collars 80cms * 60cms</ns0:Name>
         <ns0:Description>Standard sized pallet of dimensions 80 centimeters by 60 centimeters
             (cms).</ns0:Description>
+            <ns0:LocalId>bancale</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XAG</ns0:Id>
         <ns0:Name>Pallet, shrinkwrapped</ns0:Name>
         <ns0:Description>Pallet load secured with transparent plastic film that has been wrapped around
             and then shrunk tightly.</ns0:Description>
+            <ns0:LocalId>bancale</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XAH</ns0:Id>
         <ns0:Name>Pallet, 100cms * 110cms</ns0:Name>
         <ns0:Description>Standard sized pallet of dimensions 100centimeters by 110 centimeters
             (cms).</ns0:Description>
+            <ns0:LocalId>bancale</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XAI</ns0:Id>
         <ns0:Name>Clamshell</ns0:Name>
+            <ns0:LocalId>conchiglia</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XAJ</ns0:Id>
         <ns0:Name>Cone</ns0:Name>
         <ns0:Description>Container used in the transport of linear material such as yarn.</ns0:Description>
+            <ns0:LocalId>cono</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XAL</ns0:Id>
         <ns0:Name>Ball</ns0:Name>
         <ns0:Description>A spherical containment vessel for retaining substances or
             articles.</ns0:Description>
+            <ns0:LocalId>sfera</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XAM</ns0:Id>
         <ns0:Name>Ampoule, non-protected</ns0:Name>
+            <ns0:LocalId>fiala</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XAP</ns0:Id>
         <ns0:Name>Ampoule, protected</ns0:Name>
+            <ns0:LocalId>fiala</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XAT</ns0:Id>
         <ns0:Name>Atomizer</ns0:Name>
+            <ns0:LocalId>atomizzatore</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XAV</ns0:Id>
         <ns0:Name>Capsule</ns0:Name>
+            <ns0:LocalId>capsula</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XB4</ns0:Id>
         <ns0:Name>Belt</ns0:Name>
         <ns0:Description>A band use to retain multiple articles together.</ns0:Description>
+            <ns0:LocalId>cinghia</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XBA</ns0:Id>
         <ns0:Name>Barrel</ns0:Name>
+            <ns0:LocalId>barile</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XBB</ns0:Id>
         <ns0:Name>Bobbin</ns0:Name>
+            <ns0:LocalId>bobina</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XBC</ns0:Id>
         <ns0:Name>Bottlecrate / bottlerack</ns0:Name>
+            <ns0:LocalId>bottiglia</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XBD</ns0:Id>
         <ns0:Name>Board</ns0:Name>
+            <ns0:LocalId>tavola</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XBE</ns0:Id>
         <ns0:Name>Bundle</ns0:Name>
+            <ns0:LocalId>fascio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XBF</ns0:Id>
         <ns0:Name>Balloon, non-protected</ns0:Name>
+            <ns0:LocalId>pallone</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XBG</ns0:Id>
         <ns0:Name>Bag</ns0:Name>
         <ns0:Description>A receptacle made of flexible material with an open or closed
             top.</ns0:Description>
+            <ns0:LocalId>sacco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XBH</ns0:Id>
         <ns0:Name>Bunch</ns0:Name>
+            <ns0:LocalId>mazzo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XBI</ns0:Id>
         <ns0:Name>Bin</ns0:Name>
+            <ns0:LocalId>contenitore</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XBJ</ns0:Id>
         <ns0:Name>Bucket</ns0:Name>
+            <ns0:LocalId>secchio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XBK</ns0:Id>
         <ns0:Name>Basket</ns0:Name>
+            <ns0:LocalId>cesto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XBL</ns0:Id>
         <ns0:Name>Bale, compressed</ns0:Name>
+            <ns0:LocalId>balla</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XBM</ns0:Id>
         <ns0:Name>Basin</ns0:Name>
+            <ns0:LocalId>bacino</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XBN</ns0:Id>
         <ns0:Name>Bale, non-compressed</ns0:Name>
+            <ns0:LocalId>balla</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XBO</ns0:Id>
         <ns0:Name>Bottle, non-protected, cylindrical</ns0:Name>
         <ns0:Description>A narrow-necked cylindrical shaped vessel without external protective packing
             material.</ns0:Description>
+            <ns0:LocalId>bottiglia</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XBP</ns0:Id>
         <ns0:Name>Balloon, protected</ns0:Name>
+            <ns0:LocalId>pallone</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XBQ</ns0:Id>
         <ns0:Name>Bottle, protected cylindrical</ns0:Name>
         <ns0:Description>A narrow-necked cylindrical shaped vessel with external protective packing
             material.</ns0:Description>
+            <ns0:LocalId>bottiglia</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XBR</ns0:Id>
         <ns0:Name>Bar</ns0:Name>
+            <ns0:LocalId>barra</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XBS</ns0:Id>
         <ns0:Name>Bottle, non-protected, bulbous</ns0:Name>
         <ns0:Description>A narrow-necked bulb shaped vessel without external protective packing
             material.</ns0:Description>
+            <ns0:LocalId>bottiglia</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XBT</ns0:Id>
         <ns0:Name>Bolt</ns0:Name>
+            <ns0:LocalId>bullone</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XBU</ns0:Id>
         <ns0:Name>Butt</ns0:Name>
+            <ns0:LocalId>botte</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XBV</ns0:Id>
         <ns0:Name>Bottle, protected bulbous</ns0:Name>
         <ns0:Description>A narrow-necked bulb shaped vessel with external protective packing
             material.</ns0:Description>
+            <ns0:LocalId>bottiglia</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XBW</ns0:Id>
         <ns0:Name>Box, for liquids</ns0:Name>
+            <ns0:LocalId>scatola</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XBX</ns0:Id>
         <ns0:Name>Box</ns0:Name>
+            <ns0:LocalId>scatola</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XBY</ns0:Id>
         <ns0:Name>Board, in bundle/bunch/truss</ns0:Name>
+            <ns0:LocalId>tavola</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XBZ</ns0:Id>
         <ns0:Name>Bars, in bundle/bunch/truss</ns0:Name>
+            <ns0:LocalId>barra</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XCA</ns0:Id>
         <ns0:Name>Can, rectangular</ns0:Name>
+            <ns0:LocalId>lattina</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XCB</ns0:Id>
         <ns0:Name>Crate, beer</ns0:Name>
+            <ns0:LocalId>cassa</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XCC</ns0:Id>
         <ns0:Name>Churn</ns0:Name>
+            <ns0:LocalId>zangola</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XCD</ns0:Id>
         <ns0:Name>Can, with handle and spout</ns0:Name>
+            <ns0:LocalId>lattina</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XCE</ns0:Id>
         <ns0:Name>Creel</ns0:Name>
+            <ns0:LocalId>paniera</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XCF</ns0:Id>
         <ns0:Name>Coffer</ns0:Name>
+            <ns0:LocalId>cofanetto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XCG</ns0:Id>
         <ns0:Name>Cage</ns0:Name>
+            <ns0:LocalId>gabbia</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XCH</ns0:Id>
         <ns0:Name>Chest</ns0:Name>
+            <ns0:LocalId>cassa</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XCI</ns0:Id>
         <ns0:Name>Canister</ns0:Name>
+            <ns0:LocalId>tanica</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XCJ</ns0:Id>
         <ns0:Name>Coffin</ns0:Name>
+            <ns0:LocalId>bara</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XCK</ns0:Id>
         <ns0:Name>Cask</ns0:Name>
+            <ns0:LocalId>botte</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XCL</ns0:Id>
         <ns0:Name>Coil</ns0:Name>
+            <ns0:LocalId>bobina</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XCM</ns0:Id>
         <ns0:Name>Card</ns0:Name>
         <ns0:Description>A flat package usually made of fibreboard from/to which product is often hung
             or attached.</ns0:Description>
+            <ns0:LocalId>scheda</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XCN</ns0:Id>
         <ns0:Name>Container, not otherwise specified as transport equipment</ns0:Name>
+            <ns0:LocalId>contenitore</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XCO</ns0:Id>
         <ns0:Name>Carboy, non-protected</ns0:Name>
+            <ns0:LocalId>damigiana</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XCP</ns0:Id>
         <ns0:Name>Carboy, protected</ns0:Name>
+            <ns0:LocalId>damigiana</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XCQ</ns0:Id>
         <ns0:Name>Cartridge</ns0:Name>
         <ns0:Description>Package containing a charge such as propelling explosive for firearms or ink
             toner for a printer.</ns0:Description>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XCR</ns0:Id>
         <ns0:Name>Crate</ns0:Name>
+            <ns0:LocalId>cassa</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XCS</ns0:Id>
         <ns0:Name>Case</ns0:Name>
+            <ns0:LocalId>cassa</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XCT</ns0:Id>
         <ns0:Name>Carton</ns0:Name>
+            <ns0:LocalId>cartone</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XCU</ns0:Id>
         <ns0:Name>Cup</ns0:Name>
+            <ns0:LocalId>tazza</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XCV</ns0:Id>
         <ns0:Name>Cover</ns0:Name>
+            <ns0:LocalId>copertura</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XCW</ns0:Id>
         <ns0:Name>Cage, roll</ns0:Name>
+            <ns0:LocalId>gabbia</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XCX</ns0:Id>
         <ns0:Name>Can, cylindrical</ns0:Name>
+            <ns0:LocalId>lattina</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XCY</ns0:Id>
         <ns0:Name>Cylinder</ns0:Name>
+            <ns0:LocalId>cilindro</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XCZ</ns0:Id>
         <ns0:Name>Canvas</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XDA</ns0:Id>
         <ns0:Name>Crate, multiple layer, plastic</ns0:Name>
+            <ns0:LocalId>cassa</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XDB</ns0:Id>
         <ns0:Name>Crate, multiple layer, wooden</ns0:Name>
+            <ns0:LocalId>cassa</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XDC</ns0:Id>
         <ns0:Name>Crate, multiple layer, cardboard</ns0:Name>
+            <ns0:LocalId>cassa</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XDG</ns0:Id>
         <ns0:Name>Cage, Commonwealth Handling Equipment Pool (CHEP)</ns0:Name>
+            <ns0:LocalId>gabbia</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XDH</ns0:Id>
         <ns0:Name>Box, Commonwealth Handling Equipment Pool (CHEP), Eurobox</ns0:Name>
         <ns0:Description>A box mounted on a pallet base under the control of CHEP.</ns0:Description>
+            <ns0:LocalId>scatola</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XDI</ns0:Id>
         <ns0:Name>Drum, iron</ns0:Name>
+            <ns0:LocalId>fusto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XDJ</ns0:Id>
         <ns0:Name>Demijohn, non-protected</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XDK</ns0:Id>
         <ns0:Name>Crate, bulk, cardboard</ns0:Name>
+            <ns0:LocalId>cassa</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XDL</ns0:Id>
         <ns0:Name>Crate, bulk, plastic</ns0:Name>
+            <ns0:LocalId>cassa</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XDM</ns0:Id>
         <ns0:Name>Crate, bulk, wooden</ns0:Name>
+            <ns0:LocalId>cassa</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XDN</ns0:Id>
         <ns0:Name>Dispenser</ns0:Name>
+            <ns0:LocalId>distributore</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XDP</ns0:Id>
         <ns0:Name>Demijohn, protected</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XDR</ns0:Id>
         <ns0:Name>Drum</ns0:Name>
+            <ns0:LocalId>fusto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XDS</ns0:Id>
         <ns0:Name>Tray, one layer no cover, plastic</ns0:Name>
+            <ns0:LocalId>vassoio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XDT</ns0:Id>
         <ns0:Name>Tray, one layer no cover, wooden</ns0:Name>
+            <ns0:LocalId>vassoio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XDU</ns0:Id>
         <ns0:Name>Tray, one layer no cover, polystyrene</ns0:Name>
+            <ns0:LocalId>vassoio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XDV</ns0:Id>
         <ns0:Name>Tray, one layer no cover, cardboard</ns0:Name>
+            <ns0:LocalId>vassoio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XDW</ns0:Id>
         <ns0:Name>Tray, two layers no cover, plastic tray</ns0:Name>
+            <ns0:LocalId>vassoio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XDX</ns0:Id>
         <ns0:Name>Tray, two layers no cover, wooden</ns0:Name>
+            <ns0:LocalId>vassoio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XDY</ns0:Id>
         <ns0:Name>Tray, two layers no cover, cardboard</ns0:Name>
+            <ns0:LocalId>vassoio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XEC</ns0:Id>
         <ns0:Name>Bag, plastic</ns0:Name>
+            <ns0:LocalId>sacco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XED</ns0:Id>
         <ns0:Name>Case, with pallet base</ns0:Name>
+            <ns0:LocalId>cassa</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XEE</ns0:Id>
         <ns0:Name>Case, with pallet base, wooden</ns0:Name>
+            <ns0:LocalId>cassa</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XEF</ns0:Id>
         <ns0:Name>Case, with pallet base, cardboard</ns0:Name>
+            <ns0:LocalId>cassa</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XEG</ns0:Id>
         <ns0:Name>Case, with pallet base, plastic</ns0:Name>
+            <ns0:LocalId>cassa</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XEH</ns0:Id>
         <ns0:Name>Case, with pallet base, metal</ns0:Name>
+            <ns0:LocalId>cassa</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XEI</ns0:Id>
         <ns0:Name>Case, isothermic</ns0:Name>
+            <ns0:LocalId>cassa</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XEN</ns0:Id>
         <ns0:Name>Envelope</ns0:Name>
+            <ns0:LocalId>busta</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XFB</ns0:Id>
         <ns0:Name>Flexibag</ns0:Name>
         <ns0:Description>A flexible containment bag made of plastic, typically for the transportation
             bulk non-hazardous cargoes using standard size shipping containers.</ns0:Description>
+            <ns0:LocalId>sacco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XFC</ns0:Id>
         <ns0:Name>Crate, fruit</ns0:Name>
+            <ns0:LocalId>cassa</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XFD</ns0:Id>
         <ns0:Name>Crate, framed</ns0:Name>
+            <ns0:LocalId>cassa</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XFE</ns0:Id>
         <ns0:Name>Flexitank</ns0:Name>
         <ns0:Description>A flexible containment tank made of plastic, typically for the transportation
             bulk non-hazardous cargoes using standard size shipping containers.</ns0:Description>
+            <ns0:LocalId>cisterna</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XFI</ns0:Id>
         <ns0:Name>Firkin</ns0:Name>
+            <ns0:LocalId>barile</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XFL</ns0:Id>
         <ns0:Name>Flask</ns0:Name>
+            <ns0:LocalId>fiasco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XFO</ns0:Id>
         <ns0:Name>Footlocker</ns0:Name>
+            <ns0:LocalId>baule</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XFP</ns0:Id>
         <ns0:Name>Filmpack</ns0:Name>
+            <ns0:LocalId>confezione</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XFR</ns0:Id>
         <ns0:Name>Frame</ns0:Name>
+            <ns0:LocalId>telaio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XFT</ns0:Id>
         <ns0:Name>Foodtainer</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XFW</ns0:Id>
         <ns0:Name>Cart, flatbed</ns0:Name>
         <ns0:Description>Wheeled flat bedded device on which trays or other regular shaped items are
             packed for transportation purposes.</ns0:Description>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XFX</ns0:Id>
         <ns0:Name>Bag, flexible container</ns0:Name>
+            <ns0:LocalId>sacco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XGB</ns0:Id>
         <ns0:Name>Bottle, gas</ns0:Name>
         <ns0:Description>A narrow-necked metal cylinder for retention of liquefied or compressed
             gas.</ns0:Description>
+            <ns0:LocalId>bottiglia</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XGI</ns0:Id>
         <ns0:Name>Girder</ns0:Name>
+            <ns0:LocalId>trave</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XGL</ns0:Id>
         <ns0:Name>Container, gallon</ns0:Name>
         <ns0:Description>A container with a capacity of one gallon.</ns0:Description>
+            <ns0:LocalId>contenitore</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XGR</ns0:Id>
         <ns0:Name>Receptacle, glass</ns0:Name>
         <ns0:Description>Containment vessel made of glass for retaining substances or
             articles.</ns0:Description>
+            <ns0:LocalId>recipiente</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XGU</ns0:Id>
         <ns0:Name>Tray, containing horizontally stacked flat items</ns0:Name>
         <ns0:Description>Tray containing flat items stacked on top of one another.</ns0:Description>
+            <ns0:LocalId>vassoio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XGY</ns0:Id>
         <ns0:Name>Bag, gunny</ns0:Name>
         <ns0:Description>A sack made of gunny or burlap, used for transporting coarse commodities, such
             as grains, potatoes, and other agricultural products.</ns0:Description>
+            <ns0:LocalId>sacco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XGZ</ns0:Id>
         <ns0:Name>Girders, in bundle/bunch/truss</ns0:Name>
+            <ns0:LocalId>travi</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XHA</ns0:Id>
         <ns0:Name>Basket, with handle, plastic</ns0:Name>
+            <ns0:LocalId>cesto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XHB</ns0:Id>
         <ns0:Name>Basket, with handle, wooden</ns0:Name>
+            <ns0:LocalId>cesto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XHC</ns0:Id>
         <ns0:Name>Basket, with handle, cardboard</ns0:Name>
+            <ns0:LocalId>cesto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XHG</ns0:Id>
         <ns0:Name>Hogshead</ns0:Name>
+            <ns0:LocalId>bottone</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XHN</ns0:Id>
         <ns0:Name>Hanger</ns0:Name>
         <ns0:Description>A purpose shaped device with a hook at the top for hanging items from a
             rail.</ns0:Description>
+            <ns0:LocalId>gruccia</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XHR</ns0:Id>
         <ns0:Name>Hamper</ns0:Name>
+            <ns0:LocalId>cesto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XIA</ns0:Id>
         <ns0:Name>Package, display, wooden</ns0:Name>
+            <ns0:LocalId>confezione</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XIB</ns0:Id>
         <ns0:Name>Package, display, cardboard</ns0:Name>
+            <ns0:LocalId>confezione</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XIC</ns0:Id>
         <ns0:Name>Package, display, plastic</ns0:Name>
+            <ns0:LocalId>confezione</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XID</ns0:Id>
         <ns0:Name>Package, display, metal</ns0:Name>
+            <ns0:LocalId>confezione</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XIE</ns0:Id>
         <ns0:Name>Package, show</ns0:Name>
+            <ns0:LocalId>confezione</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XIF</ns0:Id>
         <ns0:Name>Package, flow</ns0:Name>
         <ns0:Description>A flexible tubular package or skin, possibly transparent, often used for
             containment of foodstuffs (e.g. salami sausage).</ns0:Description>
+            <ns0:LocalId>confezione</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XIG</ns0:Id>
         <ns0:Name>Package, paper wrapped</ns0:Name>
+            <ns0:LocalId>confezione</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XIH</ns0:Id>
         <ns0:Name>Drum, plastic</ns0:Name>
+            <ns0:LocalId>fusto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XIK</ns0:Id>
         <ns0:Name>Package, cardboard, with bottle grip-holes</ns0:Name>
         <ns0:Description>Packaging material made out of cardboard that facilitates the separation of
             individual glass or plastic bottles.</ns0:Description>
+            <ns0:LocalId>confezione</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XIL</ns0:Id>
         <ns0:Name>Tray, rigid, lidded stackable (CEN TS 14482:2002)</ns0:Name>
         <ns0:Description>Lidded stackable rigid tray compliant with CEN TS 14482:2002.</ns0:Description>
+            <ns0:LocalId>vassoio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XIN</ns0:Id>
         <ns0:Name>Ingot</ns0:Name>
+            <ns0:LocalId>lingotto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XIZ</ns0:Id>
         <ns0:Name>Ingots, in bundle/bunch/truss</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XJB</ns0:Id>
@@ -10039,183 +10204,224 @@
         <ns0:Description>A flexible containment bag, widely used for storage, transportation and
             handling of powder, flake or granular materials. Typically constructed from woven
             polypropylene (PP) fabric in the form of cubic bags.</ns0:Description>
+            <ns0:LocalId>sacco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XJC</ns0:Id>
         <ns0:Name>Jerrican, rectangular</ns0:Name>
+            <ns0:LocalId>tanica</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XJG</ns0:Id>
         <ns0:Name>Jug</ns0:Name>
+            <ns0:LocalId>brocca</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XJR</ns0:Id>
         <ns0:Name>Jar</ns0:Name>
+            <ns0:LocalId>barattolo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XJT</ns0:Id>
         <ns0:Name>Jutebag</ns0:Name>
+            <ns0:LocalId>sacco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XJY</ns0:Id>
         <ns0:Name>Jerrican, cylindrical</ns0:Name>
+            <ns0:LocalId>tanica</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XKG</ns0:Id>
         <ns0:Name>Keg</ns0:Name>
+            <ns0:LocalId>fusto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XKI</ns0:Id>
         <ns0:Name>Kit</ns0:Name>
         <ns0:Description>A set of articles or implements used for a specific purpose.</ns0:Description>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XLE</ns0:Id>
         <ns0:Name>Luggage</ns0:Name>
         <ns0:Description>A collection of bags, cases and/or containers which hold personal belongings
             for a journey.</ns0:Description>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XLG</ns0:Id>
         <ns0:Name>Log</ns0:Name>
+            <ns0:LocalId>tronco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XLT</ns0:Id>
         <ns0:Name>Lot</ns0:Name>
+            <ns0:LocalId>lotto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XLU</ns0:Id>
         <ns0:Name>Lug</ns0:Name>
         <ns0:Description>A wooden box for the transportation and storage of fruit or
             vegetables.</ns0:Description>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XLV</ns0:Id>
         <ns0:Name>Liftvan</ns0:Name>
         <ns0:Description>A wooden or metal container used for packing household goods and personal
             effects.</ns0:Description>
+            <ns0:LocalId>container</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XLZ</ns0:Id>
         <ns0:Name>Logs, in bundle/bunch/truss</ns0:Name>
+            <ns0:LocalId>tronco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XMA</ns0:Id>
         <ns0:Name>Crate, metal</ns0:Name>
         <ns0:Description>Containment box made of metal for retaining substances or
             articles.</ns0:Description>
+            <ns0:LocalId>cassa</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XMB</ns0:Id>
         <ns0:Name>Bag, multiply</ns0:Name>
+            <ns0:LocalId>sacco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XMC</ns0:Id>
         <ns0:Name>Crate, milk</ns0:Name>
+            <ns0:LocalId>microgrammo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XME</ns0:Id>
         <ns0:Name>Container, metal</ns0:Name>
         <ns0:Description>A type of containment box made of metal for retaining substances or articles,
             not otherwise specified as transport equipment.</ns0:Description>
+            <ns0:LocalId>contenitore</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XMR</ns0:Id>
         <ns0:Name>Receptacle, metal</ns0:Name>
         <ns0:Description>Containment vessel made of metal for retaining substances or
             articles.</ns0:Description>
+            <ns0:LocalId>recipiente</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XMS</ns0:Id>
         <ns0:Name>Sack, multi-wall</ns0:Name>
+            <ns0:LocalId>sacco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XMT</ns0:Id>
         <ns0:Name>Mat</ns0:Name>
+            <ns0:LocalId>stuoia</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XMW</ns0:Id>
         <ns0:Name>Receptacle, plastic wrapped</ns0:Name>
         <ns0:Description>Containment vessel wrapped with plastic for retaining substances or
             articles.</ns0:Description>
+            <ns0:LocalId>recipiente</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XMX</ns0:Id>
         <ns0:Name>Matchbox</ns0:Name>
+            <ns0:LocalId>stuoia</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XNA</ns0:Id>
         <ns0:Name>Not available</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XNE</ns0:Id>
         <ns0:Name>Unpacked or unpackaged</ns0:Name>
+            <ns0:LocalId>sfuso</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XNF</ns0:Id>
         <ns0:Name>Unpacked or unpackaged, single unit</ns0:Name>
+            <ns0:LocalId>sfuso</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XNG</ns0:Id>
         <ns0:Name>Unpacked or unpackaged, multiple units</ns0:Name>
+            <ns0:LocalId>sfuso</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XNS</ns0:Id>
         <ns0:Name>Nest</ns0:Name>
+            <ns0:LocalId>nido</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XNT</ns0:Id>
         <ns0:Name>Net</ns0:Name>
+            <ns0:LocalId>rete</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XNU</ns0:Id>
         <ns0:Name>Net, tube, plastic</ns0:Name>
+            <ns0:LocalId>rete</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XNV</ns0:Id>
         <ns0:Name>Net, tube, textile</ns0:Name>
+            <ns0:LocalId>rete</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XO1</ns0:Id>
         <ns0:Name>Two sided cage on wheels with fixing strap</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XO2</ns0:Id>
         <ns0:Name>Trolley</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XO3</ns0:Id>
         <ns0:Name>Oneway pallet ISO 0 - 1/2 EURO Pallet</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XO4</ns0:Id>
         <ns0:Name>Oneway pallet ISO 1 - 1/1 EURO Pallet</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XO5</ns0:Id>
         <ns0:Name>Oneway pallet ISO 2 - 2/1 EURO Pallet</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XO6</ns0:Id>
         <ns0:Name>Pallet with exceptional dimensions</ns0:Name>
+            <ns0:LocalId>bancale</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XO7</ns0:Id>
         <ns0:Name>Wooden pallet 40 cm x 80 cm</ns0:Name>
+            <ns0:LocalId>legno</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XO8</ns0:Id>
         <ns0:Name>Plastic pallet SRS 60 cm x 80 cm</ns0:Name>
+            <ns0:LocalId>plastica</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XO9</ns0:Id>
         <ns0:Name>Plastic pallet SRS 80 cm x 120 cm</ns0:Name>
+            <ns0:LocalId>plastica</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XOA</ns0:Id>
         <ns0:Name>Pallet, CHEP 40 cm x 60 cm</ns0:Name>
         <ns0:Description>Commonwealth Handling Equipment Pool (CHEP) standard pallet of dimensions 40
             centimeters x 60 centimeters.</ns0:Description>
+            <ns0:LocalId>bancale</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XOB</ns0:Id>
@@ -10228,169 +10434,206 @@
         <ns0:Name>Pallet, CHEP 100 cm x 120 cm</ns0:Name>
         <ns0:Description>Commonwealth Handling Equipment Pool (CHEP) standard pallet of dimensions 100
             centimeters x 120 centimeters.</ns0:Description>
+            <ns0:LocalId>bancale</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XOD</ns0:Id>
         <ns0:Name>Pallet, AS 4068-1993</ns0:Name>
         <ns0:Description>Australian standard pallet of dimensions 115.5 centimeters x 116.5
             centimeters.</ns0:Description>
+            <ns0:LocalId>bancale</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XOE</ns0:Id>
         <ns0:Name>Pallet, ISO T11</ns0:Name>
         <ns0:Description>ISO standard pallet of dimensions 110 centimeters x 110 centimeters, prevalent
             in Asia - Pacific region.</ns0:Description>
+            <ns0:LocalId>bancale</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XOF</ns0:Id>
         <ns0:Name>Platform, unspecified weight or dimension</ns0:Name>
         <ns0:Description>A pallet equivalent shipping platform of unknown dimensions or unknown
             weight.</ns0:Description>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XOG</ns0:Id>
         <ns0:Name>Pallet ISO 0 - 1/2 EURO Pallet</ns0:Name>
+            <ns0:LocalId>bancale</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XOH</ns0:Id>
         <ns0:Name>Pallet ISO 1 - 1/1 EURO Pallet</ns0:Name>
+            <ns0:LocalId>bancale</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XOI</ns0:Id>
         <ns0:Name>Pallet ISO 2 – 2/1 EURO Pallet</ns0:Name>
+            <ns0:LocalId>bancale</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XOK</ns0:Id>
         <ns0:Name>Block</ns0:Name>
         <ns0:Description>A solid piece of a hard substance, such as granite, having one or more flat
             sides.</ns0:Description>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XOJ</ns0:Id>
         <ns0:Name>1/4 EURO Pallet</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XOL</ns0:Id>
         <ns0:Name>1/8 EURO Pallet</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XOM</ns0:Id>
         <ns0:Name>Synthetic pallet ISO 1</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XON</ns0:Id>
         <ns0:Name>Synthetic pallet ISO 2</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XOP</ns0:Id>
         <ns0:Name>Wholesaler pallet</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XOQ</ns0:Id>
         <ns0:Name>Pallet 80 X 100 cm</ns0:Name>
+            <ns0:LocalId>bancale</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XOR</ns0:Id>
         <ns0:Name>Pallet 60 X 100 cm</ns0:Name>
+            <ns0:LocalId>bancale</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XOS</ns0:Id>
         <ns0:Name>Oneway pallet</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XOV</ns0:Id>
         <ns0:Name>Returnable pallet</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XOW</ns0:Id>
         <ns0:Name>Large bag, pallet sized</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XOT</ns0:Id>
         <ns0:Name>Octabin</ns0:Name>
         <ns0:Description>A standard cardboard container of large dimensions for storing for example
             vegetables, granules of plastics or other dry products.</ns0:Description>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XOU</ns0:Id>
         <ns0:Name>Container, outer</ns0:Name>
         <ns0:Description>A type of containment box that serves as the outer shipping container, not
             otherwise specified as transport equipment.</ns0:Description>
+            <ns0:LocalId>contenitore</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XOX</ns0:Id>
         <ns0:Name>A wheeled pallet with raised rim (81 x 67 x 135)</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XOY</ns0:Id>
         <ns0:Name>A Wheeled pallet with raised rim (81 x 72 x 135)</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XOZ</ns0:Id>
         <ns0:Name>Wheeled pallet with raised rim ( 81 x 60 x 16)</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XP1</ns0:Id>
         <ns0:Name>CHEP pallet 60 cm x 80 cm </ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XP2</ns0:Id>
         <ns0:Name>Pan</ns0:Name>
         <ns0:Description>A shallow, wide, open container, usually of metal.</ns0:Description>
+            <ns0:LocalId>teglia</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XP3</ns0:Id>
         <ns0:Name>LPR pallet 60 cm x 80 cm</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XP4</ns0:Id>
         <ns0:Name>LPR pallet 80 cm x 120 cm</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XPA</ns0:Id>
         <ns0:Name>Packet</ns0:Name>
         <ns0:Description>Small package.</ns0:Description>
+            <ns0:LocalId>pacchetto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XPB</ns0:Id>
         <ns0:Name>Pallet, box Combined open-ended box and pallet</ns0:Name>
+            <ns0:LocalId>bancale</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XPC</ns0:Id>
         <ns0:Name>Parcel</ns0:Name>
+            <ns0:LocalId>collo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XPD</ns0:Id>
         <ns0:Name>Pallet, modular, collars 80cms * 100cms</ns0:Name>
         <ns0:Description>Standard sized pallet of dimensions 80 centimeters by 100 centimeters
             (cms).</ns0:Description>
+            <ns0:LocalId>bancale</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XPE</ns0:Id>
         <ns0:Name>Pallet, modular, collars 80cms * 120cms</ns0:Name>
         <ns0:Description>Standard sized pallet of dimensions 80 centimeters by 120 centimeters
             (cms).</ns0:Description>
+            <ns0:LocalId>bancale</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XPF</ns0:Id>
         <ns0:Name>Pen</ns0:Name>
         <ns0:Description>A small open top enclosure for retaining animals.</ns0:Description>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XPG</ns0:Id>
         <ns0:Name>Plate</ns0:Name>
+            <ns0:LocalId>piatto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XPH</ns0:Id>
         <ns0:Name>Pitcher</ns0:Name>
+            <ns0:LocalId>brocca</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XPI</ns0:Id>
         <ns0:Name>Pipe</ns0:Name>
+            <ns0:LocalId>tubo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XPJ</ns0:Id>
         <ns0:Name>Punnet</ns0:Name>
+            <ns0:LocalId>cestino</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XPK</ns0:Id>
@@ -10400,185 +10643,228 @@
     <ns0:Code>
         <ns0:Id>XPL</ns0:Id>
         <ns0:Name>Pail</ns0:Name>
+            <ns0:LocalId>secchio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XPN</ns0:Id>
         <ns0:Name>Plank</ns0:Name>
+            <ns0:LocalId>tavola</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XPO</ns0:Id>
         <ns0:Name>Pouch</ns0:Name>
+            <ns0:LocalId>sacchetto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XPP</ns0:Id>
         <ns0:Name>Piece</ns0:Name>
         <ns0:Description>A loose or unpacked article.</ns0:Description>
+            <ns0:LocalId>pezzo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XPR</ns0:Id>
         <ns0:Name>Receptacle, plastic</ns0:Name>
         <ns0:Description>Containment vessel made of plastic for retaining substances or
             articles.</ns0:Description>
+            <ns0:LocalId>paio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XPT</ns0:Id>
         <ns0:Name>Pot</ns0:Name>
+            <ns0:LocalId>vaso</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XPU</ns0:Id>
         <ns0:Name>Tray</ns0:Name>
+            <ns0:LocalId>vassoio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XPV</ns0:Id>
         <ns0:Name>Pipes, in bundle/bunch/truss</ns0:Name>
+            <ns0:LocalId>tubo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XPX</ns0:Id>
         <ns0:Name>Pallet</ns0:Name>
         <ns0:Description>Platform or open-ended box, usually made of wood, on which goods are retained
             for ease of mechanical handling during transport and storage.</ns0:Description>
+            <ns0:LocalId>bancale</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XPY</ns0:Id>
         <ns0:Name>Plates, in bundle/bunch/truss</ns0:Name>
+            <ns0:LocalId>piatto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XPZ</ns0:Id>
         <ns0:Name>Planks, in bundle/bunch/truss</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XQA</ns0:Id>
         <ns0:Name>Drum, steel, non-removable head</ns0:Name>
+            <ns0:LocalId>fusto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XQB</ns0:Id>
         <ns0:Name>Drum, steel, removable head</ns0:Name>
+            <ns0:LocalId>fusto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XQC</ns0:Id>
         <ns0:Name>Drum, aluminium, non-removable head</ns0:Name>
+            <ns0:LocalId>fusto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XQD</ns0:Id>
         <ns0:Name>Drum, aluminium, removable head</ns0:Name>
+            <ns0:LocalId>fusto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XQF</ns0:Id>
         <ns0:Name>Drum, plastic, non-removable head</ns0:Name>
+            <ns0:LocalId>fusto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XQG</ns0:Id>
         <ns0:Name>Drum, plastic, removable head</ns0:Name>
+            <ns0:LocalId>fusto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XQH</ns0:Id>
         <ns0:Name>Barrel, wooden, bung type</ns0:Name>
+            <ns0:LocalId>barile</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XQJ</ns0:Id>
         <ns0:Name>Barrel, wooden, removable head</ns0:Name>
+            <ns0:LocalId>barile</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XQK</ns0:Id>
         <ns0:Name>Jerrican, steel, non-removable head</ns0:Name>
+            <ns0:LocalId>tanica</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XQL</ns0:Id>
         <ns0:Name>Jerrican, steel, removable head</ns0:Name>
+            <ns0:LocalId>tanica</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XQM</ns0:Id>
         <ns0:Name>Jerrican, plastic, non-removable head</ns0:Name>
+            <ns0:LocalId>tanica</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XQN</ns0:Id>
         <ns0:Name>Jerrican, plastic, removable head</ns0:Name>
+            <ns0:LocalId>tanica</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XQP</ns0:Id>
         <ns0:Name>Box, wooden, natural wood, ordinary</ns0:Name>
+            <ns0:LocalId>scatola</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XQQ</ns0:Id>
         <ns0:Name>Box, wooden, natural wood, with sift proof walls</ns0:Name>
+            <ns0:LocalId>scatola</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XQR</ns0:Id>
         <ns0:Name>Box, plastic, expanded</ns0:Name>
+            <ns0:LocalId>scatola</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XQS</ns0:Id>
         <ns0:Name>Box, plastic, solid</ns0:Name>
+            <ns0:LocalId>scatola</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XRD</ns0:Id>
         <ns0:Name>Rod</ns0:Name>
+            <ns0:LocalId>asta</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XRG</ns0:Id>
         <ns0:Name>Ring</ns0:Name>
+            <ns0:LocalId>anello</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XRJ</ns0:Id>
         <ns0:Name>Rack, clothing hanger</ns0:Name>
+            <ns0:LocalId>rack</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XRK</ns0:Id>
         <ns0:Name>Rack</ns0:Name>
+            <ns0:LocalId>rack</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XRL</ns0:Id>
         <ns0:Name>Reel</ns0:Name>
         <ns0:Description>Cylindrical rotatory device with a rim at each end on which materials are
             wound.</ns0:Description>
+            <ns0:LocalId>bobina</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XRO</ns0:Id>
         <ns0:Name>Roll</ns0:Name>
+            <ns0:LocalId>rotolo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XRT</ns0:Id>
         <ns0:Name>Rednet</ns0:Name>
         <ns0:Description>Containment material made of red mesh netting for retaining articles (e.g.
             trees).</ns0:Description>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XRZ</ns0:Id>
         <ns0:Name>Rods, in bundle/bunch/truss</ns0:Name>
+            <ns0:LocalId>asta</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XSA</ns0:Id>
         <ns0:Name>Sack</ns0:Name>
+            <ns0:LocalId>sacco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XSB</ns0:Id>
         <ns0:Name>Slab</ns0:Name>
+            <ns0:LocalId>lastra</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XSC</ns0:Id>
         <ns0:Name>Crate, shallow</ns0:Name>
+            <ns0:LocalId>cassa</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XSD</ns0:Id>
         <ns0:Name>Spindle</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XSE</ns0:Id>
         <ns0:Name>Sea-chest</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XSH</ns0:Id>
         <ns0:Name>Sachet</ns0:Name>
+            <ns0:LocalId>bustina</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XSI</ns0:Id>
         <ns0:Name>Skid</ns0:Name>
         <ns0:Description>A low movable platform or pallet to facilitate the handling and transport of
             goods.</ns0:Description>
+            <ns0:LocalId>bancale</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XSK</ns0:Id>
         <ns0:Name>Case, skeleton</ns0:Name>
+            <ns0:LocalId>cassa</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XSL</ns0:Id>
@@ -10586,199 +10872,244 @@
         <ns0:Description>Hard plastic sheeting primarily used as the base on which to stack goods to
             optimise the space within a container. May be used as an alternative to a palletized
             packaging.</ns0:Description>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XSM</ns0:Id>
         <ns0:Name>Sheetmetal</ns0:Name>
+            <ns0:LocalId>foglio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XSO</ns0:Id>
         <ns0:Name>Spool</ns0:Name>
         <ns0:Description>A packaging container used in the transport of such items as wire, cable, tape
             and yarn.</ns0:Description>
+            <ns0:LocalId>bobina</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XSP</ns0:Id>
         <ns0:Name>Sheet, plastic wrapping</ns0:Name>
+            <ns0:LocalId>foglio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XSS</ns0:Id>
         <ns0:Name>Case, steel</ns0:Name>
+            <ns0:LocalId>cassa</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XST</ns0:Id>
         <ns0:Name>Sheet</ns0:Name>
+            <ns0:LocalId>foglio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XSU</ns0:Id>
         <ns0:Name>Suitcase</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XSV</ns0:Id>
         <ns0:Name>Envelope, steel</ns0:Name>
+            <ns0:LocalId>busta</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XSW</ns0:Id>
         <ns0:Name>Shrinkwrapped</ns0:Name>
         <ns0:Description>Goods retained in a transparent plastic film that has been wrapped around and
             then shrunk tightly on to the goods.</ns0:Description>
+            <ns0:LocalId>bancale</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XSX</ns0:Id>
         <ns0:Name>Set</ns0:Name>
+            <ns0:LocalId>set</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XSY</ns0:Id>
         <ns0:Name>Sleeve</ns0:Name>
+            <ns0:LocalId>fodero</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XSZ</ns0:Id>
         <ns0:Name>Sheets, in bundle/bunch/truss</ns0:Name>
+            <ns0:LocalId>foglio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XT1</ns0:Id>
         <ns0:Name>Tablet</ns0:Name>
         <ns0:Description>A loose or unpacked article in the form of a bar, block or piece.</ns0:Description>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XTB</ns0:Id>
         <ns0:Name>Tub</ns0:Name>
+            <ns0:LocalId>vasca</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XTC</ns0:Id>
         <ns0:Name>Tea-chest</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XTD</ns0:Id>
         <ns0:Name>Tube, collapsible</ns0:Name>
+            <ns0:LocalId>tubo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XTE</ns0:Id>
         <ns0:Name>Tyre</ns0:Name>
         <ns0:Description>A ring made of rubber and/or metal surrounding a wheel.</ns0:Description>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XTG</ns0:Id>
         <ns0:Name>Tank container, generic</ns0:Name>
         <ns0:Description>A specially constructed container for transporting liquids and gases in
             bulk.</ns0:Description>
+            <ns0:LocalId>cisterna</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XTI</ns0:Id>
         <ns0:Name>Tierce</ns0:Name>
+            <ns0:LocalId>terzo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XTK</ns0:Id>
         <ns0:Name>Tank, rectangular</ns0:Name>
+            <ns0:LocalId>cisterna</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XTL</ns0:Id>
         <ns0:Name>Tub, with lid</ns0:Name>
+            <ns0:LocalId>vasca</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XTN</ns0:Id>
         <ns0:Name>Tin</ns0:Name>
+            <ns0:LocalId>latta</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XTO</ns0:Id>
         <ns0:Name>Tun</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XTR</ns0:Id>
         <ns0:Name>Trunk</ns0:Name>
+            <ns0:LocalId>baule</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XTS</ns0:Id>
         <ns0:Name>Truss</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XTT</ns0:Id>
         <ns0:Name>Bag, tote</ns0:Name>
         <ns0:Description>A capacious bag or basket.</ns0:Description>
+            <ns0:LocalId>sacco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XTU</ns0:Id>
         <ns0:Name>Tube</ns0:Name>
+            <ns0:LocalId>tubo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XTV</ns0:Id>
         <ns0:Name>Tube, with nozzle</ns0:Name>
         <ns0:Description>A tube made of plastic, metal or cardboard fitted with a nozzle, containing a
             liquid or semi-liquid product, e.g. silicon.</ns0:Description>
+            <ns0:LocalId>tubo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XTW</ns0:Id>
         <ns0:Name>Pallet, triwall</ns0:Name>
         <ns0:Description>A lightweight pallet made from heavy duty corrugated board.</ns0:Description>
+            <ns0:LocalId>bancale</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XTY</ns0:Id>
         <ns0:Name>Tank, cylindrical</ns0:Name>
+            <ns0:LocalId>cisterna</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XTZ</ns0:Id>
         <ns0:Name>Tubes, in bundle/bunch/truss</ns0:Name>
+            <ns0:LocalId>tubo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XUC</ns0:Id>
         <ns0:Name>Uncaged</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XUN</ns0:Id>
         <ns0:Name>Unit</ns0:Name>
         <ns0:Description>A type of package composed of a single item or object, not otherwise specified
             as a unit of transport equipment.</ns0:Description>
+            <ns0:LocalId>unità</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XVA</ns0:Id>
         <ns0:Name>Vat</ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XVG</ns0:Id>
         <ns0:Name>Bulk, gas (at 1031 mbar and 15°C)</ns0:Name>
+            <ns0:LocalId>sfuso</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XVI</ns0:Id>
         <ns0:Name>Vial</ns0:Name>
+            <ns0:LocalId>fiala</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XVK</ns0:Id>
         <ns0:Name>Vanpack</ns0:Name>
         <ns0:Description>A type of wooden crate.</ns0:Description>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XVL</ns0:Id>
         <ns0:Name>Bulk, liquid</ns0:Name>
+            <ns0:LocalId>sfuso</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XVO</ns0:Id>
         <ns0:Name>Bulk, solid, large particles (“nodules”)</ns0:Name>
+            <ns0:LocalId>sfuso</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XVP</ns0:Id>
         <ns0:Name>Vacuum-packed</ns0:Name>
+            <ns0:LocalId>sottovuoto</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XVQ</ns0:Id>
         <ns0:Name>Bulk, liquefied gas (at abnormal temperature/pressure)</ns0:Name>
+            <ns0:LocalId>sfuso</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XVN</ns0:Id>
         <ns0:Name>Vehicle</ns0:Name>
         <ns0:Description>A self-propelled means of conveyance.</ns0:Description>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XVR</ns0:Id>
         <ns0:Name>Bulk, solid, granular particles (“grains”)</ns0:Name>
+            <ns0:LocalId>sfuso</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XVS</ns0:Id>
         <ns0:Name>Bulk, scrap metal</ns0:Name>
         <ns0:Description>Loose or unpacked scrap metal transported in bulk form.</ns0:Description>
+            <ns0:LocalId>sfuso</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XVY</ns0:Id>
         <ns0:Name>Bulk, solid, fine particles (“powders”)</ns0:Name>
+            <ns0:LocalId>sfuso</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XWA</ns0:Id>
@@ -10786,311 +11117,388 @@
         <ns0:Description>A reusable container made of metal, plastic, textile, wood or composite
             materials used to facilitate transportation of bulk solids and liquids in manageable
             volumes.</ns0:Description>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XWB</ns0:Id>
         <ns0:Name>Wickerbottle</ns0:Name>
+            <ns0:LocalId>damigiana</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XWC</ns0:Id>
         <ns0:Name>Intermediate bulk container, steel</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XWD</ns0:Id>
         <ns0:Name>Intermediate bulk container, aluminium</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XWF</ns0:Id>
         <ns0:Name>Intermediate bulk container, metal</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XWG</ns0:Id>
         <ns0:Name>Intermediate bulk container, steel, pressurised &gt; 10 kpa</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XWH</ns0:Id>
         <ns0:Name>Intermediate bulk container, aluminium, pressurised &gt; 10 kpa</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XWJ</ns0:Id>
         <ns0:Name>Intermediate bulk container, metal, pressure 10 kpa</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XWK</ns0:Id>
         <ns0:Name>Intermediate bulk container, steel, liquid</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XWL</ns0:Id>
         <ns0:Name>Intermediate bulk container, aluminium, liquid</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XWM</ns0:Id>
         <ns0:Name>Intermediate bulk container, metal, liquid</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XWN</ns0:Id>
         <ns0:Name>Intermediate bulk container, woven plastic, without coat/liner</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XWP</ns0:Id>
         <ns0:Name>Intermediate bulk container, woven plastic, coated</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XWQ</ns0:Id>
         <ns0:Name>Intermediate bulk container, woven plastic, with liner</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XWR</ns0:Id>
         <ns0:Name>Intermediate bulk container, woven plastic, coated and liner</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XWS</ns0:Id>
         <ns0:Name>Intermediate bulk container, plastic film</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XWT</ns0:Id>
         <ns0:Name>Intermediate bulk container, textile with out coat/liner</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XWU</ns0:Id>
         <ns0:Name>Intermediate bulk container, natural wood, with inner liner</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XWV</ns0:Id>
         <ns0:Name>Intermediate bulk container, textile, coated</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XWW</ns0:Id>
         <ns0:Name>Intermediate bulk container, textile, with liner</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XWX</ns0:Id>
         <ns0:Name>Intermediate bulk container, textile, coated and liner</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XWY</ns0:Id>
         <ns0:Name>Intermediate bulk container, plywood, with inner liner</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XWZ</ns0:Id>
         <ns0:Name>Intermediate bulk container, reconstituted wood, with inner liner</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XXA</ns0:Id>
         <ns0:Name>Bag, woven plastic, without inner coat/liner</ns0:Name>
+            <ns0:LocalId>sacco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XXB</ns0:Id>
         <ns0:Name>Bag, woven plastic, sift proof</ns0:Name>
+            <ns0:LocalId>sacco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XXC</ns0:Id>
         <ns0:Name>Bag, woven plastic, water resistant</ns0:Name>
+            <ns0:LocalId>sacco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XXD</ns0:Id>
         <ns0:Name>Bag, plastics film</ns0:Name>
+            <ns0:LocalId>sacco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XXF</ns0:Id>
         <ns0:Name>Bag, textile, without inner coat/liner</ns0:Name>
+            <ns0:LocalId>sacco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XXG</ns0:Id>
         <ns0:Name>Bag, textile, sift proof</ns0:Name>
+            <ns0:LocalId>sacco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XXH</ns0:Id>
         <ns0:Name>Bag, textile, water resistant</ns0:Name>
+            <ns0:LocalId>sacco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XXJ</ns0:Id>
         <ns0:Name>Bag, paper, multi-wall</ns0:Name>
+            <ns0:LocalId>sacco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XXK</ns0:Id>
         <ns0:Name>Bag, paper, multi-wall, water resistant</ns0:Name>
+            <ns0:LocalId>sacco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XYA</ns0:Id>
         <ns0:Name>Composite packaging, plastic receptacle in steel drum</ns0:Name>
+            <ns0:LocalId>imballaggio composito</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XYB</ns0:Id>
         <ns0:Name>Composite packaging, plastic receptacle in steel crate box</ns0:Name>
+            <ns0:LocalId>imballaggio composito</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XYC</ns0:Id>
         <ns0:Name>Composite packaging, plastic receptacle in aluminium drum</ns0:Name>
+            <ns0:LocalId>imballaggio composito</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XYD</ns0:Id>
         <ns0:Name>Composite packaging, plastic receptacle in aluminium crate</ns0:Name>
+            <ns0:LocalId>imballaggio composito</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XYF</ns0:Id>
         <ns0:Name>Composite packaging, plastic receptacle in wooden box</ns0:Name>
+            <ns0:LocalId>imballaggio composito</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XYG</ns0:Id>
         <ns0:Name>Composite packaging, plastic receptacle in plywood drum</ns0:Name>
+            <ns0:LocalId>imballaggio composito</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XYH</ns0:Id>
         <ns0:Name>Composite packaging, plastic receptacle in plywood box</ns0:Name>
+            <ns0:LocalId>imballaggio composito</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XYJ</ns0:Id>
         <ns0:Name>Composite packaging, plastic receptacle in fibre drum</ns0:Name>
+            <ns0:LocalId>imballaggio composito</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XYK</ns0:Id>
         <ns0:Name>Composite packaging, plastic receptacle in fibreboard box</ns0:Name>
+            <ns0:LocalId>imballaggio composito</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XYL</ns0:Id>
         <ns0:Name>Composite packaging, plastic receptacle in plastic drum</ns0:Name>
+            <ns0:LocalId>imballaggio composito</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XYM</ns0:Id>
         <ns0:Name>Composite packaging, plastic receptacle in solid plastic box</ns0:Name>
+            <ns0:LocalId>imballaggio composito</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XYN</ns0:Id>
         <ns0:Name>Composite packaging, glass receptacle in steel drum</ns0:Name>
+            <ns0:LocalId>imballaggio composito</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XYP</ns0:Id>
         <ns0:Name>Composite packaging, glass receptacle in steel crate box</ns0:Name>
+            <ns0:LocalId>imballaggio composito</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XYQ</ns0:Id>
         <ns0:Name>Composite packaging, glass receptacle in aluminium drum</ns0:Name>
+            <ns0:LocalId>imballaggio composito</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XYR</ns0:Id>
         <ns0:Name>Composite packaging, glass receptacle in aluminium crate</ns0:Name>
+            <ns0:LocalId>imballaggio composito</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XYS</ns0:Id>
         <ns0:Name>Composite packaging, glass receptacle in wooden box</ns0:Name>
+            <ns0:LocalId>imballaggio composito</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XYT</ns0:Id>
         <ns0:Name>Composite packaging, glass receptacle in plywood drum</ns0:Name>
+            <ns0:LocalId>imballaggio composito</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XYV</ns0:Id>
         <ns0:Name>Composite packaging, glass receptacle in wickerwork hamper</ns0:Name>
+            <ns0:LocalId>imballaggio composito</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XYW</ns0:Id>
         <ns0:Name>Composite packaging, glass receptacle in fibre drum</ns0:Name>
+            <ns0:LocalId>imballaggio composito</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XYX</ns0:Id>
         <ns0:Name>Composite packaging, glass receptacle in fibreboard box</ns0:Name>
+            <ns0:LocalId>imballaggio composito</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XYY</ns0:Id>
         <ns0:Name>Composite packaging, glass receptacle in expandable plastic pack</ns0:Name>
+            <ns0:LocalId>imballaggio composito</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XYZ</ns0:Id>
         <ns0:Name>Composite packaging, glass receptacle in solid plastic pack</ns0:Name>
+            <ns0:LocalId>imballaggio composito</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XZA</ns0:Id>
         <ns0:Name>Intermediate bulk container, paper, multi-wall</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XZB</ns0:Id>
         <ns0:Name>Bag, large</ns0:Name>
+            <ns0:LocalId>sacco</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XZC</ns0:Id>
         <ns0:Name>Intermediate bulk container, paper, multi-wall, water resistant</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XZD</ns0:Id>
         <ns0:Name>Intermediate bulk container, rigid plastic, with structural equipment, solids</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XZF</ns0:Id>
         <ns0:Name>Intermediate bulk container, rigid plastic, freestanding, solids</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XZG</ns0:Id>
         <ns0:Name>Intermediate bulk container, rigid plastic, with structural equipment,
             pressurised</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XZH</ns0:Id>
         <ns0:Name>Intermediate bulk container, rigid plastic, freestanding, pressurised</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XZJ</ns0:Id>
         <ns0:Name>Intermediate bulk container, rigid plastic, with structural equipment, liquids</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XZK</ns0:Id>
         <ns0:Name>Intermediate bulk container, rigid plastic, freestanding, liquids</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XZL</ns0:Id>
         <ns0:Name>Intermediate bulk container, composite, rigid plastic, solids</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XZM</ns0:Id>
         <ns0:Name>Intermediate bulk container, composite, flexible plastic, solids</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XZN</ns0:Id>
         <ns0:Name>Intermediate bulk container, composite, rigid plastic, pressurised</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XZP</ns0:Id>
         <ns0:Name>Intermediate bulk container, composite, flexible plastic, pressurised</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XZQ</ns0:Id>
         <ns0:Name>Intermediate bulk container, composite, rigid plastic, liquids</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XZR</ns0:Id>
         <ns0:Name>Intermediate bulk container, composite, flexible plastic, liquids</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XZS</ns0:Id>
         <ns0:Name>Intermediate bulk container, composite</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XZT</ns0:Id>
         <ns0:Name>Intermediate bulk container, fibreboard</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XZU</ns0:Id>
         <ns0:Name>Intermediate bulk container, flexible</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XZV</ns0:Id>
         <ns0:Name>Intermediate bulk container, metal, other than steel</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XZW</ns0:Id>
         <ns0:Name>Intermediate bulk container, natural wood</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XZX</ns0:Id>
         <ns0:Name>Intermediate bulk container, plywood</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XZY</ns0:Id>
         <ns0:Name>Intermediate bulk container, reconstituted wood</ns0:Name>
+            <ns0:LocalId>contenitore intermedio</ns0:LocalId>
     </ns0:Code>
     <ns0:Code>
         <ns0:Id>XZZ</ns0:Id>
         <ns0:Name>Mutually defined </ns0:Name>
+            <ns0:LocalId>imballo</ns0:LocalId>
     </ns0:Code>
 
 

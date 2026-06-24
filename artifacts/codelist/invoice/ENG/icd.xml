@@ -479,7 +479,7 @@
 	<Code>
 		<Id>0096</Id>
 		<Name>The Danish Business Authority - P-number (DK:P)</Name>
-		<Description>Issuing agency: Danish Business Authority, Denmark.</Description>
+		<Description>Issuing agency: Danish Chamber of Commerce, Denmark.</Description>
 	</Code>
 	<Code>
 		<Id>0097</Id>
@@ -1033,7 +1033,7 @@
 	<Code>
 		<Id>0208</Id>
 		<Name>Numero d'entreprise / ondernemingsnummer / Unternehmensnummer</Name>
-		<Description>Intended Purpose/App. Area: Identification number attributed by the BCE/KBO/ZDU (the Belgian register) to identify entities and establishment units operating in Belgium. Issuing agency: Banque-Carrefour des Entreprises (BCE) / Kruispuntbank van Ondernemingen (KBO) / Zentrale Datenbank der Unternehmen (ZOU) Service public fédéral Economie, P.M.E.in Belgium. Classes moyennes et Energie</Description>
+		<Description>Intended Purpose/App. Area: Identification number attributed by the BCE/KBO/ZDU (the Belgian register) to identify entities operating in Belgium. Issuing agency: Banque-Carrefour des Entreprises (BCE) / Kruispuntbank van Ondernemingen (KBO) / Zentrale Datenbank der Unternehmen (ZOU) Service public fédéral Economie, P.M.E.in Belgium. Classes moyennes et Energie</Description>
 	</Code>
 	<Code>
 		<Id>0209</Id>

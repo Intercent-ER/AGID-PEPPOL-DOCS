@@ -1,0 +1,12 @@
+---
+description: Non aggiungere Co-authored-by nei commit git
+alwaysApply: true
+---
+
+# Commit git: niente Co-authored-by
+
+Quando crei commit in questo repository:
+
+- **Non** aggiungere mai `Co-authored-by: Cursor <cursoragent@cursor.com>` (né altre righe Co-authored-by automatiche) nel messaggio di commit.
+- Usa solo il messaggio richiesto dall'utente o quello che descrivi le modifiche.
+- Non appendere trailer, footer o metadati extra al commit message a meno che l'utente non li chieda esplicitamente.

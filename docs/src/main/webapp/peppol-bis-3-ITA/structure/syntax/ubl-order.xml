@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Structure xmlns="urn:fdc:difi.no:2017:vefa:structure-1">
+<Structure xmlns="urn:fdc:difi.no:2017:vefa:structure-1" xmlns:agid="urn:fdc:agid.gov.it:peppol:customization">
 	<Term>Order</Term>
 	<Property key="sch:prefix">PEPPOL-T01</Property>
 	<Property key="sch:identifier">T01-basic</Property>
@@ -1760,18 +1760,7 @@
 				<Reference type="BUSINESS_TERM">tir01-123</Reference>
 			</Element>
 
-			<Element cardinality="0..1" agid:custom="rule">
-				<Term>cac:QuotationLineReference</Term>
-				<Name>Quotation line reference - Reference to a quotation line</Name>
-				<Description>Reference to a quotation line.</Description>
-				<Element>
-					<Term>cbc:LineID</Term>
-					<Name>Quotation line reference - Quotation line reference</Name>
-					<Description>Quotation line reference.</Description>
-					<DataType>Identifier</DataType>
-					<Reference type="RULE">PEPPOL-T01-R035</Reference>
-				</Element>
-			</Element>			<Element>
+			<Element>
 				<Term>cac:LineItem</Term>
 				<Name>Line item</Name>
 				<Description>Description of line item </Description>
@@ -2486,6 +2475,18 @@
 							</Element>
 						</Element>
 					</Element>
+				</Element>
+			</Element>
+			<Element cardinality="0..1">
+				<Term>cac:QuotationLineReference</Term>
+				<Name>Reference to a quotation line - Riferimento ad una riga di preventivo</Name>
+				<Description>Reference to a quotation line - Riferimento ad una riga di preventivo</Description>
+				<Element>
+					<Term>cbc:LineID</Term>
+					<Name>Quotation line reference - Riferimento alla riga di preventivo</Name>
+					<Description>Quotation line reference - Riferimento alla riga di preventivo</Description>
+					<DataType>Identifier</DataType>
+					<Reference type="RULE">PEPPOL-T01-R035</Reference>
 				</Element>
 			</Element>
 		</Element>

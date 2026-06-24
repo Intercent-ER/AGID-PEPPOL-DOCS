@@ -1644,18 +1644,7 @@
                                 <Reference type="RULE">NSO_051</Reference>
 			</Element>
 
-			<Element cardinality="0..1" agid:custom="rule">
-				<Term>cac:QuotationLineReference</Term>
-				<Name>Quotation line reference - Riferimento ad una riga di preventivo</Name>
-				<Description>Riferimento ad una riga di preventivo.</Description>
-				<Element>
-					<Term>cbc:LineID</Term>
-					<Name>Quotation line reference - Riferimento alla riga di preventivo</Name>
-					<Description>Riferimento alla riga di preventivo.</Description>
-					<DataType>Identifier</DataType>
-					<Reference type="RULE">PEPPOL-T01-R035</Reference>
-				</Element>
-			</Element>			<Element>
+			<Element>
 				<Term>cac:LineItem</Term>
 				<Name>Line item - Elementi della linea d’ordine</Name>
 				<Description>Contiene gli elementi della linea d’ordine.</Description>
@@ -2307,6 +2296,18 @@
 							</Element>
 						</Element>
 					</Element>
+				</Element>
+			</Element>
+			<Element cardinality="0..1">
+				<Term>cac:QuotationLineReference</Term>
+				<Name>Reference to a quotation line - Riferimento ad una riga di preventivo</Name>
+				<Description>Riferimento ad una riga di preventivo.</Description>
+				<Element>
+					<Term>cbc:LineID</Term>
+					<Name>Quotation line reference - Riferimento alla riga di preventivo</Name>
+					<Description>Riferimento alla riga di preventivo.</Description>
+					<DataType>Identifier</DataType>
+					<Reference type="RULE">PEPPOL-T01-R035</Reference>
 				</Element>
 			</Element>
 				</Element>

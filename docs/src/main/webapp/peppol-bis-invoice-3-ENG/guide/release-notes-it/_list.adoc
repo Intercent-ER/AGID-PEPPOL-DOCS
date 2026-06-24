@@ -15,7 +15,7 @@ Effective as of *Monday 17 August 2026*
 
 [red]#Changes to documentation# +
 
-* Added new optional Profile 02 – Billing with response, which enables a process in which an invoice response is required following receipt of the invoice. This profile requires separate registration in the SMP and uses the Invoice Response BIS document. The specifications for this document are available on the https://docs.peppol.eu/poacc/other/[OpenPeppol Other BIS] specifications portal.
+* Added new optional Profile 02 – Billing with response, which enables a process in which an invoice response is required following receipt of the invoice. This profile requires separate registration in the SMP and uses the Invoice Response BIS document. The specifications for this document are available on the https://docs.peppol.eu/poacc/upgrade-3/upcoming/[OpenPeppol Other BIS] specifications portal.
 
 [red]#Changes to code lists and validation artifacts# +
 

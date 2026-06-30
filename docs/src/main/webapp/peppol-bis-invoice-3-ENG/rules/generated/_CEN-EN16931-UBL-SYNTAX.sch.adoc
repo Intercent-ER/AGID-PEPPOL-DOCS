@@ -2901,7 +2901,7 @@
 .3+| UBL-SR-23 *(fatal)*
 | [UBL-SR-23]-Seller tax representative VAT identifier shall occur maximum once, if the Seller has a tax representative
 | cac:TaxRepresentativeParty
-| (count(cac:Party/cac:PartyTaxScheme/cbc:CompanyID) <= 1)
+| (count(cac:PartyTaxScheme/cbc:CompanyID) <= 1)
 .3+| UBL-SR-24 *(fatal)*
 | [UBL-SR-24]-Deliver to information shall occur maximum once
 | /ubl:Invoice \| /cn:CreditNote

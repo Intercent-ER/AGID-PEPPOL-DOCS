@@ -1,233 +1,416 @@
+.3+| DE-R-001 *(fatal)*
+| An invoice shall contain information on "PAYMENT INSTRUCTIONS" (BG-16).
+| /ubl-invoice:Invoice[$supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote[$supplierCountryIsDE and $customerCountryIsDE]
+| cac:PaymentMeans
+.3+| DE-R-002 *(fatal)*
+| The group "SELLER CONTACT" (BG-6) shall be provided.
+| /ubl-invoice:Invoice[$supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote[$supplierCountryIsDE and $customerCountryIsDE]
+| cac:Party/cac:Contact
+.3+| DE-R-003 *(fatal)*
+| The element "Seller city" (BT-37) shall be provided.
+| /ubl-invoice:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress[$supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress[$supplierCountryIsDE and $customerCountryIsDE]
+| cbc:CityName[boolean(normalize-space(.))]
+.3+| DE-R-004 *(fatal)*
+| The element "Seller post code" (BT-38) shall be provided.
+| /ubl-invoice:Invoice/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress[$supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress[$supplierCountryIsDE and $customerCountryIsDE]
+| cbc:PostalZone[boolean(normalize-space(.))]
+.3+| DE-R-005 *(fatal)*
+| The element "Seller contact point" (BT-41) shall be provided.
+| /ubl-invoice:Invoice/cac:AccountingSupplierParty/cac:Party/cac:Contact[$supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote/cac:AccountingSupplierParty/cac:Party/cac:Contact[$supplierCountryIsDE and $customerCountryIsDE]
+| cbc:Name[boolean(normalize-space(.))]
+.3+| DE-R-006 *(fatal)*
+| The element "Seller contact telephone number" (BT-42) shall be provided.
+| /ubl-invoice:Invoice/cac:AccountingSupplierParty/cac:Party/cac:Contact[$supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote/cac:AccountingSupplierParty/cac:Party/cac:Contact[$supplierCountryIsDE and $customerCountryIsDE]
+| cbc:Telephone[boolean(normalize-space(.))]
+.3+| DE-R-007 *(fatal)*
+| The element "Seller contact email address" (BT-43) shall be provided.
+| /ubl-invoice:Invoice/cac:AccountingSupplierParty/cac:Party/cac:Contact[$supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote/cac:AccountingSupplierParty/cac:Party/cac:Contact[$supplierCountryIsDE and $customerCountryIsDE]
+| cbc:ElectronicMail[boolean(normalize-space(.))]
+.3+| DE-R-008 *(fatal)*
+| The element "Buyer city" (BT-52) shall be provided.
+| /ubl-invoice:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress[$supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress[$supplierCountryIsDE and $customerCountryIsDE]
+| cbc:CityName[boolean(normalize-space(.))]
+.3+| DE-R-009 *(fatal)*
+| The element "Buyer post code" (BT-53) shall be provided.
+| /ubl-invoice:Invoice/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress[$supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote/cac:AccountingCustomerParty/cac:Party/cac:PostalAddress[$supplierCountryIsDE and $customerCountryIsDE]
+| cbc:PostalZone[boolean(normalize-space(.))]
+.3+| DE-R-010 *(fatal)*
+| The element "Deliver to city" (BT-77) shall be provided if the group "DELIVER TO ADDRESS" (BG-15) is delivered.
+| /ubl-invoice:Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address[$supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote/cac:Delivery/cac:DeliveryLocation/cac:Address[$supplierCountryIsDE and $customerCountryIsDE]
+| cbc:CityName[boolean(normalize-space(.))]
+.3+| DE-R-011 *(fatal)*
+| The element "Deliver to post code" (BT-78) shall be provided if the group "DELIVER TO ADDRESS" (BG-15) is delivered.
+| /ubl-invoice:Invoice/cac:Delivery/cac:DeliveryLocation/cac:Address[$supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote/cac:Delivery/cac:DeliveryLocation/cac:Address[$supplierCountryIsDE and $customerCountryIsDE]
+| cbc:PostalZone[boolean(normalize-space(.))]
+.3+| DE-R-014 *(fatal)*
+| The element "VAT category rate" (BT-119) shall be provided.
+| /ubl-invoice:Invoice/cac:TaxTotal/cac:TaxSubtotal[$supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote/cac:TaxTotal/cac:TaxSubtotal[$supplierCountryIsDE and $customerCountryIsDE]
+| cac:TaxCategory/cbc:Percent[boolean(normalize-space(.))]
+.3+| DE-R-015 *(fatal)*
+| The element "Buyer reference" (BT-10) shall be provided.
+| /ubl-invoice:Invoice[$supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote[$supplierCountryIsDE and $customerCountryIsDE]
+| cbc:BuyerReference[boolean(normalize-space(.))]
+.3+| DE-R-016 *(fatal)*
+| If one of the VAT codes S, Z, E, AE, K, G, L, or M is used, an invoice shall contain at least one of the following
+| /ubl-invoice:Invoice[$supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote[$supplierCountryIsDE and $customerCountryIsDE]
+|  (not( ($BT-95-UBL-Inv = $supportedVATCodes or $BT-95-UBL-CN = $supportedVATCodes) or ($BT-102 = $supportedVATCodes) or ($BT-151 = $supportedVATCodes) ) or (cac:TaxRepresentativeParty, $BT-31orBT-32Path)) 
+.3+| DE-R-017 *(warning)*
+| The element "Invoice type code" (BT-3) should only contain the following values from code list UNTDID 1001: 326
+| /ubl-invoice:Invoice[$supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote[$supplierCountryIsDE and $customerCountryIsDE]
+| cbc:InvoiceTypeCode = $supportedInvAndCNTypeCodes or cbc:CreditNoteTypeCode = $supportedInvAndCNTypeCodes
+.3+| DE-R-018 *(fatal)*
+| Information on cash discounts for prompt payment (Skonto) shall be provided within the element "Payment terms" BT-20 in
+| /ubl-invoice:Invoice[$supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote[$supplierCountryIsDE and $customerCountryIsDE]
+| every $line in cac:PaymentTerms/cbc:Note[1]/tokenize(. , '(\r?\n)')[starts-with( normalize-space(.) , '#')] satisfies matches ( normalize-space ($line), $XR-SKONTO-REGEX) and matches( cac:PaymentTerms/cbc:Note[1]/tokenize(. ,  '#.+#')[last()], '^\s*\n' )
+.3+| DE-R-019 *(warning)*
+| The element "Payment account identifier" (BT-84) should contain a valid IBAN if code 58 SEPA is provided in "Payment
+| /ubl-invoice:Invoice/cac:PaymentMeans[cbc:PaymentMeansCode = (30,58) and $supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote/cac:PaymentMeans[cbc:PaymentMeansCode = (30,58) and $supplierCountryIsDE and $customerCountryIsDE]
+| not(cbc:PaymentMeansCode = '58') or matches(normalize-space(replace(cac:PayeeFinancialAccount/cbc:ID, '([ \n\r\t\s])', '')), '^[A-Z]{2}[0-9]{2}[a-zA-Z0-9]{0,30}$') and xs:integer(string-join(for $cp in string-to-codepoints(concat(substring(normalize-space(replace(cac:PayeeFinancialAccount/cbc:ID, '([ \n\r\t\s])', '')),5),upper-case(substring(normalize-space(replace(cac:PayeeFinancialAccount/cbc:ID, '([ \n\r\t\s])', '')),1,2)),substring(normalize-space(replace(cac:PayeeFinancialAccount/cbc:ID, '([ \n\r\t\s])', '')),3,2))) return  (if($cp &gt; 64) then string($cp - 55) else  string($cp - 48)),'')) mod 97 = 1
+.3+| DE-R-020 *(warning)*
+| The element "Debited account identifier" (BT-91) should contain a valid IBAN if code 59 SEPA is provided in "Payment
+| /ubl-invoice:Invoice/cac:PaymentMeans[cbc:PaymentMeansCode = 59 and $supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote/cac:PaymentMeans[cbc:PaymentMeansCode = 59 and $supplierCountryIsDE and $customerCountryIsDE]
+| not(cbc:PaymentMeansCode = '59') or matches(normalize-space(replace(cac:PaymentMandate/cac:PayerFinancialAccount/cbc:ID, '([ \n\r\t\s])', '')), '^[A-Z]{2}[0-9]{2}[a-zA-Z0-9]{0,30}$') and xs:decimal(string-join(for $cp in string-to-codepoints(concat(substring(normalize-space(replace(cac:PaymentMandate/cac:PayerFinancialAccount/cbc:ID, '([ \n\r\t\s])', '')),5),upper-case(substring(normalize-space(replace(cac:PaymentMandate/cac:PayerFinancialAccount/cbc:ID, '([ \n\r\t\s])', '')),1,2)),substring(normalize-space(replace(cac:PaymentMandate/cac:PayerFinancialAccount/cbc:ID, '([ \n\r\t\s])', '')),3,2))) return  (if($cp &gt; 64) then string($cp - 55) else  string($cp - 48)),'')) mod 97 = 1
+.3+| DE-R-022 *(fatal)*
+| Attached documents provided with an invoice in "ADDITIONAL SUPPORTING DOCUMENTS" (BG-24) shall have a unique filename
+| /ubl-invoice:Invoice[$supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote[$supplierCountryIsDE and $customerCountryIsDE]
+| count(cac:AdditionalDocumentReference) = count(cac:AdditionalDocumentReference[not(./cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@filename = preceding-sibling::cac:AdditionalDocumentReference/cac:Attachment/cbc:EmbeddedDocumentBinaryObject/@filename)])
+.3+| DE-R-023-1 *(fatal)*
+| If "Payment means type code" (BT-81) contains a code for credit transfer (30, 58), "CREDIT TRANSFER" (BG-17) shall be
+| /ubl-invoice:Invoice/cac:PaymentMeans[cbc:PaymentMeansCode = (30,58) and $supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote/cac:PaymentMeans[cbc:PaymentMeansCode = (30,58) and $supplierCountryIsDE and $customerCountryIsDE]
+| cac:PayeeFinancialAccount
+.3+| DE-R-023-2 *(fatal)*
+| If "Payment means type code" (BT-81) contains a code for credit transfer (30, 58), BG-18 and BG-19 shall not be
+| /ubl-invoice:Invoice/cac:PaymentMeans[cbc:PaymentMeansCode = (30,58) and $supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote/cac:PaymentMeans[cbc:PaymentMeansCode = (30,58) and $supplierCountryIsDE and $customerCountryIsDE]
+| not(cac:CardAccount) and not(cac:PaymentMandate)
+.3+| DE-R-024-1 *(fatal)*
+| If "Payment means type code" (BT-81) contains a code for payment card (48, 54, 55), "PAYMENT CARD INFORMATION" (BG-18)
+| /ubl-invoice:Invoice/cac:PaymentMeans[cbc:PaymentMeansCode = (48,54,55) and $supplierCountryIsDE and $customerCountryIsDE] \|/ubl-creditnote:CreditNote/cac:PaymentMeans[cbc:PaymentMeansCode = (48,54,55) and $supplierCountryIsDE and $customerCountryIsDE]
+| cac:CardAccount
+.3+| DE-R-024-2 *(fatal)*
+| If "Payment means type code" (BT-81) contains a code for payment card (48, 54, 55), BG-17 and BG-19 shall not be
+| /ubl-invoice:Invoice/cac:PaymentMeans[cbc:PaymentMeansCode = (48,54,55) and $supplierCountryIsDE and $customerCountryIsDE] \|/ubl-creditnote:CreditNote/cac:PaymentMeans[cbc:PaymentMeansCode = (48,54,55) and $supplierCountryIsDE and $customerCountryIsDE]
+| not(cac:PayeeFinancialAccount) and not(cac:PaymentMandate)
+.3+| DE-R-025-1 *(fatal)*
+| If "Payment means type code" (BT-81) contains a code for direct debit (59), "DIRECT DEBIT" (BG-19) shall be provided.
+| /ubl-invoice:Invoice/cac:PaymentMeans[cbc:PaymentMeansCode = 59 and $supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote/cac:PaymentMeans[cbc:PaymentMeansCode = 59 and $supplierCountryIsDE and $customerCountryIsDE]
+| cac:PaymentMandate
+.3+| DE-R-025-2 *(fatal)*
+| If "Payment means type code" (BT-81) contains a code for direct debit (59), BG-17 and BG-18 shall not be provided.
+| /ubl-invoice:Invoice/cac:PaymentMeans[cbc:PaymentMeansCode = 59 and $supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote/cac:PaymentMeans[cbc:PaymentMeansCode = 59 and $supplierCountryIsDE and $customerCountryIsDE]
+| not(cac:PayeeFinancialAccount) and not(cac:CardAccount)
+.3+| DE-R-026 *(warning)*
+| If "Invoice type code" (BT-3) contains the code 384 (Corrected invoice), "PRECEDING INVOICE REFERENCE" (BG-3) should be
+| /ubl-invoice:Invoice[$supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote[$supplierCountryIsDE and $customerCountryIsDE]
+| ((not(cbc:InvoiceTypeCode = 384 or cbc:CreditNoteTypeCode = 384) or (cac:BillingReference/cac:InvoiceDocumentReference)))
+.3+| DE-R-027 *(warning)*
+| "Seller contact telephone number" (BT-42) should contain a valid telephone number. A valid telephone should consist of
+| /ubl-invoice:Invoice/cac:AccountingSupplierParty/cac:Party/cac:Contact[$supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote/cac:AccountingSupplierParty/cac:Party/cac:Contact[$supplierCountryIsDE and $customerCountryIsDE]
+| matches(normalize-space(cbc:Telephone), $XR-TELEPHONE-REGEX)
+.3+| DE-R-028 *(warning)*
+| "Seller contact email address" (BT-43) should contain exactly one @-sign, which should not be framed by a whitespace or
+| /ubl-invoice:Invoice/cac:AccountingSupplierParty/cac:Party/cac:Contact[$supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote/cac:AccountingSupplierParty/cac:Party/cac:Contact[$supplierCountryIsDE and $customerCountryIsDE]
+| matches(normalize-space(cbc:ElectronicMail), $XR-EMAIL-REGEX)
+.3+| DE-R-030 *(fatal)*
+| If the group "DIRECT DEBIT" (BG-19) is delivered, the element "Bank assigned creditor identifier" (BT-90) shall be
+| /ubl-invoice:Invoice[$supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote[$supplierCountryIsDE and $customerCountryIsDE]
+| not(cac:PaymentMeans/cac:PaymentMandate) or (cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID[@schemeID='SEPA']                          \| cac:PayeeParty/cac:PartyIdentification/cbc:ID[@schemeID='SEPA'])
+.3+| DE-R-031 *(fatal)*
+| If the group "DIRECT DEBIT" (BG-19) is delivered, the element "Debited account identifier" (BT-91) shall be provided.
+| /ubl-invoice:Invoice[$supplierCountryIsDE and $customerCountryIsDE] \| /ubl-creditnote:CreditNote[$supplierCountryIsDE and $customerCountryIsDE]
+| not(cac:PaymentMeans/cac:PaymentMandate) or (cac:PaymentMeans/cac:PaymentMandate/cac:PayerFinancialAccount/cbc:ID)
 .3+| DK-R-002 *(fatal)*
-| Danish suppliers MUST provide legal entity (CVR-number)
-| ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK'] \\| ubl-invoice:Invoice[$DKSupplierCountry = 'DK']
+| [DK-R-002]-Danish suppliers MUST provide legal entity (CVR-number)
+| ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK'] \| ubl-invoice:Invoice[$DKSupplierCountry = 'DK']
 | (normalize-space(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID/text()) != '')
-.3+| DK-R-003-NA *(warning)*  #(not applied in the Italian context)#
+.3+| DK-R-003 *(fatal)*
 | [DK-R-003]-If ItemClassification is provided from Danish suppliers, UNSPSC version 19.05.01 or 26.08.01 should be used.
-| ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:CreditNoteLine \\| ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:InvoiceLine
-| not((cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode/@listID = 'TST') and not((cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode/@listVersionID = '19.05.01') or (cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode/@listVersionID = '19.0501') or (cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode/@listVersionID = '26.08.01') or (cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode/@listVersionID = '26.0801') ) )
+| ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:CreditNoteLine \| ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:InvoiceLine
+| not((cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode/@listID = 'TST')
+						and not((cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode/@listVersionID = '19.05.01')
+							   or (cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode/@listVersionID = '19.0501')
+                               or (cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode/@listVersionID = '26.08.01')
+                               or (cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode/@listVersionID = '26.0801')
+							   )
+						)
 .3+| DK-R-004 *(fatal)*
-| When specifying non-VAT Taxes for Danish customers, Danish suppliers MUST use the AllowanceChargeReasonCode="ZZZ" and MUST be specified in AllowanceChargeReason; Either as the 4-digit Tax category or must include a #, but the # is not allowed as first and last character
+| [DK-R-004]-When specifying non-VAT Taxes for Danish customers, Danish suppliers MUST use the
 | cac:AllowanceCharge[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']
-| not((cbc:AllowanceChargeReasonCode = 'ZZZ') and not(((string-length(normalize-space(cbc:AllowanceChargeReason/text())) = 4) and (number(cbc:AllowanceChargeReason) >= 0) and (number(cbc:AllowanceChargeReason) <= 9999)) or (((cbc:AllowanceChargeReason and contains(cbc:AllowanceChargeReason, '#') and not(starts-with(cbc:AllowanceChargeReason, '#')) and not(ends-with(cbc:AllowanceChargeReason, '#')))) ) ) )
+| not((cbc:AllowanceChargeReasonCode = 'ZZZ')
+						and not(((string-length(normalize-space(cbc:AllowanceChargeReason/text())) = 4)
+								and (number(cbc:AllowanceChargeReason) &gt;= 0)
+								and (number(cbc:AllowanceChargeReason) &lt;= 9999)) or
+								(((cbc:AllowanceChargeReason and contains(cbc:AllowanceChargeReason, '#')
+                                  and not(starts-with(cbc:AllowanceChargeReason, '#'))
+                                  and not(ends-with(cbc:AllowanceChargeReason, '#')))) )
+                               )
+				 )
 .3+| DK-R-005 *(fatal)*
-| For Danish suppliers the following Payment means codes are allowed: 1, 10, 31, 42, 48, 49, 50, 58, 59, 93 and 97
+| [DK-R-005]-For Danish suppliers the following Payment means codes are allowed: 1, 10, 31, 42, 48, 49, 50, 58, 59, 93
 | ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:PaymentMeans
 | contains(' 1 10 31 42 48 49 50 58 59 93 97 ', concat(' ', cbc:PaymentMeansCode, ' '))
 .3+| DK-R-006 *(fatal)*
-| For Danish suppliers bank account and registration account is mandatory if payment means is 31 or 42
+| [DK-R-006]-For Danish suppliers bank account and registration account is mandatory if payment means is 31 or 42
 | ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:PaymentMeans
-| not(((cbc:PaymentMeansCode = '31') or (cbc:PaymentMeansCode = '42')) and not((normalize-space(cac:PayeeFinancialAccount/cbc:ID/text()) != '') and (normalize-space(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID/text()) != '')) )
+| not(((cbc:PaymentMeansCode = '31') or (cbc:PaymentMeansCode = '42'))
+						and not((normalize-space(cac:PayeeFinancialAccount/cbc:ID/text()) != '') and (normalize-space(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID/text()) != ''))
+						)
 .3+| DK-R-007 *(fatal)*
-| For Danish suppliers PaymentMandate/ID and PayerFinancialAccount/ID are mandatory when payment means is 49
+| [DK-R-007]-For Danish suppliers PaymentMandate/ID and PayerFinancialAccount/ID are mandatory when payment means is 49
 | ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:PaymentMeans
-| not((cbc:PaymentMeansCode = '49') and not((normalize-space(cac:PaymentMandate/cbc:ID/text()) != '') and (normalize-space(cac:PaymentMandate/cac:PayerFinancialAccount/cbc:ID/text()) != '')) )
+| not((cbc:PaymentMeansCode = '49')
+						and not((normalize-space(cac:PaymentMandate/cbc:ID/text()) != '')
+							   and (normalize-space(cac:PaymentMandate/cac:PayerFinancialAccount/cbc:ID/text()) != ''))
+						)
 .3+| DK-R-008 *(fatal)*
-| For Danish Suppliers PaymentID is mandatory and MUST start with 01#, 04# or 15# (kortartkode), and PayeeFinancialAccount/ID (Giro kontonummer) is mandatory and must be 7 or 8 numerical characters long, when payment means equals 50 (Giro)
+| [DK-R-008]-For Danish Suppliers PaymentID is mandatory and MUST start with 01#, 04# or 15# (kortartkode), and
 | ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:PaymentMeans
-| not((cbc:PaymentMeansCode = '50') and not(((substring(cbc:PaymentID, 1, 3) = '01#') or (substring(cbc:PaymentID, 1, 3) = '04#') or (substring(cbc:PaymentID, 1, 3) = '15#')) and matches(cac:PayeeFinancialAccount/cbc:ID, '^[0-9]{7,8}$') ) )
+| not((cbc:PaymentMeansCode = '50')
+						and not(((substring(cbc:PaymentID, 1, 3) = '01#')
+								  or (substring(cbc:PaymentID, 1, 3) = '04#')
+								  or (substring(cbc:PaymentID, 1, 3) = '15#'))
+								and matches(cac:PayeeFinancialAccount/cbc:ID, '^[0-9]{7,8}$')
+								)
+						)
 .3+| DK-R-009 *(fatal)*
-| For Danish Suppliers if the PaymentID is prefixed with 04# or 15# the 16 digits instruction Id must be added to the PaymentID eg. "04#1234567890123456" when Payment means equals 50 (Giro)
+| [DK-R-009]-For Danish Suppliers if the PaymentID is prefixed with 04# or 15# the 16 digits instruction Id must be added
 | ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:PaymentMeans
-| not((cbc:PaymentMeansCode = '50') and ((substring(cbc:PaymentID, 1, 3) = '04#') or (substring(cbc:PaymentID, 1, 3) = '15#')) and not(string-length(cbc:PaymentID) = 19) )
+| not((cbc:PaymentMeansCode = '50')
+						and ((substring(cbc:PaymentID, 1, 3) = '04#')
+							  or (substring(cbc:PaymentID, 1, 3)  = '15#'))
+						and not(string-length(cbc:PaymentID) = 19)
+						)
 .3+| DK-R-010 *(fatal)*
-| For Danish Suppliers using PaymentMeansCode 93, PaymentID is mandatory. The first three characters of the PaymentID MUST be 71#, 73# or 75# (kortartskode), and PayeeFinancialAccount/ID MUST be exactly 8 characters long
+| [DK-R-010]-For Danish Suppliers using PaymentMeansCode 93, PaymentID is mandatory. The first three characters of the
 | ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:PaymentMeans
-| not((cbc:PaymentMeansCode = '93') and not(((substring(cbc:PaymentID, 1, 3) = '71#') or (substring(cbc:PaymentID, 1, 3) = '73#') or (substring(cbc:PaymentID, 1, 3) = '75#')) and (string-length(cac:PayeeFinancialAccount/cbc:ID/text()) = 8) ) )
+| not((cbc:PaymentMeansCode = '93')
+						and not(((substring(cbc:PaymentID, 1, 3) = '71#')
+								  or (substring(cbc:PaymentID, 1, 3) = '73#')
+								  or (substring(cbc:PaymentID, 1, 3) = '75#'))
+								and (string-length(cac:PayeeFinancialAccount/cbc:ID/text()) = 8)
+								)
+						)
 .3+| DK-R-011 *(fatal)*
-| For Danish Suppliers if the PaymentID is prefixed with 71# or 75# the 15-16 digits instruction Id must be added to the PaymentID eg. "71#1234567890123456" when payment Method equals 93 (FIK).
+| [DK-R-011]-For Danish Suppliers if the PaymentID is prefixed with 71# or 75# the 15-16 digits instruction Id must be
 | ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:PaymentMeans
-| not((cbc:PaymentMeansCode = '93') and ((substring(cbc:PaymentID, 1, 3) = '71#') or (substring(cbc:PaymentID, 1, 3) = '75#')) and not((string-length(cbc:PaymentID) = 18) or (string-length(cbc:PaymentID) = 19)) )
+| not((cbc:PaymentMeansCode = '93')
+						and ((substring(cbc:PaymentID, 1, 3) = '71#')
+							  or (substring(cbc:PaymentID, 1, 3)  = '75#'))
+						and not((string-length(cbc:PaymentID) = 18)
+							  or (string-length(cbc:PaymentID) = 19))
+						)
 .3+| DK-R-013 *(fatal)*
-| For Danish Suppliers it is mandatory to use schemeID when PartyIdentification/ID is used for AccountingCustomerParty or AccountingSupplierParty
-| ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification \\| ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification \\| ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification \\| ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification
-| not((boolean(cbc:ID)) and (normalize-space(cbc:ID/@schemeID) = '') )
+| [DK-R-013]-For Danish Suppliers it is mandatory to use schemeID when PartyIdentification/ID is used for
+| ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification \| ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification \| ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification \| ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingCustomerParty/cac:Party/cac:PartyIdentification
+| not((boolean(cbc:ID))
+						 and (normalize-space(cbc:ID/@schemeID) = '')
+						)
 .3+| DK-R-014 *(fatal)*
-| For Danish Suppliers it is mandatory to specify schemeID as "0184" (DK CVR-number) when PartyLegalEntity/CompanyID is used for AccountingSupplierParty
-| ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK'] \\| ubl-invoice:Invoice[$DKSupplierCountry = 'DK']
-| not(((boolean(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID)) and (normalize-space(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID/@schemeID) != '0184')) )
+| [DK-R-014]-For Danish Suppliers it is mandatory to specify schemeID as "0184" (DK CVR-number) when
+| ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK'] \| ubl-invoice:Invoice[$DKSupplierCountry = 'DK']
+| not(((boolean(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID))
+							   and (normalize-space(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID/@schemeID) != '0184'))
+						)
 .3+| DK-R-016 *(fatal)*
-| For Danish Suppliers, a Credit note cannot have a negative total (PayableAmount)
-| ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK'] \\| ubl-invoice:Invoice[$DKSupplierCountry = 'DK']
-| not((boolean(/ubl-creditnote:CreditNote) and ($DKCustomerCountry = 'DK')) and (number(cac:LegalMonetaryTotal/cbc:PayableAmount/text()) < 0) )
-.3+| DK-R-017-NA *(warning)*  #(not applied in the Italian context)#
-| [DK-R-017]-For Danish Customers it is mandatory to specify schemeID as "0184" (DK CVR-number) when PartyLegalEntity/CompanyID is used for AccountingCustomerParty
-| ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingCustomerParty/cac:Party \\| ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingCustomerParty/cac:Party
+| [DK-R-016]-For Danish Suppliers, a Credit note cannot have a negative total (PayableAmount)
+| ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK'] \| ubl-invoice:Invoice[$DKSupplierCountry = 'DK']
+| not((boolean(/ubl-creditnote:CreditNote) and ($DKCustomerCountry = 'DK'))
+						and (number(cac:LegalMonetaryTotal/cbc:PayableAmount/text()) &lt; 0)
+						)
+.3+| DK-R-017 *(fatal)*
+| [DK-R-017]-For Danish Customers it is mandatory to specify schemeID as "0184" (DK CVR-number) when
+| ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingCustomerParty/cac:Party \| ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingCustomerParty/cac:Party
 | not(((boolean(cac:PartyLegalEntity/cbc:CompanyID)) and (normalize-space(cac:PartyLegalEntity/cbc:CompanyID/@schemeID) != '0184')))
 .3+| GR-R-001-1 *(fatal)*
 | When the Supplier is Greek, the Invoice Id should consist of 6 segments
-| /ubl-invoice:Invoice/cbc:ID[$isGreekSender] \\| /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]
+| /ubl-invoice:Invoice/cbc:ID[$isGreekSender] \| /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]
 | count($IdSegments) = 6
 .3+| GR-R-001-2 *(fatal)*
-| When the Supplier is Greek, the Invoice Id first segment must be a valid TIN Number and match either the Supplier's or the Tax Representative's Tin Number
-| /ubl-invoice:Invoice/cbc:ID[$isGreekSender] \\| /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]
-| string-length(normalize-space($IdSegments[1])) = 9 and u:TinVerification($IdSegments[1]) and ($IdSegments[1] = /*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 3, 9) or $IdSegments[1] = /*/cac:TaxRepresentativeParty/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 3, 9) )
+| When the Supplier is Greek, the Invoice Id first segment must be a valid TIN Number and match either the Supplier's or
+| /ubl-invoice:Invoice/cbc:ID[$isGreekSender] \| /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]
+| string-length(normalize-space($IdSegments[1])) = 9 
+			                              and u:TinVerification($IdSegments[1])
+			                              and ($IdSegments[1] = /*/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 3, 9)
+			                              or $IdSegments[1] = /*/cac:TaxRepresentativeParty/cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 3, 9) )
 .3+| GR-R-001-3 *(fatal)*
-| When the Supplier is Greek, the Invoice Id second segment must be a valid Date that matches the invoice Issue Date
-| /ubl-invoice:Invoice/cbc:ID[$isGreekSender] \\| /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]
-| string-length(normalize-space($IdSegments[2]))>0 and matches($IdSegments[2],$dateRegExp) and ($tokenizedIdDate[1] = $tokenizedUblIssueDate[3] and $tokenizedIdDate[2] = $tokenizedUblIssueDate[2] and $tokenizedIdDate[3] = $tokenizedUblIssueDate[1])
+| 0 and matches($IdSegments[2],$dateRegExp) and ($tokenizedIdDate[1] = $tokenizedUblIssueDate[3] and $tokenizedIdDate[2]
+| /ubl-invoice:Invoice/cbc:ID[$isGreekSender] \| /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]
+| 
 .3+| GR-R-001-4 *(fatal)*
-| When Supplier is Greek, the Invoice Id third segment must be a positive integer
-| /ubl-invoice:Invoice/cbc:ID[$isGreekSender] \\| /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]
-| string-length(normalize-space($IdSegments[3]))>0 and string(number($IdSegments[3])) != 'NaN' and xs:integer($IdSegments[3]) >= 0
+| 0 and string(number($IdSegments[3])) != 'NaN' and xs:integer($IdSegments[3]) >= 0" flag="fatal">When Supplier is Greek,
+| /ubl-invoice:Invoice/cbc:ID[$isGreekSender] \| /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]
+| 
 .3+| GR-R-001-5 *(fatal)*
-| When Supplier is Greek, the Invoice Id in the fourth segment must be a valid greek document type
-| /ubl-invoice:Invoice/cbc:ID[$isGreekSender] \\| /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]
-| string-length(normalize-space($IdSegments[4]))>0 and (some $c in $greekDocumentType satisfies $IdSegments[4] = $c)
+| 0 and (some $c in $greekDocumentType satisfies $IdSegments[4] = $c)" flag="fatal">When Supplier is Greek, the Invoice
+| /ubl-invoice:Invoice/cbc:ID[$isGreekSender] \| /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]
+| 
 .3+| GR-R-001-6 *(fatal)*
-| When Supplier is Greek, the Invoice Id fifth segment must not be empty
-| /ubl-invoice:Invoice/cbc:ID[$isGreekSender] \\| /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]
-| string-length($IdSegments[5]) > 0
+| 0 " flag="fatal">When Supplier is Greek, the Invoice Id fifth segment must not be empty
+| /ubl-invoice:Invoice/cbc:ID[$isGreekSender] \| /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]
+| 
 .3+| GR-R-001-7 *(fatal)*
-| When Supplier is Greek, the Invoice Id sixth segment must not be empty
-| /ubl-invoice:Invoice/cbc:ID[$isGreekSender] \\| /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]
-| string-length($IdSegments[6]) > 0
+| 0 " flag="fatal">When Supplier is Greek, the Invoice Id sixth segment must not be empty
+| /ubl-invoice:Invoice/cbc:ID[$isGreekSender] \| /ubl-creditnote:CreditNote/cbc:ID[$isGreekSender]
+| 
 .3+| GR-R-002 *(fatal)*
-| Greek Suppliers must provide their full name as they are registered in the Greek Business Registry (G.E.MH.) as a legal entity or in the Tax Registry as a natural person
+| 0" flag="fatal">Greek Suppliers must provide their full name as they are registered in the Greek Business Registry
 | cac:AccountingSupplierParty[$isGreekSender]/cac:Party
-| string-length(./cac:PartyName/cbc:Name)>0
+| 
 .3+| GR-R-003 *(fatal)*
 | For the Greek Suppliers, the VAT must start with 'EL' and must be a valid TIN number
 | cac:AccountingSupplierParty[$isGreekSender]/cac:Party/cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID
 | substring(.,1,2) = 'EL' and u:TinVerification(substring(.,3))
 .3+| GR-R-004-1 *(fatal)*
 | When Supplier is Greek, there must be one MARK Number
-| /ubl-invoice:Invoice[$isGreekSender and ( /*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'GR')] \\| /ubl-creditnote:CreditNote[$isGreekSender and ( /*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'GR')]
+| /ubl-invoice:Invoice[$isGreekSender and ( /*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'GR')] \| /ubl-creditnote:CreditNote[$isGreekSender and ( /*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'GR')]
 | count(cac:AdditionalDocumentReference[cbc:DocumentDescription = '##M.AR.K##'])=1
 .3+| GR-R-004-2 *(fatal)*
 | When Supplier is Greek, the MARK Number must be a positive integer
 | cac:AdditionalDocumentReference[$isGreekSender and ( /*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'GR') and cbc:DocumentDescription = '##M.AR.K##']/cbc:ID
 | matches(.,'^[1-9]([0-9]*)')
 .3+| GR-R-005 *(fatal)*
-| Greek Suppliers must provide the full name of the buyer
+| 0" flag="fatal">Greek Suppliers must provide the full name of the buyer
 | cac:AccountingCustomerParty[$isGreekSender]/cac:Party
-| string-length(./cac:PartyName/cbc:Name)>0
+| 
 .3+| GR-R-006 *(fatal)*
 | Greek Suppliers must provide the VAT number of the buyer, if the buyer is Greek
 | cac:AccountingCustomerParty[$isGreekSenderandReceiver]/cac:Party
-| count(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID)=1 and substring(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID,1,2) = 'EL' and u:TinVerification(substring(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID,3))
+| count(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID)=1 and
+				                        substring(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID,1,2) = 'EL' and
+				                        u:TinVerification(substring(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID,3))
 .3+| GR-R-008-2 *(fatal)*
 | When Supplier is Greek, there should be no more than one invoice url
-| /ubl-invoice:Invoice[$isGreekSender and ( /*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'GR')] \\| /ubl-creditnote:CreditNote[$isGreekSender and ( /*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'GR')]
-| (count(cac:AdditionalDocumentReference[cbc:DocumentDescription = '##INVOICE|URL##']) = 0 ) or (count(cac:AdditionalDocumentReference[cbc:DocumentDescription = '##INVOICE|URL##']) = 1 )
+| /ubl-invoice:Invoice[$isGreekSender and ( /*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'GR')] \| /ubl-creditnote:CreditNote[$isGreekSender and ( /*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'GR')]
+| (count(cac:AdditionalDocumentReference[cbc:DocumentDescription = '##INVOICE\|URL##']) = 0 ) or (count(cac:AdditionalDocumentReference[cbc:DocumentDescription = '##INVOICE\|URL##']) = 1 )
 .3+| GR-R-008-3 *(fatal)*
-| When Supplier is Greek and the INVOICE URL Document reference exists, the External Reference URI should be present
-| cac:AdditionalDocumentReference[$isGreekSender and cbc:DocumentDescription = '##INVOICE\\|URL##']
-| string-length(normalize-space(cac:Attachment/cac:ExternalReference/cbc:URI))>0
+| 0" flag="fatal">When Supplier is Greek and the INVOICE URL Document reference exists, the External Reference URI should
+| cac:AdditionalDocumentReference[$isGreekSender and cbc:DocumentDescription = '##INVOICE\|URL##']
+| 
 .3+| GR-R-009 *(fatal)*
-| Greek suppliers that send an invoice through the Peppol network must use a correct TIN number as an electronic address according to Peppol Electronic Address Identifier scheme (schemeID 9933).
+| Greek suppliers that send an invoice through the PEPPOL network must use a correct TIN number as an electronic address
 | cac:AccountingSupplierParty/cac:Party[$accountingSupplierCountry='GR' or $accountingSupplierCountry='EL']/cbc:EndpointID
 | ./@schemeID='9933' and u:TinVerification(.)
 .3+| GR-R-010 *(fatal)*
-| Greek Suppliers that send an invoice through the Peppol network to a greek buyer must use a correct TIN number as an electronic address according to Peppol Electronic Address Identifier scheme (SchemeID 9933)
+| Greek Suppliers that send an invoice through the PEPPOL network to a greek buyer must use a correct TIN number as an
 | cac:AccountingCustomerParty[$isGreekSenderandReceiver]/cac:Party/cbc:EndpointID
 | ./@schemeID='9933' and u:TinVerification(.)
 .3+| GR-S-008-1 *(warning)*
 | When Supplier is Greek, there should be one invoice url
-| /ubl-invoice:Invoice[$isGreekSender and ( /*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'GR')] \\| /ubl-creditnote:CreditNote[$isGreekSender and ( /*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'GR')]
-| count(cac:AdditionalDocumentReference[cbc:DocumentDescription = '##INVOICE|URL##'])=1
+| /ubl-invoice:Invoice[$isGreekSender and ( /*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'GR')] \| /ubl-creditnote:CreditNote[$isGreekSender and ( /*/cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'GR')]
+| count(cac:AdditionalDocumentReference[cbc:DocumentDescription = '##INVOICE\|URL##'])=1
 .3+| GR-S-011 *(warning)*
 | Greek suppliers must provide their Seller Tax Registration Number, prefixed by the country code
 | cac:AccountingSupplierParty[$isGreekSender]/cac:Party
-| count(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID)=1 and substring(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID,1,2) = 'EL' and u:TinVerification(substring(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID,3))
+| count(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID)=1 and
+				                        substring(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID,1,2) = 'EL' and
+				                        u:TinVerification(substring(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID,3))
 .3+| IS-R-001 *(warning)*
-| [IS-R-001]-If seller is icelandic then invoice type should be 380 or 381 — Ef seljandi er íslenskur þá ætti gerð reiknings (BT-3) að vera sölureikningur (380) eða kreditreikningur (381).
-| ubl-creditnote:CreditNote[$SupplierCountry = 'IS'] \\| ubl-invoice:Invoice[$SupplierCountry = 'IS']
+| [IS-R-001]-If seller is icelandic then invoice type should be 380 or 381 — Ef seljandi er íslenskur þá ætti gerð
+| ubl-creditnote:CreditNote[$SupplierCountry = 'IS'] \| ubl-invoice:Invoice[$SupplierCountry = 'IS']
 | ( ( not(contains(normalize-space(cbc:InvoiceTypeCode),' ')) and contains( ' 380 381 ',concat(' ',normalize-space(cbc:InvoiceTypeCode),' ') ) ) ) or ( ( not(contains(normalize-space(cbc:CreditNoteTypeCode),' ')) and contains( ' 380 381 ',concat(' ',normalize-space(cbc:CreditNoteTypeCode),' ') ) ) )
 .3+| IS-R-002 *(fatal)*
-| [IS-R-002]-If seller is icelandic then it shall contain sellers legal id — Ef seljandi er íslenskur þá skal reikningur innihalda íslenska kennitölu seljanda (BT-30).
-| ubl-creditnote:CreditNote[$SupplierCountry = 'IS'] \\| ubl-invoice:Invoice[$SupplierCountry = 'IS']
+| [IS-R-002]-If seller is icelandic then it shall contain sellers legal id — Ef seljandi er íslenskur þá skal reikningur
+| ubl-creditnote:CreditNote[$SupplierCountry = 'IS'] \| ubl-invoice:Invoice[$SupplierCountry = 'IS']
 | exists(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID) and cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID/@schemeID = '0196'
 .3+| IS-R-003 *(fatal)*
-| [IS-R-003]-If seller is icelandic then it shall contain his address with street name and zip code — Ef seljandi er íslenskur þá skal heimilisfang seljanda innihalda götuheiti og póstnúmer (BT-35 og BT-38).
-| ubl-creditnote:CreditNote[$SupplierCountry = 'IS'] \\| ubl-invoice:Invoice[$SupplierCountry = 'IS']
+| [IS-R-003]-If seller is icelandic then it shall contain his address with street name and zip code — Ef seljandi er
+| ubl-creditnote:CreditNote[$SupplierCountry = 'IS'] \| ubl-invoice:Invoice[$SupplierCountry = 'IS']
 | exists(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:StreetName) and exists(cac:AccountingSupplierParty/cac:Party/cac:PostalAddress/cbc:PostalZone)
 .3+| IS-R-004 *(fatal)*
-| [IS-R-004]-If seller and buyer are icelandic then the invoice shall contain the buyers icelandic legal identifier — Ef seljandi og kaupandi eru íslenskir þá skal reikningurinn innihalda íslenska kennitölu kaupanda (BT-47).
-| ubl-creditnote:CreditNote[$SupplierCountry = 'IS' and $CustomerCountry = 'IS']/cac:AccountingCustomerParty \\| ubl-invoice:Invoice[$SupplierCountry = 'IS' and $CustomerCountry = 'IS']/cac:AccountingCustomerParty
+| [IS-R-004]-If seller and buyer are icelandic then the invoice shall contain the buyers icelandic legal identifier — Ef
+| ubl-creditnote:CreditNote[$SupplierCountry = 'IS' and $CustomerCountry = 'IS']/cac:AccountingCustomerParty \| ubl-invoice:Invoice[$SupplierCountry = 'IS' and $CustomerCountry = 'IS']/cac:AccountingCustomerParty
 | exists(cac:Party/cac:PartyLegalEntity/cbc:CompanyID) and cac:Party/cac:PartyLegalEntity/cbc:CompanyID/@schemeID = '0196'
 .3+| IS-R-005 *(fatal)*
-| [IS-R-005]-If seller and buyer are icelandic then the invoice shall contain the buyers address with street name and zip code — Ef seljandi og kaupandi eru íslenskir þá skal heimilisfang kaupanda innihalda götuheiti og póstnúmer (BT-50 og BT-53)
-| ubl-creditnote:CreditNote[$SupplierCountry = 'IS' and $CustomerCountry = 'IS']/cac:AccountingCustomerParty \\| ubl-invoice:Invoice[$SupplierCountry = 'IS' and $CustomerCountry = 'IS']/cac:AccountingCustomerParty
+| [IS-R-005]-If seller and buyer are icelandic then the invoice shall contain the buyers address with street name and zip
+| ubl-creditnote:CreditNote[$SupplierCountry = 'IS' and $CustomerCountry = 'IS']/cac:AccountingCustomerParty \| ubl-invoice:Invoice[$SupplierCountry = 'IS' and $CustomerCountry = 'IS']/cac:AccountingCustomerParty
 | exists(cac:Party/cac:PostalAddress/cbc:StreetName) and exists(cac:Party/cac:PostalAddress/cbc:PostalZone)
 .3+| IS-R-006 *(fatal)*
-| [IS-R-006]-If seller is icelandic and payment means code is 9 then a 12 digit account id must exist — Ef seljandi er íslenskur og greiðslumáti (BT-81) er krafa (kóti 9) þá skal koma fram 12 stafa númer (bankanúmer, höfuðbók 66 og reikningsnúmer) (BT-84)
-| ubl-creditnote:CreditNote[$SupplierCountry = 'IS'] \\| ubl-invoice:Invoice[$SupplierCountry = 'IS']
-| exists(cac:PaymentMeans[cbc:PaymentMeansCode = '9']/cac:PayeeFinancialAccount/cbc:ID) and string-length(normalize-space(cac:PaymentMeans[cbc:PaymentMeansCode = '9']/cac:PayeeFinancialAccount/cbc:ID)) = 12 or not(exists(cac:PaymentMeans[cbc:PaymentMeansCode = '9']))
+| [IS-R-006]-If seller is icelandic and payment means code is 9 then a 12 digit account id must exist — Ef seljandi er
+| ubl-creditnote:CreditNote[$SupplierCountry = 'IS'] \| ubl-invoice:Invoice[$SupplierCountry = 'IS']
+| exists(cac:PaymentMeans[cbc:PaymentMeansCode = '9']/cac:PayeeFinancialAccount/cbc:ID) 
+					  and string-length(normalize-space(cac:PaymentMeans[cbc:PaymentMeansCode = '9']/cac:PayeeFinancialAccount/cbc:ID)) = 12
+					  or not(exists(cac:PaymentMeans[cbc:PaymentMeansCode = '9']))
 .3+| IS-R-007 *(fatal)*
-| [IS-R-007]-If seller is icelandic and payment means code is 42 then a 12 digit account id must exist — Ef seljandi er íslenskur og greiðslumáti (BT-81) er millifærsla (kóti 42) þá skal koma fram 12 stafa reikningnúmer (BT-84)
-| ubl-creditnote:CreditNote[$SupplierCountry = 'IS'] \\| ubl-invoice:Invoice[$SupplierCountry = 'IS']
-| exists(cac:PaymentMeans[cbc:PaymentMeansCode = '42']/cac:PayeeFinancialAccount/cbc:ID) and string-length(normalize-space(cac:PaymentMeans[cbc:PaymentMeansCode = '42']/cac:PayeeFinancialAccount/cbc:ID)) = 12 or not(exists(cac:PaymentMeans[cbc:PaymentMeansCode = '42']))
+| [IS-R-007]-If seller is icelandic and payment means code is 42 then a 12 digit account id must exist — Ef seljandi er
+| ubl-creditnote:CreditNote[$SupplierCountry = 'IS'] \| ubl-invoice:Invoice[$SupplierCountry = 'IS']
+| exists(cac:PaymentMeans[cbc:PaymentMeansCode = '42']/cac:PayeeFinancialAccount/cbc:ID) 
+					  and string-length(normalize-space(cac:PaymentMeans[cbc:PaymentMeansCode = '42']/cac:PayeeFinancialAccount/cbc:ID)) = 12
+					  or not(exists(cac:PaymentMeans[cbc:PaymentMeansCode = '42']))
 .3+| IS-R-008 *(fatal)*
-| [IS-R-008]-If seller is icelandic and invoice contains supporting description EINDAGI then the id form must be YYYY-MM-DD — Ef seljandi er íslenskur þá skal eindagi (BT-122, DocumentDescription = EINDAGI) vera á forminu YYYY-MM-DD.
-| ubl-creditnote:CreditNote[$SupplierCountry = 'IS'] \\| ubl-invoice:Invoice[$SupplierCountry = 'IS']
+| [IS-R-008]-If seller is icelandic and invoice contains supporting description EINDAGI then the id form must be
+| ubl-creditnote:CreditNote[$SupplierCountry = 'IS'] \| ubl-invoice:Invoice[$SupplierCountry = 'IS']
 | (exists(cac:AdditionalDocumentReference[cbc:DocumentDescription = 'EINDAGI']) and string-length(cac:AdditionalDocumentReference[cbc:DocumentDescription = 'EINDAGI']/cbc:ID) = 10 and (string(cac:AdditionalDocumentReference[cbc:DocumentDescription = 'EINDAGI']/cbc:ID) castable as xs:date)) or not(exists(cac:AdditionalDocumentReference[cbc:DocumentDescription = 'EINDAGI']))
 .3+| IS-R-009 *(fatal)*
-| [IS-R-009]-If seller is icelandic and invoice contains supporting description EINDAGI invoice must have due date — Ef seljandi er íslenskur þá skal reikningur sem inniheldur eindaga (BT-122, DocumentDescription = EINDAGI) einnig hafa gjalddaga (BT-9).
-| ubl-creditnote:CreditNote[$SupplierCountry = 'IS'] \\| ubl-invoice:Invoice[$SupplierCountry = 'IS']
+| [IS-R-009]-If seller is icelandic and invoice contains supporting description EINDAGI invoice must have due date — Ef
+| ubl-creditnote:CreditNote[$SupplierCountry = 'IS'] \| ubl-invoice:Invoice[$SupplierCountry = 'IS']
 | (exists(cac:AdditionalDocumentReference[cbc:DocumentDescription = 'EINDAGI']) and exists(cbc:DueDate)) or not(exists(cac:AdditionalDocumentReference[cbc:DocumentDescription = 'EINDAGI']))
 .3+| IS-R-010 *(fatal)*
-| [IS-R-010]-If seller is icelandic and invoice contains supporting description EINDAGI the id date must be same or later than due date — Ef seljandi er íslenskur þá skal eindagi (BT-122, DocumentDescription = EINDAGI) skal vera sami eða síðar en gjalddagi (BT-9) ef eindagi er til staðar.
-| ubl-creditnote:CreditNote[$SupplierCountry = 'IS'] \\| ubl-invoice:Invoice[$SupplierCountry = 'IS']
-| (exists(cac:AdditionalDocumentReference[cbc:DocumentDescription = 'EINDAGI']) and (cbc:DueDate) <= (cac:AdditionalDocumentReference[cbc:DocumentDescription = 'EINDAGI']/cbc:ID)) or not(exists(cac:AdditionalDocumentReference[cbc:DocumentDescription = 'EINDAGI']))
+| [IS-R-010]-If seller is icelandic and invoice contains supporting description EINDAGI the id date must be same or later
+| ubl-creditnote:CreditNote[$SupplierCountry = 'IS'] \| ubl-invoice:Invoice[$SupplierCountry = 'IS']
+| (exists(cac:AdditionalDocumentReference[cbc:DocumentDescription = 'EINDAGI']) and (cbc:DueDate) &lt;= (cac:AdditionalDocumentReference[cbc:DocumentDescription = 'EINDAGI']/cbc:ID)) or not(exists(cac:AdditionalDocumentReference[cbc:DocumentDescription = 'EINDAGI']))
 .3+| IT-R-001 *(fatal)*
-| [IT-R-001] BT-32 (Seller tax registration identifier) - For Italian suppliers BT-32 minimum length 11 and maximum length shall be 16. Per i fornitori italiani il BT-32 deve avere una lunghezza tra 11 e 16 caratteri
+| [IT-R-001] BT-32 (Seller tax registration identifier) - For Italian suppliers BT-32 minimum length 11 and maximum
 | cac:AccountingSupplierParty/cac:Party[$supplierCountry = 'IT']/cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) != 'VAT']
 | matches(normalize-space(cbc:CompanyID),'^[A-Z0-9]{11,16}$')
 .3+| IT-R-002 *(fatal)*
-| [IT-R-002] BT-35 (Seller address line 1) - Italian suppliers MUST provide the postal address line 1 - I fornitori italiani devono indicare l'indirizzo postale.
+| [IT-R-002] BT-35 (Seller address line 1) - Italian suppliers MUST provide the postal address line 1 - I fornitori
 | cac:AccountingSupplierParty/cac:Party[$supplierCountry = 'IT']
 | cac:PostalAddress/cbc:StreetName
 .3+| IT-R-003 *(fatal)*
-| [IT-R-003] BT-37 (Seller city) - Italian suppliers MUST provide the postal address city - I fornitori italiani devono indicare la città di residenza.
+| [IT-R-003] BT-37 (Seller city) - Italian suppliers MUST provide the postal address city - I fornitori italiani devono
 | cac:AccountingSupplierParty/cac:Party[$supplierCountry = 'IT']
 | cac:PostalAddress/cbc:CityName
 .3+| IT-R-004 *(fatal)*
-| ">[IT-R-004] BT-38 (Seller post code) - Italian suppliers MUST provide the postal address post code - I fornitori italiani devono indicare il CAP di residenza.
+| "[IT-R-004] BT-38 (Seller post code) - Italian suppliers MUST provide the postal address post code - I fornitori
 | cac:AccountingSupplierParty/cac:Party[$supplierCountry = 'IT']
 | cac:PostalAddress/cbc:PostalZone
 .3+| NL-R-001 *(fatal)*
-| [NL-R-001] For suppliers in the Netherlands, if the document is a creditnote, the document MUST contain an invoice reference (cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID)
+| [NL-R-001] For suppliers in the Netherlands, if the document is a creditnote, the document MUST contain an invoice
 | cbc:CreditNoteTypeCode[$supplierCountryIsNL]
 | /*/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID
 .3+| NL-R-002 *(fatal)*
-| [NL-R-002] For suppliers in the Netherlands the supplier's address (cac:AccountingSupplierParty/cac:Party/cac:PostalAddress) MUST contain street name (cbc:StreetName), city (cbc:CityName) and post code (cbc:PostalZone)
+| [NL-R-002] For suppliers in the Netherlands the supplier's address
 | cac:AccountingSupplierParty/cac:Party/cac:PostalAddress[$supplierCountryIsNL]
 | cbc:StreetName and cbc:CityName and cbc:PostalZone
 .3+| NL-R-003 *(fatal)*
-| [NL-R-003] For suppliers in the Netherlands, the legal entity identifier MUST be either a KVK or OIN number (schemeID 0106 or 0190)
+| [NL-R-003] For suppliers in the Netherlands, the legal entity identifier MUST be either a KVK or OIN number (schemeID
 | cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID[$supplierCountryIsNL]
 | (contains(concat(' ', string-join(@schemeID, ' '), ' '), ' 0106 ') or contains(concat(' ', string-join(@schemeID, ' '), ' '), ' 0190 ')) and (normalize-space(.) != '')
 .3+| NL-R-004 *(fatal)*
-| [NL-R-004] For suppliers in the Netherlands, if the customer is in the Netherlands, the customer address (cac:AccountingCustomerParty/cac:Party/cac:PostalAddress) MUST contain the street name (cbc:StreetName), the city (cbc:CityName) and post code (cbc:PostalZone)
+| [NL-R-004] For suppliers in the Netherlands, if the customer is in the Netherlands, the customer address
 | cac:AccountingCustomerParty/cac:Party/cac:PostalAddress[$supplierCountryIsNL and $customerCountryIsNL]
 | cbc:StreetName and cbc:CityName and cbc:PostalZone
 .3+| NL-R-005 *(fatal)*
-| [NL-R-005] For suppliers in the Netherlands, if the customer is in the Netherlands, the customer's legal entity identifier MUST be either a KVK or OIN number (schemeID 0106 or 0190)
+| [NL-R-005] For suppliers in the Netherlands, if the customer is in the Netherlands, the customer's legal entity
 | cac:AccountingCustomerParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID[$supplierCountryIsNL and $customerCountryIsNL]
 | (contains(concat(' ', string-join(@schemeID, ' '), ' '), ' 0106 ') or contains(concat(' ', string-join(@schemeID, ' '), ' '), ' 0190 ')) and (normalize-space(.) != '')
 .3+| NL-R-006 *(fatal)*
-| [NL-R-006] For suppliers in the Netherlands, if the fiscal representative is in the Netherlands, the representative's address (cac:TaxRepresentativeParty/cac:PostalAddress) MUST contain street name (cbc:StreetName), city (cbc:CityName) and post code (cbc:PostalZone)
+| [NL-R-006] For suppliers in the Netherlands, if the fiscal representative is in the Netherlands, the representative's
 | cac:TaxRepresentativeParty/cac:PostalAddress[$supplierCountryIsNL and $taxRepresentativeCountryIsNL]
 | cbc:StreetName and cbc:CityName and cbc:PostalZone
 .3+| NL-R-007 *(fatal)*
-| [NL-R-007] For suppliers in the Netherlands, the supplier MUST provide a means of payment (cac:PaymentMeans) if the payment is from customer to supplier
+| [NL-R-007] For suppliers in the Netherlands, the supplier MUST provide a means of payment (cac:PaymentMeans) if the
 | cac:LegalMonetaryTotal[$supplierCountryIsNL]
-| xs:decimal(cbc:PayableAmount) <= 0.0 or (//cac:PaymentMeans)
+| xs:decimal(cbc:PayableAmount) &lt;= 0.0 or (//cac:PaymentMeans)
 .3+| NL-R-008 *(fatal)*
-| [NL-R-008] For suppliers in the Netherlands, the payment means code (cac:PaymentMeans/cbc:PaymentMeansCode) MUST be one of 30, 48, 49, 57, 58 or 59
+| [NL-R-008] For suppliers in the Netherlands, the payment means code (cac:PaymentMeans/cbc:PaymentMeansCode) MUST be one
 | cac:PaymentMeans[$supplierCountryIsNL]
-| normalize-space(cbc:PaymentMeansCode) = '30' or normalize-space(cbc:PaymentMeansCode) = '48' or normalize-space(cbc:PaymentMeansCode) = '49' or normalize-space(cbc:PaymentMeansCode) = '57' or normalize-space(cbc:PaymentMeansCode) = '58' or normalize-space(cbc:PaymentMeansCode) = '59'
+| normalize-space(cbc:PaymentMeansCode) = '30' or
+        normalize-space(cbc:PaymentMeansCode) = '48' or
+        normalize-space(cbc:PaymentMeansCode) = '49' or
+        normalize-space(cbc:PaymentMeansCode) = '57' or
+        normalize-space(cbc:PaymentMeansCode) = '58' or
+        normalize-space(cbc:PaymentMeansCode) = '59'
 .3+| NL-R-009 *(fatal)*
-| [NL-R-009] For suppliers in the Netherlands, if an order line reference (cac:OrderLineReference/cbc:LineID) is used, there must be an order reference on the document level (cac:OrderReference/cbc:ID)
+| [NL-R-009] For suppliers in the Netherlands, if an order line reference (cac:OrderLineReference/cbc:LineID) is used,
 | cac:OrderLineReference/cbc:LineID[$supplierCountryIsNL]
 | exists(/*/cac:OrderReference/cbc:ID)
 .3+| NO-R-001 *(fatal)*
-| For Norwegian suppliers, a VAT number MUST be the country code prefix NO followed by a valid Norwegian organization number (nine numbers) followed by the letters MVA.
+| For Norwegian suppliers, a VAT number MUST be the country code prefix NO followed by a valid Norwegian organization
 | cac:AccountingSupplierParty/cac:Party[$supplierCountry = 'NO']
-| cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/substring(cbc:CompanyID, 1, 2)='NO' and matches(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/substring(cbc:CompanyID,3), '^[0-9]{9}MVA$') and u:mod11(substring(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID, 3, 9)) or not(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/substring(cbc:CompanyID, 1, 2)='NO')
+| cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/substring(cbc:CompanyID, 1, 2)='NO' and matches(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/substring(cbc:CompanyID,3), '^[0-9]{9}MVA$')
+          and u:mod11(substring(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/cbc:CompanyID, 3, 9)) or not(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'VAT']/substring(cbc:CompanyID, 1, 2)='NO')
 .3+| NO-R-002 *(warning)*
-| For Norwegian suppliers, most invoice issuers are required to append "Foretaksregisteret" to their invoice. "Dersom selger er aksjeselskap, allmennaksjeselskap eller filial av utenlandsk selskap skal også ordet «Foretaksregisteret» fremgå av salgsdokumentet, jf. foretaksregisterloven § 10-2."
+| For Norwegian suppliers, most invoice issuers are required to append "Foretaksregisteret" to their invoice. "Dersom
 | cac:AccountingSupplierParty/cac:Party[$supplierCountry = 'NO']
 | normalize-space(cac:PartyTaxScheme[normalize-space(cac:TaxScheme/cbc:ID) = 'TAX']/cbc:CompanyID) = 'Foretaksregisteret'
 .3+| SE-R-001 *(fatal)*
@@ -252,7 +435,7 @@
 | normalize-space(upper-case(.)) = 'GODKÄND FÖR F-SKATT'
 .3+| SE-R-006 *(fatal)*
 | For Swedish suppliers, only standard VAT rate of 6, 12 or 25 are used
-| //cac:TaxCategory[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE' and cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2) = 'SE'] and cbc:ID = 'S'] \\| //cac:ClassifiedTaxCategory[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE' and cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2) = 'SE'] and cbc:ID = 'S']
+| //cac:TaxCategory[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE' and cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2) = 'SE'] and cbc:ID = 'S'] \| //cac:ClassifiedTaxCategory[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE' and cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/substring(cbc:CompanyID, 1, 2) = 'SE'] and cbc:ID = 'S']
 | number(cbc:Percent) = 25 or number(cbc:Percent) = 12 or number(cbc:Percent) = 6
 .3+| SE-R-007 *(warning)*
 | For Swedish suppliers using Plusgiro, the Account ID must be numeric
@@ -269,12 +452,12 @@
 .3+| SE-R-010 *(warning)*
 | For Swedish suppliers using Plusgiro, the Account ID must have 2-8 characters
 | //cac:PaymentMeans[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE'] and normalize-space(cbc:PaymentMeansCode) = '30' and normalize-space(cac:PayeeFinancialAccount/cac:FinancialInstitutionBranch/cbc:ID) = 'SE:PLUSGIRO']/cac:PayeeFinancialAccount/cbc:ID
-| string-length(normalize-space(.)) >= 2 and string-length(normalize-space(.)) <= 8
+| string-length(normalize-space(.)) &gt;= 2 and string-length(normalize-space(.)) &lt;= 8
 .3+| SE-R-011 *(warning)*
-| For Swedish suppliers using Swedish Bankgiro or Plusgiro, the proper way to indicate this is to use Code 30 for PaymentMeans and FinancialInstitutionBranch ID with code SE:BANKGIRO or SE:PLUSGIRO
+| For Swedish suppliers using Swedish Bankgiro or Plusgiro, the proper way to indicate this is to use Code 30 for
 | //cac:PaymentMeans[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE'] and (cbc:PaymentMeansCode = normalize-space('50') or cbc:PaymentMeansCode = normalize-space('56'))]
 | false()
 .3+| SE-R-012 *(warning)*
 | For domestic transactions between Swedish trading partners, credit transfer should be indicated by PaymentMeansCode="30"
-| //cac:PaymentMeans[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE'] and //cac:AccountingCustomerParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE'] and (cbc:PaymentMeansCode = normalize-space('31'))]
+| //cac:PaymentMeans[//cac:AccountingSupplierParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE']  and //cac:AccountingCustomerParty/cac:Party[cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'SE'] and (cbc:PaymentMeansCode = normalize-space('31'))]
 | false()

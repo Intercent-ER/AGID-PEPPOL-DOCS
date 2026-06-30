@@ -37,19 +37,19 @@
 							  or (substring(cbc:PaymentID, 1, 3)  = '15#'))
 						and not(string-length(cbc:PaymentID) = 19)
 						)" flag="fatal">[DK-R-009]-For Danish Suppliers if the PaymentID is prefixed with 04# or 15# the 16 digits instruction Id must be added to the PaymentID eg. "04#1234567890123456" when Payment means equals 50 (Giro)</assert>
-		<assert id="DK-R-010" test="not((cbc:PaymentMeansCode = '93')
+		<assert id="DK-R-010-NA" test="not((cbc:PaymentMeansCode = '93')
 						and not(((substring(cbc:PaymentID, 1, 3) = '71#')
 								  or (substring(cbc:PaymentID, 1, 3) = '73#')
 								  or (substring(cbc:PaymentID, 1, 3) = '75#'))
 								and (string-length(cac:PayeeFinancialAccount/cbc:ID/text()) = 8)
 								)
-						)" flag="fatal">[DK-R-010]-For Danish Suppliers using PaymentMeansCode 93, PaymentID is mandatory. The first three characters of the PaymentID MUST be 71#, 73# or 75# (kortartskode), and PayeeFinancialAccount/ID MUST be exactly 8 characters long.</assert>
-		<assert id="DK-R-011" test="not((cbc:PaymentMeansCode = '93')
+						)" flag="warning">[DK-R-010]-For Danish Suppliers using PaymentMeansCode 93, PaymentID is mandatory. The first three characters of the PaymentID MUST be 71#, 73# or 75# (kortartskode), and PayeeFinancialAccount/ID MUST be exactly 8 characters long. (not applied in the Italian context).</assert>
+		<assert id="DK-R-011-NA" test="not((cbc:PaymentMeansCode = '93')
 						and ((substring(cbc:PaymentID, 1, 3) = '71#')
 							  or (substring(cbc:PaymentID, 1, 3)  = '75#'))
 						and not((string-length(cbc:PaymentID) = 18)
 							  or (string-length(cbc:PaymentID) = 19))
-						)" flag="fatal">[DK-R-011]-For Danish Suppliers if the PaymentID is prefixed with 71# or 75# the 15-16 digits instruction Id must be added to the PaymentID eg. "71#1234567890123456" when payment Method equals 93 (FIK)</assert>
+						)" flag="warning">[DK-R-011]-For Danish Suppliers if the PaymentID is prefixed with 71# or 75# the 15-16 digits instruction Id must be added to the PaymentID eg. "71#1234567890123456" when payment Method equals 93 (FIK) (not applied in the Italian context).</assert>
 	</rule>
 	<rule context="ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingCustomerParty/cac:Party | ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:AccountingCustomerParty/cac:Party">
 		<assert id="DK-R-017-NA" test="not(((boolean(cac:PartyLegalEntity/cbc:CompanyID)) and (normalize-space(cac:PartyLegalEntity/cbc:CompanyID/@schemeID) != '0184')))" flag="warning">[DK-R-017]-For Danish Customers it is mandatory to specify schemeID as "0184" (DK CVR-number) when PartyLegalEntity/CompanyID is used for AccountingCustomerParty (not applied in the Italian context).</assert>

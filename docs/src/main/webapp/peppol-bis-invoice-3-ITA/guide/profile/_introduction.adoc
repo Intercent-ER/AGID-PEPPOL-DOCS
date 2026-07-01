@@ -37,7 +37,7 @@ Questo documento è strutturato come segue:
 
 * *Capitolo 11*: dettagli e link alle codifiche utilizzate
 
-* *Capitolo 12*: informazioni sugli identificatori PEPPOL
+* *Capitolo 12*: informazioni sugli identificatori Peppol (profili 01 e 02, identificatori delle parti di business)
 
 * *Capitolo 13*: schemi UBL e spazi dei nomi
 

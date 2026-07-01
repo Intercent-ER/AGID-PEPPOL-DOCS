@@ -7,6 +7,38 @@ link:pass:[${peppoldocs.root.url}/my_index_fatt-ENG.jsp][Link to main site of do
 ^.^| Date
 ^.^| What’s new
 
+| 3.0.21.1(IT)
+a| 20/05/2026
+a| _Update to specifications https://docs.peppol.eu/poacc/billing/3.0/upcoming/release-notes/[PEPPOL BIS 3.0.21 - May release 2026]_. +
+
+Effective as of *Monday 17 August 2026*
+
+[red]#Changes to documentation# +
+
+* Added new optional Profile 02 – Billing with response, which enables a process in which an invoice response is required following receipt of the invoice. This profile requires separate registration in the SMP and uses the Invoice Response BIS document. The specifications for this document are available on the https://docs.peppol.eu/poacc/upgrade-3/upcoming/[OpenPeppol Other BIS] specifications portal.
+
+[red]#Changes to code lists and validation artifacts# +
+
+* Electronic Address Scheme (EAS)
+** Removed: 0037,0147,0154,0170,0177,0193,0194,0203,0212,0213,0215,0217
+** Modified: 0088,0184,0190,0191,0192,0195,0196,0198,0199,0204,9959
+* ISO 6523 ICD list
+** Added: 0246,0247,0248
+** Modified: 0096,0158,0208,0241,0243
+* ISO 4217 Currency codes
+** Removed: ANG, BGN
+** Added: XCG
+* Change from “warning” to “fatal” of the severity of rules PEPPOL-COMMON-R052 (Denmark) and PEPPOL-COMMON-R053 (Denmark).
+* Introduction of the new rules PEPPOL-COMMON-R054 (Netherlands), PEPPOL-COMMON-R055 (Netherlands), PEPPOL-COMMON-R056-1 (Netherlands), PEPPOL-COMMON-R056-2 (Netherlands), PEPPOL-COMMON-R057 (Netherlands) with severity “warning”. The rules will be set to severity “fatal” in a subsequent release.
+* Change from “warning” to “fatal” of the severity of rules DK-R-017 (Denmark) and DK-R-003 (Denmark).
+
+[red]#EN 16931 schematrons updated# +
+
+* Update of schematron EN 16931
+* Removed rule BR-CO-25
+* Update of rule PEPPOL-EN16931-R004
+* Added 2 new temporary profiles for UBL Invoice and Credit Note in rule PEPPOL-EN16931-R007 (France)
+
 | 3.0.20.1(IT)
 a| 11/12/2025
 a| _Update to specifications https://docs.peppol.eu/poacc/billing/3.0/2025-Q4/[PEPPOL BIS 3.0.20 - November release 2025] and other Italian modifications_. +

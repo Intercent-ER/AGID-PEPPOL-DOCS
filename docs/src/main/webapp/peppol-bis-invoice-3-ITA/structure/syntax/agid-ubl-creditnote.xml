@@ -565,7 +565,6 @@
                 </Description>
                 <DataType>Text</DataType>
                 <!--Reference type="BUSINESS_TERM">BT-20</Reference-->
-                <Reference type="RULE">BR-CO-25</Reference>
 				<Reference type="RULE">BR-IT-261</Reference>
                 <Value type="EXAMPLE">Net within 30 days</Value>
             </Element>

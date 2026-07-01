@@ -31,7 +31,7 @@
 		
 	<rule context="/ubl:DespatchAdvice/cac:Shipment/cac:Consignment">
 		<assert test="cac:CarrierParty" flag="fatal" id="IT-T16-R027">[IT-T16-R027] - L'elemento 'Carrier party - Vettore' (cac:Shipment/cac:Consignment/cac:CarrierParty) DEVE essere valorizzato.</assert>
-		<assert test="(some $code in $clISO3166 satisfies $code = normalize-space(cac:CarrierParty/cac:PostalAddress/cac:Country/cbc:IdentificationCode/text()))" flag="fatal" id="IT-T16-R044">[IT-T16-R044] - L'elemento 'Country code - Codice nazione' (cac:PostalAddress/cac:Country/cbc:IdentificationCode) DEVE essere valorizzato in base alla codifica dei Paesi (Country Codes - ISO 3166-1:Alpha2).</assert>
+		<assert test="not(cac:CarrierParty/cac:PostalAddress) or (some $code in $clISO3166 satisfies $code = normalize-space(cac:CarrierParty/cac:PostalAddress/cac:Country/cbc:IdentificationCode/text()))" flag="fatal" id="IT-T16-R044">[IT-T16-R044] - L'elemento 'Country code - Codice nazione' (cac:PostalAddress/cac:Country/cbc:IdentificationCode) DEVE essere valorizzato in base alla codifica dei Paesi (Country Codes - ISO 3166-1:Alpha2).</assert>
 	</rule>
 
 	
@@ -63,9 +63,8 @@
 	
 	<rule context="ubl:DespatchAdvice/cac:Shipment/cac:Consignment/cac:CarrierParty" flag="fatal">
 		<assert test="cac:PartyIdentification" flag="fatal" id="IT-T16-R028">[IT-T16-R028] - L'elemento 'Party identification - Identificazione del soggetto Vettore' (cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyIdentification) DEVE essere valorizzato.</assert>
-		<assert test="cac:PostalAddress/cac:Country/cbc:IdentificationCode != 'IT' or (cac:PostalAddress/cac:Country/cbc:IdentificationCode = 'IT' and cac:PartyIdentification/cbc:ID/@schemeID='0210' or cac:PartyIdentification/cbc:ID/@schemeID='0211')" flag="fatal" id="IT-T16-R029">[IT-T16-R029] - Se il Vettore è un soggetto italiano (cac:PostalAddress/cac:Country/cbc:IdentificationCode = "IT"), allora l'elemento 'schemeID dell'Identificativo del Vettore' (cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyIdentification/cbc:ID/@schemeID) è obbligatorio e deve essere pari a "0210" oppure "0211".</assert>
+		<assert test="not(cac:PostalAddress) or (cac:PostalAddress/cac:Country/cbc:IdentificationCode != 'IT' or (cac:PartyIdentification/cbc:ID/@schemeID='0210' or cac:PartyIdentification/cbc:ID/@schemeID='0211'))" flag="fatal" id="IT-T16-R029">[IT-T16-R029] - Se il Vettore è un soggetto italiano (cac:PostalAddress/cac:Country/cbc:IdentificationCode = "IT"), allora l'elemento 'schemeID dell'Identificativo del Vettore' (cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyIdentification/cbc:ID/@schemeID) è obbligatorio e deve essere pari a "0210" oppure "0211".</assert>
 		<assert test="cac:PartyName" flag="fatal" id="IT-T16-R031">[IT-T16-R031] - L'elemento 'Party name - Denominazione della parte' relativo al Vettore (cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PartyName) DEVE essere valorizzato.</assert>
-		<assert test="cac:PostalAddress and cac:PostalAddress/cbc:StreetName and cac:PostalAddress/cbc:CityName and cac:PostalAddress/cbc:PostalZone and cac:PostalAddress/cbc:CountrySubentity" flag="fatal" id="IT-T16-R032">[IT-T16-R032] - L'elemento 'Postal address - Indirizzo del Vettore' (cac:Shipment/cac:Consignment/cac:CarrierParty/cac:PostalAddress) DEVE essere valorizzato. Gli elementi 'Indirizzo del Vettore' (cbc:StreetName), 'Città' (cbc:CityName), 'CAP' (cbc:PostalZone), 'Provincia' (cbc:CountrySubentity) DEVONO essere valorizzati.</assert>
 	</rule>
 		
 	<rule context="//cac:DespatchSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID" flag="fatal">

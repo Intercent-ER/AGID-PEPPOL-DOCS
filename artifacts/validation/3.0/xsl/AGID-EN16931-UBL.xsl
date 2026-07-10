@@ -14793,10 +14793,10 @@
 
 		    <!--ASSERT -->
 <xsl:choose>
-         <xsl:when test="not(//cbc:PrimaryAccountNumber/@schemeID)"/>
+         <xsl:when test="not(//cbc:PrimaryAccountNumberID/@schemeID)"/>
          <xsl:otherwise>
             <svrl:failed-assert xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
-                                test="not(//cbc:PrimaryAccountNumber/@schemeID)">
+                                test="not(//cbc:PrimaryAccountNumberID/@schemeID)">
                <xsl:attribute name="id">UBL-CR-674</xsl:attribute>
                <xsl:attribute name="flag">warning</xsl:attribute>
                <xsl:attribute name="location">

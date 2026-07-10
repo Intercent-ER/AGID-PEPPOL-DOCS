@@ -19,7 +19,7 @@
 		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<validator.version>3.2.1</validator.version>
-		<converter.version>3.2.1</converter.version>
+		<converter.version>3.2.2</converter.version>
 		<schematron.version>3.2.1</schematron.version>
 		<mapping_peppol_fpa.version>3.3</mapping_peppol_fpa.version>
 		<mapping_fpa_peppol.version>3.2</mapping_fpa_peppol.version>

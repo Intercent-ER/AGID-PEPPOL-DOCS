@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<DespatchAdvice xmlns="urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">
+<?xml version="1.0" encoding="UTF-8"?>
+<DespatchAdvice xmlns="urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2"
+	xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+	xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">
 	<cbc:CustomizationID>urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1</cbc:CustomizationID>
 	<cbc:ProfileID>urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</cbc:ProfileID>
 	<cbc:ID>08_DDT_BIS3_V01_B2G</cbc:ID>
@@ -114,6 +116,16 @@
 				<cac:PartyName>
 					<cbc:Name>EURODIFARM SRL</cbc:Name>
 				</cac:PartyName>
+				<cac:PostalAddress>
+					<cbc:StreetName>Via Europa 100</cbc:StreetName>
+					<cbc:AdditionalStreetName>Palazzo A</cbc:AdditionalStreetName>
+					<cbc:CityName>Bologna</cbc:CityName>
+					<cbc:PostalZone>40121</cbc:PostalZone>
+					<cbc:CountrySubentity>BO</cbc:CountrySubentity>
+					<cac:Country>
+						<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+					</cac:Country>
+				</cac:PostalAddress>
 			</cac:CarrierParty>
 		</cac:Consignment>
 		<cac:Delivery>
@@ -137,33 +149,33 @@
 			</cac:Despatch>
 		</cac:Delivery>
 	</cac:Shipment>
-	<cac:DespatchLine>
-		<cbc:ID>1</cbc:ID>
-		<cbc:DeliveredQuantity unitCode="C62">5</cbc:DeliveredQuantity>
-		<cac:OrderLineReference>
-			<cbc:LineID>1</cbc:LineID>
-			<cac:OrderReference>
-				<cbc:ID>202532078611#2025-09-24#IKS6CP</cbc:ID>
-			</cac:OrderReference>
-		</cac:OrderLineReference>
-		<cac:Item>
-			<cbc:Name>1903282</cbc:Name>
-			<cac:SellersItemIdentification>
-				<cbc:ID>UDI:(01)08717648287343(17)20270731(10)5080561(21)</cbc:ID>
-			</cac:SellersItemIdentification>
-			<cac:StandardItemIdentification>
-				<cbc:ID schemeID="0160">08717648287343</cbc:ID>
-				<cbc:ExtendedID>GTIN</cbc:ExtendedID>
-			</cac:StandardItemIdentification>
-			<cac:ItemInstance>
-				<cbc:ProductTraceID schemeID="UDI">(01)08717648287343(17)20270731(10)5080561(21)</cbc:ProductTraceID>
-			</cac:ItemInstance>
-			<cac:ItemInstance>
-				<cac:LotIdentification>
-					<cbc:LotNumberID>5080561</cbc:LotNumberID>
-					<cbc:ExpiryDate>2027-07-31</cbc:ExpiryDate>
-				</cac:LotIdentification>
-			</cac:ItemInstance>
-		</cac:Item>
-	</cac:DespatchLine>
+    <cac:DespatchLine>
+        <cbc:ID>1</cbc:ID>
+        <cbc:DeliveredQuantity unitCode="C62">5</cbc:DeliveredQuantity>
+        <cac:OrderLineReference>
+            <cbc:LineID>1</cbc:LineID>
+            <cac:OrderReference>
+                <cbc:ID>202532078611#2025-09-24#IKS6CP</cbc:ID>
+            </cac:OrderReference>
+        </cac:OrderLineReference>
+        <cac:Item>
+            <cbc:Name>1903282</cbc:Name>
+            <cac:SellersItemIdentification>
+                <cbc:ID>UDI:(01)08717648287343(17)20270731(10)5080561(21)</cbc:ID>
+            </cac:SellersItemIdentification>
+            <cac:StandardItemIdentification>
+                <cbc:ID schemeID="0160">08717648287343</cbc:ID>
+                <cbc:ExtendedID>GTIN</cbc:ExtendedID>
+            </cac:StandardItemIdentification>
+            <cac:ItemInstance>
+                <cbc:ProductTraceID schemeID="UDI">(01)08717648287343(17)20270731(10)5080561(21)</cbc:ProductTraceID>
+            </cac:ItemInstance>
+            <cac:ItemInstance>
+                <cac:LotIdentification>
+                    <cbc:LotNumberID>5080561</cbc:LotNumberID>
+                    <cbc:ExpiryDate>2027-07-31</cbc:ExpiryDate>
+                </cac:LotIdentification>
+            </cac:ItemInstance>
+        </cac:Item>
+    </cac:DespatchLine>
 </DespatchAdvice>

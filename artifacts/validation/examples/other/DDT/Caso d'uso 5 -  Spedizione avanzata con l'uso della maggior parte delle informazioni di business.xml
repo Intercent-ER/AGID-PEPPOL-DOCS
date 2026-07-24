@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<DespatchAdvice xmlns="urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">
+<?xml version="1.0" encoding="UTF-8"?>
+<DespatchAdvice xmlns="urn:oasis:names:specification:ubl:schema:xsd:DespatchAdvice-2"
+	xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+	xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">
 	<cbc:CustomizationID>urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1</cbc:CustomizationID>
 	<cbc:ProfileID>urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</cbc:ProfileID>
 	<cbc:ID>V000016345</cbc:ID>
@@ -113,6 +115,16 @@
 				<cac:PartyName>
 					<cbc:Name>EURODIFARM SRL</cbc:Name>
 				</cac:PartyName>
+				<cac:PostalAddress>
+					<cbc:StreetName>Via Europa 100</cbc:StreetName>
+					<cbc:AdditionalStreetName>Palazzo A</cbc:AdditionalStreetName>
+					<cbc:CityName>Bologna</cbc:CityName>
+					<cbc:PostalZone>40121</cbc:PostalZone>
+					<cbc:CountrySubentity>Bologna</cbc:CountrySubentity>
+					<cac:Country>
+						<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+					</cac:Country>
+				</cac:PostalAddress>
 			</cac:CarrierParty>
 		</cac:Consignment>
 		<cac:Delivery>
@@ -127,7 +139,7 @@
 						<cbc:Line>Magazzino Unico AUSL</cbc:Line>
 					</cac:AddressLine>
 					<cac:Country>
-						<cbc:IdentificationCode>IT</cbc:IdentificationCode>
+							<cbc:IdentificationCode>IT</cbc:IdentificationCode>
 					</cac:Country>
 				</cac:DespatchAddress>
 			</cac:Despatch>
@@ -159,6 +171,7 @@
 		</cac:Item>
 		<cac:Shipment>
 			<cbc:ID>NA</cbc:ID>
+			<cbc:HandlingCode>11</cbc:HandlingCode>
 			<cac:TransportHandlingUnit>
 				<cbc:ID>12345</cbc:ID>
 				<cbc:TransportHandlingUnitTypeCode>PX</cbc:TransportHandlingUnitTypeCode>
@@ -208,6 +221,7 @@
 		</cac:Item>
 		<cac:Shipment>
 			<cbc:ID>NA</cbc:ID>
+			<cbc:HandlingCode>11</cbc:HandlingCode>
 			<cac:TransportHandlingUnit>
 				<cbc:ID>12345</cbc:ID>
 			</cac:TransportHandlingUnit>
@@ -239,6 +253,7 @@
 		</cac:Item>
 		<cac:Shipment>
 			<cbc:ID>NA</cbc:ID>
+			<cbc:HandlingCode>11</cbc:HandlingCode>
 			<cac:TransportHandlingUnit>
 				<cbc:ID>54321</cbc:ID>
 				<cbc:TransportHandlingUnitTypeCode>CT</cbc:TransportHandlingUnitTypeCode>
@@ -262,10 +277,7 @@
 		</cac:OrderLineReference>
 		<cac:Item>
 			<cbc:Name>MYLERAN*100CPR RIV 2MG</cbc:Name>
-			<cac:AdditionalItemProperty>
-				<cbc:Name>Additional information</cbc:Name>
-				<cbc:Value>Inserire Informazioni Aggiuntive</cbc:Value>
-			</cac:AdditionalItemProperty>
+			<cbc:AdditionalInformation>Inserire Informazioni Aggiuntive</cbc:AdditionalInformation>
 			<cac:SellersItemIdentification>
 				<cbc:ID>3698233</cbc:ID>
 			</cac:SellersItemIdentification>
@@ -273,7 +285,10 @@
 				<cbc:ID schemeID="0160">024787018</cbc:ID>
 			</cac:StandardItemIdentification>
 			<cac:HazardousItem>
+				<cbc:ID>3249</cbc:ID>
 				<cbc:UNDGCode>ADR</cbc:UNDGCode>
+				<cbc:TechnicalName>Medicine, solid, toxic, n.o.s.</cbc:TechnicalName>
+				<cbc:CategoryName>ANTIBLASTICI</cbc:CategoryName>
 				<cbc:HazardClassID>6.1</cbc:HazardClassID>
 			</cac:HazardousItem>
 			<cac:ItemInstance>
@@ -286,6 +301,7 @@
 		</cac:Item>
 		<cac:Shipment>
 			<cbc:ID>NA</cbc:ID>
+			<cbc:HandlingCode>11</cbc:HandlingCode>
 			<cac:TransportHandlingUnit>
 				<cbc:ID>09876</cbc:ID>
 				<cbc:TransportHandlingUnitTypeCode>CT</cbc:TransportHandlingUnitTypeCode>

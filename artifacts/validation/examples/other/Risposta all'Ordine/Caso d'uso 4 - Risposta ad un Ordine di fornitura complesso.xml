@@ -15,10 +15,7 @@
   </cac:OrderReference>
   <cac:SellerSupplierParty>
     <cac:Party>
-      <cbc:EndpointID schemeID="0211">IT07643520567</cbc:EndpointID>
-      <cac:PartyIdentification>
-        <cbc:ID schemeID="0211">IT07643520567</cbc:ID>
-      </cac:PartyIdentification>
+      <cbc:EndpointID schemeID="0211">IT00880711007</cbc:EndpointID>
       <cac:PartyLegalEntity>
         <cbc:RegistrationName>Fornitore S.p.A.</cbc:RegistrationName>
       </cac:PartyLegalEntity>
@@ -28,7 +25,7 @@
     <cac:Party>
       <cbc:EndpointID schemeID="0201">ABACOO</cbc:EndpointID>
       <cac:PartyIdentification>
-        <cbc:ID schemeID="0211">IT14261920871</cbc:ID>
+        <cbc:ID schemeID="0210">02307130696</cbc:ID>
       </cac:PartyIdentification>
       <cac:PartyLegalEntity>
         <cbc:RegistrationName>Compratore S.p.A.</cbc:RegistrationName>

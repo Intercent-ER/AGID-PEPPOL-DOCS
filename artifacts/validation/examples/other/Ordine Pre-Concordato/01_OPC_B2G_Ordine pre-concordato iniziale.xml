@@ -4,11 +4,9 @@
 			   xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">
 	<cbc:CustomizationID>urn:fdc:peppol.eu:poacc:trns:order_agreement:3:restrictive:urn:www.agid.gov.it:trns:ordine_preconcordato:3.0</cbc:CustomizationID>
 	<cbc:ProfileID>urn:fdc:peppol.eu:poacc:bis:order_agreement:3</cbc:ProfileID>
-	<cbc:ID>42_I02_2019</cbc:ID>
+	<cbc:ID>01_OPC_BIS3_V02</cbc:ID>
 	<cbc:SalesOrderID>101-111</cbc:SalesOrderID>
-	<cbc:IssueDate>2019-06-12</cbc:IssueDate>
-	<cbc:IssueTime>06:10:10</cbc:IssueTime>
-	<cbc:Note>ESEMPIO ORDINE PRE-CONCORDATO</cbc:Note>
+	<cbc:IssueDate>2026-06-12</cbc:IssueDate>
 	<cbc:DocumentCurrencyCode>EUR</cbc:DocumentCurrencyCode>
 	<cac:OrderReference>
 		<cbc:ID>0</cbc:ID>

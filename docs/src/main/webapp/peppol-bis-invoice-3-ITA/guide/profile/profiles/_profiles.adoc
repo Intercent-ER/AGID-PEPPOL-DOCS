@@ -3,3 +3,4 @@
 
 include::../../shared/profiles/_info.adoc[]
 include::../../shared/profiles/_01.adoc[]
+include::../../shared/profiles/_02.adoc[]

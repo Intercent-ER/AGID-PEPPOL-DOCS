@@ -3,7 +3,7 @@
 
 	<Term>cac:AllowanceCharge</Term>
 	<Name>DOCUMENT LEVEL ALLOWANCES AND CHARGES - Sconto/Maggiorazione a livello di testata</Name>
-	<Description>Per la fatturazione verso soggetti italiani la sezione è utilizzata solo per Bollo (vedi paragrafo 4.9 della Documentazione) e Rivalsa Cassa Previdenziale (vedi paragrafo 4.8 della Documentazione).</Description>
+	<Description>Per la fatturazione verso soggetti italiani la sezione è utilizzata solo per Bollo (vedi paragrafo 5.9 della Documentazione) e Rivalsa Cassa Previdenziale (vedi paragrafo 5.8 della Documentazione).</Description>
 	<Reference type="BUSINESS_TERM">BG-20, BG-21</Reference>
 	<Reference type="RULE">BR-IT-DC-480</Reference>
 

@@ -14,7 +14,7 @@ _Applicati a tutta la fattura e inclusi nel totale documento._
 
 [IMPORTANT]
 ====
-#Per la fatturazione verso soggetti italiani la sezione è utilizzata solo per Bollo (vedi paragrafo 4.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 4.8).#
+#Per la fatturazione verso soggetti italiani la sezione è utilizzata solo per Bollo (vedi paragrafo 5.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 5.8).#
 ====
 
 _#Sconti e maggiorazioni che non incidono sull’imponibile.#_
@@ -25,9 +25,7 @@ _#Sconti e maggiorazioni che non incidono sull’imponibile.#_
 
 
 [NOTE]
-====
-La somma algebrica delle maggiorazioni (con segno meno) e degli sconti (con segno più) va ricompresa nel valore inserito in cbc:PrepaidAmount. Si evidenzia che il cbc:PrepaidAmount non è supportato in FatturaPA ma viene utilizzato per valorizzare correttamente il dato cbc:PayableAmount (BT-115 Amount due for payment) che è obbligatorio per la EN 16931.
-====
+#La somma algebrica delle maggiorazioni (con segno meno) e degli sconti (con segno più) va ricompresa nel valore inserito in cbc:PrepaidAmount. Si evidenzia che il cbc:PrepaidAmount non è supportato in FatturaPA ma viene utilizzato per valorizzare correttamente il dato cbc:PayableAmount (BT-115 Amount due for payment) che è obbligatorio per la EN 16931.#
 
 .#Esempio UBL per fornire lo sconto sul totale documento, mediante estensione#.
 [source, xml, indent=0]
@@ -62,7 +60,7 @@ Dettagli ulteriori sul calcolo degli sconti/maggiorazioni sono disponibili press
 
 //include::../../syntax/_allowance.adoc[]
 
-.Esempio UBL di sconto su prezzo
+.#_Esempio UBL di sconto su prezzo_#
 [source, xml, indent=0]
 ----
 <cac:InvoiceLine>

@@ -8,7 +8,7 @@
     </Description>
     <agid:Extension>
 		<agid:ID>urn:www.agid.gov.it:trns:nota_credito:3.0</agid:ID>
-		<agid:Name>Peppol BIS Credit Note 3.0 Structure (Italian extension to EN16931)</agid:Name>
+		<agid:Name>Struttura Nota di Credito Elettronica 3.0 (Estensione Italiana della EN16931)</agid:Name>
 		<agid:Version>3.0</agid:Version>
     </agid:Extension>
 
@@ -250,11 +250,11 @@
 
             <Element>
                 <Term>cac:InvoiceDocumentReference</Term>
-                <Name>INVOICE DOCUMENT REFERENCE</Name>
+                <Name>INVOICE DOCUMENT REFERENCE – FPA 2.1.6 'DatiFattureCollegate' </Name>
 
                 <Element agid:custom="rule">
                     <Term>cbc:ID</Term>
-                    <Name>Preceding Invoice number</Name>
+                    <Name>Numero Fattura Collegata – FPA 2.1.6.2 'IdDocumento'</Name>
                     <Description>The identification of an Invoice that was previously sent by the Seller.</Description>
                     <DataType>Document Reference</DataType>
                     <Reference type="BUSINESS_TERM">BT-25</Reference>
@@ -264,7 +264,7 @@
                 </Element>
                 <Element cardinality="0..1">
                     <Term>cbc:IssueDate</Term>
-                    <Name>Preceding Invoice issue date</Name>
+                    <Name>Data Fattura Collegata – FPA 2.1.6.3 ‘Data’</Name>
                     <Description>The date when the Preceding Invoice was issued.Shall be
                         provided in case the Preceding Invoice identifier is not unique. Format = "YYYY-MM-DD".</Description>
                     <DataType>Date</DataType>
@@ -276,8 +276,8 @@
 			
 			<Element cardinality="0..1" agid:custom="extension">
 				<Term>cac:AdditionalDocumentReference</Term>
-				<Name>Riferimento alla fattura principale</Name>
-
+				<Name>RIFERIMENTO ALLA FATTURA PRINCIPALE - FPA 2.1.10 'FatturaPrincipale' </Name>
+                <Description>Da utilizzare nei casi di riferimento a fatture per operazioni accessorie, emesse dagli 'autotrasportatori' per usufruire delle agevolazioni in materia di registrazione e pagamento dell' IVA.</Description>
 				<Element>
 					<Term>cbc:ID</Term>
 					<Name>Numero Fattura Principale - FPA 2.1.10.1 'NumeroFatturaPrincipale'</Name>
@@ -528,7 +528,6 @@
                 <DataType>Date</DataType>
                 <Reference type="BUSINESS_TERM">BT-9</Reference>
                 <Reference type="RULE">PEPPOL-EN16931-F001</Reference>
-                <Reference type="RULE">BR-CO-25</Reference>
                 <Value type="EXAMPLE">2017-11-01</Value>
             </Element>
 
@@ -566,7 +565,6 @@
                 </Description>
                 <DataType>Text</DataType>
                 <!--Reference type="BUSINESS_TERM">BT-20</Reference-->
-                <Reference type="RULE">BR-CO-25</Reference>
 				<Reference type="RULE">BR-IT-261</Reference>
                 <Value type="EXAMPLE">Net within 30 days</Value>
             </Element>

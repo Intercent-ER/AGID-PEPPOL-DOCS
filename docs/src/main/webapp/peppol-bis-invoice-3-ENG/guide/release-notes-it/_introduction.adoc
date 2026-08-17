@@ -17,5 +17,5 @@ L’aggiornamento introduce le seguenti specifiche per ogni BIS (Business Intero
 
 [NOTE] 
 
-Si precisa che è consentita l’interoperabilità solo tra attori che utilizzano gli stessi profili PEPPOL.
+Si precisa che è consentita l’interoperabilità solo tra attori che utilizzano gli stessi profili Peppol.
 

@@ -8,7 +8,7 @@ Questo documento è volto a chiarire i requisiti necessari ad assicurare l'inter
 
 Questa specifica è una Core Invoice Usage Specification (CIUS) della {EN16931}, che ne segue le indicazioni fornite al capitolo 7. Qualsiasi documento compatibile a questa specifica sarà sempre compatibile alla normativa europea ({EN16931}).
 
-L’obiettivo di questo documento è descrivere l’uso dei messaggi della fattura e della nota di credito in PEPPOL, e facilitare un’efficiente implementazione e diffusione delle collaborazioni elettroniche per il processo di fatturazione in questi formati.
+L’obiettivo di questo documento è descrivere l’uso dei messaggi della fattura e della nota di credito in Peppol, e facilitare un’efficiente implementazione e diffusione delle collaborazioni elettroniche per il processo di fatturazione in questi formati.
 
 == A chi si rivolge
 

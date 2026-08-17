@@ -152,7 +152,7 @@
 			</p>
 			<xsl:if test="cl:LocalId">
 				<code class="locale indent">
-                Correlato a [<xsl:value-of select="cl:LocalId"/>]
+                Related to / Correlato a [<xsl:value-of select="cl:LocalId"/>]
 				</code>
 			</xsl:if>
 			<xsl:if test="cl:LocalName">
@@ -179,7 +179,7 @@
 	<xsl:template match="cl:LocalCode" priority="1">
 		<div id="{cl:LocalId}" style="margin-bottom: 10pt;">
 			<code class="locale indent">
-				Correlato a [<xsl:value-of select="cl:LocalId"/>]
+				Related to / Correlato a [<xsl:value-of select="cl:LocalId"/>]
 			</code>
 			<strong class="locale indent">
 				<xsl:value-of select="cl:LocalName"/>

@@ -4,11 +4,11 @@
 	xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">
 	<cbc:CustomizationID>urn:fdc:peppol.eu:poacc:trns:despatch_advice:3:extended:urn:www.agid.gov.it:trns:ddt:3.1</cbc:CustomizationID>
 	<cbc:ProfileID>urn:fdc:peppol.eu:poacc:bis:despatch_advice:3</cbc:ProfileID>
-	<cbc:ID>07_DDT_BIS3_V01_B2G</cbc:ID>
+	<cbc:ID>07_DDT_BIS3_V03_B2G</cbc:ID>
 	<cbc:IssueDate>2023-05-13</cbc:IssueDate>
 	<cbc:DespatchAdviceTypeCode>351</cbc:DespatchAdviceTypeCode>
-		<cac:OrderReference>
-		<cbc:ID>1234#2023-03-12#O92KTP</cbc:ID>
+	<cac:OrderReference>
+		<cbc:ID>ORD04#2023-03-12#O92KTP</cbc:ID>
 	</cac:OrderReference>
 	<cac:DespatchSupplierParty>
 		<cac:Party>

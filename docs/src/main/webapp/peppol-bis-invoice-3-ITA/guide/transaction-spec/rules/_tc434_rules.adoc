@@ -9,7 +9,7 @@ Ulteriori dettagli sono disponibili presso https://github.com/OpenPEPPOL/tc434-v
 [cols="1,4", options="header"] 
 |====
 |Regola
-|Messaggio/Contesto/Test
+|Messaggio
 
 include::{rules-dir}/_CEN-EN16931-UBL-GENERAL.sch.adoc[]
 |====

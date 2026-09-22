@@ -4,7 +4,7 @@
 	<Term>Order</Term>
 	<agid:Restriction>
 		<agid:ID>urn:www.ubl-italia.org:spec:ordine:ver3.1</agid:ID>
-		<agid:Name>Peppol Order transaction 3.7.0.1(IT)</agid:Name>
+		<agid:Name>Peppol Order transaction 3.7.0.2(IT)</agid:Name>
 		<agid:Version>3.2</agid:Version>
 	</agid:Restriction>
 
@@ -1851,6 +1851,7 @@
 				<Reference type="BUSINESS_TERM">tir01-123</Reference>
                                 <Reference type="RULE">NSO_051</Reference>
 			</Element>
+
 			<Element>
 				<Term>cac:LineItem</Term>
 				<Name>Line item</Name>
@@ -2431,6 +2432,18 @@
 						</Element>
 					</Element>
 					</Element>
+				</Element>
+			</Element>
+			<Element cardinality="0..1">
+				<Term>cac:QuotationLineReference</Term>
+				<Name>Reference to a quotation line</Name>
+				<Description>Reference to a quotation line.</Description>
+				<Element>
+					<Term>cbc:LineID</Term>
+					<Name>Quotation line reference</Name>
+					<Description>Quotation line reference.</Description>
+					<DataType>Identifier</DataType>
+					<Reference type="RULE">PEPPOL-T01-R035</Reference>
 				</Element>
 			</Element>
 				</Element>

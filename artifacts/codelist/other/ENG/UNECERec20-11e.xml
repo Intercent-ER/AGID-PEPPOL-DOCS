@@ -9730,9 +9730,6 @@
     <Code>
         <Id>XBX</Id>
         <Name>Box</Name>
-        <LocalId>scatola</LocalId>
-        <LocalName>scatola</LocalName>
-        <LocalDescription>Definisce il confezionamento secondario che contiene più confezioni.</LocalDescription>
     </Code>
     <Code>
         <Id>XBY</Id>

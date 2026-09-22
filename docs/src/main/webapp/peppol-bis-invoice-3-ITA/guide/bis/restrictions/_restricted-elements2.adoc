@@ -23,12 +23,6 @@
 | VAT accounting currency code shall be different from invoice currency code when provided.
 | PEPPOL-EN16931-R005
 
-| BT-9, BT-20
-| Payment due date or payment terms
-| Change to existing CEN TC434 rule (issue reported to TC434)
-| Ensure the rule only fires for invoices, not credit notes
-| BR-CO-25
-
 | BT-10, BT-13
 | Buyer reference or Purchase order
 | Add new non-conflicting business rule to existing element(s)

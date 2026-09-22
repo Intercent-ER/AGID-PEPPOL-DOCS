@@ -16,15 +16,12 @@
 	<cac:OriginatorDocumentReference>
 		<cbc:ID>2902205F50</cbc:ID>
 	</cac:OriginatorDocumentReference>
-<cac:Contract>
-	<cbc:ID>2016.123</cbc:ID>
-</cac:Contract>
+	<cac:Contract>
+		<cbc:ID>2016.123</cbc:ID>
+	</cac:Contract>
 	<cac:BuyerCustomerParty>
 		<cac:Party>
 			<cbc:EndpointID schemeID="0201">ABCDEF</cbc:EndpointID>
-			<cac:PartyIdentification>
-				<cbc:ID schemeID="0201">ABCDEF</cbc:ID>
-			</cac:PartyIdentification>
 			<cac:PartyName>
 				<cbc:Name>Acquirente Pubblico - Azienda Sanitaria</cbc:Name>
 			</cac:PartyName>
@@ -48,6 +45,7 @@
 			</cac:PartyTaxScheme>
 			<cac:PartyLegalEntity>
 				<cbc:RegistrationName>Acquirente Pubblico - Azienda Sanitaria</cbc:RegistrationName>
+				<cbc:CompanyID schemeID="0210">92038610371</cbc:CompanyID>
 			</cac:PartyLegalEntity>
 			<cac:Contact>
 				<cbc:Name>Tizio Tizio</cbc:Name>
@@ -58,6 +56,9 @@
 	<cac:SellerSupplierParty>
 		<cac:Party>
 			<cbc:EndpointID schemeID="0211">IT02188520544</cbc:EndpointID>
+			<cac:PartyIdentification>
+                <cbc:ID schemeID="0211">IT02188520544</cbc:ID>
+			</cac:PartyIdentification>	
 			<cac:PartyName>
 				<cbc:Name>Venditore S.p.A</cbc:Name>
 			</cac:PartyName>
@@ -86,14 +87,12 @@
 	<cac:AccountingCustomerParty>
 		<cac:Party>
 			<cbc:EndpointID schemeID="0201">ABCDEF</cbc:EndpointID>
-			<cac:PartyIdentification>
-				<cbc:ID schemeID="0201">ABCDEF</cbc:ID>
-			</cac:PartyIdentification>
 			<cac:PartyName>
 				<cbc:Name>Acquirente Pubblico - Azienda Sanitaria</cbc:Name>
 			</cac:PartyName>
 			<cac:PostalAddress>
 				<cbc:StreetName>Via Albertoni, 15</cbc:StreetName>
+				<cbc:AdditionalStreetName>Risorse Economiche e Finanziarie</cbc:AdditionalStreetName>
 				<cbc:CityName>Bologna</cbc:CityName>
 				<cbc:PostalZone>40138</cbc:PostalZone>
 				<cbc:CountrySubentity>BO</cbc:CountrySubentity>
@@ -103,6 +102,7 @@
 			</cac:PostalAddress>
 			<cac:PartyLegalEntity>
 				<cbc:RegistrationName>Acquirente Pubblico - Azienda Sanitaria</cbc:RegistrationName>
+				<cbc:CompanyID schemeID="0210">92038610371</cbc:CompanyID>
 			</cac:PartyLegalEntity>
 			<cac:Contact>
 				<cbc:Name>ResponsabileFatturazione</cbc:Name>

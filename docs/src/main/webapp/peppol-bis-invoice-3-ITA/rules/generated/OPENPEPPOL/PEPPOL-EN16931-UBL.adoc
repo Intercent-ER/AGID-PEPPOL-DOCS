@@ -7,7 +7,7 @@
 | Danish suppliers MUST provide legal entity (CVR-number)
 | ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK'] \| ubl-invoice:Invoice[$DKSupplierCountry = 'DK']
 | (normalize-space(cac:AccountingSupplierParty/cac:Party/cac:PartyLegalEntity/cbc:CompanyID/text()) != '')
-.3+| DK-R-003 *(warning)*
+.3+| DK-R-003 *(fatal)*
 | If ItemClassification is provided from Danish suppliers, UNSPSC version 19.0501 should be used.
 | ubl-creditnote:CreditNote[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:CreditNoteLine \| ubl-invoice:Invoice[$DKSupplierCountry = 'DK' and $DKCustomerCountry = 'DK']/cac:InvoiceLine
 | not((cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode/@listID = 'TST') and not((cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode/@listVersionID = '19.05.01') or (cac:Item/cac:CommodityClassification/cbc:ItemClassificationCode/@listVersionID = '19.0501') ) )
@@ -267,14 +267,34 @@
 | Australian Business Number (ABN) MUST be stated in the correct format.
 | cbc:EndpointID[@schemeID = '0151'] \| cac:PartyIdentification/cbc:ID[@schemeID = '0151'] \| cbc:CompanyID[@schemeID = '0151']
 | matches(normalize-space(), '^[0-9]{11}$') and u:abn(normalize-space())
-.3+| PEPPOL-COMMON-R052 *(warning)*
+.3+| PEPPOL-COMMON-R052 *(fatal)*
 | Danish chamber of commerce number (P) MUST be stated in the correct format.
 | cbc:EndpointID[@schemeID = '0096'] \| cac:PartyIdentification/cbc:ID[@schemeID = '0096'] \| cbc:CompanyID[@schemeID = '0096']
 | (string-length(string()) = 10) and (string-length(translate(substring(string(), 1, 10),'1234567890', '')) = 0)
-.3+| PEPPOL-COMMON-R053 *(warning)*
+.3+| PEPPOL-COMMON-R053 *(fatal)*
 | Danish ERSTORG number (SE) MUST be stated in the correct format.
 | cbc:EndpointID[@schemeID = '0198'] \| cac:PartyIdentification/cbc:ID[@schemeID = '0198'] \| cbc:CompanyID[@schemeID = '0198']
 | (string-length(string()) = 10 and substring(string(), 1, 2) = 'DK' and string-length(translate(substring(string(), 3, 8), '1234567890', '')) = 0)
+.3+| PEPPOL-COMMON-R054 *(warning)*
+| Dutch Chamber of Commerce (KVK) numbers (0106) MUST be stated in the correct format (12345678).
+| cbc:EndpointID[@schemeID = '0106'] \| cac:PartyIdentification/cbc:ID[@schemeID = '0106'] \| cbc:CompanyID[@schemeID = '0106']
+| matches(normalize-space(), '^[0-9]{8}$')
+.3+| PEPPOL-COMMON-R055 *(warning)*
+| Dutch organization identification numbers (0190) MUST be stated in the correct format (12345678901234567890).
+| cbc:EndpointID[@schemeID = '0190'] \| cac:PartyIdentification/cbc:ID[@schemeID = '0190'] \| cbc:CompanyID[@schemeID = '0190']
+| matches(normalize-space(), '^[0-9]{20}$')
+.3+| PEPPOL-COMMON-R056-1 *(warning)*
+| Dutch VAT numbers (9944) MUST be stated in the correct format (NL123456789B12).
+| cbc:EndpointID[@schemeID = '9944'] \| cac:PartyIdentification/cbc:ID[@schemeID = '9944'] \| cbc:CompanyID[@schemeID = '9944']
+| matches(normalize-space(), '^NL[0-9]{9}B[0-9]{2}$')
+.3+| PEPPOL-COMMON-R056-2 *(warning)*
+| Dutch VAT numbers MUST have the format (NL123456789B12).
+| cac:PartyTaxScheme[cac:TaxScheme/cbc:ID = 'VAT']/cbc:CompanyID[starts-with(., 'NL')]
+| matches(normalize-space(.), '^NL[0-9]{9}B[0-9]{2}$')
+.3+| PEPPOL-COMMON-R057 *(warning)*
+| Dutch Chamber of Commerce Establishment numbers (0217) MUST be stated in the correct format (123456789012).
+| cbc:EndpointID[@schemeID = '0217'] \| cac:PartyIdentification/cbc:ID[@schemeID = '0217'] \| cbc:CompanyID[@schemeID = '0217']
+| matches(normalize-space(), '^[0-9]{12}$')
 .3+| PEPPOL-EN16931-CL001 *(fatal)*
 | Mime code must be according to subset of IANA code list.
 | cbc:EmbeddedDocumentBinaryObject[@mimeCode]

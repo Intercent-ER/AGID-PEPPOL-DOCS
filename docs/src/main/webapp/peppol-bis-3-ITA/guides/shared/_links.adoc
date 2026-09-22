@@ -2,13 +2,13 @@
 :description: La specifica Peppol per l'interoperabilità nel Business, d'ora in poi “BIS”, è stata sviluppata da OpenPeppolAISBL Post Award Coordinating Community ed è pubblicata come parte delle specifiche PEPPOL.
 :author: OpenPeppolAISBL, Post-Award Coordinating Community
 :version: 3.0.8
-:ord_version_it: 3.3.0.6(IT)
-:ddt_version_it: 3.1.0.5(IT)
-:ord_agreement_version_it: 3.0.0.8(IT)
+:ord_version_it: 3.3.0.9(IT)
+:ddt_version_it: 3.1.0.8(IT)
+:ord_agreement_version_it: 3.0.0.10(IT)
 //PEPPOL
-:peppol: https://peppol.eu/?rel=undefined[PEPPOL]
-:common: https://joinup.ec.europa.eu/svn/peppol/PEPPOL%20BIS%20Common%20text%20and%20introduction%20-%20ver%201%202014-04-14.pdf[Peppol BIS common text and introduction]
-:openpeppol: https://peppol.eu/about-openpeppol/?rel=tab41[OpenPEPPOL]
+:peppol: https://peppol.org/[PEPPOL]
+:common: https://peppol.org/[Peppol BIS common text and introduction]
+:openpeppol: https://peppol.org/[OpenPEPPOL]
 :policy8: https://peppol.eu/downloads/the-peppol-edelivery-network-specifications/[Peppol Policy for identifiers, policy 8]
 :migration-policy: https://github.com/OpenPEPPOL/documentation/blob/master/LifecycleManagement/ReleaseManagement/Migration%20Policy%20-%20Common%20Document%202014-02-24%20rev%202014-08-27.pdf[OpenPeppolMigration Policy]
 :peppol-transport: https://peppol.eu/downloads/the-peppol-edelivery-network-specifications/[Peppol eDelivery Network Specifications]

@@ -9,7 +9,7 @@ National rules are provided by each country's Peppol Authority, and if you need 
 
 
 .National transaction business rules
-[cols="1,4", options="header"]
+[cols="2,5", options="header"]
 |====
 |Rule
 |Message/Context/Test

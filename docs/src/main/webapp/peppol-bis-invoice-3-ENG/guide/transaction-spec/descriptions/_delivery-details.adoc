@@ -9,8 +9,6 @@ The delivery element contains information on name, address and delivery location
 
 #In italia, in seguito alle Regole Tecniche NSO, l'identificativo del luogo di consegna per le PA segue la codifica https://www.puntidiconsegna-nso.it/[Punti di consegna].# +
 
-#Quando la fattura si riferisce ad un unico Documento di Trasporto, la data del DDT viene riportata nel *cac:DespatchDocumentReference/cbc:IssueDate*.#
-
 
 include::../../syntax/_delivery.adoc[]
 

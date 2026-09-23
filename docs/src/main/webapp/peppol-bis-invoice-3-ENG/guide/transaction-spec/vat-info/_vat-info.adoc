@@ -71,7 +71,7 @@ The management of nature is carried out similarly to what is provided for domest
 Each document level charge or allowance must have the Document level allowance or charge VAT category code (BT-95 and BT-102), and for all VAT categories except "Not subject to VAT" (O), the VAT rate shall be provided. +
 
 [IMPORTANT]
-#LA cross-border invoice shall not contain charge or allowance at the header level.#
+#A cross-border invoice shall not contain charge or allowance at the header level.#
 #This section is used only for domestic billing for Social Security Contribution (see paragraph 5.8) and Stamp Duty (see paragraph 5.9). For allowance and charges at the document level that do not affect the taxable amount, see section 11.5 Allowance and Charges.#
 
 == VAT Breakdown
@@ -341,6 +341,7 @@ In this case, *cbc:IssueDate* (BT-2 Invoice issue date) is populated with the in
     </cac:TaxScheme> 
   </cac:TaxSubtotal> 
 </cac:TaxTotal>
+----
 
 === Case 4 – Deferred VAT liability, invoice date does not coincide with transaction date 
 

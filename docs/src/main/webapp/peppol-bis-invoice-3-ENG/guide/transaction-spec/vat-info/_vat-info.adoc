@@ -7,23 +7,23 @@ Si consiglia di consultare anche i <<anchor-17, VAT category codes>> per dettagl
 
 == Informazioni IVA su riga
 
-=== Regole per la fatturazione dall'estero (cross-border)
+=== #Rules for invoices coming from abroad (cross-border)#
 
-Per ogni riga della fattura deve essere indicato il codice della categoria IVA nel *cac:ClassifiedTaxCategory/cbc:ID* (BT-151 Invoiced item VAT category code). +
-Per le categorie IVA è Z, E, G, K e AE il *cac:ClassifiedTaxCategory/cbc:Percent* (BT-152 Invoiced item VAT rate) va posto uguale a 0.
+For each invoice line, the VAT category code must be entered in *cac:ClassifiedTaxCategory/cbc:ID* (BT-151 Invoiced item VAT category code). +
+For VAT categories E, G and K the *cac:ClassifiedTaxCategory/cbc:Percent* (BT-152 Invoiced item VAT rate) must be set equal to 0.
 
-.Tabella di relazione tra natura e Invoiced item VAT Category Code
+.Joining table between Invoiced item VAT Category Code and Natura FPA 
 image::../../../images/7.1.1.vatex-table-cross-border.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
 
-=== Regole per la fatturazione domestica
+=== #Rules for domestic invoicing#
 
-#Per ogni riga della fattura deve essere indicato il codice della categoria IVA nel *cac:ClassifiedTaxCategory/cbc:ID* (BT-151 Invoiced item VAT category code).#
+For each invoice line, the VAT category code must be entered in *cac:ClassifiedTaxCategory/cbc:ID* (BT-151 Invoiced item VAT category code). 
 
-#Per le categorie IVA Z, E, G, K e AE il *cac:ClassifiedTaxCategory/cbc:Percent* (BT-152 Invoiced item VAT rate) va posto uguale a 0.#
+For VAT categories Z, E, G, K, and AE, the *cac:ClassifiedTaxCategory/cbc:Percent* (BT-152 Invoiced item VAT rate) must be set to 0. 
 
-#Per le categorie IVA S e B l’aliquota IVA va inserita nel *cac:ClassifiedTaxCategory/cbc:Percent* (BT-152 Invoiced item VAT rate).#
+For VAT categories S and B, the applicable VAT rate must be entered in *cac:ClassifiedTaxCategory/cbc:Percent* (BT-152 Invoiced item VAT rate). 
 
-#La gestione della natura della riga è operata a mezzo dell’utilizzo del *cac:AdditionalItemProperty/cbc:Name* (BT-160) e *cac:AdditionalItemProperty/cbc:Value* (BT-161), valorizzando il cbc:name con la stringa “NATURA” ed il cbc:value con il codice natura secondo le specifiche FatturaPA.#
+The management of the nature of the invoice line is carried out by using the elements *cac:AdditionalItemProperty/cbc:Name* (BT-160) and *cac:AdditionalItemProperty/cbc:Value* (BT-161), setting cbc:Name to the string "NATURA" and cbc:Value to the corresponding Natura FPA code according to the FatturaPA specifications. 
 
 [source, xml, indent=0]
 ----
@@ -57,62 +57,30 @@ image::../../../images/7.1.1.vatex-table-cross-border.png[Vatex table, width=100
 </cac:InvoiceLine>
 ----
 
-=== Indicazioni per la fatturazione verso l'estero
+=== #Guidelines for invoicing to abroad#
 
-Per la fatturazione verso l'estero verificare con l'acquirente l'eventuale presenza di CIUS. +
-Per approfondimenti consultare il seguente https://ec.europa.eu/digital-building-blocks/wikis/display/DIGITAL/CIUS+and+Extension+-+What+is+allowed[link].
+For invoicing to foreign countries, please check with the purchaser for the possible presence of CIUS. +
+For further information, please consult the following https://ec.europa.eu/digital-building-blocks/wikis/display/DIGITAL/CIUS+and+Extension+-+What+is+allowed[link].
 
+=== #Guidelines for esterometro and integration documents#
 
-=== Indicazioni per l'esterometro e per i documenti di integrazione
+The management of nature is carried out similarly to what is provided for domestic invoicing (see paragraph 8.1.2).
 
-La gestione della natura è analoga a quanto previsto per la fatturazione domestica (vedi paragrafo 8.1.2).
+== Document level allowance or charge
 
-== Sconti e maggiorazioni a livello di testata
-
-Per ogni sconto/maggiorazione deve essere indicato il codice della categoria IVA nel *cac:ClassifiedTaxCategory/cbc:ID* (BT-102 Document level charge VAT category code/BT-95Document level allowance VAT category code). +
-
-
+Each document level charge or allowance must have the Document level allowance or charge VAT category code (BT-95 and BT-102), and for all VAT categories except "Not subject to VAT" (O), the VAT rate shall be provided. +
 
 [IMPORTANT]
-#La sezione è utilizzata solo per la fatturazione domestica per Bollo (vedi paragrafo 5.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 5.8).#
-#Per gli sconti e maggiorazioni a livello di testata che non incidono sull’imponibile vedasi 11.5.Sconti e maggiorazioni.#
+#LA cross-border invoice shall not contain charge or allowance at the header level.#
+#This section is used only for domestic billing for Social Security Contribution (see paragraph 5.8) and Stamp Duty (see paragraph 5.9). For allowance and charges at the document level that do not affect the taxable amount, see section 11.5 Allowance and Charges.#
 
-== Riepiloghi IVA
+== VAT Breakdown
 
-=== Regole per la fatturazione dall’estero (cross-border)
-
-La gestione della natura dell’operazione (FPA 2.2.2.2 Natura) per le fatture dall’estero è operata a mezzo dell’utilizzo di:
-
-1. *cac:TaxCategory/cbc:ID* (BT-118 VAT category code);
-2. *cbc:TaxExemptionReasonCode* (BT-121 VAT exemption reason code);
-
-.Tabella di relazione tra natura, VAT Category Code e VAT exemption reason code
-image::../../../images/7.3.1.vatex-table-cross-border.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
+Deve essere fornito un solo riepilogo IVA per ogni combinazione distinta di categoria e aliquota IVA sia a livello di riga che negli sconti e maggiorazioni a livello di testata. Per alcune categorie IVA, l’aliquota deve essere posta a zero e quindi non viene utilizzata in questi casi per raggruppare il riepilogo IVA. +
+Please note that for the VAT rate, only significant decimals should be considered, i.e any difference in trailing zeros should not result in different VAT breakdowns.
 
 [IMPORTANT]
-La fattura non può contenere più di un TaxSubtotal.
-
-=== Regole per la fatturazione domestica
-
-#La gestione della natura dell'operazione (FPA 2.2.2.2 Natura) per le fatture domestiche è operata a mezzo dell’utilizzo di:# +
-
-1. #*cac:TaxCategory/cbc:ID* (BT-118 VAT category code);#
-2. #*cbc:TaxExemptionReasonCode* (BT-121 VAT exemption reason code);#
-3. #*cbc:TaxExemptionReason* (BT-120 VAT exemption reason text), in cui viene inserita il codice natura secondo le specifiche FatturaPA ed il Riferimento Normativo.#
-
-[NOTE]
-Trattasi di CIUS domestica (DC)
-
-
-.Tabella di relazione tra natura, VAT Category Code, VAT exemption reason code e VAT exemption reason text.
-image::../../../images/vatex-table.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
-
-#Deve essere fornito un solo riepilogo IVA per ogni combinazione distinta di categoria e aliquota IVA sia a livello di riga che negli sconti e maggiorazioni a livello di testata. Per alcune categorie IVA, l’aliquota deve essere posta a zero e quindi non viene utilizzata in questi casi per raggruppare il riepilogo IVA.# +
-#Per l’aliquota dell’IVA devono essere considerati solo i decimali significativi, ovvero qualsiasi differenza nei decimali non deve determinare differenti riepiloghi IVA.#
-
-[IMPORTANT]
-#Non è possibile inserire nella medesima fattura operazioni con il medesimo Tax Category ID (BT-118 VAT category code) e natura differente.#
-
+#It is not allowed to include transactions with the same Tax Category ID (BT-118 VAT category code) but different nature within the same invoice.#
 
 _Esempio:_
 ====
@@ -123,7 +91,49 @@ Questo dovrebbe originare un singolo riepilogo IVA.
 
 Per altri dettagli vedi anche il paragrafo 10.4. Calcolo dell’IVA.
 
-==== #Caso 1 - natura diversa da N1 – esempio riferito ad un’operazione in regime di reverse charge#
+=== #Rules for billing from abroad (cross-border)#
+
+The management of the nature of the transaction (FPA 2.2.2.2 Natura) for invoices from abroad is carried out through the usage of:
+
+1. *cac:TaxCategory/cbc:ID* (BT-118 VAT category code);
+2. *cbc:TaxExemptionReasonCode* (BT-121 VAT exemption reason code);
+
+.Figure 2. Joining table between VAT Category Code, VAT exemption reason code e FPA Natura
+image::../../../images/7.3.1.vatex-table-cross-border.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
+
+[IMPORTANT]
+It is not allowed to include more than one TaxSubtotal for the same VAT category within the same invoice.
+
+=== #Rules for domestic billing#
+
+The management of the nature of the transaction (FPA 2.2.2.2 Natura) for domestic invoices is carried out through the usage of: +
+
+1. *cac:TaxCategory/cbc:ID* (BT-118 VAT category code);
+2. *cbc:TaxExemptionReasonCode* (BT-121 VAT exemption reason code);
+3. *cbc:TaxExemptionReason* (BT-120 VAT exemption reason text), where the Natura according to the FatturaPA specifications and the Legal Reference are inserted, concatenated using the symbol #.
+
+[NOTE]
+This pertains to domestic CIUS (DC).
+
+.Joining table between FPA Natura, VAT Category Code and VAT exemption reason code
+image::../../../images/vatex-table.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
+
+#Deve essere fornito un solo riepilogo IVA per ogni combinazione distinta di categoria e aliquota IVA sia a livello di riga che negli sconti e maggiorazioni a livello di testata. Per alcune categorie IVA, l’aliquota deve essere posta a zero e quindi non viene utilizzata in questi casi per raggruppare il riepilogo IVA.# +
+#Per l’aliquota dell’IVA devono essere considerati solo i decimali significativi, ovvero qualsiasi differenza nei decimali non deve determinare differenti riepiloghi IVA.#
+
+[IMPORTANT]
+#Non è possibile inserire nella medesima fattura operazioni con il medesimo Tax Category ID (BT-118 VAT category code) e natura differente.#
+
+_Esempio:_
+====
+Riga 1 della fattura ha categoria IVA = S e aliquota IVA = *25,00* +
+Riga 2 della fattura ha categoria IVA = S e aliquota IVA = *25,00* +
+Questo dovrebbe originare un singolo riepilogo IVA.
+====
+
+Per altri dettagli vedi anche il paragrafo 10.4. Calcolo dell’IVA.
+
+==== Case 1 – Natura different from N1 - Example of a reverse charge transaction 
 
 [source, xml, indent=0]
 ----
@@ -172,7 +182,7 @@ Per altri dettagli vedi anche il paragrafo 10.4. Calcolo dell’IVA.
 </cac:InvoiceLine>
 ----
 
-==== #Caso 2 - natura N1 – esempio riferito ad un’operazione esclusa#
+==== Case 2 – Natura equal to N1 - Example of an excluded transaction
 
 [source, xml, indent=0]
 ----
@@ -221,34 +231,33 @@ Per altri dettagli vedi anche il paragrafo 10.4. Calcolo dell’IVA.
 </cac:InvoiceLine>
 ----
 
-=== Indicazioni per la fatturazione verso l'estero
+=== #Guidelines for invoicing to abroad#
 
-Per la fatturazione verso l'estero verificare con l'acquirente l'eventuale presenza di CIUS. +
-Per approfondimenti consultare il seguente https://ec.europa.eu/digital-building-blocks/wikis/display/DIGITAL/CIUS+and+Extension+-+What+is+allowed[link].
+For invoicing to foreign countries, please check with the purchaser for the possible presence of CIUS. +
+For further information, please consult the following https://ec.europa.eu/digital-building-blocks/wikis/display/DIGITAL/CIUS+and+Extension+-+What+is+allowed[link].
 
-=== Indicazioni per l'esterometro e per i documenti di integrazione
+=== #Guidelines for esterometro and integration documents#
 
-La gestione della natura è analoga a quanto previsto per la fatturazione domestica (vedi paragrafo 8.3.2).
+The management of the nature is carried out similarly to what is provided for domestic billing (see paragraph 8.3.2).
 
 == Totale IVA
 
 Il totale IVA *cbc:TaxAmount* (BT-110) è la somma delle imposte dei singoli riepiloghi *cbc:TaxAmount* (BT-117)
 
+== #Transaction date and VAT liability#
 
-== #Data operazione ed esigibilità IVA#
-
-La gestione della data operazione e dell’esigibilità IVA è operata a mezzo dell’utilizzo di: +
+The management of the transaction date and VAT liability is handled through the use of: +
 
 1.	*cbc:IssueDate* (BT-2 Invoice issue date);
 2.	*cac:InvoicePeriod/cbc:DescriptionCode* (BT-8 Value added tax point date code);
 3.	*cbc:ActualDeliveryDate* (BT-72 Actual delivery date);
 4.	*cac:TaxCategory/cbc:ID* (BT-118 VAT category code); +
 
-Si evidenziano 6 casi distinti.
+Six distinct cases are highlighted.
 
-=== Caso 1 - Esigibilità immediata, data fattura coincide con data operazione +
+=== Case 1 - Immediate VAT liability, invoice date coincides with transaction date +
 
-In questo caso il *cbc:IssueDate* (BT-2 Invoice issue date) viene valorizzato con data fattura/data operazione e il *cac:InvoicePeriod/cbc:DescriptionCode* (BT-8 Value added tax point date code) viene valorizzato con “3” (ovvero Invoice document issue time).
+In this case, *cbc:IssueDate* (BT-2 Invoice issue date) is populated with the invoice date/transaction date and *cac:InvoicePeriod/cbc:DescriptionCode* (BT-8 Value added tax point date code) is set to "3" (i.e., Invoice document issue time).
 
 [source, xml, indent=0]
 ----
@@ -274,10 +283,9 @@ In questo caso il *cbc:IssueDate* (BT-2 Invoice issue date) viene valorizzato co
 </cac:TaxTotal>
 ----
 
+=== Case 2 – Immediate VAT liability, invoice date does not coincide with transaction date
 
-=== Caso 2 - Esigibilità immediata, data fattura non coincidente con data operazione
-
-In questo caso il *cbc:IssueDate* (BT-2 Invoice issue date) viene valorizzato con data fattura, il *cac:InvoicePeriod/cbc:DescriptionCode* (BT-8 Value added tax point date code) viene valorizzato con “35” (ovvero Delivery date, actual) ed il *cbc:ActualDeliveryDate* (BT-72 Actual delivery date) viene valorizzato con la data operazione.
+In this case, *cbc:IssueDate* (BT-2 Invoice issue date) is populated with the invoice date, *cac:InvoicePeriod/cbc:DescriptionCode* (BT-8 Value added tax point date code) is set to “35” (i.e., Delivery date, actual), and *cbc:ActualDeliveryDate* (BT-72 Actual delivery date) is populated with the transaction date.
 
 [source, xml, indent=0]
 ----
@@ -307,42 +315,36 @@ In questo caso il *cbc:IssueDate* (BT-2 Invoice issue date) viene valorizzato co
 </cac:TaxTotal>
 ----
 
+=== Case 3 – Deferred VAT liability, invoice date coincides with transaction date
 
-=== Caso 3 - Esigibilità differita, data fattura coincide con data operazione
-
-In questo caso il *cbc:IssueDate* (BT-2 Invoice issue date) viene valorizzato con data fattura/data operazione e il *cac:InvoicePeriod/cbc:DescriptionCode* (BT-8 Value added tax point date code) viene valorizzato con “432” (ovvero Paid to date).
-
+In this case, *cbc:IssueDate* (BT-2 Invoice issue date) is populated with the invoice date/transaction date and *cac:InvoicePeriod/cbc:DescriptionCode* (BT-8 Value added tax point date code) is set to “432” (i.e., Paid to date).
 
 [source, xml, indent=0]
 ----
-<cbc:IssueDate>2020-02-07</cbc:IssueDate>
-<!-- ... -->
-<cac:InvoicePeriod>
-  <cbc:DescriptionCode>432</cbc:DescriptionCode>
-</cac:InvoicePeriod>
-<!-- ... -->
-<cac:TaxTotal>
-  <cbc:TaxAmount currencyID="EUR">22.00</cbc:TaxAmount>
-  <cac:TaxSubtotal>
-    <cbc:TaxableAmount currencyID="EUR">100.00</cbc:TaxableAmount>
-    <cbc:TaxAmount currencyID="EUR">22.00</cbc:TaxAmount>
-    <cac:TaxCategory>
-      <cbc:ID>S</cbc:ID>
-      <cbc:Percent>22</cbc:Percent>
-    </cac:TaxCategory>
-    <cac:TaxScheme>
-      <cbc:ID>VAT</cbc:ID>
-    </cac:TaxScheme>
-  </cac:TaxSubtotal>
+<cbc:IssueDate>2020-02-07</cbc:IssueDate> 
+<!-- ... --> 
+<cac:InvoicePeriod> 
+  <cbc:DescriptionCode>3</cbc:DescriptionCode> 
+</cac:InvoicePeriod> 
+<!-- ... --> 
+<cac:TaxTotal> 
+  <cbc:TaxAmount currencyID="EUR">22.00</cbc:TaxAmount> 
+  <cac:TaxSubtotal> 
+    <cbc:TaxableAmount currencyID="EUR">100.00</cbc:TaxableAmount> 
+    <cbc:TaxAmount currencyID="EUR">22.00</cbc:TaxAmount> 
+    <cac:TaxCategory> 
+      <cbc:ID>S</cbc:ID> 
+      <cbc:Percent>22</cbc:Percent> 
+    </cac:TaxCategory> 
+    <cac:TaxScheme> 
+      <cbc:ID>VAT</cbc:ID> 
+    </cac:TaxScheme> 
+  </cac:TaxSubtotal> 
 </cac:TaxTotal>
-----
 
+=== Case 4 – Deferred VAT liability, invoice date does not coincide with transaction date 
 
-
-=== Caso 4 - Esigibilità differita, data fattura non coincidente con data operazione
-
-In questo caso il *cbc:IssueDate* (BT-2 Invoice issue date) viene valorizzato con data fattura, il *cac:InvoicePeriod/cbc:DescriptionCode* (BT-8 Value added tax point date code) viene valorizzato con “432” (ovvero Paid to date) ed il *cbc:ActualDeliveryDate* (BT-72 Actual delivery date) viene valorizzato con la data operazione.
-
+In this case, *cbc:IssueDate* (BT-2 Invoice issue date) is populated with the invoice date, *cac:InvoicePeriod/cbc:DescriptionCode* (BT-8 Value added tax point date code) is set to “432” (i.e., Paid to date), and *cbc:ActualDeliveryDate* (BT-72 Actual delivery date) is populated with the transaction date.
 
 [source, xml, indent=0]
 ----
@@ -372,11 +374,9 @@ In questo caso il *cbc:IssueDate* (BT-2 Invoice issue date) viene valorizzato co
 </cac:TaxTotal>
 ----
 
+=== Case 5 – Split payment, invoice date coincides with transaction date
 
-=== Caso 5 – Split payment, data fattura coincide con data operazione
-
-In questo caso il *cbc:IssueDate* (BT-2 Invoice issue date) viene valorizzato con data fattura/data operazione, il *cac:InvoicePeriod/cbc:DescriptionCode* (BT-8 Value added tax point date code) è lasciato vuoto e il *cac:TaxCategory/cbc:ID* (BT-118 VAT category code) viene valorizzato con “B” (ovvero split payment).
-
+In this case, *cbc:IssueDate* (BT-2 Invoice issue date) is populated with the invoice date/transaction date, *cac:InvoicePeriod/cbc:DescriptionCode* (BT-8 Value added tax point date code) is left empty, and *cac:TaxCategory/cbc:ID* (BT-118 VAT category code) is set to “B” (i.e., split payment). 
 
 [source, xml, indent=0]
 ----
@@ -398,13 +398,9 @@ In questo caso il *cbc:IssueDate* (BT-2 Invoice issue date) viene valorizzato co
 </cac:TaxTotal>
 ----
 
+=== Case 6 – Split payment, invoice date does not coincide with transaction date
 
-
-
-=== Caso 6 – Split payment, data fattura non coincidente con data operazione
-
-In questo caso il *cbc:IssueDate* (BT-2 Invoice issue date) viene valorizzato con la data fattura, il *cac:InvoicePeriod/cbc:DescriptionCode* (BT-8 Value added tax point date code) è lasciato vuoto, il *cbc:ActualDeliveryDate* (BT-72 Actual delivery date) viene valorizzato con la data operazione ed il *cac:TaxCategory/cbc:ID* (BT-118 VAT category code) viene valorizzato con “B” (ovvero split payment).
-
+In this case, *cbc:IssueDate* (BT-2 Invoice issue date) is populated with the invoice date, *cac:InvoicePeriod/cbc:DescriptionCode* (BT-8 Value added tax point date code) is left empty, *cbc:ActualDeliveryDate* (BT-72 Actual delivery date) is populated with the transaction date, and *cac:TaxCategory/cbc:ID* (BT-118 VAT category code) is set to “B” (i.e., split payment).
 
 [source, xml, indent=0]
 ----

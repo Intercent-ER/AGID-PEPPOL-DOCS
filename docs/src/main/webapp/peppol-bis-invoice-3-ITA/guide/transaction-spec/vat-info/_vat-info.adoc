@@ -117,7 +117,6 @@ La gestione della natura dell'operazione (FPA 2.2.2.2 Natura) per le fatture dom
 [NOTE]
 Trattasi di CIUS domestica (DC)
 
-
 .Tabella di relazione tra natura FPA, VAT Category Code e VAT exemption reason code
 image::../../../images/vatex-table.png[Vatex table, width=100%, pdfwidth=100%, scaledwidth=100%]
 

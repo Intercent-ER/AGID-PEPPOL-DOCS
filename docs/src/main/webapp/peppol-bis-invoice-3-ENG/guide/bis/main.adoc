@@ -21,7 +21,6 @@ image::../../shared/images/peppol-new-logo.png[float="right"]
 {description}
 
 image::../../../images/PEPPOL_Authority.jpg[width=100%, pdfwidth=100%, scaledwidth=100%]
-
 //= Collegamento all'indice principale della documentazione
 
 //link:/poacc/b_illing/3.0/[Main documentation site]
@@ -38,7 +37,6 @@ OpenPeppolAISBL holds the copyright of this Peppol BIS, developed and published 
 
 This Peppol BIS document may not be modified, re-distribute, sold or repackaged in any other way without the prior consent of OpenPeppolAISBL.
 ****
-
 
 :leveloffset: +1
 

@@ -65,7 +65,6 @@ Qualora non si intenda effettuare la rivalsa del bollo non è richiesto l’inse
 </cac:LegalMonetaryTotal>
 ----
 
-
 == Rivalsa del bollo
 
 Qualora il fornitore voglia effettuare la rivalsa del bollo sul cliente deve inserire una riga recante:  

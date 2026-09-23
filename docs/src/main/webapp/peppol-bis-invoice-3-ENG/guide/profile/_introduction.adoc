@@ -8,19 +8,21 @@ link:pass:[${peppoldocs.root.url}/my_index_fatt-ENG.jsp][Main site of documentat
 
 This {peppol} BIS provides a set of specifications for implementing a {peppol} business process.
 
-Questa Business Interoperability Specification (BIS) fornisce un insieme di specifiche per l'implementanzione della fatturazione elettronica e pubblicato come parte delle specifiche https://docs.peppol.eu/poacc/billing/3.0/[Peppol].
+This specification is a Core Invoice Usage Specification (CIUS) of {EN16931}, following the guidance given in chapter 7 of the {EN16931}. Any instance documents compliant to this specification will be compliant with the European Standard ({EN16931}).
 
-#In questo documento le regole d’uso ed i paragrafi applicabili specificatamente al contesto italiano sono evidenziate in giallo, con chiara distinzione:# +
+#In this document the Italian usage rules (CIUS) and the sections specifically applicable to the Italian context are highlighted in yellow, with a clear distinction between:# +
 
-* #delle CIUS da applicare alle fatture dall’estero, ovvero cross-border (CIUS);#
-* #delle CIUS da applicare alle fatture domestiche (CIUS domestica);#
-* #delle Estensioni da applicare alle fatture domestiche (estensione).#
+* #the CIUS applicable to the invoices from abroad, also called cross-border (CIUS);#
+* #the CIUS applicable to domestic invoices (domestic CIUS);#
+* #the Extensions applicable to the domestic invoices (extension).#
 
-[lime-background]#Le regole d’uso ed i paragrafi applicabili specificatamente alla fatturazione domestica verso i privati sono invece evidenziate in verde.#
+#Pursuant to the Italian Ministry of Economy and Finance (MEF) Decree of 21.06. 2021, the rules of the domestic market shall apply to electronic invoicing to and from San Marino.#
 
-#Per ulteriori dettagli vedi anche i paragrafi 12.2 e Appendix A.#
+[lime-background]#The usage rules and the sections specifically applicable to domestic billing process towards private customers are highlighted in green.#
 
-The *purpose* of this document is to facilitate an efficient implementation and increased use of electronic collaboration regarding the billing process.
+#For further details see also section 12.2 and Appendix A.#
+
+The *purpose* of this document is to facilitate an efficient implementation and increase the usage of electronic transactions regarding the billing process.
 
 == Document Structure
 
@@ -31,18 +33,16 @@ This document is structured as follows:
 *	*Chapters 7 - 9* describes VAT, calculations and rounding.
 *	*Chapter 10* provides examples of selected parts of the invoice
 *	*Chapter 11* gives details and links to all code lists used
-* *Chapter 12* gives information on Peppol identifiers
+*   *Chapter 12* gives information on Peppol identifiers
 *	*Chapter 13* describes in detail central information elements.
 *	*Chapters 14 and 15* provides information on validation and validation rules
 *	*Annexes* give information on restrictions according to {EN16931}, use of Cross Industry Invoice syntax and national and syntax rules.
 
 == Scope
 
-Questo documento  fornisce le linee guida per il supporto e l'implementazione delle transazioni relative a fatture e note di credito.
+This document is concerned with clarifying requirements for ensuring interoperability and provides guidelines for the support and implementation of these requirements. This document will also provide a detailed implementation guideline for the invoice and credit note transactions.
 
-This document is concerned with clarifying requirements for ensuring interoperability  and provides guidelines for the support and implementation of these requirements. This document will also provide a detailed implementation guideline for the invoice and credit note transactions.
-
-#Sono supportati specificatamente i seguenti scenari di business:#
+#This document provides indications specifically for the following business scenarios:#
 
 * #B2G – Business to Government#
 * #G2G – Government to Government#

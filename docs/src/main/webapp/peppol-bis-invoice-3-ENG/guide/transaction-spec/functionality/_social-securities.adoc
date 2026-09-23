@@ -1,20 +1,19 @@
 
-= #Rivalsa Cassa previdenziale# (CIUS domestica)
+= #Social security contribution (Domestic CIUS)#
 
-La Cassa previdenziale viene trattata come maggiorazione a livello di documento utilizzando il *cac:AllowanceCharge* (BG-21 Document level charge). +
+The social security contribution is treated as a charge at the document level using *cac:AllowanceCharge* (BG-21 Document level charge). +
 
-La base imponibile del contributo viene inserita nel *cbc:BaseAmount* (BT-100 Document level charghe base amount). +
-L’aliquota nel *cbc:MultiplierFactorNumeric* (BT-101 Document level charge percentage), l’importo del contributo nel *cbc:Amount* (BT-99 Document level charge amount). +
+The taxable base amount of the contribution is entered in *cbc:BaseAmount* (BT-100 Document level charge base amount). +
+The rate is entered in *cbc:MultiplierFactorNumeric* (BT-101 Document level charge percentage), and the contribution amount is entered in *cbc:Amount* (BT-99 Document level charge amount). +
 
-Le informazioni tipo cassa (FPA 2.1.1.7.1), ritenuta (FPA 2.1.1.7.6) e natura (FPA 2.1.1.7.7) vengono concatenate con il simbolo "#" nel *cbc:AllowanceChargeReason* (BT-104 Document level charge reason).
+The information regarding the social security contribution type (FPA 2.1.1.7.1), withholding (FPA 2.1.1.7.6), and nature (FPA 2.1.1.7.7) are concatenated with the "#" symbol in *cbc:AllowanceChargeReason* (BT-104 Document level charge reason). 
 
-Il *cbc:AllowanceChargeReasonCode* (BT-105 Document level charge reason code) viene valorizzato con "ZZZ". +
+The *cbc:AllowanceChargeReasonCode* (BT-105 Document level charge reason code) is entered as "ZZZ". +
 
-Le informazioni sull’IVA vengono compilate secondo la necessità. +
+VAT information is filled in according to the need. +
 
-
-.Esempio di rivalsa di una cassa previdenziale su prestazione imponibile
-L’esempio si riferisce ad una prestazione di 1.000 euro soggetta IVA ordinaria con aliquota del contributo pari al 4%.
+.Example of social security contribution charge on a taxable service
+The example refers to a service of 1,000 euros subject to ordinary VAT with a contribution rate of 4%. 
 
 [source, xml, indent=0]
 ----
@@ -35,8 +34,8 @@ L’esempio si riferisce ad una prestazione di 1.000 euro soggetta IVA ordinaria
 </cac:AllowanceCharge>
 ----
 
-.Esempio di rivalsa di una cassa previdenziale su prestazione non soggetta
-L’esempio si si riferisce ad una prestazione di 1.000 euro non soggetta ad IVA con aliquota del contributo pari al 4%.
+.Example of social security contribution charge on a service not subject to VAT
+The example refers to a service of 1,000 euros not subject to VAT with a contribution rate of 4%. 
 
 [source, xml, indent=0]
 ----

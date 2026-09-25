@@ -15,7 +15,7 @@ include::{snippet-dir}/item.xml[tags=unspsc]
 <1> listID must be from UNCL7143 code list, and code TST indicates this is a UNSPSC classification, listVersionID is optional, but can be used to specify the version of UNSPSC. NOTE, in previous versions code MP was used as temporary workaround to identify UNSPSC. In fall release 2019 it is replaced with the new 7143 code TST that is specific for UNSPSC.
 
 
-.#Esempio UBL di Dispositivo medico#
+.#UBL example for Medical Device#
 [source, xml, indent=0]
 ----
 <cac:Item>
@@ -33,11 +33,11 @@ include::{snippet-dir}/item.xml[tags=unspsc]
 […]
 </cac:Item>
 ----
-<1> Codice del dispositivo medico attribuito dal Fornitore;
-<2> #Il listID deve essere fra quelli della codifica UNCL7143, il codice ZZZ indica il numero di repertorio attribuito al dispositivo medico nella Banca Dati e Repertorio  (BDR) dei Dispositivi Medici del Ministero della Salute.# +
-#Il numero dovrà essere preceduto dalla seguente stringa:#
-* #“DM1:” in caso di Dispositivo medico o Dispositivo diagnostico in vitro;#
-* #“DM2:” in caso di Sistema o kit Assemblato;#
-* #In caso il dispositivo medico non abbia numero di repertorio, il campo sarà valorizzato solo con DM0.#
-<3> Il listID deve essere fra quelli della codifica UNCL7143 e il codice STO indica il codice attribuito al dispositivo medico dalla Classificazione Nazionale dei Dispositivi Medici (CND).
+<1> Code of the medical device assigned by the Seller;
+<2> #IlistID must be from UNCL7143 code list, and code ZZZ can be used to indicate the registration number assigned to the medical device in the Database and Register (BDR) of Medical Devices managed by the Italian Ministry of Health.# +
 
+#The Registration number must be preceded by the following string:#
+* "DM1:" for a Medical Device or In Vitro Diagnostic Device;
+* "DM2:" for a System or Assembled Kit;
+* "DM0" should be indicated if the medical device does not have a registration number.
+<3> The listID must be one of those from the UNCL7143 code list, and the code STO indicates the code assigned to the medical device by the National Classification of Medical Devices (CND).

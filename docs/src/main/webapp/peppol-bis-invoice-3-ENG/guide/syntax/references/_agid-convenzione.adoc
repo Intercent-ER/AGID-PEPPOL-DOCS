@@ -1,19 +1,17 @@
+= #Framework Agreement Reference#
 
-= #Riferimento ad una Convenzione#
+To refer to a framework agreement, its identifier can be expressed as follows:
 
-Per fare riferimento ad una convenzione, il numero di convenzione può essere espressa come segue:
-
-.Esempio UBL per il riferimento ad una convenzione
+.UBL example of framework agreement reference 
 [source, xml, indent=0]
 ----
 include::../{snippet-dir}/Snippet-refs.xml[tags=convenzione]
 ----
 
-Per riferirsi a più convenzioni dalle righe di fattura è necessario utilizzare *cac:DocumentReference* con il codice tipo documento = 130.
+To refer to a framework agreement from invoice line, the information can be specified in *cac:DocumentReference* with document type code = 130, as in the following example:
 
-.Esempio UBL per il riferimento ad una convenzione dalle righe fattura
+.UBL example for referencing a convention from the invoice lines 
 [source, xml, indent=0]
 ----
 include::../{snippet-dir}/Snippet-refs.xml[tags=convenzione_riga]
 ----
-

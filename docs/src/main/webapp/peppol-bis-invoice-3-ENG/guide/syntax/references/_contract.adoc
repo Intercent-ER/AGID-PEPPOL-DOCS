@@ -1,7 +1,6 @@
-
 = Contract reference
 
-To reference or match an invoice to a purchase contract, the contract number could be specified like this:
+To reference or match an invoice to a purchase contract, the contract number could be specified as follows:
 
 .UBL example of contract reference
 [source, xml, indent=0]
@@ -9,9 +8,9 @@ To reference or match an invoice to a purchase contract, the contract number cou
 include::../{snippet-dir}/Snippet-refs.xml[tags=contract]
 ----
 
-#Per riferirsi a più contratti dalle righe di fattura è necessario utilizzare *cac:DocumentReference* con il codice tipo documento = 130.#
+#To refer to a purchase contract from invoice line, the contract number can be specified in *cac:DocumentReference* with document type code = 130, as in the following example:#
 
-.Esempio UBL per il riferimento al contratto dalle righe fattura
+.UBL example of contract reference in the invoice line
 [source, xml, indent=0]
 ----
 include::../{snippet-dir}/Snippet-refs.xml[tags=contratto_riga]

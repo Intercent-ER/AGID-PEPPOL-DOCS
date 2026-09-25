@@ -1,64 +1,33 @@
-
-
 = Despatch and receipt advice references
 
+To reference or reconcile an invoice to a Despatch Advice (DDT) use the element *cac:DespatchDocumentReference*, while to reference to a receipt advice use the element *cac:ReceiptDocumentReference*.
 
+#When the invoice refers to a single Despatch Advice, the Despatch Advice date should be indicated in the *cac:DespatchDocumentReference/cbc:IssueDate*.#
 
-To reference or reconcile an invoice to a despatch advice use *cac:DespatchDocumentReference*, and to reference a receipt advice use *cac:ReceiptDocumentReference*.
-
-
-
-When the invoice refers to a single despatch advice, the despatch advice date shall be provided in *cac:DespatchDocumentReference/cbc:IssueDate*.
-
-
-
-.UBL example of despatch and receipt advice references
+.UBL example of despatch and receipt advice
 
 [source, xml, indent=0]
-
+----
+<cac:DespatchDocumentReference> 
+    <cbc:ID>DDT1234</cbc:ID> 
+    <cbc:IssueDate>2026-01-30</cbc:IssueDate> 
+</cac:DespatchDocumentReference> 
+<cac:ReceiptDocumentReference> 
+    <cbc:ID>resadv-1</cbc:ID> 
+</cac:ReceiptDocumentReference> 
 ----
 
-<cac:DespatchDocumentReference>
+To refer to more than one Despatch Advice from invoice lines, it is necessary to use the element *cac:DespatchLineReference*, as in the following example:
 
-    <cbc:ID>DDT1234</cbc:ID>
-
-    <cbc:IssueDate>2026-01-30</cbc:IssueDate>
-
-</cac:DespatchDocumentReference>
-
-<cac:ReceiptDocumentReference>
-
-    <cbc:ID>resadv-1</cbc:ID>
-
-</cac:ReceiptDocumentReference>
-
-----
-
-
-
-To reference multiple despatch advices from invoice lines, use *cac:DespatchLineReference* as in the following example.
-
-
-
-.UBL example of despatch advice reference at invoice line level
+.UBL example of despatch and advice from invoice lines
 
 [source, xml, indent=0]
-
 ----
-
-<cac:DespatchLineReference>
-
-    <cbc:LineID>NA</cbc:LineID>
-
-    <cac:DocumentReference>
-
-        <cbc:ID>DDT1234</cbc:ID>
-
-        <cbc:IssueDate>2026-01-30</cbc:IssueDate>
-
-    </cac:DocumentReference>
-
-</cac:DespatchLineReference>
-
+<cac:DespatchLineReference> 
+    <cbc:LineID>NA</cbc:LineID> 
+    <cac:DocumentReference> 
+        <cbc:ID>DDT1234</cbc:ID> 
+        <cbc:IssueDate>2026-01-30</cbc:IssueDate> 
+    </cac:DocumentReference> 
+</cac:DespatchLineReference> 
 ----
-

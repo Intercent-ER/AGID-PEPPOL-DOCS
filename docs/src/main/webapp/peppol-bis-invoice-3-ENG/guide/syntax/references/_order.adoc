@@ -1,6 +1,4 @@
-
-
-.UBL example or order and sales order reference
+.UBL example of purchase order or sales order reference 
 [source, xml, indent=0]
 ----
 include::../{snippet-dir}/Snippet-refs.xml[tags=order-ref]

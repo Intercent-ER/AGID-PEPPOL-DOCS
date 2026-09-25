@@ -1,6 +1,4 @@
-
-
-.UBL example of delivery information
+.UBL example of delivery to the Institutional Point of an Entity
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/Snippet-full.xml[tags=delivery]

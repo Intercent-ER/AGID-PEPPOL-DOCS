@@ -18,7 +18,7 @@
     </cac:BillingReference>
     <!-- tag::project[] -->
     <cac:AdditionalDocumentReference>
-        <cbc:ID>J31E01000010004</cbc:ID><!--2-->
+        <cbc:ID>p-2347234</cbc:ID><!--2-->
         <cbc:DocumentTypeCode>50</cbc:DocumentTypeCode><!--1-->
     </cac:AdditionalDocumentReference>
     <!-- end::project[] -->

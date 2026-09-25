@@ -22,8 +22,8 @@
     </cac:InvoicePeriod>
     <!-- tag::order-ref[] -->
     <cac:OrderReference>
-        <cbc:ID>CE20-HF1-4001</cbc:ID><!--1-->
-        <cbc:SalesOrderID>so-12343</cbc:SalesOrderID><!--2-->
+        <cbc:ID>o-998877</cbc:ID>
+        <cbc:SalesOrderID>so-12343</cbc:SalesOrderID>
     </cac:OrderReference>
     <!-- end::order-ref[] -->
     <!-- tag::desp-rec[] -->
@@ -42,7 +42,7 @@
     <!-- end::tender[] -->
     <!-- tag::contract[] -->
     <cac:ContractDocumentReference>
-        <cbc:ID>Contratto321</cbc:ID>
+        <cbc:ID>framework no 1</cbc:ID>
     </cac:ContractDocumentReference>
     <!-- end::contract[] -->
     <!-- tag::object[] -->
@@ -74,7 +74,7 @@
     </cac:AdditionalDocumentReference>
     <!-- tag::project[] -->
     <cac:ProjectReference>
-        <cbc:ID>J31E01000010004</cbc:ID>
+        <cbc:ID>project333</cbc:ID>
     </cac:ProjectReference>
     <!-- end::project[] -->
     <cac:AccountingSupplierParty>
@@ -332,8 +332,8 @@
         <!-- end::impegno_riga[] -->
         <!-- tag::contratto_riga[] -->
         <cac:DocumentReference>
-            <cbc:ID schemeID="CT">123456</cbc:ID>
-            <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
+            <cbc:ID schemeID="CT">Contratto321</cbc:ID>
+        <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
         </cac:DocumentReference>
         <!-- end::contratto_riga[] -->
         <!-- tag::charge-line[] -->

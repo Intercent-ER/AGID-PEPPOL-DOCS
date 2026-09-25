@@ -1,9 +1,8 @@
+= #Reference to the main invoice# (extension)
 
-= #Riferimento alla Fattura Principale# (estensione)
+In the case of invoices for ancillary operations, issued by parties that provide road transportation services for goods to benefit from exemptions regarding the registration and payment of VAT, it is possible to refer to the main invoice related to the transportation of goods in order to certify the ancillary operations.
 
-Nei casi di fatture per operazioni accessorie, emesse dagli 'autotrasportatori' per usufruire delle agevolazioni in materia di registrazione e pagamento dell'IVA, è possibile riferirsi alla fattura principale relativa al trasporto di beni per certificare le operazioni accessorie.
-
-.Esempio UBL per il riferimento alla fattura principale
+.UBL example of reference to the main invoice
 [source, xml, indent=0]
 ----
 include::../../../../rules/snippets/agid-extensions.xml[tag=rif_fattura_principale]

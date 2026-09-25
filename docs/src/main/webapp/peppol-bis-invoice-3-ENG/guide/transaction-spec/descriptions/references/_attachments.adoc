@@ -1,18 +1,17 @@
+= #Attachments#
 
-= #Allegati#
+The element used to store attachment information (AdditionalDocumentReference) can be repeated multiple times, allowing for multiple attachments.
 
-L’elemento per memorizzare le informazioni degli allegati (AdditionalDocumentReference) può essere ripetuto diverse volte, permettendo quindi di avere molteplici allegati.
-
-Gli allegati possono essere utilizzati per fornire informazioni aggiuntive a supporto della richiesta di pagamento che la fattura rappresenta. Informazioni aggiuntive possono essere fogli presenze, ricevute, biglietti aerei, ecc.
+Attachments can be used to provide additional information supporting the payment request represented by the invoice. Additional information may include attendance sheets, receipts, airline tickets, etc.
 
 [NOTE]
 
 ====
- Lo scopo dell’allegato non è quello di trasferire la versione pdf della fattura.
+The purpose of the attachment is *not* to transfer the PDF version of the invoice.
 ====
 
-Gli allegati possono essere grafici e immagini. Essi potrebbero essere inviati come oggetti binari o come indirizzo esterno alla posizione dove l’oggetto è memorizzato (URI). Gli allegati inviati come oggetti binari dovrebbero essere limitati alle tipologie MIME specificati nella codifica di riferimento http://docs.peppol.eu/poacc/billing/3.0/codelist/MimeCode/[IANA].
+Attachments can be graphics and images. They may be sent as binary objects or as an external address pointing to the location where the object is stored (URI). Attachments sent as binary objects should be limited to the MIME types specified in the IANA code list.
 
-Si raccomanda l’invio di informazioni aggiuntive incluse nel formato del messaggio e non come indirizzi esterni (URI), in quanto molte aziende sono limitate nell’accesso a link esterni. 
+It is recommended to send additional information included within the message format rather than as external addresses (URIs), since many companies have restricted access to external links.
 
 include::../../../syntax/references/_attachments.adoc[]

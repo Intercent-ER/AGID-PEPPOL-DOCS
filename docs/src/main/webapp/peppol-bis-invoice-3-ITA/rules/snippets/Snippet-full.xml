@@ -143,7 +143,6 @@
         </cac:Party>
     </cac:AccountingCustomerParty>
     <!-- end::buyer[] -->
-
     <!-- tag::payee[] -->
     <cac:PayeeParty>
         <cac:PartyName>

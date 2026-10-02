@@ -13,16 +13,14 @@ Several different item classification codes can be provided per invoice line, an
 
 include::../../syntax/_item-classification.adoc[]
 
-== #Tipo cessione prestazione#
+== #Type of transfer#
 
-La gestione del tipo cessione prestazione è operata a mezzo dell’utilizzo di: +
+The type of transfer is managed using: +
 
-1.	*cac:AdditionalItemProperty/cbc:Name* 
-(BT-160 Item attribute name), inserendo la stringa _TipoCessionePrestazione_;
-2. *cac:AdditionalItemProperty/cbc:Value* 
-(BT-161 Item attribute value) inserendo il valore ammesso da FatturaPA: _[SC] sconto, [PR] premio, [AB] abbuono, [AC] spesa accessoria_.
+1. *cac:AdditionalItemProperty/cbc:Name* (BT-160 Item attribute name), inserting the string _TipoCessionePrestazione_;
+2. *cac:AdditionalItemProperty/cbc:Value* (BT-161 Item attribute value) inserting the value allowed by the FatturaPA codelist: _[SC] for charge, [PR] for premium , [AB] for allowance, [AC] for related expenses_.
 
-.Esempio sulla gestione del tipo cessione prestazione
+.UBL example of the management of TipoCessionePrestazione
 
 [source, xml, indent=0]
 ----

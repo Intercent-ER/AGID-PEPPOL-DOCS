@@ -1,11 +1,8 @@
+= #Payment terms#
 
-= Termini di pagamento
+#For the cross-border invoicing, the payment conditions code must be a fixed value equal to "TP02" indicated in the element *cac:PaymentTerms/cbc:Note*.#
 
-== Termini e condizioni di pagamento
-
-Il campo *cac:PaymentTerms/cbc:Note* deve essere usato solo per indicare il dato FPA 2.4.1 CondizioniPagamento e FPA 2.4.2.4 GiorniTerminiPagamento, concatenati con il simbolo "#".
-
-.Esempi
+.UBL example of a cross-boarder invoice
 [source, xml, indent=0]
 ----
 <cac:PaymentTerms>
@@ -13,6 +10,11 @@ Il campo *cac:PaymentTerms/cbc:Note* deve essere usato solo per indicare il dato
 </cac:PaymentTerms>
 ----
 
+== #Terms and conditions of payment# (Domestic CIUS)
+
+Within the italian context, the element *cac:PaymentTerms/cbc:Note* must be used only to indicate the data of the Payment Conditions (FPA 2.4.1 CondizioniPagamento) and the Days for Payment Terms (FPA 2.4.2.4 GiorniTerminiPagamento), concatenated using the "#" symbol.
+
+.UBL example of a domestic invoice
 [source, xml, indent=0]
 ----
 <cac:PaymentTerms>
@@ -20,11 +22,11 @@ Il campo *cac:PaymentTerms/cbc:Note* deve essere usato solo per indicare il dato
 </cac:PaymentTerms>
 ----
 
-== Pagamento Anticipato (estensione)
+== #Advance payment# (Extension)
 
-A fronte di un pagamento anticipato è possibile offrire uno sconto specificandone l'importo e la data limite entro il quale il pagamento deve essere perfezionato.
+In the case of an advance payment, it is possible to offer a discount by specifying both the amount and the deadline date by which the payment must be completed. 
 
-.Esempio UBL per specificare un pagamento anticipato
+.UBL example of an advance payment
 [source, xml, indent=0]
 ----
 <cac:PaymentTerms>
@@ -36,11 +38,11 @@ A fronte di un pagamento anticipato è possibile offrire uno sconto specificando
 </cac:PaymentTerms>
 ----
 
-== Pagamento Ritardato (estensione)
+== #Late payment# (Extension)
 
-A fronte di un pagamento ritardato è possibile fissare una penalità specificandone l'importo dovuto e la data di decorrenza della penale.
+In the case of a late payment, it is possible to define a penalty by specifying both the amount due and the date from which the penalty applies.
 
-.Esempio UBL per specificare un pagamento ritardato
+.UBL example of a late payment
 [source, xml, indent=0]
 ----
 <cac:PaymentTerms>

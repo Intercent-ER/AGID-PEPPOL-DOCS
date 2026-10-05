@@ -1,11 +1,12 @@
+= #Fiscal regime (extension)#
 
-= #Regime Fiscale# (estensione)
+The fiscal regime indicates the accounting or tax regime associated with the seller, and therefore the specific simplifications or benefits it is subject to.
 
-Il regime fiscale indica il regime contabile associato al fornitore e pertanto le agevolazioni o semplificazioni a cui è soggetto.
+Below is the link:pass:[${peppoldocs.root.url}/xml/ITA/peppol-bis-invoice-3/codelist/RegimeFiscale.html][link] to the Italian codelist containing the Fiscal Regime codes.
 
-Se il regime fiscale non viene specificato, si intende il regime ordinario (RF01).
+If the fiscal regime is not specified, it is understood to be the ordinary regime (RF01).
 
-.Esempio UBL per specificare il regime fiscale
+.UBL Example to specify the Fiscal Regime
 [source, xml, indent=0]
 ----
 <cac:AccountingSupplierParty>

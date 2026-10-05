@@ -1,9 +1,8 @@
+= #Taxable amount rounding in VAT summary# (Extension)
 
-= #Arrotondamento imponibile IVA nel riepilogo# (estensione)
+Any rounding adjustments needed to align taxable amounts in the VAT summary to the nearest euro cent can be provided as a UBL extension in the invoice header.
 
-Eventuali arrotondamenti necessari a riportare al centesimo di euro le somme dei dati di dettaglio (imponibile) nel riepilogo IVA, possono essere forniti come estensione UBL in testata alla fattura.
-
-.Esempio UBL per fornire l'arrotondamento di un imponibile nel riepilogo IVA
+.UBL example to provide rounding of taxable amount in VAT Summary
 [source, xml, indent=0]
 ----
 <ext:UBLExtension>

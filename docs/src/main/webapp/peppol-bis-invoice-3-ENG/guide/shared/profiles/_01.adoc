@@ -1,12 +1,10 @@
-
 [[prof-01]]
-= Profilo 01 - Fatturazione
+= Profile 01 - Billing  
 
 Nella tabella seguente sono riportati i valori da utilizzare per l’identificatore della specifica (BT-24) e per il tipo di processo di business (BT-23) per il profilo base Peppol.
 
 include::../../syntax/_profile.adoc[]
 
+#In the table below you will find the values to be used as the specification identifier (BT-24) and the business process type (BT-23) for invoicing coming from abroad (cross-border) and for domestic invoicing (including for the purposes of the _esterometro_ and integration documents).#
 
-#Per la fatturazione dall’estero l’identificatore della specifica (BT-24) è riportato nel paragrafo C.1.#
-
-#Per la fatturazione domestica e ai fini dell’esterometro e dei documenti di integrazione l’identificatore della specifica (BT-24) è riportato nel paragrafo C.2.#
+include::../../syntax/_profilefatt.adoc[]

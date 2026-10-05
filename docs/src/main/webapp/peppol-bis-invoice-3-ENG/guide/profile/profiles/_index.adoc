@@ -1,13 +1,11 @@
-
 = Identificatori Peppol
 
 Peppol ha definito una {policy8} che specifica come utilizzare gli identificatori sia nella sua infrastruttura di trasporto che all’interno dei documenti scambiati su questa.  Essa introduce anche i principi per ogni identificatore utilizzato nell’ambiente Peppol.
 Le regole che si applicano a questo BIS sono le seguenti:
 
-
 :leveloffset: +1
 
 include::_profiles.adoc[]
-//include::_parties.adoc[]
+include::_parties.adoc[]
 
 :leveloffset: -1

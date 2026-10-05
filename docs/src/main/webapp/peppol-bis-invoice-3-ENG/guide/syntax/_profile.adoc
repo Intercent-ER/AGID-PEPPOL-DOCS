@@ -1,10 +1,8 @@
-
-[cols="2,4,4", options="header"]
+[cols="2s,5a,5a", options="header"]
 |===
 | Tipo
 | Elemento `cbc:CustomizationID`
 | Elemento `cbc:ProfileID`
-
 
 | Fattura
 |urn:cen.eu:en16931:2017&#x0023;compliant&#x0023; +

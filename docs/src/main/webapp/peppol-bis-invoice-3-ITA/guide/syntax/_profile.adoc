@@ -1,10 +1,8 @@
-
 [cols="2s,5a,5a", options="header"]
 |===
 | Tipo
 | Elemento `cbc:CustomizationID`
 | Elemento `cbc:ProfileID`
-
 
 | Fattura
 |urn:cen.eu:en16931:2017&#x0023;compliant&#x0023; +
@@ -16,7 +14,6 @@ urn:fdc:peppol.eu:2017:poacc:billing:3.0
 urn:fdc:peppol.eu:2017:poacc:billing:3.0
 | urn:fdc:peppol.eu:2017:poacc:billing:01:1.0
 |===
-
 
 .Esempio UBL per l’identificatore della specifica del profilo base Peppol
 [source, xml, indent=0]

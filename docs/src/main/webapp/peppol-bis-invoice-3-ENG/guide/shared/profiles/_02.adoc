@@ -1,4 +1,3 @@
-
 [[prof-02]]
 = Profilo 02 - Fatturazione con risposta
 
@@ -27,5 +26,3 @@ urn:fdc:peppol.eu:2017:poacc:billing:3.0
 <cbc:CustomizationID>urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0</cbc:CustomizationID>
 <cbc:ProfileID>urn:peppol:bis:billing_with_response</cbc:ProfileID>
 ----
-
-

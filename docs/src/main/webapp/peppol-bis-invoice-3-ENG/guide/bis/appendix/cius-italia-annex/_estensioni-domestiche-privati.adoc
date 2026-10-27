@@ -1,40 +1,39 @@
-
-
-= [lime-background]#Estensioni Domestiche (fatturazione verso privati)#
-
+= [lime-background]#Domestic Extensions (invoicing towards private customers)#
 
 [cols="3s,3,5", options="header"]
 |====
 
 ^.^|CIUS ID
-^.^|Elemento in XML PA
-^.^|Descrizione regola
-
+^.^|Element in XLM PA
+^.^|Description of the rule
 
 |BR-IT-DE-043
 |1.4.3 Stabile Organizzazione
-|La Stabile Organizzazione deve fornire l'indirizzo completo di via e numero civico, comune, cap, provincia e nazione.
+|The Permanent Organisazion must provide the complete address of street and street number, municipality, postcode, province and country
 
 |BR-IT-DE-044
 |1.4.3.1 Indirizzo +
 1.4.3.2 NumeroCivico
-|La lunghezza dell'elemento non può superare i 60 caratteri.
+|The length of the element cannot exceed 60 characters
 
 |BR-IT-DE-045
 |1.4.3.4 Comune
-|La lunghezza dell'elemento non può superare i 60 caratteri.
+|The length of the element cannot exceed 60 characters
 
 |BR-IT-DE-046
 |1.4.3.3 CAP
-|La lunghezza dell'elemento non può superare 8 caratteri.
+|The length of the element must consist of 5 digits
 
 |BR-IT-DE-047
 |1.4.3.5 Provincia 
-|La lunghezza dell'elemento non può superare 2 caratteri.
+|The length of the element cannot exceed 2 characters
 
 |BR-IT-DE-048
 |1.4.4 Rappresentante Fiscale
-|Il Rappresentante Fiscale del Cliente deve contenere la P.IVA, lo schema fiscale = 'VAT', la ragione sociale e se viene specificata una persona fisica, il nome e cognome.
+|The Customer’s Tax Representative must contain the VAT number, the tax scheme = 'VAT', the company name or a person name (first name and surname)
 
+|BR-IT-DE-049 
+|1.4.4.2 Denominazione 
+|The name of the Customer’s Tax Representative cannot exceed 80 characters
 
 |====

@@ -106,8 +106,16 @@
 		<Name>Codice Univoco Unità Organizzativa iPA</Name>
 	</Code>
 	<Code>
+		<Id>0202</Id>
+		<Name>Indirizzo di Posta Elettronica Certificata</Name>
+	</Code>
+	<Code>
 		<Id>0204</Id>
 		<Name>Peppol-Leitweg-ID</Name>
+	</Code>
+	<Code>
+		<Id>0205</Id>
+		<Name>CODDEST</Name>
 	</Code>
 	<Code>
 		<Id>0208</Id>

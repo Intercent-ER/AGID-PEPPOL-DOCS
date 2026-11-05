@@ -118,6 +118,10 @@
         <Id>0204</Id>
         <Name>Leitweg-ID</Name>
     </Code>
+    <Code>
+		<Id>0205</Id>
+		<Name>CODDEST</Name>
+	</Code>
      <Code>
         <Id>0208</Id>
         <Name>Numero d'entreprise / ondernemingsnummer / Unternehmensnummer</Name>

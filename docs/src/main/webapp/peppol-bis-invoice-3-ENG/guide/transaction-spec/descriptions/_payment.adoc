@@ -1,4 +1,3 @@
-
 = Payment means information
 
 == Credit transfer
@@ -34,44 +33,41 @@ See <<payment-means>> for all allowed codes. Examples of codes for payment by di
 
 include::../../syntax/_direct-debit.adoc[]
 
-== Payment by post- or bank giro
+== Payment by postgiro
 
 See <<payment-means>> for all allowed codes. Examples of codes for payment by giro are:
 
 * 50 - Payment by postgiro
-* ? 56 - Bankgiro
-
 
 include::../../syntax/_giro.adoc[]
 
-== #Pagamento mediante contante#
+== #Payment by Cash#
 
-Vedi <<payment-means>> per tutti i codici ammessi. Esempio di codice per il pagamento in contante:
+See <<payment-means>> for all allowed codes. Example of code for cash payment is:
 
-* 10 - Contante
+* 10 - Cash
 
 include::../../syntax/_cash-payment.adoc[]
 
-
 //== Pagamento non specificato
 
-Se il venditore non dà indicazioni su come regolarizzare il pagamento della fattura, esiste solitamente un contratto che lo regola.
+If the seller does not provide any instructions on how to settle the invoice, there is usually a contract that governs this.
 
-Indicando il codice 1, l’acquirente non viene informato sulle modalità di pagamento della fattura e può essere indicata solo una data di pagamento.
+By using code 1, the buyer is not informed about the payment method for the invoice, and only a due date can be specified.
 
 include::../../syntax/_unspecified-payment.adoc[]
 
-== #Pagamento mediante PagoPA#
+== #Payment by PagoPA# (Domestic CIUS)
 
-Il codice 9 (National or regional clearing) viene mappato con MP23 – PagoPA: +
+Within the Italian context, the code "9" (National or regional clearing) of the Payment means type code list is connected with the code "MP23" (PagoPA) of the FatturaPA payment means type code list. +
 
-* 9 - PagoPA
+The Unique Payment Identifier ("Identificativo Univoco di versamento") must be indicated in cbc:PaymentID. 
 
-.Esempio UBL di modalità pagamento con PagoPA
+.UBL example of payment by PagoPA
 [source, xml, indent=0]
 ----
 <cac:PaymentMeans>
     <cbc:PaymentMeansCode name="PagoPA">9</cbc:PaymentMeansCode>
+    <cbc:PaymentID>302000000000001404<cbc:PaymentID>
 </cac:PaymentMeans>
 ----
-

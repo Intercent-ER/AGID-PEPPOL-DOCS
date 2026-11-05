@@ -1,4 +1,3 @@
-
 An invoice may support functions related to a number of related (internal) business processes. This Peppol BIS shall support the following functions:
 
 * Accounting
@@ -7,12 +6,12 @@ An invoice may support functions related to a number of related (internal) busin
 * Auditing
 * Payment
 
-#In aggiunta alle funzioni core sono disponibili specifiche funzionalità domestiche necessarie alle imprese individuali e professionisti, tra cui le principali sono:#
+#In addition to the core functions, there are specific domestic functions needed by sole proprietors and professionals, the main ones being:#
 
-* #Ritenuta d'acconto#
-* #Rivalsa Cassa previdenziale#
-* #Marca da Bollo#
-* #Scissione dei pagamenti (Split payment)#
+* #Withholding Tax#
+* #Social Security Contribution#
+* #Stamp duty#
+* #Split payment#
 
 In the following chapters an assessment is made of what information is needed for each of the functions listed above and whether it is in scope or out of scope for this Peppol BIS.
 

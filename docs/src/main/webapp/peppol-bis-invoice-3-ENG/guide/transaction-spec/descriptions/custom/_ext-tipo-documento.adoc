@@ -1,11 +1,12 @@
+= #Document type (extension)#
 
-= #Tipo documento# (estensione)
+In addition to the invoice type indicated in InvoiceTypeCode (e.g., 380 – commercial invoice), the document type provides a more specific classification of the invoice, such as deferred invoices, self-invoices, etc., in accordance with Italian regulations. 
 
-In aggiunta al tipo di fattura indicato nell'InvoiceTypeCode (es. 380 - fattura commerciale), il tipo documento indica in modo più preciso la tipologia di fattura, come ad esempio le fatture differite, le autofatture, ecc., secondo la normativa italiana.
+Below is the link:pass:[${peppoldocs.root.url}/xml/ITA/peppol-bis-invoice-3/codelist/TipoDocumento%20FatturaPA.html][link] to the Italian codelist containing the Document type codes.
 
-Se il tipo documento non viene specificato, si intende la fattura commerciale (TD01).
+If the document type is not specified, it is understood to be a commercial invoice (TD01). 
 
-.Esempio UBL per specificare il tipo documento come estensione UBL
+.UBL example to specify the document type as a UBL extension
 [source, xml, indent=0]
 ----
 <ext:UBLExtension>

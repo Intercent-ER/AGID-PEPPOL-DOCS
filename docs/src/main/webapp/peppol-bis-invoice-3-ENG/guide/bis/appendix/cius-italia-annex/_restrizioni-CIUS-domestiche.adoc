@@ -1,35 +1,26 @@
-
-
-= #CIUS Domestiche#
-
+= #Domestic CIUS#
 
 [cols="3s,3,3,4,5", options="header"]
 |====
 
 ^.^|CIUS ID
-^.^|Tipologia di regola
-^.^|Terminologia di business
-^.^|Elemento in XML PA
-^.^|Descrizione regola
+^.^|Type of rule
+^.^|Business term 
+^.^|Element in XLM PA
+^.^|Description of the rule
 
 |BR-IT-DC-002*
 |Value domain for an element - Require defined structured values
 |BT-24 Specification Identifier +
 BT-40 Seller country code
 |
-|Se il valore dell’elemento BT-40 (Seller
-country code) è uguale a "IT", il BT-24 
-deve essere valorizzato come segue: 
-*urn:cen.eu:en16931:2017# compliant#urn:fdc:peppol.eu :2017:poacc:billing:3.0#conformant #urn:www.agid.gov.it:trns :fattura:3*
-
-(rimuovere gli spazi prima dell'utilizzo)
+|If the value of the BT-40 (Seller country code) element is "IT", BT-24 (Specification Identifier) must be valued as follows: *urn:cen.eu:en16931:2017#compliant#urn:fdc:peppol.eu:2017:poacc:billing:3.0#conformant#urn: www.agid.gov.it:trns:fattura:3*
 
 |BR-IT-DC-100A*
 |Value domain for an element - Restrict text or byte array length
 |BT-29 Seller identifier
-|1.2.1.3.5 CodEORI +
-|Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT29 Seller identifier comincia con "EORI:", la sua lunghezza deve essere compresa fra 18 e 22 caratteri.
-
+|1.2.1.3.5 CodEORI
+|If the value of the BT-40 (Seller country code) element is "IT", if the value of BT-29 (Seller identifier) ​​element begins with "EORI:", its length must be between 18 and 22 characters
 
 |BR-IT-DC-100B*
 |Value domain for an element - Restrict text or byte array length
@@ -37,31 +28,29 @@ deve essere valorizzato come segue:
 |1.2.1.4 AlboProfessionale +
 1.2.1.6 NumeroIscrizioneAlbo +
 1.2.1.7 DataIscrizioneAlbo
-|Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT29 Seller identifier comincia con "ALBO:", la sua lunghezza non può superare i 137 caratteri e può essere indicato come "ALBO:AlboProfessionale +
-#NumeroIscrizioneAlb o#DataIscrizione" (con Data nel formato AAAA- MM-GG).
-
+|If the value of the BT-40 (Seller country code) element is " IT", if the value of the BT-29 (Seller identifier) ​​element begins with "ALBO:", its length cannot exceed 137 characters and can be referred to as: 
+"ALBO:ProfessionalRegister#Registration Number#RegistrationDate" (with Date in the format YYYY-MM-DD) 
 
 |BR-IT-DC-100C
-|Value domain for an element - Restrict text or byte array length
+|Value domain for an element - Require defined structure values
 |BT-29 Seller identifier
 |1.2.4.1 Ufficio +
 1.2.4.2 NumeroREA
-|Se il valore dell’elemento BT-40 (Seller country code) è "IT", se il valore dell'elemento BT-29 Seller identifier comincia con "REA:", la sua lunghezza deve essere compresa fra 8 e 27 caratteri e deve essere indicato come "REA:Ufficio#NumeroREA".
-
+|If the value of the BT-40 (Seller country code) element is "IT", if the value of the BT-29 (Seller identifier) ​​element begins with "REA:", its length must be between 8 and 27 characters and must be indicated as "REA:Office#REANumber" 
 
 |BR-IT-DC-110A*
 |Cardinality - Make a conditional element mandatory (0..x --> 1..x)
 |BT-30 Seller legal registration identifier +
 BT-30-1 Seller legal registration identifier scheme identifier
 |1.2.1.2 CodiceFiscale
-|Se il valore dell’elemento BT-40 Seller country code è “IT”, gli elementi devono essere obbligatoriamente valorizzati.
+|If the value of the BT-40 (Seller country code) element is "IT", the elements must be filled in
 
 |BR-IT-DC-110B*
 |Value domain for an element - Restrict text or byte array length
 |BT-30 Seller legal registration identifier +
 BT-30-1 Seller legal registration identifier scheme identifier
 |1.2.1.2 CodiceFiscale
-|Se il valore dell’elemento BT-40 (Seller country code) è "IT", se l'elemento BT-30-1 (Seller legal registration identifier scheme identifier) contiene il valore "0210", l'elemento BT-30 (Seller legal registration identifier) deve contenere un Codice Fiscale con lunghezza compresa fra 11 e 16 caratteri.
+|If the value of the BT-40 (Seller country code) element is "IT", if the BT-30-1 (Seller legal registration identifier scheme identifier) element ​​contains the value "0210", the BT-30 (Seller legal registration identifier) ​​element must contain a Tax Code with a length between 11 and 16 characters
 
 |BR-IT-DC-122*
 |Value domain for an element - Restrict text or byte array length
@@ -69,7 +58,7 @@ BT-30-1 Seller legal registration identifier scheme identifier
 |1.2.4.3 CapitaleSociale +
 1.2.4.4 SocioUnico +
 1.2.4.5 StatoLiquidazione
-|La lunghezza dell'elemento non può superare i 21 caratteri.
+|The length of the element cannot exceed 21 characters
 
 |BR-IT-DC-140
 |Cardinality - Make a conditional element mandatory (0..x --> 1..x)
@@ -79,21 +68,55 @@ BT-38 Seller post code
 |1.2.2.1 Indirizzo +
 1.2.2.4 Comune +
 1.2.2.3 CAP
-|Se il valore dell’elemento BT-40 Seller country code è “IT”, gli elementi devono essere obbligatoriamente valorizzati.
+|If the value of the BT-40 (Seller country code) element is "IT", the elements must be filled in
+
+|BR-IT-DC-141
+|Value domain for an element - Require defined structure values
+|BT-36 Seller address line 2
+|1.2.2.2 NumeroCivico
+|If the value of the BT-40 (Seller country code) element is "IT", the BT-36 (Seller address line 2) element MUST contain the street number or the acronym "s.n.c." (without street number)
 
 |BR-IT-DC-150
 |Value domain for an element - Require defined structured values
 |BT-39 Seller country subdivision
 |1.2.2.5 Provincia
-|Se l'elemento BT-40 Seller country code ha valore "IT", per l'elemento  BT-39 Seller  country  subdivision deve  essere utilizzato uno dei valori della lista delle province italiane. Altrimenti l'informazione è riportata in allegato
+|If the value of the BT-40 (Seller country code) element is "IT", the BT-39 (Seller country subdivision) element must be valued ​​from the list of Italian provinces
+
+|BR-IT-DC-161
+|Value domain for an element - Restrict text or byte array length
+|BT-42 Seller contact telephone number
+|1.1.5.1 Telefono
+|If the value of the BT-40 (Seller country code) element is "IT", the BT-42 (Seller contact telephone number) element MUST consist of 5 to a maximum of 12 alphanumeric character
+
+|BR-IT-DC-221
+|Value domain for an element - Restrict text or byte array length
+|BT-59 Payee name
+|2.4.2.1 - Beneficiario
+|If the value of the BT-40 (Seller country code) element is "IT", the BT-59 (Payee name) element MUST consist of a maximum of 200 characters
+
+|BR-IT-DC-262
+|Value domain for an element - Restrict text or byte array length
+|BT-83 Remittance information
+|2.4.2.21 CodicePagamento
+|If the value of the BT-40 (Seller country code) element is "IT", the BT-83 (Remittance information) element MUST consist of a maximum of 60 alphanumeric characters
+
+|BR-IT-DC-291
+|Value domain for an element - Require defined structured values
+|BT-104 Document level charge reason
+|2.1.1.7.1 TipoCassa
+|If the value of the BT-40 (Seller country code) element is "IT" and the Pension Fund Charge is applied, the BT-104 (Document level charge reason) element MUST contain a code for the pension fund between the values 'TC01' and 'TC22'
+
+|BR-IT-DC-351
+|Value domain for an element - Restrict text or byte array length
+|BT-120 VAT exemption reason text
+|2.2.2.8 RiferimentoNormativo
+|If the value of the BT-40 (Seller country code) element is "IT", the BT-120 (VAT exemption reason text) element MUST consist of a maximum of 105 Latin characters
 
 |BR-IT-DC-480
-|
-|BT-118 VAT category code
-|
-|Se l'elemento BT-40 Seller country code ha valore "IT e la fattura è soggetta alla marca da bollo, il motivo della maggiorazione deve essere posto a "BOLLO" e l'importo deve essere superiore a 77.47 EURO. Se l'importo del bollo viene rifatturato al cliente, il suo valore deve essere posto a 2.00 EUR come operazione non imponibile IVA (TaxCategory/ID = 'Z') e il relativo riepilogo IVA deve riportare un imponibile di 2.00 EUR".
-
-
+|Value domain for an element - Require defined structured values
+|BT-95 Document level charge VAT category code, BT-99 Document level charge amount, BT-104 Document level charge reason, BT-105 Document level charge reason code
+|2.1.1.6.1 BolloVirtuale
+|If the value of the BT-40 (Seller country code) element is "IT", the invoice is subject to stamp duty, and the invoice amount is greater than EUR 77.47, then BT-105 (Document level charge reason code) element must be set to "SAE"; the BT-104 (Document level charge reason) element must be set to "BOLLO"; the BT-99 (Document level charge amount) element must be set to 0; the BT-95 (Document level charge VAT category) element must be set to "Z" (zero)
 
 |====
-(*) _national Peppol authority rule that integrates the AdE technical specifications_ 
+(*) _Rule of the national Peppol Authority that integrates the Italian Tax Agency technical specifications_ 

@@ -1,20 +1,18 @@
-
 = Tender reference (CIG)
 
-To identify the call for tender or lot the invoice relates to, use the 'OriginatorDocumentReference'. The identifier is, in most cases, the Procurement Procedure Identifier.
+To identify the call for tender or the lot the invoice relates to, use the 'OriginatorDocumentReference'. The identifier is, in most cases, the Procurement Procedure Identifier #("Codice Identificativo di Gara – CIG")#.
 
-#The CIG code is mandatory in contexts where it is required, and is necessary for invoice verification, reconciliation and payment approval processes.#
-
+#The indication of the CIG code is mandatory in those contexts where it is required, and is necessary for the verification, reconciliation and payment approval processes of invoices.#
 
 .UBL example of tender reference (CIG)
 [source, xml, indent=0]
 ----
 <cac:OriginatorDocumentReference>
-    <cbc:ID>90305884F7</cbc:ID>
-</cac:OriginatorDocumentReference>
+    <cbc:ID>ppid-123</cbc:ID>
+</cac:OriginatorDocumentReference>0
 ----
 
-#To refer to multiple CIG codes from invoice lines, use *cac:DocumentReference* with document type code = 130.#
+#To refer to a CIG code from invoice line, the information can be specified in *cac:DocumentReference* with document type code = 130, as in the following example:#
 
 .UBL example of tender reference (CIG) from invoice lines
 [source, xml, indent=0]
@@ -24,4 +22,3 @@ To identify the call for tender or lot the invoice relates to, use the 'Originat
     <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
 </cac:DocumentReference>
 ----
-

@@ -1,10 +1,9 @@
-
 = Unit Price Amount
 
 A unit price amount states a numerical monetary amount value for data elements that contain item prices that may be multiplied by item quantities.
 The currency of the amount is defined as a separate business term.
 
-IMPORTANT: Unit price amount does not set restrictions on number of decimals, as contrast to the Amount type
+IMPORTANT: #The unit price amount may be expressed with up to 8 decimal places, in accordance with  the Italian FatturaPA format.#
 
 [cols="1s,1,1,1", options="header"]
 |===

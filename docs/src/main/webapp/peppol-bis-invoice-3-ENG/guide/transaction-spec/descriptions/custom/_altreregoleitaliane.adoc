@@ -1,19 +1,17 @@
+= #Other management data#
 
-= #Altri dati gestionali#
+The elments *cac:AdditionalItemProperty/cbc:Name* and *cac:AdditionalItemProperty/cbc:Value* could be used to provide information regarding other management data (FPA 2.2.1.16 AltriDatiGestionali).
 
-Il campi UBL *cac:AdditionalItemProperty/cbc:Name* e *cac:AdditionalItemProperty/cbc:Value* sono utilizzati per fornire informazioni riguardo il gruppo FPA Altri dati gestionali.
+The *cac:AdditionalItemProperty/cbc:Name* can be set to "DatiVeicoli" (see par. 11.17), "Ritenuta" (see par. 5.7), "TipoCessionePrestazione" (see par. 11.9.3), "Natura" (see par. 8.3) or as follows:
 
-Il *cac:AdditionalItemProperty/cbc:Name* può essere valorizzato con "DatiVeicoli" (vedi par. 11.17),"Ritenuta" (vedi par. 5.7), "TipoCessionePrestazione" (vedi par. 11.9.3), "Natura" (vedi par.8.3) oppure come segue:
+* If cbc:Name is set to "Testo" (text), then fill cbc:Value with the referred data (FPA 2.2.1.16.2 RiferimentoTesto). 
 
-* Se cbc:Name è valorizzato con "Testo", allora compilare il cbc:Value con il dato FPA 2.2.1.16.2 RiferimentoTesto.
+* If cbc:Name is set to "Numero" (number), then fill cbc:Value with the referred number (FPA 2.2.1.16.3 RiferimentoNumero). 
 
-* Se cbc:Name è valorizzato con "Numero", allora compilare il cbc:Value con il dato FPA 2.2.1.16.3 RiferimentoNumero.
+* If cbc:Name is set to "Data" (date), then fill cbc:Value with the referred date (FPA 2.2.1.16.4 RiferimentoData). 
 
-* Se cbc:Name è valorizzato con "Data", allora compilare il cbc:Value con il dato FPA 2.2.1.16.4 RiferimentoData.
+= #Vehicle data#
 
+The elements *cac:AdditionalItemProperty/cbc:Name* and *cac:AdditionalItemProperty/cbc:Value* could be used to provide information regarding the Vehicle data (FPA 2.3 DatiVeicoli).
 
-= #Dati veicoli#
-
-Il campi UBL *cac:AdditionalItemProperty/cbc:Name* e *cac:AdditionalItemProperty/cbc:Value* sono utilizzati per fornire informazioni riguardo il gruppo FPA Dati Veicoli.
-
-* Se cbc:Name è valorizzato con "DatiVeicoli", allora compilare il cbc:Value con i dati FPA 2.3.1 Data e FPA 2.3.2 TotalePercorso concatenati con il simbolo "#".
+* In this case, if cbc:Name is set to "DatiVeicoli" (vehicles data), then fill cbc:Value with the date of the travel (FPA 2.3.1 Data) and the distance traveled (FPA 2.3.2 TotalePercorso), concatenated with the "#" symbol.

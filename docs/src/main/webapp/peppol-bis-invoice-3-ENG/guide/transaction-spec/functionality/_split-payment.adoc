@@ -1,18 +1,16 @@
+= #Split payment (Domestic CIUS)#
 
-= #Scissione dei pagamenti - Split payment# (CIUS domestica)
+Split payment is a special regime that establishes that the VAT debtor is the purchaser/client instead of, as normally happens, the seller/provider.
 
-La scissione dei pagamenti o split payment è un regime particolare che stabilisce che il debitore dell'IVA sia il cessionario/committente anziché, come avviene normalmente, il cedente/prestatore.
-
-Per supportare questo particolare caso si valorizza il *cac:TaxCategory/cbc:ID* (BT-118 VAT Category code) utilizzando il TaxCategory 'B' (Transferred VAT) secondo la codifica UN/ECE 5305.
+To support this particular case, the element *cac:TaxCategory/cbc:ID* (BT-118 VAT Category code) is set using the TaxCategory 'B' (Transferred VAT) according to the UN/ECE 5305 coding.
 
 [NOTE]
 ====
-Il valore dell’IVA split va ricompreso nel valore inserito in cbc:PrepaidAmount. Si evidenzia che il cbc:PrepaidAmount non è supportato in FatturaPA ma viene utilizzato per valorizzare correttamente il dato cbc:PayableAmount (BT-115 Amount due for payment) che è obbligatorio per la EN 16931.
+The split VAT amount must be included in the value entered in cbc:PrepaidAmount. It should be noted that cbc:PrepaidAmount is not supported in FatturaPA but is used to correctly populate the cbc:PayableAmount (BT-115 Amount due for payment) which is mandatory for EN 16931. 
 ====
 
-
-.Esempio di Scissione dei pagamenti
-L'esempio riportato è relativo alla fattura emessa ad una PA soggetta alla scissione pagamento.
+.Example of Split Payment
+The example provided relates to an invoice issued to a Public Administration subject to split payment.
 
 [source, xml, indent=0]
 ----
@@ -38,3 +36,39 @@ L'esempio riportato è relativo alla fattura emessa ad una PA soggetta alla scis
 </cac:LegalMonetaryTotal>
 ----
 
+= Indication of down payment in the final invoice
+The indication of the down payment in the final invoice is done by inserting a specific invoice line with a negative amount. Therefore, the element *cbc:InvoicedQuantity* (BT-129 Invoiced Quantity) must be set to “-1.00”. 
+
+The down payment line has the same nature as the service to which the final invoice refers.
+
+.Example of indicating a down payment of 100 euros in the final invoice 
+
+[source, xml, indent=0]
+----
+<ubl:Invoice> 
+... 
+<cac:InvoiceLine> 
+          <cbc:ID>2</cbc:ID> 
+          <cbc:InvoicedQuantity unitCode="C62">-1.00</cbc:InvoicedQuantity > 
+          <cbc:LineExtensionAmount currencyID="EUR">-100.00</cbc:Amount> 
+          <cac:Item> 
+                    <cbc:Name>Acconto su prestazione</cbc:ID> 
+                    <cac:ClassifiedTaxCategory> 
+                              <cbc:ID>S</cbc:ID> 
+                              <cbc:Percent>22</cbc:Percent> 
+                              <cac:TaxScheme> 
+                                        <cbc:ID>VAT</cbc:ID> 
+                              </cac:TaxScheme> 
+                    </cac:ClassifiedTaxCategory> 
+          </cac:Item> 
+          <cac:Price > 
+                    <cbc:PriceAmount currencyID="EUR">100.00</cbc:PriceAmount> 
+                    <cbc:BaseQuantity unitCode="C62">1</cbc:BaseQuantity> 
+                    <cac:AllowanceCharge> 
+                               <cbc:ChargeIndicator>false</cbc:ChargeIndicator> 
+                               <cbc:Amount currencyID="EUR">0.00</cbc:Amount> 
+                               <cbc:BaseAmount currencyID="EUR">100.00</cbc:BaseAmount> 
+                    </cac:AllowanceCharge> 
+          </cac:Price> 
+</cac:InvoiceLine> 
+----

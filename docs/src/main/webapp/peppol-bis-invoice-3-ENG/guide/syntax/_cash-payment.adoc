@@ -1,7 +1,6 @@
-
-.Esempio UBL di modalità pagamento in contante
+.UBL example of cash payment method  
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/cash-payment.xml[tags=cash]
 ----
-<1> Codice modalità pagamento per il contante
+<1> Payment method code for cash

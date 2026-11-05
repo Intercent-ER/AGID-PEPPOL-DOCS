@@ -1,47 +1,23 @@
-
-
-
 [[orderref]]
 = Purchase order and sales order reference
 
-The purchase order is **conditional**. If order reference exist, use that, else use Buyer reference (see <<buyerref>>).
+The purchase order is *conditional*. If order reference exist, use that, else use Buyer reference (see <<buyerref>>).
 
-The customer will issue an order with a unique order number. This unique purchase order number should be supplied as the order reference on the invoice.
+The buyer will issue an order with a unique order number. This unique purchase order number should be supplied as the order reference on the invoice. 
 
+*At the header level*::
 
-*At header level*::
+If the order reference is stated at header level, the order reference element on line level can be used to state the order line numbers. 
 
-If order reference is stated at header level, the order reference element on line level can be used to state the order line numbers.
+A sales order is issued by the seller, confirming the sale of specified products. 
 
 IMPORTANT: In the invoice, both a purchase order and a sales order reference can be given, but be aware that an invoice instance cannot have a sales order reference, without the corresponding purchase order reference.
 
 include::../../../syntax/references/_order.adoc[]
 
+#If the invoice is referred to an electronic order issued by an Italian public health institution, the order reference (“tripletta”) should be indicated in the following way:#
 
-
-
-
-When the order reference is provided at header level, the order line identifier may be stated in *cac:OrderLineReference/cbc:LineID* on the invoice line (*cac:InvoiceLine*) as follows:
-
-
-
-[source, xml, indent=0]
-
-----
-
-<cac:OrderLineReference>
-
-        <cbc:LineID>3</cbc:LineID>
-
-</cac:OrderLineReference>
-
-----
-
-
-
-#Se la fattura viene emessa nell’ambito di un processo di Ordinazione elettronica, occorre riportare il riferimento all’ordine ("tripletta") nel seguente modo:#
-
-1.	#Nel cac:OrderReference/cbc:ID (BT-13 Purchase order reference) riportare il solo identificativo dell’ordine, deve inoltre essere riportata la data dell’ordine nel cac:OrderReference/cbc:IssueDate:#
+1. #In cac:OrderReference/cbc:ID (BT-13 Purchase order reference) insert only the order identifier. Insert the order date in the cac:OrderReference/cbc:IssueDate:#
 +
 [source, xml, indent=0]
 ----
@@ -51,23 +27,21 @@ When the order reference is provided at header level, the order line identifier 
 </cac:OrderReference>
 ----
 
-2.	#Nel cbc:BuyerReference (BT-10 Buyer reference) riportare la Tripletta di identificazione completa separando i componenti (Id, data e Endpoint) con il carattere # senza interposizione di spazi, come nel seguente esempio:#
+2. #In cbc:BuyerReference (BT-10 Buyer reference) report the complete identifier “Triplet” composed by the elements (Id, date e Endpoint) concatenated by the '#' symbol and without spaces interpositions, as in the following example:#
 +
 [source, xml, indent=0]
 ----
 <cbc:BuyerReference>110#2018-01-30#aaaaaa</cbc:BuyerReference>
 ----
 
-#Se invece la fattura viene emessa a fronte di un ordine analogico se ne può dare evidenza nel seguente modo:#
-
+#If the invoice is referred to an analogic order issued by an Italian public health institution, this should be# indicated as follows:
 
 [source, xml, indent=0]
 ----
 <cbc:BuyerReference>#NO#</cbc:BuyerReference>
 ----
 
-#Se la fattura non è stata preceduta da un ordine occorre indicarlo nel seguente modo:#
-
+#If the invoice is not preceded by an order, this should be# indicated as follows:
 
 [source, xml, indent=0]
 ----
@@ -76,8 +50,7 @@ When the order reference is provided at header level, the order line identifier 
 </cac:OrderReference>
 ----
 
-#Ove la fattura sia riferita a più ordini elettronici referenziati in riga, occorre indicarlo nel seguente modo:#
-
+#If the invoice is referred to more than one electronic order with the order reference stated at the line level, this should be indicated as follows:#
 
 [source, xml, indent=0]
 ----
@@ -86,114 +59,67 @@ When the order reference is provided at header level, the order line identifier 
 </cac:OrderReference>
 ----
 
-
-*At line level*
-
-
-
-Order references on invoice lines use *cac:OrderLineReference* and *cac:DocumentReference*.
-
-
-
-#When the invoice is issued in an electronic ordering process relevant for the NSO system, the order reference shall be provided in *cac:OrderLineReference* and the identification triplet in *cac:DocumentReference*.#
-
-
-
-#*cac:OrderLineReference/cbc:LineID* may contain the order line identifier when the invoice line refers to a specific order line. Otherwise, the element shall be set to "NA".#
-
-
-
-.UBL example of invoice line with generic reference to an order sent via NSO
+#If you intend to specify the link between an order line and an invoice line whose reference is inserted at the header level, you must indicate the order line identifier in the cac:OrderLineReference/cbc:LineID element of the invoice line (cac:InvoiceLine) as follows:#
 
 [source, xml, indent=0]
-
+----
+<cac:OrderLineReference> 
+    <cbc:LineID>3</cbc:LineID> 
+</cac:OrderLineReference> 
 ----
 
-<cac:OrderLineReference>
+*At the line level*
 
+#The order reference at the line level is made using the structures cac:OrderLineReference and cac:DocumentReference.#
+
+#If the invoice is issued within a Order Only or an Ordering electronic process relevant to the NSO system, the order reference should be reported in cac:OrderLineReference and the elements OrderID, IssueDate and EndpointID (“Tripletta”) should be reported in *cac:DocumentReference*. In the cac:OrderLineReference/cbc:LineID element, it is possible to indicate the identifier of the order line to which the invoice line specifically refers. Otherwise, the element must be valued as "NA".#
+
+.UBL Example of invoice line with generic reference to an order sent via NSO
+[source, xml, indent=0]
+----
+<cac:OrderLineReference>
         <cbc:LineID>NA</cbc:LineID>
-
         <cac:OrderReference>
-
                 <cbc:ID>123</cbc:ID>
-
                 <cbc:IssueDate>2020-10-01</cbc:IssueDate>
-
         </cac:OrderReference>
-
 </cac:OrderLineReference>
-
 <cac:DocumentReference>
-
     <cbc:ID schemeID="ON">123#2020-10-01#aaaaaa</cbc:ID>
-
     <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
-
 </cac:DocumentReference>
-
 ----
 
-
-
-.UBL example of invoice line with specific reference to an order line sent via NSO
+.UBL Example of invoice line with specific reference to an order line sent via NSO
 
 [source, xml, indent=0]
-
 ----
-
 <cac:OrderLineReference>
-
         <cbc:LineID>2</cbc:LineID>
-
         <cac:OrderReference>
-
                 <cbc:ID>123</cbc:ID>
-
                 <cbc:IssueDate>2020-10-01</cbc:IssueDate>
-
         </cac:OrderReference>
-
 </cac:OrderLineReference>
-
 <cac:DocumentReference>
-
     <cbc:ID schemeID="ON">123#2020-10-01#aaaaaa</cbc:ID>
-
     <cbc:DocumentTypeCode>130</cbc:DocumentTypeCode>
-
 </cac:DocumentReference>
-
 ----
 
+#If the invoice is referred to an analogic order, the order reference should be reported in the cac:OrderLineReference element.#
 
+#In the cac:OrderLineReference/cbc:LineID element, it is possible to indicate the identifier of the order line to which the invoice line specifically refers. Otherwise, the element must be valued as "NA".#
 
-#When the invoice is issued against a paper order, the order reference shall be provided in *cac:OrderLineReference*.#
-
-
-
-#*cac:OrderLineReference/cbc:LineID* may contain the order line identifier when the invoice line refers to a specific order line. Otherwise, the element shall be set to "NA".#
-
-
-
-.UBL example of invoice line with generic reference to a paper order
+.UBL Example of invoice line with generic reference to an analogic order
 
 [source, xml, indent=0]
-
 ----
-
 <cac:OrderLineReference>
-
         <cbc:LineID>NA</cbc:LineID>
-
         <cac:OrderReference>
-
                 <cbc:ID>456</cbc:ID>
-
                 <cbc:IssueDate>2021-11-03</cbc:IssueDate>
-
         </cac:OrderReference>
-
 </cac:OrderLineReference>
-
 ----
-

@@ -1,10 +1,9 @@
-
-
 = Seller (AccountingSupplierParty)
 
-Seller is mandatory information and provided in element `cac:AccountingSupplierParty`
+Seller is mandatory information and provided in element *cac:AccountingSupplierParty*. +
+The Seller is the natural person, legal person or organisation who provides products or services. The Seller is a mandatory information as it is the issuer of the document and it is inserted in the element *cac:AccountingSupplierParty*. Its EndpointID is also a mandatory element. #The Seller corresponds to the Cedente/Prestatore of the invoice pursuant to DPR no. 633/1972.#
 
-.Esempio di informazioni per un fornitore italiano con indicazione della Partita Iva nell'Endpoint
+.UBL example of information for an Italian seller with VAT number included in the Endpoint 
 [source, xml, indent=0]
 ----
 <cac:AccountingSupplierParty>
@@ -15,7 +14,7 @@ Seller is mandatory information and provided in element `cac:AccountingSupplierP
 	 </cac:PartyName>
 	 <cac:PostalAddress>
 	 	<cbc:StreetName>Indirizzo Riga 1</cbc:StreetName>
-	 	<cbc:AdditionalStreetName>Indirizzo Riga 2</cbc:AdditionalStreetName  >
+	 	<cbc:AdditionalStreetName>Indirizzo Riga 2</cbc:AdditionalStreetName>
 	 	<cbc:CityName>Bologna</cbc:CityName>
 	 	<cbc:PostalZone>40121</cbc:PostalZone>
 	 	<cbc:CountrySubentity>BO</cbc:CountrySubentity >
@@ -45,13 +44,14 @@ Seller is mandatory information and provided in element `cac:AccountingSupplierP
 </cac:AccountingSupplierParty>
 ----
 
-#Se il Fornitore è un’amministrazione pubblica, il campo *EndpointID/@schemeID* deve essere valorizzato con “0201:” seguito dal Codice UFE della PA.#
+#If the seller is a public administration, the element *EndpointID/@schemeID* must be set to *"0201:"* followed by the receiving Office Code (codice IPA) provided by the Public Administration.#
 
-#La Partita IVA deve essere indicata nel *cac:PartyTaxScheme/cbc:CompanyID*.#
+#The VAT number must be indicated in *cac:PartyTaxScheme/cbc:CompanyID*.#
 
-#Il Codice Fiscale deve essere indicato nel *cac:PartyLegalEntity/cbc:CompanyID*, valorizzando l’attributo @schemeID con “0210”.#
+#The Tax Identification Number (Codice Fiscale) must be indicated in *cac:PartyLegalEntity/cbc:CompanyID*, setting the *@schemeID* to *"0210"*.#
 
-.Esempio di indicazione della Partita Iva e del Codice Fiscale
+.UBL example of indicating VAT number and Tax Identification Number
+
 [source, xml, indent=0]
 ----
 <cac:AccountingSupplierParty>
@@ -88,7 +88,7 @@ Seller is mandatory information and provided in element `cac:AccountingSupplierP
 </cac:AccountingSupplierParty>
 ----
 
-.Esempio di informazioni per un fornitore estero
+.UBL example of information for a foreign seller
 [source, xml, indent=0]
 ----
 </cac:AccountingSupplierParty>
@@ -127,12 +127,12 @@ Seller is mandatory information and provided in element `cac:AccountingSupplierP
 </cac:AccountingSupplierParty>
 ----
 
-#Le informazioni relative all'Albo possono essere fornite nel *cac:PartyIdentification/cbc:ID* concatenando il Nome Albo, il numero e la data iscrizione con il simbolo "&#x0023;" omettendo l'attributo @schemeID ma includendo il prefisso "ALBO:" come nell'esempio di seguito.#
+#Information related to the Professional Association (“Albo”) can be provided in the *cac:PartyIdentification/cbc:ID* by concatenating the Association Name, the Registration number and the registration date with the symbol "&#x0023;", by dismissing the @schemeID attribute and including the prefix "ALBO:", as in the example below.#
 
 [NOTE]
-Trattasi di CIUS domestica
+This pertains to domestic CIUS (DC).
 
-.Esempio UBL per esprimere informazioni relative all'Albo
+.UBL example of inserting information related to the Albo
 
 [source, xml, indent=0]
 ----
@@ -147,11 +147,9 @@ Trattasi di CIUS domestica
 </cac:AccountingSupplierParty>
 ----
 
+#The EORI code number (Economic Operator Registration and Identification), based on the Regulation (CE) n. 312 dated 16th April 2009 and in force since 1st July 2009, can be also stated in the element *cac:PartyIdentification/cbc:ID*, by dismissing the @schemeID and including the prefix "EORI:" as in the example below.#
 
-#Il numero del Codice EORI (Economic Operator Registration and Identification) basato sul Regolamento (CE) n. 312 del 16 aprile 2009 ed in vigore dal 1 luglio 2009, può essere anch'esso espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.#
-
-
-.Esempio UBL per esprimere il codice EORI
+.UBL example to state the EORI code
 [source, xml, indent=0]
 ----
 <cac:PartyIdentification>
@@ -159,14 +157,12 @@ Trattasi di CIUS domestica
 </cac:PartyIdentification>
 ----
 
-
-#Infine, il campo *cac:PartyIdentification/cbc:ID* può essere usato per indicare anche le informazioni relative a FPA 1.2.4.1 Ufficio e FPA 1.2.4.2 Numero REA  omettendo l'attributo @schemeID, includendo il prefisso "REA:" e concatenando i due dati con il "&#x0023;", come nell'esempio di seguito.#
+#Finally, the element *cac:PartyIdentification/cbc:ID* can also be used to indicate information related to the seller’s registration code as recorded in the Enterprise Register Office held by the Italian Chamber of Commerce (FPA 1.2.4.1 Ufficio and FPA 1.2.4.2 Numero REA)  by dismissing the @schemeID, including the prefix "REA:", and concatenating the two data with the "&#x0023;" symbol, as in the example below.#
 
 [NOTE]
-Trattasi di CIUS domestica.
+This pertains to domestic CIUS (DC).
 
-
-.Esempio UBL per esprimere informazioni relative al numero REA
+.UBL example to state information related to Numero REA
 [source, xml, indent=0]
 ----
 <cac:PartyIdentification>
@@ -174,15 +170,14 @@ Trattasi di CIUS domestica.
 </cac:PartyIdentification>
 ----
 
-#Il campo *cac:PartyLegalEntity/cbc:RegistrationName* può essere usato per indicare il dato FPA 1.2.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.2.1.3.2 Nome e 1.2.1.3.3 Cognome preceduti dalla stringa "Nome&Cognome:" e concatenati dal simbolo ""&#x0023;".#
+#The element *cac:PartyLegalEntity/cbc:RegistrationName* can be used to indicate the Denomination data (FPA 1.2.1.3.1). If the Seller is a natural person, the Name (FPA 1.2.1.3.2) and Surname (FPA 1.2.1.3.3) can be inserted in the element *cac:PartyLegalEntity/cbc:RegistrationName* proceeded by "Nome#Cognome:" and linked by "&#x0023;".#
 
-#Il campo *cac:PartyLegalEntity/cbc:CompanyLegalForm* può essere usato per indicare informazioni legali addizionali quali FPA 1.2.4.3 CapitaleSociale, FPA 1.2.4.4 SocioUnico e FPA  1.2.4.5 StatoLiquidazione, concatenando i campi con il simbolo "&#x0023;".#
+#The element *cac:PartyLegalEntity/cbc:CompanyLegalForm* can be used to indicate additional legal information requested by the FatturaPA specification such as CapitaleSociale (FPA 1.2.4.3), SocioUnico (FPA 1.2.4.4), and StatoLiquidazione (FPA 1.2.4.5), concatenating the elements with the "&#x0023;" symbol.#
 
 [NOTE]
-Trattasi di CIUS domestica 
+This pertains to domestic CIUS (DC).
 
-
-.Esempio UBL per indicare il Capitale Sociale
+.UBL example to indicate the Capitale Sociale
 
 [source, xml, indent=0]
 ----
@@ -193,14 +188,14 @@ Trattasi di CIUS domestica
 </cac:PartyLegalEntity>
 ----
 
-#Nell'utilizzo dell’aggregato informativo *cac:PostalAddress*, è obbligatorio l'utilizzo delle informazioni di indirizzo, CAP, Comune e nazione.# +
+#When using the information aggregate *cac:PostalAddress*, it is mandatory to use the address, postal code, municipality, and country information..# +
 
 [NOTE]
-Trattasi di CIUS domestica
+This pertains to domestic CIUS (DC).
 
-#Di seguito si riportano due esempi di come compilare le informazioni dell’indirizzo.#
+#Two examples of how to fill in the address information are provided as follows.#
 
-.Indirizzo semplice
+.UBL example of simple address
 [source, xml]
 <cac:PostalAddress>
 	<cbc:StreetName>Via principale 2, Palazzo 4</cbc:StreetName>
@@ -211,7 +206,7 @@ Trattasi di CIUS domestica
 	</cac:Country>
 </cac:PostalAddress>
 
-.Indirizzo completo
+.UBL example of complete address
 [source, xml]
 <cac:PostalAddress>
 	<cbc:StreetName>Corso di Francia</cbc:StreetName>
@@ -227,32 +222,28 @@ Trattasi di CIUS domestica
 	</cac:Country>
 </cac:PostalAddress>
 
-
-
-
 = Buyer (AccountingCustomerParty)
 
-Buyer is mandatory information and provided in element `cac:AccountingCustomerParty`. +
+Buyer is mandatory information and provided in element *cac:AccountingCustomerParty*. +
 
-#Il cliente può essere una PA, un operatore economico, un cittadino o un soggetto residente, non residente, non stabilito/identificato in Italia.#
+The Buyer is the natural person, legal person or organisation who requests goods or services. +
+	
+The Buyer is a mandatory information as it is the recipient of the document. Its EndpointID is also a mandatory element. #The Buyer corresponds to the Cessionario/Committente of the invoice pursuant to DPR no. 633/1972.#
 
-Le informazioni inerenti al cliente vengono fornite nell'elemento 'cac:AccountingCustomerParty'. +
+The buyer can be a Public Administration, [lime-background]#an economic operator, a citizen, or an entity resident, non-resident, or not established/identified in Italy.#
 
-#Nel caso in cui il cliente abbia la Partita IVA, la Partita IVA va indicata nel *cac:PartyTaxScheme/cbc:CompanyID*.# +
+#If the buyer has a VAT number, the VAT number must be indicated in *cac:PartyTaxScheme/cbc:CompanyID*.#
 
-#Nel caso in cui il cliente sia dotato solo di Codice Fiscale, questo va indicato nel *cac:PartyLegalEntity/cbc:CompanyID*, valorizzando l’attributo @schemeID con “0210”.#
+#If the buyer has a Tax Identification Number, this must be indicated in *cac:PartyLegalEntity/cbc:CompanyID*, setting the @schemeID to "0210".#
 
 [IMPORTANT]
-Almeno uno tra Partita IVA e Codice Fiscale deve essere presente
+At least one between the VAT number and the Tax Identification Number must be included in the invoice.
 
+#The element *cac:PartyLegalEntity/cbc:RegistrationName* can be used to indicate the Denomination data (FPA 1.4.1.3.1).# [lime-background]#If the Buyer is a natural person, the Name (FPA 1.4.1.3.2) and Surname (FPA 1.4.1.3.3) can be inserted in the element *cac:PartyLegalEntity/cbc:RegistrationName* proceeded by "Nome"&#x0023;"Cognome:" and linked by "&#x0023;".#
 
-#Il campo *cac:PartyLegalEntity/cbc:RegistrationName* può essere usato per indicare il dato FPA 1.2.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.2.1.3.2 Nome e 1.2.1.3.3 Cognome preceduti dalla stringa "Nome&Cognome:" e concatenati dal simbolo "&#x0023;".#
+[lime-background]#The EORI code number (Economic Operator Registration and Identification), based on the Regulation (CE) n. 312 dated 16th April 2009 and in force since 1st July 2009, can be stated in the element *cac:PartyIdentification/cbc:ID* by dismissing the @schemeID but including the prefix "EORI:" as in the example below.#
 
-
-#Il Codice EORI può essere espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.#
-
-
-.Esempio UBL per esprimere il codice EORI
+.UBL example to state the EORI code
 [source, xml, indent=0]
 ----
 <cac:PartyIdentification>
@@ -260,43 +251,40 @@ Almeno uno tra Partita IVA e Codice Fiscale deve essere presente
 </cac:PartyIdentification>
 ----
 
-#Nel contesto B2G o G2G, il Cliente deve essere identificato mediante il Codice IPA.#
+#Within the B2G or G2G context, the Buyer must be identified through the receiving Office code (codice IPA) provided by the Public Administration.#
 
-.Esempio UBL di informazioni sul Cliente
+.UBL example of Buyer information
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/Snippet-full.xml[tags=buyer]
 ----
-<1> L'attributo schemeID è obbligatorio per indirizzi elettronici, es. EndpointID
+<1> SchemeID is mandatory for electronic address (i.e. EndpointID)
+<2> VAT identifiers must be prefixed with the country code
+<3> The Tax Identification Number must be prefixed with @schemeID set to "0210".
 
-<2> Gli identificatori per il VAT/IVA devono incudere il prefisso del codice paese
-<3> Il codice fiscale è preceduto dall’attributo @schemeID valorizzato con “0210”
-
-
-[lime-background]#Nel contesto B2B o G2B, il Cliente può essere identificato mediante il Codice Destinatario.# 
-
+[lime-background]#Within the B2B or G2B context, the Buyer can be identified through the Recipient Code (Codice Destinatario).# 
 
 [NOTE]
-Trattasi di CIUS domestica valida per la fatturazione verso privati 
+This pertains to a domestic CIUS valid for invoicing towards private customers. 
 
-.Esempio di un soggetto (non persona fisica) in possesso del Codice Destinatario accreditato presso l’Agenzia delle Entrate.
+.UBL Example of an entity (not a natural person) holding a Recipient Code accredited by the Italian Tax Agency.
 [source, xml, indent=0]
 ----
 <cbc:EndpointID schemeID="0205">L0U7KO4</cbc:EndpointID>
 ----
 
-.Esempio di utilizzo dell’end-point ai fini dell’esterometro.
+.UBL Example of endpoint usage for Esterometro purposes.
 [source, xml, indent=0]
 ----
 <cbc:EndpointID schemeID="0205">XXXXXXX</cbc:EndpointID>
 ----
 
-[lime-background]#Nel contesto B2C e G2C il Cliente è una persona fisica.#
+[lime-background]#Within B2C and G2C contexts, the Buyer is a natural person.#
 
 [NOTE]
-Trattasi di CIUS domestica valida per la fatturazione verso privati 
+This pertains to a domestic CIUS valid for invoicing towards private customers.
 
-.Esempio di un soggetto residente in possesso della PEC.
+.UBL Example of a resident entity holding a PEC (Certified Email Address)
 [source, xml, indent=0]
 ----
 <cac:AccountingCustomerParty>
@@ -331,16 +319,15 @@ Trattasi di CIUS domestica valida per la fatturazione verso privati
 </cac:AccountingCustomerParty>
 ----
 
-.Esempio di un soggetto residente privo di Codice Destinatario e di PEC:
+.UBL Example of a resident entity without a Recipient Code and without a PEC
 [source, xml, indent=0]
 ----
 <cbc:EndpointID schemeID="0205">0000000</cbc:EndpointID>
 ----
 
-
 = Payment receiver (PayeeParty)
 
-Payment receiver is optional information. If this information is not supplied, the seller is the payment receiver. When payee information is sent this is indicating that a factoring situation is being documented.
+The Payment receiver (or Payee) is the natural person, legal person or organisation who has the right to receive the payment (e.g. factoring society) and is an optional information. If this information is not provided, the Payment receiver results in the Seller.
 
 To reflect the assignment of an Invoice to a factor there is a need to:
 
@@ -348,68 +335,54 @@ To reflect the assignment of an Invoice to a factor there is a need to:
 
 . identify the Factor as the Payee
 
-. to have the bank account changed to favour of a Factor.
+. to have the bank account changed in favour of the Factor.
 
-
-.Esempio UBL per le informazioni del beneficiario
+.UBL example of payee information
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/Snippet-full.xml[tags=payee]
 ----
 
-#Il campo *cac:PartyIdentification/cbc:ID* può essere inoltre usato per fornire le informazioni anagrafiche del Quietanzante indicando i dati FPA 2.4.2.9 NomeQuietanzante e  FPA 2.4.2.8 CognomeQuietanzante concatenati con il simbolo "&#x0023;".#
+#The element *cac:PartyIdentification/cbc:ID* can be used to provide the anagraphic information of the *Quietanzante* by indicating the *NomeQuietanzante* (FPA 2.4.2.9) and *CognomeQuietanzante* (FPA 2.4.2.8) data concatenated with the symbol "&#x0023;".#
 
+= Sellers Tax Representative (TaxRepresentativeParty) 
 
+The Tax Representative is the natural person, legal person or organisation who is responsible, on behalf of companies, of the correct management and the regularisation of the VAT tax, consistent with the domestic legislation. 
 
-= Rappresentante fiscale del Fornitore (TaxRepresentativeParty)
+Tax representative party for the seller is relevant for sellers delivering goods and services in a country where they do not have a permanent establishment. In such cases, information on the tax representative shall be included in the invoice.
 
-In alcuni scenari di business, le aziende che commerciano oltre confine sono tenute secondo le autorità fiscali locali a nominare un rappresentante fiscale. 
-Sono comprese le aziende extra-EU che operano in Europa, gli importatori in EU e i commercianti.  
+#The Tax Identification Number can be indicated in the element *cac:PartyIdentification/cbc:ID* setting the @schemeID to "0210".#
 
-I rappresentanti fiscali sono responsabili per la gestione corretta e la regolarizzazione dell'IVA per conto delle aziende, in linea con le normative locali. Un rappresentante fiscale è considerato come l'agente locale del commerciante.  In molti casi, il rappresentante fiscale è ritenuto responsabile in solido per le tasse del commerciante.
+#The EORI Code can be indicated in the element *cac:PartyIdentification/cbc:ID* by dismissing the @schemeID attribute and including the prefix "EORI:”.#
 
-#Il Codice Fiscale può essere espresso all'interno del Party nell'elemento *cac:PartyIdentification/cbc:ID* inserendo l’attributo @schemeID valorizzato con il codice "0210", come nell'esempio di seguito.#
+#The VAT Number must be indicated in *cac:PartyTaxScheme/cbc:CompanyID*.#
 
+#The element *cac:PartyName/cbc:Name* can be used to indicate the Denomination data (FPA 1.3.1.3.1). In the case of a natural person acting as the Sellers Tax Representative, it can be used to indicate the Name (FPA 1.3.1.3.2) and Surname (1.3.1.3.3) data, preceded by the string "Nome#Cognome:" and concatenated with the "&#x0023;" symbol.#
 
-.UBL example of tax representative information
+.UBL example of Sellers Tax Representative information
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/Snippet-full.xml[tags=taxrep]
 ----
-<1> VAT identifiers shall be prefixed with the country code
+<1> VAT identifiers must be prefixed with the country code and must be preceded by the schemeID "“"0211"
 
-#Il campo *cac:PartyName/cbc:Name* può essere usato per indicare il dato FPA 1.3.1.3.1 Denominazione preceduto dalla stringa "Denominazione:". In alternativa, lo stesso può essere usato per indicare i dati FPA 1.3.1.3.2 Nome e 1.3.1.3.3 Cognome preceduti dalla stringa "Nome&Cognome:" e concatenati dal simbolo "&#x0023;".#
+= #Sellers Permanent Establishment (AccountingSupplierParty/AgentParty)# – Extension
 
-#Il Codice EORI può essere espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.#
+In the case of a Permanent Establishment in Italy of a non-resident Seller, the data of the Permanent Establishment must be indicated within the structure *cac:AgentParty*.
 
-
-.Esempio UBL per esprimere il codice EORI
-[source, xml, indent=0]
-----
-<cac:PartyIdentification>
-    <cbc:ID>EORI:12345678901</cbc:ID>
-</cac:PartyIdentification>
-----
-
-
-= #Stabile Organizzazione del Fornitore (AccountingSupplierParty/AgentParty) - Estensione#
-
-Se il cedente/prestatore non residente ha una stabile organizzazione in Italia, si può specificare in fattura come parte dei dati del fornitore nell'elemento *cac:AgentParty*.
-
-.Esempio UBL per la stabile organizzazione del fornitore
+.UBL example for the sellers permanent establishment
 [source, xml, indent=0]
 ----
 include::../../rules/snippets/agid-extensions.xml[tag=stabile_organizzazione_fornitore]
 ----
 
+= #Third Intermediary or Issuing Party of the Seller (AccountingSupplierParty/ServiceProviderParty)# – Extension
 
-= #Il Terzo Intermediario o Soggetto Emittente del Fornitore (AccountingSupplierParty/ServiceProviderParty) - Estensione#
+In the case where a third party issues the invoice on behalf of the Seller, it can be specified in the invoice as part of the seller’s data within the structure *cac:ServiceProviderParty*. +
 
-Nel caso sia un soggetto terzo ad emettere fattura per conto del cedente / prestatore, si può specificare in fattura come parte dei dati del fornitore nell'elemento *cac:ServiceProviderParty*. +
+If the third party is Italian, the Tax Identification Number (Codice Fiscale) must be included within the Party information using the element PartyIdentification/ID, setting the @schemeID to "0210", as shown in the example below. +
 
-Il Codice Fiscale deve essere espresso all'interno del Party nell'elemento PartyIdentification/ID inserendo l’attributo @schemeID valorizzato con il codice "0210", come nell'esempio di seguito. +
-
-.Esempio UBL per il terzo intermediario o soggetto emittente per conto del fornitore
+.UBL Example for the third intermediary or issuing party on behalf of the seller
 [source, xml, indent=0]
 ----
 <cac:ServiceProviderParty>
@@ -430,10 +403,9 @@ Il Codice Fiscale deve essere espresso all'interno del Party nell'elemento Party
 </cac:ServiceProviderParty>
 ----
 
+The EORI Code can be expressed in the element *cac:PartyIdentification/cbc:ID* by dismissing the @schemeID attribute and including the prefix "EORI:", as shown in the example below.
 
-Il Codice EORI può essere espresso nell'elemento *cac:PartyIdentification/cbc:ID* omettendo l'attributo @schemeID ma includendo il prefisso "EORI:" come nell'esempio di seguito.
-
-.Esempio UBL per esprimere il codice EORI
+.UBL example to express the EORI code
 [source, xml, indent=0]
 ----
 <cac:PartyIdentification>
@@ -441,13 +413,11 @@ Il Codice EORI può essere espresso nell'elemento *cac:PartyIdentification/cbc:I
 </cac:PartyIdentification>
 ----
 
+= [lime-background]#Buyer’s Tax Representative (AccountingCustomerParty/PowerOfAttorney) – Extension#
 
+Within the billing process towards private entities context (B2B, B2C, G2B, and G2C), if the Buyer makes use of a tax representative in Italy, this can be specified in the invoice as part of the seller’s data in the PowerOfAttorney structure, as a proxy for tax representation. 
 
-= [lime-background]#Il Rappresentante fiscale del Cliente (AccountingCustomerParty/PowerOfAttorney) - Estensione#
-
-Nella fatturazione tra privati (B2B, B2C, G2B e G2C), se il cessionario/committente si avvale di un rappresentante fiscale in Italia, si può specificare in fattura come parte dei dati del fornitore nell’elemento PowerOfAttorney, come procura per la rappresentanza fiscale.
-
-.Esempio UBL per il rappresentante fiscale del cliente
+.UBL example for the Buyer’s tax representative
 [source, xml, indent=0]
 ----
 <cac:PowerOfAttorney>
@@ -466,12 +436,11 @@ Nella fatturazione tra privati (B2B, B2C, G2B e G2C), se il cessionario/committe
 </cac:PowerOfAttorney>
 ----
 
+= [lime-background]#Buyer’s Permanent Establishment (AccountingCustomerParty/AgentParty) – Extension#
 
-= [lime-background]#Stabile Organizzazione del Cliente (AccountingCustomerParty/AgentParty) - Estensione#
+In the case of a Permanent Establishment in Italy of a non-resident Buyer, the data of the Permanent Establishment must be indicated within the structure *cac:AgentParty*.
 
-Nella fatturazione tra privati (B2B, B2C, G2B e G2C), se il cessionario/committente non residente ha una stabile organizzazione in Italia, si può specificare in fattura come parte dei dati del cliente nell’elemento AgentParty.
-
-.Esempio UBL per la stabile organizzazione del cliente
+.UBL example for the Buyer’s permanent establishment
 [source, xml, indent=0]
 ----
 <cac:AgentParty>
@@ -487,15 +456,13 @@ Nella fatturazione tra privati (B2B, B2C, G2B e G2C), se il cessionario/committe
 </cac:AgentParty>
 ----
 
+= #Carrier Party (Delivery/CarrierParty) – Extension#
 
-= #Il Vettore (Delivery/CarrierParty)#
+The Carrier party is the legal entity or organization that manages the physical delivery/transport of the shipment. It is used when the transport is carried out by a third party.
 
-Nei casi di fattura "accompagnatoria", come parte delle informazioni relative al trasporto è possibile specificare i dati fiscali e anagrafici del vettore che trasporta e consegna la merce, nell'elemento CarrierParty.
+The Tax Identification Number (Codice Fiscale) can be indicated in the element *cac:PartyIdentification/cbc:ID* by setting the @schemeID to "0210", as shown in the example below. The VAT Number must be indicated in *cac:PartyTaxScheme/cbc:CompanyID*.
 
-Il Codice Fiscale può essere espresso all'interno del Party nell'elemento PartyIdentification/ID inserendo l’attributo @schemeID valorizzato con il codice "0210", come nell'esempio di seguito.
-
-
-.Esempio UBL per il vettore che effettua il trasporto
+.UBL example for the carrier party managing the delivery/transport
 [source, xml, indent=0]
 ----
 include::{snippet-dir}/agid-extensions.xml[tag=info_vettore]

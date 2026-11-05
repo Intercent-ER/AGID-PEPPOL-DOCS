@@ -1,9 +1,8 @@
+= #Work in progress phase reference (WIP)#
 
-= #Riferimento fase (Dati SAL)#
+To refer to the WIP phase, the information can be expressed as follows:
 
-Per fare riferimento alla fase di un SAL, il codice può essere espresso come segue:
-
-.Esempio UBL per il riferimento alla fase di un SAL
+.UBL example for WIP phase reference
 [source, xml, indent=0]
 ----
 <cac:AdditionalDocumentReference>
@@ -12,9 +11,9 @@ Per fare riferimento alla fase di un SAL, il codice può essere espresso come se
 </cac:AdditionalDocumentReference>
 ----
 
-Per riferirsi alla fase di un SAL dalle righe di fattura è necessario utilizzare *cac:DocumentReference* con il codice tipo documento = 130.
+To refer to a WIP phase from invoice line, the information can be specified in *cac:DocumentReference* with document type code = 130, as in the following example:
 
-.Esempio UBL per il riferimento alla fase di un SAL dalle righe fattura
+.UBL example for the WIP phase reference from invoice lines 
 [source, xml, indent=0]
 ----
 <cac:DocumentReference>

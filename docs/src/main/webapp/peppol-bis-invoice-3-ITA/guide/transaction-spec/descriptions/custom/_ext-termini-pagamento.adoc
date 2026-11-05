@@ -1,4 +1,3 @@
-
 = #Termini di pagamento#
 
 Per la fatturazione cross-border il campo Note ha valore fisso e pari a TP02.

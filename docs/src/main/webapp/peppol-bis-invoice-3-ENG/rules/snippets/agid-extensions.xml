@@ -136,14 +136,10 @@
     </cac:OrderReference>
 	<!-- tag::rif_fattura_principale[] -->
     <cac:BillingReference>
-		    <cac:InvoiceDocumentReference>
-			    <cbc:ID>ft123</cbc:ID>
-			    <cbc:IssueDate>2020-09-15</cbc:IssueDate>
-		    </cac:InvoiceDocumentReference>
-		    <cac:AdditionalDocumentReference>
-			    <cbc:ID>ft001</cbc:ID>
-			    <cbc:IssueDate>2020-09-15</cbc:IssueDate>
-		    </cac:AdditionalDocumentReference>
+        <cac:AdditionalDocumentReference>
+            <cbc:ID>ft001</cbc:ID>
+            <cbc:IssueDate>2020-09-15</cbc:IssueDate>
+        </cac:AdditionalDocumentReference>
     </cac:BillingReference>
 	<!-- end::rif_fattura_principale[] -->
     <cac:DespatchDocumentReference>

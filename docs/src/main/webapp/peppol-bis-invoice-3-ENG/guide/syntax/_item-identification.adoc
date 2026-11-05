@@ -1,4 +1,3 @@
-
 .UBL example of item identifiers
 [source, xml, indent=0]
 ----
@@ -6,13 +5,12 @@ include::{snippet-dir}/item.xml[tags=item]
 ----
 <1> 0160 is the ICD value for a GTIN identifier
 
-
-#In coerenza con quanto previsto per l’ordine, la gestione dell’AICFarmaco è operata a mezzo del *cac:SellersItemIdentification/cbc:ID* (BT-155 Item Seller's Identifier) in cui viene inserito il codice AICFarmaco stesso preceduto dalla stringa “AICFARMACO:”.#
+#Within the Italian context, the management of the Drug Marketing Authorization Number for the medicinal products is carried out through the element *cac:SellersItemIdentification/cbc:ID* (BT-155 Item Seller's Identifier), in which the Drug Marketing Authorization Number is indicated, preceded by the string "AICFARMACO:".#
 
 [NOTE]
-Trattasi di CIUS domestica (DC)
+This pertains to domestic CIUS (DC).
 
-.Esempio UBL di identificatore AIC per i farmaci
+.UBL example of AIC identifier for medicinal products
 [source, xml, indent=0]
 ----
 <cac:SellersItemIdentification>
@@ -20,13 +18,12 @@ Trattasi di CIUS domestica (DC)
 </cac:SellersItemIdentification>
 ----
 
-#La gestione del tipo carburante è operata a mezzo del *cac:SellersItemIdentification/cbc:ID* (BT-155 Item Seller's Identifier) in cui viene inserito il valore della tabella di riferimento per i prodotti energetici TA13 – pubblicata sul sito dell’Agenzia delle Dogane preceduto dalla stringa “CARB:”.#
+#Within the Italian context, the management of the fuel type is carried out through *cac:SellersItemIdentification/cbc:ID* (BT-155 Item Seller's Identifier), in which the value from the reference table for energy products TA13 (published on the Italian Customs Agency website) is indicated, preceded by the string "CARB:".#
 
 [NOTE]
-Trattasi di CIUS domestica (DC)
+This pertains to domestic CIUS (DC).
 
-
-.Esempio UBL con l’indicazione del tipo carburante 
+.UBL Example indicating the fuel type 
 [source, xml, indent=0]
 ----
 <cac:SellersItemIdentification>

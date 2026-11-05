@@ -1,4 +1,3 @@
-
 [[roles]]
 = Parties and roles
 
@@ -6,31 +5,26 @@ The diagram below shows the roles involved in the invoice and credit note transa
 
 image::../../shared/images/functionality-and-roles.png[Functionality and roles, align="center", width=100%, pdfwidth=100%, scaledwidth=100%]
 
-
 == Parties
 
 Customer::
-The customer is the legal person or organisation who is in demand of a product or service. Examples of customer roles: buyer, consignee, debtor, contracting authority.
+The customer is the legal person or organisation who requests products or services. Examples of customer roles: buyer, consignee, debtor, contracting authority.
 
 Supplier::
-The supplier is the legal person or organisation who provides a product or service.
+The supplier is the legal person or organisation who provides products or services. Examples of supplier roles: Creditor, Payee receiver. 
 
+Payment receiver::
+The Payment receiver is the legal person or organisation who has the right to receive the payment (ex. factoring society).
 
-#Il Beneficiario#::
-Il beneficiario è una persona, istituto bancario o entità di business alla quale si effettua il pagamento (es. factoring).
+#Sellers Tax Representative#::
+The Sellers Tax Representative is the natural person, legal entity or organisation responsible for the proper handling and regularisation of VAT on behalf of companies, in line with local regulations. 
+In some business scenarios, companies trading across borders are required by local tax authorities to appoint a Fiscal Representative. This includes non-EU companies trading in Europe, importers in the EU and suppliers. 
 
-#Rappresentante Fiscale#::
-In alcuni scenari di business, le aziende che commerciano oltre confine sono tenute secondo le autorità fiscali locali a nominare un rappresentante fiscale. 
-Sono comprese le aziende extra-EU che operano in Europa, gli importatori in EU e i commercianti.  
-+
-I rappresentanti fiscali sono responsabili per la gestione corretta e la regolarizzazione dell'IVA per conto delle aziende, in linea con le normative locali. Un rappresentante fiscale è considerato come l'agente locale del commerciante.  In molti casi, il rappresentante fiscale è ritenuto responsabile in solido per le tasse del commerciante.
+#Issuing Party#::
+The Issuing Party is the natural person, legal entity or organisation that issues an invoice on behalf of the Supplier. 
 
-#Soggetto Emittente#::
-Un soggetto terzo (intermediario) che emette fattura per conto del cedente / prestatore.
-
-#Vettore#::
-Il vettore è la persona giuridica o organizzazione che consegna la merce al destinatario ed è responsabile del suo trasporto.
-
+#Carrier Party#::
+The Carrier Party is the legal entity or organisation that handles the physical delivery/transport of the shipment. It is used if the transport is carried out by a third party. 
 
 == Roles
 

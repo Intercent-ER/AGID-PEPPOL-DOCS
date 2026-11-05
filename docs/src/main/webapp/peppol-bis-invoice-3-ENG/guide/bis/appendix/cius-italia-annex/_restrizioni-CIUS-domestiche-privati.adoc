@@ -1,32 +1,26 @@
-
-
-= [lime-background]#CIUS Domestiche (fatturazione verso privati)#
-
+= [lime-background]#Domestic CIUS (invoicing towards private customers)#
 
 [cols="3s,3,3,4,5", options="header"]
 |====
 
 ^.^|CIUS ID
-^.^|Tipologia di regola
-^.^|Terminologia di business
-^.^|Elemento in XML PA
-^.^|Descrizione regola
-
+^.^|Type of rule
+^.^|Business term
+^.^|Element in XLM PA
+^.^|Description of the rule
 
 |BR-IT-DC-202
 |Value domain for an element - Restrict  text or byte array length
-|BT-49 Buyer electroni caddress +
+|BT-49 Buyer electronic address +
 BT-49-1 Buyer electronic address identification scheme
 |1.1.4  CodiceDestinatario
-|Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0205", l'elemento BT-49 deve contenere un Codice Destinatario con lunghezza pari a 7 caratteri
+|If the BT-49-1 (Buyer electronic address identification scheme identifier) element ​​contains the value "0205", the BT-49 (Buyer electronic address) element MUST contain a Recipient Code with a length of 7 characters
 
 |BR-IT-DC-203
 |Value domain for an element - Restrict  text or byte array length
-|BT-49 Buyer electroni caddress +
+|BT-49 Buyer electronic address +
 BT-49-1 Buyer electronic address identification scheme
 |1.1.6 PECDestinatario
-|Se l'elemento BT-49-1 (Buyer electronic address identification scheme identifier) contiene il valore "0202", l'elemento BT-49 deve contenere un indirizzo PEC di lunghezza compresa fra 7 e 256 caratteri
-
-
+|If the BT-49-1 (Buyer electronic address identification scheme identifier) ​​element contains the value "0202", the BT-49 (Buyer electronic address) element MUST contain a PEC address with a length between 7 and 256 characters
 
 |====

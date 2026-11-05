@@ -17,9 +17,7 @@
 |BT-24 Specification Identifier + 
 BT-40 Seller country code
 |
-|Se il valore dell’elemento BT-40 (Seller country 
-code) è diverso da "IT", il BT-24 deve essere
-valorizzato come segue: + 
+|Se il valore dell’elemento BT-40 (Seller country code) è diverso da "IT", il BT-24 deve essere valorizzato come segue: + 
 *urn:cen.eu:en16931:2017#compliant# urn:fdc:peppol.eu:2017:poacc: billing:3.0#conformant #urn:www.agid.gov.it:trns:fattura:3*
 
 (rimuovere gli spazi prima dell'utilizzo)
@@ -124,7 +122,7 @@ In caso di persona fisica, l'elemento deve essere preceduto dalla stringa "Nome#
 
 |BR-IT-190A*
 |Cardinality - Make a conditional element mandatory (0..x --> 1..x)
-|BT-49 Buyer electroni caddress +
+|BT-49 Buyer electronic address +
 BT-49-1 Buyer electronic address identification scheme
 |1.1.6 PECDestinatario +
 1.1.4 CodiceDestinatario
@@ -147,13 +145,13 @@ BT-53 Buyer post code
 1.4.2.2 NumeroCivico +
 1.4.2.4 Comune +
 1.4.2.3 CAP +
-|Se Buyer country code (BT-55) = “IT”, tutti gli elementi sono obbligatori a meno del Numero Civico.
+|Se Buyer country code (BT-55) = "IT", tutti gli elementi sono obbligatori a meno del Numero Civico.
 
 |BR-IT-220
 |Value domain for an element - Require defined structured values
 |BT-54 Buyer country subdivision
 |1.4.2.5 Provincia
-|Se Buyer country code (BT-55) = “IT”, per l'elemento BT-54 Buyer country subdivision deve essere utilizzato uno dei valori della lista delle province italiane. Altrimenti l'informazione è riportata in allegato.
+|Se Buyer country code (BT-55) = "IT", per l'elemento BT-54 Buyer country subdivision deve essere utilizzato uno dei valori della lista delle province italiane. Altrimenti l'informazione è riportata in allegato.
 
 |BR-IT-222
 |Value domain for an element - Restrict text or byte array length
@@ -296,7 +294,7 @@ BT-125 Attached document
 
 |BR-IT-400
 |Value domain for an element - Restrict text or byte array length
-|BT-132 Reference d purchase order line reference
+|BT-132 Referenced purchase order line reference
 |2.1.2.4 NumItem
 |La lunghezza dell'elemento non può superare i 20 caratteri.
 

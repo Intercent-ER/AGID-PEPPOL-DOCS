@@ -1,47 +1,31 @@
-= #Identificatori delle parti di business#
+= #Business party identifiers#
 
-L’attributo “schemeID” deve essere popolato in tutte le istanze degli elementi “EndpointID”  e “CompanyID”.
+The attribute "schemeID" must be populated in all instances of the "EndpointID" and "CompanyID" elements.
 
-
-#_Esempio di EndPointID - utilizzo del codice IPA:_#
-
+#_Example of EndPointID – use of the IPA code_#
 [source, xml]
-
 <cbc:EndpointID schemeID="0201">ABCDEF</cbc:EndpointID>
 
-
-[lime-background]#_Esempio di EndPointID - utilizzo del codice destinatario in caso di cliente privato accreditato su SDI_#:
-
+[lime-background]#_Example of EndPointID – use of the recipient code in the case of a private customer registered with SDI_#:
 [source, xml]
-
 <cbc:EndpointID schemeID ="0205">ABCDEFG</cbc:EndpointID>
 
-[lime-background]#_Esempio di EndPointID - utilizzo della pec in caso di cliente di cliente privato accreditato SDI_#:
-
+[lime-background]#_Example of EndPointID – use of the PEC address in the case of a private customer registered with SDI_#:
 [source, xml]
-
 <cbc:EndpointID schemeID ="0202">esempio@pec.com</cbc:EndpointID>
 
-[lime-background]#_Esempio di EndPointID - utilizzo del codice destinatario in caso di cliente privato non accreditato SDI_#:
-
+[lime-background]#_Example of EndPointID – use of the recipient code in the case of a private customer not registered with SDI_#:
 [source, xml]
-
 <cbc:EndpointID schemeID ="0205">0000000</cbc:EndpointID>
 
-
-#_Esempio di utilizzo del CF in PartyLegalEntity:_#
-
+#_Example of CompanyID – use of the Tax Identification Number:_#
 [source, xml]
-
 <cac:PartyLegalEntity>
         <cbc:CompanyID schemeID="0210">91252510374</cbc:CompanyID>
 <cac:PartyLegalEntity>
 
-.Esempi di utilizzo del numero GLN di GS1 in PartyIdentification:
-
+.Example of PartyIdentification – use of the GS1 GLN number:
 [source, xml]
-
 <cac:PartyIdentification>
 	<cbc:ID schemeID="0088">5790000435968</cbc:ID>
 </cac:PartyIdentification>
-

@@ -1,6 +1,4 @@
-
-= Allowances and Charges
-
+= Allowances and charges
 
 The Invoice and credit note transactions has elements for Allowance/charge on 3 levels.
 
@@ -9,25 +7,23 @@ The element `cac:AllowanceCharge` with sub element `cbc:ChargeIndicator` indicat
 The header level:: _Applies to the whole invoice and is included in the calculation of the invoice total amount._
 * Several allowances and charges may be supplied
 * Specification of VAT for allowances and charges, `cac:TaxCategory` with sub elements, shall be supplied
-* The sum of all allowances and charges on the header level shall be specified in `cbc:AllowanceTotalAmount` and `cbc:ChargeTotalAmount` respectively. See <<totals>>
+* The sum of all allowances and charges on the header level shall be specified in `cbc:AllowanceTotalAmount` and `cbc:ChargeTotalAmount` respectively. See <<totals>>
+
 [IMPORTANT]
 ====
-#Per la fatturazione verso soggetti italiani la sezione è utilizzata solo per Bollo (vedi paragrafo 5.9) e Rivalsa Cassa Previdenziale (vedi paragrafo 5.8).#
+#For invoicing towards Italian entities, this section is used only for Stamp Duty (see paragraph 5.9) and Social Security Contribution (see paragraph 5.8).#
 ====
 
-_#Sconti e maggiorazioni che non incidono sull’imponibile.#_
+_#Allowances and charges that do not affect the taxable amount#_
 
-* #Espressi mediante estensione UBL.#
-* #Possono essere indicati diversi sconti e maggiorazioni.#
-* #Non modificano nè l'imponibile, nè l'IVA.#
-
+* #Expressed through UBL extension.#
+* #Multiple allowances and charges can be indicated.#
+* #They do not modify either the taxable amount or the VAT.#
 
 [NOTE]
-#La somma algebrica delle maggiorazioni (con segno meno) e degli sconti (con segno più) va ricompresa nel valore inserito in cbc:PrepaidAmount. Si evidenzia che il cbc:PrepaidAmount non è supportato in FatturaPA ma viene utilizzato per valorizzare correttamente il dato cbc:PayableAmount (BT-115 Amount due for payment) che è obbligatorio per la EN 16931.#
+#The algebraic sum of the charges (with a negative sign) and allowances (with a positive sign) must be included in the value entered in cbc:PrepaidAmount. It should be noted that cbc:PrepaidAmount is not supported in FatturaPA, but it is used to correctly populate the cbc:PayableAmount (BT-115 Amount due for payment), which is mandatory according to EN 16931.#
 
-
-
-.#Esempio UBL per fornire lo sconto sul totale documento, mediante estensione#.
+.#UBL example of allowance at the document level through extension#.
 [source, xml, indent=0]
 ----
 include::../../../rules/snippets/agid-extensions.xml[tag=ext_ScontoFatturaPA]
@@ -36,31 +32,31 @@ include::../../../rules/snippets/agid-extensions.xml[tag=ext_ScontoFatturaPA]
 The line level:: _Applies to the line level and is included in the calculation of the line amount._
 * Several allowances and charges may be supplied
 * Specification of VAT for allowances and charges shall not be specified, as the VAT category stated for the invoice line itself, applies also to the allowances or charges of that line.
-* The sum of all allowances and charges on the line level shall be taken into account, subtracted or added, when calculating the line extension amount . These line level allowances and charges shall not be calculated into the header level elements.
+* The sum of all allowances and charges on the line level shall be taken into account, subtracted or added, when calculating the line extension amount. These line level allowances and charges shall not be calculated into the header level elements.
 
 [IMPORTANT]
 ====
-#Per la fatturazione verso soggetti italiani la sezione sconto/maggiorazione a livello di riga non è utilizzata.#
+#For invoicing towards Italian entities, allowances or charges at the line level are not used.#
 ====
 
+The line level Price element::
+_A way to inform the buyer how the price is set. Is also relevant if the seller or buyer want to post the allowance in their accounting systems. The price itself shall always be the net price, i.e. the base amount reduced with a discount (allowance)._
+* The net price (cbc:PriceAmount) must always be expressed
+* #The gross price (cbc:BaseAmount) must always be expressed#
+* #The cac:AllowanceCharge element must always be expressed#
+* The cbc:ChargeIndicator element must always be expressed and valued with "false"
+* To indicate an allowance, provide a positive amount in cac:AllowanceCharge/cbc:Amount. +
+To indicate a charge, provide a negative amount in cac:AllowanceCharge/cbc:Amount. +
+If any Charge/Allowance is applied to the item, put "0 as a value in cac:AllowanceCharge/cbc:Amount.#
+* Only one occurrence of the discount is allowed. 
+* Percentage-based allowances/charges are not permitted. 
+* VAT related to allowances/charges must not be specified. 
+* Allowances and charges related to the price must not be part of any other calculation.
 
-The line level Price element:: _A way to inform the buyer how the price is set. Is also relevant if the seller or buyer want to post the allowance in their accounting systems. The price itself shall always be the net price, i.e. the base amount reduced with a discount (allowance)._
-* Il prezzo netto (cbc:PriceAmount) deve essere sempre espresso 
-* L'elemento cbc:ChargeIndicator deve essere sempre espresso e valorizzato con "false".
-* #Il prezzo lordo (cbc:BaseAmount) deve essere sempre espresso.#
-* #Il segmento cac:AllowanceCharge deve essere sempre espresso#
-* #Per indicare uno sconto, fornire un importo positivo nel cac:AllowanceCharge/cbc:Amount. +
-Per indicare una maggiorazione, fornire un importo negativo nel cac:AllowanceCharge/cbc:Amount. +
-Se nessuno Sconto/Maggiorazione è applicato all'articolo, valorizzare cac:AllowanceCharge/cbc:Amount con "0".# 
-* Only one occurence of allowance (discount) is allowed.
-* Specification of VAT for allowance shall not be specified
-* Allowance related to Price shall not be part of any other calculations.
-* Allowance related to Price may specify amount and the base amount.
-
-Further details of the calculation of allowance/charge amount, can be found in <<allowance-calc>>
+Further details on the calculation of allowances/charges are available in <<allowance-calc>>
 //include::../../syntax/_allowance.adoc[]
 
-.#_Esempio UBL di sconto su prezzo_#
+.#_UBL example of allowance at the line level price_#
 [source, xml, indent=0]
 ----
 <cac:InvoiceLine>

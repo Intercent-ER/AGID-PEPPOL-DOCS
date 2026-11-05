@@ -1,4 +1,3 @@
-
 = #Regime Fiscale# (estensione)
 
 Il regime fiscale indica il regime contabile associato al fornitore e pertanto le agevolazioni o semplificazioni a cui è soggetto.
